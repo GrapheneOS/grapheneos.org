@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="theme-color" content="#212121"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="description" content="GrapheneOS is a security and privacy focused mobile OS with Android app compatibility."/>
+        <title>GrapheneOS</title>
+        <link rel="stylesheet" href="/grapheneos.css"/>
+    </head>
+    <body>
+        <div id="content">
+            <h1>GrapheneOS releases</h1>
+            <p>These are early sample releases of GrapheneOS, an open source privacy and security
+            oriented mobile OS with Android app compatibility. Many past features of the project
+            still need to be ported to the current releases. The project is in the 5th year of
+            development and has been reborn as a non-profit open source project not strongly
+            associated with any specific company or organization. It will take some time for the
+            pieces to come into place turning it into a much broader and more sustainable project
+            with a strong development team. There are multiple organizations and companies in the
+            process of backing this new incarnation of the hardened mobile OS project.</p>
+            <p>See the <a href="https://github.com/GrapheneOS">GitHub organization</a> for sources
+            of the OS sub-projects including the cutting edge
+            <a href="https://github.com/GrapheneOS/hardened_malloc/blob/master/README.md">new
+            hardened memory allocator</a>.</p>
+            <p>These official GrapheneOS releases are supported by the
+            <a href="https://github.com/GrapheneOS/Auditor/releases">Auditor app</a> and
+            <a href="https://attestation.app/">attestation service</a> for hardware-based
+            attestation. For more details, see the <a
+            href="https://attestation.app/about">about page</a> and <a
+            href="https://attestation.app/tutorial">tutorial</a>.</p>
+            <p>The sources are available via the
+            <a href="https://github.com/GrapheneOS/platform_manifest">manifest on GitHub</a>.</p>
+            <p>Bitcoin donations can be sent to 3QpKs45BLXirWAgYtV1sTCbAkfUe7HByR5 to support the
+            project. Alternatively, PayPal donations can be sent to danielmicay@gmail.com (please
+            state that it's a GrapheneOS donation in the payment reason). Other ways of making
+            donations will be provided in the future including donations via a registered charity
+            in the US supporting the project.</p>
+            <h2>Installation</h2>
+            <h3>Prerequisites</h3>
+            <p>You should have at least 2GB of free memory available.</p>
+            <p>You need the unlocked variant of one of the supported devices, not a locked carrier
+            specific variant.</p>
+            <p>You need an updated copy of the <code>fastboot</code> tool and it needs to be
+            included in your <code>PATH</code> environment variable. You can run <code>fastboot
+            --version</code> to determine the current version. It should be at least
+            <code>28.0.0</code>. Don't proceed with the installation process until this is set up
+            properly in your current shell. A very common mistake is using an outdated copy of
+            <code>fastboot</code> from a Linux distribution package not receiving regular updates.
+            Make sure that the <code>fastboot</code> found earliest in your <code>PATH</code> is
+            the correct one if you have multiple copies on your system. You can run <code>which
+            fastboot</code> to determine where the tool being used is coming from. Older versions
+            do not have support for current devices. Very old versions of <code>fastboot</code>
+            from several years ago are still shipped by Linux distributions like Debian and lack
+            the compatibility detection of modern versions so they can soft brick devices.</p>
+            <h3>Enabling OEM unlocking</h3>
+            <p>OEM unlocking needs to be enabled from within the operating system.</p>
+            <p>Enable the developer settings menu by going to Settings -> System -> About phone
+            and pressing on the build number menu entry until developer mode is enabled.</p>
+            <p>Next, go to Settings -> System -> Advanced -> Developer settings and toggle on the
+            'Enable OEM unlocking' setting. This requires internet access on devices with Google
+            Play Services.</p>
+            <h3>Unlocking the bootloader</h3>
+            <p>First, boot into the bootloader interface. You can do this by turning off the
+            device and then turning it on by holding both the Volume Down and Power buttons.</p>
+            <p>The bootloader now needs to be unlocked to allow flashing new images:</p>
+            <pre>fastboot flashing unlock</pre>
+            <p>The command needs to be confirmed on the device.</p>
+            <h3>Obtaining factory images</h3>
+            <p>The initial install will be performed by flashing the factory images. This will
+            replace the existing OS installation and wipe all the existing data.</p>
+            <p>You can download the factory images from the bottom of this page.</p>
+            <p>Verify the official factory images using the GPG signature:</p>
+            <pre>gpg --recv-keys 65EEFE022108E2B708CBFCF7F9E712E59AF5F22A
+gpg --verify blueline-factory-2018.12.21.18.zip.sig blueline-factory-2018.12.21.18.zip</pre>
+            <p>When this signing key is replaced, the new key will be signed with it.</p>
+            <h3>Flashing factory images</h3>
+            <p>Next, extract the factory images and run the script to flash them. Note that the
+            <code>fastboot</code> command run by the flashing script requires a fair bit of free
+            space in a temporary directory, which defaults to <code>/tmp</code>:<p>
+            <pre>unzip blueline-factory-2018.12.21.18.zip
+cd blueline-pq1a.181205.006
+./flash-all.sh</pre>
+            <p>Use a different temporary directory if your <code>/tmp</code> doesn't have enough
+            space available:</p>
+            <pre>mkdir tmp
+TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
+            <p>Wait for the flashing process to complete and for the device to boot up using the
+            new operating system.</p>
+            <p>You should now proceed to locking the bootloader before using the device as locking
+            wipes the data again.</p>
+            <h3>Locking the bootloader</h3>
+            <p>Locking the bootloader is important as it enables full verified boot. It also prevents using
+            fastboot to flash, format or erase partitions.  Verified boot will detect modifications to any of
+            the OS partitions (vbmeta, boot/dtbo, system, vendor) and it will prevent reading any modified /
+            corrupted data. If changes are detected, error correction data is used to attempt to obtain the
+            original data at which point it's verified again which makes verified boot robust to non-malicious
+            corruption.</p>
+            <p>Reboot into the bootloader menu and set it to locked:</p>
+            <pre>fastboot flashing lock</pre>
+            <p>The command needs to be confirmed on the device since it needs to perform a factory
+            reset.</p>
+            <p>Unlocking the bootloader again will perform a factory reset.</p>
+            <h3>Disabling OEM unlocking</h3>
+            <p>OEM unlocking can be disabled again in the developer settings menu within the
+            operating system after booting it up again.</p>
+            <h2>Replacing GrapheneOS with the stock OS</h2>
+            <p>Installation of the stock OS via the stock factory images is the same process
+            described above. However, before locking, there's an additional step to fully revert
+            the device to a clean factory state.</p>
+            <p>The GrapheneOS factory images flash a non-stock Android Verified Boot key which
+            needs to be erased to fully revert back to a stock device state. After flashing the
+            stock factory images and before locking the bootloader, you should erase the custom
+            Android Verified Boot key to untrust it:</p>
+            <pre>fastboot erase avb_custom_key</pre>
+            <h2>Stable channel</h2>
+            <div id="stable"></div>
+            <h2>Beta channel</h2>
+            <div id="beta"></div>
+            <script src="/grapheneos.js"></script>
+        </div>
+    </body>
+</html>

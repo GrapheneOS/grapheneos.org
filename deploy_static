@@ -1,0 +1,17 @@
+#!/bin/bash -x
+
+set -o errexit
+
+remote=root@grapheneos.org
+current=$(ssh $remote readlink /var/www/html)
+
+if [[ $current = html_a ]]; then
+    target=html_b
+else
+    target=html_a
+fi
+
+ssh $remote rm -rf /var/www/$target
+scp -r static $remote:/var/www/$target
+ssh $remote chmod -R a+rX /var/www/$target
+ssh $remote ln -snf $target /var/www/html
