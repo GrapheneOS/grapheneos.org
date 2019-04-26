@@ -12,6 +12,7 @@
         <nav>
             <ul>
                 <li class="active"><a href="/">GrapheneOS</a></li>
+                <li><a href="/releases">Releases</a></li>
                 <li><a href="/source">Source</a></li>
                 <li><a href="/donate">Donate</a></li>
                 <li><a href="/contact">Contact</a></li>
@@ -30,25 +31,27 @@
             updates (including for firmware), competitive hardware / firmware security and all of
             the hardware-based security features (verified boot, attestation, exploit mitigations
             and a lot more) being made available to alternative operating systems like Pixels.</em></p>
-            <h1>GrapheneOS releases</h1>
-            <p>These are early sample releases of GrapheneOS, an open source privacy and security
-            oriented mobile OS with Android app compatibility. Many past features of the project
-            still need to be ported to the current releases. The project is in the 5th year of
-            development and has been reborn as a non-profit open source project not strongly
-            associated with any specific company or organization. It will take some time for the
-            pieces to come into place turning it into a much broader and more sustainable project
-            with a strong development team. There are multiple organizations and companies in the
-            process of backing this new incarnation of the hardened mobile OS project.</p>
+            <h1>GrapheneOS</h1>
+            <p>GrapheneOS is an open source privacy and security focused mobile OS with Android
+            app compatibility. Many past features of the project still need to be ported to the
+            current releases. The project is in the 5th year of development and has been reborn as
+            a non-profit open source project not strongly associated with any specific company or
+            organization. It will take some time for the pieces to come into place turning it into
+            a much broader and more sustainable project with a strong development team. There are
+            multiple organizations and companies in the process of backing this new incarnation of
+            the hardened mobile OS project. Official Releases are available on the
+            <a href="/releases">releases</a> page and installation instructions are below.</p>
             <p>See the <a href="https://github.com/GrapheneOS">GitHub organization</a> for sources
             of the OS sub-projects including the cutting edge
             <a href="https://github.com/GrapheneOS/hardened_malloc/blob/master/README.md">new
             hardened memory allocator</a>.</p>
-            <p>These official GrapheneOS releases are supported by the
+            <p>The official GrapheneOS releases are supported by the
             <a href="https://github.com/GrapheneOS/Auditor/releases">Auditor app</a> and
             <a href="https://attestation.app/">attestation service</a> for hardware-based
             attestation. For more details, see the <a
             href="https://attestation.app/about">about page</a> and <a
-            href="https://attestation.app/tutorial">tutorial</a>.</p>
+            href="https://attestation.app/tutorial">tutorial</a>. You can also extend these with
+            support for your own builds.</p>
             <p>The sources are available via the
             <a href="https://github.com/GrapheneOS/platform_manifest">manifest on GitHub</a>.</p>
             <h2>Installation</h2>
@@ -128,11 +131,6 @@ TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
             stock factory images and before locking the bootloader, you should erase the custom
             Android Verified Boot key to untrust it:</p>
             <pre>fastboot erase avb_custom_key</pre>
-            <h2>Stable channel</h2>
-            <div id="stable"></div>
-            <h2>Beta channel</h2>
-            <div id="beta"></div>
-            <script src="/grapheneos.js"></script>
         </div>
     </body>
 </html>
