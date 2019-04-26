@@ -1,0 +1,29 @@
+{
+    "icons": [
+        {
+            "src": "res/mipmap-mdpi/ic_launcher.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "res/mipmap-hdpi/ic_launcher.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "res/mipmap-xhdpi/ic_launcher.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "res/mipmap-xxhdpi/ic_launcher.png",
+            "sizes": "168x168",
+            "type": "image/png"
+        },
+        {
+            "src": "res/mipmap-xxxhdpi/ic_launcher.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ]
+}
