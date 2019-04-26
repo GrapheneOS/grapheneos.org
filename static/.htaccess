@@ -1,0 +1,59 @@
+Options -indexes
+
+Header always set Content-Security-Policy "default-src 'none'; connect-src 'self' https://seamlessupdate.app/; \
+font-src 'self'; img-src 'self'; manifest-src 'self'; script-src 'self'; style-src 'self'; \
+form-action 'none'; frame-ancestors 'none'; block-all-mixed-content; base-uri 'none'; \
+report-uri https://danielmicay.report-uri.com/r/d/csp/enforce"
+
+Header always set Feature-Policy "accelerometer 'none'; \
+ambient-light-sensor 'none'; \
+autoplay 'none'; \
+camera 'none'; \
+encrypted-media 'none'; \
+fullscreen 'none'; \
+geolocation 'none'; \
+gyroscope 'none'; \
+magnetometer 'none'; \
+microphone 'none'; \
+midi 'none'; \
+payment 'none'; \
+picture-in-picture 'none'; \
+speaker 'none'; \
+sync-xhr 'none'; \
+usb 'none'; \
+vr 'none'"
+
+<FilesMatch "\.(html|txt|webmanifest|xml)$">
+Header set Cache-Control "public, max-age=1800"
+</FilesMatch>
+
+<FilesMatch "\.(ico)$">
+Header set Cache-Control "public, max-age=86400"
+</FilesMatch>
+
+<FilesMatch "\.(css|js|png|woff2)$">
+Header set Cache-Control "public, max-age=31536000"
+</FilesMatch>
+
+RedirectMatch 301 ^/security.txt$ /.well-known/security.txt
+
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^([^\.]+)$ $1.html [L]
+
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteCond %{REQUEST_URI} ".*\.html$"
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^(.*)\.html$ /$1 [L,R=301]
+
+AddType application/manifest+json webmanifest
+
+AddOutputFilterByType DEFLATE application/manifest+json
+AddOutputFilterByType DEFLATE application/javascript
+AddOutputFilterByType DEFLATE image/vnd.microsoft.icon
+AddOutputFilterByType DEFLATE text/css
+AddOutputFilterByType DEFLATE text/html
+AddOutputFilterByType DEFLATE text/plain
