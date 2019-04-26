@@ -7,6 +7,10 @@
         <priority>1.0</priority>
     </url>
     <url>
+        <loc>https://attestation.app/source</loc>
+        <priority>0.1</priority>
+    </url>
+    <url>
         <loc>https://grapheneos.org/donate</loc>
         <priority>0.5</priority>
     </url>
