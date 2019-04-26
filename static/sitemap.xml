@@ -7,6 +7,10 @@
         <priority>1.0</priority>
     </url>
     <url>
+        <loc>https://attestation.app/install</loc>
+        <priority>0.5</priority>
+    </url>
+    <url>
         <loc>https://attestation.app/releases</loc>
         <priority>0.5</priority>
     </url>
