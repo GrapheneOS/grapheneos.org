@@ -23,7 +23,7 @@ function deviceModel(device) {
     if (device === "walleye") {
         return "Pixel 2";
     }
-    return "Unknown";
+    return device;
 }
 
 for (const channel of channels) {
