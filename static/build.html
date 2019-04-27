@@ -22,8 +22,280 @@
         </nav>
         <div id="content">
             <h1>Build</h1>
-            <p>This is temporarily a stub since the old building instructions need to be ported
-            over to this web format.</p>
+            <h2>Build dependencies</h2>
+            <ul>
+                <li>x86_64 Linux build environment (macOS is not supported, unlike AOSP which
+                partially supports it)</li>
+                <li>Android Open Source Project build dependencies</li>
+                <li>Linux kernel build dependencies</li>
+                <li>16GiB of memory or more</li>
+                <li>200GiB of free storage space</li>
+            </ul>
+
+            <h2>Downloading source code</h2>
+
+            <p>Since this is syncing the sources for the entire operating system and application
+            layer, it will use a lot of bandwidth and storage space.</p>
+
+            <p>You likely want to use the most recent stable tag, not the development branch, even
+            for developing a feature. It's easier to port between stable tags that are known to
+            work properly than dealing with a moving target.</p>
+
+            <h2>Development branch</h2>
+
+            <p>The pie branch is currently used for all supported devices:</p>
+
+            <pre>mkdir grapheneos-pie
+cd grapheneos-pie
+repo init -u https://github.com/GrapheneOS/platform_manifest.git -b pie
+repo sync -j32</pre>
+
+            </p>If your network is unreliable and <code>repo sync</code> fails, you can run the
+            <code>repo sync</code> command again as many times as needed for it to fully
+            succeed.</p>
+
+            <h2>Stable release</h2>
+
+            <p>Pick a specific build for a device from the <a href="/releases">releases page</a>
+            and download the source tree. Note that some devices use different Android Open Source
+            Project branches so they can end up with different tags. Make sure to use the correct
+            tag for a device. For devices without official support, use the latest tag for the
+            Pixel 3.</p>
+
+            <pre>mkdir grapheneos-TAG_NAME
+cd grapheneos-TAG_NAME
+repo init -u https://github.com/GrapheneOS/platform_manifest.git -b refs/tags/TAG_NAME</pre>
+
+            <p>Verify the manifest:</p>
+
+            <pre>gpg --recv-keys 65EEFE022108E2B708CBFCF7F9E712E59AF5F22A
+gpg --recv-keys 4340D13570EF945E83810964E8AD3F819AB10E78
+cd .repo/manifests
+git verify-tag --raw $(git describe)
+cd ../..</pre>
+
+            <p>Complete the source tree download:</p>
+
+            <pre>repo sync -j32</pre>
+
+            <p>Verify the source tree:</p>
+
+            <pre>repo forall -c 'git verify-tag --raw $(git describe)' || echo Verification failed!</pre>
+
+            <p>These instructions will be extended in the future to check the verify-tag
+            output.</p>
+
+            <p>Note that the repo command itself takes care of updating itself and uses gpg to
+            verify by default.</p>
+
+            <h2>Updating and switching branches/tags</h2>
+
+            <p>To update the source tree, run the <code>repo init</code> command again to select
+            the branch or tag and then run <code>repo sync -j32</code> again. You may need to add
+            <code>--force-sync</code> if a repository from switched from one source to another,
+            such as when GrapheneOS forks an additional Android Open Source Project repository.
+            You don't need to start over to switch between different branches or tags. You may
+            need to run <code>repo init</code> again to continue down the same branch since
+            GrapheneOS only provides a stable history via tags.</p>
+
+            <h2>Chromium and WebView</h2>
+
+            Before building GrapheneOS, you need to build Chromium for the WebView and
+            <em>optionally</em> the standalone browser app. GrapheneOS uses a hardened fork of
+            Chromium for these. It needs to be rebuilt when Chromium is updated or the GrapheneOS
+            <code>chromium_patches</code> repository changes.
+
+            Chromium and the WebView are independent applications built from the Chromium source tree. The
+            GrapheneOS Chromium build is located at external/chromium and includes the WebView.
+
+            See <a href="https://www.chromium.org/developers/how-tos/android-build-instructions">
+            Chromium's Android build instructions</a> for details on obtaining the prerequisites.
+
+            <pre>mkdir chromium
+cd chromium
+fetch --nohooks android</pre>
+
+            <p>Sync to the latest stable release for Android (replace $VERSION with the correct
+            value):</p>
+
+            <pre>gclient sync --with_branch_heads -r $VERSION --jobs 32</pre>
+
+            <p>Apply the GrapheneOS patches on top of the tagged release:</p>
+
+            <pre>git clone https://github.com/GrapheneOS/chromium_patches.git
+cd src
+git am ../chromium_patches/*.patch</pre>
+
+            <p>Then, configure the build in the <code>src</code> directory:</p>
+
+            <pre>gn args out/Default</pre>
+
+            <p>You can obtain the proper configuration from the
+            <a href="https://github.com/GrapheneOS/chromium_build">
+            GrapheneOS chromium_build repository</a>.</p>
+
+            <p>To build Monochrome, which provides both Chromium and the WebView:</p>
+
+            <pre>ninja -C out/Default/ monochrome_public_apk</pre>
+
+            <p>The apk needs to be copied from <code>out/Default/apks/MonochromePublic.apk</code>
+            into the Android source tree at
+            <code>external/chromium/prebuilt/arm64/MonochromePublic.apk</code></p>
+
+            <p>Standalone builds of Chromium and the WebView can be done via the
+            <code>chrome_modern_public_apk</code> and <code>system_webview_apk</code> targets but
+            those aren't used by GrapheneOS. The build system isn't set up for including them and
+            the standalone WebView isn't whitelisted in
+            <code>frameworks/base/core/res/res/xml/config_webview_packages</code>.</p>
+
+            <h2>Kernel</h2>
+
+            <p>The kernel needs to be built in advance, since it uses a separate build system.</p>
+
+            <p>For example, to build the kernel for blueline:</p>
+
+            <pre>cd kernel/google/crosshatch
+./build.sh blueline</pre>
+
+            <p>The <code>kernel/google/wahoo</code> repository is for the Pixel 2 and Pixel 2 XL
+            and the <code>kernel/google/crosshatch</code> repository is for the Pixel 3 and Pixel
+            3 XL.</p>
+
+            <h2>Setting up the OS build environment</h2>
+
+            <p>The build has to be done from bash as envsetup.sh is not compatible with other
+            shells like zsh.</p>
+
+            <p>Set up the build environment:</p>
+
+            <pre>source script/envsetup.sh</pre>
+
+            <p>Select the desired build target (<code>aosp_crosshatch</code> is the Pixel 3 XL):
+
+            <pre>choosecombo release aosp_marlin user</pre>
+
+            <p>For a development build, you may want to replace <code>user</code> with
+            <code>userdebug</code> in order to have better debugging support. Production builds
+            should be <code>user</code> builds as they are significantly more secure and don't
+            make additional performance sacrifices to improve debugging.</pre>
+
+            <h2>Reproducible builds</h2>
+
+            <p>To reproduce a past build, you need to export <code>BUILD_DATETIME</code> and
+            <code>BUILD_NUMBER</code> to the values set for the past build. These can be obtained
+            from <code>out/build_date.txt</code> and <code>out/build_number.txt</code> in a build
+            output directory and the <code>ro.build.date.utc</code> and
+            <code>ro.build.version.incremental</code> properties which are also included in the
+            over-the-air zip metadata rather than just the OS itself.</p>
+
+            <p>The signing process for release builds is done after completing builds and replaces
+            the dm-verity trees, apk signatures, etc. and can only be reproduced with access to
+            the same private keys. If you want to compare to production builds signed with
+            different keys you need to stick to comparing everything other than the
+            signatures.</p>
+
+            <h2>Extracting vendor files for Pixel devices</h2>
+
+            <p>This section does not apply to devices with no extra vendor files are required.</p>
+
+            <p>Extract the vendor files corresponding to the matching release:</p>
+
+            <pre>vendor/android-prepare-vendor/execute-all.sh -d DEVICE -b BUILD_ID -o vendor/android-prepare-vendor
+mkdir -p vendor/google_devices
+rm -rf vendor/google_devices/DEVICE
+mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/google_devices/</pre>
+
+            <p>Note that android-prepare-vendor is non-deterministic unless a timestamp parameter is
+            passed.</p>
+
+            <h2>Generating release signing keys</h2>
+
+            <p>Keys need to be generated for resigning completed builds from the publicly available test keys.
+            The keys must then be reused for subsequent builds and cannot be changed without flashing the
+            generated factory images again which will perform a factory reset. Note that the keys are used for
+            a lot more than simply verifying updates and verified boot. Keys must be generated before building
+            for the Pixel and Pixel XL due to needing to provide the keys to the kernel build system, but this
+            step can be done after building for Nexus devices.</p>
+
+            <p>The keys should not be given passwords due to limitations in the upstream scripts. If you want to
+            secure them at rest, you should take a different approach where they can still be available to the
+            signing scripts as a directory of unencrypted keys. The sample certificate subject can be replaced
+            with your own information or simply left as-is.</p>
+
+            <p>To generate keys for crosshatch (you should use unique keys per device
+            variant):</p>
+
+            <pre>mkdir -p keys/crosshatch
+cd keys/crosshatch
+../../development/tools/make_key releasekey '/CN=GrapheneOS/'
+../../development/tools/make_key platform '/CN=GrapheneOS/'
+../../development/tools/make_key shared '/CN=GrapheneOS/'
+../../development/tools/make_key media '/CN=GrapheneOS/'
+openssl genrsa -out avb.pem 2048
+../../external/avb/avbtool extract_public_key --key avb.pem --output avb_pkmd.bin
+cd ../..</pre>
+
+            <p>The <code>avb_pkmd.bin</code> file isn't needed for generating a signed release but
+            rather to set the public key used by the device to enforce verified boot.</p>
+
+            <h2>Building</h2>
+
+            <p>Incremental builds (i.e. starting from the old build) usually work for development and are the
+            normal way to develop changes. However, there are cases where changes are not properly picked up
+            by the build system. For production builds, you should remove the remnants of any past builds
+            before starting, particularly if there were non-trivial changes:</p>
+
+            <pre>rm -r out</pre>
+
+            <p>Start the build process, with -j# used to set the number of parallel jobs to the number of CPU
+            threads. You also need 2-4GiB of memory per job, so reduce it based on available memory if
+            necessary:</p>
+
+            <pre>make target-files-package -j20</pre>
+
+            <h2>Faster builds for development use only</h2>
+
+            <p>The normal production build process involves building a target files package to be resigned with
+            secure release keys and then converted into factory images and/or an update zip via the sections
+            below. If you have a dedicated development device with no security requirements, you can save time
+            by using the default make target, leaving the bootloader unlocked and flashing the raw images that
+            are signed with the default public test keys:</p>
+
+            <pre>make -j20</pre>
+
+            <p>Technically, you could generate test key signed update packages. However, there's no point of
+            sideloading update packages when the bootloader is unlocked and there's no value in a locked
+            bootloader without signing the build using release keys, since verified boot will be meaningless
+            and the keys used to verify sideloaded updates are also public. The only reason to use update
+            packages or a locked bootloader without signing the build with release keys would be testing that
+            functionality and it makes a lot more sense to test it with proper signing keys rather than the
+            default public test keys.</p>
+
+            <h2>Generating signed factory images and full update packages</h2>
+
+            <p>Generate a signed release build with the release.sh script:</p>
+
+            <pre>script/release.sh crosshatch</pre>
+
+            <p>The factory images and update package will be in
+            <code>out/release-crosshatch-$BUILD_NUMBER</code>. The update zip performs a full OS
+            installation so it can be used to update from any previous version. More efficient
+            incremental updates are used for official over-the-air GrapheneOS updates and can be
+            generated by keeping around past signed <code>target_files</code> zips and generating
+            incremental updates from those to the most recent signed <code>target_files</code>
+            zip.</p>
+
+            <h2>Prebuilt code</h2>
+
+            Like the Android Open Source Project, GrapheneOS contains some code that's built
+            separately and then bundled into the source tree as binaries. This section will be
+            gradually expanded to cover building all of it.
+
+            <h3>Prebuilt apps</h3>
+
+            <p>The Auditor app is simply built from the latest upstream tag and bundled as an apk into
+            external/ repositories. There are no modifications to it for GrapheneOS.</p>
+
         </div>
     </body>
 </html>
