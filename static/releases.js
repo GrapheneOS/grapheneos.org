@@ -1,5 +1,6 @@
 "use strict";
 
+const baseUrl = "https://seamlessupdate.app/";
 const devices = ["blueline", "crosshatch", "taimen", "walleye"];
 const channels = ["stable", "beta"];
 
@@ -28,7 +29,7 @@ function deviceModel(device) {
 
 for (const channel of channels) {
     for (const device of devices) {
-        fetch("https://seamlessupdate.app/" + device + "-" + channel).then(response => {
+        fetch(baseUrl + device + "-" + channel).then(response => {
             if (!response.ok) {
                 return Promise.reject();
             }
@@ -38,7 +39,6 @@ for (const channel of channels) {
             const date = new Date(parseInt(metadata[1], 10) * 1000);
             const dateString = date.toISOString().replace("T", " ").replace("Z", "").split(".")[0];
 
-            const baseUrl = "https://seamlessupdate.app/";
             const versionBaseUrl = "https://github.com/GrapheneOS/platform_manifest/releases/tag/";
 
             const factoryFilename = device + "-factory-" + metadata[0] + ".zip";
