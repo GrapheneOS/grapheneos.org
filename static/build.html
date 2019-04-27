@@ -210,17 +210,17 @@ mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/
 
             <h2>Generating release signing keys</h2>
 
-            <p>Keys need to be generated for resigning completed builds from the publicly available test keys.
-            The keys must then be reused for subsequent builds and cannot be changed without flashing the
-            generated factory images again which will perform a factory reset. Note that the keys are used for
-            a lot more than simply verifying updates and verified boot. Keys must be generated before building
-            for the Pixel and Pixel XL due to needing to provide the keys to the kernel build system, but this
-            step can be done after building for Nexus devices.</p>
+            <p>Keys need to be generated for resigning completed builds from the publicly
+            available test keys.  The keys must then be reused for subsequent builds and cannot be
+            changed without flashing the generated factory images again which will perform a
+            factory reset. Note that the keys are used for a lot more than simply verifying
+            updates and verified boot.</p>
 
-            <p>The keys should not be given passwords due to limitations in the upstream scripts. If you want to
-            secure them at rest, you should take a different approach where they can still be available to the
-            signing scripts as a directory of unencrypted keys. The sample certificate subject can be replaced
-            with your own information or simply left as-is.</p>
+            <p>The keys should not be given passwords due to limitations in the upstream scripts.
+            If you want to secure them at rest, you should take a different approach where they
+            can still be available to the signing scripts as a directory of unencrypted keys. The
+            sample certificate subject can be replaced with your own information or simply left
+            as-is.</p>
 
             <p>To generate keys for crosshatch (you should use unique keys per device
             variant):</p>
@@ -240,36 +240,39 @@ cd ../..</pre>
 
             <h2>Building</h2>
 
-            <p>Incremental builds (i.e. starting from the old build) usually work for development and are the
-            normal way to develop changes. However, there are cases where changes are not properly picked up
-            by the build system. For production builds, you should remove the remnants of any past builds
-            before starting, particularly if there were non-trivial changes:</p>
+            <p>Incremental builds (i.e. starting from the old build) usually work for development
+            and are the normal way to develop changes. However, there are cases where changes are
+            not properly picked up by the build system. For production builds, you should remove
+            the remnants of any past builds before starting, particularly if there were
+            non-trivial changes:</p>
 
             <pre>rm -r out</pre>
 
-            <p>Start the build process, with -j# used to set the number of parallel jobs to the number of CPU
-            threads. You also need 2-4GiB of memory per job, so reduce it based on available memory if
-            necessary:</p>
+            <p>Start the build process, with -j# used to set the number of parallel jobs to the
+            number of CPU threads. You also need 2-4GiB of memory per job, so reduce it based on
+            available memory if necessary:</p>
 
             <pre>make target-files-package -j20</pre>
 
             <h2>Faster builds for development use only</h2>
 
-            <p>The normal production build process involves building a target files package to be resigned with
-            secure release keys and then converted into factory images and/or an update zip via the sections
-            below. If you have a dedicated development device with no security requirements, you can save time
-            by using the default make target, leaving the bootloader unlocked and flashing the raw images that
-            are signed with the default public test keys:</p>
+            <p>The normal production build process involves building a target files package to be
+            resigned with secure release keys and then converted into factory images and/or an
+            update zip via the sections below. If you have a dedicated development device with no
+            security requirements, you can save time by using the default make target, leaving the
+            bootloader unlocked and flashing the raw images that are signed with the default
+            public test keys:</p>
 
             <pre>make -j20</pre>
 
-            <p>Technically, you could generate test key signed update packages. However, there's no point of
-            sideloading update packages when the bootloader is unlocked and there's no value in a locked
-            bootloader without signing the build using release keys, since verified boot will be meaningless
-            and the keys used to verify sideloaded updates are also public. The only reason to use update
-            packages or a locked bootloader without signing the build with release keys would be testing that
-            functionality and it makes a lot more sense to test it with proper signing keys rather than the
-            default public test keys.</p>
+            <p>Technically, you could generate test key signed update packages. However, there's
+            no point of sideloading update packages when the bootloader is unlocked and there's no
+            value in a locked bootloader without signing the build using release keys, since
+            verified boot will be meaningless and the keys used to verify sideloaded updates are
+            also public. The only reason to use update packages or a locked bootloader without
+            signing the build with release keys would be testing that functionality and it makes a
+            lot more sense to test it with proper signing keys rather than the default public test
+            keys.</p>
 
             <h2>Generating signed factory images and full update packages</h2>
 
