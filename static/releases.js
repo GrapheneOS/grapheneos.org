@@ -17,12 +17,6 @@ function deviceModel(device) {
     if (device === "crosshatch") {
         return "Pixel 3 XL";
     }
-    if (device === "marlin") {
-        return "Pixel XL";
-    }
-    if (device === "sailfish") {
-        return "Pixel";
-    }
     if (device === "taimen") {
         return "Pixel 2 XL";
     }
