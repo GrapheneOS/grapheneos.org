@@ -45,6 +45,7 @@ for (const channel of channels) {
             const dateString = date.toISOString().replace("T", " ").replace("Z", "").split(".")[0];
 
             const baseUrl = "https://seamlessupdate.app/";
+            const versionBaseUrl = "https://github.com/GrapheneOS/platform_manifest/releases/tag/";
 
             const factoryFilename = device + "-factory-" + metadata[0] + ".zip";
             const factoryUrl = baseUrl + factoryFilename;
@@ -63,8 +64,10 @@ for (const channel of channels) {
             header.appendChild(document.createTextNode(model));
             release.appendChild(header);
 
+            const tag = metadata[2] + "." + metadata[0]
             const version = document.createElement("p");
-            version.appendChild(document.createTextNode("Version: " + metadata[2] + "." + metadata[0]));
+            version.appendChild(document.createTextNode("Version: "));
+            version.appendChild(createLink(versionBaseUrl + tag, tag));
             release.appendChild(version);
 
             release.appendChild(createLink(factoryUrl, factoryFilename));
