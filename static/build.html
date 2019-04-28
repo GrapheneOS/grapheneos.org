@@ -111,6 +111,10 @@ cd ../..</pre>
             See <a href="https://www.chromium.org/developers/how-tos/android-build-instructions">
             Chromium's Android build instructions</a> for details on obtaining the prerequisites.
 
+            <p>You can obtain the proper configuration from the
+            <a href="https://github.com/GrapheneOS/chromium_build">
+            GrapheneOS chromium_build repository</a> including the correct version.</p>
+
             <pre>mkdir chromium
 cd chromium
 fetch --nohooks android</pre>
@@ -129,10 +133,6 @@ git am ../chromium_patches/*.patch</pre>
             <p>Then, configure the build in the <code>src</code> directory:</p>
 
             <pre>gn args out/Default</pre>
-
-            <p>You can obtain the proper configuration from the
-            <a href="https://github.com/GrapheneOS/chromium_build">
-            GrapheneOS chromium_build repository</a>.</p>
 
             <p>To build Monochrome, which provides both Chromium and the WebView:</p>
 
