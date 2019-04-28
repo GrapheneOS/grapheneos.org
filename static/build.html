@@ -208,36 +208,6 @@ mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/
             <p>Note that android-prepare-vendor is non-deterministic unless a timestamp parameter is
             passed.</p>
 
-            <h2>Generating release signing keys</h2>
-
-            <p>Keys need to be generated for resigning completed builds from the publicly
-            available test keys.  The keys must then be reused for subsequent builds and cannot be
-            changed without flashing the generated factory images again which will perform a
-            factory reset. Note that the keys are used for a lot more than simply verifying
-            updates and verified boot.</p>
-
-            <p>The keys should not be given passwords due to limitations in the upstream scripts.
-            If you want to secure them at rest, you should take a different approach where they
-            can still be available to the signing scripts as a directory of unencrypted keys. The
-            sample certificate subject can be replaced with your own information or simply left
-            as-is.</p>
-
-            <p>To generate keys for crosshatch (you should use unique keys per device
-            variant):</p>
-
-            <pre>mkdir -p keys/crosshatch
-cd keys/crosshatch
-../../development/tools/make_key releasekey '/CN=GrapheneOS/'
-../../development/tools/make_key platform '/CN=GrapheneOS/'
-../../development/tools/make_key shared '/CN=GrapheneOS/'
-../../development/tools/make_key media '/CN=GrapheneOS/'
-openssl genrsa -out avb.pem 2048
-../../external/avb/avbtool extract_public_key --key avb.pem --output avb_pkmd.bin
-cd ../..</pre>
-
-            <p>The <code>avb_pkmd.bin</code> file isn't needed for generating a signed release but
-            rather to set the public key used by the device to enforce verified boot.</p>
-
             <h2>Building</h2>
 
             <p>Incremental builds (i.e. starting from the old build) usually work for development
@@ -273,6 +243,36 @@ cd ../..</pre>
             signing the build with release keys would be testing that functionality and it makes a
             lot more sense to test it with proper signing keys rather than the default public test
             keys.</p>
+
+            <h2>Generating release signing keys</h2>
+
+            <p>Keys need to be generated for resigning completed builds from the publicly
+            available test keys.  The keys must then be reused for subsequent builds and cannot be
+            changed without flashing the generated factory images again which will perform a
+            factory reset. Note that the keys are used for a lot more than simply verifying
+            updates and verified boot.</p>
+
+            <p>The keys should not be given passwords due to limitations in the upstream scripts.
+            If you want to secure them at rest, you should take a different approach where they
+            can still be available to the signing scripts as a directory of unencrypted keys. The
+            sample certificate subject can be replaced with your own information or simply left
+            as-is.</p>
+
+            <p>To generate keys for crosshatch (you should use unique keys per device
+            variant):</p>
+
+            <pre>mkdir -p keys/crosshatch
+cd keys/crosshatch
+../../development/tools/make_key releasekey '/CN=GrapheneOS/'
+../../development/tools/make_key platform '/CN=GrapheneOS/'
+../../development/tools/make_key shared '/CN=GrapheneOS/'
+../../development/tools/make_key media '/CN=GrapheneOS/'
+openssl genrsa -out avb.pem 2048
+../../external/avb/avbtool extract_public_key --key avb.pem --output avb_pkmd.bin
+cd ../..</pre>
+
+            <p>The <code>avb_pkmd.bin</code> file isn't needed for generating a signed release but
+            rather to set the public key used by the device to enforce verified boot.</p>
 
             <h2>Generating signed factory images and full update packages</h2>
 
