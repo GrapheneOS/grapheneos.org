@@ -36,8 +36,6 @@ for (const channel of channels) {
             return response.text();
         }).then(text => {
             const metadata = text.trim().split(" ");
-            const date = new Date(parseInt(metadata[1], 10) * 1000);
-            const dateString = date.toISOString().replace("T", " ").replace("Z", "").split(".")[0];
 
             const versionBaseUrl = "https://github.com/GrapheneOS/platform_manifest/releases/tag/";
 
@@ -58,7 +56,7 @@ for (const channel of channels) {
             header.appendChild(document.createTextNode(model));
             release.appendChild(header);
 
-            const tag = metadata[2] + "." + metadata[0]
+            const tag = metadata[2] + "." + metadata[0];
             const version = document.createElement("p");
             version.appendChild(document.createTextNode("Version: "));
             version.appendChild(createLink(versionBaseUrl + tag, tag));
