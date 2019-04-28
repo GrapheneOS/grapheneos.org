@@ -3,7 +3,7 @@
 set -o errexit
 
 remote=www-data@grapheneos.org
-current=$(ssh $remote readlink /var/www/html)
+current=$(ssh $remote readlink html)
 
 if [[ $current = html_a ]]; then
     target=html_b
@@ -11,7 +11,7 @@ else
     target=html_a
 fi
 
-ssh $remote rm -rf /var/www/$target
-scp -r static $remote:/var/www/$target
-ssh $remote chmod -R a+rX /var/www/$target
-ssh $remote ln -snf $target /var/www/html
+ssh $remote rm -rf $target
+scp -r static $remote:$target
+ssh $remote chmod -R a+rX $target
+ssh $remote ln -snf $target html
