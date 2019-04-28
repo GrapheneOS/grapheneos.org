@@ -1,5 +1,5 @@
-/* use the standard Material Light theme to match the Updater app */
-/* https://android.googlesource.com/platform/frameworks/base/+/android-8.1.0_r15/core/res/res/values/colors_material.xml */
+/* use the standard Material Light theme to match GrapheneOS apps */
+/* https://android.googlesource.com/platform/frameworks/base/+/android-9.0.0_r35/core/res/res/values/colors_material.xml */
 
 body {
     font-family: Roboto, sans-serif;
