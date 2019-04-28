@@ -2,7 +2,7 @@
 
 set -o errexit
 
-remote=root@grapheneos.org
+remote=www-data@grapheneos.org
 current=$(ssh $remote readlink /var/www/html)
 
 if [[ $current = html_a ]]; then
