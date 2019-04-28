@@ -7,19 +7,19 @@
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://attestation.app/install</loc>
+        <loc>https://grapheneos.org/install</loc>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://attestation.app/build</loc>
+        <loc>https://grapheneos.org/build</loc>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://attestation.app/releases</loc>
+        <loc>https://grapheneos.org/releases</loc>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://attestation.app/source</loc>
+        <loc>https://grapheneos.org/source</loc>
         <priority>0.1</priority>
     </url>
     <url>
