@@ -50,8 +50,6 @@ for (const channel of channels) {
             const updateFilename = device + "-ota_update-" + metadata[0] + ".zip";
             const updateUrl = baseUrl + updateFilename;
 
-            const list = document.getElementById(channel);
-
             const model = deviceModel(device);
 
             const release = document.createElement("div");
@@ -73,13 +71,13 @@ for (const channel of channels) {
             release.appendChild(document.createElement("br"));
             release.appendChild(createLink(updateUrl, updateFilename));
 
+            const list = document.getElementById(channel);
             for (const item of list.children) {
                 if (model < item.dataset.model) {
                     list.insertBefore(release, item);
                     return;
                 }
             }
-
             list.appendChild(release);
         });
     }
