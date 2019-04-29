@@ -2,7 +2,7 @@
 
 const baseUrl = "https://seamlessupdate.app/";
 const versionBaseUrl = "https://github.com/GrapheneOS/platform_manifest/releases/tag/";
-const devices = ["blueline", "crosshatch", "taimen", "walleye", "marlin", "sailfish"];
+const devices = ["crosshatch", "blueline", "taimen", "walleye", "marlin", "sailfish"];
 const channels = ["stable", "beta"];
 
 function createLink(href, text) {
@@ -13,11 +13,11 @@ function createLink(href, text) {
 }
 
 function deviceModel(device) {
-    if (device === "blueline") {
-        return "Pixel 3";
-    }
     if (device === "crosshatch") {
         return "Pixel 3 XL";
+    }
+    if (device === "blueline") {
+        return "Pixel 3";
     }
     if (device === "taimen") {
         return "Pixel 2 XL";
