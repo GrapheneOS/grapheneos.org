@@ -26,10 +26,10 @@ function deviceModel(device) {
         return "Pixel 2";
     }
     if (device === "marlin") {
-        return "Pixel XL";
+        return "Pixel XL (legacy)";
     }
     if (device === "sailfish") {
-        return "Pixel";
+        return "Pixel (legacy)";
     }
     return device;
 }
