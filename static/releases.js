@@ -26,10 +26,10 @@ function deviceModel(device) {
         return "Pixel 2";
     }
     if (device === "marlin") {
-        return "Pixel XL (legacy)";
+        return "Pixel 1 XL (legacy)";
     }
     if (device === "sailfish") {
-        return "Pixel (legacy)";
+        return "Pixel 1 (legacy)";
     }
     return device;
 }
@@ -77,7 +77,7 @@ for (const channel of channels) {
 
             const list = document.getElementById(channel);
             for (const item of list.children) {
-                if (model < item.dataset.model) {
+                if (model > item.dataset.model) {
                     list.insertBefore(release, item);
                     return;
                 }
