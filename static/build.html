@@ -293,7 +293,7 @@ out/host/linux-x86/bin/generate_verity_key -convert keys/marlin/verity.x509.pem 
 
             <p>Generate verity keys in the format used by the kernel for the Pixel and Pixel XL:</p>
 
-            <pre>openssl x509 -outform der -in keys/marlin/verity.x509.pem -out kernel/google/marlin/verity_user.der.x509</pre>
+            <pre>openssl x509 -outform der -in keys/marlin/verity.x509.pem -out kernel/google/marlin/verifiedboot_marlin_relkeys.der.x509</pre>
 
             <p>The same kernel and device repository is used for the Pixel and Pixel XL. There's
             no separate sailfish kernel.</p>
