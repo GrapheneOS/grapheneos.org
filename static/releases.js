@@ -1,6 +1,7 @@
 "use strict";
 
 const baseUrl = "https://seamlessupdate.app/";
+const versionBaseUrl = "https://github.com/GrapheneOS/platform_manifest/releases/tag/";
 const devices = ["blueline", "crosshatch", "taimen", "walleye"];
 const channels = ["stable", "beta"];
 
@@ -42,8 +43,6 @@ for (const channel of channels) {
             return response.text();
         }).then(text => {
             const metadata = text.trim().split(" ");
-
-            const versionBaseUrl = "https://github.com/GrapheneOS/platform_manifest/releases/tag/";
 
             const factoryFilename = device + "-factory-" + metadata[0] + ".zip";
             const factoryUrl = baseUrl + factoryFilename;
