@@ -61,8 +61,12 @@ for (const channel of channels) {
 
             const tag = metadata[2] + "." + metadata[0];
             const version = document.createElement("p");
-            version.appendChild(document.createTextNode("Version: "));
-            version.appendChild(createLink(versionBaseUrl + tag, tag));
+            if (device !== "marlin" && device !== "sailfish") {
+                version.appendChild(document.createTextNode("Version: "));
+                version.appendChild(createLink(versionBaseUrl + tag, tag));
+            } else {
+                version.appendChild(document.createTextNode("Version: " + tag));
+            }
             release.appendChild(version);
 
             release.appendChild(createLink(factoryUrl, factoryFilename));
