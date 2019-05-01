@@ -9,6 +9,7 @@ Header always set Feature-Policy "accelerometer 'none'; \
 ambient-light-sensor 'none'; \
 autoplay 'none'; \
 camera 'none'; \
+document-domain 'none'; \
 encrypted-media 'none'; \
 fullscreen 'none'; \
 geolocation 'none'; \
@@ -21,7 +22,9 @@ picture-in-picture 'none'; \
 speaker 'none'; \
 sync-xhr 'none'; \
 usb 'none'; \
-vr 'none'"
+vr 'none'; \
+wake-lock 'none'; \
+xr 'none'"
 
 <FilesMatch "\.(html|txt|webmanifest|xml)$">
 Header set Cache-Control "public, max-age=1800"
