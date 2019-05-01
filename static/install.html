@@ -77,11 +77,12 @@ TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
             <p>You should now proceed to locking the bootloader before using the device as locking
             wipes the data again.</p>
             <h2>Locking the bootloader</h2>
-            <p>Locking the bootloader is important as it enables full verified boot. It also prevents using
-            fastboot to flash, format or erase partitions.  Verified boot will detect modifications to any of
-            the OS partitions (vbmeta, boot/dtbo, system, vendor) and it will prevent reading any modified /
-            corrupted data. If changes are detected, error correction data is used to attempt to obtain the
-            original data at which point it's verified again which makes verified boot robust to non-malicious
+            <p>Locking the bootloader is important as it enables full verified boot. It also
+            prevents using fastboot to flash, format or erase partitions.  Verified boot will
+            detect modifications to any of the OS partitions (vbmeta, boot/dtbo, product, system,
+            vendor) and it will prevent reading any modified / corrupted data. If changes are
+            detected, error correction data is used to attempt to obtain the original data at
+            which point it's verified again which makes verified boot robust to non-malicious
             corruption.</p>
             <p>Reboot into the bootloader menu and set it to locked:</p>
             <pre>fastboot flashing lock</pre>
