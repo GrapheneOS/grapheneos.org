@@ -205,6 +205,14 @@ git am ../chromium_patches/*.patch</pre>
 
             <p>This section does not apply to devices where no extra vendor files are required (HiKey, HiKey 960, emulator, generic targets).</p>
 
+            <p>Many of these components are already open source, but not everything is set up to
+            be built by the Android Open Source Project build system. Switching to building these
+            components from source will be an incremental effort. In many cases, the vendor files
+            simply need to be ignored and AOSP will already provide them instead. Firmware cannot
+            generally be built from source even when sources are available, other than to verify
+            that the official builds match the sources, since it has signature verification (which
+            is an important part of the verified boot and attestation security model).</p>
+
             <p>Extract the vendor files corresponding to the matching release:</p>
 
             <pre>vendor/android-prepare-vendor/execute-all.sh -d DEVICE -b BUILD_ID -o vendor/android-prepare-vendor
@@ -213,7 +221,7 @@ rm -rf vendor/google_devices/DEVICE
 mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/google_devices/</pre>
 
             <p>Note that android-prepare-vendor is non-deterministic unless a timestamp parameter is
-            passed.</p>
+            passed with <code>--timestamp</code> (seconds since Epoch).</p>
 
             <h2>Building</h2>
 
