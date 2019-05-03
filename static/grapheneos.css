@@ -10,6 +10,19 @@ body {
     overflow-y: scroll;
 }
 
+a {
+    color: #0000ee;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #551a8b;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 pre {
     overflow-x: auto;
 }
@@ -46,16 +59,12 @@ nav ul li a {
     padding: 1em;
 }
 
+nav ul li a:visited {
+    color: #fff; /* 100% white */
+}
+
 nav ul li.active a {
     color: #64B5F6; /* blue300 */
-}
-
-a {
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
 }
 
 #content {
