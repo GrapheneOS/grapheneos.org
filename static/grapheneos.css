@@ -2,6 +2,9 @@
 /* https://android.googlesource.com/platform/frameworks/base/+/android-9.0.0_r35/core/res/res/values/colors_material.xml */
 
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     font-family: Roboto, sans-serif;
     background-color: #fafafa; /* grey50 */
     color: rgba(0, 0, 0, 0.87); /* 87% black */
@@ -68,7 +71,8 @@ nav ul li.active a {
 }
 
 #content {
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
     padding: 1em;
     max-width: 800px;
     overflow-wrap: break-word;
@@ -89,11 +93,14 @@ footer img {
     width: 60px;
     height: auto;
     display: block;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 footer {
-    margin: auto;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
     padding: 1em;
     max-width: 800px;
     overflow-wrap: break-word;
