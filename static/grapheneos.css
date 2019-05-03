@@ -76,6 +76,25 @@ a:hover {
     text-align: center;
 }
 
+footer img {
+    width: 60px;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+
+footer {
+    margin: auto;
+    padding: 1em;
+    max-width: 800px;
+    overflow-wrap: break-word;
+    text-align: center;
+}
+
+#social {
+    margin-top: 2em;
+}
+
 /* latin */
 @font-face {
     font-family: 'Roboto';
