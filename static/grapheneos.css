@@ -14,12 +14,12 @@ body {
 }
 
 a {
-    color: #0000ee;
+    color: #1565c0; /* blue800 */
     text-decoration: none;
 }
 
 a:visited {
-    color: #551a8b;
+    color: #6a1b9a; /* purple800 */
 }
 
 a:hover {
