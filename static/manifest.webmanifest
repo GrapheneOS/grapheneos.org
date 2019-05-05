@@ -1,4 +1,5 @@
 {
+    "theme_color": "#212121",
     "icons": [
         {
             "src": "res/mipmap-mdpi/ic_launcher.png",
