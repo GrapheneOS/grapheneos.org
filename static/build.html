@@ -161,9 +161,16 @@ git am ../chromium_patches/*.patch</pre>
 
             <p>The kernel needs to be built in advance, since it uses a separate build system.</p>
 
+            <p>For the Pixel 3 and Pixel 3 XL, the kernel repository uses submodules for building
+            in out-of-tree modules. You need to make sure the submodule sources are updated before
+            building. In the future, this should end up being handled automatically by
+            <code>repo</code>.</p>
+
             <p>For example, to build the kernel for blueline:</p>
 
             <pre>cd kernel/google/crosshatch
+git submodule sync
+git submodule update --init
 ./build.sh blueline</pre>
 
             <p>The <code>kernel/google/marlin</code> repository is for the Pixel and Pixel XL, the
