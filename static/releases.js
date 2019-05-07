@@ -3,7 +3,7 @@
 const baseUrl = "https://seamlessupdate.app/";
 const versionBaseUrl = "https://github.com/GrapheneOS/platform_manifest/releases/tag/";
 const devices = ["crosshatch", "blueline", "taimen", "walleye", "marlin", "sailfish"];
-const snapshot = ["marlin", "sailfish"];
+const snapshot = [];
 const channels = ["stable", "beta"];
 
 function createLink(href, text) {
