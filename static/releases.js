@@ -3,6 +3,7 @@
 const baseUrl = "https://seamlessupdate.app/";
 const versionBaseUrl = "https://github.com/GrapheneOS/platform_manifest/releases/tag/";
 const devices = ["crosshatch", "blueline", "taimen", "walleye", "marlin", "sailfish"];
+const snapshot = ["marlin", "sailfish"];
 const channels = ["stable", "beta"];
 
 function createLink(href, text) {
@@ -61,11 +62,11 @@ for (const channel of channels) {
 
             const tag = metadata[2] + "." + metadata[0];
             const version = document.createElement("p");
-            if (device !== "marlin" && device !== "sailfish") {
+            if (snapshot.includes(device)) {
+                version.appendChild(document.createTextNode("Version: " + tag));
+            } else {
                 version.appendChild(document.createTextNode("Version: "));
                 version.appendChild(createLink(versionBaseUrl + tag, tag));
-            } else {
-                version.appendChild(document.createTextNode("Version: " + tag));
             }
             release.appendChild(version);
 
