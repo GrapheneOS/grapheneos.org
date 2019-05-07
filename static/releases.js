@@ -76,14 +76,8 @@ for (const channel of channels) {
             release.appendChild(document.createElement("br"));
             release.appendChild(createLink(updateUrl, updateFilename));
 
-            const list = document.getElementById(channel);
-            for (const item of list.children) {
-                if (model > item.dataset.model) {
-                    list.insertBefore(release, item);
-                    return;
-                }
-            }
-            list.appendChild(release);
+            const div = document.getElementById(device + "-" + channel);
+            div.parentNode.replaceChild(release, div);
         });
     }
 }
