@@ -39,6 +39,7 @@ Header set Cache-Control "public, max-age=31536000"
 </FilesMatch>
 
 RedirectMatch 301 ^/security.txt$ /.well-known/security.txt
+RedirectMatch 301 ^/graphene.png$ /logo.png
 
 RewriteEngine on
 
