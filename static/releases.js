@@ -54,7 +54,6 @@ for (const channel of channels) {
             const model = deviceModel(device);
 
             const release = document.createElement("div");
-            release.dataset.model = model;
 
             const header = document.createElement("h3");
             header.appendChild(document.createTextNode(model));
