@@ -33,8 +33,8 @@
             </ul>
         </nav>
         <div id="content">
-            <h1>Install</h1>
-            <h2>Prerequisites</h2>
+            <h1 id="install">Install</h1>
+            <h2 id="prerequisites">Prerequisites</h2>
             <p>You should have at least 2GB of free memory available.</p>
             <p>You need the unlocked variant of one of the supported devices, not a locked carrier
             specific variant.</p>
@@ -50,20 +50,20 @@
             do not have support for current devices. Very old versions of <code>fastboot</code>
             from several years ago are still shipped by Linux distributions like Debian and lack
             the compatibility detection of modern versions so they can soft brick devices.</p>
-            <h2>Enabling OEM unlocking</h2>
+            <h2 id="enabling-oem-unlocking">Enabling OEM unlocking</h2>
             <p>OEM unlocking needs to be enabled from within the operating system.</p>
             <p>Enable the developer settings menu by going to Settings ➔ System ➔ About phone and
             pressing on the build number menu entry until developer mode is enabled.</p>
             <p>Next, go to Settings ➔ System ➔ Advanced ➔ Developer settings and toggle on the
             'Enable OEM unlocking' setting. This requires internet access on devices with Google
             Play Services.</p>
-            <h2>Unlocking the bootloader</h2>
+            <h2 id="unlocking-the-bootloader">Unlocking the bootloader</h2>
             <p>First, boot into the bootloader interface. You can do this by turning off the
             device and then turning it on by holding both the Volume Down and Power buttons.</p>
             <p>The bootloader now needs to be unlocked to allow flashing new images:</p>
             <pre>fastboot flashing unlock</pre>
             <p>The command needs to be confirmed on the device.</p>
-            <h2>Obtaining factory images</h2>
+            <h2 id="obtaining-factory-images">Obtaining factory images</h2>
             <p>The initial install will be performed by flashing the factory images. This will
             replace the existing OS installation and wipe all the existing data.</p>
             <p>You can download the factory images from <a href="/releases">the releases page</a>.</p>
@@ -71,7 +71,7 @@
             <pre>gpg --recv-keys 65EEFE022108E2B708CBFCF7F9E712E59AF5F22A
 gpg --verify blueline-factory-2019.04.01.19.zip.sig blueline-factory-2019.04.01.19.zip</pre>
             <p>When this signing key is replaced, the new key will be signed with it.</p>
-            <h2>Flashing factory images</h2>
+            <h2 id="flashing-factory-images">Flashing factory images</h2>
             <p>Next, extract the factory images and run the script to flash them. Note that the
             <code>fastboot</code> command run by the flashing script requires a fair bit of free
             space in a temporary directory, which defaults to <code>/tmp</code>:<p>
@@ -86,7 +86,7 @@ TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
             new operating system.</p>
             <p>You should now proceed to locking the bootloader before using the device as locking
             wipes the data again.</p>
-            <h2>Locking the bootloader</h2>
+            <h2 id="locking-the-bootloader">Locking the bootloader</h2>
             <p>Locking the bootloader is important as it enables full verified boot. It also
             prevents using fastboot to flash, format or erase partitions.  Verified boot will
             detect modifications to any of the OS partitions (vbmeta, boot/dtbo, product, system,
@@ -99,10 +99,10 @@ TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
             <p>The command needs to be confirmed on the device since it needs to perform a factory
             reset.</p>
             <p>Unlocking the bootloader again will perform a factory reset.</p>
-            <h2>Disabling OEM unlocking</h2>
+            <h2 id="disabling-oem-unlocking">Disabling OEM unlocking</h2>
             <p>OEM unlocking can be disabled again in the developer settings menu within the
             operating system after booting it up again.</p>
-            <h2>Replacing GrapheneOS with the stock OS</h2>
+            <h2 id="replacing-grapheneos-with-the-stock-os">Replacing GrapheneOS with the stock OS</h2>
             <p>Installation of the stock OS via the stock factory images is the same process
             described above. However, before locking, there's an additional step to fully revert
             the device to a clean factory state on modern devices with Android Verified Boot 2.0
