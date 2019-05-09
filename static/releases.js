@@ -13,28 +13,6 @@ function createLink(href, text) {
     return link;
 }
 
-function deviceModel(device) {
-    if (device === "crosshatch") {
-        return "Pixel 3 XL";
-    }
-    if (device === "blueline") {
-        return "Pixel 3";
-    }
-    if (device === "taimen") {
-        return "Pixel 2 XL";
-    }
-    if (device === "walleye") {
-        return "Pixel 2";
-    }
-    if (device === "marlin") {
-        return "Pixel XL (legacy)";
-    }
-    if (device === "sailfish") {
-        return "Pixel (legacy)";
-    }
-    return device;
-}
-
 for (const channel of channels) {
     for (const device of devices) {
         fetch(baseUrl + device + "-" + channel).then(response => {
@@ -51,13 +29,7 @@ for (const channel of channels) {
             const updateFilename = device + "-ota_update-" + metadata[0] + ".zip";
             const updateUrl = baseUrl + updateFilename;
 
-            const model = deviceModel(device);
-
-            const release = document.createElement("div");
-
-            const header = document.createElement("h3");
-            header.appendChild(document.createTextNode(model));
-            release.appendChild(header);
+            const release = document.getElementById(device + "-" + channel);
 
             const tag = metadata[2] + "." + metadata[0];
             const version = document.createElement("p");
@@ -67,16 +39,13 @@ for (const channel of channels) {
                 version.appendChild(document.createTextNode("Version: "));
                 version.appendChild(createLink(versionBaseUrl + tag, tag));
             }
-            release.appendChild(version);
+            release.replaceChild(version, release.getElementsByTagName("p")[0]);
 
-            release.appendChild(createLink(factoryUrl, factoryFilename));
-            release.appendChild(document.createElement("br"));
-            release.appendChild(createLink(factoryUrl + ".sig", factoryFilename + ".sig"));
-            release.appendChild(document.createElement("br"));
-            release.appendChild(createLink(updateUrl, updateFilename));
+            const links = release.getElementsByTagName("a");
 
-            const div = document.getElementById(device + "-" + channel);
-            div.parentNode.replaceChild(release, div);
+            release.replaceChild(createLink(factoryUrl, factoryFilename), links[1]);
+            release.replaceChild(createLink(factoryUrl + ".sig", factoryFilename + ".sig"), links[2]);
+            release.replaceChild(createLink(updateUrl, updateFilename), links[3]);
         });
     }
 }
