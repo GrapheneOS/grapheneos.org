@@ -40,6 +40,71 @@
                 <a href="#auditor">¶</a>
             </h2>
             <p>See the <a href="https://attestation.app/tutorial">tutorial page on the site for the attestation sub-project</a>.</p>
+
+            <h2 id="default-connections">
+                Default connections
+                <a href="#default-connections">¶</a>
+            </h2>
+
+            <p>GrapheneOS makes connections to the outside world to test connectivity, detect
+            captive portals and download updates. No data varying per user / installation is sent
+            in these connections. There aren't analytics / telemetry in GrapheneOS.</p>
+
+            <p>The expected default connections by GrapheneOS (including all base system apps) are the following:</p>
+
+            <ul>
+                <li>
+                    <p>The GrapheneOS Updater app fetches update metadata from
+                    https://seamlessupdate.app/DEVICE-CHANNEL approximately once every four hours
+                    when connected to a permitted network for updates.</p>
+                    <p>Users can control which types of connections the Updater app will use, and
+                    although it's strongly recommended to always leave it enabled it can be
+                    disabled.</p>
+                </li>
+                <li>
+                    <p>On devices with a Qualcomm baseband (which provides GPS), when location
+                    functionality is being used,
+                    <a href="https://en.wikipedia.org/wiki/GPS_signals#Almanac">GPS almanacs</a>
+                    are downloaded from https://xtrapath1.izatcloud.net/xtra3grc.bin,
+                    https://xtrapath2.izatcloud.net/xtra3grc.bin or
+                    https://xtrapath3.izatcloud.net/xtra3grc.bin. GrapheneOS has modified all
+                    references to these servers to use HTTPS rather than a mix of HTTP and HTTPS.</p>
+                </li>
+                <li>
+                    <p>Connectivity checks designed to mimic a web browser user agent are performed
+                    by using HTTP and HTTPS to fetch standard URLs generating an HTTP 204 status
+                    code. This is used to detect when internet connectivity is lost on a network,
+                    which triggers fallback to other available networks if possible. These checks
+                    are designed to detect and handle captive portals which substitute the
+                    expected empty 204 response with their own web page. These need use a very
+                    common domain and URL in order to bypass whitelisting systems only permitting
+                    access to common domains / URLs so a domain like grapheneos.org would likely
+                    be inadequate. GrapheneOS leaves these set to the standard four URLs to blend
+                    into the crowd of billions of other Android devices with and without Google
+                    Mobile Services performing the same empty GET requests. For privacy reasons,
+                    it isn't desirable to stand out from the crowd and changing these URLs or even
+                    disabling the feature will likely reduce your privacy by giving your device a
+                    more unique fingerprint. GrapheneOS aims to appear like any other common
+                    mobile device on the network.</p>
+                    <ul>
+                        <li>HTTPS: https://www.google.com/generate_204</li>
+                        <li>HTTP: http://connectivitycheck.gstatic.com/generate_204</li>
+                        <li>HTTP fallback: http://www.google.com/gen_204</li>
+                        <li>HTTP other fallback: http://play.googleapis.com/generate_204</li>
+                    </ul>
+                    <p>Standard AOSP user agent for the GET request:</p>
+                    <p>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.32 Safari/537.36</p>
+                    <p>No query / data is sent and the response is unused beyond checking the response code.</p>
+                </li>
+                <li>
+                    <p>DNS connectivity and functionality tests</p>
+                </li>
+                <li>
+                    <p>DNS resolution for other connections</p>
+                </li>
+            </ul>
+
+            <p>Similar connectivity checks are also performed by the hardened Chromium browser (Vanadium).</p>
         </div>
         <footer>
             <a href="/"><img src="https://grapheneos.org/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
