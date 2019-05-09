@@ -43,9 +43,9 @@ for (const channel of channels) {
 
             const links = release.getElementsByTagName("a");
 
-            release.replaceChild(createLink(factoryUrl, factoryFilename), links[1]);
-            release.replaceChild(createLink(factoryUrl + ".sig", factoryFilename + ".sig"), links[2]);
-            release.replaceChild(createLink(updateUrl, updateFilename), links[3]);
+            release.replaceChild(createLink(factoryUrl, factoryFilename), links[2]);
+            release.replaceChild(createLink(factoryUrl + ".sig", factoryFilename + ".sig"), links[3]);
+            release.replaceChild(createLink(updateUrl, updateFilename), links[4]);
         });
     }
 }
