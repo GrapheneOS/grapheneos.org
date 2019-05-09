@@ -34,7 +34,10 @@
         </nav>
         <div id="content">
             <h1>Build</h1>
-            <h2>Build dependencies</h2>
+            <h2 id="build-dependencies">
+                Build dependencies
+                <a href="#build-dependencies">¶</a>
+            </h2>
             <ul>
                 <li>x86_64 Linux build environment (macOS is not supported, unlike AOSP which
                 partially supports it)</li>
@@ -44,7 +47,10 @@
                 <li>300GiB of free storage space</li>
             </ul>
 
-            <h2>Downloading source code</h2>
+            <h2 id="downloading-source-code">
+                Downloading source code
+                <a href="#downloading-source-code">¶</a>
+            </h2>
 
             <p>Since this is syncing the sources for the entire operating system and application
             layer, it will use a lot of bandwidth and storage space.</p>
@@ -53,7 +59,10 @@
             for developing a feature. It's easier to port between stable tags that are known to
             work properly than dealing with a moving target.</p>
 
-            <h2>Development branch</h2>
+            <h2 id="development-branch">
+                Development branch
+                <a href="#development-branch">¶</a>
+            </h2>
 
             <p>The pie branch is currently used for all supported devices:</p>
 
@@ -66,7 +75,10 @@ repo sync -j32</pre>
             <code>repo sync</code> command again as many times as needed for it to fully
             succeed.</p>
 
-            <h2>Stable release</h2>
+            <h2 id="stable-release">
+                Stable release
+                <a href="#stable-release">¶</a>
+            </h2>
 
             <p>Pick a specific build for a device from the <a href="/releases">releases page</a>
             and download the source tree. Note that some devices use different Android Open Source
@@ -100,7 +112,10 @@ cd ../..</pre>
             <p>Note that the repo command itself takes care of updating itself and uses gpg to
             verify by default.</p>
 
-            <h2>Updating and switching branches/tags</h2>
+            <h2 id="updating-and-switching-branches-or-tags">
+                Updating and switching branches or tags
+                <a href="#updating-and-switching-branches-or-tags">¶</a>
+            </h2>
 
             <p>To update the source tree, run the <code>repo init</code> command again to select
             the branch or tag and then run <code>repo sync -j32</code> again. You may need to add
@@ -110,7 +125,10 @@ cd ../..</pre>
             need to run <code>repo init</code> again to continue down the same branch since
             GrapheneOS only provides a stable history via tags.</p>
 
-            <h2>Chromium and WebView</h2>
+            <h2 id="chromium-and-webview">
+                Chromium and WebView
+                <a href="#chromium-and-webview">¶</a>
+            </h2>
 
             Before building GrapheneOS, you need to build Chromium for the WebView and
             <em>optionally</em> the standalone browser app. GrapheneOS uses a hardened fork of
@@ -160,7 +178,10 @@ git am ../chromium_patches/*.patch</pre>
             the standalone WebView isn't whitelisted in
             <code>frameworks/base/core/res/res/xml/config_webview_packages</code>.</p>
 
-            <h2>Kernel</h2>
+            <h2 id="kernel">
+                Kernel
+                <a href="#kernel">¶</a>
+            </h2>
 
             <p>The kernel needs to be built in advance, since it uses a separate build system.</p>
 
@@ -185,7 +206,10 @@ git submodule update --init
             releases require building the verity public key into the kernel so the keys need to be
             generated per the instructions below before building the kernel.</em></p>
 
-            <h2>Setting up the OS build environment</h2>
+            <h2 id="setting-up-the-os-build-environment">
+                Setting up the OS build environment
+                <a href="#setting-up-the-os-build-environment">¶</a>
+            </h2>
 
             <p>The build has to be done from bash as envsetup.sh is not compatible with other
             shells like zsh.</p>
@@ -203,7 +227,10 @@ git submodule update --init
             should be <code>user</code> builds as they are significantly more secure and don't
             make additional performance sacrifices to improve debugging.</p>
 
-            <h2>Reproducible builds</h2>
+            <h2 id="reproducible-builds">
+                Reproducible builds
+                <a href="#reproducible-builds">¶</a>
+            </h2>
 
             <p>To reproduce a past build, you need to export <code>BUILD_DATETIME</code> and
             <code>BUILD_NUMBER</code> to the values set for the past build. These can be obtained
@@ -218,7 +245,10 @@ git submodule update --init
             different keys you need to stick to comparing everything other than the
             signatures.</p>
 
-            <h2>Extracting vendor files for Pixel devices</h2>
+            <h2 id="extracting-vendor-files-for-pixel-devices">
+                Extracting vendor files for Pixel devices
+                <a href="#extracting-vendor-files-for-pixel-devices">¶</a>
+            </h2>
 
             <p>This section does not apply to devices where no extra vendor files are required (HiKey, HiKey 960, emulator, generic targets).</p>
 
@@ -240,7 +270,10 @@ mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/
             <p>Note that android-prepare-vendor is non-deterministic unless a timestamp parameter is
             passed with <code>--timestamp</code> (seconds since Epoch).</p>
 
-            <h2>Building</h2>
+            <h2 id="building">
+                Building
+                <a href="#building">¶</a>
+            </h2>
 
             <p>Incremental builds (i.e. starting from the old build) usually work for development
             and are the normal way to develop changes. However, there are cases where changes are
@@ -256,7 +289,10 @@ mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/
 
             <pre>make target-files-package -j20</pre>
 
-            <h2>Faster builds for development use only</h2>
+            <h2 id="faster-builds-for-development-use-only">
+                Faster builds for development use only
+                <a href="#faster-builds-for-development-use-only">¶</a>
+            </h2>
 
             <p>The normal production build process involves building a target files package to be
             resigned with secure release keys and then converted into factory images and/or an
@@ -276,7 +312,10 @@ mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/
             lot more sense to test it with proper signing keys rather than the default public test
             keys.</p>
 
-            <h2>Generating release signing keys</h2>
+            <h2 id="generating-release-signing-keys">
+                Generating release signing keys
+                <a href="#generating-release-signing-keys">¶</a>
+            </h2>
 
             <p>Keys need to be generated for resigning completed builds from the publicly
             available test keys.  The keys must then be reused for subsequent builds and cannot be
@@ -298,7 +337,10 @@ mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/
             releases require building the verity public key into the kernel, so this needs to be
             done before building the kernel</em></p>
 
-            <h3>Android Verified Boot 1.0</h3>
+            <h3 id="android-verified-boot-1.0">
+                Android Verified Boot 1.0
+                <a href="#android-verified-boot-1.0">¶</a>
+            </h3>
 
             <p>To generate keys for marlin (you should use unique keys per device variant):</p>
 
@@ -323,7 +365,10 @@ out/host/linux-x86/bin/generate_verity_key -convert keys/marlin/verity.x509.pem 
             <p>The same kernel and device repository is used for the Pixel and Pixel XL. There's
             no separate sailfish kernel.</p>
 
-            <h3>Android Verified Boot 2.0 (AVB)</h3>
+            <h3 id="android-verified-boot-2.0">
+                Android Verified Boot 2.0 (AVB)
+                <a href="#android-verified-boot-2.0">¶</a>
+            </h3>
 
             <p>To generate keys for crosshatch (you should use unique keys per device
             variant):</p>
@@ -341,7 +386,10 @@ cd ../..</pre>
             <p>The <code>avb_pkmd.bin</code> file isn't needed for generating a signed release but
             rather to set the public key used by the device to enforce verified boot.</p>
 
-            <h2>Generating signed factory images and full update packages</h2>
+            <h2 id="generating-signed-factory-images-and-full-update-packages">
+                Generating signed factory images and full update packages
+                <a href="#generating-signed-factory-images-and-full-update-packages">¶</a>
+            </h2>
 
             <p>Build the tool needed to generate A/B updates:</p>
 
@@ -359,13 +407,19 @@ cd ../..</pre>
             incremental updates from those to the most recent signed <code>target_files</code>
             zip.</p>
 
-            <h2>Prebuilt code</h2>
+            <h2 id="prebuilt-code">
+                Prebuilt code
+                <a href="#prebuilt-code">¶</a>
+            </h2>
 
             Like the Android Open Source Project, GrapheneOS contains some code that's built
             separately and then bundled into the source tree as binaries. This section will be
             gradually expanded to cover building all of it.
 
-            <h3>Prebuilt apps</h3>
+            <h3 id="prebuilt-apps">
+                Prebuilt apps
+                <a href="#prebuilt-apps">¶</a>
+            </h3>
 
             <p>The Auditor app is simply built from the latest upstream tag and bundled as an apk into
             external/ repositories. There are no modifications to it for GrapheneOS.</p>
