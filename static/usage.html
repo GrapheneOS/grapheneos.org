@@ -35,11 +35,98 @@
         <div id="content">
             <h1 id="usage">Usage</h1>
             <p><strong>This page is currently a placeholder and will be filled with lots of content over time.</strong></p>
+
             <h2 id="auditor">
                 Auditor
                 <a href="#auditor">¶</a>
             </h2>
             <p>See the <a href="https://attestation.app/tutorial">tutorial page on the site for the attestation sub-project</a>.</p>
+
+            <h2 id="updates">
+                Updates
+                <a href="#updates">¶</a>
+            </h2>
+
+            <p>The update system implements automatic background updates. It checks for updates
+            approximately once every four hours when there's network connectivity and then
+            downloads and installs updates in the background. It will pick up where it left off if
+            downloads are interrupted, so you don't need to worry about interrupting it.
+            Similarly, interrupting the installation isn't a risk because updates are installed to
+            a secondary installation of GrapheneOS which only becomes the active installation
+            after the update is complete. Once the update is complete, you'll be informed with a
+            notification and simply need to reboot with the button in the notification or via a
+            normal reboot. If the new version fails to boot, the OS will roll back to the past
+            version and the updater will attempt to download and install the update again.</p>
+
+            <p>The updater will use incremental updates to download only changes rather than the
+            whole OS unless the current version is behind the current release by more than 3
+            versions. As long as you have working network connectivity on a regular basis and
+            reboot when asked, you'll almost always be on one of the past couple versions of the
+            OS which will minimize bandwidth usage since incrementals will always be available. If
+            you fall more than 3 versions behind, it will download a large full update shipping
+            the full OS so it can update from any version.</p>
+
+            <p>The updater works while the device is locked / idle, including before the first
+            unlock since it's explicitly designed to be able to run before decryption of user
+            data.</p>
+
+            <p>Release changelogs are available <a href="/releases#changelog">in a section on the releases page</a>.</p>
+
+            <h3 id="updates-settings">
+                Settings
+                <a href="#updates-settings">¶</a>
+            </h3>
+
+            <p>The settings are available in the Settings app in System ➔ Advanced ➔ Update
+            settings.</p>
+
+            <p>The "Release channel" setting can be changed from the default Stable channel to the
+            Beta channel if you want to help with testing. The Beta channel will usually simply
+            follow the Stable channel, but the Beta channel may be used to experiment with new
+            features.</p>
+
+            <p>The "Permitted networks" setting controls which networks will be used to perform
+            updates. It defaults to using any network connection. It can be set to "Non-roaming"
+            to disable it when the cellular service is marked as roaming or "Unmetered" to disable
+            it on cellular networks and also Wi-Fi networks marked as metered.</p>
+
+            <p>The "Require battery above warning level" setting controls whether updates will
+            only be performed when the battery is above the level where the warning message is
+            shown. The standard value is at 15% capacity.</p>
+
+            <p>Enabling the opt-in "Automatic reboot" setting allows the updater to reboot the
+            device after an update once it has been idle for a long time. When this setting is
+            enabled, a device can take care of any number of updates completely automatically even
+            if it's left completely idle.</p>
+
+            <h3 id="updates-security">
+                Security
+                <a href="#updates-security">¶</a>
+            </h3>
+
+            <p>The update server isn't a trusted party since updates are signed and verified along
+            with downgrade attacks being prevented. The update protocol doesn't send identifiable
+            information to the update server and works well over a VPN / Tor. GrapheneOS isn't
+            able to comply with a government order to build, sign and ship a malicious update to a
+            specific user's device based on information like the IMEI, serial number, etc. The
+            update server only ends up knowing the IP address used to connect to it and the
+            version being upgraded from based on the requested incremental.</p>
+
+            <p>Android updates can support serialno constraints to make them validate only on a
+            certain device but GrapheneOS rejects any update with a serialno constraint for both
+            the Stable and Beta channels.</p>
+
+            <h3 id="updates-disabling">
+                Disabling
+                <a href="#updates-disabling">¶</a>
+            </h3>
+
+            <p>It's highly recommended to leave automatic updates enabled and to configure the
+            permitted networks if the bandwidth usage is a problem on your mobile data connection.
+            However, it's possible to turn off the update client by going to Settings ➔ Apps,
+            enabling Show system via the menu, selecting Seamless Update Client and disabling the
+            app.  If you do this, you'll need to remember to enable it again to start receiving
+            updates.</p>
 
             <h2 id="default-connections">
                 Default connections
