@@ -3,15 +3,7 @@
 const baseUrl = "https://seamlessupdate.app/";
 const versionBaseUrl = "https://github.com/GrapheneOS/platform_manifest/releases/tag/";
 const devices = ["crosshatch", "blueline", "taimen", "walleye", "marlin", "sailfish"];
-const snapshot = [];
 const channels = ["stable", "beta"];
-
-function createLink(href, text) {
-    const link = document.createElement("a");
-    link.appendChild(document.createTextNode(text));
-    link.href = href;
-    return link;
-}
 
 for (const channel of channels) {
     for (const device of devices) {
@@ -29,23 +21,20 @@ for (const channel of channels) {
             const updateFilename = device + "-ota_update-" + metadata[0] + ".zip";
             const updateUrl = baseUrl + updateFilename;
 
-            const release = document.getElementById(device + "-" + channel);
-
             const tag = metadata[2] + "." + metadata[0];
-            const version = document.createElement("p");
-            if (snapshot.includes(device)) {
-                version.appendChild(document.createTextNode("Version: " + tag));
-            } else {
-                version.appendChild(document.createTextNode("Version: "));
-                version.appendChild(createLink(versionBaseUrl + tag, tag));
-            }
-            release.replaceChild(version, release.getElementsByTagName("p")[0]);
 
+            const release = document.getElementById(device + "-" + channel);
             const links = release.getElementsByTagName("a");
+
+            links[1].innerText = tag;
+            links[1].setAttribute("href", versionBaseUrl + tag);
+
             links[2].innerText = factoryFilename;
             links[2].setAttribute("href", factoryUrl);
+
             links[3].innerText = factoryFilename + ".sig";
             links[3].setAttribute("href", factoryUrl + ".sig");
+
             links[4].innerText = updateFilename;
             links[4].setAttribute("href", updateUrl);
         });
