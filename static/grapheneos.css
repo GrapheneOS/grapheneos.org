@@ -119,6 +119,12 @@ footer a:visited {
     margin-top: 2em;
 }
 
+#stable-channel ul, #beta-channel ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
 /* latin */
 @font-face {
     font-family: 'Roboto';
