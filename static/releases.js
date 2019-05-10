@@ -42,10 +42,12 @@ for (const channel of channels) {
             release.replaceChild(version, release.getElementsByTagName("p")[0]);
 
             const links = release.getElementsByTagName("a");
-
-            release.replaceChild(createLink(factoryUrl, factoryFilename), links[2]);
-            release.replaceChild(createLink(factoryUrl + ".sig", factoryFilename + ".sig"), links[3]);
-            release.replaceChild(createLink(updateUrl, updateFilename), links[4]);
+            links[2].innerText = factoryFilename;
+            links[2].setAttribute("href", factoryUrl);
+            links[3].innerText = factoryFilename + ".sig";
+            links[3].setAttribute("href", factoryUrl + ".sig");
+            links[4].innerText = updateFilename;
+            links[4].setAttribute("href", updateUrl);
         });
     }
 }
