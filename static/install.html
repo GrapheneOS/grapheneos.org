@@ -123,6 +123,31 @@ TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
             </h2>
             <p>OEM unlocking can be disabled again in the developer settings menu within the
             operating system after booting it up again.</p>
+            <h2 id="verifying-installation">
+                Verifying installation
+                <a href="#verifying-installation">¶</a>
+            </h2>
+            <p>Verified boot authenticates and validates the firmware images and OS from the
+            hardware root of trust. Since GrapheneOS supports full verified boot, the OS images
+            are entirely verified. However, it's possible that the computer you used to flash the
+            OS was compromised, leading to flashing a malicious verified boot public key and
+            images. To detect this kind of attack, you can use the Auditor app included in
+            GrapheneOS in the Auditee mode and verify it with another Android device in the
+            Auditor mode. The Auditor app works best once it's already paired with a device and
+            has pinned a persistent hardware-backed key and the attestation certificate chain.
+            However, it can still provide a bit of security for the initial verification via the
+            attestation root. Ideally, you should also do this before connecting the device to the
+            network, so an attacker can't proxy to another device (which stops being possible
+            after the initial verification). Further protection against proxying the initial
+            pairing will be provided in the future via support for ID attestation to include the
+            serial number in the hardware verified information to allow checking against the one
+            on the box / displayed in the bootloader. See the
+            <a href="https://attestation.app/tutorial">Auditor tutorial</a> for a guide.</p>
+            <p>After the initial verification, which results in pairing, performing verification
+            against between the same Auditor and Auditee (as long as the app data hasn't been
+            cleared) will provide strong validation of the identity and integrity of the
+            device. That makes it best to get the pairing done right after installation. You can
+            also consider setting up the optional remote attestation service.</p>
             <h2 id="replacing-grapheneos-with-the-stock-os">
                 Replacing GrapheneOS with the stock OS
                 <a href="#replacing-grapheneos-with-the-stock-os">¶</a>
