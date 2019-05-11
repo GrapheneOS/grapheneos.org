@@ -60,13 +60,12 @@
             past version and the updater will attempt to download and install the update
             again.</p>
 
-            <p>The updater will use incremental updates to download only changes rather than the
-            whole OS unless the current version is behind the current release by more than 3
-            versions. As long as you have working network connectivity on a regular basis and
-            reboot when asked, you'll almost always be on one of the past couple versions of the
-            OS which will minimize bandwidth usage since incrementals will always be available. If
-            you fall more than 3 versions behind, it will download a large full update shipping
-            the full OS so it can update from any version.</p>
+            <p>The updater will use incremental (delta) updates to download only changes rather
+            than the whole OS when one is available to go directly from the installed version to
+            the latest version. As long as you have working network connectivity on a regular
+            basis and reboot when asked, you'll almost always be on one of the past couple
+            versions of the OS which will minimize bandwidth usage since incrementals will always
+            be available.</p>
 
             <p>The updater works while the device is locked / idle, including before the first
             unlock since it's explicitly designed to be able to run before decryption of user
