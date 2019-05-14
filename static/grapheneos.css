@@ -125,6 +125,22 @@ footer a:visited {
     list-style-type: none;
 }
 
+#logo{
+   height: 50px;
+}
+#logoli{
+   display: flex;
+}
+#logoa{
+   padding: 0;
+}
+#logotext{
+  padding: 0;
+  margin-top: 17px;
+}
+
+
+
 /* latin */
 @font-face {
     font-family: 'Roboto';
