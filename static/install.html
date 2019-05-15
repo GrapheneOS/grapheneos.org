@@ -41,11 +41,13 @@
             <p>You should have at least 2GB of free memory available.</p>
             <p>You need the unlocked variant of one of the supported devices, not a locked carrier
             specific variant.</p>
-            <p>You should verify the device already has up to date factory firmware installed
-            before flashing GrapheneOS, to avoid issues with OEM unlock toggle on some
-            devices. Factory firmware and installation instructions can be found at
-            <a href="https://developers.google.com/android/images">
-            https://developers.google.com/android/images</a></p>
+            <p>It's best practice to update the stock OS on the device to make sure it's running
+            the latest firmware before proceeding with these instructions. This avoids running
+            into bugs in older firmware versions. It's known that the early Pixel 2 and Pixel 2 XL
+            bootloader versions have weird quirks with unlocking. There aren't known issues on
+            other devices, but this is still a good idea. You can either do this via over-the-air
+            updates or sideload a full update from their
+            <a href="https://developers.google.com/android/ota">full update package page</a>.</p>
             <p>You need an updated copy of the <code>fastboot</code> tool and it needs to be
             included in your <code>PATH</code> environment variable. You can run <code>fastboot
             --version</code> to determine the current version. It should be at least
