@@ -117,6 +117,12 @@ footer a:visited {
 
 #social {
     margin-top: 2em;
+    padding: 0;
+    list-style-type: none;
+}
+
+#social li {
+    display: inline;
 }
 
 #stable-channel ul, #beta-channel ul {
