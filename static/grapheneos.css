@@ -123,6 +123,7 @@ footer a:visited {
 
 #social li {
     display: inline;
+    padding: 0 0.5em;
 }
 
 #stable-channel ul, #beta-channel ul {
