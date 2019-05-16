@@ -1,2 +1,21 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
 Contact: mailto:security@grapheneos.org
 Canonical: https://grapheneos.org/.well-known/security.txt
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEEZe7+AiEI4rcIy/z3+ecS5Zr18ioFAlzdwtMACgkQ+ecS5Zr1
+8iqC+w//XPlM3WlYR3g8UlQAGUKdeu/rl57bO+kvdjas8+1qs8uKGuyVFy6oWfIu
+IT7J/3m+D23doP0ZbVgQcJkSX7Soe9XPdFC1tUTZf2RJETUo0daDHeIcO23kH2px
+KWDOkfURUM5L6DPqjqdI/AXFn06VCwub/499u/lY4AuxilgUGtKb8HmMqN1Vn7SZ
+e1YJCNM9ekI058a937Bcv00OEIhlb1Lz42lFqCe5yHHvwktxcddAYFihNTHClDQq
+xtBoNhliIry+irhZlCyGaUZfVMnGk+AyzhgS9NezaEuDiS20XTsD+h5gPPXbWuva
+W4asTKxjvo7AjW+99zdltM/s79/ofNCKlWQ193mHVB4gEw4PDUFKCuBoKfARpkmJ
+buaFuNHpK3C3UWZdrJtA75BMpZMVpRUfr+ADmRy93oWeixqmOt0SOB5aWC829dPL
+G/fkWiWf1jRnRK+soIMrOOcPn2MGTHkcW9Pu2zoYGHJ+gM2BlApBtqd2b3y/Epk8
+Gj4M9St8TdhU7TkNsaqAOoPNhkGK6vZjlvIkuYljnVcFD/ThWrNbkBr6QuAJLbPu
+yravRuHjkOnkHOWcCgpxsmP8lXFu3UkT+4C5fNlyP9tvq7uam74mXdyuMJVR9Utl
+UWHrYfwxbHNuIbFLFdPPNxckEY5VCQvWtxiOAEvFXMUq3RbmMhs=
+=json
+-----END PGP SIGNATURE-----
