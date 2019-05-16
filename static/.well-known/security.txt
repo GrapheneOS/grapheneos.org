@@ -1,1 +1,2 @@
 Contact: mailto:security@grapheneos.org
+Canonical: https://grapheneos.org/.well-known/security.txt
