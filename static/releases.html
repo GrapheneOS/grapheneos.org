@@ -231,6 +231,42 @@
             <p>List of tagged releases. Snapshot releases without tags such as early releases of
             the project and early device support releases are not listed.</p>
 
+            <h3 id="2019.05.18.20">
+                2019.05.18.20
+                <a href="#2019.05.18.20">¶</a>
+            </h3>
+
+            <p>Tags:</p>
+            <ul>
+                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190505.001.2019.05.18.20">PQ3A.190505.001.2019.05.18.20</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL)</li>
+                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190505.002.2019.05.18.20">PQ3A.190505.002.2019.05.18.20</a> (Pixel 3, Pixel 3 XL)</li>
+            </ul>
+
+            <p>Changes since the 2019.05.08.15 release:</p>
+
+            <ul>
+                <li>GrapheneOS logo mask</li>
+                <li>Auditor: update to version 10</li>
+                <li>add preload parameter for avoiding full preload with exec</li>
+                <li>raise maximum users to 16</li>
+                <li>Vanadium (browser and WebView): update Chromium base to 74.0.3729.157</li>
+                <li>hardened_malloc (GrapheneOS only): apply temporary workaround for citadel HAL
+                    use-after-free (need to start building vendor HALs from the sources to fix
+                    issues like this)</li>
+            </ul>
+
+            <p>Restoration of past features since the 2019.05.08.15 release:</p>
+
+            <ul>
+                <li>disable OpenGL preloading for exec spawning</li>
+                <li>disable resource preloading for exec spawning</li>
+                <li>disable ICU cache pinning for exec spawning</li>
+                <li>disable class preloading for exec spawning</li>
+                <li>disable WebView reservation for exec spawning</li>
+                <li>disable JCA provider warm up for exec spawning</li>
+                <li>avoid AssetManager errors with exec spawning</li>
+            </ul>
+
             <h3 id="2019.05.08.15">
                 2019.05.08.15
                 <a href="#2019.05.08.15">¶</a>
