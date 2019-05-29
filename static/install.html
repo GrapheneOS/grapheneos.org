@@ -92,6 +92,9 @@
             <pre>gpg --recv-keys 65EEFE022108E2B708CBFCF7F9E712E59AF5F22A
 gpg --verify blueline-factory-2019.04.01.19.zip.sig blueline-factory-2019.04.01.19.zip</pre>
             <p>When this signing key is replaced, the new key will be signed with it.</p>
+            <p>If you wish, you may also check this key by downloading it from another location and checking the fingerprint is consistent with the one above:</p>
+            <pre>wget https://github.com/thestinger.gpg</pre>
+            <pre>gpg --with-fingerprint https://github.com/thestinger.gpg</pre>
             <h2 id="flashing-factory-images">
                 Flashing factory images
                 <a href="#flashing-factory-images">¶</a>
