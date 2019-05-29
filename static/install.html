@@ -96,7 +96,7 @@ gpg --verify blueline-factory-2019.04.01.19.zip.sig blueline-factory-2019.04.01.
                 Flashing factory images
                 <a href="#flashing-factory-images">¶</a>
             </h2>
-            <p>Reboot into the bootloader menu to begin the flashing procedure.</p>
+            <p>Reboot into the bootloader interface to begin the flashing procedure.</p>
             <p>Next, extract the factory images and run the script to flash them. Note that the
             <code>fastboot</code> command run by the flashing script requires a fair bit of free
             space in a temporary directory, which defaults to <code>/tmp</code>:<p>
@@ -122,7 +122,7 @@ TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
             detected, error correction data is used to attempt to obtain the original data at
             which point it's verified again which makes verified boot robust to non-malicious
             corruption.</p>
-            <p>Reboot into the bootloader menu and set it to locked:</p>
+            <p>Reboot into the bootloader interface and set it to locked:</p>
             <pre>fastboot flashing lock</pre>
             <p>The command needs to be confirmed on the device since it needs to perform a factory
             reset.</p>
