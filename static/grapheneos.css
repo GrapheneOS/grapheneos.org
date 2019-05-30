@@ -142,8 +142,10 @@ footer a:visited {
    padding: 0;
 }
 #logotext{
-  padding: 0;
-  margin-top: 17px;
+  padding-top: 1rem;
+  padding-left: .75rem;
+  padding-right: 1rem;
+
 }
 
 
