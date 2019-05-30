@@ -1,1 +1,23 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
 Contact: mailto:security@grapheneos.org
+Canonical: https://grapheneos.org/.well-known/security.txt
+Encryption: openpgp4fpr:65EEFE022108E2B708CBFCF7F9E712E59AF5F22A
+Preferred-Languages: en
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEEZe7+AiEI4rcIy/z3+ecS5Zr18ioFAlzk1UsACgkQ+ecS5Zr1
+8iqtCw/8D9tumq/Fl9Us5vRuj9QBxG84g+99K6HBtpxP2QgPCD1gq7jETmpr5Zfg
+0u9PkNA3cic8Jdbeq7qqNFcU7Fwg8NKMgQisvpnMY1gac7m+5FRo/igk8ivuAoeh
+KMfUPl7nKJax8vZcWHxYs1N4Cd05Lw2urUZfjiaohlVCpCw9IbSJ9dh9BxMukzm5
+cJaagxg0y9ILaRT9yqaN9V+QUka81pyQJjO1Pviu1jTT6ByCxExvYfqrBJdK5sVa
+8C1MJsX/KZnv1S6aNaKnPPazYpAFa3/u4/ij09tvtWuLNfqvuaonUN2Km0tiB7Et
+Vc+2DBbZL/DJNB98p7BH9i6ExBSH8eD3o1PkPETcKMMloewvCO0/CK17fNUdEo2m
+16TyjrfUGPp/r/qOFlAMDr5uLPeb9bSWds5algtgNuspp/fQL0v1r/C5WXIu3Pja
+4lynLZDY7G1l8NsLgBdoH2uuurX7DHpd7hXNekKlr0waywX3feyTXaCGzKejs53M
+mv2LgpAYAlrK2pPbe+VdhsGOZgtwmNrHHU6isRm79nIYSmfask9c0UPI4wp5zknJ
+hp1PBxcnce3HQhUChxQhh8tIV1QlV0Uc1m4PSXBDMR8+lSyvRQUjKeV6LUrQrGC0
+WQxjKSlSYWWrNa/jKF63npnuXupoN7BvhCCIJ+LSxQ9sYqeFj9E=
+=AMcp
+-----END PGP SIGNATURE-----
