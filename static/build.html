@@ -426,6 +426,89 @@ cd ../..</pre>
 
             <p>The Auditor app is simply built from the latest upstream tag and bundled as an apk into
             external/ repositories. There are no modifications to it for GrapheneOS.</p>
+
+            <h2 id="testing">
+                Testing
+                <a href="#testing">¶</a>
+            </h2>
+            <h3 id="compatibility-test-suite">
+                Compatibility Test Suite
+                <a href="#compatibility-test-suite">¶</a>
+            </h3>
+
+            <h4 id="compatibility-test-suite-download">
+                Download
+                <a href="#compatibility-test-suite-download">¶</a>
+            </h4>
+
+            <p>Testing with the Compatibility Test Suite (CTS) can be done by either building the
+            test suite from source or using the official releases.</p>
+            <p>Official releases of the CTS can be downloaded from
+            <a href="https://source.android.com/compatibility/cts/downloads">the Compatibility
+            Suite Downloads page</a>. You should download the CTS for the relevant release
+            (Android 9) and architecture (ARM). There's a separate zip for the main CTS, the
+            manual portion (CTS Verifier) and the CTS for Instant Apps. The latest release of the
+            CTS Media Files also needs to be downloaded from that section.</p>
+
+            <h4 id="compatibility-test-suite-setup">
+                Setup
+                <a href="#compatibility-test-suite-setup">¶</a>
+            </h4>
+            <p>You'll need a device attached to your computer with ADB enabled along with the
+            Android SDK installed. The build-tools and platform-tools packages need to be
+            installed and the binaries need to be added to your PATH. For example, with the SDK
+            located at <code>/home/username</code>:</p>
+            <pre>export ANDROID_HOME="$HOME/sdk"
+export PATH="$PATH:$HOME/sdk/tools:$HOME/sdk/tools/bin:$HOME/sdk/platform-tools:$HOME/sdk/build-tools/27.0.3:$HOME/sdk/ndk-bundle"</pre>
+            <p>Copy media onto the device:</p>
+            <pre>cd android-cts-media-1.4
+./copy_images.sh
+./copy_media.sh</pre>
+
+            <p>You also need to do some basic setup for the device. It's possible for changes from
+            a baseline install to cause interference, so it can be a good idea to factory reset
+            the device if assorted changes have been made. The device needs to be running a user
+            build for the security model to be fully intact in order to pass all the security
+            tests. A userdebug build is expected to fail some of the tests. GrapheneOS also makes
+            various changes intentionally deviating from the requirements expected by the CTS, so
+            there will always be some expected failures. A few of the tests are also known to be
+            quite flaky or broken even with the stock OS and/or AOSP. These will be documented
+            here at some point.</p>
+
+            <ul>
+                <li>Must be connected to a WiFi network with IPv6 internet access</li>
+                <li>Must have a working SIM card with mobile data with IPv6 internet access</li>
+                <li>Disable SIM lock</li>
+                <li>Enable Bluetooth</li>
+                <li>Enable NFC and NDEF (Android Beam)</li>
+                <li>Open / close Chromium to deal with initial setup</li>
+                <li>Prop up with a good object to focus on and good lighting for Camera tests</li>
+                <li>Bluetooth beacons for Bluetooth tests</li>
+                <li>Must have a great GPS/GNSS signal for location tests</li>
+                <li>SIM card with carrier privilege rules</li>
+                <li>Secure element applet installed on the embedded secure element or SIM
+                    card</li>
+                <li>At least one Wi-Fi RTT access point powered up but not connected to any
+                    network</li>
+            </ul>
+
+            <h4 id="compatibility-test-suite-run-modules">
+                Run modules
+                <a href="#compatibility-test-suite-run-modules">¶</a>
+            </h4>
+
+            <p>Run the test harness:</p>
+            <pre>./android-cts/tools/cts-tradefed</pre>
+            <p>Note that <code>_JAVA_OPTIONS</code> being set will break the version detection.</p>
+            <p>To obtain a list of CTS modules:</p>
+            <pre>list modules</pre>
+            <p>To run a specific module and avoid wasting time capturing device information:</p>
+            <pre>run cts --skip-device-info --module CtsModuleName</pre>
+            <p>To speed up initialization after running some initial tests:</p>
+            <pre>run cts --skip-device-info --skip-preconditions --module CtsModuleName</pre>
+            <p>It's possible to run the whole standard CTS plan with a single command, but running
+            specific modules is recommended, especially if you don't have everything set up for
+            the entire test suite.</p>
         </div>
         <footer>
             <a href="/"><img src="https://grapheneos.org/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
