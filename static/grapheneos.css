@@ -132,23 +132,26 @@ footer a:visited {
     list-style-type: none;
 }
 
-#logo{
-   height: 50px;
-}
-#logoli{
-   display: flex;
-}
-#logoa{
-   padding: 0;
-}
-#logotext{
-  padding-top: 1rem;
-  padding-left: .75rem;
-  padding-right: 1rem;
-
+.logo{
+    display: flex;
 }
 
+.logo img{
+   height: 45px;
+   padding-top: .25rem;
+}
 
+.logo a{
+   padding: 1rem;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+.logo img{
+   height: 40px;
+   padding-top: .25rem;
+ }
+    
+}
 
 /* latin */
 @font-face {
