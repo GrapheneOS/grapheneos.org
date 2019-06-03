@@ -54,6 +54,7 @@ RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^(.*)\.html$ /$1 [L,R=301]
 
 AddType application/manifest+json webmanifest
+AddType font/woff2 woff2
 
 AddOutputFilterByType DEFLATE application/manifest+json
 AddOutputFilterByType DEFLATE application/javascript
