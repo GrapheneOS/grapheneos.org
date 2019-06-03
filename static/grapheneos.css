@@ -26,6 +26,10 @@ a:hover {
     text-decoration: underline;
 }
 
+h1 a, h1 a:visited, h2 a, h2 a:visited, h3 a, h3 a:visited, h4 a, h4 a:visited, h5 a, h5 a:visited, h6 a, h6 a:visited {
+    color: rgba(0, 0, 0, 0.87); /* 87% black */
+}
+
 pre {
     overflow-x: auto;
 }
