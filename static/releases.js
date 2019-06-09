@@ -2,7 +2,7 @@
 
 "use strict";
 
-const baseUrl = "https://seamlessupdate.app/";
+const baseUrl = "https://releases.grapheneos.org/";
 const versionBaseUrl = "https://github.com/GrapheneOS/platform_manifest/releases/tag/";
 const devices = ["crosshatch", "blueline", "taimen", "walleye", "marlin", "sailfish"];
 const channels = ["stable", "beta"];
