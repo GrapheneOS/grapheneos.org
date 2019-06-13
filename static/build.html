@@ -68,11 +68,18 @@
                 <a href="#development-branch">Development branch</a>
             </h2>
 
-            <p>The pie branch is currently used for all supported devices:</p>
+            <p>The pie branch is currently used for all devices other than the Pixel 3a and Pixel 3a XL:</p>
 
             <pre>mkdir grapheneos-pie
 cd grapheneos-pie
 repo init -u https://github.com/GrapheneOS/platform_manifest.git -b pie
+repo sync -j32</pre>
+
+            <p>The pie-b4s4 branch is currently used for the Pixel 3a and Pixel 3a XL since these were introduced after the current pie maintenance release:</p>
+
+            <pre>mkdir grapheneos-pie-b4s4
+cd grapheneos-pie-b4s4
+repo init -u https://github.com/GrapheneOS/platform_manifest.git -b pie-b4s4
 repo sync -j32</pre>
 
             <p>If your network is unreliable and <code>repo sync</code> fails, you can run the
