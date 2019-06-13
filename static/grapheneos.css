@@ -13,6 +13,10 @@ body {
     overflow-y: scroll;
 }
 
+.hidden {
+    display: none;
+}
+
 a {
     color: #1565c0; /* blue800 */
     text-decoration: none;
