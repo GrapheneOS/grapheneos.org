@@ -267,6 +267,34 @@
             <p>List of tagged releases. Snapshot releases without tags such as early releases of
             the project and early device support releases are not listed.</p>
 
+            <h3 id="2019.06.14.02">
+                <a href="#2019.06.14.02">2019.06.14.02</a>
+            </h3>
+
+            <p>Tags:</p>
+            <ul>
+                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190605.003.2019.06.14.02">PQ3A.190605.003.2019.06.14.02</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, other devices)</li>
+                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3B.190605.006.2019.06.14.02">PQ3B.190605.006.2019.06.14.02</a> (Pixel 3a, Pixel 3a XL)</li>
+            </ul>
+
+            <p>Changes since the 2019.06.03.18 release:</p>
+
+            <ul>
+                <li>Vanadium (browser and WebView): update Chromium base to 75.0.3770.67</li>
+                <li>add back brk system call to the seccomp whitelist for compatibility with Go</li>
+                <li>Auditor: update to version 14</li>
+                <li>Music: backport bug fix for passing CTS</li>
+                <li>Updater: replace seamlessupdate.app with releases.grapheneos.org alias</li>
+                <li>add initial experimental support for the Pixel 3a and Pixel 3a XL</li>
+                <li>Pixel 2, Pixel 2 XL: set AVB rollback index to security patch timestamp (backport of the implementation for the Pixel 3)</li>
+            </ul>
+
+            <p>Restoration of past features since the 2019.06.03.18 release:</p>
+
+            <ul>
+                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL): replace SECURITY_SMACK with SECURITY_NETWORK</li>
+            </ul>
+
             <h3 id="2019.06.03.18">
                 <a href="#2019.06.03.18">2019.06.03.18</a>
             </h3>
