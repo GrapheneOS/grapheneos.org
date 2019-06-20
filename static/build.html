@@ -150,8 +150,8 @@ cd ../..</pre>
             Chromium's Android build instructions</a> for details on obtaining the prerequisites.
 
             <p>You can obtain the proper configuration from the
-            <a href="https://github.com/GrapheneOS/chromium_build">
-            GrapheneOS chromium_build repository</a> including the correct version.</p>
+            <a href="https://github.com/GrapheneOS/chromium_patches">
+            GrapheneOS chromium_patches repository</a> in <code>args.gn</code> the correct version.</p>
 
             <pre>mkdir chromium
 cd chromium
@@ -171,6 +171,9 @@ git am ../chromium_patches/*.patch</pre>
             <p>Then, configure the build in the <code>src</code> directory:</p>
 
             <pre>gn args out/Default</pre>
+
+            <p>Copy the GrapheneOS configuration from <code>../args.gn</code> and save/exit the
+            editor.</p>
 
             <p>To build Monochrome, which provides both Chromium and the WebView:</p>
 
