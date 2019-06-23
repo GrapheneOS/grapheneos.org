@@ -267,6 +267,47 @@
             <p>List of tagged releases. Snapshot releases without tags such as early releases of
             the project and early device support releases are not listed.</p>
 
+            <h3 id="2019.06.23.05">
+                <a href="#2019.06.23.05">2019.06.23.05</a>
+            </h3>
+
+            <p>Tags:</p>
+            <ul>
+                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190605.003.2019.06.23.05">PQ3A.190605.003.2019.06.23.05</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, other devices)</li>
+                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3B.190605.006.2019.06.23.05">PQ3B.190605.006.2019.06.23.05</a> (Pixel 3a, Pixel 3a XL)</li>
+            </ul>
+
+            <p>Changes since the 2019.06.14.02 release:</p>
+
+            <ul>
+                <li>hardened_malloc: use copy_size to check for canaries (tiny performance / hardening fix and avoids an erroneous abort in a corner case)</li>
+                <li>hardened_malloc: update libdivide to 1.1</li>
+                <li>Pixel 3a, Pixel 3a XL: raise maximum users to 16</li>
+                <li>Pixel 3a, Pixel 3a XL: disable system_other odex</li>
+                <li>Pixel 3a, Pixel 3a XL: disable system_other preloads_copy</li>
+                <li>Pixel 3a, Pixel 3a XL: show connected mac randomization feature</li>
+                <li>Pixel 3a, Pixel 3a XL: move to custom kernel</li>
+                <li>Pixel 3a, Pixel 3a XL: use monolithic kernel builds</li>
+                <li>Pixel 3a, Pixel 3a XL (kernel): disable slab merging</li>
+                <li>Pixel 3a, Pixel 3a XL (kernel): add toggle for disabling newly added USB devices</li>
+                <li>Pixel 3a, Pixel 3a XL (kernel): replace SECURITY_SMACK with SECURITY_NETWORK</li>
+                <li>Pixel 3a, Pixel 3a XL (kernel): mark qcedev data const</li>
+                <li>Vanadium (browser and WebView): update Chromium base to 75.0.3770.101</li>
+                <li>Vanadium: disable sensors access by default</li>
+                <li>Vanadium: disable third party cookies by default</li>
+                <li>Vanadium: disable background sync by default</li>
+                <li>Vanadium (browser and WebView): stub out battery API</li>
+                <li>Vanadium: disable search logo</li>
+                <li>Vanadium: always use local new tab page</li>
+                <li>Vanadium: disable payment support by default</li>
+            </ul>
+
+            <p>Restoration of past features since the 2019.06.14.02 release:</p>
+
+            <ul>
+                <li>Vanadium: do not enable default search engine notification permission by default</li>
+            </ul>
+
             <h3 id="2019.06.14.02">
                 <a href="#2019.06.14.02">2019.06.14.02</a>
             </h3>
