@@ -194,6 +194,52 @@
             </ul>
 
             <p>Similar connectivity checks are also performed by the hardened Chromium browser (Vanadium).</p>
+
+            <h2 id="web-browsing">
+                <a href="#web-browsing">Web browsing</a>
+            </h2>
+
+            <p>GrapheneOS includes a Vanadium subproject providing privacy and security enhanced
+            releases of Chromium. Vanadium is both the user-facing browser included in the OS and
+            the provider of the WebView used by other apps to render web content. The WebView is
+            the browser engine used by the vast majority of web browsers and nearly all other apps
+            embedding web content or using web technologies for other uses.</p>
+
+            <p>Using Vanadium is highly recommended and Bromite is a good alternative if you want
+            a few more features like ad-blocking and more aggressive anti-fingerprinting. Vanadium
+            is working towards including these features and is actively collaborating with
+            Bromite. Other Chromium-based browsers like Brave can also be decent choices.
+            Standalone browsers based on Chromium have by far the best sandbox implementation.
+            Site isolation can also be enabled, which makes the sandbox enforce a security
+            boundary containing each site rather than isolating content as a whole. Vanadium
+            enables site isolation by default, and Bromite enables it on high memory devices,
+            including all officially supported GrapheneOS devices. Site isolation prevents an
+            attacker from obtaining cookies (like login sessions) and other data tied to other
+            sites if they successfully exploit the browser's rendering engine. It also provides
+            the strongest available mitigation for Spectre-based side channel attacks.</p>
+
+            <p>WebView-based browsers use the hardened Vanadium rendering engine, but they can't
+            offer as much privacy and control due to being limited to the capabilities supported
+            by the WebView widget. For example, they can't provide a setting for toggling sensors
+            access because the feature is fairly new and the WebView WebSettings API doesn't yet
+            include support for it as it does for JavaScript, location, cookies, DOM storage and
+            other older features. The WebView sandbox also currently runs every instance within
+            the same process and doesn't support site isolation.</p>
+
+            <p>Avoid Gecko-based browsers like Firefox as they're currently much more vulnerable
+            to exploitation and inherently add a huge amount of attack surface. Gecko doesn't have
+            a WebView implementation, so it has to be used alongside the Chromium-based WebView
+            rather than instead of Chromium, which means having the remote attack surface of two
+            separate browser engines instead of only one. Firefox / Gecko also bypass or cripple a
+            fair bit of the upstream and GrapheneOS hardening work for apps. Worst of all, Firefox
+            runs as a single process on mobile and has no sandbox beyond the OS sandbox. This is
+            despite the fact that Chromium semantic sandbox layer on Android is implemented via
+            the OS <code>isolatedProcess</code> feature, which is a very easy to use boolean
+            property for app service processes to provide strong isolation with only the ability
+            to communicate with the app running them via the standard service API. Even in the
+            desktop version, Firefox's sandbox is still substantially weaker (especially on Linux,
+            where it can hardly be considered a sandbox at all) and lacks support for isolating
+            sites from each other rather than only containing content as a whole.</p>
         </div>
         <footer>
             <a href="/"><img src="https://grapheneos.org/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
