@@ -223,8 +223,10 @@
             by the WebView widget. For example, they can't provide a setting for toggling sensors
             access because the feature is fairly new and the WebView WebSettings API doesn't yet
             include support for it as it does for JavaScript, location, cookies, DOM storage and
-            other older features. The WebView sandbox also currently runs every instance within
-            the same process and doesn't support site isolation.</p>
+            other older features. For sensors, the Sensors app permission added by GrapheneOS can
+            be toggled off for the browser app as a whole instead. The WebView sandbox also
+            currently runs every instance within the same process and doesn't support site
+            isolation.</p>
 
             <p>Avoid Gecko-based browsers like Firefox as they're currently much more vulnerable
             to exploitation and inherently add a huge amount of attack surface. Gecko doesn't have
