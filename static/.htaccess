@@ -59,6 +59,7 @@ AddType font/woff2 woff2
 AddOutputFilterByType DEFLATE application/manifest+json
 AddOutputFilterByType DEFLATE application/javascript
 AddOutputFilterByType DEFLATE image/vnd.microsoft.icon
+AddOutputFilterByType DEFLATE image/svg+xml
 AddOutputFilterByType DEFLATE text/css
 AddOutputFilterByType DEFLATE text/html
 AddOutputFilterByType DEFLATE text/plain
