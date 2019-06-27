@@ -34,7 +34,7 @@ Header set Cache-Control "public, max-age=1800"
 Header set Cache-Control "public, max-age=86400"
 </FilesMatch>
 
-<FilesMatch "\.(css|js|png|woff2)$">
+<FilesMatch "\.(css|js|png|svg|woff2)$">
 Header set Cache-Control "public, max-age=31536000"
 </FilesMatch>
 
