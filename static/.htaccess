@@ -41,6 +41,9 @@ Header set Cache-Control "public, max-age=31536000"
 RedirectMatch 301 ^/security.txt$ /.well-known/security.txt
 RedirectMatch 301 ^/graphene.png$ /logo.png
 
+# http://www.twipu.com/GrapheneOS doesn't handle links with fragments properly
+RedirectMatch 301 "^/releases<a href=$" /releases
+
 RewriteEngine on
 
 RewriteCond %{REQUEST_FILENAME} !-d
