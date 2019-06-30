@@ -47,6 +47,12 @@
             <p>You should have at least 2GB of free memory available.</p>
             <p>You need the unlocked variant of one of the supported devices, not a locked carrier
             specific variant.</p>
+            <p>To verify the download of the OS beyond the security offered by HTTPS, you need the
+            signify tool. Some package repositories refer to it as <code>signify</code> while
+            others refer to it as <code>signify-openbsd</code> due to a legacy mail-related tool
+            with the same name. If you don't have a way to obtain signify from a trusted package
+            repository, such as on Windows, skip the additional verification. This is an important
+            step, but it only makes sense if you can chain trust from your existing OS install.</p>
             <p>It's best practice to update the stock OS on the device to make sure it's running
             the latest firmware before proceeding with these instructions. This avoids running
             into bugs in older firmware versions. It's known that the early Pixel 2 and Pixel 2 XL
@@ -88,10 +94,15 @@
             </h2>
             <p>The initial install will be performed by flashing the factory images. This will
             replace the existing OS installation and wipe all the existing data.</p>
-            <p>You can download the factory images from <a href="/releases">the releases page</a>.</p>
-            <p>Verify the official factory images using the GPG signature:</p>
-            <pre>gpg --recv-keys 65EEFE022108E2B708CBFCF7F9E712E59AF5F22A
-gpg --verify blueline-factory-2019.04.01.19.zip.sig blueline-factory-2019.04.01.19.zip</pre>
+            <p>Download <a href="https://releases.grapheneos.org/factory.pub">the factory images
+            public key (factory.pub)</a> in order to verify the factory images.</p>
+            <p>This is the content of <code>factory.pub</code>:</p>
+            <pre>untrusted comment: GrapheneOS factory images public key
+RWQZW9NItOuQYJ86EooQBxScfclrWiieJtAO9GpnfEjKbCO/3FriLGX3</pre>
+            <p>Download the factory images for the device from <a href="/releases">the releases
+            page</a>.</p>
+            <p>Verify the factory images using the signature:</p>
+            <pre>signify -V -p factory.pub crosshatch-factory-2019.06.23.05.zip</pre>
             <p>When this signing key is replaced, the new key will be signed with it.</p>
             <h2 id="flashing-factory-images">
                 <a href="#flashing-factory-images">Flashing factory images</a>
