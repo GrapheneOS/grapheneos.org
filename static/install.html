@@ -99,11 +99,15 @@
             <p>This is the content of <code>factory.pub</code>:</p>
             <pre>untrusted comment: GrapheneOS factory images public key
 RWQZW9NItOuQYJ86EooQBxScfclrWiieJtAO9GpnfEjKbCO/3FriLGX3</pre>
+            <p>The <code>factory.pub</code> has
+            <a href="https://releases.grapheneos.org/factory.pub.asc">a detached signature</a>
+            made with the previously used GPG key</a> to verify that this is an authorized key
+            rotation. When the current signing key is replaced, the new key will be signed with
+            it.</p>
             <p>Download the factory images for the device from <a href="/releases">the releases
             page</a>.</p>
             <p>Verify the factory images using the signature:</p>
             <pre>signify -V -p factory.pub crosshatch-factory-2019.06.23.05.zip</pre>
-            <p>When this signing key is replaced, the new key will be signed with it.</p>
             <h2 id="flashing-factory-images">
                 <a href="#flashing-factory-images">Flashing factory images</a>
             </h2>
