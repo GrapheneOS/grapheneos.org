@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Documentation - Usage Guide | GrapheneOS</title>
+        <meta name="description" content="Usage Guide for GrapheneOS, a security and privacy focused mobile OS with Android app compatibility."/>
+        <meta name="theme-color" content="#212121"/>
+        <meta name="msapplication-TileColor" content="#ffffff"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="twitter:site" content="@GrapheneOS"/>
+        <meta name="twitter:creator" content="@GrapheneOS"/>
+        <meta property="og:title" content="GrapheneOS Usage Guide"/>
+        <meta property="og:description" content="Usage Guide for GrapheneOS, a security and privacy focused mobile OS with Android app compatibility."/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
+        <meta property="og:image:width" content="512"/>
+        <meta property="og:image:height" content="512"/>
+        <meta property="og:image:alt" content="GrapheneOS logo"/>
+        <meta property="og:url" content="https://grapheneos.org/docs/usage_guide"/>
+        <meta property="og:site_name" content="GrapheneOS"/>
+        <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico"/>
+        <link rel="mask-icon" href="/safari_pinned_tab_icon.svg" color="#000000"/>
+        <link rel="stylesheet" href="/grapheneos.css?10"/>
+        <link rel="manifest" href="/manifest.webmanifest"/>
+        <link rel="canonical" href="https://grapheneos.org/documentation/usage_guide"/>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="/">GrapheneOS</a></li>
+                <li><a href="/install">Install</a></li>
+                <li><a href="/build">Build</a></li>
+                <li><a href="/usage">Usage</a></li>
+                <li><a href="/releases">Releases</a></li>
+                <li><a href="/source">Source</a></li>
+                <li class="active"><a href="/documentation">Documentation</a></li>
+                <li><a href="/donate">Donate</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    <div id="content">
+        <h1 id="usage-guide">
+            <a href="#usage-guide">GrapheneOS Usage Guide</a>
+        </h1>
+        <p>GrapheneOS is a Linux-based mobile operating system with a focus on privacy and security. It builds on the latest stable release of the Android Open Source Project (9.0) which is Android without any Google apps and services.</p>
+        <p>This usage guide documents the user experience of the OS with a focus on how it compares to the Android operating system. Most security features are kept unintrusive without a user-facing impact. See the <a href="https://github.com/GrapheneOS/platform_manifest">technical overview</a> for documentation on the security features rather than only changes to the user experience.</p>
+        <p>GrapheneOS can run Android apps unless they have a hard dependency on Google services. At this moment, it does not have an included App store included, but F-Droid may be installed at the user's discretion. it can also run many apps from the Amazon Appstore and Google Play Store.</p>
+        <p>Since it doesn't include Google apps and services, GrapheneOS isn't limited by the requirements imposed by Google for an operating system to be considered Android compatible. It disregards the constraints required to actually be Android while still retaining the ability to run nearly all real world Android apps not tied to Google. Android devices aren't permitted to ship many of the features documented below like the Network permission toggle.</p>
+
+        <h2 id="table-of-contents">
+            <a href="#table-of-contents">Table of Contents</a>
+        </h2>
+        <ul>
+            <li><a href="#security">Security</a></li>
+            <ul>
+                <li><a href="#permission-model">Permission model</a></li>
+                <li><a href="#network-permission">Network permission</a></li>
+                <li><a href="#sensors-permission">Sensors permission</a></li>
+                <li><a href="#background-access">Background access</a></li>
+                <li><a href="#clipboard">Clipboard</a></li>
+                <li><a href="#audio-recording">Audio recording</a></li>
+                <li><a href="#sensors">Sensors</a></li>
+                <li><a href="#location">Location</a></li>
+                <li><a href="#serial-number">Serial number</a></li>
+                <li><a href="#display-over-other-apps">Display over other apps</a></li>
+                <li><a href="#storage">Storage</a></li>
+                <li><a href="#file-management">File management</a></li>
+                <li><a href="#location">Location</a></li>
+                <li><a href="#user-profiles">User profiles</a></li>
+                <li><a href="#force-tor-always-on">Force always on Tor / VPN</a></li>
+            </ul>
+        </ul>
+        
+        <h2 id="security">
+            <a href="#security">Security</a>
+        </h2>    
+
+        <h3 id="permission-model">
+            <a href="#permission-model">Permission model</a>
+        </h3>
+        <p>Apps run in an application sandbox with access to little more than their internal data and interfaces explicitly exported to them from the base system and other apps. Most of their capabilities need to be granted by the permission system. Permissions are divided into normal permissions like the ability to set an alarm or start at boot and dangerous permissions that need to be explicitly granted by users.</p>
+        <p>GrapheneOS and stock Android use the same runtime permission model for apps targeting the modern Android platform. Dangerous permission groups (camera, contacts, microphone, etc.) are disabled by default and apps need to request them from the user as needed with the expectation that they attempt to handle not getting the permissions. The dangerous permission groups can also be toggled via <code>Settings -> Apps & notifications -> App info -> App name -> Permissions</code> and modern apps can be expected to handle this and request the permissions again as needed. Dangerous permission groups can also be audited / toggled by group instead of by app using <code>Settings -> Apps & notifications -> App permissions</code></p>
+        <p>For apps targeting old versions of the Android platform, stock Android grants all requested dangerous permissions at install time. The dangerous permission groups can still be toggled off via <code>Settings -> Apps & notifications -> App info -> App name -> Permissions</code> and provide empty data where possible rather than failing for compatibility. By contrast, GrapheneOS presents the user with a menu where they can review and disable dangerous permission groups before the app is able to run. The substantial difference is that stock Android doesn't give the user a chance to toggle off permissions before the app is able to run. Installing it and toggling them off before manually launching the app is not adequate as it's possible for it to be started before that.</p>
+        <p>Note that Android makes it possible for apps to get by without permissions in most cases. An app can have the user pick a contact, take a picture, store / open a file in a storage provider, etc. without any permissions required. Be skeptical about the justification given by app developers for their permission usage. For example, many claim to need to read the phone state (Phone permission group) to detect an active phone call but it's almost always a false justification as they could be using the standard audio focus mechanism.</p>
+
+        <h3 id="network-permission">
+            <a href="#network-permission">Network permission</a>
+        </h3>
+        <p>Unlike stock Android, GrapheneOS treats full network access as a user-facing permission with a toggle. For compatibility, it's enabled by default for apps targeting the modern Android platform unlike other runtime permissions.</p>
+        <p>There are many known cases of apps exporting interfaces to other apps for making limited network requests, so this toggle will become more useful when further isolation options are available. For example, web browsers almost all expose an interface allowing other apps to open URLs and choose not to require either the INTERNET permission or explicit user consent before making the request.</p>
+        
+        <h3 id="#sensors-permission">
+            <a href="#sensors-permission">Sensors permission</a>
+        </h3>
+        <p>Unlike stock Android, GrapheneOS treats sensor access as a user-facing permission with a toggle. For compatibility, it's enabled by default for apps targeting the modern Android platform unlike other runtime permissions. Stock Android only treats heartbeat sensor access as dangerous. </p>
+        <p>Unlike the Network toggle, apps aren't marked with an existing low-level permission when they make use of sensor access. GrapheneOS adds a new permission and treats all apps as requesting it so there's a sensor permission toggle for every app.</p>
+        <p>Sensor access has been shown to provide the capability to perform <a href="http://www.ccs.neu.edu/home/noubir/publications-local/NVBN2016.pdf" target="_blank">location tracking</a>, <a href="https://link.springer.com/article/10.1007/s10207-017-0369-x">input logging</a>, and crude audio recording that's <a href="https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-michalevsky.pdf">still capable of recognizing speech</a> despite the 200 Hz sampling limit enforced by the OS.</p>
+
+        <h3 id="#background-access">
+            <a href="#background-access">Background access</a>
+        </h3>
+        <p>GrapheneOS adds special permissions for controlling access to data in the background in <code>Settings -> Security -> Apps with background access</code>.</p>
+        <p>This feature will become more strict in the future. It's an early implementation aimed at fleshing out the full set of functionality and working towards disabling access by default.</p>
+        <p>The powerful 'draw over other apps' special permission can be used to remain in the foreground. It needs to be explicitly granted by users in a more manual way than the usual dangerous permission request dialog and a persistent notification is displayed while it's being used. It also can't be used to draw over the system ui to hide the persistent notification. It's outside of the scope of this feature as it's quite dangerous already and should only be granted to an app in exceptional circumstances just like accessibility services and device administrators.</p>
+
+        <h4 id="clipboard">
+            <a href="#clipboard">Clipboard</a>
+        </h4>
+        <p>GrapheneOS disables access to the clipboard by apps in the background by default. This can be enabled per-app via <code>Settings -> Security & location -> Apps with background access -> Access clipboard in the background</code>. For example, you may need to whitelist a clipboard manager.</p>
+
+        <h4 id="audio-recording">
+            <a href="#audio-recording">Audio recording</a>
+        </h4>
+        <p>Initiating audio recording in the background can be disabled per-app via <code>Settings -> Security & location -> Apps with background access -> Record audio in the background</code>. It isn't yet disabled by default but will be in the future.</p>
+        <p>For now, apps can still initiate audio recording in the foreground and continue in the background even with background audio recording disabled. The feature will eventually be improved to kill apps with an open recording stream when they're sent to the background.</p>
+
+        <h4 id="sensors">
+            <a href="#sensors">Sensors</a>
+        </h4>
+        <p>Sensors access in the background can be disabled per-app via <code>Settings -> Security & location -> Apps with background access -> Access sensors in the background</code>. It isn't yet disabled by default but will be in the future.</p>
+
+        <h4 id="location">
+            <a href="#location">Location</a>
+        </h4>
+        <p>Location access in the background can be disabled per-app via <code>Settings -> Security & location -> Apps with background access -> Access location in the background</code>. It isn't yet disabled by default but will be in the future.</p>
+
+        <h4 id="serial-number">
+            <a href="#serial-number">Serial number</a>
+        </h4>
+        <p>GrapheneOS requires that apps have the Phone permission group (read phone state) to access the serial number just like the IMEI on stock Android. Android is moving towards this but doesn't yet enforce it even for apps targeting Android Oreo.</p>
+
+        <h4 id="display-over-other-apps">
+            <a href="#display-over-other-apps">Display over other apps</a>
+        </h4>
+        <p>Unlike stock Android, GrapheneOS doesn't permit any automatic grants of the special "Display over other apps" permission. It needs to be very explicitly granted by users.</p>
+
+        <h4 id="storage">
+            <a href="#storage">Storage</a>
+        </h4>
+        <p>Apps have their own private storage directories and can share files with other apps using content providers. Apps can act as storage providers to provide structured requests to retrieve and store data including for the shared storage directory. Direct scoped access can also be requested for the shared storage directory (since 7.0). Unfortunately, many apps require the storage permissions for direct, full access to shared storage so it's unwise to store sensitive data there.</p>
+        <p>In the future, GrapheneOS will offer the ability to isolate shared storage rather than toggling access. Isolated shared storage will provide an app with a dedicated shared storage directory accessible only to themselves and the built-in file manager. Ideally, apps would already use the available tools to provide this kind of functionality on their own.</p>
+
+        <h4 id="file-management">
+            <a href="#file-management">File management</a>
+        </h4>
+        <p>The built-in file manager for shared storage is recommended. It's available as the Files app on the home screen and is also accessible via <code>Settings -> Storage -> Files</code>. Shared storage can be shown by enabling by <code>"Show internal storage"</code> in the app menu. It has proper integration with storage providers (apps providing storage to other apps, with explicit user control) and external storage. It will also be the only app able to access isolated shared storage directories of other apps once that feature is implemented.</p>
+
+        <h4 id="location">
+            <a href="#location">Location</a>
+        </h4>
+        <p>The location icon is displayed in the status bar when an app is monitoring the device's location. Settings -> Security & Location -> Location provides a global toggle to disable location detection along with a list of apps that have made recent location requests.</p>
+
+        <h4 id="user-profiles">
+            <a href="#user-profiles">User profiles</a>
+        </h4>
+        <p>User profiles offer isolated workspaces within the operating system.</p>
+        <p>Fully opening the notification tray will show an avatar for the main user profile. Touching it opens the menu for creating and switching between profiles. Further configuration is available via 'More settings' which is a shortcut to <code>Settings -> Users & accounts -> Users</code>.</p>
+        <p>The special Guest profile is meant to be used as a scratch space with a quick shortcut in the notification tray for deleting everything in the profile. It also offers the option to clear it when switching to it.</p>
+        <p>Apps cannot communicate or share data across user profiles. On Pixel phones, each user profile has separate disk encryption keys for all user data rather than there being a shared boot password. A profile also cannot record audio while another profile is active. By default, only the Owner account has access to phone calls and SMS. It can be enabled for other accounts via the user settings menu on the owner account.</p>
+        <p>In addition to the baseline functionality, GrapheneOS exposes option to disallow audio recording and to disallow installing apps in the user configuration menu for the owner account.</p>
+
+        <h4 id="force-tor-always-on">
+            <a href="#force-tor-always-on">Force always on Tor / VPN</a>
+        </h4>
+        <p>In <code>Settings -> Network & Internet -> VPN</code>, the gear icon next to installed VPN apps like Orbot (Tor) can be used to set one as an "Always-on VPN" to make it start automatically. However, it's also necessary to toggle on "Block connections without VPN" to disallow connections being made if the VPN dies. This will be enabled by default for an "Always-on VPN" on GrapheneOS in the near future.</p>
+
+        </div>
+        <footer>
+            <a href="/"><img src="https://grapheneos.org/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
+            <ul id="social">
+                <li><a href="https://twitter.com/GrapheneOS">Twitter</a></li>
+                <li><a href="https://github.com/GrapheneOS">GitHub</a></li>
+            </ul>
+        </footer>
+    </body>
+</html>
+
