@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Frequently Asked Questions | GrapheneOS</title>
+        <meta name="description" content="Frequently Asked Questions for GrapheneOS, a security and privacy focused mobile OS with Android app compatibility."/>
+        <meta name="theme-color" content="#212121"/>
+        <meta name="msapplication-TileColor" content="#ffffff"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="twitter:site" content="@GrapheneOS"/>
+        <meta name="twitter:creator" content="@GrapheneOS"/>
+        <meta property="og:title" content="GrapheneOS install documentation"/>
+        <meta property="og:description" content="Frequently Asked Questions for GrapheneOS, a security and privacy focused mobile OS with Android app compatibility."/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
+        <meta property="og:image:width" content="512"/>
+        <meta property="og:image:height" content="512"/>
+        <meta property="og:image:alt" content="GrapheneOS logo"/>
+        <meta property="og:url" content="https://grapheneos.org/docs/faq"/>
+        <meta property="og:site_name" content="GrapheneOS"/>
+        <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico"/>
+        <link rel="mask-icon" href="/safari_pinned_tab_icon.svg" color="#000000"/>
+        <link rel="stylesheet" href="/grapheneos.css?10"/>
+        <link rel="manifest" href="/manifest.webmanifest"/>
+        <link rel="canonical" href="https://grapheneos.org/documentation/faq"/>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="/">GrapheneOS</a></li>
+                <li><a href="/install">Install</a></li>
+                <li><a href="/build">Build</a></li>
+                <li><a href="/usage">Usage</a></li>
+                <li><a href="/releases">Releases</a></li>
+                <li><a href="/source">Source</a></li>
+                <li class="active"><a href="/faq">FAQs</a></li>
+                <li><a href="/donate">Donate</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div id="content">
+        
+            <h1 id="FAQ">
+                <a href="#FAQ">Frequently Asked Questions</a>
+            </h1>
+            <h2 id="table-of-contents">
+                <a href="#table-of-contents">Table of contents</a></li>
+            </h2>
+            <ul>
+                <li><a href="#about-grapheneos">About GrapheneOS</a></li>
+                <li><a href="#installing-grapheneos">Installing GrapheneOS</a></li>
+                <li><a href="#security-in-grapheneos">Security in GrapheneOS</a></li>
+                <li><a href="#day-to-day-use">Day to day use</a></li>
+                <li><a href="#local-verification-with-auditor">Local verification with Auditor</a></li>
+                <li><a href="#auditor-remote-verification">Remote verification with Auditor</a></li>
+                <li><a href="#feedback">Bugs, troubleshooting, feedback, and community</a></li>
+            </ul>
+            </h2>
+            <p>This section provides some rudimentary answers to frequently asked questions about GrapheneOS.
+            It is intended to only give some matter of brief, accessible, non-intimidating answers to a few 
+            questions about GrapheneOS and the projects associated with it and where possible, provide links
+            to where more exhaustive answers can be found.</p>
+
+<!--BEGIN SECTION 1-->
+            
+        	<h2 id="about-grapheneos">
+	            <a href="#about-grapheneos">About GrapheneOS</h2>
+	        </h2>        
+	        
+            <h3 id="will-you-support-my-device">
+                <a href="#will-you-support-my-device">"Will You Support My Device?"</a>
+           	</h3>           	
+            <p>Support for other devices is planned, but there are a few requirements for full support from 
+            Graphene OS. Rather than aim to try to support many devices, GrapheneOS seeks to support only 
+            the devices with the best security, and focus on specific devices to ensure that the most 
+            attention can be paid to the quality of the code, review, and testing. In order to be considered
+             for support for GrapheneOS, a candidate device must meet the following criteria:
+            <ul>
+                <li>Strong support for alternative operating systems. Devices that do not have good support 
+                for alternative operating systems, or devices that treat alternative operating systems as an
+                afterthought will not be considered.</li> 
+                <li>Hardware and firmware security features which include: hardware-backed keystore, 
+                verified boot and remote attestation. In the future, Strongbox Keymaster may become 
+                required.</li> 
+                <li>Open-source drivers.</li>
+                <li>Firmware that may be audited.</li>
+                <li>Strong commitment for ongoing support from the vendor. This means a commitment towards 
+                driver and firmware updates for a reasonable amount of time in the future, and a track 
+                record of being able to deliver.</li>
+            </ul></p>
+            
+        	<p>A more detailed answer is in the documentation at the entry under 
+        	<a href="https://GrapheneOS.org/#device-support">device support</a>.</p>
+        	
+           	<h3 id="will-you-support-oneplus">
+                <a href="#will-you-support-oneplus">"Will you support my OnePlus Device?"</a>
+            </h3>
+        	<p>Please see <a href="#will-you-support-my-device">the above</a>. OnePlus devices do not meet 
+        	the minimum requirements for support on GrapheneOS, and cannot be supported until they do.</p>
+        	
+            <h3 id="will-you-support-pixel-3a">
+                <a href="#will-you-support-pixel-3a">"I read that the Pixel 3a and 3a XL will have all the
+                features you want. Will you support it?</a>
+            </h3>
+            <p><a href="https://GrapheneOS.org/releases#bonito-stable">Yes.</a></p>
+            
+            <h3 id="will-you-sell">
+                <a href="#will-you-sell">"Do you sell phones with GrapheneOS preloaded?"</a>
+            </h3>
+            <p>No. GrapheneOS is not a business, but rather a research and engineering project. Your 
+            easiest bet to get a phone with GrapheneOS is to purchase one of the officially supported 
+            devices as a bootloader-unlocked phone and simply run the installer. For security, Auditor can
+            be used to verify the authenticity and integrity of the installation. A start-to-finish 
+            installation guide, which includes precompiled binary images, installer scripts, and digital 
+            certificates to verify the integrity and authenticity of the images is included with the 
+            <a href="https://GrapheneOS.org/install">installation guide.</a> Compiling from source is not 
+            required to run GrapheneOS. The installer script will automate the process of flashing the OS 
+            onto the phone.</p>
+            
+            <h3 id="what-will-i-need-before-buying">
+                <a href="#what-will-i-need-before-buying">"What will I need to know before I purchase a 
+                phone?"</a>
+            </h3>
+            <p>Devices purchased for running GrapheneOS should be <i>bootloader</i> unlocked. Devices that 
+            are sold by Verizon are <i>bootloader</i> locked and cannot be unlocked to allow them to be 
+            flashed. Err on the side of caution: prior to purchasing, ask the seller if the phone has been 
+            <i>bootloader</i> unlocked for flashing.</p>
+            
+            <h3 id="is-it-ready">
+                <a href="#is-it-ready">"Is it ready to be used as a daily driver OS? What do you mean 'not 
+                production ready?'"</a>
+            </h3>
+            <p>Resoundingly yes, Graphene OS is stable and feature-rich enough to be utilized as a daily 
+            driver operating system with two considerations. The disclaimer about being not production 
+            ready is due to the following: 
+            <ul>
+                <li>An app store (F-Droid, Yalp, Google Play) is not included by default. The choice to 
+                avoid including one was to allow the user to choose not to have one at all if so desired. 
+                The lack of an app store requires tha t the user either manually install and update their 
+                apps, find a trustworthy source for apps, or install an app store by obtaining the ".apk" 
+                from a trustworthy source, and installing it by tapping the ".apk" file. An app store may be
+                included in future builds when one can be found or created that satisfies security and code
+                quality requirements set by the project.</li>
+                <li>Apps that are hardcoded to be dependent on some Google software framework may not run at
+                all, as GrapheneOS does not include it for privacy reasons. Some apps that do utilize but are
+                 not dependent on Google software framework may run normally, but experience minor bugs such
+                 as not displaying notifications until their respective apps are opened due to Push 
+                 Notifications depending on Google Play, or consuming slightly more battery than normal 
+                 because they must run in the background constantly, instead of sleeping until Google Play 
+                 delivers a push notifications to tell the app to wake up and retrieve messages.</li>
+            </ul></p> 
+            
+            <h3 id="i-bought-a-pixel-back">
+                <a href="#i-bought-a-pixel-back">I bought a Pixel 1 back when the project was called 
+                AndroidHardening or was sold under a now discontinued corporate branding and would like to 
+                run GrapheneOS. What does 'Legacy' support mean?"</a>
+            </h3>
+           
+            <p>Because Pixel 1s lack some of the security features that set the Pixel 2 and 3 apart, such as
+            the hardware-backed keystore, insider access protection, and remote attestation, they will not 
+            have all the security features of the newer devices that do. As time goes on, it becomes 
+            increasingly likely that the vendor will cease to provide firmware patches and updates for these
+            devices. Because of this, the Pixel and Pixel XL would not normally not meet the criteria for 
+            support from GrapheneOS, but have both been included because the project supported them in the 
+            past, and will continue to support them as a migration strategy. They are marked as "Legacy" 
+            for these two reasons. </p>
+            
+            <p>Former users of AndroidHardening or other former incarnations of the project may download 
+            the software packages consisting of pre-compiled binary images with installer scripts at the 
+            <a href="https://grapheneos.org/releases#marlin-stable">releases page</a> under <i>Marlin</i> 
+            (for Pixel XL) or <i>Sailfish</i> (for Pixel) and follow the instructions to install it on 
+            their existing devices. Nexus 5X and 6P phones are no longer supported. </p>
+
+            <h3 id="differences-lineageos-grapheneos">
+                <a href="#differences-lineageos-grapheneos">"What is the difference between LineageOS and 
+                GrapheneOS? Why would I choose GrapheneOS over LineageOS?"</a>
+            </h3>           
+            <p><i>"GrapheneOS is a privacy and security research and engineering project above all."</i> 
+            With GrapheneOS, security hardening and privacy come first and all available development time 
+            goes toward improvements in those areas while supporting only devices carefully chosen for 
+            their security and features such as Verified Boot and Remote Attestation. In the future, the 
+            operating system and user experience may be further locked down as a safeguard against malware,
+            user error, and social engineering. </p>
+
+            <p>LineageOS focuses heavily on permissiveness to allow the user to tinker, and widespread 
+            device support, including many older devices, for which firmware and driver updates are no 
+            longer available or no longer maintained. LineageOS also does not support Android Verified Boot,
+            which is seen as desirable to allow users (or anyone else who has access to the phone) to make 
+            changes as they please. As the goals of a strongly restricted and secure environment and very 
+            careful device selection to select only the devices which have the best security, versus 
+            permissiveness for user customizeability and widespread compatibility are mutually exclusive, 
+            GrapheneOS should not be considered to be a competitor to LineageOS. The two are meant for 
+            different purposes, and different audiences. </p>
+
+            <p>More information on the project and its roadmap is available at the 
+            <a href="https://grapheneos.org/#early-stage-of-development">writeup for development</a>.</a>
+
+            <h3 id="what-about-librem">
+                <a href="#what-about-librem">"What about Purism's Librem 5? How is GrapheneOS different from
+                Librem 5/PureOS?"</a>
+            </h3>
+            
+            <p>The Librem 5 builds on a proprietary ARM SoC and other proprietary components of which the 
+            firmware source code is not open. In contrast to a modern smartphone operating system which runs
+            the applications in their own contained environments, it utilizes the Linux software stack 
+            running the GNOME desktop environment. The desktop software stack (in this case, consisting of a
+            rebranded but otherwise copied-verbatim version of Debian) considers all the apps running in the
+            same space to be trustworthy and offers no application isolation. The Librem 5 does not at this 
+            moment appear to support verified boot, hardware-backed keystore and encryption and no technical
+            information or source code has surfaced on IOMMU setup and mitigations. </p>
+            
+            <p>These design choices and vague promises of a "separate baseband" with the lack of any real 
+            technical information on memory management suggest a haphazard and insecure design, and running 
+            the desktop software stack represents many steps back for privacy and security. Daniel Micay has
+            discussed this on the 
+            <a href="https://old.reddit.com/r/linux/comments/bd2fm7/grapheneos_an_open_source_privacy_and_security/ekxdp76/">/r/linux subreddit</a>.</p>
+          
+            <p>GrapheneOS on the other hand achieves its security via strong application isolation, improved
+            memory management, IOMMU setup, SELinux security policies, and the project seeks to combine the 
+            security features and hardening of the operating system with devices that support Verified Boot,
+            remote attestation, and hardware-bound encryption. </p>
+            
+            <h3 id="will-you-support-librem">
+                <a href="#will-you-support-librem">Will you support the Purism Librem 5?</a>
+            </h3>
+            <p>As per the question on support of devices, to reiterate, devices that will be considered 
+            eligible for GrapheneOS support must have several important things: verified boot, hardware-
+            backed keystore, hardware-bound encryption, full support for ARM SMMU or IOMMU, and ongoing 
+            vendor support in the form of firmware and driver updates. The Purism Librem 5 has none of 
+            these and cannot be supported.</p>
+
+            <h3 id="what-license">
+                <a href="#what-license">"What License is GrapheneOS distributed under?"</a>
+            </h3>
+            <p><ul>
+                <li>The Linux Kernel is distributed under the GPL2 license. </li>
+                <li>Android Open Source Repositories are distributed under the Apache 2 license.</li>
+                <li>New projects are distributed under the MIT License, including Auditor. </li>
+            </ul></p>
+
+            <h3 id="is-successor-to">
+                <a href="#is-successor-to">"Is GrapheneOS a spiritual successor or a fork of a mobile 
+                operating system named after a type of American Pit Viper?"</a>
+            </h3>
+            <p>No. The project predates that and traces its roots to an independent security/hardening 
+            project that was started by Daniel Micay many years ago. At one point, phones that were pre-
+            installed with Daniel's work were sold under a different branding that has since lapsed. 
+            GrapheneOS is the original project that predates this branding and is being continued as a 
+            research and engineering project. </p>
+
+            <h3 id="is-fork-of-lineage">
+                <a href="#is-fork-of-lineage">Is or was GrapheneOS a fork of LineageOS or CyanogenMod?"</a>
+            </h3>
+            <p>No, it is not a fork of LineageOS or CyanogenMod, and never has been. It is a research and 
+            engineering project focused on improving the security and privacy qualities of the Android Open 
+            Source Project and utilizing mobile devices that support the best security. </p>
+<!--BEGIN SECTION 2-->
+            
+            <h2 id="installing-grapheneos">
+                <a href="#installing-grapheneos">Installing GrapheneOS</a>
+            </h2>
+            
+            <h3 id="how-difficult">
+                <a href="#how-difficult">"How difficult is the installation? I've never flashed a phone 
+                before."</a>
+            </h3>
+            <p>It is the same difficulty as as flashing your phone back to the factory operating system. It 
+            is much easier than installing LineageOS. Daniel Micay has included an automated installer 
+            script that will do the heavy lifting for you, and a step-by-step walkthrough is available on 
+            <a href="https://grapheneos.org/install">the project website.</a> You will need to be familiar
+            with the commandline and be able to follow instructions to utilize Android Debug Bridge. 
+            Remember to follow the instructions and lock your bootloader afterward! </p>
+            
+            <h3 id="will-i-lose-my-data-install">
+                <a href="#will-i-lose-my-data-install">"I have had my phone for a while and have been 
+                running the factory operating system, but would like to install GrapheneOS. Will I lose my 
+                data?"</a>
+            </h3>
+            <p>By design, when your phone is unlocked to allow for flashing of the boot loader to install the 
+            operating system onto it, as a safety precaution, your phone will immediately reset itself. This 
+            will cause all data stored on the phone to be lost forever. This is done to prevent an attack where 
+            someone may physically sieze and unlock the bootloader, install mallware or modify the operating 
+            system to steal your password, then and present it to you as if nothing has happened. </p>
+            
+            <p>To prevent this, you can back up your files saved on your shared storage by connecting it to a 
+            trustworthy USB storage device located in a physically secure and trustworthy environment such as 
+            your private home to move your photos and shared storage to it, and back up your apps using Android 
+            Debug Bridge, which includes a <code>backup</code> utility specifically for backing up your 
+            application data, which you can restore in place later.</p>
+            
+            <p>Signal Private Messenger includes its own backup system which allows recovery of your verified 
+            contacts. See <a href="#signal">"Signal"</a> below.</p>
+            
+            <h3 id="adb-finding-no-devices">
+                <a href="#adb-finding-no-devices">"I've downloaded the latest version of adb, set my phone to 
+                developer mode and turned USB debugging on, but when I plug it in and run <code>./adb 
+                devices</code> it returns a warning about no permissions. Help!"</a>
+            </h3>
+            <p> If you are on Linux, you will need the correct udev rules to allow adb to communicate with the 
+            devices or to run adb as root. Running adb as root is not recommended, and the proper way to do it 
+            is to set a udev rule to allow the computer to talk to the phone. </p>
+            
+            <p>The workflow for adding the correct adb rules for your will vary by your operating system, 
+            although all of them are somewhat similar. Void Linux has a tutorial at the 
+            <a href="https://wiki.voidlinux.org/Android/" TARGET="_blank">Void Linux Wiki</a>. 
+            Arch Linux has documentation at the Arch Linux Wiki under 
+            <a href="https://wiki.archlinux.org/index.php/Android_Debug_Bridge#Adding_udev_rules" TARGET="_blank">Adding udev Rules</a>. 
+            
+            <h3 id="installation-hangs">
+                <a href="#installation-hangs">When I type in <code>flash-all</code> it hangs. What is 
+                happening?"</a>
+            </h3>
+            <p>Your <code>/tmp</code> partition may be full or too small. Ensure you see the section 
+            <a href="/install"> for how to fix this problem.</a>
+
+<!--BEGIN SECTION 3-->
+            
+            <h2 id="security-in-grapheneos">
+                <a href="#security-in-grapheneos">Security in GrapheneOS</a>
+            </h2>
+            
+            <h3 id="importance-of-verified-boot">
+                <a href="#importance-of-verified-boot">"What is the importance of verified boot and 
+                attestation?"</a>
+            </h3>
+            <p>If an attacker has successfully exploited and gotten privileged (root) access on your device,
+            Android Verified Boot (also called AVB) is designed to prevent a root-level compromise from 
+            persisting and be able to revert the system to a known good state next reboot utilizing error 
+            correction codes. This would require an attacker to compromise it a second time after a reboot,
+            before they can continue to do nasty things to your phone. </p>
+            
+            <p>Remote Attestation adds more to this by utilizing some of the hardware security features in 
+            modern phones to detect if unauthorized changes have occurred. In conjunction with each other, 
+            these offer some means to guard against tampering with the operating system. </p>
+            
+            <p>A more detailed overview of verified boot is available at the official documentation about 
+            <a href="https://source.android.com/security/verifiedboot">Android Verified Boot</a>.
+            
+            <h3 id="hardened-malloc">
+                <a href="#hardened-malloc">"I have been told about a 'hardened malloc' specific to the 
+                project. What is it?"</a>
+            </h3>
+            <p>The hardened malloc is a memory allocator for the kernel which is designed to protect against
+            memory corruption vulnerabilities. The one used in GrapheneOS is an all-new design developed by 
+            Daniel Micay, although it is similar in design to OpenBSD's malloc. More detailed and technical 
+            information on the purpose and design of the hardened memory allocator, as well as building it 
+            and what it can do can be found at the manifest 
+            <a href="https://github.com/GrapheneOS/hardened_malloc/blob/master/README.md">at the Github page.</a></p>
+            
+            <h3 id="cipher-on-disk">
+                <a href="#cipher-on-disk">"What is the cipher used to encrypt data on the drive?"</a>
+            </h3>
+            <p>The file data is encrypted with AES-256 in XTS mode. Depending on the device, the filenames 
+            are encrypted with AES-256-CTS, or AES-256-HEH. On the Pixel 3 and 3 XL, the Titan M is used to 
+            verify the lock screen password as well as well as derive the symmetric keys to decrypt the 
+            information stored on the solid state drives. Keys are of 256-bit length. The Advanced 
+            Encryption Standard cipher is a thoroughly modern, well-tested cipher that has withstood 20 
+            years of public cryptanalysis, and may be used with confidence. </p>
+            
+            <p>File-Based Encryption (FBE) has several advantages over Full-Disk Encryption (FDE). Access to
+            the unlocked files can be granularized to allow certain profiles on the phones to be given 
+            access to only what they need to access, without giving access to the entire drive and everything
+             on it as would be the case with Full-Disk Encryption. This also allows the keys to be kept out 
+             of memory when they are not in use and to limit the amount of access that profiles have to the 
+             files. Layering of File-Based Encryption inside of Full Disk Encryption has been discussed by 
+             Daniel Micay but has been determined not to be practical nor offer much appreciable security 
+             benefit for the increased complexity and attack surface. </p>
+            
+            <h3 id="titan-m">
+                <a href="#titan-m">"What is the Titan M? Why is it so important? How does GrapheneOS use it?"</a>
+            </h3>
+            <p>The primary selling point of the Titan M hardware security module is the Strongbox Keymaster, 
+            which allows secret keys to be created, stored and used within the chip, where even root on the 
+            operating system cannot extract them. The physical separated chip offers significantly less 
+            attack surface than ARM Trusted Execution Environment. Auditor on GrapheneOS starting with 
+            version 11 of the Auditor App uses the Strongbox Keystore API for verifying the operating system 
+            if it is present. This security feature has extensive functionality and could be used for secure 
+            payments, public key cryptography, or allowing apps to use the Titan M to save data to the drive
+            encrypted while the phone is locked, without a compromised operating system being able to steal 
+            the keys. For example, one application that this would benefit from would be to allow the phone 
+            to take pictures without needing to handle the keys to the drive. The chip is physically hard-
+            wired to the buttons on the phone, so user input to it cannot be spoofed by a malicious app or a
+            compromised operating system.</p>
+            
+            <p>It provides 'insider attack protection' which requires the owner to authenticate to the chip 
+            using a password that is chosen by the owner, before the chip will allow the firmware of the 
+            device to be updated. This is intended to dissuade a situation similar to the <i>2015 Apple v. 
+            FBI</i> case, where a malicious actor could confiscate the device, find an exploit to gain 
+            control of the operating system, then use legal or extralegal pressure to force Google to issue 
+            a rogue firmware update that would disable the security features. Since the phone cannot accept 
+            the updates without the owner's password, this removes the vendor from being a third party in 
+            that particular attack vector.</p>
+            
+            <p>The Titan M is also used for verifying of the user's password and for drive encryption. The 
+            chip creates and stores a secret token. The chip will not calculate and release the secret token 
+            that the phone will use to derive the keys to the drive until it gets the correct password. 
+            Since the chip uses its own internal timer built into it, it can enforce a progressively 
+            lengthening timeout to deter brute force attacks more reliably than relying on the strength of 
+            the password and a work factor such as a key derivation function alone. This also presents a 
+            safer alternative to keeping the keys in a continually precarious state and erasing them should 
+            ten incorrect guesses at the pincode be made. Unlike the factory image, GrapheneOS supports the 
+            use of long passphrases to allow for both security measures of a cryptographically strong 
+            passphrase and hardware bound encryption to be used together, combining hardware-backed 
+            encryption with a cryptographically strong passphrase.  </p>
+            
+            <p>The Titan M is incorporated into the boot process by storing the last good version of the 
+            operating system within itself and not allowing the phone to be downgraded to an earlier 
+            revision to disable or roll back security protections. </p>
+            
+            <p>Factory Reset Protection to discourage steal-and-sell attacks is not yet implemented on 
+            GrapheneOS, but is also one of the features it supports and may be implemented at a future 
+            date.</p>
+            
+            <h3 id="mitigating-baseband-exploits">
+                <a href="#mitigating-baseband-exploits">"Does GrapheneOS have any protections from Baseband
+                Exploits?"</a>
+            </h3>
+            <p>GrapheneOS selects devices that allow for baseband isolation via IOMMU which is capable of 
+            limiting direct memory access from the devices, and utilizes open source device drivers which 
+            can be verified for their correctness. Additionally, the radios (cellular, Wi-Fi, Near Field 
+            Contact, Bluetooth) are stateless. The operating system will load the binary firmware each time
+            it boots, and the devices will validate the firmware. If they ever become compromised, rebooting
+            the phone should reset them to the previous state, and verified boot should restore the operating 
+            system to the state it was in when it was signed and the Android Verified Boot key was 
+            provisioned.</p>
+            
+            <p>Secondly, should they ever turn evil, the IOMMU is designed to limit the access they have to 
+            host memory, so the devices such as the phone's radios and modems, SSD, or graphics processor 
+            cannot simply read or write to host memory at will unless the driver allows it to, and only to 
+            locations the driver will allow. </p>
+            
+            <h3 id="graphene-versus-others">
+                <a href="#graphene-versus-others">"How does GrapheneOS compare to the latest iPhone with iOS
+                or Samsung Knox/Stock Android/Google Android/Qubes-OS/Windows Server with Microsoft Integrity
+                Control/Hardened Gentoo/[insert my favourite security OS here]?"</a>
+            </h3>
+            <p>This is a very complex and multifaceted, very technical discussion and is outside the scope of
+            a 30-second answer page, so Daniel Micay has written a brief collection of his thoughts on the 
+            subject <a href="https://old.reddit.com/r/GrapheneOS/comments/bddq5u/os_security_ios_vs_stock_android/ekxifpa/">on the project subreddit</a> 
+            which may be able to provide a bit of perspective. </p>
+            
+            <h3 id="long-passphrases">
+                <a href="#long-passphrases">"Do you support long passphrases on GrapheneOS as an unlock 
+                mechanism?"</a>
+            </h3>
+            <p>Yes, long passphrases consisting of many dictionary words <i>(using the 
+            <a href="https://xkcd.com/936">"Correct Horse, Battery Staple"</a> approach)</i> work perfectly 
+            fine. The limit is 64 characters.</p>
+            
+            <h3 id="i-would-like-x-security-app">
+                <a href="#i-would-like-x-security-app">"I would like to have [afwall/XPrivacyLua/Xposed/some
+                other security app]. How could I go about doing that?"</a>
+            </h3>
+            <p>You don't.</p>
+            
+            <p>By design, Android assumes that the third-party apps running on it are untrustworthy and must
+             be confined to their own self-contained environments. This allows the operating system to 
+             enforce its own policy over them. These "security" apps such as Xprivacy and afwall are little 
+             more than security theatre, or to work, require more privilege over other apps. This is mutually 
+             exclusive with the goals of application isolation. </p>
+            
+            <p>Exposure of root access to an application or to allow one app to break out of its isolation 
+            is defective by design, and is harmful to the security and privacy of your phone. GrapheneOS is 
+            implementing its own networking controls that are handled via a privileged extension, which have 
+            been committed but still need to be implemented at the UI level. </p>
+            
+            <h3 id="what-tweaking-needed">
+                <a href="#what-tweaking-needed">"What security tuning or tweaking does GrapheneOS require 
+                off the bat for security or privacy enhancements?"</h3>
+            </h3>
+            <p>None. GrapheneOS assumes a "secure by default" approach. The default search engine is Google 
+            but may be set to Startpage or DuckDuckGo if you prefer.</p>
+            
+            <h3 id="do-you-provide-rooting">
+                <a href="#do-you-provide-root">"Do you provide root?"</a>
+            </h3>
+            <p>No, root is not provided. Root is discouraged in a security-focused environment to minimize 
+            access and privilege as much as possible. The defaults and policies have been very carefully 
+            and very deliberately set by a developer and security researcher with many years of experience 
+            and for specific reasons. Changing them will make your device less secure, not more.</p>
+            
+            <p>Granting root permission to any app will mean that the moment that app is exploited, the 
+            entire operating system will be compromised, and the exploited app can read then the data out of 
+            the other apps that it normally wouldn't be able to without root. Android already distrusts third-
+            party apps, which represents a massive increase in the amount of security that the operating 
+            system can provide when running programs that may not be trustworthy. </p>
+            
+            <p>Verified Boot will attempt to undo any of the changes that you make to the operating system 
+            to roll it back to the last known good image that was signed and verified by the developers. 
+            This means in order to have persistent changes made as root, you would need to disable Verified 
+            Boot and leave your bootloader unlocked. Essentially, root access on GrapheneOS undoes most of 
+            the hardening and security work that has gone into it and is at odds with the project goals.</p>
+            
+            <h3 id="phone-unlock-2fa">
+                <a href="#phone-unlock-2fa">Could I use a fingerprint combined with a pin-code to unlock my 
+                phone as a form of second-factor authentication?</a>
+            </h3>
+            <p>This feature has been requested frequently, and is considered being added in a future update.
+            </p>
+
+<!--BEGIN SECTION 4-->
+            
+            <h2 id="day-to-day-use">
+                <a href="#day-to-day-use">Day to Day Use</a>
+            </h2>
+            
+            <h3 id="update-flashing">
+                <a href="#update-flashing">"Do I need to unlock the bootloader to update or flash again?"</a>
+            </h3>
+            <p>No. All software releases are signed by Daniel Micay's software release keys, then are sent 
+            out over the air from the update server. Your phone will automatically download and install 
+            updates as they are released. You may choose whether or not to have the phone reboot after the 
+            update has been installed automatically. </p>
+            
+            <h3 id="what-apps-included">
+                <a href="#what-apps-included">What does the operating system come with?"</a>
+            </h3>
+            <p>"Out of the box", the operating system comes with an app for SMS messages and a Phone app, a 
+            search app, Vanadium Browser, Auditor, Mail, Calendar, Photo Gallery, Calculator, Camera, and a 
+            File Browser. An app store (such as F-Droid, Yalp, or Google Play) is not included by default, 
+            but may be added by the user by obtaining, verifying, and installing the .apk from a trustworthy 
+            source. Simply tap on the .apk file to install it and confirm the installation. </p>
+            
+            <h3 id="google-cam">
+                <a href="#google-cam">Will the Google Camera be available on Graphene OS?</a>
+            </h3>
+            <p>The Google Camera application which uses software compositing to take pictures that are of 
+            much higher quality than the phone's Megapixel rating would otherwise do without are non-free, 
+            and cannot be included in GrapheneOS at this time. They may be optionally added by the user. </p>
+            
+            <h3 id="what-apps-will-it-run">
+                <a href="#what-apps-will-it-run">"What apps will GrapheneOS run?"</a>
+            </h3>
+            <p>GrapheneOS will run most apps for Android, with the exception of some very old Android apps 
+            that may have been written for obsolete versions of Android and are written insecurely or make 
+            unsafe calls. Apps that make unsafe calls or attempt to violate the security policies that 
+            GrapheneOS has set will be halted immediately by the operating system, and a notification that 
+            the application has stopped working delivered to the user. Most apps from F-Droid will run. 
+            GrapheneOS will run proprietary apps such as Spotify and some banking apps if they are loaded 
+            from .apk so long as they do not have a hard dependency on the absent Google Software Frameworks.
+            </p>
+            
+            <h3 id="signal">
+                <a href="#signal">"Will Signal Private Messenger work?"</a>
+            </h3>
+            <p>Yes, Signal Private Messenger has been extensively tested and is working fine on GrapheneOS. 
+            If you already have Signal installed on your existing device, prior to flashing it, you may opt 
+            to migrate your existing Signal keys using the Backup function in the application under settings. 
+            This will save your Signal data to the phone storage encrypted with a 30-digit passcode which is 
+            generated randomly and only displayed to the user once. It includes not only your chat histories, 
+            but also your cryptographic keys, so when you restore, you won't have to start over with no 
+            verified contacts. </p>
+            
+            <p>If you have set a registration lock, be sure that you have not forgotten your registration 
+            lock pincode prior to flashing the device, as it will ask you for the registration pincode when 
+            you install and set up the application on your new device. Make sure that the backup is copied 
+            into the directory you obtained it from when you start Signal for the first time on the new 
+            device. If you do not restore your old backup, you will not have the option to do so later. </p>
+            
+            <h3 id="change-boot-splash-logo">
+                <a href="#change-boot-splash-logo">"Is there any way to change the boot splash logo so the 
+                white 'Google' doesn't appear when my Pixel boots?"</a>
+            </h3>
+            <p>Unfortunately not, it is a part of the boot loader. </p>
+            
+            <h3 id="fdroid-asks-permission">
+                <a href="#fdroid-asks-permission">I installed F-Droid as an app store. But F-Droid asks me 
+                to manually tap "Install" every time I update an app. Why is this?"</a>
+            </h3>
+            <p>The F-Droid Privileged extension which bypasses the security checks to allow for unattended 
+            application installs is not installed. In the future a different application store may be
+            implemented. </p>
+            
+            <h3 id="support-vpns">
+                <a href="#support-vpns">"Does GrapheneOS support VPNs and VPN apps?"</a>
+            </h3>
+            <p>Yes. Orbot, OpenVPN for Android, the userspace implementation of WireGuard, and the Private 
+            Internet Access VPN app have all been tested and work.</p>
+            
+            <h3 id="can-i-use-trezor">
+                <a href="#can-i-use-trezor">"I want to use Trezor with my Phone. Will you support that?"</a>
+            </h3>
+            <p>Yes, Trezor Model Ts are tested and working with GrapheneOS.</p>
+            
+            <h3 id="can-i-use-yubikeys-">
+                <a href="#can-i-use-yubikeys">"I use Yubikeys for E-Mail Encryption or GPG signing. Will they work?"</a>
+            </h3>
+            <p>Yes, Yubikeys work by both USB and NFC with OpenKeyChain and K-9 Mail for GPG Mail Encryption, 
+            Signing and Decryption. No additional configuration is required. Download and import your PGP 
+            Public Key Blocks (aka OpenPGP Digital Certificates), tap the option to add secret keys from a 
+            token, follow the steps onscreen and they will be detected and linked automatically. </p>
+            
+            <h3 id="can-i-use-solokeys">
+                <a href="#can-i-use-solokeys">"I want to use Solokeys for U2F with my Phone. Have they been tested?"</a>
+            </h3>
+            <p>Sorry, they haven't been working yet. Keep checking back!</p>
+            
+            <h3 id="signature-spoofing-microg">
+                <a href="#signature-spoofing-microg">Will you support Signature Spoofing so I can use 
+                [insert favourite app here] from MicroG?"</a>
+            </h3>
+            <p>While it could be done at the cost of requiring the user to build the OS from source and 
+            insert signature spoofing functionality at that time, signature spoofing is not supported. It 
+            destroys the application security model by allowing the apps to bypass signature checks, which 
+            could open up the possibility for a single app to install malware to the phone. Both security 
+            and privacy-wise, you would be better off using Google's OS than spoofing signatures. </p>
+            
+            <h3 id="can-i-tether">
+                <a href="#can-i-tether">"Will you support tethering and hotspot?"</a>
+            </h3>
+            <p>Absolutely. Hotspot and tethering have been tested and work fine. </p>
+            
+            <h3 id="update-on-wifi-only">
+                <a href="#update-on-wifi-only">"Can I set the update client to only download on WiFi?"</a>
+            </h3>
+            <p>Yes, under the Seamless Update App, set it for unmetered networks only to prevent the update 
+            client from using up your cellular data plan.</p>
+            
+            <h3 id="why-chromium">
+                <a href="#why-chromium">"Why a derivative of Chromium? Why not Firefox?"</a>
+            </h3>
+            <p>GrapheneOS uses its own version, Vanadium. The included browser is used for webview and 
+            adding other browsers will add an increase in attack surface. Vanadium will have more hardening 
+            work done to it that will require integration with the operating system. Chromium was chosen as 
+            a base for security reasons for its better sandboxing and architecture. </p>
+            
+            <p>A more detailed answer is available from Daniel Micay on the 
+            <a href="https://old.reddit.com/r/GrapheneOS/comments/bg03np/browsers/elhivgg/">project subreddit</a> 
+            which discusses issues such as browser fingerprinting issues common to both Tor Browser and 
+            Firefox, sandboxing, sidechannel attacks, and why Chromium was chosen to be the base for 
+            Vanadium and as GrapheneOS' browser. </p>
+
+<!--BEGIN SECTION 5-->
+
+            <h2 id="local-verification-with-auditor">
+                <a href="#local-verification-with-auditor">Local Verification With Auditor</a>
+            </h2>
+            
+            <h3 id="auditor-false-positives">
+                <a href="#auditor-false-positives">"Barring tampering with the OS what are some reasons that 
+                could cause the auditor app to fail and produce incorrect results even if the phone is ok?"</a>
+            </h3>
+            <p>There are a number of reasons that the auditor app could fail. <ul>
+                <li>If the camera is shaking around too much or looking at the QR code from a skewed 
+                perspective, it could cause the QR code to be read incorrectly. This will cause the auditor 
+                app to fail. </li>
+                <li>Bad lighting conditions or being too far away could cause the camera to pick up the QR 
+                code incorrectly, which will also result in a failed audit. </li>
+                <li>Holding either device at too much of an angle when scanning the QR codes may cause the 
+                QR code to be read wrong and the audit to fail. </li>
+                <li>The most common culprit for the attestation server to think a device has failed remote 
+                attestation is time difference. If the time and date on your phone is not set correctly, 
+                attestation will fail. </li>
+            </ul></p>
+            
+<!--BEGIN SECTION 6-->
+
+            <h2 id="auditor-remote-verification">
+                <a href="#auditor-remote-verification">Remote Verification with the Attestation Server</a>
+            </h2>
+            
+            <h3 id="how-to-audit-without-phone">
+                <a href="#how-to-audit-without-phone">"I don't have a second phone. How will I audit 
+                myself?"</a>
+            </h3>
+            <p>You can use the <a href="https://attestation.app">attestation server</a>, which is also 
+            operated by the project. You will need an E-mail address you trust. Periodically, at a time 
+            interval set by you, the attestation server will ping your device and issue it a challenge it 
+            must respond to using the hardware-backed remote attestation. If the device fails to check in 
+            after the timer is up, or the operating system has been tampered with and the remote attestation 
+            fails, the attestation server will send you an E-mail to warn you that the phone has for any 
+            reason failed the audit. </p>
+
+            <p>You should make sure that the E-mail account you receive your attestation notifications on is 
+            not the same E-mail account accessible from your phone.</p>
+
+<!--BEGIN SECTION 7-->
+
+            <h2 id="feedback">
+                <a href="#feedback">Bugs, Troubleshooting, Feedback and Community</a>
+            </h2>
+            
+            <h3 id="error-widgets-not-responding">
+                <a href="#error-widgets-not-responding">"After I flash the operating system on my Pixel 2 or 
+                Pixel 3 and switch it on, I cannot access the app info or widgets by tapping and holding the 
+                icons."</a>
+            </h3>
+            <p>This is a known bug which is common for the first boot after flashing. The current 'fix' is to 
+            simply reboot the phone a second time. </p>
+            
+            <h3 id="contact">
+                <a href="#contact">"I have a [question/feedback/great idea/fan mail] for GrapheneOS! Where 
+                could I discuss it?"</a>
+            </h3>
+            <p>GrapheneOS maintains a number of community outlets. To get in touch with the project directly, 
+            head to the <a href="/contact">contact</a> page. </p>
+            <ul>
+                    <li>There is a subreddit available at 
+                    <a href="https://reddit.com/r/GrapheneOS/">/r/GrapheneOS</a>.</li>
+                    <li>There is an IRC channel. Drop in at any time on the channel <code>#GrapheneOS</code> 
+                    on <code>irc.freenode.net</code> to say hello, or if you prefer Matrix, the channel is 
+                    bridged to it at <code>#Graphene-OS:matrix.org</code>!</li>
+                    <li>The project has a <a href="https://github.com/GrapheneOS">source repository on 
+                    Github</a> for source review where the code may be reviewed and reports filed. </li>
+            </ul>
+            </p>
+            
+            <h3 id="error-pixel-3-camera-app">
+                <a href="#error-pixel-3-camera-app">"I own a Pixel 3. The camera app on it sometimes lags 
+                when I take a picture, or crashes when I switch between the front and rear camera or vice-
+                versa. What gives?"</a>
+            </h3>
+            <p>This is also a known bug, as the camera app is borrowed from the Android Open Source Project 
+            camera app and lacks many of the Google Camera software improvements. A somewhat ugly workaround 
+            is to close, then restart the camera app after changing from the front to the rear camera. If 
+            other applications dependent on the camera stop working with the camera, close and restart them. 
+            A new camera app will be found soon, as the one included is just an interim measure. This should 
+            not affect the security of the rest of the phone but occasionally may be inconvenient. </p>
+            
+            <h3 id="found-a-bug">
+                <a href="#found-a-bug">"I found a bug. How do I report it?"</a>
+            </h3>
+            <p>Bugs may be reported for their respective projects at the 
+            <a href="https://github.com/GrapheneOS">Github page</a> by filing an issue with the 'bug' tag. 
+            </p>
+            
+            <h3 id="sprint-google-fi-problems">
+                <a href="#sprint-google-fi-problems">"I'm on Sprint, flashed GrapheneOS and my phone will no 
+                longer connect to the cell network! Help!"</a>
+            </h3>
+            <p>Sprint, Google Fi, Verizon and some mobile networks require proprietary drivers to be 
+            installed in the operating system. These drivers occupy highly privileged positions in the 
+            operating system and present a security (read: service provider backdoor) hazard. GrapheneOS 
+            does not include them for this reason. These networks are not compatible with GrapheneOS. </p>
+            
+            <h3 id="want-to-use-different-carrier">
+                <a href="#want-to-use-different-carrier">"I use Carrier <i>XYZ</i>. Will GrapheneOS support 
+                that?"</a>
+            </h3>
+            <p>If your carrier does not require proprietary and privileged drivers to operate with their 
+            network, GrapheneOS will work with it so long as your handset supports the frequency your 
+            carrier uses. This is set by the baseband processor in your cellphone's software-defined 
+            cellular radio, and is not set by the operating system.</p>
+
+            <h3 id="yellow-screen">
+                <a href="#yellow-screen">"I've flashed the operating system, and now every time my phone 
+                boots, even though I locked the boot loader, it presents me with a yellow screen instead of 
+                the orange one and warns about my phone having a different operating system installed. Has 
+                my OS been tampered with? Why is this?"</a>
+            </h3>
+            <p>This is normal and expected behaviour, as the phone is now running a different operating 
+            system than the factory one to the one installed on the phone by the manufacturer. If you see 
+            this screen, it is a good sign, as it indicates that the Android Verified Boot is switched on 
+            and working. </p>
+
+            <p>If you successfully verified the installer you downloaded, and verified that the keys that 
+            signed it really were Daniel Micay's keys, simply skip the warning, as everything is working as 
+            it was originally intended to. If you have doubts about the integrity of the operating system, 
+            utilize the Auditor App for remote attestation to verify whether or not it worked. The Auditor 
+            App utilizes the phone's hardware remote attestation features to detect compromise or 
+            unauthorized changes to the OS and report them if they are detected. </p>
+
+            <h3 id="orange-warning-screen">
+                <a href="#orange-warning-screen">I've flashed the operating system, and now every time my 
+                phone boots, it presents me with an ominous-looking orange screen and a cryptic warning 
+                about 'software integrity not guaranteed.' What's happening?"</a>
+            </h3>
+            <p>If you see this orange screen, the phone is telling you that the boot loader has been left 
+            unlocked, which disables security measures such as Android Verified Boot. This allows persistent 
+            changes to be written to the operating system at will. During the installation process of 
+            GrapheneOS, unlocking the bootloader is a prerequisite to allowing the installer to run, but it 
+            is crucially important that as soon as the installer has completed, the bootloader should be 
+            locked again immediately. Your phone should never be used if your bootloader is unlocked; doing 
+            so nullifies all the security benefits of having Verified Boot, and is very unsafe!</p>
+
+            <p>Visit the <a href="https://grapheneos.org/install#locking-the-bootloader">installation guide 
+            on locking the bootloader</a> to find out how to fix this issue. Each time the bootloader is 
+            locked or unlocked, as a safeguard the phone will be reset and all the data stored on the phone's 
+            drive, such as photos, E-mails, text messages, saved passwords, and your Two-Factor 
+            Authentication Tokens will be lost forever. If you have accidentally started using a phone with 
+            an unlocked bootloader and saved data to it that you do not want to lose, you should save the 
+            data by either utilizing the <code>adb backup</code> or <code>adb pull</code> utilities from 
+            Android Debug Bridge to retrieve the files from the phone.</p>
+        </div>
+        <footer>
+            <a href="/"><img src="https://grapheneos.org/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
+            <ul id="social">
+                <li><a href="https://twitter.com/GrapheneOS">Twitter</a></li>
+                <li><a href="https://github.com/GrapheneOS">GitHub</a></li>
+            </ul>
+        </footer>
+    </body>
+</html>
