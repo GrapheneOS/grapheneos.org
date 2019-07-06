@@ -1,15 +1,19 @@
-#!/bin/bash -x
+#!/bin/bash
 
 set -o errexit
 
 remote=www-data@grapheneos.org
-current=$(ssh $remote readlink html)
+active=$(ssh $remote readlink html)
 
-if [[ $current = html_a ]]; then
+if [[ $active = html_a ]]; then
     target=html_b
 else
     target=html_a
 fi
+
+echo active is $active
+echo target is $target
+echo
 
 rsync -rcve ssh --delete static/ $remote:$target
 ssh $remote chmod -R a+rX $target
