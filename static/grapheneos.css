@@ -5,6 +5,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    min-height: -webkit-fill-available;
     font-family: Roboto, sans-serif;
     background-color: #fafafa; /* grey50 */
     color: rgba(0, 0, 0, 0.87); /* 87% black */
