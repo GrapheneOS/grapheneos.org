@@ -11,7 +11,6 @@ else
     target=html_a
 fi
 
-ssh $remote rm -rf $target
-scp -r static $remote:$target
+rsync -rcve ssh --delete static/ $remote:$target
 ssh $remote chmod -R a+rX $target
 ssh $remote ln -snf $target html
