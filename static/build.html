@@ -86,6 +86,14 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <a href="#development-guidelines">Development guidelines</a>
+                    <ul>
+                        <li><a href="#programming-languages">Programming languages</a></li>
+                        <li><a href="#code-style">Code style</a></li>
+                        <li><a href="#library-usage">Library usage</a></li>
+                    </ul>
+                </li>
             </ul>
 
             <h2 id="build-dependencies">
@@ -554,6 +562,121 @@ export PATH="$PATH:$HOME/sdk/tools:$HOME/sdk/tools/bin:$HOME/sdk/platform-tools:
             <p>It's possible to run the whole standard CTS plan with a single command, but running
             specific modules is recommended, especially if you don't have everything set up for
             the entire test suite.</p>
+
+            <h2 id="development-guidelines">
+                <a href="#development-guidelines">Development guidelines</a>
+            </h2>
+
+            <h3 id="programming-languages">
+                <a href="#programming-languages">Programming languages</a>
+            </h3>
+
+            <p>The following programming languages are acceptable for <strong>completely
+                new</strong> GrapheneOS projects:</p>
+            <ul>
+                <li>Kotlin for apps and any services closely tied to the apps, now that it's not
+                    only officially supported by the Android SDK and Android Studio but also the
+                    default language with Kotlin exclusive enhancements to the APIs</li>
+                <li>Web applications must be entirely static HTML/CSS/JavaScript. TypeScript would
+                    make sense at a larger scale but there are no plans for any large web
+                    applications.</li>
+                <li>Rust with <code>no_std</code> for low-level code used in a hypervisor, kernel,
+                    daemon, system library, etc. Keep in mind that low-level code is to be avoided
+                    whenever a higher language language is better suited to the job. In general,
+                    the project aims to avoid creating more low-level code manually dealing with
+                    memory ownership and lifetimes in the first place.</li>
+                <li>C in rare cases for very small and particularly low-level projects without
+                    opportunities to reduce the trusted computing base for memory corruption to
+                    any significant degree with Rust, such as for the hardened_malloc project</li>
+                <li>arm64 assembly in extremely rare cases where C or Rust aren't usable with
+                    compiler intrinsics</li>
+                <li>Python 3 for small (less than 500 lines) development-related scripts that are
+                    not exposed to untrusted input. It's never acceptable to use it for
+                    client-side code on devices or for servers. It isn't used on the servers even
+                    for non-application-server code.</li>
+                <li>Bash for tiny (less than 200 lines) build scripts without any non-trivial
+                    logic where Python would be an annoyance.</li>
+            </ul>
+
+            <p>Much of the work is done on existing projects, and the existing languages should be
+            used unless there are already clear stable API boundaries where a different language
+            could be used without causing a substantial maintenance burden. The following
+            languages are typical from most to least common: Java, C++, C, JavaScript, arm64
+            assembly, POSIX shell, Bash.</p>
+
+            <h3 id="code-style">
+                <a href="#code-style">Code style</a>
+            </h3>
+
+            <p>For existing projects, use the official upstream code style. Avoid using legacy
+            conventions that they're moving away from themselves. Follow the code style they use
+            for new additions. Some projects have different code styles for different directories
+            or files depending on their sources, in which case respect the per-file style.</p>
+
+            <p>For new projects, follow the official code style for the language. Treat the
+            standard library APIs as defining the naming style for usage of the language, i.e. C
+            uses <code>variable_or_function_name</code>, <code>type_name</code>,
+            <code>MACRO_NAME</code> while JavaScript uses <code>variable_or_function_name</code>,
+            <code>ClassName</code> and <code>CONSTANT_NAME</code>. For Python, follow PEP8 and the
+            same goes for other languages with official styles whether defined in a document or by
+            the default mode for the official formatting tool like <code>rustfmt</code>.</p>
+
+            <p>For cases where there isn't an official or prevailing code style for other things,
+            avoid tabs, use 4-space indents, <code>function_name</code>,
+            <code>variable_name</code>, <code>TypeName</code> and <code>CONSTANT_NAME</code>.
+            Prefer single-line comment syntax other than rare cases where it makes sense to add a
+            tiny comment within a line of code. In languages with the optional braces misfeature
+            (C, C++, Java), always use them. Open braces on the same line as function definitions
+            / statements. Wrap lines at 100 columns except in rare cases where it would be far
+            uglier to wrap the line.</p>
+
+            <p>For JavaScript, put <code>"use strict";</code> at the top of every file, end lines
+            with semicolons (since automatic insertion is poorly designed) and always use
+            <code>const</code> to declare variables, unless they are mutated in which case they
+            should be declared with <code>let</code> but never use <code>var</code> as it is
+            effectively broken. Try to prefer loops with <code>for..of</code>.</p>
+
+            <p>Avoid designing around class inheritance unless it's a rare case where it's an
+            extremely good fit or the language sucks (Java) and it's the least bad approach, but
+            still try to avoid it.</p>
+
+            <p>Use concise but self-explanatory variable names. Prefer communicating information
+            via naming rather than using comments whenever possible. Don't name variables
+            <code>i</code>, <code>j</code>, <code>k</code>, etc. like C programmers. It's okay to
+            use things like <code>x</code> and <code>y</code> for parameters if the function is
+            genuinely that generic and operates on arbitrary values. In general, try to scope
+            variables into the most limited scope (in C or C++, be careful about this when
+            references are taken).</p>
+
+            <p>Write code that's clean and self-explanatory. Use comments to explain or justify
+            non-obvious things, but try to avoid needing them in the first place. In most cases,
+            they should just be communicating non-local information such as explaining why an
+            invariant is true based on the code elsewhere (consider a runtime check to make sure
+            it's true, or an assertion if performance would be an issue). Docstrings at the top of
+            top-level functions, modules, etc. are a different story and shouldn't be avoided.</p>
+
+            <h3 id="library-usage">
+                <a href="#library-usage">Library usage</a>
+            </h3>
+
+            <p>Make extensive usage of well designed standard library modules. For apps, treat
+            Jetpack (androidx) as part of the standard library and make good use of it. For Java,
+            Guava can also be treated as part of the standard library.</p>
+
+            <p>Libraries outside of the standard library should be used very cautiously. They
+            should be well maintained, stable, well tested and widely used. Libraries implemented
+            with memory unsafe languages should generally be avoided (one exception: SQLite).</p>
+
+            <p>Generally, frameworks and libraries existing solely to provide different paradigms
+            and coding patterns are to be avoided. They increase barrier to entry for developers,
+            generally only increase complexity unless used at very large scales (and may not even
+            make things simpler in those cases) and come and go as fads. This is only okay when
+            it's part of the standard libraries or libraries that are considered standard
+            (androidx, Guava) by GrapheneOS and should still be approached cautiously. Only use it
+            if it truly makes the correct approach simpler. Ignore fads and figure out if it
+            actually makes sense to use, otherwise just stick to the old fashioned way if the
+            fancy alternatives aren't genuinely better.</p>
+
         </div>
         <footer>
             <a href="/"><img src="https://grapheneos.org/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
