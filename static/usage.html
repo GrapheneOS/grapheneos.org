@@ -56,6 +56,7 @@
                         <li><a href="#updates-settings">Settings</a></li>
                         <li><a href="#updates-security">Security</a></li>
                         <li><a href="#updates-disabling">Disabling</a></li>
+                        <li><a href="#updates-sideloading">Sideloading</a></li>
                     </ul>
                 </li>
                 <li><a href="#default-connections">Default connections</a></li>
@@ -148,6 +149,30 @@
             enabling Show system via the menu, selecting Seamless Update Client and disabling the
             app.  If you do this, you'll need to remember to enable it again to start receiving
             updates.</p>
+
+            <h3 id="updates-sideloading">
+                <a href="#updates-sideloading">Sideloading</a>
+            </h3>
+
+            <p>Updates can be downloaded via
+            <a href="https://grapheneos.org/releases">the releases page</a> and installed via recovery
+            with adb sideloading. The zip files are signed and verified by the GrapheneOS recovery
+            image.</p>
+
+            <p>To install one by sideloading, first, boot into recovery. You may do this either by
+            using <code>adb reboot recovery</code> from the operating system, or by selecting the
+            "Recovery" option in the bootloader menu.</p>
+
+            <p>You should see the green Android lying on its back being repaired, with the text "No
+            command" meaning that no command has been passed to recovery.</p>
+
+            <p>Next, access the recovery menu by holding down the power button and pressing the volume
+            up button a single time. This key combination toggles between the GUI and text-based mode
+            with the menu and log output.</p>
+
+            <p>Finally, select the "Apply update from ADB" option in the recovery menu and
+            sideload the update with adb. For example:</p>
+<pre>adb sideload blueline-ota_update-2019.07.01.21.zip</pre>
 
             <h2 id="default-connections">
                 <a href="#default-connections">Default connections</a>
