@@ -128,7 +128,7 @@ RWQZW9NItOuQYJ86EooQBxScfclrWiieJtAO9GpnfEjKbCO/3FriLGX3</pre>
             <p>Download the factory images for the device from <a href="/releases">the releases
             page</a>.</p>
             <p>Verify the factory images using the signature:</p>
-            <pre>signify -Cqp factory.pub -x crosshatch-factory-2019.06.23.05.zip.sig &amp;&amp; echo verified</pre>
+            <pre>signify -Cqp factory.pub -x crosshatch-factory-2019.07.01.21.zip.sig ; if [ $? = 0 ] ; then echo "Verified" ; fi</pre>
             <h2 id="flashing-factory-images">
                 <a href="#flashing-factory-images">Flashing factory images</a>
             </h2>
