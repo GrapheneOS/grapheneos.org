@@ -176,6 +176,12 @@
             sideload the update with adb. For example:</p>
 <pre>adb sideload blueline-ota_update-2019.07.01.21.zip</pre>
 
+            <p><strong>You do not need to have adb enabled within the OS or the host's ADB key
+            whitelisted within the OS to sideload an update to recovery. Recovery mode does not
+            trust the attached computer and this can be considered a production feature. Trusting
+            a computer with ADB access within the OS is much different and exposes the device to a
+            huge amount of attack surface and control by the trusted computer.</strong></p>
+
             <h2 id="default-connections">
                 <a href="#default-connections">Default connections</a>
             </h2>
