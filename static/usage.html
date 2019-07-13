@@ -158,8 +158,10 @@
             <a href="https://grapheneos.org/releases">the releases page</a> and installed via recovery
             with adb sideloading. The zip files are signed and verified by recovery, just as they
             are by the update client within the OS. This includes providing downgrade protection,
-            which prevents attempting to downgrade the version and triggering the verified boot
-            downgrade protection.</p>
+            which prevents attempting to downgrade the version. If recovery didn't enforce these
+            things, they would still be enforced via verified boot including downgrade protection
+            on modern devices (Pixel 2 and later) and the attempted update would just fail to boot
+            and be rolled back.</p>
 
             <p>To install one by sideloading, first, boot into recovery. You may do this either by
             using <code>adb reboot recovery</code> from the operating system, or by selecting the
