@@ -252,10 +252,29 @@ git am ../*.patch</pre>
 
             <p>The kernel needs to be built in advance, since it uses a separate build system.</p>
 
+            <p>List of kernels corresponding to officially supported devices:</p>
+
+            <ul>
+                <li>Pixel, Pixel XL: marlin - shared build</li>
+                <li>Pixel 2, Pixel 2 XL: wahoo - split build due to hardening</li>
+                <li>Pixel 3, Pixel 3 XL: crosshatch - split build due to hardening</li>
+                <li>Pixel 3a, Pixel 3a XL: bonito - shared build</li>
+            </ul>
+
+            <p>As part of the hardening in GrapheneOS, it uses fully monolithic kernel builds with
+            dynamic kernel modules disabled. This improves the effectiveness of mitigations like
+            Control Flow Integrity benefiting from whole program analysis. It also reduces attack
+            surface and complexity somewhat including making the build system simpler. The kernel
+            trees marked as using a split build above need to have the device variant passed to
+            the GrapheneOS kernel build script to select the device.</p>
+
             <p>For the Pixel 3, Pixel 3 XL, Pixel 3a and Pixel 3a XL, the kernel repository uses
             submodules for building in out-of-tree modules. You need to make sure the submodule
             sources are updated before building. In the future, this should end up being handled
-            automatically by <code>repo</code>.</p>
+            automatically by <code>repo</code>. There's no harm in running the submodule commands
+            for other devices as they will simply not do anything.</p>
+
+            <p>For example, to build the kernel for marlin:</p>
 
             <p>For example, to build the kernel for blueline:</p>
 
