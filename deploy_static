@@ -15,8 +15,7 @@ echo active is $active
 echo target is $target
 echo
 
-rsync -rcve ssh --delete static/ $remote:$target
-ssh $remote chmod -R a+rX $target
+rsync -rpcve ssh --chmod=D755,F644 --delete static/ $remote:$target
 ssh $remote sync -f $target
 ssh $remote ln -snf $target html
 ssh $remote sync .
