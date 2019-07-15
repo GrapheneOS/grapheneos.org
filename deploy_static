@@ -17,7 +17,7 @@ echo
 
 rsync -rcve ssh --delete static/ $remote:$target
 ssh $remote chmod -R a+rX $target
-ssh $remote sync
+ssh $remote sync -f $target
 ssh $remote ln -snf $target html
 ssh $remote sync .
 
