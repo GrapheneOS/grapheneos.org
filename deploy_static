@@ -19,6 +19,7 @@ rsync -rcve ssh --delete static/ $remote:$target
 ssh $remote chmod -R a+rX $target
 ssh $remote sync
 ssh $remote ln -snf $target html
+ssh $remote sync .
 
 echo
 echo active is now $target
