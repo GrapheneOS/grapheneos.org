@@ -77,6 +77,7 @@
                 <li>
                     <a href="#changelog">Changelog</a>
                     <ul>
+                        <li><a href="#2019.07.16.22">2019.07.16.22</a></li>
                         <li><a href="#2019.07.01.21">2019.07.01.21</a></li>
                         <li><a href="#2019.06.23.05">2019.06.23.05</a></li>
                         <li><a href="#2019.06.14.02">2019.06.14.02</a></li>
@@ -319,6 +320,71 @@
 
             <p>List of tagged releases. Snapshot releases without tags such as early releases of
             the project and early device support releases are not listed.</p>
+
+            <h3 id="2019.07.16.22">
+                <a href="#2019.07.16.22">2019.07.16.22</a>
+            </h3>
+
+            <p>Tags:</p>
+            <ul>
+                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190705.001.2019.07.16.22">PQ3A.190705.001.2019.07.16.22</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL)</li>
+                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190705.003.2019.07.16.22">PQ3A.190705.003.2019.07.16.22</a> (Pixel 3, Pixel 3 XL, other devices)</li>
+                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3B.190705.003.2019.07.16.22">PQ3B.190705.003.2019.07.16.22</a> (Pixel 3a, Pixel 3a XL)</li>
+            </ul>
+
+            <p>Changes since the 2019.07.01.21 release:</p>
+
+            <ul>
+                <li>Vanadium (browser and WebView): update Chromium base to 75.0.3770.143</li>
+                <li>Vanadium: disable media router media remoting by default</li>
+                <li>Vanadium: disable media router by default (avoids the triggering warning about not having Play Services)</li>
+                <li>Vanadium: remove Help &amp; feedback menu entry</li>
+                <li>Vanadium: further string rebranding from Chromium / Chrome to Vanadium</li>
+                <li>Vanadium: disable unused reporting feature at compile-time</li>
+                <li>Vanadium: disable unused remoting feature at compile-time</li>
+                <li>Vanadium (browser and WebView): move from external/chromium to external/vanadium in the GrapheneOS source tree and rename module from Chromium to Vanadium</li>
+                <li>Vanadium: disable offering translations by default</li>
+                <li>Vanadium: disable prefetching suggested pages by default</li>
+                <li>Vanadium: disable browser sign in feature by default</li>
+                <li>Vanadium: disable safe browsing reporting opt-in by default</li>
+                <li>extend release.sh to call the script for signing factory images</li>
+                <li>extend release.sh to call the script for generating update channel metadata</li>
+                <li>kernel build script (Pixel, Pixel XL, Pixel 3a, Pixel 3a XL): verify that no arguments are passed</li>
+                <li>kernel build script (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL): verify that a single argument (device variant) is passed</li>
+                <li>enable kernel mitigations for file spoofing</li>
+            </ul>
+
+            <p>Restoration of past features since the 2019.07.01.21 release:</p>
+
+            <ul>
+                <li>Vanadium: enable type-based CFI for virtual calls</li>
+                <li>enable kernel mitigations for link races</li>
+                <li>kernel (Pixel 2, Pixel 2 XL): backport fixes for SLAB_FREELIST_RANDOM</li>
+                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): enable SLAB_FREELIST_RANDOM</li>
+                <li>kernel (Pixel 2, Pixel 2 XL): backport slub dynamic DEBUG_PAGEALLOC setting</li>
+                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): backport slub free list pointer obfuscation</li>
+                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): backport slub free list pointer obfuscation prefetch fix</li>
+                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): backport slub native double free detection</li>
+                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): enable SLAB_FREELIST_HARDENED</li>
+                <li>kernel (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): enable DEBUG_LIST</li>
+                <li>kernel (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): enable DEBUG_SG</li>
+                <li>kernel (Pixel, Pixel XL): reduce DEBUG_SG virt_addr_valid check to a warning (this works around a bug in the legacy QCE driver)</li>
+                <li>kernel (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): enable DEBUG_NOTIFIERS</li>
+                <li>kernel (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): enable DEBUG_CREDENTIALS</li>
+                <li>kernel (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): enable SCHED_STACK_END_CHECK</li>
+                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): bug on !PageSlab &amp;&amp; !PageCompound in ksize</li>
+                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): always perform cache_from_obj consistency checks</li>
+                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): bug on kmem_cache_free with the wrong cache</li>
+                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): real slab_equal_or_root check for !MEMCG_KMEM</li>
+                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): add missing cache_from_obj !PageSlab check</li>
+                <li>kernel (Pixel 2, Pixel 2 XL): backport upstreamed FORTIFY_SOURCE implementation</li>
+                <li>kernel (Pixel 2, Pixel 2 XL): backport upstreamed leading zero byte for stack canary</li>
+                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): add simpler page sanitization</li>
+                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): add support for verifying page sanitization</li>
+                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): slub: add basic full slab sanitization</li>
+                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): slub: add support for verifying slab sanitization</li>
+                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): slub: add multi-purpose random canaries</li>
+            </ul>
 
             <h3 id="2019.07.01.21">
                 <a href="#2019.07.01.21">2019.07.01.21</a>
