@@ -283,18 +283,19 @@
 
             <p>Avoid Gecko-based browsers like Firefox as they're currently much more vulnerable
             to exploitation and inherently add a huge amount of attack surface. Gecko doesn't have
-            a WebView implementation, so it has to be used alongside the Chromium-based WebView
-            rather than instead of Chromium, which means having the remote attack surface of two
-            separate browser engines instead of only one. Firefox / Gecko also bypass or cripple a
-            fair bit of the upstream and GrapheneOS hardening work for apps. Worst of all, Firefox
-            runs as a single process on mobile and has no sandbox beyond the OS sandbox. This is
-            despite the fact that Chromium semantic sandbox layer on Android is implemented via
-            the OS <code>isolatedProcess</code> feature, which is a very easy to use boolean
-            property for app service processes to provide strong isolation with only the ability
-            to communicate with the app running them via the standard service API. Even in the
-            desktop version, Firefox's sandbox is still substantially weaker (especially on Linux,
-            where it can hardly be considered a sandbox at all) and lacks support for isolating
-            sites from each other rather than only containing content as a whole.</p>
+            a WebView implementation (GeckoView is not a WebView implementation), so it has to be
+            used alongside the Chromium-based WebView rather than instead of Chromium, which means
+            having the remote attack surface of two separate browser engines instead of only one.
+            Firefox / Gecko also bypass or cripple a fair bit of the upstream and GrapheneOS
+            hardening work for apps. Worst of all, Firefox runs as a single process on mobile and
+            has no sandbox beyond the OS sandbox. This is despite the fact that Chromium semantic
+            sandbox layer on Android is implemented via the OS <code>isolatedProcess</code>
+            feature, which is a very easy to use boolean property for app service processes to
+            provide strong isolation with only the ability to communicate with the app running
+            them via the standard service API. Even in the desktop version, Firefox's sandbox is
+            still substantially weaker (especially on Linux, where it can hardly be considered a
+            sandbox at all) and lacks support for isolating sites from each other rather than only
+            containing content as a whole.</p>
         </div>
         <footer>
             <a href="/"><img src="https://grapheneos.org/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
