@@ -225,6 +225,13 @@ cd Vanadium</pre>
             <pre>cd src
 git am ../*.patch</pre>
 
+            <p>Generate a signing key for Vanadium if this is the initial build (the sample
+            password configured in args.gn is <code>vanadiumpass</code>):</p>
+
+            <pre>keytool -genkey -v -keystore vanadium.keystore -alias vanadiumkey -keyalg RSA -keysize 4096 -sigalg SHA512withRSA -validity 10000 -dname "cn=GrapheneOS"</pre>
+
+            <p>You should back this up with your other keys.</p>
+
             <p>Then, configure the build in the <code>src</code> directory:</p>
 
             <pre>gn args out/Default</pre>
