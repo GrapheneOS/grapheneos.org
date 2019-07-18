@@ -112,7 +112,7 @@
             security along with the longest future support time are the Pixel 3a, Pixel 3a XL,
             Pixel 3 and Pixel 3 XL.</strong> It will support other devices in the future, but
             devices are carefully chosen based on their merits rather than the project aiming to
-            have broad device support.  Broad device support is counter to the aims of the
+            have broad device support. Broad device support is counter to the aims of the
             project, and the project will eventually be engaging in hardware and firmware level
             improvements rather than only offering suggestions and bug reports upstream for those
             areas. Much of the work on the project involves changes that are specific to different
@@ -124,11 +124,14 @@
             potential targets. In addition to support for installing other operating systems,
             standard hardware-based security features like the hardware-backed keystores, verified
             boot, attestation and various hardware-based exploit mitigations need to be available.
-            Devices with support for alternative operating systems as an afterthought will not be
-            considered.  Devices need to have proper ongoing support for their firmware and
-            software specific to the hardware like drivers in order to provide proper full
-            security updates too. Devices that are end-of-life and no longer receiving these
-            updates will not be supported.</p>
+            Devices also need to have decent integration of IOMMUs for isolating components such
+            as the GPU, radios (NFC, Wi-Fi, Bluetooth, Cellular), media decode / encode, image
+            processor, etc. as if the hardware / firmware support is missing or broken, there's
+            not much that the OS can do to provide an alternative. Devices with support for
+            alternative operating systems as an afterthought will not be considered. Devices need
+            to have proper ongoing support for their firmware and software specific to the
+            hardware like drivers in order to provide proper full security updates too. Devices
+            that are end-of-life and no longer receiving these updates will not be supported.</p>
             <p>In order to support a device, the appropriate resources also need to be available
             and dedicated towards it. Releases for each supported device need to be robust and
             stable, with all standard functionality working properly and testing for each of the
