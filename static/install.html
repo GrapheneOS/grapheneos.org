@@ -90,6 +90,22 @@
             scheme for platform-tools (adb, fastboot, etc.) with their own scheme and don't keep
             it up-to-date despite that being crucial.</p>
 
+            <p>If your distribution doesn't have a proper fastboot package, which is likely,
+            consider using the official releases of platform-tools from Google. You can either
+            obtain these as part of the standalone SDK or Android Studio which are self-updating
+            or via the standalone platform-tools releases. For one time usage, it's easiest to
+            obtain the <a href="https://developer.android.com/studio/releases/platform-tools">latest
+            standalone platform-tools release</a>, extract it and add it to your <code>PATH</code>
+            in the current shell. For example:</p>
+
+            <pre>unzip platform-tools_r29.0.1-linux.zip
+export PATH="$PWD/platform-tools:$PATH"</pre>
+
+            <p>Sample output from <code>fastboot --version</code> afterwards:</p>
+
+            <pre>fastboot version 29.0.1-5644136
+Installed as /home/username/downloads/platform-tools/fastboot</pre>
+
             <p>Don't proceed with the installation process until this is set up properly in your
             current shell. A very common mistake is using an outdated copy of
             <code>fastboot</code> from a Linux distribution package not receiving regular updates.
