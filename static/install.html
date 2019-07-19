@@ -71,20 +71,29 @@
             other devices, but this is still a good idea. You can either do this via over-the-air
             updates or sideload a full update from their
             <a href="https://developers.google.com/android/ota">full update package page</a>.</p>
+
+            <h3 id="obtaining-fastboot">
+                <a href="#obtaining-fastboot">Obtaining fastboot</a>
+            </h3>
+
             <p>You need an updated copy of the <code>fastboot</code> tool and it needs to be
             included in your <code>PATH</code> environment variable. You can run <code>fastboot
             --version</code> to determine the current version. It should be at least
-            <code>28.0.0</code>. Don't proceed with the installation process until this is set up
-            properly in your current shell. A very common mistake is using an outdated copy of
+            <code>28.0.0</code>. You can use a distribution package for this, but most of them
+            mistakenly package development snapshots of fastboot, clobber the standard version
+            scheme for platform-tools (adb, fastboot, etc.) with their own scheme and don't keep
+            it up-to-date despite that being crucial.</p>
+
+            <p>Don't proceed with the installation process until this is set up properly in your
+            current shell. A very common mistake is using an outdated copy of
             <code>fastboot</code> from a Linux distribution package not receiving regular updates.
-            Make sure that the <code>fastboot</code> found earliest in your <code>PATH</code>
-            is the correct one if you have multiple copies on your system. The <code>fastboot
+            Make sure that the <code>fastboot</code> found earliest in your <code>PATH</code> is
+            the correct one if you have multiple copies on your system. The <code>fastboot
             --version</code> output includes the installation path for the copy of
-            <code>fastboot</code> that's being used. Older versions of fastboot do not have
-            support for current devices and OS versions. Very old versions of
-            <code>fastboot</code> from several years ago are still shipped by Linux distributions
-            like Debian and lack the compatibility detection of modern versions so they can soft
-            brick devices.</p>
+            <code>fastboot</code> that's being used. Older versions of fastboot do not have support
+            for current devices and OS versions. Very old versions of <code>fastboot</code> from
+            are still shipped by Linux distributions like Debian and lack the compatibility
+            detection of modern versions so they can soft brick devices.</p>
 
             <h3 id="obtaining-signify">
                 <a href="#obtaining-signify">Obtaining signify</a>
