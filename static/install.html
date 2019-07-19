@@ -64,12 +64,6 @@
             <p>You should have at least 2GB of free memory available.</p>
             <p>You need the unlocked variant of one of the supported devices, not a locked carrier
             specific variant.</p>
-            <p>To verify the download of the OS beyond the security offered by HTTPS, you need the
-            signify tool. Some package repositories refer to it as <code>signify</code> while
-            others refer to it as <code>signify-openbsd</code> due to a legacy mail-related tool
-            with the same name. If you don't have a way to obtain signify from a trusted package
-            repository, such as on Windows, skip the additional verification. This is an important
-            step, but it only makes sense if you can chain trust from your existing OS install.</p>
             <p>It's best practice to update the stock OS on the device to make sure it's running
             the latest firmware before proceeding with these instructions. This avoids running
             into bugs in older firmware versions. It's known that the early Pixel 2 and Pixel 2 XL
@@ -91,6 +85,24 @@
             <code>fastboot</code> from several years ago are still shipped by Linux distributions
             like Debian and lack the compatibility detection of modern versions so they can soft
             brick devices.</p>
+
+            <h3 id="obtaining-signify">
+                <a href="#obtaining-signify">Obtaining signify</a>
+            </h3>
+
+            <p>To verify the download of the OS beyond the security offered by HTTPS, you need the
+            signify tool. If you don't have a way to obtain signify from a trusted package
+            repository, such as on Windows, skip the additional verification. This is an important
+            step, but it only makes sense if you can chain trust from your existing OS
+            install.</p>
+
+            <p>On many distributions, signify is available via a <code>signify</code> package in
+            the official repositories. On Debian-based distributions, the package and command name
+            were renamed to <code>signify-openbsd</code>. Following Debian tradition, the
+            <code>signify</code> package and command are an <a
+            href="http://signify.sourceforge.net/">unmaintained legacy mail-related tool for
+            generating signatures</a>.</code>
+
             <h2 id="enabling-oem-unlocking">
                 <a href="#enabling-oem-unlocking">Enabling OEM unlocking</a>
             </h2>
