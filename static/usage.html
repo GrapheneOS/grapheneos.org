@@ -327,6 +327,20 @@
             match up the picture and it provides it with more data vs. a traditional HDR
             implementation where it essentially doesn't work without a tripod and is not really at
             all useful on a phone unless you actually have that for it.</p>
+
+            <h2>App spawning time and memory usage</h2>
+
+            <p>You may notice that cold start app spawning time takes a bit longer (i.e. in the
+            ballpark of 100ms) than stock Android, along with higher app memory usage. This is due
+            to security centric exec spawning model used by GrapheneOS to provide each application
+            with a unique address space layout, random hardened_malloc heap layout and unique keys
+            / seeds for other probabilistic exploit mitigations like stack canaries, setjmp
+            protection and future features like randomized memory tags. Exec spawning doesn't
+            cause a performance cost after launching an app, and similarly doesn't cause any extra
+            latency for app spawning if the app was already running / cached in the background. It
+            isn't very noticeable on flagship devices with a high end CPU like a Pixel 3, and is a
+            lot more noticeable on a lower end device like a Pixel 3a.</p>
+
         </div>
         <footer>
             <a href="/"><img src="https://grapheneos.org/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
