@@ -341,6 +341,39 @@
             isn't very noticeable on flagship devices with a high end CPU like a Pixel 3, and is a
             lot more noticeable on a lower end device like a Pixel 3a.</p>
 
+            <h2>Bugs uncovered by exploit mitigations and other features</h2>
+
+            <p>GrapheneOS substantially expands the standard mitigations for memory corruption
+            vulnerabilities. Some of these features are designed to directly catch the memory
+            corruption bugs either via an explicit check or memory protection and abort the
+            program in order to prevent them from being exploited. Other features mitigate issues
+            a bit less directly such as zeroing data immediately upon free, isolated memory
+            regions, heap randomization, etc. and can also lead to latent memory corruption bugs
+            crashing instead of the program continuing onwards with corrupted memory. This means
+            that many latent memory corruption bugs in apps are caught along with some in the OS
+            itself. These bugs are not caused by GrapheneOS, but rather already existed and are
+            uncovered by the features. The features are aimed at preventing or hindering exploits,
+            not finding bugs, but they do that as part of doing their actual job.</p>
+
+            <p>Similarly, some of the other privacy and security improvements reduce the access
+            available to applications and they may crash. Some of these features are always
+            enabled under the hood, while others like the Network and Sensors toggles are
+            controlled by users via opt-in or opt-out toggles. Apps may not handle having access
+            taken away like this, although it generally doesn't cause any issues as it's all
+            designed to be friendly to apps and fully compatible rather than killing the
+            application when it violates the rules.</p>
+
+            <p>If you run into an application aborting, try to come up with a process for
+            reproducing the issue and then capture a bug report via the 'Take bug report' feature
+            in Developer options. Report an issue to the GrapheneOS OS issue tracker and email the
+            bug report capture zip to contact@grapheneos.org with the issue tracker number in the
+            subject like "Bug report capture for issue #104". The bug report capture includes
+            plain text 'tombstones' with logs, tracebacks, address space layout, register content
+            and a tiny bit of context from memory from areas that are interesting for debugging.
+            This may contain some sensitive data. Feel free to provide only the tombstone for the
+            relevant crash and filter out information you don't want to send. However, it will be
+            more difficult to debug if you provide less of the information. If the app doesn't
+            work with sensitive information, just send the whole tombstone.</p>
         </div>
         <footer>
             <a href="/"><img src="https://grapheneos.org/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
