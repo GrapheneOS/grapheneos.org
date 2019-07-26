@@ -296,6 +296,37 @@
             still substantially weaker (especially on Linux, where it can hardly be considered a
             sandbox at all) and lacks support for isolating sites from each other rather than only
             containing content as a whole.</p>
+
+            <h2>Camera</h2>
+
+            <p>The Camera app included in GrapheneOS is very basic and can't take full advantage
+            of the hardware. It doesn't offer much in the way of configuration. In the long term,
+            it's going to be replaced. In the short term, there are other apps available providing
+            more capabilities and better support for taking advantage of the hardware.</p>
+
+            <p>The Pixel 2 and Pixel 3 (but not the Pixel 3a) have a Pixel Visual Core providing
+            a hardware-based implementation of HDR+. HDR+ captures many images and intelligently
+            merges data across them, taking into account motion, etc. It substantially improves
+            the quality of images, especially in low light. This is used transparently for third
+            party apps that are compatible with it, and there isn't an explicit switch to turn it
+            on or off for most of them. An example of a compatible app is Open Camera's default
+            configuration, or Open Camera with the Camera 2 API and other settings (including the
+            the various knobs / toggles outside of the settings menu) left alone. In general, HDR+
+            will work transparently in most apps as long as they keep things simple and use a good
+            minimalist approach to taking pictures. It should work transparently in most messaging
+            apps, etc. with internal support for taking pictures.</p>
+
+            <p>In addition to supporting HDR+ via the Pixel Visual Core, or similar features on
+            other devices with the same constraints, Open Camera offers advanced configuration and
+            various advanced features. Make sure to enable the Camera 2 API in the settings, which
+            should be the default, but the app doesn't have a great user interface / user
+            experience. You probably don't want to use the traditional HDR feature in the app.
+            That's not HDR+, but rather captures 3 images and merges them in a way that isn't at
+            all intelligent and causes a lot of blur and distortion. The HDR+ implementation can
+            actually benefit from the camera not being completely steady as it's smart enough to
+            match up the picture and it provides it with more data vs. a traditional HDR
+            implementation where it essentially doesn't work without a tripod and is not really at
+            all useful on a phone unless you actually have that for it.</p>
         </div>
         <footer>
             <a href="/"><img src="https://grapheneos.org/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
