@@ -61,6 +61,9 @@
                 </li>
                 <li><a href="#default-connections">Default connections</a></li>
                 <li><a href="#web-browsing">Web browsing</a></li>
+                <li><a href="#camera">Camera</a></li>
+                <li><a href="#exec-spawning">Exec spawning</a></li>
+                <li><a href="#bugs-uncovered-by-security-features">Bugs uncovered by security features</a></li>
             </ul>
 
             <h2 id="auditor">
@@ -297,7 +300,11 @@
             sandbox at all) and lacks support for isolating sites from each other rather than only
             containing content as a whole.</p>
 
-            <h2>Camera</h2>
+
+            <h2 id="camera">
+                <a href="#camera">Camera</a>
+            </h2>
+
 
             <p>The Camera app included in GrapheneOS is very basic and can't take full advantage
             of the hardware. It doesn't offer much in the way of configuration. In the long term,
@@ -328,7 +335,9 @@
             implementation where it essentially doesn't work without a tripod and is not really at
             all useful on a phone unless you actually have that for it.</p>
 
-            <h2>App spawning time and memory usage</h2>
+            <h2 id="exec-spawning">
+                <a href="#exec-spawning">Exec spawning</a>
+            </h2>
 
             <p>You may notice that cold start app spawning time takes a bit longer (i.e. in the
             ballpark of 100ms) than stock Android, along with higher app memory usage. This is due
@@ -341,7 +350,9 @@
             isn't very noticeable on flagship devices with a high end CPU like a Pixel 3, and is a
             lot more noticeable on a lower end device like a Pixel 3a.</p>
 
-            <h2>Bugs uncovered by exploit mitigations and other features</h2>
+            <h2 id="bugs-uncovered-by-security-features">
+                <a href="#bugs-uncovered-by-security-features">Bugs uncovered by security features</a>
+            </h2>
 
             <p>GrapheneOS substantially expands the standard mitigations for memory corruption
             vulnerabilities. Some of these features are designed to directly catch the memory
