@@ -261,15 +261,15 @@
             <p>Using Vanadium is highly recommended and Bromite is a good alternative if you want
             a few more features like ad-blocking and more aggressive anti-fingerprinting. Vanadium
             is working towards including these features and is actively collaborating with
-            Bromite. Other Chromium-based browsers like Brave can also be decent choices.
-            Standalone browsers based on Chromium have by far the best sandbox implementation.
-            Site isolation can also be enabled, which makes the sandbox enforce a security
-            boundary containing each site rather than isolating content as a whole. Vanadium
-            enables site isolation by default, and Bromite enables it on high memory devices,
-            including all officially supported GrapheneOS devices. Site isolation prevents an
-            attacker from obtaining cookies (like login sessions) and other data tied to other
-            sites if they successfully exploit the browser's rendering engine. It also provides
-            the strongest available mitigation for Spectre-based side channel attacks.</p>
+            Bromite. Standalone browsers based on Chromium have by far the best sandbox
+            implementation. Site isolation can also be enabled, which makes the sandbox enforce a
+            security boundary containing each site rather than isolating content as a whole.
+            Vanadium enables site isolation by default, and Bromite enables it on high memory
+            devices, including all officially supported GrapheneOS devices. Site isolation
+            prevents an attacker from obtaining cookies (like login sessions) and other data tied
+            to other sites if they successfully exploit the browser's rendering engine. It also
+            provides the strongest available mitigation for Spectre-based side channel
+            attacks.</p>
 
             <p>WebView-based browsers use the hardened Vanadium rendering engine, but they can't
             offer as much privacy and control due to being limited to the capabilities supported
