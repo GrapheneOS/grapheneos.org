@@ -6,6 +6,7 @@ remote=www-data@grapheneos.org
 active=$(ssh $remote readlink html)
 
 validatornu --Werror --skip-non-html static
+validatornu --Werror --skip-non-css static
 
 if [[ $active = html_a ]]; then
     target=html_b
