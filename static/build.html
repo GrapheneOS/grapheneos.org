@@ -73,6 +73,7 @@
                         <li><a href="#prebuilt-apps">Prebuilt apps</a></li>
                     </ul>
                 </li>
+                <li><a href="#standalone-sdk">Standalone SDK</a></li>
                 <li>
                     <a href="#testing">Testing</a>
                     <ul>
@@ -506,6 +507,46 @@ cd ../..</pre>
             <p>The official releases of the Auditor and PdfViewer apps are bundled as an apk into
             external/ repositories. There are no modifications to these for GrapheneOS.</p>
 
+            <h2 id="standalone-sdk">
+                <a href="#standalone-sdk">Standalone SDK</a>
+            </h2>
+
+            <p>It can be useful to set up a standalone installation of the SDK separate from
+            Android Studio. Android Studio can also be set up to use an existing SDK and will
+            recognize it and use it automatically if Android Studio is installed with an SDK
+            installation already available and set up in the environment. You'll also likely want
+            a working command-line SDK environment even if you do heavily use Android Studio.</p>
+
+            <p>To set up a minimal SDK installation without Android Studio on Linux:</p>
+
+            <pre>mkdir ~/sdk
+cd ~/sdk
+wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
+unzip sdk-tools-linux-4333796.zip
+rm sdk-tools-linux-4333796.zip</pre>
+
+            <p>Run an initial update, which will also install platform-tools</p>
+
+            <pre>tools/bin/sdkmanager --update</pre>
+
+            <p>Install platform-tools for tools like adb and fastboot:</p>
+
+            <pre>tools/bin/sdkmanager platform-tools</pre>
+
+            <p>For running the Compatibility Test Suite you'll also need the build-tools for
+            aapt:</p>
+
+            <pre>tools/bin/sdkmanager 'build-tools;29.0.2'</pre>
+
+            <p>Add the directories to your PATH in your shell profile configuration:</p>
+
+            <pre>export PATH="$HOME/sdk/tools:$HOME/sdk/tools/bin:$HOME/sdk/platform-tools:$HOME/sdk/build-tools/29.0.2:$PATH"
+export ANDROID_HOME="$HOME/sdk"</pre>
+
+            <p>You should update the sdk before use from this point onwards:</p>
+
+            <pre>sdkmanager --update</pre>
+
             <h2 id="testing">
                 <a href="#testing">Testing</a>
             </h2>
@@ -706,7 +747,6 @@ export PATH="$PATH:$HOME/sdk/tools:$HOME/sdk/tools/bin:$HOME/sdk/platform-tools:
             if it truly makes the correct approach simpler. Ignore fads and figure out if it
             actually makes sense to use, otherwise just stick to the old fashioned way if the
             fancy alternatives aren't genuinely better.</p>
-
         </div>
         <footer>
             <a href="/"><img src="https://grapheneos.org/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
