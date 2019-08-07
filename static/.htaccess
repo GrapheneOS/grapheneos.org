@@ -42,7 +42,8 @@ RedirectMatch 301 ^/security.txt$ /.well-known/security.txt
 RedirectMatch 301 ^/graphene.png$ /logo.png
 
 RedirectMatch 301 ^/pdfviewer_privacy_policy$ /pdfviewer-privacy-policy
-RedirectMatch 301 ^/safari_pinned_tab_icon.svg$ /safari-pinned-tab-icon.svg
+RedirectMatch 301 ^/safari_pinned_tab_icon.svg$ /mask-icon.svg
+RedirectMatch 301 ^/safari-pinned-tab-icon.svg$ /mask-icon.svg
 RedirectMatch 301 ^/bitcoin_address.png$ /bitcoin-address.png
 
 # http://www.twipu.com/GrapheneOS doesn't handle links with fragments properly
