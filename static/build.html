@@ -78,6 +78,7 @@
                 <li>
                     <a href="#testing">Testing</a>
                     <ul>
+                        <li><a href="#emulator">Emulator</a></li>
                         <li>
                             <a href="#compatibility-test-suite">Compatibility Test Suite</a>
                             <ul>
@@ -624,6 +625,14 @@ export ANDROID_HOME="$HOME/sdk"</pre>
             <p>This section will be expanded to cover various test suites and testing procedures
             rather than only the current very minimal coverage of the Compatibility Test Suite
             (CTS).</p>
+
+            <h3 id="emulator">
+                <a href="#emulator">Emulator</a>
+            </h3>
+
+            <p>To test a build for the emulator, run <code>emulator</code> within the build
+            environment. The emulator will use CPU hardware acceleration via KVM along with
+            optional graphics acceleration via the host GPU if these are available.</p>
 
             <h3 id="compatibility-test-suite">
                 <a href="#compatibility-test-suite">Compatibility Test Suite</a>
