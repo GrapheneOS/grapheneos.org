@@ -47,6 +47,7 @@
                 <a href="#table-of-contents">Table of contents</a>
             </h2>
             <ul>
+                <li><a href="#build-targets">Build targets</a></li>
                 <li><a href="#build-dependencies">Build dependencies</a></li>
                 <li><a href="#downloading-source-code">Downloading source code</a></li>
                 <li><a href="#development-branch">Development branch</a></li>
@@ -96,6 +97,67 @@
                     </ul>
                 </li>
             </ul>
+
+            <h2 id="build-targets">
+                <a href="#build-targets">Build targets</a>
+            </h2>
+
+            <p>Smartphone targets:</p>
+
+            <ul>
+                <li>aosp_marlin (Pixel XL)</li>
+                <li>aosp_sailfish (Pixel)</li>
+                <li>aosp_taimen (Pixel 2 XL)</li>
+                <li>aosp_walleye (Pixel 2)</li>
+                <li>aosp_crosshatch (Pixel 3 XL)</li>
+                <li>aosp_blueline (Pixel 3)</li>
+                <li>aosp_bonito (Pixel 3a XL)</li>
+                <li>aosp_sargo (Pixel 3a)</li>
+            </ul>
+
+            <p>Generic targets:</p>
+
+            <ul>
+                <li>aosp_arm</li>
+                <li>aosp_arm64</li>
+                <li>aosp_mips</li>
+                <li>aosp_mips64</li>
+                <li>aosp_x86</li>
+                <li>aosp_x86_64</li>
+            </ul>
+
+            <p>These generic targets can be used with the emulator. These targets don't receive
+            full monthly security updates, don't provide all of the baseline security features like
+            verified boot and are intended for development usage.</p>
+
+            <p>SDK emulator targets:</p>
+
+            <ul>
+                <li>sdk_phone_armv7</li>
+                <li>sdk_phone_arm64</li>
+                <li>sdk_phone_mips</li>
+                <li>sdk_phone_mips64</li>
+                <li>sdk_phone_x86</li>
+                <li>sdk_phone_x86_64</li>
+            </ul>
+
+            <p>These are extended versions of the generic targets with extra components for the
+            SDK. These targets don't receive full monthly security updates, don't provide all of
+            the baseline security features like verified boot and are intended for development
+            usage.</p>
+
+            <p>Board targets:</p>
+
+            <ul>
+                <li>hikey</li>
+                <li>hikey960</li>
+            </ul>
+
+            <p>The hikey and hikey960 targets may currently be broken due to bugs uncovered by
+            hardened_malloc and other potential problems. The intention is to support them, but
+            the necessary time has not yet been dedicated to it. These targets don't receive full
+            monthly security updates, don't provide all of the baseline security features like
+            verified boot and are intended for development usage.</p>
 
             <h2 id="build-dependencies">
                 <a href="#build-dependencies">Build dependencies</a>
