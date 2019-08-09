@@ -574,12 +574,18 @@ cd ../..</pre>
             </h2>
 
             <p>It can be useful to set up a standalone installation of the SDK separate from
-            Android Studio. Android Studio can also be set up to use an existing SDK and will
-            recognize it and use it automatically if Android Studio is installed with an SDK
-            installation already available and set up in the environment. You'll also likely want
-            a working command-line SDK environment even if you do heavily use Android Studio.</p>
+            the Android Open Source Project tree. This is how the prebuilt apps are built, rather
+            than using the older branch of the SDK in the OS source tree.</p>
 
-            <p>To set up a minimal SDK installation without Android Studio on Linux:</p>
+            <p>Android Studio can also be set up to use an existing SDK and will recognize it and use
+            it automatically if Android Studio is installed with an SDK installation already
+            available and set up in the environment. You'll also likely want a working
+            command-line SDK environment even if you do heavily use Android Studio.</p>
+
+            <p>Using the official releases of the SDK is recommended for simplicity, although with
+            a lot of effort you can build everything yourself. Distribution packages are generally
+            quite out-of-date and should be avoided. To set up a minimal SDK installation without
+            Android Studio on Linux:</p>
 
             <pre>mkdir ~/sdk
 cd ~/sdk
