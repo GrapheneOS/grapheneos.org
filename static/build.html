@@ -314,7 +314,8 @@ git am --whitespace=nowarn ../*.patch</pre>
 
             <p>Copy the GrapheneOS configuration from <code>../args.gn</code> and save/exit the
             editor. Modify <code>target_cpu</code> as needed if the target is not arm64. For
-            x86_64, the correct value is <code>x64</code>.</p>
+            x86_64, the correct value for <code>target_cpu</code> is <code>x64</code>, but note
+            that the Android source tree refers to it as x86_64.</p>
 
             <p>To build Monochrome, which provides both Chromium and the WebView:</p>
 
@@ -322,8 +323,8 @@ git am --whitespace=nowarn ../*.patch</pre>
 
             <p>The apk needs to be copied from <code>out/Default/apks/MonochromePublic.apk</code>
             into the Android source tree at
-            <code>external/vanadium/prebuilt/arm64/MonochromePublic.apk</code> (with arm64
-            substituted with the correct value for other architectures).</p>
+            <code>external/vanadium/prebuilt/arm64/MonochromePublic.apk</code> with arm64
+            substituted with the correct value for other architectures (arm, x86, x86_64).</p>
 
             <p>Standalone builds of Chromium and the WebView can be done via the
             <code>chrome_modern_public_apk</code> and <code>system_webview_apk</code> targets but
