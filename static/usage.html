@@ -196,13 +196,21 @@
             captive portals and download updates. No data varying per user / installation is sent
             in these connections. There aren't analytics / telemetry in GrapheneOS.</p>
 
-            <p>The expected default connections by GrapheneOS (including all base system apps) are the following:</p>
+            <p>The expected default connections by GrapheneOS (including all base system apps) are
+            the following:</p>
 
             <ul>
                 <li>
                     <p>The GrapheneOS Updater app fetches update metadata from
                     https://releases.grapheneos.org/DEVICE-CHANNEL approximately once every four hours
                     when connected to a permitted network for updates.</p>
+                    <p>Once an update is available, it tries to download
+                    https://releases.grapheneos.org/DEVICE-incremental-OLD_VERSION-NEW_VERSION.zip
+                    for a delta update, and then falls back to
+                    https://releases.grapheneos.org/DEVICE-ota_update-NEW_VERSION.zip.</p>
+                    <p>No query / data is sent to the server, so the only information leaked to it
+                    are the variables in these 3 URLs (device, channel, current version) which is
+                    necessary to obtain the update.</p>
                     <p>Users can control which types of connections the Updater app will use, and
                     although it's strongly recommended to always leave it enabled it can be
                     disabled.</p>
@@ -214,7 +222,8 @@
                     are downloaded from https://xtrapath1.izatcloud.net/xtra3grc.bin,
                     https://xtrapath2.izatcloud.net/xtra3grc.bin or
                     https://xtrapath3.izatcloud.net/xtra3grc.bin. GrapheneOS has modified all
-                    references to these servers to use HTTPS rather than a mix of HTTP and HTTPS.</p>
+                    references to these servers to use HTTPS rather than a mix of HTTP and HTTPS.
+                    No query / data is sent to the server.</p>
                 </li>
                 <li>
                     <p>Connectivity checks designed to mimic a web browser user agent are performed
