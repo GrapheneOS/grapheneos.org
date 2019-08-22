@@ -46,6 +46,215 @@
             <h2 id="table-of-contents">
                 <a href="#table-of-contents">Table of contents</a>
             </h2>
+            <ol>
+            	<li><a href="#xda">Why isn't GrapheneOS on XDA?</a></li>
+            	<li><a href="#los">How is GrapheneOS different from LineageOS or other AOSP forks?</a></li>
+            	<li><a href="#funding">What will be the business model for GrapheneOS? How will the project fund development?</a></li>
+            	<li><a href="#stability">Can I use GrapheneOS as my daily driver? Is GrapheneOS stable?</a></li>
+            	<li><a href="#device-support">Will device X be supported?</a></li>
+            	<li><a href="#gapps">GApps?</a></li>
+            	<li><a href="#microg">microG?</a></li>
+            	<li><a href="#future-gapps">Will there ever be a way Google apps and services will work on GrapheneOS?</a></li>
+            	<li><a href="#disabled-vanadium-problem">Why are apps crashing when I disable Vanadium?</a></li>
+            	<li><a href="#root-and-other-risks">Can I root my phone and use AFWall+, Xposed, xPrivacyLua, Magisk, etc.?</a></li>
+            	<li><a href="#hdr+">Will HDR+ still work on GrapheneOS? Will the photo quality be equal to the stock OS?</a></li>
+            	<li><a href="#boot-diff-os-message">Every time my phone boots up I get a "Your device is loading a different operating system.", is this normal?</a></li>
+            	<li><a href="#app-store">Is there an app store?</a></li>
+            	<li><a href="#android-app-compatibility">Are stock Android apps compatible with GrapheneOS?</a></li>
+            </ol>
+        </div>
+        <div id="content">
+            <h3 id="xda">
+            	<a href="#xda">1.Why isn't GrapheneOS on XDA?</a>
+            </h3>
+            <p>GrapheneOS is a privacy and security research and engineering project. 
+                It's not a hobby project or volunteer work but rather full-time work. 
+                The development team will be expanded with other full-time developers being paid to work on the project. 
+                It will never be described as a custom ROM and it doesn't aim to please the ROM community.
+                This just isn't the kind of project that is based on XDA, 
+                and ultimately isn't going to be aimed at power users / tinkerers. 
+                It's not going to be adding non-privacy / non-security related features to Android other than
+                filling gaps left by not having Play Services, the Play Store and other Google apps.</p>
+           
+            <h3 id="los">
+            	<a href="#los">2.How is GrapheneOS different from LineageOS or other AOSP forks?</a>
+            </h3>
+            <p>GrapheneOS is an AOSP fork focused on AOSP hardening and security work. 
+                It is not a competitor or alternative to LineageOS. It's a much different kind of project, 
+                with drastically different priorities and a much different approach to software development, 
+                testing and release engineering. GrapheneOS starts from AOSP without adding in the proprietary Google apps
+                and services and focuses on privacy and security hardening to improve the OS from the baseline.
+                It also preserves all the standard software and hardware security features,
+                unlike other alternative operating systems.</p>
+            
+            <h3 id="funding">
+            	<a href="#funding">3.What will be the business model for GrapheneOS? How will the project fund development?</a>
+            </h3>
+            <p>GrapheneOS is a permissively licensed open source project and is a non-profit project. 
+                It's not a business and there will be no business model. It will be funded by a wide range of companies
+                and non-profit organizations with an interest in the continued development of the project.</p>
+
+            <h3 id="stability">
+            	<a href="#stability">4.Can I use GrapheneOS as my daily driver? Is GrapheneOS stable?</a>
+            </h3>
+            <p>Yes. When it is said that the project is in early development, it means it's very barebones,
+                lots of the past privacy/security features developed by the project are not yet ported to the current OS
+                and it's only just getting started on accomplishing the goals. It's not unstable.
+                The releases aren't nightly builds and each release is tested on each supported device.
+                It doesn't come with many bundled apps. It still has some of the Android Open Source Project
+                sample apps included that are not really meant to be used. It has a lot of gaps that still
+                need to be filled from not having Google Play Services and Google apps.
+                It isn't yet at the point where it's concerned with bundling a nice set of default apps,
+                and you'll even need to install F-Droid on your own to have an app store. 
+                Not much documentation has been written yet, so there's no detailed usage guide or tutorials.</p>
+
+            <h3 id="device-support">
+            	<a href="#device-support">5.Will device X be supported?</a>
+            </h3>
+            <p>GrapheneOS will never be able to support a lot of devices. Most devices do not meet the security standards. 
+                In order to be supported, devices need to make available the same security provided to the stock OS
+                to alternative operating systems by not restricting important hardware security features to the stock OS.
+                That includes making verified boot, attestation, full functionality of the hardware-backed keystore
+                and any secure element features available. Pixels are among the devices where alternative operating systems
+                can be installed and used securely. They also have the best security among the possible targets,
+                but there are other viable targets with decent support for alternative operating systems.
+                The targets also need to provide security updates and other maintenance for components not provided by AOSP.
+                A device without monthly security updates isn't a candidate. 
+                Devices nearing end of life also aren't going to be candidates for that reason, 
+                and because it makes more sense to add current generation devices whether low end or high end
+                since they support the current generation privacy and security features in hardware / firmware.
+                Devices that are already supported will remain supported as long as they're receiving full security updates.</p>
+
+            <h3 id="gapps">
+            	<a href="#gapps">6.GApps?</a>
+            </h3>
+            <p>It's not going to be included in GrapheneOS for various reasons. 
+                It's designed to be a set of privileged apps with many privileged permissions and deep integration in the OS.
+                It also replaces AOSP components that are part of what GrapheneOS changes.
+                It's not legal to include it, and properly including it rather than having a hacked together
+                half working integration would be a fair but of work requiring lots of work on android-prepare-vendor.
+                GrapheneOS intentionally doesn't conform to the CDD / CTS restrictions which would be required to license it.
+                Making a variant with Google Play Services licensed would require conforming to those,
+                even in the variant without Google Play Services, at least without challenging this legally.</p>
+
+            <h3 id="microg">
+            	<a href="#microg">7.microG?</a>
+            </h3>
+            <p>GrapheneOS won't be implementing alternative clients for Google services, 
+                especially since they lack stable / documented APIs and it's not allowed to use them like this.
+                It also brings most of the same issues as using them via Play Services. 
+                I don't want a hacked together alternate implementation with worse robustness and security than the real thing.
+                I highly recommend not applying the incredibly insecure microG signature spoofing patch.
+                It destroys a substantial portion of the app security model by adding a permission any app can request
+                to bypass any signature checks. Think about this in the context of an attacker gaining some control
+                over the UI or in the verified boot security model... it's awful. Really, you're better off using
+                the stock OS than doing something like this. If an attacker exploits microG, they should not be able to
+                fake any app signature checks. It breaks part of the security model of the OS. 
+                It needs to be restricted not only to exactly what requires it, but also to only faking the required signature.</p>
+
+            <h3 id="future-gapps">
+            	<a href="#future-gapps">8.Will there ever be a way Google apps and services will work on GrapheneOS?</a>
+            </h3>
+            <p>There will be a compatibility layer implemented but there's a lot to be done before getting to that at all.
+                Android has various OS APIs that are implemented via apps providing the services. 
+                This includes geocoding, supplementary location services, speech to text, text to speech, app verification,
+                and a bunch of others. Alternate implementations of these need to be made in order to offer
+                a fully functional Android environment. The Compatibility Test Suite allows not implementing these,
+                since the Android Open Source Project does not, but many apps do not target minimal Android
+                and break when only the minimum compatibility is available. It also means having missing features
+                even when apps properly handle it, such as not having speech to text across different keyboards
+                and apps and not having text to speech in apps providing navigation, etc.<br><br>
+
+                There are also various things that can be provided by apps in the OS but not third party
+                apps including screen recording, call recording, backups including app data rather than only
+                shared data (which apps should not be using to nearly the extent that they do and which can already
+                be backed up other ways), etc. Before even getting to the API extensions by Play Services, 
+                there is a lot that can and should be done to provide a replacement of a lot of what it implements,
+                which it a much higher priority.<br><br>
+
+                It needs to be an approach focused on privacy and security. This starts from the ground up
+                with how it provides the Play Services API extensions in a way that apps accept them. 
+                I am certainly not going to take the approach of adding a permission which allows faking
+                any signature permissions, which completely breaks a lot of the security model used by the OS
+                including making verified boot largely useless. Doing it as a permission that any app can request
+                is also a bad approach, and not just because users can be tricked into accepting it but also because
+                it places a huge level of trust in persistent state and the application layer. 
+                This is just the problems at the foundation of how it works though. It doesn't get into the problems
+                with the implementation using this, which are comparable. I want a much different approach to things
+                across the board, especially the supplementary location services.<br><br>
+
+                I only even want full, real implementations of neutral APIs that are not specific to Google services.
+                Many of these are implementations of AOSP APIs, while others are Play Services API extensions
+                and require the OS to make the signature check pass for the Play Services signature, 
+                and specifically for the alternate implementation of it. Some APIs use Google services under the hood
+                but can be implemented without them, while others like GCM are fundamentally hard-wired to Google services
+                and alternative implementations need to use a different API. The approach to those APIs that cannot have
+                actual alternate implementations (only alternate clients using Google's services against the terms of service)
+                needs to be creating stub implementations pretending the service is offline / cannot be reached.
+                That's the best approach for GCM. It shuts up the warning / errors from apps and if they have
+                an alternate implementation of push for when GCM is unavailable it will make them fall back to it.</p>
+			
+            <h3 id="disabled-vanadium-problem">
+                <a href="#disabled-vanadium-problem">9.Why are apps crashing when I disable Vanadium?</a>
+            </h3>
+            <p>That's entirely expected, especially for the PDF Viewer that's quite explicitly designed around
+                rendering PDFs inside a WebView. You didn't just disable the included browser app but also
+                the WebView implementation that it provides. It's explained in the usage guide that Vanadium
+                provides both the included user-facing browser app and the WebView implementation.<br><br>
+
+                Before you can disable Vanadium in the Settings interface, it does explicitly warn you that
+                you may be breaking other applications. It's a generic warning for system apps, and it's there for a reason.
+                You also shouldn't disable the obsolete Search app at least without installing a
+                compatible replacement because it provides a standard search API used by other applications.
+                The plan is to replace these obsolete apps.</p>
+			
+            <h3 id="root-and-other-risks">
+                <a href="#root-and-other-risks">10.Can I root my phone and use AFWall+, Xposed, xPrivacyLua, Magisk, etc.?</a>
+            </h3>
+            <p>Doing this would compromise the security of the whole OS and defeat the point of using GrapheneOS.
+                None of the apps provide security enhancements, they are engaging in security theater
+                and just provide more attack surface for exploitation while also degrading security overall.
+                For more detailed explanations, see 
+                <a href="https://old.reddit.com/r/GrapheneOS/comments/ch5kv8/is_magisk_and_edxposedxprivacylua_working/euqzel7/">this</a>, 
+                <a href="https://old.reddit.com/r/GrapheneOS/comments/bx2uq9/internal_firewall_feature/eq30ric/">this</a>, and 
+                <a href="https://old.reddit.com/r/GrapheneOS/comments/bx6h6s/apps_and_phone_set_up_grapheneos/eq3xi4d/">this</a>.</p>
+			
+            <h3 id="hdr+">
+                <a href="#hdr+">11.Will HDR+ still work on GrapheneOS? Will the photo quality be equal to the stock OS?</a>
+            </h3>
+            <p>On the Pixel 2 and Pixel 3, HDR+ is supported on GrapheneOS in compatible apps via the Pixel Visual Core.
+                The picture quality matches the stock OS across apps, and the still picture quality from an app
+                compatible with the Pixel Visual Core matches the stock OS. The Pixel 3a doesn't have the Pixel Visual Core,
+                so you won't have HDR+ on it.</p>
+			
+            <h3 id="boot-diff-os-message">
+                <a href="#boot-diff-os-message">12.Every time my phone boots up I get a "Your device is loading a different operating system.", is this normal?</a>
+            </h3>
+            <p>Yes, this is normal and intended.</p>
+			
+            <h3 id="app-store">
+                <a href="#app-store">13.Is there an app store?</a>
+            </h3>
+            <p>There is currently not an app store included in the OS, an app store like F-Droid will have to be separately downloaded.</p>
+			
+            <h3 id="android-app-compatibility">
+                <a href="#android-app-compatibility">14.Are stock Android apps compatible with GrapheneOS?</a>
+            </h3>
+            <p>They are almost entirely compatible. GrapheneOS is tested with the Compatibility Test Suite
+                which is a compatibility test suite primarily for the app API. If the app targets baseline Android,
+                it will almost always work. Some apps may not be compatible due to privacy / security restrictions
+                and mitigations, but this is rare, since the features are designed to be as compatible as possible.
+                These cases are usually quite well understood and there are intentional failures when running
+                the CTS that are documented with the reason for the failure. Some apps have latent issues
+                like memory corruption bugs triggered in regular usage without an obvious impact, and some of the
+                memory corruption mitigations can uncover these issues by aborting the app when it happens, etc.<br><br>
+
+                Google Play Services isn't present, and many apps have soft or hard dependencies on it to varying extents.
+                Some apps will be missing functionality, others will be inherently broken and others will simply
+                refuse to work / crash because they didn't handle this case properly. You might be surprised by how
+                many apps work though, including those from major corporations. For example, nearly all the Facebook
+                and Microsoft apps will work fine.</p>
+            
         </div>
         <footer>
             <a href="/"><img src="https://grapheneos.org/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
