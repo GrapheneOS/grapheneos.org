@@ -77,6 +77,7 @@
                 <li>
                     <a href="#changelog">Changelog</a>
                     <ul>
+                        <li><a href="#2019.08.05.19">2019.08.25.15</a></li>
                         <li><a href="#2019.08.05.19">2019.08.05.19</a></li>
                         <li><a href="#2019.07.16.22">2019.07.16.22</a></li>
                         <li><a href="#2019.07.01.21">2019.07.01.21</a></li>
@@ -325,6 +326,34 @@
 
             <p>List of tagged releases. Snapshot releases without tags such as early releases of
             the project and early device support releases are not listed.</p>
+
+            <h3 id="2019.08.25.15">
+                <a href="#2019.08.25.15">2019.08.25.15</a>
+            </h3>
+
+            <p>Tags:</p>
+            <ul>
+                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190801.002.2019.08.25.15">PQ3A.190801.002.2019.08.25.15</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, emulator, generic, other targets)</li>
+                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3B.190801.002.2019.08.25.15">PQ3B.190801.002.2019.08.25.15</a> (Pixel 3a, Pixel 3a XL)</li>
+            </ul>
+
+            <p>Changes since the 2019.08.05.19 release:</p>
+
+            <ul>
+                <li>add missing privileged permission whitelist for SdkSetup in SDK emulator builds</li>
+                <li>set up Vanadium for other architectures (arm, x86, x86_64)</li>
+                <li>hardened_malloc (GrapheneOS only): remove workaround for use-after-free in the citadel (Titan M) driver's key attestation support since it was fixed upstream</li>
+                <li>hardened_malloc: update libdivide to 2.0</li>
+                <li>Vanadium (browser and WebView): update Chromium base to 76.0.3809.111</li>
+                <li>Vanadium: redirect settings help icon</li>
+                <li>Vanadium: set default search engine to DuckDuckGo</li>
+                <li>apply partial fix for package manager original-package feature</li>
+                <li>PDF Viewer: update to <a href="https://github.com/GrapheneOS/PdfViewer/releases/tag/2">version 2</a></li>
+                <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/16">version 16</a></li>
+                <li>add Vanadium to the apps that cannot be disabled via Settings (can still be disabled) since the warning isn't enough to deter people from unknowingly breaking apps using the WebView</li>
+                <li>Updater: add settings entry to manually trigger check for updates</li>
+                <li>Updater: reschedule update check job on channel change</li>
+            </ul>
 
             <h3 id="2019.08.05.19">
                 <a href="#2019.08.05.19">2019.08.05.19</a>
