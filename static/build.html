@@ -197,21 +197,15 @@
                 <a href="#development-branch">Development branch</a>
             </h2>
 
-            <p>The pie branch is currently used for all devices other than the Pixel 3a and Pixel 3a XL, and is the correct branch to use for the generic targets or properly specialized ports to new devices:</p>
+            <p>The <code>10</code> branch is for the upcoming port to Android 10 which has only
+            just been started. Older branches are no longer maintained. It is currently used for
+            all officially supported devices and should be used for the basis of ports to other
+            devices.</p>
 
-            <pre>mkdir grapheneos-pie
-cd grapheneos-pie
-repo init -u https://github.com/GrapheneOS/platform_manifest.git -b pie
+            <pre>mkdir grapheneos-10
+cd grapheneos-10
+repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 10
 repo sync -j32</pre>
-
-            <p>The pie-b4s4 branch is currently used for the Pixel 3a and Pixel 3a XL since these were introduced after the current pie maintenance release:</p>
-
-            <pre>mkdir grapheneos-pie-b4s4
-cd grapheneos-pie-b4s4
-repo init -u https://github.com/GrapheneOS/platform_manifest.git -b pie-b4s4
-repo sync -j32</pre>
-
-            <p>The <code>10</code> branch is for the upcoming port to Android 10 which has only just been started.</p>
 
             <p>If your network is unreliable and <code>repo sync</code> fails, you can run the
             <code>repo sync</code> command again as many times as needed for it to fully
