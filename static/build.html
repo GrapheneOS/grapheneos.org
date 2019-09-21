@@ -65,6 +65,7 @@
                     <ul>
                         <li><a href="#android-verified-boot-1.0">Android Verified Boot 1.0</a></li>
                         <li><a href="#android-verified-boot-2.0">Android Verified Boot 2.0 (AVB)</a></li>
+                        <li><a href="#upgrading-to-android-10">Upgrading to Android 10</a></li>
                     </ul>
                 </li>
                 <li><a href="#generating-signed-factory-images-and-full-update-packages">Generating signed factory images and full update packages</a></li>
@@ -511,6 +512,7 @@ cd keys/marlin
 ../../development/tools/make_key platform '/CN=GrapheneOS/'
 ../../development/tools/make_key shared '/CN=GrapheneOS/'
 ../../development/tools/make_key media '/CN=GrapheneOS/'
+../../development/tools/make_key networkstack '/CN=GrapheneOS/'
 ../../development/tools/make_key verity '/CN=GrapheneOS/'
 cd ../..</pre>
 
@@ -539,12 +541,36 @@ cd keys/crosshatch
 ../../development/tools/make_key platform '/CN=GrapheneOS/'
 ../../development/tools/make_key shared '/CN=GrapheneOS/'
 ../../development/tools/make_key media '/CN=GrapheneOS/'
+../../development/tools/make_key networkstack '/CN=GrapheneOS/'
 openssl genrsa -out avb.pem 2048
 ../../external/avb/avbtool extract_public_key --key avb.pem --output avb_pkmd.bin
 cd ../..</pre>
 
             <p>The <code>avb_pkmd.bin</code> file isn't needed for generating a signed release but
             rather to set the public key used by the device to enforce verified boot.</p>
+
+            <h3 id="upgrading-to-android-10">
+                <a href="#upgrading-to-android-10">Upgrading to Android 10</a>
+            </h3>
+
+            <p>For Android 10, there's a new <code>networkstack</code> key and you need to
+            generate one to avoid using the test key. For example, with crosshatch (needs to be
+            done for each set of device keys):</p>
+
+            <pre>cd keys/crosshatch
+../../development/tools/make_key networkstack '/CN=GrapheneOS/'</pre>
+
+            <p>GrapheneOS disables updatable APEX components for the officially supported
+            devices and targets inheriting from the mainline target. GrapheneOS uses the
+            <code>TARGET_FLATTEN_APEX := true</code> format to include APEX components as part of
+            the base OS without supporting out-of-band updates. <strong>If you don't disable updatable
+            APEX packages, you need to generate an APK and AVB key for each APEX component and
+            extend the GrapheneOS release.sh script to pass the appropriate parameters to replace
+            the APK and AVB keys for each APEX component.</strong> APEX components that are not flattened
+            are a signed APK (used for verify updates) with an embedded filesystem using verified
+            boot with the AVB key. Each APEX package must have a unique set of keys. GrapheneOS
+            has no use for these out-of-band updates at this time and flattening APEX components
+            avoids needing a bunch of extra keys and complexity.</p>
 
             <h2 id="generating-signed-factory-images-and-full-update-packages">
                 <a href="#generating-signed-factory-images-and-full-update-packages">Generating signed factory images and full update packages</a>
