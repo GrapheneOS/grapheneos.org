@@ -139,8 +139,18 @@
 
             <p>These generic targets can be used with the emulator along with many smartphones,
             tablets and other devices. These targets don't receive full monthly security updates,
-            don't provide all of the baseline security features like verified boot and are
-            intended for development usage.</p>
+            don't offer all of the baseline security features and are intended for development
+            usage.</p>
+
+            <p>Providing proper support for a device or generic device family requires providing
+            an up-to-date kernel and device support code including driver libraries, firmware and
+            device SELinux policy extensions. Other than some special cases like the emulator, the
+            generic targets rely on the device support code present on the device. Shipping all of
+            this is necessary for full security updates and is tied to enabling verified boot /
+            attestation. Pixel targets have a lot of device-specific hardening in the AOSP base
+            along with some in GrapheneOS which needs to be ported over too. For example, various
+            security features in the kernel including type-based Control Flow Integrity (CFI) and
+            the shadow call stack are currently specific to the kernels for these devices.</p>
 
             <p>SDK emulator targets:</p>
 
@@ -155,8 +165,7 @@
 
             <p>These are extended versions of the generic targets with extra components for the
             SDK. These targets don't receive full monthly security updates, don't provide all of
-            the baseline security features like verified boot and are intended for development
-            usage.</p>
+            the baseline security features and are intended for development usage.</p>
 
             <p>Board targets:</p>
 
@@ -170,7 +179,7 @@
             are major issues with the graphics drivers among other problems. The intention is to
             support them, but the necessary time has not yet been dedicated to it. These targets
             don't receive full monthly security updates, don't provide all of the baseline
-            security features like verified boot and are intended for development usage.</p>
+            security features and are intended for development usage.</p>
 
             <h2 id="build-dependencies">
                 <a href="#build-dependencies">Build dependencies</a>
