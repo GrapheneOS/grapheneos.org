@@ -77,6 +77,7 @@
                 <li>
                     <a href="#changelog">Changelog</a>
                     <ul>
+                        <li><a href="#2019.10.07.21">2019.10.07.21</a></li>
                         <li><a href="#2019.09.25.00">2019.09.25.00</a></li>
                         <li><a href="#2019.09.23.19">2019.09.23.19</a></li>
                         <li><a href="#2019.09.21.18">2019.09.21.18 preview</a></li>
@@ -330,6 +331,30 @@
 
             <p>List of tagged releases. Snapshot releases without tags such as early releases of
             the project and early device support releases are not listed.</p>
+
+            <h3 id="2019.10.07.21">
+                <a href="#2019.10.07.21">2019.10.07.21</a>
+            </h3>
+
+            <p>Tags:</p>
+            <ul>
+                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QP1A.191005.007.A1.2019.10.07.21">QP1A.191005.007.A1.2019.10.07.21</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, emulator, generic, other targets)</li>
+                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QP1A.191005.007.2019.10.07.21">QP1A.191005.007.2019.10.07.21</a> (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL)</li>
+            </ul>
+
+            <p>Changes since the 2019.09.25.00 release:</p>
+
+            <ul>
+                <li>full 2019-10-01 security patch level</li>
+                <li>full 2019-10-05 security patch level</li>
+                <li>full 2019-10-06 security patch level</li>
+                <li>rebased onto QP1A.191005.007.A1 release</li>
+                <li>add changes to support disabling full preloading with exec spawning to the public libcore API</li>
+                <li>add OTHER_SENSORS to the public frameworks/base API</li>
+                <li>Messaging app: fix notifications with a backport</li>
+                <li>Vanadium: switch back to ChromeModern (standalone browser app) from Monochrome (monolithic browser + WebView app, no longer supported for Android 10) until Vanadium is moved to Trichrome (separate browser and WebView apps with a third shared library app)</li>
+                <li>unified kernel tree (kernel/google/crosshatch) for Pixel 3, Pixel 3 XL, Pixel 3a and Pixel 3a XL</li>
+            </ul>
 
             <h3 id="2019.09.25.00">
                 <a href="#2019.09.25.00">2019.09.25.00</a>
