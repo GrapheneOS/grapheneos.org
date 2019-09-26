@@ -571,17 +571,30 @@ cd ../..</pre>
             <pre>cd keys/crosshatch
 ../../development/tools/make_key networkstack '/CN=GrapheneOS/'</pre>
 
-            <p>GrapheneOS disables updatable APEX components for the officially supported
-            devices and targets inheriting from the mainline target. GrapheneOS uses the
-            <code>TARGET_FLATTEN_APEX := true</code> format to include APEX components as part of
-            the base OS without supporting out-of-band updates. <strong>If you don't disable updatable
-            APEX packages, you need to generate an APK and AVB key for each APEX component and
-            extend the GrapheneOS release.sh script to pass the appropriate parameters to replace
-            the APK and AVB keys for each APEX component.</strong> APEX components that are not flattened
-            are a signed APK (used for verify updates) with an embedded filesystem using verified
-            boot with the AVB key. Each APEX package must have a unique set of keys. GrapheneOS
-            has no use for these out-of-band updates at this time and flattening APEX components
-            avoids needing a bunch of extra keys and complexity.</p>
+            <h3 id="enabling-updatable-apex-components">
+                <a href="#enabling-updatable-apex-components">Enabling updatable APEX components</a>
+            </h3>
+
+            <p>GrapheneOS disables updatable APEX components for the officially supported devices
+            and targets inheriting from the mainline target, so APEX signing keys are not needed
+            and this section can be ignored for unmodified builds.</p>
+
+            <p>GrapheneOS uses the <code>TARGET_FLATTEN_APEX := true</code> format to include APEX
+            components as part of the base OS without supporting out-of-band updates.</p>
+
+            <p><strong>If you don't disable updatable APEX packages, you need to generate an APK and
+            AVB key for each APEX component and extend the GrapheneOS release.sh script to pass
+            the appropriate parameters to replace the APK and AVB keys for each APEX
+            component.</strong></p>
+
+            <p>APEX components that are not flattened are a signed APK (used to verify updates)
+            with an embedded filesystem image signed with an AVB key (for verified boot). Each
+            APEX package must have a unique set of keys. GrapheneOS has no use for these
+            out-of-band updates at this time and flattening APEX components avoids needing a bunch
+            of extra keys and complexity.</p>
+
+            <p>For now, consult the upstream documentation on generating these keys. It will be
+            covered here in the future.</p>
 
             <h2 id="generating-signed-factory-images-and-full-update-packages">
                 <a href="#generating-signed-factory-images-and-full-update-packages">Generating signed factory images and full update packages</a>
