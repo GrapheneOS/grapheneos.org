@@ -53,7 +53,6 @@
                 <li><a href="#development-branch">Development branch</a></li>
                 <li><a href="#stable-release">Stable release</a></li>
                 <li><a href="#updating-and-switching-branches-or-tags">Updating and switching branches or tags</a></li>
-                <li><a href="#browser-and-webview">Browser and WebView</a></li>
                 <li><a href="#kernel">Kernel</a></li>
                 <li><a href="#setting-up-the-os-build-environment">Setting up the OS build environment</a></li>
                 <li><a href="#reproducible-builds">Reproducible builds</a></li>
@@ -72,6 +71,7 @@
                 <li>
                     <a href="#prebuilt-code">Prebuilt code</a>
                     <ul>
+                        <li><a href="#browser-and-webview">Browser and WebView</a></li>
                         <li><a href="#prebuilt-apps">Prebuilt apps</a></li>
                     </ul>
                 </li>
@@ -270,87 +270,6 @@ cd ../..</pre>
             You don't need to start over to switch between different branches or tags. You may
             need to run <code>repo init</code> again to continue down the same branch since
             GrapheneOS only provides a stable history via tags.</p>
-
-            <h2 id="browser-and-webview">
-                <a href="#browser-and-webview">Browser and WebView</a>
-            </h2>
-
-            <p>Before building GrapheneOS, you need to build Vanadium for the WebView and
-            <em>optionally</em> the standalone browser app. Vanadium is a hardened fork of
-            Chromium developed and used by GrapheneOS. It needs to be rebuilt when Chromium is
-            updated or the GrapheneOS <code>Vanadium</code> patches are changed.</p>
-
-            <p>Chromium and the WebView are independent applications built from the Chromium
-            source tree. The GrapheneOS Chromium build is located at external/vanadium and
-            includes the WebView.</p>
-
-            <p>See <a href="https://www.chromium.org/developers/how-tos/android-build-instructions">
-            Chromium's Android build instructions</a> for details on obtaining the
-            prerequisites.</p>
-
-            <p>You can obtain the proper configuration from the
-            <a href="https://github.com/GrapheneOS/Vanadium">
-            GrapheneOS Vanadium repository</a> in <code>args.gn</code> including the correct
-            version.</p>
-
-            <pre>git clone https://github.com/GrapheneOS/Vanadium.git
-cd Vanadium
-git checkout $CORRECT_BRANCH_OR_TAG</pre>
-
-            <p>Fetch the Chromium sources:</p>
-
-            <pre>fetch --nohooks android</pre>
-
-            <p>Sync to the latest stable release for Android (replace $VERSION with the correct
-            value):</p>
-
-            <pre>gclient sync -D --with_branch_heads -r $VERSION --jobs 32</pre>
-
-            <p>Apply the GrapheneOS patches on top of the tagged release:</p>
-
-            <pre>cd src
-git am --whitespace=nowarn ../*.patch</pre>
-
-            <p>Generate a signing key for Vanadium if this is the initial build (the sample
-            password configured in args.gn is <code>vanadiumpass</code>):</p>
-
-            <pre>keytool -genkey -v -keystore vanadium.keystore -alias vanadiumkey -keyalg RSA -keysize 4096 -sigalg SHA512withRSA -validity 10000 -dname "cn=GrapheneOS"</pre>
-
-            <p>You should back this up with your other keys.</p>
-
-            <p>Then, configure the build in the <code>src</code> directory:</p>
-
-            <pre>gn args out/Default</pre>
-
-            <p>Copy the GrapheneOS configuration from <code>../args.gn</code> and save/exit the
-            editor. Modify <code>target_cpu</code> as needed if the target is not arm64. For
-            x86_64, the correct value for <code>target_cpu</code> is <code>x64</code>, but note
-            that the Android source tree refers to it as x86_64.</p>
-
-            <p>To build ChromeModernPublic, which provides the browser app:</p>
-
-            <pre>ninja -C out/Default/ chrome_modern_public_apk</pre>
-
-            <p>The apk needs to be copied from <code>out/Default/apks/ChromeModernPublic.apk</code>
-            into the Android source tree at
-            <code>external/vanadium/prebuilt/arm64/ChromeModernPublic.apk</code> with arm64
-            substituted with the correct value for other architectures (arm, x86, x86_64).</p>
-
-            <p>To build SystemWebView, which provides the WebView:</p>
-
-            <pre>ninja -C out/Default/ system_webview_apk</pre>
-
-            <p>The apk needs to be copied from <code>out/Default/apks/SystemWebView.apk</code>
-            into the Android source tree at
-            <code>external/chromium-webview/prebuilt/arm64/webview.apk</code> with arm64
-            substituted with the correct value for other architectures (arm, x86, x86_64).</p>
-
-            <p><strong>Chromium cannot yet provide the WebView for Android 10. The changes for
-            this have not yet landed upstream for the current stable release. It either needs to
-            be addressed upstream or downstream in order for this to work again.</strong></p>
-
-            <p>WebView provider apps need to be whitelisted in
-            <code>frameworks/base/core/res/res/xml/config_webview_packages</code>.</p>
 
             <h2 id="kernel">
                 <a href="#kernel">Kernel</a>
@@ -635,6 +554,88 @@ cd ../..</pre>
             Like the Android Open Source Project, GrapheneOS contains some code that's built
             separately and then bundled into the source tree as binaries. This section will be
             gradually expanded to cover building all of it.
+
+            <h3 id="browser-and-webview">
+                <a href="#browser-and-webview">Browser and WebView</a>
+            </h3>
+
+            <p>Before building GrapheneOS, you need to build Vanadium for the WebView and
+            <em>optionally</em> the standalone browser app. Vanadium is a hardened fork of
+            Chromium developed and used by GrapheneOS. It needs to be rebuilt when Chromium is
+            updated or the GrapheneOS <code>Vanadium</code> patches are changed.</p>
+
+            <p>Chromium and the WebView are independent applications built from the Chromium
+            source tree. The GrapheneOS Chromium build is located at external/vanadium and
+            includes the WebView.</p>
+
+            <p>See <a href="https://www.chromium.org/developers/how-tos/android-build-instructions">
+            Chromium's Android build instructions</a> for details on obtaining the
+            prerequisites.</p>
+
+            <p>You can obtain the proper configuration from the
+            <a href="https://github.com/GrapheneOS/Vanadium">
+            GrapheneOS Vanadium repository</a> in <code>args.gn</code> including the correct
+            version.</p>
+
+            <pre>git clone https://github.com/GrapheneOS/Vanadium.git
+cd Vanadium
+git checkout $CORRECT_BRANCH_OR_TAG</pre>
+
+            <p>Fetch the Chromium sources:</p>
+
+            <pre>fetch --nohooks android</pre>
+
+            <p>Sync to the latest stable release for Android (replace $VERSION with the correct
+            value):</p>
+
+            <pre>gclient sync -D --with_branch_heads -r $VERSION --jobs 32</pre>
+
+            <p>Apply the GrapheneOS patches on top of the tagged release:</p>
+
+            <pre>cd src
+git am --whitespace=nowarn ../*.patch</pre>
+
+            <p>Generate a signing key for Vanadium if this is the initial build (the sample
+            password configured in args.gn is <code>vanadiumpass</code>):</p>
+
+            <pre>keytool -genkey -v -keystore vanadium.keystore -alias vanadiumkey -keyalg RSA -keysize 4096 -sigalg SHA512withRSA -validity 10000 -dname "cn=GrapheneOS"</pre>
+
+            <p>You should back this up with your other keys.</p>
+
+            <p>Then, configure the build in the <code>src</code> directory:</p>
+
+            <pre>gn args out/Default</pre>
+
+            <p>Copy the GrapheneOS configuration from <code>../args.gn</code> and save/exit the
+            editor. Modify <code>target_cpu</code> as needed if the target is not arm64. For
+            x86_64, the correct value for <code>target_cpu</code> is <code>x64</code>, but note
+            that the Android source tree refers to it as x86_64.</p>
+
+            <p>To build ChromeModernPublic, which provides the browser app:</p>
+
+            <pre>ninja -C out/Default/ chrome_modern_public_apk</pre>
+
+            <p>The apk needs to be copied from <code>out/Default/apks/ChromeModernPublic.apk</code>
+            into the Android source tree at
+            <code>external/vanadium/prebuilt/arm64/ChromeModernPublic.apk</code> with arm64
+            substituted with the correct value for other architectures (arm, x86, x86_64).</p>
+
+            <p>To build SystemWebView, which provides the WebView:</p>
+
+            <pre>ninja -C out/Default/ system_webview_apk</pre>
+
+            <p>The apk needs to be copied from <code>out/Default/apks/SystemWebView.apk</code>
+            into the Android source tree at
+            <code>external/chromium-webview/prebuilt/arm64/webview.apk</code> with arm64
+            substituted with the correct value for other architectures (arm, x86, x86_64).</p>
+
+            <p><strong>Chromium cannot yet provide the WebView for Android 10. The changes for
+            this have not yet landed upstream for the current stable release. It either needs to
+            be addressed upstream or downstream in order for this to work again.</strong></p>
+
+            <p>WebView provider apps need to be whitelisted in
+            <code>frameworks/base/core/res/res/xml/config_webview_packages</code>.</p>
+
 
             <h3 id="prebuilt-apps">
                 <a href="#prebuilt-apps">Prebuilt apps</a>
