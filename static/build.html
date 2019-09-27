@@ -559,14 +559,15 @@ cd ../..</pre>
                 <a href="#browser-and-webview">Browser and WebView</a>
             </h3>
 
-            <p>Before building GrapheneOS, you need to build Vanadium for the WebView and
-            <em>optionally</em> the standalone browser app. Vanadium is a hardened fork of
-            Chromium developed and used by GrapheneOS. It needs to be rebuilt when Chromium is
-            updated or the GrapheneOS <code>Vanadium</code> patches are changed.</p>
+            <p>Vanadium is a hardened fork of Chromium developed by GrapheneOS and used to provide
+            the WebView and <em>optionally</em> the standalone browser app. It tracks the Chromium
+            release cycles along with having additional updates for downstream changes to the
+            privacy and security hardening patches, so it's updated at a different schedule than
+            the monthly Android releases.</p>
 
-            <p>Chromium and the WebView are independent applications built from the Chromium
-            source tree. The GrapheneOS Chromium build is located at external/vanadium and
-            includes the WebView.</p>
+            <p>The browser and the WebView are independent applications built from the Chromium
+            source tree. The GrapheneOS browser build is located at external/vanadium and the
+            WebView is at external/chromium-webview.</p>
 
             <p>See <a href="https://www.chromium.org/developers/how-tos/android-build-instructions">
             Chromium's Android build instructions</a> for details on obtaining the
