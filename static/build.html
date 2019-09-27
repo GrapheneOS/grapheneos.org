@@ -325,19 +325,29 @@ git am --whitespace=nowarn ../*.patch</pre>
             x86_64, the correct value for <code>target_cpu</code> is <code>x64</code>, but note
             that the Android source tree refers to it as x86_64.</p>
 
-            <p>To build Monochrome, which provides both Chromium and the WebView:</p>
+            <p>To build ChromeModernPublic, which provides the browser app:</p>
 
-            <pre>ninja -C out/Default/ monochrome_public_apk</pre>
+            <pre>ninja -C out/Default/ chrome_modern_public_apk</pre>
 
-            <p>The apk needs to be copied from <code>out/Default/apks/MonochromePublic.apk</code>
+            <p>The apk needs to be copied from <code>out/Default/apks/ChromeModernPublic.apk</code>
             into the Android source tree at
-            <code>external/vanadium/prebuilt/arm64/MonochromePublic.apk</code> with arm64
+            <code>external/vanadium/prebuilt/arm64/ChromeModernPublic.apk</code> with arm64
             substituted with the correct value for other architectures (arm, x86, x86_64).</p>
 
-            <p>Standalone builds of Chromium and the WebView can be done via the
-            <code>chrome_modern_public_apk</code> and <code>system_webview_apk</code> targets but
-            those aren't used by GrapheneOS. The build system isn't set up for including them and
-            the standalone WebView isn't whitelisted in
+            <p>To build SystemWebView, which provides the WebView:</p>
+
+            <pre>ninja -C out/Default/ system_webview_apk</pre>
+
+            <p>The apk needs to be copied from <code>out/Default/apks/SystemWebView.apk</code>
+            into the Android source tree at
+            <code>external/chromium-webview/prebuilt/arm64/webview.apk</code> with arm64
+            substituted with the correct value for other architectures (arm, x86, x86_64).</p>
+
+            <p><strong>Chromium cannot yet provide the WebView for Android 10. The changes for
+            this have not yet landed upstream for the current stable release. It either needs to
+            be addressed upstream or downstream in order for this to work again.</strong></p>
+
+            <p>WebView provider apps need to be whitelisted in
             <code>frameworks/base/core/res/res/xml/config_webview_packages</code>.</p>
 
             <h2 id="kernel">
