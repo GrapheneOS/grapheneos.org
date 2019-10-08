@@ -73,6 +73,7 @@
                 <li>
                     <a href="#changelog">Changelog</a>
                     <ul>
+                        <li><a href="#2019.11.04.23">2019.11.04.23</a></li>
                         <li><a href="#2019.10.07.21">2019.10.07.21</a></li>
                         <li><a href="#2019.09.25.00">2019.09.25.00</a></li>
                         <li><a href="#2019.09.23.19">2019.09.23.19</a></li>
@@ -283,6 +284,43 @@
 
             <p>List of tagged releases. Snapshot releases without tags such as early releases of
             the project and early device support releases are not listed.</p>
+
+            <h3 id="2019.11.04.23">
+                <a href="#2019.11.04.23">2019.11.04.23</a>
+            </h3>
+
+            <p>Tags:</p>
+            <ul>
+                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QP1A.191105.003.2019.11.04.23">QP1A.191105.003.2019.11.04.23</a> (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL)</li>
+                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QP1A.191105.004.2019.11.04.23">QP1A.191105.004.2019.11.04.23</a> (Pixel 2, Pixel 2 XL, emulator, generic, other targets)</li>
+            </ul>
+
+            <p>Changes since the 2019.09.25.00 release:</p>
+
+            <ul>
+                <li>full 2019-11-01 security patch level</li>
+                <li>full 2019-11-05 security patch level</li>
+                <li>Settings: disable legacy suggestions mode</li>
+                <li>recovery: GrapheneOS branding for fastboot mode</li>
+                <li>Vanadium: update to 77.0.3865.116</li>
+                <li>WebView: update to 77.0.3865.116</li>
+                <li>Vanadium: update to 78.0.3904.62</li>
+                <li>WebView: update to 78.0.3904.62</li>
+                <li>Vanadium: update to 78.0.3904.90</li>
+                <li>WebView: update to 78.0.3904.90</li>
+                <li>kernel (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): mark functions with address taken via assembly (this fixes compatibility with CFI in a build with !CONFIG_MODULES)</li>
+                <li>protect static TLS from stack buffer overflows</li>
+                <li>drop legacy Pixel and Pixel XL support due to absence of any GrapheneOS device maintainers, the end of vendor support and an increasingly large security gap with current generation devices for the hardware, firmware and device / generation specific software</li>
+            </ul>
+
+            <p>Restoration of past features since the 2019.09.25.00 release:</p>
+
+            <ul>
+                <li>Bluetooth: add alloc_size attribute to OSI allocator</li>
+                <li>protect pthread_internal_t from stack buffer overflows</li>
+                <li>add secondary stack randomization</li>
+                <li>kernel (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): disable dynamic kernel module support (resulting in substantially improved CFI granularity)</li>
+            </ul>
 
             <h3 id="2019.10.07.21">
                 <a href="#2019.10.07.21">2019.10.07.21</a>
