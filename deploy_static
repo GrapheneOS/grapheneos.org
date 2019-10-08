@@ -2,12 +2,12 @@
 
 set -o errexit
 
-remote=www-data@grapheneos.org
-active=$(ssh $remote readlink html)
-
 validatornu --Werror --skip-non-html static
 validatornu --Werror --skip-non-css static
 validatornu --Werror --skip-non-svg --no-langdetect static
+
+remote=www-data@grapheneos.org
+active=$(ssh $remote readlink html)
 
 if [[ $active = html_a ]]; then
     target=html_b
