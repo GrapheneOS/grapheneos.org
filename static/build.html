@@ -712,23 +712,28 @@ wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
 unzip sdk-tools-linux-4333796.zip
 rm sdk-tools-linux-4333796.zip</pre>
 
+            <p>Add the directories to your PATH in your shell profile configuration and do the
+            same in your current shell:</p>
+
+            <pre>export PATH="$HOME/sdk/tools:$HOME/sdk/tools/bin:$HOME/sdk/platform-tools:$HOME/sdk/build-tools/29.0.2:$PATH:$HOME/sdk/ndk-bundle"
+export ANDROID_HOME="$HOME/sdk"</pre>
+
             <p>Run an initial update, which will also install platform-tools</p>
 
-            <pre>tools/bin/sdkmanager --update</pre>
+            <pre>sdkmanager --update</pre>
 
             <p>Install platform-tools for tools like adb and fastboot:</p>
 
-            <pre>tools/bin/sdkmanager platform-tools</pre>
+            <pre>sdkmanager platform-tools</pre>
 
             <p>For running the Compatibility Test Suite you'll also need the build-tools for
             aapt:</p>
 
-            <pre>tools/bin/sdkmanager 'build-tools;29.0.2'</pre>
+            <pre>sdkmanager 'build-tools;29.0.2'</pre>
 
-            <p>Add the directories to your PATH in your shell profile configuration:</p>
+            <p>For working with native code, you need the NDK:</p>
 
-            <pre>export PATH="$HOME/sdk/tools:$HOME/sdk/tools/bin:$HOME/sdk/platform-tools:$HOME/sdk/build-tools/29.0.2:$PATH:$HOME/sdk/ndk-bundle"
-export ANDROID_HOME="$HOME/sdk"</pre>
+            <pre>sdkmanager ndk-bundle</pre>
 
             <p>You should update the sdk before use from this point onwards:</p>
 
