@@ -47,6 +47,7 @@ RedirectMatch 301 ^/safari-pinned-tab-icon.svg$ /mask-icon.svg
 RedirectMatch 301 ^/bitcoin_address.png$ /bitcoin-address.png
 
 # http://www.twipu.com/GrapheneOS doesn't handle links with fragments properly
+RedirectMatch 301 "^/<a href=$" /
 RedirectMatch 301 "^/releases<a href=$" /releases
 
 RewriteEngine on
