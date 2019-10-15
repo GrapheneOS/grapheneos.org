@@ -51,6 +51,28 @@ nav ul {
     padding: 0;
 }
 
+.nav_logo {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    
+    display: flex;
+
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    
+    align-items: center;
+}
+
+.nav_logo--specs {    
+    float: left;
+    height: 35px;
+    margin-left: 14px;
+}
+
 nav {
     background-color: #212121; /* grey900 */
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0 ,0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
