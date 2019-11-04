@@ -62,8 +62,6 @@
                 <li>
                     <a href="#generating-release-signing-keys">Generating release signing keys</a>
                     <ul>
-                        <li><a href="#android-verified-boot-1.0">Android Verified Boot 1.0</a></li>
-                        <li><a href="#android-verified-boot-2.0">Android Verified Boot 2.0 (AVB)</a></li>
                         <li><a href="#upgrading-to-android-10">Upgrading to Android 10</a></li>
                     </ul>
                 </li>
@@ -112,8 +110,6 @@
             <p>Smartphone targets:</p>
 
             <ul>
-                <li>aosp_marlin (Pixel XL)</li>
-                <li>aosp_sailfish (Pixel)</li>
                 <li>aosp_taimen (Pixel 2 XL)</li>
                 <li>aosp_walleye (Pixel 2)</li>
                 <li>aosp_crosshatch (Pixel 3 XL)</li>
@@ -285,7 +281,6 @@ cd ../..</pre>
             <p>List of kernels corresponding to officially supported devices:</p>
 
             <ul>
-                <li>Pixel, Pixel XL: marlin - shared build</li>
                 <li>Pixel 2, Pixel 2 XL: wahoo - separate taimen and walleye builds due to hardening</li>
                 <li>Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL: crosshatch - separate crosshatch, blueline and bonito builds due to hardening</li>
             </ul>
@@ -310,14 +305,9 @@ git submodule sync
 git submodule update --init
 ./build.sh blueline</pre>
 
-            <p>The <code>kernel/google/marlin</code> repository is for the Pixel and Pixel XL, the
-            <code>kernel/google/wahoo</code> repository is for the Pixel 2 and Pixel 2 XL and the
-            <code>kernel/google/crosshatch</code> repository is for the Pixel 3 and Pixel 3
-            XL.</p>
-
-            <p><em>For the first generation Pixel (sailfish) and Pixel XL (marlin), signed
-            releases require building the verity public key into the kernel so the keys need to be
-            generated per the instructions below before building the kernel.</em></p>
+            <p>The <code>kernel/google/wahoo</code> repository is for the Pixel 2 and Pixel 2 XL
+            and the <code>kernel/google/crosshatch</code> repository is for the Pixel 3 and Pixel
+            3 XL.</p>
 
             <h2 id="setting-up-the-os-build-environment">
                 <a href="#setting-up-the-os-build-environment">Setting up the OS build environment</a>
@@ -437,46 +427,6 @@ mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/
             can still be available to the signing scripts as a directory of unencrypted keys. The
             sample certificate subject can be replaced with your own information or simply left
             as-is.</p>
-
-            <p>The Pixel and Pixel XL use Android Verified Boot 1.0. The Pixel 2, Pixel 2 XL,
-            Pixel 3, Pixel 3 XL, Pixel 3a and Pixel 3a XL use Android Verified Boot 2.0 (AVB).
-            Follow the appropriate instructions below.</p>
-
-            <p><em>For the first generation Pixel (sailfish) and Pixel XL (marlin), signed
-            releases require building the verity public key into the kernel, so this needs to be
-            done before building the kernel.</em></p>
-
-            <h3 id="android-verified-boot-1.0">
-                <a href="#android-verified-boot-1.0">Android Verified Boot 1.0</a>
-            </h3>
-
-            <p>To generate keys for marlin (you should use unique keys per device variant):</p>
-
-            <pre>mkdir -p keys/marlin
-cd keys/marlin
-../../development/tools/make_key releasekey '/CN=GrapheneOS/'
-../../development/tools/make_key platform '/CN=GrapheneOS/'
-../../development/tools/make_key shared '/CN=GrapheneOS/'
-../../development/tools/make_key media '/CN=GrapheneOS/'
-../../development/tools/make_key networkstack '/CN=GrapheneOS/'
-../../development/tools/make_key verity '/CN=GrapheneOS/'
-cd ../..</pre>
-
-            <p>Generate the verity public key:</p>
-
-            <pre>make -j20 generate_verity_key
-out/host/linux-x86/bin/generate_verity_key -convert keys/marlin/verity.x509.pem keys/marlin/verity_key</pre>
-
-            <p>Generate verity keys in the format used by the kernel for the Pixel and Pixel XL:</p>
-
-            <pre>openssl x509 -outform der -in keys/marlin/verity.x509.pem -out kernel/google/marlin/verifiedboot_marlin_relkeys.der.x509</pre>
-
-            <p>The same kernel and device repository is used for the Pixel and Pixel XL. There's
-            no separate sailfish kernel.</p>
-
-            <h3 id="android-verified-boot-2.0">
-                <a href="#android-verified-boot-2.0">Android Verified Boot 2.0 (AVB)</a>
-            </h3>
 
             <p>To generate keys for crosshatch (you should use unique keys per device
             variant):</p>
