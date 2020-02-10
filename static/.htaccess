@@ -8,7 +8,9 @@ report-uri https://danielmicay.report-uri.com/r/d/csp/enforce"
 Header always set Feature-Policy "accelerometer 'none'; \
 ambient-light-sensor 'none'; \
 autoplay 'none'; \
+battery 'none'; \
 camera 'none'; \
+display-capture 'none'; \
 document-domain 'none'; \
 encrypted-media 'none'; \
 fullscreen 'none'; \
@@ -22,9 +24,8 @@ picture-in-picture 'none'; \
 speaker 'none'; \
 sync-xhr 'none'; \
 usb 'none'; \
-vr 'none'; \
 wake-lock 'none'; \
-xr 'none'"
+xr-spatial-tracking 'none'"
 
 <FilesMatch "\.(html|txt|webmanifest|xml)$">
 Header set Cache-Control "public, max-age=1800"
