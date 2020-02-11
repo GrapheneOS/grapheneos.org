@@ -75,6 +75,37 @@
             applications. It will take more time to organize and deploy these resources in order
             for the project to have a strong development team with proper infrastructure behind
             it.</p>
+            
+            <h3 id="overview">
+                <a href="#overview">Overview</a>
+            </h3>
+            <p>GrapheneOS aims to make deep and systematic improvements to the security and privacy
+            characteristics of the Android Open Source Project with the goals of reducing attack
+            surface, resisting penetration, and mitigation of potential exploits to prevent them
+            from becoming vulnerabilities. To do so, GrapheneOS implements numerous improvements 
+            acrossthe software stack, including the Kernel and Bionic C Library, and utilizes its 
+            own security-focused memory allocator. GrapheneOS fully utilizes all the hardware
+            security features of only handsets with the best security; each installation of 
+            GrapheneOS is not only reproducible, but is signed, validated, and is bitwise identical
+            across a particular device with full support for verified boot, hardware-bound 
+            encryption, and use of the hardware-backed keystore.</p>
+            
+            <p>GrapheneOS also aims to be the reference implementation for its standalone
+            subprojects. These subprojects include the 
+            <a href="https://github.com/GrapheneOS/hardened_malloc"><i>hardened_malloc</i></a>,
+            which is an all-new general purpose memory allocator designed to provide protection
+            against heap corruption vulnerabilities, reduce metadata overhead and reduce waste from
+            fragmentation. GrapheneOS utilizes
+            <a href="https://github.com/GrapheneOS/Vanadium"><i>Vanadium</i></a> as a browser, a
+            privacy and security-enhanced release of Chromium which takes advantage of the hardening
+            improvements specific to the operating system. GrapheneOS also created and pioneered the
+            <a href="https://attestation.app/about"><i>Auditor</i></a> remote attestation system
+            which works in conjunction with the project's own
+            <a href="https://github.com/GrapheneOS/Auditor"><i>AttestationServer</i></a>
+            subproject for remote device integrity monitoring and intrusion detection, empowering 
+            the user with the ability to prove that the operating system they installed on their
+            device is genuine and has not been tampered with.</p>
+
             <h2 id="roadmap">
                 <a href="#roadmap">Roadmap</a>
             </h2>
