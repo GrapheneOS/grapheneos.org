@@ -53,6 +53,7 @@
                 <li>
                     <a href="#prerequisites">Prerequisites</a>
                     <ul>
+                        <li><a href="#adding-udev-rules">Adding udev rules</a></li>
                         <li><a href="#obtaining-fastboot">Obtaining fastboot</a></li>
                         <li><a href="#obtaining-signify">Obtaining signify</a></li>
                     </ul>
@@ -81,6 +82,30 @@
             over-the-air updates or sideload a full update, which for Pixel phones can be obtained
             from the <a href="https://developers.google.com/android/ota">full update package
             page</a>.</p>
+
+            <h3 id="adding-udev-rules">
+                <a href="#adding-udev-rules">Adding udev rules</a>
+            </h3>
+            <p>Linux distributions that use udev for device management, such as Fedora, Ubuntu,
+            and Debian do not include and require correct udev rules in order to permit the
+            software on the computer to talk to the device if running adb or fastboot as a non-
+            root user. Running fastboot as non-root without the prerequisite udev rules installed
+            will result in fastboot hanging with a <code>waiting for device</code> error message
+            even with the device plugged in and seemingly properly configured.</p>
+
+            <p>The easiest way to obtain and add the correct udev rules to your computer is to
+            run the following commands to download the android rules, move them to the udev rules
+            directory and reload the rules. For Fedora or Debian-based distributions:
+
+            <pre>
+wget https://raw.githubusercontent.com/M0Rf30/android-udev-rules/master/51-android.rules
+sudo mv 51-android.rules /etc/udev/rules.d/51-android.rules
+sudo udevadm control --reload-rules
+            </pre>
+
+            Finally, log off and then log back on again, or reboot your computer to ensure the
+            changes take effect. You will not need to add yourself to the <code>adbusers</code>
+            usergroup unless you plan on using adb from a remote session.</p>
 
             <h3 id="obtaining-fastboot">
                 <a href="#obtaining-fastboot">Obtaining fastboot</a>
