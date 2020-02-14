@@ -10,9 +10,16 @@
 // https://www.w3.org/People/Bos/redirect
 // https://www.w3.org/Protocols/HTTP/Fragment/draft-bos-http-redirect-00.txt
 
+const redirects = new Map([
+    ["/#device-support", "/faq#device-support"],
+]);
+
 function handle_hash() {
-    if (window.location.hash === "#device-support") {
-        window.location.replace("https://grapheneos.org/faq#device-support");
+    if (window.location.hash) {
+        const redirect = redirects.get(window.location.pathname + window.location.hash);
+        if (redirect) {
+            window.location.replace(redirect);
+        }
     }
 }
 
