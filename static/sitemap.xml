@@ -16,11 +16,11 @@
     </url>
     <url>
         <loc>https://grapheneos.org/usage</loc>
-        <priority>0.2</priority>
+        <priority>0.5</priority>
     </url>
     <url>
         <loc>https://grapheneos.org/faq</loc>
-        <priority>0.0</priority>
+        <priority>0.5</priority>
     </url>
     <url>
         <loc>https://grapheneos.org/releases</loc>
