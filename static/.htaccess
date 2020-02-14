@@ -62,6 +62,10 @@ RewriteCond %{REQUEST_URI} ".*\.html$"
 RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^(.*)\.html$ /$1 [L,R=301]
 
+<Files "LICENSE">
+ForceType text/plain
+</Files>
+
 AddType application/manifest+json webmanifest
 AddType font/woff2 woff2
 
