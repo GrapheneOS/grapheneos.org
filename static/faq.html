@@ -46,6 +46,40 @@
             <h2 id="table-of-contents">
                 <a href="#table-of-contents">Table of contents</a>
             </h2>
+            <ul>
+                <li><a href="#supported-devices">Which devices are supported?</a></li>
+            </ul>
+
+            <h2 id="supported-devices">
+                <a href="#supported-devices">Which devices are supported?</a>
+            </h2>
+
+            <p>GrapheneOS has official production support for the Pixel 2, Pixel 2 XL, Pixel 3,
+            Pixel 3 XL, Pixel 3a and Pixel 3a XL. The release tags for these devices have official
+            builds and updates available. These devices meet the stringent privacy and security
+            standards and have substantial upstream and downstream hardening specific to the
+            devices.</p>
+
+            <p>Many other devices are supported by GrapheneOS at a source level, and it can be
+            built for them without modifications to the existing GrapheneOS source tree. Device
+            support repositories for the Android Open Source Project can simply be dropped into
+            the source tree, with at most minor modifications within them to support GrapheneOS.
+            In most cases, substantial work beyond that will be needed to bring the support up to
+            the same standards. For most devices, the hardware and firmware will prevent providing
+            a reasonably secure device, regardless of the work put into device support.</p>
+
+            <p>GrapheneOS also supports generic targets, but these aren't suitable for production
+            usage and are only intended for development and testing use. For mobile devices, the
+            generic targets simply run on top of the underlying device support code (firmware,
+            kernel, device trees, vendor code) rather than shipping it and keeping it updated. It
+            would be possible to ship generic system images with separate updates for the device
+            support code. However, it would be drastically more complicated to maintain and
+            support due to combinations of different versions and it would cause complications for
+            the hardening done by GrapheneOS. The motivation doesn't exist for GrapheneOS, since
+            full updates with deltas to minimize bandwidth can be shipped for every device and
+            GrapheneOS is the only party involved in providing the updates. For the same reason,
+            it has little use for the ability to provide out-of-band updates to system image
+            components including all the apps and many other components.</p>
         </div>
         <footer>
             <a href="/"><img src="https://grapheneos.org/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
