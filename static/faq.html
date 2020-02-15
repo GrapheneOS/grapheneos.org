@@ -55,6 +55,8 @@
                         <li><a href="#future-devices">Which devices will be supported in the future?</a></li>
                         <li><a href="#when-devices">When will more devices be supported?</a></li>
                         <li><a href="#legacy-devices">Why are older devices no longer supported?</a></li>
+                        <li><a href="#what-sets-us-apart">What sets GrapheneOS apart from other 
+                        "Custom ROMs" like LineageOS?</a></li>
                     </ul>
                 </li>
                 <li>
@@ -235,6 +237,47 @@
             security of the project when exceptions for old devices need to be listed out. The
             project ends up wanting to drop devices for this reason but has always kept them going
             until the end-of-life date to provide more time for people to migrate.</p>
+
+            <h3 id="what-sets-us-apart">
+                <a href="#what-sets-us-apart">What sets GrapheneOS apart from other "Custom ROMs"
+                like LineageOS?</a>
+            </h2>
+
+            <p>"Custom ROM" is a misnomer. Phones have not loaded their operating system from 
+            electronically erasable programmable read-only flash memory for generations. The correct
+            term is 'system image' and GrapheneOS is more than a system image: it is an operating
+            system with a large number of subprojects such as the hardened_malloc, Auditor,
+            Attestation Server and hardened Bionic C Library, all of which which work in concert
+            with each other to improve the security, privacy and trustworthiness of the Android Open
+            Source Project.</p>
+
+            <p><em>GrapheneOS is a privacy and security research and engineering project above
+            all.</em> With GrapheneOS, priority is placed on reducing attack surface, reducing
+            privilege, implementing restrictive security policies to mitigate exploits, and
+            implementing security measures that are safe by default and operate transparently.
+            In the future, it's likely that the operating system and user experience will be further
+            locked down and made more restrictive in order to guard against malware, user error, and
+            <a href="https://en.wikipedia.org/wiki/Social_engineering_(security)">social engineering.</a>
+            GrapheneOS also develops, implements and utilizes 
+            <a href="https://attestation.app">Auditor</a> for remote attestation, integrity
+            monitoring, and intrusion detection to provide multiple levels of verification, in
+            conjunction with <a href="/build#reproducible-builds">reproducible builds</a>.</p>
+
+            <p>LineageOS by contrast, focuses heavily on allowing the user permissiveness to
+            tinker or customize their phones and widespread device support and extending the life
+            of phones that are no longer supported by their vendors. LineageOS deliberately elects
+            not to utilize Verified Boot, as this is seen as desirable by users that wish to
+            customize their system image by means of having root access. Since many LineageOS users
+            desire functionality that would otherwise be prohibited by the Android Mandatory Access
+            Control policies which are implemented for security and preventing exploits, LineageOS
+            reduces the restrictiveness of these policies.</p>
+
+            <p>LineageOS and GrapheneOS have extremely different and mutually exclusive goals, with
+            LineageOS prioritizing permissiveness and customizeability, and GrapheneOS prioritizing
+            correctness, verifiability, exploit mitigation, and security. GrapheneOS has never used
+            LineageOS as an upstream provider, and should not be considered a competitor to it. The
+            two are meant for different purposes, different audiences, and a very different type of
+            end-user.</p>
 
             <h2 id="security-and-privacy">
                 <a href="#security-and-privacy">Security and privacy</a>
