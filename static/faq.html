@@ -88,6 +88,9 @@
                         <li><a href="#firewall">Does GrapheneOS provide a firewall?</a></li>
                         <li><a href="#ad-blocking">How can I set up system-wide ad-blocking?</a></li>
                         <li><a href="#ad-blocking-apps">Are ad-blocking apps supported?</a></li>
+                        <li><a href="#securing-data-at-rest">How does GrapheneOS secure data at
+                        rest?</a></li>
+                        <li><a href="#fbe-over-fde">Why does GrapheneOS use FBE over FDE?</a></li>
                     </ul>
                 </li>
                 <li>
@@ -565,6 +568,67 @@
             providing one, and very few have bothered to implement this. NetGuard is an one
             example implementing SOCKS5 forwarding, which can be used to forward to apps like
             Orbot (Tor).</p>
+
+            <h3 id="securing-data-at-rest">
+                <a href="#securing-data-at-rest">How does GrapheneOS secure data at rest?</a>
+            </h3>
+            <p>GrapheneOS makes full use of the hardware-bound encryption in modern Android devices.
+            The Titan M, a specially designed hardware security module (HSM) on Pixel 3 and 3a handsets, handles
+            validation of the user's PIN or password. Upon getting the correct password, the HSM
+            will calculate an access token from the password, from a secret contained in the
+            confines of the HSM, and from a hash of a two-kilobyte partition at the start of the
+            phone's SSD by means of a key derivation function. The HSM will only be able to release
+            the token to the phone so it can in turn derive the keys to decrypt the files if it gets
+            the correct password.</p>
+
+            <p>This system ensures that an adversary in possession of your phone cannot simply
+            extract the SSD and connect it to a much more powerful system to run guessing attacks on
+            it offline, and instead must go through the specific HSM on the phone. The HSM is
+            about the size of a grain of rice and is difficult to attack. Each file is encrypted
+            with AES-256-XTS, and the filesystem metadata is encrypted with AES-256-HEH.</p>
+
+            <p>File-based encryption on GrapheneOS is always on, enforced, and cannot be switched
+            off or fall back to plaintext. The HSM has its own internal timer which cannot be
+            accessed from the host operating system, and can enforce a time delay between guesses
+            that the host cannot bypass. After the first 10 incorrect tries at the PIN or password
+            the phone will enter lockdown for 30 seconds between guesses, during which it will
+            refuse any more attempts at password entry. This timeout increases to one minute after
+            40 incorrect attempts, then two minutes after 50 incorrect attempts, four minutes after
+            60 incorrect attempts, and so on. This would reach an expected maximum of one day
+            between guesses at 150 incorrect attempts after around two weeks worth of progressively
+            longer timeouts. Once this rate is reached, the remaining key space of a four digit
+            pincode between 0150 and 9999 would take just shy of six and a half centuries to
+            completely exhaust. By comparison, exhausting the key space of a relatively weak
+            two-word passphrase from a wordlist of 2048 words at the same rate would take close to
+            37,000,000,000 or <em>thirty seven thousand million</em> years.</p>
+
+            <p>GrapheneOS allows passwords of up to 64 characters to be used.</p>
+
+            <h3 id="fbe-over-fde">
+                <a href="#fbe-over-fde">Why does GrapheneOS use FBE over FDE?</a>
+            </h3>
+            <p>Virtually all modern phones use file-based encryption instead of full-disk
+            encryption. Android 10 requires file-based encryption. Utilizing file-based encryption
+            has a number of advantages:
+                <ul>
+                    <li>It allows user profiles to be made more secure, since each profile has their
+                    own encryption keys that get wiped from memory when logged out. Data in an
+                    inactive profile becomes at rest and inaccessible because the encryption key
+                    has to be reobtained from user authentication. In the event an exploit is able
+                    compromise the memory where the cryptographic keys reside, this prevents the
+                    entire contents of the disk from being simply read out as would be the case with
+                    full-disk encryption which simply uses one key for the entire drive and has an
+                    'all-or-nothing' model.</li>
+                    <li>Apps that are written to use Strongbox Keymaster can eject their own keys
+                    from memory when the screen is locked, but still be able to function and append
+                    data to storage even while the data on the phone is locked and encrypted.</li>
+                    <li>The phone can handle updates even while locked and the data is at rest.</li>
+                    <li>File-based encryption allows some features like direct boot, which many
+                    users have come to expect out of mobile phones.</li>
+                </ul>
+            The filesystem metadata on modern GrapheneOS handsets is itself padded to disguise
+            filename lengths, then is encrypted with AES-256-HEH, so adding another layer of
+            encryption on top by superimposing FBE onto FDE would be redundant and unnecessary.</p>
 
             <h2 id="day-to-day-use">
                 <a href="#day-to-day-use">Day to day use</a>
