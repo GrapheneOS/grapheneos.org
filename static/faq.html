@@ -103,6 +103,8 @@
                 <li>
                     <a href="#installation">Installation</a>
                     <ul>
+                        <li><a href="#orange-warning">What does the orange "software integrity not
+                        guaranteed" warning mean?</a></li>
                     </ul>
                 </li>
             </ul>
@@ -656,6 +658,31 @@
 
             <p>A full step-by-step walkthrough on how to install GrapheneOS is available under
             <a href="/install">the installation guide</a>.</p>
+
+            <h3 id="orange-warning">
+                <a href="#orange-warning">What does the orange "software integrity not guaranteed"
+                warning mean?</a>
+            </h3>
+
+            <p>If you see this orange screen, the phone is telling you that the bootloader has been
+            left unlocked, which disables security measures such as Android Verified Boot. This
+            allows persistent changes to be written to the system image at will. During the
+            installation process of GrapheneOS, unlocking the bootloader is an important step to
+            allow the installer to run, but it is crucially important that as soon as the install
+            script has completed and the new operating system boots, you lock the bootloader again.
+            Since all installs of GrapheneOS are end-to-end signed, verified, and bitwise identical,
+            locking the bootloader again is considered to be a part of the installation. If you see
+            this screen, your installation is not yet completed.</p>
+
+            <p>Visit the
+            <a href="/install#locking-the-bootloader">installation guide on locking the
+            bootloader</a> to find out how to fix this issue. Each time the bootloader is locked or
+            unlocked, as a safeguard the phone will be reset and all the data stored on the phone,
+            such as photos, emails, text messages, saved passwords, and your Two-Factor
+            Authentication tokens will be lost forever. If you have accidentally started using a
+            phone with an unlocked bootloader and saved data to it that you do not want to lose, you
+            should immediately save any data you do not want to lose onto another device prior to
+            locking the bootloader again.</p>
 
         </div>
         <footer>
