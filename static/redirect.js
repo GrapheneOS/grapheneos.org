@@ -12,6 +12,7 @@
 
 const redirects = new Map([
     ["/#device-support", "/faq#device-support"],
+    ["/usage#default-connections", "/faq#default-connections"],
 ]);
 
 function handle_hash() {

@@ -61,7 +61,6 @@
                         <li><a href="#updates-sideloading">Sideloading</a></li>
                     </ul>
                 </li>
-                <li><a href="#default-connections">Default connections</a></li>
                 <li><a href="#web-browsing">Web browsing</a></li>
                 <li><a href="#camera">Camera</a></li>
                 <li><a href="#exec-spawning">Exec spawning</a></li>
@@ -194,87 +193,6 @@
             trust the attached computer and this can be considered a production feature. Trusting
             a computer with ADB access within the OS is much different and exposes the device to a
             huge amount of attack surface and control by the trusted computer.</strong></p>
-
-            <h2 id="default-connections">
-                <a href="#default-connections">Default connections</a>
-            </h2>
-
-            <p>GrapheneOS makes connections to the outside world to test connectivity, detect
-            captive portals and download updates. No data varying per user / installation is sent
-            in these connections. There aren't analytics / telemetry in GrapheneOS.</p>
-
-            <p>The expected default connections by GrapheneOS (including all base system apps) are
-            the following:</p>
-
-            <ul>
-                <li>
-                    <p>The GrapheneOS Updater app fetches update metadata from
-                    https://releases.grapheneos.org/DEVICE-CHANNEL approximately once every four hours
-                    when connected to a permitted network for updates.</p>
-                    <p>Once an update is available, it tries to download
-                    https://releases.grapheneos.org/DEVICE-incremental-OLD_VERSION-NEW_VERSION.zip
-                    for a delta update, and then falls back to
-                    https://releases.grapheneos.org/DEVICE-ota_update-NEW_VERSION.zip.</p>
-                    <p>No query / data is sent to the server, so the only information leaked to it
-                    are the variables in these 3 URLs (device, channel, current version) which is
-                    necessary to obtain the update.</p>
-                    <p>Users can control which types of connections the Updater app will use, and
-                    although it's strongly recommended to always leave it enabled it can be
-                    disabled.</p>
-                </li>
-                <li>
-                    <p>On devices with a Qualcomm baseband (which provides GPS), when location
-                    functionality is being used,
-                    <a href="https://en.wikipedia.org/wiki/GPS_signals#Almanac">GPS almanacs</a>
-                    are downloaded from https://xtrapath1.izatcloud.net/xtra3grc.bin,
-                    https://xtrapath2.izatcloud.net/xtra3grc.bin or
-                    https://xtrapath3.izatcloud.net/xtra3grc.bin. GrapheneOS has modified all
-                    references to these servers to use HTTPS rather than a mix of HTTP and HTTPS.
-                    No query / data is sent to the server.</p>
-                </li>
-                <li>
-                    <p>Connectivity checks designed to mimic a web browser user agent are performed
-                    by using HTTP and HTTPS to fetch standard URLs generating an HTTP 204 status
-                    code. This is used to detect when internet connectivity is lost on a network,
-                    which triggers fallback to other available networks if possible. These checks
-                    are designed to detect and handle captive portals which substitute the
-                    expected empty 204 response with their own web page. These need use a very
-                    common domain and URL in order to bypass whitelisting systems only permitting
-                    access to common domains / URLs so a domain like grapheneos.org would likely
-                    be inadequate. GrapheneOS leaves these set to the standard four URLs to blend
-                    into the crowd of billions of other Android devices with and without Google
-                    Mobile Services performing the same empty GET requests. For privacy reasons,
-                    it isn't desirable to stand out from the crowd and changing these URLs or even
-                    disabling the feature will likely reduce your privacy by giving your device a
-                    more unique fingerprint. GrapheneOS aims to appear like any other common
-                    mobile device on the network.</p>
-                    <ul>
-                        <li>HTTPS: https://www.google.com/generate_204</li>
-                        <li>HTTP: http://connectivitycheck.gstatic.com/generate_204</li>
-                        <li>HTTP fallback: http://www.google.com/gen_204</li>
-                        <li>HTTP other fallback: http://play.googleapis.com/generate_204</li>
-                    </ul>
-                    <p>Standard AOSP user agent for the GET request:</p>
-                    <p>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.32 Safari/537.36</p>
-                    <p>No query / data is sent and the response is unused beyond checking the response code.</p>
-                    <p>Similar connectivity checks are also performed by Vanadium.</p>
-                </li>
-                <li>
-                    <p>DNS connectivity and functionality tests</p>
-                </li>
-                <li>
-                    <p>DNS resolution for other connections</p>
-                </li>
-                <li>
-                    <p>An HTTPS connection is made to https://time.grapheneos.org/ to update the
-                    time from the date header field. This is a full replacement of Android's
-                    standard network time update implementation, which uses the cellular network
-                    when available with a fallback to SNTP when it's not available. This can be
-                    disabled with the toggle at Settings ➔ System ➔ Date &amp; time ➔ Use
-                    network-provided time. The time zone is still obtained directly via the time
-                    zone provided by the mobile network when available.</p>
-                </li>
-            </ul>
 
             <h2 id="web-browsing">
                 <a href="#web-browsing">Web browsing</a>
@@ -417,5 +335,6 @@
                 <li><a href="https://reddit.com/r/GrapheneOS">Reddit</a></li>
             </ul>
         </footer>
+        <script src="/redirect.js?2"></script>
     </body>
 </html>
