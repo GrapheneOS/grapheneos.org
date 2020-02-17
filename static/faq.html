@@ -237,6 +237,15 @@
                     disabled.</p>
                 </li>
                 <li>
+                    <p>An HTTPS connection is made to https://time.grapheneos.org/ to update the
+                    time from the date header field. This is a full replacement of Android's
+                    standard network time update implementation, which uses the cellular network
+                    when available with a fallback to SNTP when it's not available. This can be
+                    disabled with the toggle at Settings ➔ System ➔ Date &amp; time ➔ Use
+                    network-provided time. The time zone is still obtained directly via the time
+                    zone provided by the mobile network when available.</p>
+                </li>
+                <li>
                     <p>On devices with a Qualcomm baseband (which provides GPS), when location
                     functionality is being used,
                     <a href="https://en.wikipedia.org/wiki/GPS_signals#Almanac">GPS almanacs</a>
@@ -278,15 +287,6 @@
                 </li>
                 <li>
                     <p>DNS resolution for other connections</p>
-                </li>
-                <li>
-                    <p>An HTTPS connection is made to https://time.grapheneos.org/ to update the
-                    time from the date header field. This is a full replacement of Android's
-                    standard network time update implementation, which uses the cellular network
-                    when available with a fallback to SNTP when it's not available. This can be
-                    disabled with the toggle at Settings ➔ System ➔ Date &amp; time ➔ Use
-                    network-provided time. The time zone is still obtained directly via the time
-                    zone provided by the mobile network when available.</p>
                 </li>
             </ul>
 
