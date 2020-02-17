@@ -94,6 +94,8 @@
                         <li><a href="#ad-blocking">How can I set up system-wide ad-blocking?</a></li>
                         <li><a href="#ad-blocking-apps">Are ad-blocking apps supported?</a></li>
                         <li><a href="#baseband-isolation">Is the baseband isolated?</a></li>
+                        <li><a href="#app-containment">What does GrapheneOS do to contain
+                        or isolate untrustworthy apps?</a></li>
                     </ul>
                 </li>
                 <li>
@@ -763,6 +765,42 @@
             Linux kernel is monolithic and has no internal security boundaries, the attack surface
             is problematic and a HardMAC implementation with most complexity in the isolated
             firmware could be better than the status quo. An isolated driver would be ideal.</p>
+
+            <h3 id="app-containment">
+                <a href="#app-containment">What does GrapheneOS do to contain or isolate
+                untrustworthy apps?</a>
+            </h3>
+
+            <p>GrapheneOS uses multiple levels of isolation to contain and sandbox the apps
+            installed to the device. On Android, each app installed within a given profile is
+            individually sandboxed, and cannot access the system image nor any other app's storage.
+            When an app is uninstalled by the user, it is removed along with this entire sandbox.
+            Apps cannot access the phone's cameras, microphones, or location without being
+            explicitly given them by the operating system. GrapheneOS treats permissions such as
+            location, microphone, and cameras as sensitive, meaning that the user must explicitly
+            opt-in to give the app access to them. GrapheneOS adds the <code>Network</code> and
+            <code>Sensors</code> permission toggles alongside the standard Android permissions,
+            allowing the user the option of granting them to each app on an case-by-case basis.</p>
+
+            <p>Profiles on Android are entirely self-contained environments. Different profiles
+            utilize different keys, which allows the keys to the apps and files in a profile to be
+            ejected from memory and remain encrypted when that profile is closed. This ensures that
+            the different profiles do not have access to each other's data. While apps within the
+            same profile can with <em>mutual consent</em> share data between each other, apps
+            <em>cannot</em> share data across different profiles; not only would this require the
+            app to break the Android security model, but when one profile is not in use, its files
+            including the application data is encrypted with keys another profile does not have and
+            decrypting them requires user authentication with the PIN or password.</p>
+
+            <p>Permissions are set and enforced by SELinux Mandatory Access Controls which operate
+            at the kernel level. This means that an application would need to either be able to find
+            an exploit in order to circumvent them, or break the Linux kernel. A large amount of
+            development time and resources for GrapheneOS have already gone into exploit mitigation
+            and kernel hardening in order to prevent these exploits from becoming
+            vulnerabilities.</p>
+
+            <p>A future goal for GrapheneOS is to expose more of the underlying profile
+            functionality to the user, and improve the user experience around using profiles.</p>
 
             <h2 id="day-to-day-use">
                 <a href="#day-to-day-use">Day to day use</a>
