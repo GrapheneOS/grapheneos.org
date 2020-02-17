@@ -59,9 +59,8 @@
                 <li>
                     <a href="#security-and-privacy">Security and privacy</a>
                     <ul>
-                        <li><a href="#hardware-identifiers">What does GrapheneOS do about 
-                        non-resettable hardware identifiers like IMEI, SIM or phone serial
-                        number?</a></li>
+                        <li><a href="#hardware-identifiers">Can apps access hardware
+                        identifiers?</a></li>
                     </ul>
                 </li>
             </ul>
@@ -194,27 +193,18 @@
             </h2>
 
             <h2 id="hardware-identifiers">
-                <a href="#hardware-identifiers">What does GrapheneOS do about non-resettable
-                hardware identifiers like IMEI, SIM or phone serial number?</a>
+                <a href="#hardware-identifiers">Can apps access hardware identifiers?</a>
             </h2>
 
-            <p>Starting with the Android 10 specification, apps can no longer extract the phone's 
-            IMEI or Serial Number, SIM Card Serial Number, Subscriber ID, MAC Address or other
-            non-resettable unique device identifiers, even if granted access to
-            <code>READ_PHONE_STATE</code>. Apps must have the
-            <code>READ_PRIVILEGED_PHONE_STATE</code> new to Android 10 in order to get access to
-            any of these non-resettable, persistent device identifiers. Apps using the Android 10
-            API will recieve a <code>SecurityException</code> error, and any older apps simply get
-            an empty value if the <code>READ_PHONE_STATE</code> permission has been granted to them,
-            or a <code>SecurityException</code> error if they don't. MAC Addresses are randomized 
-            per WiFi network on GrapheneOS. Apps, even if granted full network access, cannot read 
-            nor change the MAC Address.</p>
+            <p>As of Android 10, apps cannot obtain permission to access non-resettable hardware
+            identifiers such as the serial number, MAC addresses, IMEIs/MEIDs, SIM card serial
+            numbers and subscriber IDs. Only privileged apps included in the base system with
+            <code>READ_PRIVILEGED_PHONE_STATE</code> whitelisted can access these hardware
+            identifiers. Apps targeting Android 10 will receive a <code>SecurityException</code>
+            and older apps will receive an empty value for compatibility.</p>
 
-            <p>GrapheneOS does <i>not</i> utilize Advertising IDs, even though the Advertising ID
-            normally seen on Android and iOS devices is resettable.</p>
-
-            <p><code>ANDROID_ID</code> is persistent between application installs but is resettable.
-            Pull requests are welcomed in this area.</p>
+            <p>GrapheneOS only makes a small change to remove a legacy form of access to the
+            serial number by legacy apps, which was still around for compatibility.</p>
 
         </div>
         <footer>
