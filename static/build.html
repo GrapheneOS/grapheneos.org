@@ -606,22 +606,17 @@ git am --whitespace=nowarn ../*.patch</pre>
             x86_64, the correct value for <code>target_cpu</code> is <code>x64</code>, but note
             that the Android source tree refers to it as x86_64.</p>
 
-            <p>To build ChromeModernPublic, which provides the browser app:</p>
+            <p>Build the components:</p>
 
-            <pre>ninja -C out/Default/ chrome_modern_public_apk</pre>
+            <pre>ninja -C out/Default/ trichrome_webview_apk trichrome_chrome_bundle trichrome_library_apk</pre>
 
-            <p>The apk needs to be copied from <code>out/Default/apks/ChromeModernPublic.apk</code>
+            <p>Generate TrichromeChrome.apk from the bundle:</p>
+
+            <pre>../generate_trichrome_apk.sh</pre>
+
+            <p>The apks needs to be copied from <code>out/Default/apks/*.apk</code>
             into the Android source tree at
-            <code>external/vanadium/prebuilt/arm64/ChromeModernPublic.apk</code> with arm64
-            substituted with the correct value for other architectures (arm, x86, x86_64).</p>
-
-            <p>To build SystemWebView, which provides the WebView:</p>
-
-            <pre>ninja -C out/Default/ system_webview_apk</pre>
-
-            <p>The apk needs to be copied from <code>out/Default/apks/SystemWebView.apk</code>
-            into the Android source tree at
-            <code>external/chromium-webview/prebuilt/arm64/webview.apk</code> with arm64
+            <code>external/vanadium/prebuilt/arm64/</code> with arm64
             substituted with the correct value for other architectures (arm, x86, x86_64).</p>
 
             <p>WebView provider apps need to be whitelisted in
