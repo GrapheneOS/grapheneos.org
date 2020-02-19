@@ -328,12 +328,11 @@
                 silent SMS?</a>
             </h2>
 
-            <p>GrapheneOS always considers the network to be hostile. Merely getting a silent SMS is
-            not a good indicator of being targeted by your cell carrier, police or government
-            because <em>anyone on the cell network can send them</em>. Cellular triangulation will
-            happen regardless of whether or not SMS texts are being sent or received by the phone,
-            and they don't have to even be a silent SMS; it wouldn't be much different than
-            receiving an unsolicited spam SMS!</p>
+            <p>GrapheneOS always considers the network to be hostile and does not implement weak
+            or useless mitigations. Therefore, it does not have a assorted gimmicks seen elsewhere
+            providing privacy/security theatre to make users feel better about these issues. One
+            of the core tenets of GrapheneOS is being honest with users and avoiding scams/frills
+            based around marketing rather than real world privacy/security threat models.</p>
 
             <p>Activating airplane mode will fully disable the cellular radio transmit and receive
             capabilities, which will prevent your phone from being reached from the cellular
@@ -343,6 +342,24 @@
             the baseband and independent of each other. Enabling airplane mode disables the
             cellular radio, but Wi-Fi can be re-enabled and used without activating the cellular
             radio again. This allows using the device as a Wi-Fi only device.</p>
+
+            <p>Even if interception of the connection or some other man-in-the-middle attack along
+            the network is not currently occurring, the network is still untrustworthy and
+            information should not be sent unencrypted. Legacy calls and texts should be avoided
+            as they're not secure and trust the carrier / network along with having weak security
+            against other parties. Trying to detect some forms of interception rather than dealing
+            with the root of the problem (unencrypted communications / data transfer) would be
+            foolish and doomed to failure.</p>
+
+            <p>Receiving a silent SMS is not a good indicator of being targeted by your cell
+            carrier, police or government because <em>anyone on the cell network can send
+            them</em> including yourself. Cellular triangulation will happen regardless of whether
+            or not SMS texts are being sent or received by the phone. Even if an SMS did serve a
+            useful purpose for tracking, a silent SMS would be little different than receiving
+            unsolicited spam. In fact, sending spam would be stealthier since it wouldn't trigger
+            alerts for silent SMS but rather would be ignored with the rest of the spam. Regardless,
+            sending texts or other data is not required or particularly useful to track devices
+            connected to a network for an adversary with the appropriate access.</p>
 
         </div>
         <footer>
