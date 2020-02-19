@@ -1,7 +1,9 @@
 #!/bin/bash
 
 set -o errexit
+shopt -s globstar
 
+jshint static/**/*.js
 validatornu --Werror --skip-non-html static
 validatornu --Werror --skip-non-css static
 validatornu --Werror --skip-non-svg --no-langdetect static
