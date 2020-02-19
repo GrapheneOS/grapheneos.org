@@ -88,6 +88,8 @@
                         <li><a href="#firewall">Does GrapheneOS provide a firewall?</a></li>
                         <li><a href="#ad-blocking">How can I set up system-wide ad-blocking?</a></li>
                         <li><a href="#ad-blocking-apps">Are ad-blocking apps supported?</a></li>
+                        <li><a href="#cellebrite-graykey">Does GrapheneOS have any defense against
+                        cellphone unlocking machines like Cellebrite and Graykey?</a></li>
                     </ul>
                 </li>
                 <li>
@@ -565,6 +567,33 @@
             providing one, and very few have bothered to implement this. NetGuard is an one
             example implementing SOCKS5 forwarding, which can be used to forward to apps like
             Orbot (Tor).</p>
+
+            <h3 id="cellebrite-graykey">
+                <a href="#cellebrite-graykey">Does GrapheneOS have any defense against cellphone
+                unlocking machines like Cellebrite and Graykey?</a>
+            </h3>
+
+            <p>Many UFED systems such as GrayKey and Cellebrite simply extract the contents of the
+            SSD of an already-unlocked phone. This doesn't mean much if a device is listed as being
+            supported for extraction unless the device is also listed as having a lock bypass.
+            Typically this is accomplished via an exploit on the operating system, or enclave itself
+            (if present) to either spoof or bypass the timer or prevent the counter tracking the
+            number of incorrect guesses from incrementing in order to make a brute-force attack
+            on the password or PIN feasible.</p>
+
+            <p>Handsets such as the Pixel 3, 3XL, 3a and 3aXL, use a specially designed hardware
+            security module or HSM, the Titan M, which can bolster the strength of even a short PIN.
+            Doing so can allow a six or even four-digit PIN to still pose a significant barrier to
+            getting access to the data without it. Such HSMs offer substantially reduced attack 
+            surface over other enclaves and at the present time no exploits have been publicly
+            documented for the chip. However, if you consider these exploits to be in your threat
+            model and assume that at a future date one could be discovered, or the HSM in your phone
+            could be physically delidded and disassembled via the use of lasers, electron
+            microscopes, and precision robotics, cloned, and then brute force attacks made against
+            it offline, there is an easy defence: utilize the extra security of a long and
+            cryptographically strong passphrase, since this is the threat vector that the cipher on
+            the disk was meant to address. GrapheneOS supports passwords of up to 64 characters in
+            length for this reason.</p>
 
             <h2 id="day-to-day-use">
                 <a href="#day-to-day-use">Day to day use</a>
