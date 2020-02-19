@@ -338,9 +338,11 @@
             <p>Activating airplane mode will fully disable the cellular radio transmit and receive
             capabilities, which will prevent your phone from being reached from the cellular
             network and stop your carrier (and anyone impersonating them to you) from tracking the
-            device via the cellular radio. On currently supported devices, the code for Wi-Fi and
-            cellular radios is separately sandboxed, and while airplane mode is on, the phone may
-            still be connected and used on WiFi.</p>
+            device via the cellular radio. The baseband implements other functionality such as
+            Wi-Fi and GPS functionality, but each of these components is separately sandboxed on
+            the baseband and independent of each other. Enabling airplane mode disables the
+            cellular radio, but Wi-Fi can be re-enabled and used without activating the cellular
+            radio again. This allows using the device as a Wi-Fi only device.</p>
 
         </div>
         <footer>
