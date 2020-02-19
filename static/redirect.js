@@ -13,6 +13,10 @@
 const redirects = new Map([
     ["/#device-support", "/faq#device-support"],
     ["/usage#default-connections", "/faq#default-connections"],
+    ["/releases#marlin-stable", "/faq#legacy-devices"],
+    ["/releases#sailfish-stable", "/faq#legacy-devices"],
+    ["/releases#marlin-beta", "/faq#legacy-devices"],
+    ["/releases#sailfish-beta", "/faq#legacy-devices"],
 ]);
 
 function handle_hash() {
