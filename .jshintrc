@@ -1,5 +1,6 @@
 {
     "browser": true,
+    "devel": true,
     "esversion": 6,
     "strict": "global"
 }
