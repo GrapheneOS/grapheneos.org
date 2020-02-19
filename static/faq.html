@@ -88,6 +88,7 @@
                         <li><a href="#firewall">Does GrapheneOS provide a firewall?</a></li>
                         <li><a href="#ad-blocking">How can I set up system-wide ad-blocking?</a></li>
                         <li><a href="#ad-blocking-apps">Are ad-blocking apps supported?</a></li>
+                        <li><a href="#root-access">How do you get root on GrapheneOS?</a></li>
                     </ul>
                 </li>
                 <li>
@@ -565,6 +566,27 @@
             providing one, and very few have bothered to implement this. NetGuard is an one
             example implementing SOCKS5 forwarding, which can be used to forward to apps like
             Orbot (Tor).</p>
+
+            <h3 id="root-access">
+                <a href="#root-access">How do you get root on GrapheneOS?</a>
+            </h3>
+
+            <p>App-accessible root will <em>never</em> be considered in any build of GrapheneOS. A
+            core goal of GrapheneOS is to minimize privilege, minimize attack surface, restrict
+            software to mitigate potential exploits to prevent them from becoming vulnerabilities
+            and utilize the full capabilities of all of the hardware security features on the
+            handsets. App-accessible root destroys the security model of Android, increases the
+            attack surface, and is mutually exclusive with important security measures such as
+            verified boot.</p>
+
+            <p>The proper way to implement functionality that may require privilege beyond what
+            Android would normally allow is to write a privileged extension and security policies
+            to allow the privileged extension to do only what it needs to do, then have it
+            communicate with the app; app-accessible root simply takes the sledgehammer approach and
+            there is no legitimate need for it in good design. Even if root is obtained via an
+            exploit, Android Verified Boot would detect any persistent changes made to the system
+            image, and simply revert them to pass signature validation the moment the device is
+            rebooted.</p>
 
             <h2 id="day-to-day-use">
                 <a href="#day-to-day-use">Day to day use</a>
