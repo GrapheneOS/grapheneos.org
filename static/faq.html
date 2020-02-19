@@ -88,6 +88,8 @@
                         <li><a href="#firewall">Does GrapheneOS provide a firewall?</a></li>
                         <li><a href="#ad-blocking">How can I set up system-wide ad-blocking?</a></li>
                         <li><a href="#ad-blocking-apps">Are ad-blocking apps supported?</a></li>
+                        <li><a href="#baseband-isolation">Does GrapheneOS protect against baseband
+                        attacks?</a></li>
                     </ul>
                 </li>
                 <li>
@@ -561,6 +563,25 @@
             providing one, and very few have bothered to implement this. NetGuard is an one
             example implementing SOCKS5 forwarding, which can be used to forward to apps like
             Orbot (Tor).</p>
+
+            <h3 id="baseband-isolation">
+                <a href="#baseband-isolation">Does GrapheneOS protect against baseband attacks?</a>
+            </h3>
+
+            <p>GrapheneOS only elects to support devices that offer the best modem and radio
+            isolation via IOMMU mitigations and policies. IOMMU only allows a device attached
+            to the host memory by direct memory access to read or write to memory that the driver
+            in the kernel specifically allows it to. GrapheneOS selects devices that have open
+            source drivers which are readily supported by their vendors and updated frequently.
+            Pixel handsets are supported for three years of firmware updates from the time of their
+            release.</p>
+
+            <p>The firmware for the radios and modems is not state-carrying. GrapheneOS will load
+            the firmware binaries when the operating system boots. Prior to this, the system image
+            (which contains the firmware binaries) will be verified via Android Verified Boot which
+            is keyed to Daniel Micay's signing keys. The firmware is then verified by the chip.
+            Should any of the firmware be exploited, it is already limited from the host memory via
+            IOMMU, and rebooting it will restore it to a known good state.</p>
 
             <h2 id="day-to-day-use">
                 <a href="#day-to-day-use">Day to day use</a>
