@@ -88,6 +88,8 @@
                         <li><a href="#firewall">Does GrapheneOS provide a firewall?</a></li>
                         <li><a href="#ad-blocking">How can I set up system-wide ad-blocking?</a></li>
                         <li><a href="#ad-blocking-apps">Are ad-blocking apps supported?</a></li>
+                        <li><a href="#interception-stingrays">Does GrapheneOS offer any protection
+                        against interception devices like Stingrays?</a></li>
                     </ul>
                 </li>
                 <li>
@@ -565,6 +567,34 @@
             providing one, and very few have bothered to implement this. NetGuard is an one
             example implementing SOCKS5 forwarding, which can be used to forward to apps like
             Orbot (Tor).</p>
+
+            <h3 id="interception-stingrays">
+                <a href="#interception-stingrays">Does GrapheneOS offer any protection against
+                interception devices like Stingrays?</a>
+            </h3>
+
+            <p>While GrapheneOS always considers the network to be hostile, the publicly switched
+            telephone network is a security-agnostic, plaintext protocol. A good mitigation
+            strategy for this limitation is to simply use an instant messaging system such as Signal
+            Private Messenger, which offers both end-to-end encryption and Transport Layer Security.
+            When sending and recieving messages and calls via Signal, an adversary on the network
+            would only be able to see your phone and your addressees' phones connecting to Amazon
+            Web Services via TLS, which already hosts more than half of all smartphone backends and a
+            nontrivial portion of the entire Internet. This behaviour is not at all suspicious,
+            makes Signal hard to block or censor without breaking most of the Internet, and allows
+            for plenty of cover traffic. Signal uses the Intel SGX in its backend software to
+            provide remote attestation and mitigate insider access, and also encrypts sender
+            metadata via sealed sender to further obfuscate social graphing.</p>
+
+            <p>When utilizing encrypted SMS applications like Silence, the network operator, or any
+            middlemen on the network such as intercepting devices like Stingrays will not only gain
+            full awareness of the phone numbers of both sender and recipients, exact dates and
+            precise times each message was sent and recieved, but also the presence of ciphertexts.
+            This metadata leak indicates sender and recipient are deliberately modifying their use
+            habits to go out of their way to utilize encryption. As adoption of encrypted SMS tools
+            are low relative to the adoption rates of encrypted messaging applications and
+            smartphone applications that are hosted on AWS, this fact may make users of encrypted
+            SMS users uniquely stand out.</p>
 
             <h2 id="day-to-day-use">
                 <a href="#day-to-day-use">Day to day use</a>
