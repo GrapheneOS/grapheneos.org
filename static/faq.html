@@ -64,6 +64,8 @@
                         identifiers?</a></li>
                         <li><a href="#default-connections">Which connections do the OS and
                         bundled apps make by default?</a></li>
+                        <li><a href="#cellular-tracking">What does GrapheneOS do about cellular
+                        tracking and silent SMS?</a></li>
                     </ul>
                 </li>
             </ul>
@@ -320,6 +322,25 @@
                     <p>DNS resolution for other connections</p>
                 </li>
             </ul>
+
+            <h2 id="cellular-tracking">
+                <a href="#cellular-tracking">What does GrapheneOS do about cellular tracking and
+                silent SMS?</a>
+            </h2>
+
+            <p>GrapheneOS always considers the network to be hostile. Merely getting a silent SMS is
+            not a good indicator of being targeted by your cell carrier, police or government
+            because <em>anyone on the cell network can send them</em>. Cellular triangulation will
+            happen regardless of whether or not SMS texts are being sent or recieved by the phone,
+            and they don't have to even be a silent SMS; it wouldn't be much different than
+            recieving an unsolicited spam SMS!</p>
+
+            <p>Activating airplane mode will fully disable the cellular radio transmit and recieve
+            capabilities, which will prevent your phone from being reached from the cellular
+            network and stop your carrier (and anyone impersonating them to you) from tracking the
+            device via the cell network. On currently supported devices, the code for Wi-Fi and
+            cellular radios is separately sandboxed, and while airplane mode is on, the phone may
+            still be connected and used on WiFi. MAC Addresses on Wi-Fi are randomized.</p>
 
         </div>
         <footer>
