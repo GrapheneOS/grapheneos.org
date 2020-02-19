@@ -88,6 +88,8 @@
                         <li><a href="#firewall">Does GrapheneOS provide a firewall?</a></li>
                         <li><a href="#ad-blocking">How can I set up system-wide ad-blocking?</a></li>
                         <li><a href="#ad-blocking-apps">Are ad-blocking apps supported?</a></li>
+                        <li><a href="#importance-of-verified-boot">What is the importance of
+                        verified boot?</a></li>
                     </ul>
                 </li>
                 <li>
@@ -561,6 +563,27 @@
             providing one, and very few have bothered to implement this. NetGuard is an one
             example implementing SOCKS5 forwarding, which can be used to forward to apps like
             Orbot (Tor).</p>
+
+            <h3 id="importance-of-verified-boot">
+                <a href="#importance-of-verified-boot">What is the importance of verified boot?</a>
+            </h3>
+
+            <p>If an attacker has successfully exploited and obtained privileged (root) access on
+            your device and attempts to modify the system image, Android Verified Boot (AVB) is
+            designed to prevent a root-level compromise from persisting between restarts. On reboot,
+            it will revert the system to a known good state utilizing error correction codes until
+            the system image passes the signature validation before the operating system has
+            started.</p>
+
+            <p>With Auditor installed, Remote Attestation is able to detect if unauthorized changes
+            have occurred while the operating system is online and running. These two security
+            measures compliment each other, with Remote Attestation allowing a modification of the
+            system image to be detected while the device is online, and Verified Boot to revert it
+            if tampering has occurred.</p>
+
+            <p>A more detailed overview of verified boot is available at the official documentation
+            about
+            <a href="https://android.googlesource.com/platform/external/avb/+/master/README.md#What-is-it">Android Verified Boot</a>.
 
             <h2 id="day-to-day-use">
                 <a href="#day-to-day-use">Day to day use</a>
