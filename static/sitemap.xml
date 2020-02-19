@@ -46,4 +46,8 @@
         <loc>https://grapheneos.org/.well-known/security.txt</loc>
         <priority>0.0</priority>
     </url>
+    <url>
+        <loc>https://grapheneos.org/LICENSE</loc>
+        <priority>0.0</priority>
+    </url>
 </urlset>
