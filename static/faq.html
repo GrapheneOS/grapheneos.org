@@ -75,6 +75,12 @@
                         which sites are visited, etc.?</a></li>
                     </ul>
                 </li>
+                <li>
+                    <a href="#day-to-day-use">Day to day use</a>
+                    <ul>
+                        <li><a href="#vpn-support">Does GrapheneOS support VPNs and VPN apps?</a></li>
+                    </ul>
+                </li>
             </ul>
 
             <h2 id="device-support">
@@ -433,6 +439,24 @@
             SNI, so encrypted DNS is not yet accomplishing much. It's a forward looking feature
             that will become more useful in the future. Using it is recommended, but it's not an
             alternative to using Tor or a VPN.</p>
+
+            <h2 id="day-to-day-use">
+                <a href="#day-to-day-use">Day to day use</a>
+            </h2>
+
+            <h3 id="vpn-support">
+                <a href="#vpn-support">Does GrapheneOS support VPNs and VPN apps?</a>
+            </h3>
+
+            <p>GrapheneOS has built-in VPN support included in the operating system. Orbot, OpenVPN
+            for Android, the userspace implementation of WireGuard, and the Private Internet Access
+            VPN app have all been tested and reported working. VPNs can be configured under 
+            Settings -> Network & Internet -> Advanced -> VPN.
+
+            <p>There is an "Always-On VPN" toggle which forces connections to only use the
+            configured VPN. This will prevent apps from falling back to an unsecured connection and
+            leaking data outside the VPN in the event the connection to it is lost.</p>
+
         </div>
         <footer>
             <a href="/"><img src="https://grapheneos.org/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
