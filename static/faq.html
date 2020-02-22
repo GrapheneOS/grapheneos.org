@@ -98,6 +98,9 @@
                         <li><a href="#updates">How do I keep the OS updated?</a></li>
                         <li><a href="#updates-sideloading">How do I update without connecting the
                         device to the internet?</a></li>
+                        <li><a href="#updates-sideloading">How do I update without giving the
+                        device internet access?</a></li>
+                        <li><a href="#fdroid">Why not use F-Droid as an app store?</a></li>
                     </ul>
                 </li>
                 <li><a href="#anti-theft">Does GrapheneOS provide Factory Reset Protection?</a></li>
@@ -667,6 +670,50 @@
 
             <p>Updates can be <a href="/usage#updates-sideloading">sideloaded via
             recovery</a>.</p>
+
+            <h3 id="fdroid">
+                <a href="#fdroid">Why not use F-Droid as an app store?</a>
+            </h3>
+
+            <p>F-Droid does not meet the security requirements for GrapheneOS. At the moment,
+            GrapheneOS has placed a first-party app store on its roadmap, with the end goal of
+            having a select number of curated apps chosen for their security and usability
+            properties that would be updated directly by their individual maintainers.</p>
+
+            <p>The standard security model of Android is not like a desktop. When an app is
+            installed or sideloaded on Android, the system will check a digital signature and a
+            certificate included in the package. It must validate and not even Google Play on the
+            factory operating system is allowed to bypass this security policy. Once the app has
+            been installed, the certificate cannot be changed for the lifetime of the app. When apps
+            are published on Google Play, they are generally intended to be signed by keys that
+            belong to the app's developers. The app developers then publish their compiled app
+            packages directly on Google Play, which allows them to be downloaded to the phones
+            immediately.</p>
+
+            <p>This meets three goals: the decentralized signing model ensures that once any apps
+            have been installed, other developers or even Google Play itself cannot subvert or
+            hijack the apps without compromising each of the developers' keys for each specific app.
+            Secondly, this arrangement ensures that Google Play does not become a trusted third
+            party in application distribution after the initial installation has taken place if
+            the app developer has chosen not to allow Google Play to validate their packages on
+            their behalf and signs their packages themselves. Thirdly, allowing the app developers
+            to publish binary packaging allows them to update their apps immediately, and ensure
+            that the developers can directly keep pace with advances in attacks and security flaws
+            as they are discovered, without having to wait on a trusted third party to do it on
+            their behalf.</p>
+
+            <p>F-Droid's design goes against these goals. Since F-Droid does their own builds of
+            their apps and signs them with their own keys, this effectively turns F-Droid into a
+            trusted third party. Very few of the apps on F-Droid are built reproducibly, and even
+            if F-Droid were to use reproducible builds and package them with the developers'
+            signatures, F-Droid must also then update the apps they distribute, and ensure timely
+            updates. F-Droid unfortunately contains large amounts of abandoned or depreciated
+            software which may no longer be maintained, or may lag significantly behind their
+            upstream software providers in terms of security patches and updates. Since F-Droid
+            has been deemed to include large amounts of legacy code and contains large numbers of
+            old and potentially insecure applications, or applications that may break in subtle
+            ways due to targeting old or inconsistent versions of the Android APIs, F-Droid cannot
+            be included in GrapheneOS.</p>
 
             <h2 id="anti-theft">
                 <a href="#anti-theft">Does GrapheneOS provide Factory Reset Protection?</a>
