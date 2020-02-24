@@ -68,6 +68,13 @@
                         tracking and silent SMS?</a></li>
                     </ul>
                 </li>
+                <li>
+                    <a href="#day-to-day-use">Day to day use</a>
+                    <ul>
+                        <li><a href="#private-dns">When I enter an IP address into private DNS,
+                        the save button grays out. Why?</a></li>
+                    </ul>
+                </li>
             </ul>
 
             <h2 id="device-support">
@@ -360,6 +367,28 @@
             alerts for silent SMS but rather would be ignored with the rest of the spam. Regardless,
             sending texts or other data is not required or particularly useful to track devices
             connected to a network for an adversary with the appropriate access.</p>
+
+            <h2 id="day-to-day-use">
+                <a href="#day-to-day-use">Day to day use</a>
+            </h2>
+
+            <h3 id="private-dns">
+                <a href="#private-dns">When I enter an IP address into private DNS, the save button
+                grays out. Why?</a>
+            </h3>
+
+            <p>This is not a bug, but rather the feature is operating as it is intended to. When
+            operating in forced mode, private DNS requires a <em>domain</em> and will reject invalid
+            certificates to ensure that the source  is authenticated, not just encrypted. Automatic
+            mode only uses encryption opportunistically, and must be able to fall back to
+            unauthenticated encryption or fall back to plaintext if the DNS server does not support
+            DNS over TLS or the certificate is not valid. Although this does not protect against an
+            active adversary that blocks encrypted communications to the DNS server or will replace
+            the certificates entirely to intercept the encrypted traffic, automatic will
+            transparently provide some opportunistic protection against a passive adversary. When a
+            private DNS provider hostname is specified, the phone will not proceed unless the
+            certificates for TLS are valid and will not fall back to an unauthenticated or plaintext
+            connection should the validation fail.</p>
 
         </div>
         <footer>
