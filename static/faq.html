@@ -98,6 +98,8 @@
                         <li><a href="#updates">How do I keep the OS updated?</a></li>
                         <li><a href="#updates-sideloading">How do I update without connecting the
                         device to the internet?</a></li>
+                        <li><a href="#xprivacy-afwall">How can I have xprivacy or afwall+, magisk,
+                        xposed, etc?</a></li>
                     </ul>
                 </li>
                 <li><a href="#anti-theft">Does GrapheneOS provide Factory Reset Protection?</a></li>
@@ -667,6 +669,32 @@
 
             <p>Updates can be <a href="/usage#updates-sideloading">sideloaded via
             recovery</a>.</p>
+
+            <h3 id="xprivacy-afwall">
+                <a href="#xprivacy-afwall">How can I have xprivacy or afwall+, magisk, xposed,
+                etc?</a>
+            </h3>
+
+            <p>These types of applications will never be supported on GrapheneOS. While it may seem
+            desirable to spoof data to applications, location or data-spoofing applications such as
+            Xposed or XprivacyPro operate via client-side checks which in turn rely on the
+            application actually honouring these client-side checks. A truly malicious app, or one
+            that has simply not been written to honour these client-side checks will bypass them,
+            sometimes unintentionally.</p>
+            
+            <p> Instead of utilizing a privileged networking app such as afwall+, GrapheneOS
+            includes its own built-in VPN functionality and a user-facing network permission toggle
+            which is implemented properly via the Android permissions system. Not only would
+            breaking the Android permissions require breaking the Linux kernel, but this has far
+            less attack surface.</p>
+
+            <p>Apps such as these require root access, which destroys the entire Android Security
+            model, prevents the use of verified boot and over-the-air updates, and requires
+            app-accessible root which allows any single app on the device to gain root access from
+            a single clickjacking exploit. Not only do they provide misleading features and a false
+            sense of security, but utilizing them precludes the use of many legitimately useful,
+            well-engineered, and well-designed security features that operate transparently, have
+            clear threat models and provide meaningful security gains.</p>
 
             <h2 id="anti-theft">
                 <a href="#anti-theft">Does GrapheneOS provide Factory Reset Protection?</a>
