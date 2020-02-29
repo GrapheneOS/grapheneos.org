@@ -67,7 +67,12 @@
                         <li><a href="#cellular-tracking">What does GrapheneOS do about cellular
                         tracking and silent SMS?</a></li>
                         <li><a href="#dns">How do I use a custom DNS server?</a></li>
-                        <li><a href="#private-dns-ip">Why does Private DNS not accept IP addresses?</a></li>
+                        <li><a href="#private-dns-ip">Why does Private DNS not accept IP
+                        addresses?</a></li>
+                        <li><a href="#private-dns-other">Does DNS-over-TLS (Private DNS) protect
+                        other connections?</a></li>
+                        <li><a href="#private-dns-visited">Does DNS-over-TLS (Private DNS) hide
+                        which sites are visited, etc.?</a></li>
                     </ul>
                 </li>
             </ul>
@@ -402,6 +407,31 @@
             DNS server via unencrypted DNS and then force all other DNS lookups via DNS-over-TLS
             with the identity of the server authenticated as part of providing authenticated
             encryption.</p>
+
+            <h3 id="private-dns-other">
+                <a href="#private-dns-other">Does DNS-over-TLS (Private DNS) protect other connections?</a>
+            </h3>
+
+            <p>No, it only provides privacy for DNS resolution. Even authenticating DNS results
+            with DNSSEC does not protect other connections, unless the DNS records are part of the
+            system used to provide authenticated encryption, and DNS-over-TLS is not a substitute
+            for DNSSEC. If connections have authenticated encryption, they're secure even if DNS
+            resolution is hijacked by an attacker. If connections do not have authenticated
+            encryption, an attacker can listen in and tamper with them without hijacking DNS.
+            There are other ways to perform a MITM attack than DNS hijacking and internet routing
+            is fundamentally insecure. DNS-over-TLS may make a MITM harder for some attackers, but
+            don't count on it at all.</p>
+
+            <h3 id="private-dns-visited">
+                <a href="#private-dns-visited">Does DNS-over-TLS (Private DNS) hide which sites are visited, etc.?</a>
+            </h3>
+
+            <p>Private DNS only encrypts DNS, and an adversary monitoring connections can still
+            see the IP address at the other end of those connections. Many domains resolve to
+            ambiguous IP addresses, so encrypted DNS is part of what's required to take away a lot
+            of the information leaked to adversaries. However, TLS currently leaks domains via
+            SNI, so encrypted DNS is not yet accomplishing much. It's a forward looking feature
+            that will become more useful in the future.</p>
         </div>
         <footer>
             <a href="/"><img src="https://grapheneos.org/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
