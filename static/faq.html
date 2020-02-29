@@ -368,11 +368,11 @@
 
             <p>By default, in the automatic mode, the Private DNS feature provides opportunistic
             encryption by using DNS-over-TLS when supported by the DNS server IP addresses
-            provided by the network or the static IP configuration. Opportunistic encryption
-            provides protection against a passive listener, not an active attacker, since they can
-            force falling back to unencrypted DNS by blocking DNS-over-TLS. In the automatic mode,
-            certificate validation is not enforced, as it would provide no additional security and
-            would reduce the availability of opportunistic encryption.</p>
+            provided by the network (DHCP) or the static IP configuration. Opportunistic
+            encryption provides protection against a passive listener, not an active attacker,
+            since they can force falling back to unencrypted DNS by blocking DNS-over-TLS. In the
+            automatic mode, certificate validation is not enforced, as it would provide no
+            additional security and would reduce the availability of opportunistic encryption.</p>
 
             <p>When Private DNS is explicitly enabled, it uses authenticated encryption without a
             fallback. The authentication is performed based on the hostname of the server, so it
