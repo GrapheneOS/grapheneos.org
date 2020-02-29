@@ -66,6 +66,7 @@
                         bundled apps make by default?</a></li>
                         <li><a href="#cellular-tracking">What does GrapheneOS do about cellular
                         tracking and silent SMS?</a></li>
+                        <li><a href="#dns">How do I use a custom DNS server?</a></li>
                         <li><a href="#private-dns-ip">Why does Private DNS not accept IP addresses?</a></li>
                     </ul>
                 </li>
@@ -361,6 +362,27 @@
             alerts for silent SMS but rather would be ignored with the rest of the spam. Regardless,
             sending texts or other data is not required or particularly useful to track devices
             connected to a network for an adversary with the appropriate access.</p>
+
+            <h3 id="dns">
+                <a href="#dns">How do I use a custom DNS server?</a>
+            </h3>
+
+            <p>It isn't possible to directly override the DNS servers provided by the network via
+            DHCP. Instead, use the Private DNS feature in Settings ➔ Network &amp; internet ➔
+            Advanced ➔ Private DNS to set the hostname of a DNS-over-TLS server. It needs to have
+            a valid certificate such as a free certificate from Let's Encrypt. The OS will look up
+            the Private DNS hostname via the network provided DNS servers and will then force all
+            other DNS requests through the Private DNS server. Unlike an option to override the
+            network-provided DNS servers, this prevents the network from monitoring or tampering
+            with DNS requests/responses.</p>
+
+            <p>Configuring a static IP address for a network requires entering DNS servers
+            manually, but you should still use the Private DNS feature with it, and you shouldn't
+            misuse the static IP address option just to override the DNS servers.</p>
+
+            <p>VPN service apps can also provide their own DNS implementation and/or servers,
+            including an alternate implementation of encrypted DNS. Private DNS takes precedence
+            over VPN-provided DNS and using Private DNS is still recommended with a VPN.</p>
 
             <h3 id="private-dns-ip">
                 <a href="#private-dns-ip">Why does Private DNS not accept IP addresses?</a>
