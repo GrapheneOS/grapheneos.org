@@ -66,13 +66,7 @@
                         bundled apps make by default?</a></li>
                         <li><a href="#cellular-tracking">What does GrapheneOS do about cellular
                         tracking and silent SMS?</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#day-to-day-use">Day to day use</a>
-                    <ul>
-                        <li><a href="#private-dns">When I enter an IP address into private DNS,
-                        the save button grays out. Why?</a></li>
+                        <li><a href="#private-dns-ip">Why does Private DNS not accept IP addresses?</a></li>
                     </ul>
                 </li>
             </ul>
@@ -368,28 +362,24 @@
             sending texts or other data is not required or particularly useful to track devices
             connected to a network for an adversary with the appropriate access.</p>
 
-            <h2 id="day-to-day-use">
-                <a href="#day-to-day-use">Day to day use</a>
-            </h2>
-
-            <h3 id="private-dns">
-                <a href="#private-dns">When I enter an IP address into private DNS, the save button
-                grays out. Why?</a>
+            <h3 id="private-dns-ip">
+                <a href="#private-dns-ip">Why does Private DNS not accept IP addresses?</a>
             </h3>
 
-            <p>This is not a bug, but rather the feature is operating as it is intended to. When
-            operating in forced mode, private DNS requires a <em>domain</em> and will reject invalid
-            certificates to ensure that the source  is authenticated, not just encrypted. Automatic
-            mode only uses encryption opportunistically, and must be able to fall back to
-            unauthenticated encryption or fall back to plaintext if the DNS server does not support
-            DNS over TLS or the certificate is not valid. Although this does not protect against an
-            active adversary that blocks encrypted communications to the DNS server or will replace
-            the certificates entirely to intercept the encrypted traffic, automatic will
-            transparently provide some opportunistic protection against a passive adversary. When a
-            private DNS provider hostname is specified, the phone will not proceed unless the
-            certificates for TLS are valid and will not fall back to an unauthenticated or plaintext
-            connection should the validation fail.</p>
+            <p>By default, in the automatic mode, the Private DNS feature provides opportunistic
+            encryption by using DNS-over-TLS when supported by the DNS server IP addresses
+            provided by the network or the static IP configuration. Opportunistic encryption
+            provides protection against a passive listener, not an active attacker, since they can
+            force falling back to unencrypted DNS by blocking DNS-over-TLS. In the automatic mode,
+            certificate validation is not enforced, as it would provide no additional security and
+            would reduce the availability of opportunistic encryption.</p>
 
+            <p>When Private DNS is explicitly enabled, it uses authenticated encryption without a
+            fallback. The authentication is performed based on the hostname of the server, so it
+            isn't possible to provide an IP address. The OS will look up the hostname of the Private
+            DNS server via unencrypted DNS and then force all other DNS lookups via DNS-over-TLS
+            with the identity of the server authenticated as part of providing authenticated
+            encryption.</p>
         </div>
         <footer>
             <a href="/"><img src="https://grapheneos.org/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
