@@ -73,12 +73,7 @@
                         other connections?</a></li>
                         <li><a href="#private-dns-visited">Does DNS-over-TLS (Private DNS) hide
                         which sites are visited, etc.?</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#day-to-day-use">Day to day use</a>
-                    <ul>
-                        <li><a href="#vpn-support">Does GrapheneOS support VPNs and VPN apps?</a></li>
+                        <li><a href="#vpn-support">What kind of VPN and Tor support is available?</a></li>
                     </ul>
                 </li>
             </ul>
@@ -440,23 +435,23 @@
             that will become more useful in the future. Using it is recommended, but it's not an
             alternative to using Tor or a VPN.</p>
 
-            <h2 id="day-to-day-use">
-                <a href="#day-to-day-use">Day to day use</a>
-            </h2>
-
             <h3 id="vpn-support">
-                <a href="#vpn-support">Does GrapheneOS support VPNs and VPN apps?</a>
+                <a href="#vpn-support">What kind of VPN and Tor support is available?</a>
             </h3>
 
-            <p>GrapheneOS has built-in VPN support included in the operating system. Orbot, OpenVPN
-            for Android, the userspace implementation of WireGuard, and the Private Internet Access
-            VPN app have all been tested and reported working. VPNs can be configured under 
-            Settings -> Network & Internet -> Advanced -> VPN.
+            <p>VPNs can be configured under Settings ➔ Network &amp; Internet ➔ Advanced ➔ VPN.
+            Support for the following protocols is included: PPTP (insecure, obsolete), L2TP/IPSec
+            PSK, L2TP/IPSec RSA, IPSec Xauth PSK, IPSec Xauth RSA and IPSec Hybrid RSA. Apps can
+            also provide userspace VPN implementations and the following open source apps are
+            recommended: Orbot (Tor), WireGuard, OpenVPN for Android and the Private Internet
+            Access client (OpenVPN).</p>
 
-            <p>There is an "Always-On VPN" toggle which forces connections to only use the
-            configured VPN. This will prevent apps from falling back to an unsecured connection and
-            leaking data outside the VPN in the event the connection to it is lost.</p>
-
+            <p>VPN configurations created with the built-in support can be set as the always-on
+            VPN in the configuration panel. This will keep the VPN running, reconnecting as
+            necessary and will force all connections through them. An app providing a VPN service
+            can also be set as the always-on VPN via the entry in the Settings page. For app-based
+            VPN implementations, there's also an additional "Block connections without VPN" toggle
+            which is needed to prevent leaks when the app's VPN service isn't running.</p>
         </div>
         <footer>
             <a href="/"><img src="https://grapheneos.org/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
