@@ -1,2 +1,4 @@
 User-agent: *
 Sitemap: https://grapheneos.org/sitemap.xml
+
+Disallow: /generate_204
