@@ -17,6 +17,7 @@ const redirects = new Map([
     ["/releases#sailfish-stable", "/faq#legacy-devices"],
     ["/releases#marlin-beta", "/faq#legacy-devices"],
     ["/releases#sailfish-beta", "/faq#legacy-devices"],
+    ["/faq#dns", "/faq#custom-dns"],
 ]);
 
 function handle_hash() {
