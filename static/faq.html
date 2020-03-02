@@ -75,6 +75,8 @@
                         <li><a href="#private-dns-visited">Does DNS-over-TLS (Private DNS) hide
                         which sites are visited, etc.?</a></li>
                         <li><a href="#vpn-support">What kind of VPN and Tor support is available?</a></li>
+                        <li><a href="#network-monitoring">Can apps monitor network connections or
+                        statistics?</a></li>
                     </ul>
                 </li>
                 <li>
@@ -470,6 +472,19 @@
             can also be set as the always-on VPN via the entry in the Settings page. For app-based
             VPN implementations, there's also an additional "Block connections without VPN" toggle
             which is needed to prevent leaks when the app's VPN service isn't running.</p>
+
+            <h3 id="network-monitoring">
+                <a href="#network-monitoring">Can apps monitor network connections or statistics?</a>
+            </h3>
+
+            <p>Apps cannot monitor network connections unless they're made into the active VPN
+            service by the user. Apps cannot normally access network stats and cannot directly
+            request access to them. However, app-based stats can be explicitly granted by users as
+            part of access to app usage stats in Settings ➔ Apps &amp; notifications ➔ Special app
+            access ➔ Usage access.</p>
+
+            <p>This was previously part of the GrapheneOS privacy improvements, but became a
+            standard Android feature with Android 10.</p>
 
             <h2 id="day-to-day-use">
                 <a href="#day-to-day-use">Day to day use</a>
