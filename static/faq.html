@@ -79,6 +79,7 @@
                         statistics?</a></li>
                         <li><a href="#firewall">Does GrapheneOS provide a firewall?</a></li>
                         <li><a href="#ad-blocking">How can I set up system-wide ad-blocking?</a></li>
+                        <li><a href="#ad-blocking-apps">Are ad-blocking apps supported?</a></li>
                     </ul>
                 </li>
                 <li>
@@ -520,11 +521,17 @@
             included by the project many years ago, but it needs to be reimplemented, and it's a
             low priority feature depending on contributors stepping up to work on it.</p>
 
+            <h3 id="ad-blocking-apps">
+                <a href="#ad-blocking-apps">Are ad-blocking apps supported?</a>
+            </h3>
+
             <p>Content filtering apps are fully compatible with GrapheneOS, but they have serious
             drawbacks and are not recommended. These apps use the VPN service feature to route
-            traffic through themselves to perform filtering. This approach is inherently
-            incompatible with encryption from the client to the server. The AdGuard app
-            works around encryption by supporting optional
+            traffic through themselves to perform filtering.</p>
+
+            <p>The approach of intercepting traffic is inherently incompatible with encryption
+            from the client to the server. The AdGuard app works around encryption by supporting
+            optional
             <a href="https://kb.adguard.com/en/general/https-filtering">HTTPS interception</a> by
             having the user trust a local certificate authority, which is a security risk and
             weakens HTTPS security even if their implementation is flawless (which they openly
@@ -533,14 +540,15 @@
             go out of the way to allow overriding pinning with locally added certificate
             authorities. Many of these apps only provide domain-based filtering, unlike the deeper
             filtering by AdGuard, but they're still impacted by encryption due to Private DNS
-            (DNS-over-TLS). If they don't provide their own remote DNS servers, the apps require
-            disabling Private DNS. They could provide their own DNS-over-TLS resolver to avoid
-            losing the feature, but few of the developers care enough to do that. Using the VPN
-            service to provide something other than a VPN also means that these apps need to
-            provide an actual VPN implementation or a way to forward to apps providing one, and
-            very few have bothered to consider this let alone implementing it. NetGuard is an one
-            example implementing SOCKS5 forwarding, which can be used to forward to apps like
-            Orbot (Tor).</p>
+            (DNS-over-TLS) and require disabling the feature. They could provide their own
+            DNS-over-TLS resolver to avoid losing the feature, but few of the developers care
+            enough to do that.
+
+            <p>Using the VPN service to provide something other than a VPN also means that these
+            apps need to provide an actual VPN implementation or a way to forward to apps
+            providing one, and very few have bothered to consider this let alone implementing it.
+            NetGuard is an one example implementing SOCKS5 forwarding, which can be used to
+            forward to apps like Orbot (Tor).</p>
 
             <h2 id="day-to-day-use">
                 <a href="#day-to-day-use">Day to day use</a>
