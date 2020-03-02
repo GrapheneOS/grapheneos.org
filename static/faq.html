@@ -77,6 +77,7 @@
                         <li><a href="#vpn-support">What kind of VPN and Tor support is available?</a></li>
                         <li><a href="#network-monitoring">Can apps monitor network connections or
                         statistics?</a></li>
+                        <li><a href="#firewall">Does GrapheneOS provide a firewall?</a></li>
                     </ul>
                 </li>
                 <li>
@@ -485,6 +486,23 @@
 
             <p>This was previously part of the GrapheneOS privacy improvements, but became a
             standard Android feature with Android 10.</p>
+
+            <h3 id="firewall">
+                <a href="#firewall">Does GrapheneOS provide a firewall?</a>
+            </h3>
+
+            <p>Yes, GrapheneOS inherits the deeply integrated firewall from the Android Open
+            Source Project, which is used to implement portions of the security model and various
+            other features. The GrapheneOS project historically made various improvements to the
+            firewall but over time most of these changes were been integrated upstream or became
+            irrelevant.</p>
+
+            <p>GrapheneOS adds a user-facing Network permission toggle providing a robust way to
+            deny both direct and indirect network access to applications. It builds upon the
+            standard non-user-facing INTERNET permission, so it's already fully adopted by the app
+            ecosystem. Revoking the permission denies indirect access via OS components and apps
+            enforcing the INTERNET permission, such as DownloadManager. Direct access is denied
+            by blocking low-level network socket access.</p>
 
             <h2 id="day-to-day-use">
                 <a href="#day-to-day-use">Day to day use</a>
