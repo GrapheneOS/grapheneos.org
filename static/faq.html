@@ -513,7 +513,12 @@
             ad-blocking as part of DNS resolution. You can do this by
             <a href="#custom-dns">choosing a Private DNS (DNS-over-TLS) server</a> with support
             for blocking ad domains. As an example, AdGuard DNS can be used by setting
-            <code>dns.adguard.com</code> as the Private DNS domain.</p>
+            <code>dns.adguard.com</code> as the Private DNS domain. In the future, GrapheneOS
+            plans on adding back <a
+            href="https://github.com/GrapheneOS/os_issue_tracker/issues/184">an efficient
+            user-defined blacklist for the local DNS resolver</a>. An implementation of this used
+            to be included, but it needs to be reimplemented, and it's a low priority feature
+            depending on contributors stepping up to work on it.</p>
 
             <p>Content filtering apps are fully compatible with GrapheneOS, but they have serious
             drawbacks and are not recommended. These apps use the VPN service feature to route
