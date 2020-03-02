@@ -66,6 +66,7 @@
                         bundled apps make by default?</a></li>
                         <li><a href="#cellular-tracking">What does GrapheneOS do about cellular
                         tracking and silent SMS?</a></li>
+                        <li><a href="#default-dns">Which DNS servers are used by default?</a></li>
                         <li><a href="#custom-dns">How do I use a custom DNS server?</a></li>
                         <li><a href="#private-dns-ip">Why does Private DNS not accept IP
                         addresses?</a></li>
@@ -374,6 +375,16 @@
             alerts for silent SMS but rather would be ignored with the rest of the spam. Regardless,
             sending texts or other data is not required or particularly useful to track devices
             connected to a network for an adversary with the appropriate access.</p>
+
+            <h3 id="default-dns">
+                <a href="#default-dns">Which DNS servers are used by default?</a>
+            </h3>
+
+            <p>By default, the OS uses the network-provided DNS servers, whether those come from
+            DHCP or static network configuration. If no DNS servers are provided, GrapheneOS uses
+            <a href="https://developers.cloudflare.com/1.1.1.1/what-is-1.1.1.1/">Cloudflare DNS</a>
+            as the fallback rather than Google Public DNS. In practice, the fallback is rarely
+            used and has little real world impact.</p>
 
             <h3 id="custom-dns">
                 <a href="#custom-dns">How do I use a custom DNS server?</a>
