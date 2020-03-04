@@ -606,6 +606,11 @@ git am --whitespace=nowarn ../*.patch</pre>
             x86_64, the correct value for <code>target_cpu</code> is <code>x64</code>, but note
             that the Android source tree refers to it as x86_64.</p>
 
+            <p>You need to set <code>trichrome_certdigest</code> to the correct value for your
+            generated signing key. You can obtain this with the following command:</p>
+
+            <pre>keytool -export-cert -alias vanadiumkey -keystore vanadium.keystore | sha256sum</pre>
+
             <p>Build the components:</p>
 
             <pre>ninja -C out/Default/ trichrome_webview_apk trichrome_chrome_bundle trichrome_library_apk</pre>
