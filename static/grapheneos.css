@@ -70,9 +70,8 @@ nav ul li a {
     font-size: medium;
 }
 
-nav ul li a.main {
+nav ul li a.first {
     font-weight: bold;
-    color: #000;
 }
 
 nav ul li a:visited {
