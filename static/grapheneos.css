@@ -7,8 +7,8 @@ body {
     min-height: 100vh;
     min-height: -webkit-fill-available;
     font-family: Roboto, sans-serif;
-    background-color: #fafafa; /* grey50 */
-    color: rgba(0, 0, 0, 0.87); /* 87% black */
+    background-color: #fafafa;
+    color: rgba(0, 0, 0, 0.87);
     margin: 0;
     padding: 0;
     overflow-y: scroll;
@@ -19,12 +19,8 @@ body {
 }
 
 a {
-    color: #1565c0; /* blue800 */
+    color: #1565c0;
     text-decoration: none;
-}
-
-a:visited {
-    color: #6a1b9a; /* purple800 */
 }
 
 a:hover {
@@ -37,10 +33,14 @@ h1 a, h1 a:visited, h2 a, h2 a:visited, h3 a, h3 a:visited, h4 a, h4 a:visited, 
 
 pre {
     overflow-x: auto;
+    border: solid black 1px;
+    
 }
 
 code, pre {
     font-family: "Roboto Mono", monospace;
+    color: #c2185b;
+    padding: 10px;
 }
 
 nav ul {
@@ -52,31 +52,42 @@ nav ul {
 }
 
 nav {
-    background-color: #212121; /* grey900 */
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    background-color: #c2185b;
+    -webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.75);
 }
 
 nav ul li {
     list-style-type: none;
 }
 
-nav ul li:hover {
-    background-color: #424242; /* grey800 */
-}
-
 nav ul li a {
-    color: #fff; /* 100% white */
+    color: #e9acc4;
     display: block;
     text-decoration: none;
     padding: 1em;
+    font-size: medium;
+}
+
+nav ul li a.main {
+    font-weight: bold;
+    color: #000;
 }
 
 nav ul li a:visited {
-    color: #fff; /* 100% white */
+    color: #e9acc4;
 }
 
 nav ul li.active a {
-    color: #64b5f6; /* blue300 */
+    color: #fff;
+    border-bottom: 2px solid white;
+
+}
+
+nav ul li:hover > a{
+    color: #fff;
+    text-decoration: none;
 }
 
 #content {
@@ -88,6 +99,11 @@ nav ul li.active a {
     width: 100%;
     box-sizing: border-box;
     overflow-wrap: break-word;
+}
+
+#content a {
+    color: #c2185b;
+    font-weight: bold;
 }
 
 #bitcoin_address {
@@ -102,17 +118,14 @@ nav ul li.active a {
 }
 
 footer img {
-    width: 60px;
+    width: 75px;
     height: auto;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
 }
 
 footer {
-    margin-top: auto;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     padding: 1em;
     max-width: 800px;
     overflow-wrap: break-word;
@@ -120,11 +133,12 @@ footer {
 }
 
 footer a {
-    color: #616161; /* grey500 */
+    color: #c2185b;
+    font-weight: bold;
 }
 
 footer a:visited {
-    color: #616161; /* grey500 */
+    color: #c2185b;
 }
 
 #social {
