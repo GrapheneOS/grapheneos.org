@@ -22,7 +22,7 @@
         <link rel="mask-icon" href="/mask-icon.svg" color="#1a1a1a"/>
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
-        <link rel="stylesheet" href="./grapheneos.css?14"/>
+        <link rel="stylesheet" href="/grapheneos.css?14"/>
         <link rel="manifest" href="/manifest.webmanifest"/>
         <link rel="canonical" href="https://grapheneos.org/"/>
     </head>
@@ -30,14 +30,14 @@
         <nav>
             <ul>
                 <li><a href="/" class="first">GrapheneOS</a></li>
-                <li><a href="./install.html">Install</a></li>
-                <li class="active"><a href="./build.html">Build</a></li>
-                <li><a href="./usage.html">Usage</a></li>
-                <li><a href="./faq.html">FAQ</a></li>
-                <li><a href="./releases.html">Releases</a></li>
-                <li><a href="./source.html">Source</a></li>
-                <li><a href="./donate.html">Donate</a></li>
-                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="/install">Install</a></li>
+                <li class="active"><a href="/build">Build</a></li>
+                <li><a href="/usage">Usage</a></li>
+                <li><a href="/faq">FAQ</a></li>
+                <li><a href="/releases">Releases</a></li>
+                <li><a href="/source">Source</a></li>
+                <li><a href="/donate">Donate</a></li>
+                <li><a href="/contact">Contact</a></li>
             </ul>
         </nav>
         <div id="content">
@@ -249,7 +249,7 @@ repo init -u https://github.com/GrapheneOS/platform_manifest.git -b refs/tags/TA
 gpg --recv-keys 4340D13570EF945E83810964E8AD3F819AB10E78
 cd .repo/manifests
 git verify-tag --raw $(git describe)
-cd ../..</pre>
+cd ./..</pre>
 
             <p>Complete the source tree download:</p>
 
@@ -308,7 +308,7 @@ cd ../..</pre>
             <pre>cd kernel/google/crosshatch
 git submodule sync
 git submodule update --init
-./build.sh blueline</pre>
+/build.sh blueline</pre>
 
             <p>The <code>kernel/google/wahoo</code> repository is for the Pixel 2 and Pixel 2 XL
             and the <code>kernel/google/crosshatch</code> repository is for the Pixel 3, Pixel 3
@@ -438,14 +438,14 @@ mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/
 
             <pre>mkdir -p keys/crosshatch
 cd keys/crosshatch
-../../development/tools/make_key releasekey '/CN=GrapheneOS/'
-../../development/tools/make_key platform '/CN=GrapheneOS/'
-../../development/tools/make_key shared '/CN=GrapheneOS/'
-../../development/tools/make_key media '/CN=GrapheneOS/'
-../../development/tools/make_key networkstack '/CN=GrapheneOS/'
+././development/tools/make_key releasekey '/CN=GrapheneOS/'
+././development/tools/make_key platform '/CN=GrapheneOS/'
+././development/tools/make_key shared '/CN=GrapheneOS/'
+././development/tools/make_key media '/CN=GrapheneOS/'
+././development/tools/make_key networkstack '/CN=GrapheneOS/'
 openssl genrsa -out avb.pem 2048
-../../external/avb/avbtool extract_public_key --key avb.pem --output avb_pkmd.bin
-cd ../..</pre>
+././external/avb/avbtool extract_public_key --key avb.pem --output avb_pkmd.bin
+cd ./..</pre>
 
             <p>The <code>avb_pkmd.bin</code> file isn't needed for generating a signed release but
             rather to set the public key used by the device to enforce verified boot.</p>
@@ -459,7 +459,7 @@ cd ../..</pre>
             done for each set of device keys):</p>
 
             <pre>cd keys/crosshatch
-../../development/tools/make_key networkstack '/CN=GrapheneOS/'</pre>
+././development/tools/make_key networkstack '/CN=GrapheneOS/'</pre>
 
             <h3 id="enabling-updatable-apex-components">
                 <a href="#enabling-updatable-apex-components">Enabling updatable APEX components</a>
@@ -590,7 +590,7 @@ git checkout $CORRECT_BRANCH_OR_TAG</pre>
             <p>Apply the GrapheneOS patches on top of the tagged release:</p>
 
             <pre>cd src
-git am --whitespace=nowarn ../*.patch</pre>
+git am --whitespace=nowarn ./*.patch</pre>
 
             <p>Generate a signing key for Vanadium if this is the initial build (the sample
             password configured in args.gn is <code>vanadiumpass</code>):</p>
@@ -603,7 +603,7 @@ git am --whitespace=nowarn ../*.patch</pre>
 
             <pre>gn args out/Default</pre>
 
-            <p>Copy the GrapheneOS configuration from <code>../args.gn</code> and save/exit the
+            <p>Copy the GrapheneOS configuration from <code>./args.gn</code> and save/exit the
             editor. Modify <code>target_cpu</code> as needed if the target is not arm64. For
             x86_64, the correct value for <code>target_cpu</code> is <code>x64</code>, but note
             that the Android source tree refers to it as x86_64.</p>
@@ -619,7 +619,7 @@ git am --whitespace=nowarn ../*.patch</pre>
 
             <p>Generate TrichromeChrome.apk from the bundle:</p>
 
-            <pre>../generate_trichrome_apk.sh</pre>
+            <pre>./generate_trichrome_apk.sh</pre>
 
             <p>The apks needs to be copied from <code>out/Default/apks/*.apk</code>
             into the Android source tree at
@@ -734,8 +734,8 @@ export ANDROID_HOME="$HOME/sdk"</pre>
 export PATH="$PATH:$HOME/sdk/tools:$HOME/sdk/tools/bin:$HOME/sdk/platform-tools:$HOME/sdk/build-tools/29.0.3:$HOME/sdk/ndk-bundle"</pre>
             <p>Copy media onto the device:</p>
             <pre>cd android-cts-media-1.4
-./copy_images.sh
-./copy_media.sh</pre>
+/copy_images.sh
+/copy_media.sh</pre>
 
             <p>You also need to do some basic setup for the device. It's possible for changes from
             a baseline install to cause interference, so it can be a good idea to factory reset
@@ -772,7 +772,7 @@ export PATH="$PATH:$HOME/sdk/tools:$HOME/sdk/tools/bin:$HOME/sdk/platform-tools:
             </h4>
 
             <p>Run the test harness:</p>
-            <pre>./android-cts/tools/cts-tradefed</pre>
+            <pre>/android-cts/tools/cts-tradefed</pre>
             <p>Note that <code>_JAVA_OPTIONS</code> being set will break the version detection.</p>
             <p>To obtain a list of CTS modules:</p>
             <pre>list modules</pre>
