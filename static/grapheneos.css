@@ -70,11 +70,6 @@ nav ul li a {
     font-size: medium;
 }
 
-nav ul li a.main {
-    font-weight: bold;
-    color: #000;
-}
-
 nav ul li a:visited {
     color: #e9acc4;
 }
@@ -88,6 +83,11 @@ nav ul li.active a {
 nav ul li:hover > a{
     color: #fff;
     text-decoration: none;
+}
+
+nav ul li a.first {
+    font-weight: bold;
+    color: #fff;
 }
 
 #content {
