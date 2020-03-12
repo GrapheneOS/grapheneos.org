@@ -97,6 +97,7 @@
                     </ul>
                 </li>
                 <li><a href="#anti-theft">Does GrapheneOS provide Factory Reset Protection?</a></li>
+                <li><a href="#bundled-apps">Why aren't my favorite apps bundled with GrapheneOS?</a></li>
             </ul>
 
             <h2 id="device-support">
@@ -607,6 +608,40 @@
             incompatible with features designed to wipe data automatically in certain cases. This
             will not be implemented by GrapheneOS since it isn't a good approach and it conflicts
             with other planned features.</p>
+
+            <h2 id="bundled-apps">
+                <a href="#bundled-apps">Why aren't my favorite apps bundled with GrapheneOS?</a>
+            </h2>
+
+            <p>There are drawbacks to bundling apps into the OS and few advantages in most cases.
+            Rather than GrapheneOS bundling a bunch of apps, it makes far more sense for users to
+            install their preferred apps via F-Droid, Aurora Store or other sources. GrapheneOS is
+            also working on designing and implementing a first party app update system for a first
+            party repository with higher robustness and security than the existing options. Rather
+            than bundling apps, it could just offer recommendations as part of an initial setup
+            wizard. Users have unique needs and preferences and there has to be a very compelling
+            reason to bundle additional apps with the OS. For example, it's useful to have the
+            Auditor app available before connecting to the internet (see the
+            <a href="/install#verifying-installation">installation guide</a> documentation on
+           this).</p>
+
+            <p>Bundling additional apps with the OS can increase attack surface, unless users go
+            out of the way to disable apps they aren't using. Bundling an app into the base OS is
+            also painful to reverse, since removing the app without implementing a migration
+            mechanism will lose user data stored in the app. Some users are also going to take
+            issue with the choices made by the project or will want to make suggestions for
+            bundling more apps, and having this as a regular topic of discussion and debate is
+            unproductive and distracts from the real work of the project. Each bundled app also
+            increases the size of the base OS, and shipping the app updates as part of the OS
+            updates results in more overall bandwidth usage. It would be possible to ship only
+            out-of-band app updates to avoid wasted bandwidth for apps users have disabled, but
+            then the apps would be temporarily out-of-date and vulnerable to patched security
+            issues after a factory reset or the user re-enabling them. If the updates aren't going
+            to be shipped with the OS, it really makes no sense to bundle them.</p>
+
+            <p>GrapheneOS is focused on making meaningful improvements to privacy and security,
+            and bundling assorted apps into the OS is not only usually outside of that focus but
+            often counter to it.</p>
         </div>
         <footer>
             <a href="/"><img src="https://grapheneos.org/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
