@@ -594,7 +594,9 @@ git am --whitespace=nowarn ../*.patch</pre>
 
             <pre>keytool -genkey -v -keystore vanadium.keystore -storetype pkcs12 -alias vanadium -keyalg RSA -keysize 4096 -sigalg SHA512withRSA -validity 10000 -dname "cn=GrapheneOS"</pre>
 
-            <p>You should back this up with your other keys.</p>
+            <p>You will be prompted to enter a password which will be requested by the script for
+            signing releases. You should back this up the generated keystore with your other
+            keys.</p>
 
             <p>Then, configure the build in the <code>src</code> directory:</p>
 
