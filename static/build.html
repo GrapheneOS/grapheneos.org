@@ -593,7 +593,7 @@ git am --whitespace=nowarn ../*.patch</pre>
             <p>Generate a signing key for Vanadium if this is the initial build (the sample
             password configured in args.gn is <code>vanadiumpass</code>):</p>
 
-            <pre>keytool -genkey -v -keystore vanadium.keystore -storetype pkcs12 -alias vanadiumkey -keyalg RSA -keysize 4096 -sigalg SHA512withRSA -validity 10000 -dname "cn=GrapheneOS"</pre>
+            <pre>keytool -genkey -v -keystore vanadium.keystore -storetype pkcs12 -alias vanadium -keyalg RSA -keysize 4096 -sigalg SHA512withRSA -validity 10000 -dname "cn=GrapheneOS"</pre>
 
             <p>You should back this up with your other keys.</p>
 
@@ -609,7 +609,7 @@ git am --whitespace=nowarn ../*.patch</pre>
             <p>You need to set <code>trichrome_certdigest</code> to the correct value for your
             generated signing key. You can obtain this with the following command:</p>
 
-            <pre>keytool -export-cert -alias vanadiumkey -keystore vanadium.keystore | sha256sum</pre>
+            <pre>keytool -export-cert -alias vanadium -keystore vanadium.keystore | sha256sum</pre>
 
             <p>Build the components:</p>
 
