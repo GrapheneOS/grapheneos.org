@@ -615,9 +615,9 @@ git am --whitespace=nowarn ../*.patch</pre>
 
             <pre>ninja -C out/Default/ trichrome_webview_apk trichrome_chrome_bundle trichrome_library_apk</pre>
 
-            <p>Generate TrichromeChrome.apk from the bundle:</p>
+            <p>Generate TrichromeChrome.apk from the bundle and sign the apks:</p>
 
-            <pre>../generate_trichrome_apk.sh</pre>
+            <pre>../generate_release.sh</pre>
 
             <p>The apks needs to be copied from <code>out/Default/apks/*.apk</code>
             into the Android source tree at
