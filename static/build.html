@@ -441,7 +441,7 @@ cd keys/crosshatch
 ../../development/tools/make_key shared '/CN=GrapheneOS/'
 ../../development/tools/make_key media '/CN=GrapheneOS/'
 ../../development/tools/make_key networkstack '/CN=GrapheneOS/'
-openssl genrsa -out avb.pem 2048
+openssl genrsa 2048 | openssl pkcs8 -topk8 -scrypt -out avb.pem
 ../../external/avb/avbtool extract_public_key --key avb.pem --output avb_pkmd.bin
 cd ../..</pre>
 
