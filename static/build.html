@@ -459,6 +459,19 @@ cd ../..</pre>
             <pre>cd keys/crosshatch
 ../../development/tools/make_key networkstack '/CN=GrapheneOS/'</pre>
 
+            <h3 id="encrypting-keys">
+                <a href="#encrypting-keys">Encrypting keys</a>
+            </h3>
+
+            <p>You can (re-)encrypt your signing keys using the <code>encrypt_keys</code> script,
+            which will prompt for the old passphrase (if any) and new passphrase:</p>
+
+            <pre>script/encrypt_keys.sh keys/crosshatch</pre>
+
+            <p>The <code>script/decrypt_keys.sh</code> script can be used to remove encryption,
+            which is not recommended. The script exists primarily for internal usage to decrypt
+            the keys in tmpfs to perform signing.</p>
+
             <h3 id="enabling-updatable-apex-components">
                 <a href="#enabling-updatable-apex-components">Enabling updatable APEX components</a>
             </h3>
