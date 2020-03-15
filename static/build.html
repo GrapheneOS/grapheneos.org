@@ -429,7 +429,8 @@ mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/
 
             <p>You should set a passphrase for the signing keys to protect them at rest. The
             GrapheneOS release signing script expects the same passphrase to be used for each of
-            the keys.</p>
+            the keys. If you use swap, make sure that it's encrypted to avoid leaking unencrypted
+            keys to storage.</p>
 
             <p>The sample certificate subject should be replaced with your own information.</p>
 
