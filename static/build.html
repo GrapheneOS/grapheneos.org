@@ -425,9 +425,9 @@ mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/
             factory reset. Note that the keys are used for a lot more than simply verifying
             updates and verified boot.</p>
 
-            <p>The keys should not be given passwords due to limitations in the upstream scripts.
-            If you want to secure them at rest, you should take a different approach where they
-            can still be available to the signing scripts as a directory of unencrypted keys.</p>
+            <p>You should set a passphrase for the signing keys to protect them at rest. The
+            GrapheneOS release signing script expects the same passphrase to be used for each of
+            the keys.</p>
 
             <p>The sample certificate subject should be replaced with your own information.</p>
 
