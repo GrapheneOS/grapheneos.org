@@ -98,6 +98,10 @@
                         <li><a href="#updates">How do I keep the OS updated?</a></li>
                         <li><a href="#updates-sideloading">How do I update without connecting the
                         device to the internet?</a></li>
+                        <li><a href="#updates-sideloading">How do I update without giving the
+                        device internet access?</a></li>
+                        <li><a href="#new-permissions-by-default">Why are the new permissions always
+                        granted by default?</a></li>
                     </ul>
                 </li>
                 <li><a href="#anti-theft">Does GrapheneOS provide Factory Reset Protection?</a></li>
@@ -667,6 +671,23 @@
 
             <p>Updates can be <a href="/usage#updates-sideloading">sideloaded via
             recovery</a>.</p>
+
+            <h3 id="new-permissions-by-default">
+                <a href="#new-permissions-by-default">Why are the new permissions always granted
+                by default?</a>
+            </h3>
+
+            <p>The user-facing <code>network</code> and <code>sensors</code> permission toggles are
+            unique to GrapheneOS and its implementation of the Android API. As a result, they are
+            not a part of the Android Standard and no other apps as of the time of writing are
+            specifically written to be aware of these options to know to request them.</p>
+
+            <p>As a result, they are enabled by default so the applications you install will
+            function as they are intended to. Apps can't run immediately after they've been
+            installed (or if you have stopped them via the "Force Stop" option) until manually
+            launched by the user. If you do not want the apps you've installed to ever have access
+            to the network and sensors, you can simply toggle the permissions off prior to launching
+            them, which should accomplish the same goal as having them disabled by default.</p>
 
             <h2 id="anti-theft">
                 <a href="#anti-theft">Does GrapheneOS provide Factory Reset Protection?</a>
