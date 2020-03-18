@@ -427,12 +427,19 @@ mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/
             factory reset. Note that the keys are used for a lot more than simply verifying
             updates and verified boot.</p>
 
-            <p>You should set a passphrase for the signing keys to protect them at rest. The
-            GrapheneOS release signing script expects the same passphrase to be used for each of
-            the keys. If you use swap, make sure that it's encrypted to avoid leaking unencrypted
-            keys to storage.</p>
+            <p>The sample certificate subject (<code>CN=GrapheneOS</code>) should be replaced with
+            your own information.</p>
 
-            <p>The sample certificate subject should be replaced with your own information.</p>
+            <p>You should set a passphrase for the signing keys to keep them at rest until you
+            need to sign a release with them. By default, the keys are encrypted using scrypt for
+            key derivation and AES256 as the cipher. If you use swap, make sure it's encrypted,
+            ideally with an ephemeral key rather a persistent key to support hibernation. Even
+            with an ephemeral key, swap will reduce the security gained from encrypting the keys
+            since it breaks the guarantee that they become at rest as soon as the signing process
+            is finished. Consider disabling swap, at least during the signing process.</p>
+
+            <p>The encryption passphrase for all the keys generated for a device needs to
+            match.</p>
 
             <p>To generate keys for crosshatch (you should use unique keys per device
             variant):</p>
