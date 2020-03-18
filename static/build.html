@@ -431,12 +431,13 @@ mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/
             your own information.</p>
 
             <p>You should set a passphrase for the signing keys to keep them at rest until you
-            need to sign a release with them. By default, the keys are encrypted using scrypt for
-            key derivation and AES256 as the cipher. If you use swap, make sure it's encrypted,
-            ideally with an ephemeral key rather a persistent key to support hibernation. Even
-            with an ephemeral key, swap will reduce the security gained from encrypting the keys
-            since it breaks the guarantee that they become at rest as soon as the signing process
-            is finished. Consider disabling swap, at least during the signing process.</p>
+            need to sign a release with them. The GrapheneOS scripts (<code>make_key</code> and
+            <code>encrypt_keys.sh</code>) encrypt the signing keys using scrypt for key derivation
+            and AES256 as the cipher. If you use swap, make sure it's encrypted, ideally with an
+            ephemeral key rather a persistent key to support hibernation. Even with an ephemeral
+            key, swap will reduce the security gained from encrypting the keys since it breaks the
+            guarantee that they become at rest as soon as the signing process is finished.
+            Consider disabling swap, at least during the signing process.</p>
 
             <p>The encryption passphrase for all the keys generated for a device needs to
             match.</p>
