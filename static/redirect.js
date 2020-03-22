@@ -18,6 +18,7 @@ const redirects = new Map([
     ["/releases#marlin-beta", "/faq#legacy-devices"],
     ["/releases#sailfish-beta", "/faq#legacy-devices"],
     ["/faq#dns", "/faq#custom-dns"],
+    ["/build#upgrading-to-android-10", "/build#generating-release-signing-keys"],
 ]);
 
 function handle_hash() {

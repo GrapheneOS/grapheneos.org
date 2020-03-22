@@ -65,7 +65,6 @@
                 <li>
                     <a href="#generating-release-signing-keys">Generating release signing keys</a>
                     <ul>
-                        <li><a href="#upgrading-to-android-10">Upgrading to Android 10</a></li>
                         <li><a href="#encrypting-keys">Encrypting keys</a></li>
                         <li><a href="#enabling-updatable-apex-components">Enabling updatable APEX components</a></li>
                     </ul>
@@ -469,17 +468,6 @@ cd ../..</pre>
             a separate prompt for the passphrase. In the future, expect this to be handled by the
             same scripts along with the expectation of it using the same passphrase as the other
             keys.</p>
-
-            <h3 id="upgrading-to-android-10">
-                <a href="#upgrading-to-android-10">Upgrading to Android 10</a>
-            </h3>
-
-            <p>For Android 10, there's a new <code>networkstack</code> key and you need to
-            generate one to avoid using the test key. For example, with crosshatch (needs to be
-            done for each set of device keys):</p>
-
-            <pre>cd keys/crosshatch
-../../development/tools/make_key networkstack '/CN=GrapheneOS/'</pre>
 
             <h3 id="encrypting-keys">
                 <a href="#encrypting-keys">Encrypting keys</a>
@@ -947,5 +935,6 @@ export PATH="$PATH:$HOME/sdk/tools:$HOME/sdk/tools/bin:$HOME/sdk/platform-tools:
                 <li><a href="https://reddit.com/r/GrapheneOS">Reddit</a></li>
             </ul>
         </footer>
+        <script src="/redirect.js?5"></script>
     </body>
 </html>
