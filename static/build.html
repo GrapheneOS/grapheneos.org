@@ -459,6 +459,17 @@ cd ../..</pre>
             <p>The <code>avb_pkmd.bin</code> file isn't needed for generating a signed release but
             rather to set the public key used by the device to enforce verified boot.</p>
 
+            <p>Generate a signify key for signing factory images:</p>
+
+            <pre>signify -G -n -p keys/factory.pub -s keys/factory.sec</pre>
+
+            <p>Remove the <code>-n</code> switch to set a passphrase. The <code>signify</code>
+            tool doesn't provide a way to change the passphrase without generating a new key, so
+            this is currently handled separately from encrypting the other keys and there will be
+            a separate prompt for the passphrase. In the future, expect this to be handled by the
+            same scripts along with the expectation of it using the same passphrase as the other
+            keys.</p>
+
             <h3 id="upgrading-to-android-10">
                 <a href="#upgrading-to-android-10">Upgrading to Android 10</a>
             </h3>
