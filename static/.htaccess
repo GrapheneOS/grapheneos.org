@@ -27,11 +27,11 @@ usb 'none'; \
 wake-lock 'none'; \
 xr-spatial-tracking 'none'"
 
-<FilesMatch "\.(html|txt|webmanifest|xml)$">
+<FilesMatch "\.(html|txt|xml)$">
 Header set Cache-Control "public, max-age=1800"
 </FilesMatch>
 
-<FilesMatch "\.(ico)$">
+<FilesMatch "\.(ico|webmanifest)$">
 Header set Cache-Control "public, max-age=604800"
 </FilesMatch>
 
