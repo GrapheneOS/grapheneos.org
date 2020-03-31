@@ -32,7 +32,7 @@ Header set Cache-Control "public, max-age=1800"
 </FilesMatch>
 
 <FilesMatch "\.(ico)$">
-Header set Cache-Control "public, max-age=86400"
+Header set Cache-Control "public, max-age=604800"
 </FilesMatch>
 
 <FilesMatch "\.(css|js|png|svg|woff2)$">
