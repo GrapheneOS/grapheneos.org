@@ -4,6 +4,10 @@ set -o errexit
 
 ./validate_static
 
+rm -rf static_tmp
+cp -a static static_tmp
+find static_tmp -regex '\(.+/LICENSE\|.+\.\(css\|html\|ico\|js\|svg\|txt\|webmanifest\|xml\)\)' -exec gzip -k9 {} +
+
 remote=www-data@grapheneos.org
 active=$(ssh $remote readlink html)
 
@@ -17,7 +21,7 @@ echo active is $active
 echo target is $target
 echo
 
-rsync -rpcve ssh --chmod=D755,F644 --delete static/ $remote:$target
+rsync -rpcve ssh --chmod=D755,F644 --delete static_tmp/ $remote:$target
 ssh $remote sync -f $target
 ssh $remote ln -snf $target html
 ssh $remote sync .
