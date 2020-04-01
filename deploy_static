@@ -6,7 +6,7 @@ set -o errexit
 
 rm -rf static_tmp
 cp -a static static_tmp
-find static_tmp -regex '\(.+/LICENSE\|.+\.\(css\|html\|ico\|js\|svg\|txt\|webmanifest\|xml\)\)' -exec gzip -k9 {} +
+find static_tmp -regex '\(.+/LICENSE\|.+\.\(css\|html\|ico\|js\|svg\|txt\|webmanifest\|xml\)\)' -exec zopfli {} \; -exec touch -r {} {}.gz \;
 
 remote=www-data@grapheneos.org
 active=$(ssh $remote readlink html)
