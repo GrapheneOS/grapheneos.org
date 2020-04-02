@@ -119,11 +119,7 @@ footer {
     text-align: center;
 }
 
-footer a {
-    color: #616161; /* grey500 */
-}
-
-footer a:visited {
+footer a, footer a:visited {
     color: #616161; /* grey500 */
 }
 
