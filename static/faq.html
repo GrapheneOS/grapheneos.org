@@ -98,6 +98,10 @@
                         <li><a href="#updates">How do I keep the OS updated?</a></li>
                         <li><a href="#updates-sideloading">How do I update without connecting the
                         device to the internet?</a></li>
+                        <li><a href="#updates-sideloading">How do I update without giving the
+                        device internet access?</a></li>
+                        <li><a href="#u2f">Are hardware security tokens like Yubikeys, Trezors,
+                        et al supported?</a></li>
                     </ul>
                 </li>
                 <li><a href="#anti-theft">Does GrapheneOS provide Factory Reset Protection?</a></li>
@@ -667,6 +671,18 @@
 
             <p>Updates can be <a href="/usage#updates-sideloading">sideloaded via
             recovery</a>.</p>
+
+            <h3 id="u2f">
+                <a href="#u2f">Are hardware security tokens like Yubikeys, Trezors, and the like
+                supported?</a>
+            </h3>
+
+            <p>GrapheneOS and the devices it supports can work with Yubikeys both by USB and NFC,
+            Trezors, and other hardware security devices via WebUSB. OpenKeyChain has been tested
+            and works with Yubikeys. The upstream releases of Chromium are reliant on Play Services
+            for U2F, and as Play Services are absent in GrapheneOS and Vanadium, the functionality
+            is currently missing. Pull Requests are more than welcome to restore the missing U2F and
+            WebAuthN functionality.</p>
 
             <h2 id="anti-theft">
                 <a href="#anti-theft">Does GrapheneOS provide Factory Reset Protection?</a>
