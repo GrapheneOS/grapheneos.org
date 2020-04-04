@@ -74,6 +74,13 @@
                     </ul>
                 </li>
                 <li><a href="#lte-only-mode">LTE-only mode</a></li>
+                <li>
+                    <a href="#best-practices">Good security practices</a>
+                    <ul>
+                        <li><a href="#best-practices-configurations-and-options">Configurations and options</a></li>
+                        <li><a href="#best-practices-screen-lock">Screen lock</a></li>
+                    </ul>
+                </li>
             </ul>
 
             <h2 id="auditor">
@@ -458,6 +465,46 @@
             LTE does provide basic network authentication / encryption, but it's for the network
             itself. The intention of the LTE-only feature is only hardening against remote
             exploitation by disabling an enormous amount of legacy code.</p>
+
+            <h2 id="best-practices">
+                <a href="#best-practices">Good security practices</a>
+            </h2>
+
+            <p>GrapheneOS aims for a secure and intuitive user experience that requires no "tuning"
+            from the user and the defaults are set conservatively.</p>
+
+            <h3 id="best-practices-configurations-and-options">
+                <a href="#best-practices-configurations-and-options">Configurations and options</a>
+            </h3>
+
+            <p>Developer options should not need to be utilized in day-to-day use or for users that
+            are not doing debugging or testing the device. The debugging options, such as limiting
+            background processes, are not intended to enhance the security of the device and some
+            may actually <em>increase</em> attack surface or make the device easier to be tracked
+            while providing no privacy or security benefit. Enabling USB debugging and trusting a
+            computer with USB debugging access for Android Debug Bridge opens up significant amounts
+            of attack surface via the debugging computer and should be avoided on devices being used
+            with an expectation of privacy. Backup can now be handled via
+            <strong>SeedVault</strong> which is accessible under <strong>Settings ➔ System ➔
+            Backup</strong>.</p>
+
+            <h3 id="best-practices-screen-lock">
+                <a href="#best-practices-screen-lock">Screen lock</a>
+            </h3>
+
+            <p>As with Android, GrapheneOS supports three modes of user authentication via shared
+            secret: a password, PIN, or a pattern, along with the use of a fingerprint reader.
+            The fingerprint reader must be used in conjunction with a shared secret, and is disabled
+            on boot, or after five failed attempts at unlocking a phone previously unlocked with the
+            password, PIN, or pattern. Unlike the factory operating system, GrapheneOS allows
+            passphrases of up to 64 characters to be used to unlock the phone. The Titan M hardware
+            security module (HSM) in modern Pixel handsets is capable of bolstering the
+            cryptographic strength of even a short PIN to make brute force attacks on 4-digit PINs
+            unfeasible. Utilizing a strong diceware passphrase will mitigate offline attacks in the
+            event a vulnerability in the Titan M is found and exploited at a future date. While
+            pattern unlock can have a significant amount of uncertainty, humans tend to choose
+            predictable and often easy to guess lock patterns, so this method isn't recommended.</p>
+
         </div>
         <footer>
             <a href="/"><img src="/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
