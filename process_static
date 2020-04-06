@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -o errexit
+
+rm -rf static_tmp
+cp -a static static_tmp
+json_reformat -m < static_tmp/manifest.webmanifest | sponge static_tmp/manifest.webmanifest
+find static_tmp -name '*.css' -exec csso {} -o {} \;
+find static_tmp -name '*.html' -exec html-minifier --collapse-whitespace --remove-comments --process-scripts "application/ld+json" {} -o {} \;
+find static_tmp -name '*.js' -exec terser --module -cmo {} {} \;
+find static_tmp -regex '\(.+/LICENSE\|.+\.\(css\|html\|ico\|js\|svg\|txt\|webmanifest\|xml\)\)' -exec zopfli {} \; -exec touch -r {} {}.gz \;
