@@ -48,6 +48,33 @@
             security technology including substantial improvements to sandboxing, exploit
             mitigations and the permission model. GrapheneOS also develops various apps and
             services with a focus on privacy and security.</p>
+
+            <p>To do so, GrapheneOS implements numerous improvements across the software stack,
+            including the Kernel and Bionic C Library, and utilizes its own security-focused memory
+            allocator. GrapheneOS fully utilizes all the hardware security features of only
+            handsets with the best security; GrapheneOS is not only reproducible, but is signed,
+            validated, and each installation is bitwise identical across a particular device with
+            full support for verified boot, hardware-bound encryption, and use of the
+            hardware-backed keystore and remote attestation.</p>
+
+            <p>GrapheneOS also aims to be the reference implementation for its standalone
+            subprojects. These subprojects include the
+            <a href="https://github.com/GrapheneOS/hardened_malloc"><em>hardened_malloc</em></a>,
+            which is an all-new general purpose memory allocator designed to provide protection
+            against heap corruption vulnerabilities, reduce metadata overhead and reduce waste from
+            fragmentation. GrapheneOS utilizes
+            <a href="https://github.com/GrapheneOS/Vanadium"><em>Vanadium</em></a> as a browser,
+            a privacy and security-enhanced release of Chromium which takes advantage of the
+            hardening improvements specific to the operating system. GrapheneOS also created and
+            pioneered the
+            <a href="https://attestation.app/about"><em>Auditor</em></a> remote attestation system
+            which works in conjunction with the project's own
+            <a href="https://github.com/GrapheneOS/Auditor"><em>AttestationServer</em></a>
+            subproject for remote device integrity monitoring and intrusion detection, empowering
+            the user with the ability to cryptographically prove that the operating system they
+            installed on their device is genuine and has not been tampered with while it is
+            online.</p>
+
             <p>GrapheneOS is a collaborative open source project, not a company. It's used and
             supported by a variety of companies and other organizations. It won't be closely tied
             to any company in particular. There will eventually be a non-profit GrapheneOS
