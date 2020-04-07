@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -o errexit
+set -o errexit -o nounset -o pipefail
 
 rm -rf static_tmp
 cp -a static static_tmp
