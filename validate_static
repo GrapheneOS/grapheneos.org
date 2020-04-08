@@ -3,6 +3,8 @@
 set -o errexit -o nounset -o pipefail
 shopt -s globstar
 
+export PATH="$PWD/node_modules/.bin:$PATH"
+
 jshint --verbose static/**/*.js
 stylelint static/**/*.css
 validatornu --Werror --skip-non-html static
