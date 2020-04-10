@@ -163,7 +163,11 @@ Installed as /home/username/downloads/platform-tools/fastboot</pre>
                 <a href="#unlocking-the-bootloader">Unlocking the bootloader</a>
             </h2>
             <p>First, boot into the bootloader interface. You can do this by turning off the
-            device and then turning it on by holding both the Volume Down and Power buttons.</p>
+            device and then turning it on by holding both the Volume Down and Power buttons.
+            <strong>You do not need to have USB debugging enabled within the OS or have the host's 
+            ADB key whitelisted within the OS to boot into bootloader. Trusting a computer with ADB
+            access within the OS is much different and exposes the device to a huge amount of
+            attack surface and control by the trusted computer.</strong></p>
             <p>The bootloader now needs to be unlocked to allow flashing new images:</p>
             <pre>fastboot flashing unlock</pre>
             <p>The command needs to be confirmed on the device.</p>
