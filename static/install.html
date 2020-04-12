@@ -60,7 +60,12 @@
                 <li><a href="#enabling-oem-unlocking">Enabling OEM unlocking</a></li>
                 <li><a href="#unlocking-the-bootloader">Unlocking the bootloader</a></li>
                 <li><a href="#obtaining-factory-images">Obtaining factory images</a></li>
-                <li><a href="#flashing-factory-images">Flashing factory images</a></li>
+                <li>
+                    <a href="#flashing-factory-images">Flashing factory images</a>
+                    <ul>
+                        <li><a href="#troubleshooting">Troubleshooting</a></li>
+                    </ul>
+                </li>
                 <li><a href="#locking-the-bootloader">Locking the bootloader</a></li>
                 <li><a href="#disabling-oem-unlocking">Disabling OEM unlocking</a></li>
                 <li><a href="#verifying-installation">Verifying installation</a></li>
@@ -212,6 +217,23 @@ TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
             XL, you'll need to reboot from the userspace fastbootd mode to the bootloader by
             selecting <code>Reboot to bootloader</code> from the fastbootd menu using the volume
             keys and the power button in order to continue the installation.</p>
+            <h3 id="troubleshooting">
+                <a href="#troubleshooting">Troubleshooting</a>
+            </h3>
+            <p>A majority of failed flashes tend to be caused by substandard USB connectors,
+            plugging in via hubs or bad cables which aren't properly up to the USB standard. The
+            scrollback from a failed flash will contain valuable diagnostic information which
+            is essential in knowing where and how the process went wrong.</p>
+            <p>Front I/O ports on desktop computer cases and USB 3.1 or USB C on many laptops
+            often aren't implement properly or are broken in subtle ways, which may cause flashing
+            to fail even a USB port that works for other peripherals. Older Linux kernels that
+            predate version 5 may have inadequate or patchwork support for USB C or USB 3. If you
+            are installing from a Linux distribution, ensure your distribution uses a modern
+            kernel.</p>
+            <p>Always use a high quality USB A to USB C cable with a rear USB port directly on your
+            motherboard, and never use a USB hub for flashing. <em>Never install from a virtual
+            machine;</em> USB passthrough in software emulation may be broken or inadequate and this
+            can cause the flashing to fail.</p>
             <h2 id="locking-the-bootloader">
                 <a href="#locking-the-bootloader">Locking the bootloader</a>
             </h2>
