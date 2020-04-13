@@ -66,6 +66,13 @@
                 <li><a href="#camera">Camera</a></li>
                 <li><a href="#exec-spawning">Exec spawning</a></li>
                 <li><a href="#bugs-uncovered-by-security-features">Bugs uncovered by security features</a></li>
+                <li>
+                    <a href="#wifi-privacy">Wi-Fi privacy</a>
+                    <ul>
+                        <li><a href="#wifi-privacy-scanning">Scanning</a></li>
+                        <li><a href="#wifi-privacy-associated">Associated with an Access Point (AP)</a></li>
+                    </ul>
+                </li>
             </ul>
 
             <h2 id="auditor">
@@ -327,6 +334,59 @@
             relevant crash and filter out information you don't want to send. However, it will be
             more difficult to debug if you provide less of the information. If the app doesn't
             work with sensitive information, just send the whole tombstone.</p>
+
+            <h2 id="wifi-privacy">
+                <a href="#wifi-privacy">Wi-Fi privacy</a>
+            </h2>
+
+            <p>Wi-Fi on GrapheneOS is very privacy-friendly and is essentially anonymous as long
+            as apps do not leak uniquely identifying information to the network. GrapheneOS avoids
+            allowing itself to be fingerprinted as GrapheneOS, other than connections which are
+            documented (see the FAQ) and can be easily disabled or forced through a VPN
+            service.</p>
+
+            <h2 id="wifi-privacy-scanning">
+                <a href="#wifi-privacy-scanning">Scanning</a>
+            </h2>
+
+            <p>MAC randomization is always performed for Wi-Fi scanning. Pixel
+            phones have firmware support for scanning MAC randomization going
+            <a href="https://android-developers.googleblog.com/2017/04/changes-to-device-identifiers-in.html">significantly beyond a native implementation</a>
+            On many other devices, there are identifiers exposed by Wi-Fi scanning beyond the MAC
+            address such as the packet sequence number and assorted identifying information in the
+            probe requests.</p>
+
+            <p>Avoid using hidden APs (i.e. APs not broadcasting their SSID) since known hidden
+            SSIDs end up being broadcast to find them again. SSIDs are not broadcast for standard
+            non-hidden APs.</p>
+
+            <p>Wi-Fi and Bluetooth scanning for improving location detection are disabled by
+            default, unlike the stock OS. These can be toggled in Settings ➔ Location ➔ Wi-Fi and
+            Bluetooth scanning. These features enable scanning even when Wi-Fi or Bluetooth is
+            disabled, so these need to be kept disabled to fully disable the radios when Wi-Fi and
+            Bluetooth are disabled. GrapheneOS doesn't yet have an implementation of a coarse
+            location service to supplement GPS location, so enabling these options doesn't
+            actually do anything at the moment. Implementing a supplementary location service is
+            planning but we need a robust, secure and private implementation via a local database.
+            The initial focus will likely be a cell phone tower database, so these features still
+            wouldn't be relevant.</p>
+
+            <h2 id="wifi-privacy-associated">
+                <a href="#wifi-privacy-associated">Associated with an Access Point (AP)</a>
+            </h2>
+
+            <p>The DHCP client uses the anonymity profile rather than sending a hostname so it
+            doesn't compromise the privacy offered by MAC randomization.</p>
+
+            <p>Associated MAC randomization is performed by default. This can be controlled
+            per-network with Settings ➔ Network &amp; Internet ➔ Wi-Fi ➔ &lt;network&gt; ➔
+            Advanced  ➔ Privacy.</p>
+
+            <p>In the stock OS, the default is to use a unique persistent random MAC address for
+            each network. It has 2 options available: "Use randomized MAC (default)" and "Use
+            device MAC". In GrapheneOS, the default is generating a new random MAC address when
+            connecting to a network. It has 3 options available: "Use per-connection randomized
+            MAC (default)", "Use per-network randomized MAC" and "Use device MAC".</p>
         </div>
         <footer>
             <a href="/"><img src="/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
