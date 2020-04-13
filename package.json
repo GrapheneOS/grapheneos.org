@@ -3,7 +3,7 @@
     "csso-cli": "^3.0.0",
     "html-minifier": "^4.0.0",
     "jshint": "^2.11.0",
-    "stylelint": "^13.3.0",
+    "stylelint": "^13.3.2",
     "terser": "^4.6.11"
   }
 }
