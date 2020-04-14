@@ -246,7 +246,6 @@ repo init -u https://github.com/GrapheneOS/platform_manifest.git -b refs/tags/TA
             <p>Verify the manifest:</p>
 
             <pre>gpg --recv-keys 65EEFE022108E2B708CBFCF7F9E712E59AF5F22A
-gpg --recv-keys 4340D13570EF945E83810964E8AD3F819AB10E78
 cd .repo/manifests
 git verify-tag --raw $(git describe)
 cd ../..</pre>
@@ -255,12 +254,10 @@ cd ../..</pre>
 
             <pre>repo sync -j32</pre>
 
-            <p>Verify the source tree:</p>
-
-            <pre>repo forall -c 'git verify-tag --raw $(git describe)' || echo Verification failed!</pre>
-
-            <p>These instructions will be extended in the future to check the verify-tag
-            output.</p>
+            <p>The manifest for the latest stable release refers to the revisions in other
+            repositories via commit hashes rather than tag names. This avoids the need to use a
+            script to verify tag signatures across all the repositories, since they simply point
+            to the same commits with the same hashes.</p>
 
             <p>Note that the repo command itself takes care of updating itself and uses gpg to
             verify by default.</p>
