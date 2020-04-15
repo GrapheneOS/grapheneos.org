@@ -247,7 +247,7 @@ repo init -u https://github.com/GrapheneOS/platform_manifest.git -b refs/tags/TA
 
             <pre>gpg --recv-keys 65EEFE022108E2B708CBFCF7F9E712E59AF5F22A
 cd .repo/manifests
-git verify-tag --raw $(git describe)
+git verify-tag $(git describe)
 cd ../..</pre>
 
             <p>Complete the source tree download:</p>
