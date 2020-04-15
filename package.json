@@ -4,6 +4,7 @@
     "html-minifier": "^4.0.0",
     "jshint": "^2.11.0",
     "stylelint": "^13.3.2",
+    "stylelint-config-standard": "^20.0.0",
     "terser": "^4.6.11"
   }
 }
