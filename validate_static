@@ -5,7 +5,7 @@ shopt -s extglob globstar
 
 export PATH="$PWD/node_modules/.bin:$PATH"
 
-xmllint --noout static/**/*.@(svg|xml)
+xmllint --noout static/**/*.@(html|svg|xml)
 jshint --verbose static/**/*.js
 stylelint static/**/*.css
 validatornu --Werror --skip-non-html static
