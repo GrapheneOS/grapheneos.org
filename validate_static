@@ -1,10 +1,11 @@
 #!/bin/bash
 
 set -o errexit -o nounset -o pipefail
-shopt -s globstar
+shopt -s extglob globstar
 
 export PATH="$PWD/node_modules/.bin:$PATH"
 
+xmllint --noout static/**/*.@(svg|xml)
 jshint --verbose static/**/*.js
 stylelint static/**/*.css
 validatornu --Werror --skip-non-html static
