@@ -890,15 +890,50 @@ export PATH="$PATH:$HOME/sdk/tools:$HOME/sdk/tools/bin:$HOME/sdk/platform-tools:
             / statements. Wrap lines at 100 columns except in rare cases where it would be far
             uglier to wrap the line.</p>
 
-            <p>For JavaScript, put <code>"use strict";</code> at the top of every file, end lines
-            with semicolons (since automatic insertion is poorly designed) and always use
-            <code>const</code> to declare variables, unless they are reassigned in which case they
-            should be declared with <code>let</code> but never use <code>var</code> as it is
-            effectively broken. Try to prefer loops with <code>for..of</code>.</p>
+            <p>For JavaScript, all code should be contained within ES6 modules. This means every
+            script element should use <code>type="module"</code>. Modules provide proper
+            namespacing with explicit imports and exports. Modules automatically use strict mode,
+            so <code>"use strict";</code> is no longer needed. By default, modules are also
+            deferred until after the DOM is ready, i.e. they have an implicit <code>defer</code>
+            attribute. This should be relied upon rather than unnecessarily listening for an event
+            to determine if the DOM is ready for use. It can make sense to use <code>async</code>
+            to run the code earlier if the JavaScript is essential to the content and benefits
+            from being able to start tasks before the DOM is ready, such as retrieving important
+            content or checking if there's a login session. Always end lines with semicolons
+            (since automatic insertion is poorly designed) and always use <code>const</code> to
+            declare variables, unless they are reassigned in which case they should be declared
+            with <code>let</code> but never use <code>var</code> as it is effectively broken. Try
+            to prefer loops with <code>for..of</code>. JavaScript must pass verification with
+            <code>jshint</code> using the following <code>.jslintrc</code> configuration:</p>
+
+            <pre>{
+    "browser": true,
+    "module": true,
+    "devel": true,
+    "esversion": 6,
+    "strict": "global"
+}</pre>
+
+            <p>Cookies are only used for login sessions. The only other use case considered valid
+            would be optimizing HTTP/2 Server Push but the intention is only to use that for
+            render blocking CSS and it's not really worth optimizing for caching when the CSS is
+            tiny in practice. Every cookie must have the <code>__Host</code> prefix to guarantee
+            that it has the <code>Secure</code> attribute and <code>Path=/</code>. The
+            <code>HttpOnly</code> and <code>SameSite=Strict</code> flags should also always be
+            included. These kinds of cookies can provide secure login sessions in browsers with
+            fully working <code>SameSite=Strict</code> support. However, CSRF tokens should still
+            be used for the near future in case there are browser issues.</p>
 
             <p>For web content, use dashes as user-facing word separators rather than underscores.
             Page titles should follow the scheme "Page | Directory | Higher-level directory |
             Site" for usability with a traditional title as the Open Graph title.</p>
+
+            <p>HTML must pass verification with <code>validatornu</code> and <code>xmllint</code>.
+            Ensuring that it parses as XML with <code>xmllint</code> catches many common mistakes
+            and typos that are missed by HTML validation due to the ridiculously permissive nature
+            of HTML. This enforces closing every tag, using proper escaping and so on. XHTML does
+            not really exist anymore and we simply use XML parsing as an enforced coding standard
+            and lint pass. It can also be useful to make it compatible with XML-based tooling.</p>
 
             <p>Avoid designing around class inheritance unless it's a rare case where it's an
             extremely good fit or the language sucks (Java) and it's the least bad approach, but
