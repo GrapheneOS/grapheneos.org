@@ -8,6 +8,5 @@ export PATH="$PWD/node_modules/.bin:$PATH"
 xmllint --noout static/**/*.@(html|svg|xml)
 jshint --verbose static/**/*.js
 stylelint static/**/*.css
-validatornu --Werror --skip-non-html static
-validatornu --Werror --skip-non-css static
+validatornu --Werror --also-check-css static/**/*.@(css|html)
 validatornu --Werror --skip-non-svg --no-langdetect static
