@@ -413,9 +413,11 @@ mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/
             <p>The normal production build process involves building a target files package to be
             resigned with secure release keys and then converted into factory images and/or an
             update zip via the sections below. If you have a dedicated development device with no
-            security requirements, you can save time by using the default make target, leaving the
-            bootloader unlocked and flashing the raw images that are signed with the default
-            public test keys:</p>
+            security requirements, you can save time by using the default build target rather than
+            target-files-package. Leave the bootloader unlocked and flashing the raw images that
+            are signed with the default public test keys.</p>
+
+            <p>To build the default build target:</p>
 
             <pre>m</pre>
 
