@@ -400,11 +400,7 @@ mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/
 
             <pre>rm -r out</pre>
 
-            <p>Start the build process, with -j# used to set the number of parallel jobs to the
-            number of CPU threads. You also need 2-4GiB of memory per job, so reduce it based on
-            available memory if necessary:</p>
-
-            <pre>make target-files-package -j20</pre>
+            <pre>make target-files-package</pre>
 
             <p><strong>For an emulator build, always use the development build approach below.</strong></p>
 
@@ -419,7 +415,7 @@ mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/
             bootloader unlocked and flashing the raw images that are signed with the default
             public test keys:</p>
 
-            <pre>make -j20</pre>
+            <pre>make</pre>
 
             <p>Technically, you could generate test key signed update packages. However, there's
             no point of sideloading update packages when the bootloader is unlocked and there's no
@@ -527,7 +523,7 @@ cd ../..</pre>
 
             <p>Build the tool needed to generate A/B updates:</p>
 
-            <pre>make -j20 brillo_update_payload</pre>
+            <pre>make brillo_update_payload</pre>
 
             <p>Generate a signed release build with the release.sh script:</p>
 
