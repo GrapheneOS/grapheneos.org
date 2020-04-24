@@ -404,6 +404,11 @@ mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/
 
             <pre>m target-files-package</pre>
 
+            <p>The <code>-j</code> parameter can be passed to <code>m</code> to set a specific
+            number of jobs such as <code>-j4</code> to use 4 jobs. By default, the build system
+            sets the number of jobs to <code>NumCPU() + 2</code> where <code>NumCPU()</code> is the
+            number of available logical CPUs.</p>
+
             <p><strong>For an emulator build, always use the development build approach below.</strong></p>
 
             <h2 id="faster-builds-for-development-use-only">
