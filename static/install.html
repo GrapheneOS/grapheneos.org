@@ -79,13 +79,12 @@
             <p>You need one of the officially supported devices. To make sure that the device can
             be unlocked to install GrapheneOS, avoid carrier variants of the devices. Carrier
             variants of Pixels use the same stock OS and firmware with a non-zero carrier id
-            flashed onto the persist partition in the factory. The carrier id activates
-            carrier-specific configuration in the stock OS including disabling carrier and
+            flashed onto the persist partition in the factory state. The carrier id activates
+            the carrier-specific configuration in the stock OS including disabling carrier and
             bootloader unlocking. The carrier may be able to remotely disable this, but their
             support staff may not be aware and they probably won't do it. Get a carrier agnostic
             device to avoid the risk and potential hassle. If you CAN figure out a way to unlock a
-            carrier device, it isn't a problem as GrapheneOS can just ignore the carrier id and
-            it's otherwise the same.</p>
+            carrier device, installing GrapheneOS won't be a problem.</p>
             <p>It's best practice to update the stock OS on the device to make sure it's running
             the latest firmware before proceeding with these instructions. This avoids running
             into bugs, missing features or other differences in older firmware versions. Early
@@ -114,6 +113,8 @@
                     tools not required for installation such as adb. <code>android-udev</code>
                     provides udev rules allowing fastboot and adb to work in local sessions
                     without root.</li>
+                <li>Manjaro Linux: Arch-based distribution with access to <code>android-tools</code> 
+		    and <code>android-udev</code> as well.</li>    
             </ul>
 
             <p>If your distribution doesn't have a proper fastboot package, which is likely,
@@ -171,7 +172,9 @@ Installed as /home/username/downloads/platform-tools/fastboot</pre>
             <h2 id="enabling-oem-unlocking">
                 <a href="#enabling-oem-unlocking">Enabling OEM unlocking</a>
             </h2>
-            <p>OEM unlocking needs to be enabled from within the operating system.</p>
+            <p>OEM unlocking needs to be enabled from within the operating system.
+            If the option to 'Enable OEM unlocking' is disabled (i.e., Greyed out) 
+            it is most likely locked by the carrier.</p>
             <p>Enable the developer options menu by going to Settings ➔ About phone and
             pressing on the build number menu entry until developer mode is enabled.</p>
             <p>Next, go to Settings ➔ System ➔ Advanced ➔ Developer options and toggle on the
@@ -214,9 +217,8 @@ RWQZW9NItOuQYJ86EooQBxScfclrWiieJtAO9GpnfEjKbCO/3FriLGX3</pre>
             <p>Download the factory images for the device from <a href="/releases">the releases
             page</a>. For example, to download the 2020.04.14.23 release for the Pixel 3 XL (crosshatch):</p>
 
-            <pre>curl -O https://releases.grapheneos.org/crosshatch-factory-2020.04.14.23.zip
-curl -O https://releases.grapheneos.org/crosshatch-factory-2020.04.14.23.zip.sig
-</pre>
+            <pre>curl -O https://releases.grapheneos.org/crosshatch-factory-2020.04.14.23.zip;
+	    curl -O https://releases.grapheneos.org/crosshatch-factory-2020.04.14.23.zip.sig</pre>
 
             <p>Verify the factory images using the signature:</p>
             <pre>signify -Cqp factory.pub -x crosshatch-factory-2020.04.14.23.zip.sig &amp;&amp; echo verified</pre>
