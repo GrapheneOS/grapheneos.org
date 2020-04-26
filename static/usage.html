@@ -63,6 +63,13 @@
                     </ul>
                 </li>
                 <li><a href="#web-browsing">Web browsing</a></li>
+                <li>
+                    <a href="#new-permissions">New permissions</a>
+                    <ul>
+                        <li><a href="#network-permission">Network permission</li>
+                        <li><a href="#sensors-permission">Sensors permission</li>
+                    </ul>
+                </li>
                 <li><a href="#camera">Camera</a></li>
                 <li><a href="#exec-spawning">Exec spawning</a></li>
                 <li><a href="#bugs-uncovered-by-security-features">Bugs uncovered by security features</a></li>
@@ -250,6 +257,56 @@
             still substantially weaker (especially on Linux, where it can hardly be considered a
             sandbox at all) and lacks support for isolating sites from each other rather than only
             containing content as a whole.</p>
+
+            <h2 id="new-permissions">
+                <a href=#new-permissions>New permissions</a>
+            </h2>
+
+            <p>GrapheneOS eschews theatrics or frills and attempts to make as many of its security
+            improvements as transparent and unnoticeable as possible. It doesn't implement
+            "advanced security centers", tweakables, or custom options, preferring to make safe and
+            opinionated security and privacy decisions. However, GrapheneOS exposes two new
+            permissions to the user that aren't a part of the Android specification and aren't seen
+            on the factory operating system. These are seen next to the usual Android permissions.</p>
+
+            <p>The new permissions are always displayed to the user and initially enabled by
+            default, as no apps written for the factory operating system are aware of their
+            existence to request them. However, apps installed are initially placed in a "stopped"
+            state and cannot be launched except for being launched by the user. To run an app
+            without it ever having access to these permissions, simply install it, then switch the
+            permission toggles off under the app info menu prior to launching the app.</p>
+
+            <h3 id="network-permission">
+                <a href="#network-permission">Network permission</a>
+            </h3>
+
+            <p>GrapheneOS treats full network access as a user-facing permission with a toggle. For
+            compatibility, it's enabled by default for apps targeting the modern Android platform
+            unlike other runtime permissions. Switching off the Network permission toggle will
+            prevent the app from having network access.</p>
+
+            <p>There are many known cases of apps exporting interfaces to other apps for making
+            limited network requests, so this toggle will become more useful when further isolation
+            options are available. For example, web browsers almost all expose an interface allowing
+            other apps to open URLs and choose not to require either the INTERNET permission or
+            explicit user consent before making the request.</p>
+
+            <h3 id="sensors-permission">
+                <a href="#sensors-permission">Sensors permission</a>
+            </h3>
+
+            <p>Unlike the factory operating system, GrapheneOS treats sensor access as a user-facing
+            permission with a toggle. For compatibility, it's enabled by default for apps targeting
+            the modern Android platform unlike other runtime permissions.</p>
+
+            <p>Sensor access has been shown to provide the capability to perform
+            <a href="http://www.ccs.neu.edu/home/noubir/publications-local/NVBN2016.pdf" target="_blank">
+            location tracking</a>,
+            <a href="https://link.springer.com/article/10.1007/s10207-017-0369-x">input logging</a>,
+            and crude audio recording that's
+            <a href="https://www.usenix.org/system/files/conference/usenixsecurity14/sec14-paper-michalevsky.pdf">
+            still capable of recognizing speech</a> despite the 200 Hz sampling limit enforced by
+            the OS.</p>
 
             <h2 id="camera">
                 <a href="#camera">Camera</a>
