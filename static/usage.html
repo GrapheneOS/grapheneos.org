@@ -64,6 +64,13 @@
                 </li>
                 <li><a href="#web-browsing">Web browsing</a></li>
                 <li><a href="#camera">Camera</a></li>
+                <li><a href="#messaging">Messaging</a>
+                    <ul>
+                        <li><a href="#signal">Signal</a></li>
+                        <li><a href="#silence">Silence</a></li>
+                        <li><a href="#conversations">Conversations</a></li>
+                        <li><a href="#whatsapp">WhatsApp</a></li>
+                    </ul>
                 <li><a href="#exec-spawning">Exec spawning</a></li>
                 <li><a href="#bugs-uncovered-by-security-features">Bugs uncovered by security features</a></li>
                 <li>
@@ -250,6 +257,72 @@
             still substantially weaker (especially on Linux, where it can hardly be considered a
             sandbox at all) and lacks support for isolating sites from each other rather than only
             containing content as a whole.</p>
+
+            <h2 id="messaging">
+                <a href="#messaging">Messaging</a>
+            </h2>
+
+            <p>Legacy calls through the publicly switched telephone network (PSTN) should be avoided
+            wherever possible. Although GrapheneOS considers the network to be always hostile, the
+            PSTN is a security-agnostic protocol that offers no means to authenticate sender nor
+            recipient nor ensure confidentiality in transit, between service provider, or between
+            devices.</p>
+
+            <p>Hardening globally-adopted network infrastructure that must retain backwards
+            compatibility with devices as far back as rotary dial telephones is beyond the scope
+            of GrapheneOS. An attractive alternative to using plaintext communications is to simply
+            utilize messaging applications which provide the use of transparent encryption wherever
+            possible and to encourage their adoption.</p>
+
+            <h3 id="signal">
+                <a href="#signal">Signal</a>
+            </h3>
+
+            <p>The recommended instant messaging app for GrapheneOS is Signal Private Messenger,
+            which has full functionality on GrapheneOS for sending text messages, files, audio
+            recordings, prerecorded videos, group text messaging, and allows for both audio calls
+            and video calls. Due to the missing Google Play Services Signal should be allowed to run
+            in the background and should be allowed to display its notification dot. The official
+            website release of Signal can be installed
+            <a href="https://signal.org/android/apk">directly from their site</a> and is signed.
+            This requires temporarily enabling installing apps from your browser and it still
+            requires consent each time. Signal will periodically check for updates to itself but it
+            can't support the option of automatic updates. The upgrades need to be installed by
+            enabling app installations from Signal, then approving the dialogue it requests each
+            time.</p>
+
+            <p>Signal has the advantage of making use of both end-to-end encryption and transport
+            layer security as well as Sealed Sender, which separately encrypts the sender address
+            to further prevent metadata collection from the service provider. Signal utilizes Amazon
+            Web Services, which provides plenty of cover traffic and hosts a majority of smartphone
+            backends.</p>
+
+            <h3 id="silence">
+                <a href="#silence">Silence</a>
+            </h3>
+
+            <p>SMS-based instant messaging systems, such as Silence Encrypted SMS, are not
+            recommended over data-based encrypted messaging apps. Silence is no longer actively
+            maintained, and exposes large amounts of metadata in plaintext to the Publicly Switched
+            Telephone Network, as well as the presence of ciphertexts, which makes both senders and
+            recipients using it stand out on a network and allows an adversary on the network to
+            identify both sender and recipient with trivial ease.</p>
+
+            <h3 id="conversations">
+                <a href="#conversations">Conversations</a>
+            </h3>
+
+            <p>Conversations.IM is no longer recommended due to the fragmented nature of XMPP and
+            strong, transparent, and easy to use end-to-end encryption such as OMEMO not being
+            supported by all clients.</p>
+
+            <h3 id="whatsapp">
+                <a href="#whatsapp">Whatsapp</a>
+            </h3>
+
+            <p>WhatsApp works on GrapheneOS, but it isn't currently available in a convenient way.
+            If no other options present themselves, it may be installable via the Amazon Appstore as
+            an apk, to ensure that it is updated with the Appstore.</p>
 
             <h2 id="camera">
                 <a href="#camera">Camera</a>
