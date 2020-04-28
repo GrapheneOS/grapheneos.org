@@ -221,6 +221,9 @@ curl -O https://releases.grapheneos.org/crosshatch-factory-2020.04.14.23.zip.sig
             <p>Verify the factory images using the signature:</p>
             <pre>signify -Cqp factory.pub -x crosshatch-factory-2020.04.14.23.zip.sig &amp;&amp; echo verified</pre>
 
+            <p>This will output <code>verified</code> if verification is successful. If something
+            goes wrong, it will output an error message rather than <code>verified</code>.</p>
+
             <h2 id="flashing-factory-images">
                 <a href="#flashing-factory-images">Flashing factory images</a>
             </h2>
