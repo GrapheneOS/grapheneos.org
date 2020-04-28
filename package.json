@@ -5,6 +5,6 @@
     "jshint": "^2.11.0",
     "stylelint": "^13.3.3",
     "stylelint-config-standard": "^20.0.0",
-    "terser": "^4.6.11"
+    "terser": "^4.6.12"
   }
 }
