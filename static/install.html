@@ -190,8 +190,17 @@ Installed as /home/username/downloads/platform-tools/fastboot</pre>
             </h2>
             <p>The initial install will be performed by flashing the factory images. This will
             replace the existing OS installation and wipe all the existing data.</p>
+
+            <p>You can either download the files with your browser or using a command like
+            <code>curl</code>. It's generally easier to use the command-line since you're already
+            using it for the rest of the installation process, so these instructions will use
+            <code>curl</code>.</p>
+
             <p>Download <a href="https://releases.grapheneos.org/factory.pub">the factory images
-            public key (factory.pub)</a> in order to verify the factory images.</p>
+            public key (factory.pub)</a> in order to verify the factory images:</p>
+
+            <pre>curl -O https://releases.grapheneos.org/factory.pub</pre>
+
             <p>This is the content of <code>factory.pub</code>:</p>
             <pre>untrusted comment: GrapheneOS factory images public key
 RWQZW9NItOuQYJ86EooQBxScfclrWiieJtAO9GpnfEjKbCO/3FriLGX3</pre>
@@ -207,15 +216,15 @@ RWQZW9NItOuQYJ86EooQBxScfclrWiieJtAO9GpnfEjKbCO/3FriLGX3</pre>
             <p>Download the factory images for the device from <a href="/releases">the releases
             page</a>.</p>
 
-            <p>You can either download the files with your browser or using a command like <code>curl</code>. It's generally easier to use the command-line since you're already using it for the rest of the installation process. For example, to download the 2020.04.14.23 release for the Pixel 3 XL via <code>curl</code>:</p>
+            <p>For example, to download the 2020.04.14.23 release for the Pixel 3 XL (crosshatch):</p>
 
-            <pre>curl -O https://releases.grapheneos.org/factory.pub
-curl -O https://releases.grapheneos.org/crosshatch-factory-2020.04.14.23.zip
+            <pre>curl -O https://releases.grapheneos.org/crosshatch-factory-2020.04.14.23.zip
 curl -O https://releases.grapheneos.org/crosshatch-factory-2020.04.14.23.zip.sig
 </pre>
 
             <p>Verify the factory images using the signature:</p>
             <pre>signify -Cqp factory.pub -x crosshatch-factory-2020.04.14.23.zip.sig &amp;&amp; echo verified</pre>
+
             <h2 id="flashing-factory-images">
                 <a href="#flashing-factory-images">Flashing factory images</a>
             </h2>
