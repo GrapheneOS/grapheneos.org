@@ -206,6 +206,14 @@ RWQZW9NItOuQYJ86EooQBxScfclrWiieJtAO9GpnfEjKbCO/3FriLGX3</pre>
             When the current signing key is replaced, the new key will be signed with it.</p>
             <p>Download the factory images for the device from <a href="/releases">the releases
             page</a>.</p>
+
+            <p>You can either download the files with your browser or using a command like <code>curl</code>. It's generally easier to use the command-line since you're already using it for the rest of the installation process. For example, to download the 2020.04.14.23 release for the Pixel 3 XL via <code>curl</code>:</p>
+
+            <pre>curl -O https://releases.grapheneos.org/factory.pub
+curl -O https://releases.grapheneos.org/crosshatch-factory-2020.04.14.23.zip
+curl -O https://releases.grapheneos.org/crosshatch-factory-2020.04.14.23.zip.sig
+</pre>
+
             <p>Verify the factory images using the signature:</p>
             <pre>signify -Cqp factory.pub -x crosshatch-factory-2020.04.14.23.zip.sig &amp;&amp; echo verified</pre>
             <h2 id="flashing-factory-images">
