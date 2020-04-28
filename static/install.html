@@ -147,15 +147,20 @@ Installed as /home/username/downloads/platform-tools/fastboot</pre>
                 <a href="#obtaining-signify">Obtaining signify</a>
             </h3>
 
-            <p>To verify the download of the OS beyond the security offered by HTTPS, you need the
-            signify tool. If you don't have a way to obtain signify from a trusted package
-            repository, such as on Windows, skip the additional verification. This is an important
-            step, but it only makes sense if you can chain trust from your existing OS
-            install.</p>
+            <p>To verify the download of the OS beyond the security offered by HTTPS, you can use
+            the signify tool. If you do not have a way to obtain signify from a package repository
+            you're already trusting, it does not make sense to use it. GrapheneOS releases are
+            hosted on our servers and we do not have third party mirrors. A compromised signify
+            would be able to compromise your OS and the GrapheneOS download due to the lack of an
+            application security model on traditional operating systems. It would be worse than
+            not trying to verify the signatures. It's far less likely that our servers would be
+            compromised than someone's GitHub account or GitHub itself. You're already trusting
+            these installation instructions from our site, which is hosted on the same static web
+            server infrastructure as the releases.</p>
 
             <p>On many distributions, signify is available via a <code>signify</code> package in
             the official repositories. On Debian-based distributions like Ubuntu, the package and
-            command name were renamed to <code>signify-openbsd</code>. Following Debian tradition,
+            command were renamed to <code>signify-openbsd</code>. Following Debian tradition,
             the <code>signify</code> package and command are an <a
             href="http://signify.sourceforge.net/">unmaintained mail-related tool for generating
             mail signatures (not cryptographic signatures) with the final 3 releases from
