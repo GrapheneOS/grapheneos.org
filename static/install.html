@@ -76,8 +76,16 @@
                 <a href="#prerequisites">Prerequisites</a>
             </h2>
             <p>You should have at least 2GB of free memory available.</p>
-            <p>You need the unlocked variant of one of the supported devices, not a locked carrier
-            specific variant.</p>
+            <p>You need one of the officially supported devices. To make sure that the device can
+            be unlocked to install GrapheneOS, avoid carrier variants of the devices. Carrier
+            variants of Pixels use the same stock OS and firmware with a non-zero carrier id
+            flashed onto the persist partition in the factory. The carrier id activates
+            carrier-specific configuration in the stock OS including disabling carrier and
+            bootloader unlocking. The carrier may be able to remotely disable this, but their
+            support staff may not be aware and they probably won't do it. Get a carrier agnostic
+            device to avoid the risk and potential hassle. If you CAN figure out a way to unlock a
+            carrier device, it isn't a problem as GrapheneOS can just ignore the carrier id and
+            it's otherwise the same.</p>
             <p>It's best practice to update the stock OS on the device to make sure it's running
             the latest firmware before proceeding with these instructions. This avoids running
             into bugs, missing features or other differences in older firmware versions. Early
