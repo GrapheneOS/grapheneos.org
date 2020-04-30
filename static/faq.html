@@ -71,6 +71,7 @@
                     <ul>
                         <li><a href="#hardware-identifiers">Can apps access hardware
                         identifiers?</a></li>
+                        <li><a href="#non-hardware-identifiers">What about non-hardware identifiers?</a></li>
                         <li><a href="#cellular-tracking">What does GrapheneOS do about cellular
                         tracking and silent SMS?</a></li>
                         <li><a href="#default-connections">Which connections do the OS and
@@ -273,6 +274,52 @@
             <p>Since these restrictions became standard, GrapheneOS only makes a small change to
             remove a legacy form of access to the serial number by legacy apps, which was still
             around for compatibility.</p>
+
+            <h3 id="non-hardware-identifiers">
+                <a href="#non-hardware-identifiers">What about non-hardware identifiers?</a>
+            </h3>
+
+            <p>Apps can generate their own 128-bit or larger random value and use that as an
+            identifier for the app installation. Apps can create data in their app-specific
+            external storage directory by default without needing permission, and in the legacy
+            storage model before API 29 that data persists after the app is uninstalled, so it can
+            be used to store an ID that persists through the app being uninstalled and
+            reinstalled. However, external storage is under control of the user and the user can
+            delete this data at any time, including after uninstalling the app. In the modern
+            storage model, this data is automatically removed when the app is uninstalled.
+            GrapheneOS includes Seedvault as an OS backup service which must be explicitly
+            enabled, and it has the option to automatically restore app data when an app is
+            reinstalled, which would avoid wiping this kind of data so the app wouldn't lose track
+            of it being the same profile.</p>
+
+            <p>The <code>ANDROID_ID</code> string is a 64-bit random number represented as a hex
+            encoded string, unique to each combination of profile and app signing key. The 64-bit
+            limitation means it isn't particularly useful due to the possibility of collisions.
+            It's tied to the lifetime of profiles and does not persist through profile deletion or
+            a factory reset. This is comparable to an app storing a 64-bit random value in the
+            app-specific external storage directory. In the future, GrapheneOS will likely change
+            this to be tied to the lifetime of app installations rather than profiles.</p>
+
+            <p>The advertising ID is a Google Play services feature not included in the baseline
+            Android API, so it isn't an API included in GrapheneOS. The advertising ID is unique
+            to each profile. It isn't unique to each app signing key like <code>ANDROID_ID</code>,
+            but that makes little difference since apps within the same profile can communicate
+            with each other with mutual consent. It's comparable to <code>ANDROID_ID</code> but
+            provides an 128-bit value so it provides a strong cryptographic guarantee against
+            collisions, although a device messing with apps could set it to the same value used in
+            another profile. The advertising ID is exposed via the Settings app and can be reset
+            to a new random value, unlike <code>ANDROID_ID</code> which remains the same for the
+            lifetime of the profile.</p>
+
+            <p>Apps do not have access to user data by default and cannot ever access the data of
+            other apps without those apps going out of the way to share it with them. If apps are
+            granted read access to user data like media or contacts, they could use it to identify
+            the profile. If apps are granted write access to user data, they could tag it to keep
+            track of the profile. Apps previously had little reason to do things like this because
+            they were able to persist data through an uninstall and reinstallation by default. The
+            modern storage model means they need to request access to user data to do this. The
+            existence of <code>ANDROID_ID</code> means they don't yet need to bother with that but
+            that will change on GrapheneOS and will likely change for baseline Android too.</p>
 
             <h3 id="cellular-tracking">
                 <a href="#cellular-tracking">What does GrapheneOS do about cellular tracking and
