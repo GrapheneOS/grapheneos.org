@@ -296,9 +296,14 @@
             encoded string, unique to each combination of profile and app signing key. The 64-bit
             limitation means it isn't particularly useful due to the possibility of collisions.
             It's tied to the lifetime of profiles and does not persist through profile deletion or
-            a factory reset. This is comparable to an app storing a 64-bit random value in the
-            app-specific external storage directory. In the future, GrapheneOS will likely change
-            this to be tied to the lifetime of app installations rather than profiles.</p>
+            a factory reset. This is comparable to an app targeting the legacy storage model
+            storing a 64-bit random value in the app-specific external storage directory. In the
+            future, GrapheneOS will likely change this to be tied to the lifetime of app
+            installations rather than profiles. Even then, profiles should be used when separate
+            identities are desired. An app could still track the identity of the profile through
+            data you give it access to or via data another app chooses to share with them.
+            Profiles can be used as temporary ephemeral identifies by creating them for a specific
+            need and then deleting them.</p>
 
             <p>The advertising ID is a Google Play services feature not included in the baseline
             Android API, so it isn't an API included in GrapheneOS. The advertising ID is unique
