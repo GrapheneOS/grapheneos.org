@@ -279,6 +279,17 @@
                 <a href="#non-hardware-identifiers">What about non-hardware identifiers?</a>
             </h3>
 
+            <p>In addition to not having a way to identify the hardware, apps cannot directly
+            identify the installation of the OS on the hardware. Apps only have a small portion of
+            the OS configuration exposed to them and there is not much for device owners to change
+            which could identify their installation. Apps can identify their own app installation
+            via their app data and can directly (until that's removed) or indirectly identify a
+            profile. Profiles should be used when separate identities are desired. Profiles can be
+            used as temporary ephemeral identifies by creating them for a specific need and then
+            deleting them. The rest of this answer only provides more technical details, so you
+            can stop reading here if you only want an overview and actionable advice (i.e. use
+            profiles as identities not inherently tied to each other).</p>
+
             <p>Apps can generate their own 128-bit or larger random value and use that as an
             identifier for the app installation. Apps can create data in their app-specific
             external storage directory by default without needing permission, and in the legacy
@@ -289,21 +300,17 @@
             storage model, this data is automatically removed when the app is uninstalled.
             GrapheneOS includes Seedvault as an OS backup service which must be explicitly
             enabled, and it has the option to automatically restore app data when an app is
-            reinstalled, which would avoid wiping this kind of data so the app wouldn't lose track
-            of it being the same profile.</p>
+            reinstalled, so it wouldn't lose track of it being the same profile.</p>
 
-            <p>The <code>ANDROID_ID</code> string is a 64-bit random number represented as a hex
-            encoded string, unique to each combination of profile and app signing key. The 64-bit
-            limitation means it isn't particularly useful due to the possibility of collisions.
-            It's tied to the lifetime of profiles and does not persist through profile deletion or
-            a factory reset. This is comparable to an app targeting the legacy storage model
-            storing a 64-bit random value in the app-specific external storage directory. In the
-            future, GrapheneOS will likely change this to be tied to the lifetime of app
-            installations rather than profiles. Even then, profiles should be used when separate
-            identities are desired. An app could still track the identity of the profile through
-            data you give it access to or via data another app chooses to share with them.
-            Profiles can be used as temporary ephemeral identifies by creating them for a specific
-            need and then deleting them.</p>
+            <p>The <code>ANDROID_ID</code> string is a 64-bit random number, unique to each
+            combination of profile and app signing key. The 64-bit limitation means it isn't
+            particularly useful due to the possibility of collisions. It's tied to the lifetime of
+            profiles and does not persist through profile deletion or a factory reset. This is
+            comparable to an app targeting the legacy storage model storing a 64-bit random value
+            in the app-specific external storage directory. In the future, GrapheneOS will likely
+            change this to be tied to the lifetime of app installations rather than profiles. An
+            app could still track the identity of the profile through data you give it access to or
+            via data another app chooses to share with them.</p>
 
             <p>The advertising ID is a Google Play services feature not included in the baseline
             Android API, so it isn't an API included in GrapheneOS. The advertising ID is unique
@@ -314,7 +321,8 @@
             collisions, although a device messing with apps could set it to the same value used in
             another profile. The advertising ID is exposed via the Settings app and can be reset
             to a new random value, unlike <code>ANDROID_ID</code> which remains the same for the
-            lifetime of the profile.</p>
+            lifetime of the profile, but apps can tie it the previous ID since they can detect
+            that it changed via their own ID in their app data.</p>
 
             <p>Apps do not have access to user data by default and cannot ever access the data of
             other apps without those apps going out of the way to share it with them. If apps are
