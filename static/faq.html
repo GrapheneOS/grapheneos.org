@@ -324,7 +324,10 @@
             they were able to persist data through an uninstall and reinstallation by default. The
             modern storage model means they need to request access to user data to do this. The
             existence of <code>ANDROID_ID</code> means they don't yet need to bother with that but
-            that will change on GrapheneOS and will likely change for baseline Android too.</p>
+            that will change on GrapheneOS and will likely change for baseline Android too.
+            However, profiles are the only way to provide a strong assurance of separate
+            identities since the application model of the OS is designed to support communication
+            between apps within the same profile, but never between them.</p>
 
             <h3 id="cellular-tracking">
                 <a href="#cellular-tracking">What does GrapheneOS do about cellular tracking and
