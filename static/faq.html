@@ -275,6 +275,13 @@
             remove a legacy form of access to the serial number by legacy apps, which was still
             around for compatibility.</p>
 
+            <p>Apps can determine the model of the device (such as it being a Pixel 3) either
+            directly or indirectly through the properties of the hardware and software. There
+            isn't a way to avoid this short of the OS supporting running apps in a virtual machine
+            with limited functionality and hardware acceleration. Hiding the CPU/SoC model would
+            require not even using basic hardware virtualization support and these things could
+            probably still be detected via performance measurements.</p>
+
             <h3 id="non-hardware-identifiers">
                 <a href="#non-hardware-identifiers">What about non-hardware identifiers?</a>
             </h3>
@@ -282,13 +289,15 @@
             <p>In addition to not having a way to identify the hardware, apps cannot directly
             identify the installation of the OS on the hardware. Apps only have a small portion of
             the OS configuration exposed to them and there is not much for device owners to change
-            which could identify their installation. Apps can identify their own app installation
-            via their app data and can directly (until that's removed) or indirectly identify a
-            profile. Profiles should be used when separate identities are desired. Profiles can be
-            used as temporary ephemeral identifies by creating them for a specific need and then
-            deleting them. The rest of this answer only provides more technical details, so you
-            can stop reading here if you only want an overview and actionable advice (i.e. use
-            profiles as identities not inherently tied to each other).</p>
+            which could identify their installation. Apps can detect that they're being run on
+            GrapheneOS via the privacy and security features placing further restrictions on them
+            and hardening them against further exploitation. Apps can identify their own app
+            installation via their app data and can directly (until that's removed) or indirectly
+            identify a profile. Profiles should be used when separate identities are desired.
+            Profiles can be used as temporary ephemeral identifies by creating them for a specific
+            need and then deleting them. The rest of this answer only provides more technical
+            details, so you can stop reading here if you only want an overview and actionable
+            advice (i.e. use profiles as identities not inherently tied to each other).</p>
 
             <p>Apps can generate their own 128-bit or larger random value and use that as an
             identifier for the app installation. Apps can create data in their app-specific
