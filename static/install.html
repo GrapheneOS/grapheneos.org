@@ -105,6 +105,9 @@
             from the <a href="https://developers.google.com/android/ota">full update package
             page</a>.</p>
 
+            <p>These instructions use command-line tools. On Windows, use PowerShell rather than
+            the legacy Command Prompt.</p>
+
             <h3 id="obtaining-fastboot">
                 <a href="#obtaining-fastboot">Obtaining fastboot</a>
             </h3>
@@ -148,7 +151,7 @@ unzip platform-tools_r30.0.0-linux.zip</pre>
 
             <p>On Windows:</p>
 
-            <pre>set PATH=%cd%\platform-tools;%PATH%</pre>
+            <pre>$env:Path = "$pwd\platform-tools;$env:Path"</pre>
 
             <p>Sample output from <code>fastboot --version</code> afterwards:</p>
 
