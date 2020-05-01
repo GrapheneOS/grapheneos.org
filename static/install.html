@@ -257,11 +257,18 @@ curl -O https://releases.grapheneos.org/crosshatch-factory-2020.04.14.23.zip.sig
 
             <p>Reboot into the bootloader interface to begin the flashing procedure.</p>
 
-            <p>Next, extract the factory images and run the script to flash them:</p>
+            <p>Next, extract the factory images and move into the directory:</p>
 
             <pre>unzip crosshatch-factory-2020.04.14.23.zip
-cd crosshatch-qq2a.200405.005
-./flash-all.sh</pre>
+cd crosshatch-qq2a.200405.005</pre>
+
+            <p>Flash the images with the flash-all script in the directory. On Linux and macOS:</p>
+
+            <pre>./flash-all.sh</pre>
+
+            <p>On Windows:</p>
+
+            <pre>flash-all</pre>
 
             <p>Wait for the flashing process to complete and for the device to boot up using the
             new operating system.</p>
