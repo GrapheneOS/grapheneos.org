@@ -247,19 +247,11 @@ curl -O https://releases.grapheneos.org/crosshatch-factory-2020.04.14.23.zip.sig
 
             <p>Reboot into the bootloader interface to begin the flashing procedure.</p>
 
-            <p>Next, extract the factory images and run the script to flash them. Note that the
-            <code>fastboot</code> command run by the flashing script requires a fair bit of free
-            space in a temporary directory, which defaults to <code>/tmp</code>:</p>
+            <p>Next, extract the factory images and run the script to flash them.:</p>
 
             <pre>unzip crosshatch-factory-2020.04.14.23.zip
 cd crosshatch-qq2a.200405.005
 ./flash-all.sh</pre>
-
-            <p>Use a different temporary directory if your <code>/tmp</code> doesn't have enough
-            space available:</p>
-
-            <pre>mkdir tmp
-TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
 
             <p>Wait for the flashing process to complete and for the device to boot up using the
             new operating system.</p>
@@ -275,6 +267,16 @@ TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
             <h3 id="troubleshooting">
                 <a href="#troubleshooting">Troubleshooting</a>
             </h3>
+
+            <p>A common issue on Linux distributions is that they mount the default temporary file
+            directory <code>/tmp</code> as tmpfs which results in it being backed by memory and
+            swap rather than persistent storage. By default, the size is 50% of the available
+            virtual memory. This is often not enough for the flashing process, especially since
+            <code>/tmp</code> is shared between applications and users. To use a different
+            temporary directory if your <code>/tmp</code> doesn't have enough space available:</p>
+
+            <pre>mkdir tmp
+TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
 
             <p>A majority of failed flashes tend to be caused by substandard USB connectors,
             plugging in via hubs or bad cables which aren't properly up to the USB standard. The
