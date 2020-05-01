@@ -75,7 +75,9 @@
             <h2 id="prerequisites">
                 <a href="#prerequisites">Prerequisites</a>
             </h2>
+
             <p>You should have at least 2GB of free memory available.</p>
+
             <p>You need one of the officially supported devices. To make sure that the device can
             be unlocked to install GrapheneOS, avoid carrier variants of the devices. Carrier
             variants of Pixels use the same stock OS and firmware with a non-zero carrier id
@@ -86,6 +88,7 @@
             device to avoid the risk and potential hassle. If you CAN figure out a way to unlock a
             carrier device, it isn't a problem as GrapheneOS can just ignore the carrier id and
             it's otherwise the same.</p>
+
             <p>It's best practice to update the stock OS on the device to make sure it's running
             the latest firmware before proceeding with these instructions. This avoids running
             into bugs, missing features or other differences in older firmware versions. Early
@@ -171,23 +174,33 @@ Installed as /home/username/downloads/platform-tools/fastboot</pre>
             <h2 id="enabling-oem-unlocking">
                 <a href="#enabling-oem-unlocking">Enabling OEM unlocking</a>
             </h2>
+
             <p>OEM unlocking needs to be enabled from within the operating system.</p>
+
             <p>Enable the developer options menu by going to Settings ➔ About phone and
             pressing on the build number menu entry until developer mode is enabled.</p>
+
             <p>Next, go to Settings ➔ System ➔ Advanced ➔ Developer options and toggle on the
             'Enable OEM unlocking' setting. This requires internet access on devices with Google
             Play Services as part of Factory Reset Protection (FRP) for anti-theft protection.</p>
+
             <h2 id="unlocking-the-bootloader">
                 <a href="#unlocking-the-bootloader">Unlocking the bootloader</a>
             </h2>
+
             <p>First, boot into the bootloader interface. You can do this by turning off the
             device and then turning it on by holding both the Volume Down and Power buttons.</p>
+
             <p>The bootloader now needs to be unlocked to allow flashing new images:</p>
+
             <pre>fastboot flashing unlock</pre>
+
             <p>The command needs to be confirmed on the device.</p>
+
             <h2 id="obtaining-factory-images">
                 <a href="#obtaining-factory-images">Obtaining factory images</a>
             </h2>
+
             <p>The initial install will be performed by flashing the factory images. This will
             replace the existing OS installation and wipe all the existing data.</p>
 
@@ -202,8 +215,10 @@ Installed as /home/username/downloads/platform-tools/fastboot</pre>
             <pre>curl -O https://releases.grapheneos.org/factory.pub</pre>
 
             <p>This is the content of <code>factory.pub</code>:</p>
+
             <pre>untrusted comment: GrapheneOS factory images public key
 RWQZW9NItOuQYJ86EooQBxScfclrWiieJtAO9GpnfEjKbCO/3FriLGX3</pre>
+
             <p>The public key has also been published via the official
             <a href="https://twitter.com/GrapheneOS/status/1145259815851253762">@GrapheneOS Twitter
             account</a>,
@@ -227,45 +242,59 @@ curl -O https://releases.grapheneos.org/crosshatch-factory-2020.04.14.23.zip.sig
             <h2 id="flashing-factory-images">
                 <a href="#flashing-factory-images">Flashing factory images</a>
             </h2>
+
             <p>Reboot into the bootloader interface to begin the flashing procedure.</p>
+
             <p>Next, extract the factory images and run the script to flash them. Note that the
             <code>fastboot</code> command run by the flashing script requires a fair bit of free
             space in a temporary directory, which defaults to <code>/tmp</code>:</p>
+
             <pre>unzip crosshatch-factory-2020.04.14.23.zip
 cd crosshatch-qq2a.200405.005
 ./flash-all.sh</pre>
+
             <p>Use a different temporary directory if your <code>/tmp</code> doesn't have enough
             space available:</p>
+
             <pre>mkdir tmp
 TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
+
             <p>Wait for the flashing process to complete and for the device to boot up using the
             new operating system.</p>
+
             <p>You should now proceed to locking the bootloader before using the device as locking
             wipes the data again.</p>
+
             <p>On current generation devices like the Pixel 3, Pixel 3 XL, Pixel 3a and Pixel 3a
             XL, you'll need to reboot from the userspace fastbootd mode to the bootloader by
             selecting <code>Reboot to bootloader</code> from the fastbootd menu using the volume
             keys and the power button in order to continue the installation.</p>
+
             <h3 id="troubleshooting">
                 <a href="#troubleshooting">Troubleshooting</a>
             </h3>
+
             <p>A majority of failed flashes tend to be caused by substandard USB connectors,
             plugging in via hubs or bad cables which aren't properly up to the USB standard. The
             scrollback from a failed flash will contain valuable diagnostic information which
             is essential in knowing where and how the process went wrong.</p>
+
             <p>Front I/O ports on desktop computer cases and USB 3.1 or USB C on many laptops
             often aren't implemented properly or are broken in subtle ways, which may cause flashing
             to fail even on a USB port that works for other peripherals. Older Linux kernels that
             predate version 5 may have inadequate or patchwork support for USB C or USB 3. If you
             are installing from a Linux distribution, ensure your distribution uses a modern
             kernel.</p>
+
             <p>Always use a high quality USB A to USB C cable with a rear USB port directly on your
             motherboard, and never use a USB hub for flashing. <em>Never install from a virtual
             machine;</em> USB passthrough in software emulation may be broken or inadequate and this
             can cause the flashing to fail.</p>
+
             <h2 id="locking-the-bootloader">
                 <a href="#locking-the-bootloader">Locking the bootloader</a>
             </h2>
+
             <p>Locking the bootloader is important as it enables full verified boot. It also
             prevents using fastboot to flash, format or erase partitions.  Verified boot will
             detect modifications to any of the OS partitions (vbmeta, boot/dtbo, product, system,
@@ -273,19 +302,26 @@ TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
             detected, error correction data is used to attempt to obtain the original data at
             which point it's verified again which makes verified boot robust to non-malicious
             corruption.</p>
+
             <p>In the bootloader interface, set it to locked:</p>
+
             <pre>fastboot flashing lock</pre>
             <p>The command needs to be confirmed on the device since it needs to perform a factory
             reset.</p>
+
             <p>Unlocking the bootloader again will perform a factory reset.</p>
+
             <h2 id="disabling-oem-unlocking">
                 <a href="#disabling-oem-unlocking">Disabling OEM unlocking</a>
             </h2>
+
             <p>OEM unlocking can be disabled again in the developer settings menu within the
             operating system after booting it up again.</p>
+
             <h2 id="verifying-installation">
                 <a href="#verifying-installation">Verifying installation</a>
             </h2>
+
             <p>Verified boot authenticates and validates the firmware images and OS from the
             hardware root of trust. Since GrapheneOS supports full verified boot, the OS images
             are entirely verified. However, it's possible that the computer you used to flash the
@@ -302,14 +338,17 @@ TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
             include the serial number in the hardware verified information to allow checking
             against the one on the box / displayed in the bootloader. See the
             <a href="https://attestation.app/tutorial">Auditor tutorial</a> for a guide.</p>
+
             <p>After the initial verification, which results in pairing, performing verification
             against between the same Auditor and Auditee (as long as the app data hasn't been
             cleared) will provide strong validation of the identity and integrity of the
             device. That makes it best to get the pairing done right after installation. You can
             also consider setting up the optional remote attestation service.</p>
+
             <h2 id="replacing-grapheneos-with-the-stock-os">
                 <a href="#replacing-grapheneos-with-the-stock-os">Replacing GrapheneOS with the stock OS</a>
             </h2>
+
             <p>Installation of the stock OS via the stock factory images is the same process
             described above. However, before locking, there's an additional step to fully revert
             the device to a clean factory state.</p>
