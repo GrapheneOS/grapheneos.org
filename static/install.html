@@ -120,16 +120,24 @@
                     without root.</li>
             </ul>
 
-            <p>If your distribution doesn't have a proper fastboot package, which is likely,
-            consider using the official releases of platform-tools from Google. You can either
-            obtain these as part of the standalone SDK or Android Studio which are self-updating
-            or via the standalone platform-tools releases. For one time usage, it's easiest to
-            obtain the <a href="https://developer.android.com/studio/releases/platform-tools">latest
-            standalone platform-tools release</a>, extract it and add it to your <code>PATH</code>
-            in the current shell. For example:</p>
+            <p>If your operating system doesn't make a proper version of fastboot available,
+            consider using the
+            <a href="https://developer.android.com/studio/releases/platform-tools">standalone
+            releases of platform-tools from Google</a>. If you have the Android SDK or intend to
+            do development work, you install the platform-tools package via the Android SDK
+            package manager which can be used to keep it up-to-date. The Android SDK is available
+            by itself or can be obtained via Android Studio.</p>
 
-            <pre>unzip platform-tools_r30.0.0-linux.zip
-export PATH="$PWD/platform-tools:$PATH"</pre>
+            <p>To download, verify and extract the standalone platform-tools for Linux:</p>
+
+            <pre>curl -O https://dl.google.com/android/repository/platform-tools_r30.0.0-linux.zip
+echo 'f05b3d78def516d6fdf64be1caa1e1698e482b3adcf54a48dfaf9c972ddbd18e  platform-tools_r30.0.0-linux.zip' | sha256sum -c
+unzip platform-tools_r30.0.0-linux.zip</pre>
+
+            <p>Next, add the tools to your <code>PATH</code> in the current shell so they can be
+            used without referencing them by file path, enabling usage by the flashing script:</p>
+
+            <pre>export PATH="$PWD/platform-tools:$PATH"</pre>
 
             <p>Sample output from <code>fastboot --version</code> afterwards:</p>
 
