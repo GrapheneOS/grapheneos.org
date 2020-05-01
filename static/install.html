@@ -306,6 +306,7 @@ TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
             <p>In the bootloader interface, set it to locked:</p>
 
             <pre>fastboot flashing lock</pre>
+
             <p>The command needs to be confirmed on the device since it needs to perform a factory
             reset.</p>
 
@@ -352,10 +353,12 @@ TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
             <p>Installation of the stock OS via the stock factory images is the same process
             described above. However, before locking, there's an additional step to fully revert
             the device to a clean factory state.</p>
+
             <p>The GrapheneOS factory images flash a non-stock Android Verified Boot key which
             needs to be erased to fully revert back to a stock device state. After flashing the
             stock factory images and before locking the bootloader, you should erase the custom
             Android Verified Boot key to untrust it:</p>
+
             <pre>fastboot erase avb_custom_key</pre>
         </div>
         <footer>
