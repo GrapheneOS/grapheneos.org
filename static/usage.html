@@ -63,6 +63,13 @@
                     </ul>
                 </li>
                 <li><a href="#web-browsing">Web browsing</a></li>
+                <li>
+                    <a href="#background-permissions">Background permissions</a>
+                    <ul>
+                        <li><a href="#location-access">Location access</a></li>
+                        <li><a href="#hardware-identifiers">Hardware identifiers</a></li>
+                    </ul>
+                </li>
                 <li><a href="#camera">Camera</a></li>
                 <li><a href="#exec-spawning">Exec spawning</a></li>
                 <li><a href="#bugs-uncovered-by-security-features">Bugs uncovered by security features</a></li>
@@ -250,6 +257,28 @@
             still substantially weaker (especially on Linux, where it can hardly be considered a
             sandbox at all) and lacks support for isolating sites from each other rather than only
             containing content as a whole.</p>
+
+            <h2 id="background-permissions">
+                <a href="#background-permissions">Background permissions</a>
+            </h2>
+
+            <h3 id="location-access">
+                <a href="#location-access">Location access</a>
+            </h3>
+
+            <p>Location access in the background can be disabled per-app via <strong>Settings ➔
+            Location ➔ App permission</strong>. From there, apps can be be allowed to have access to
+            the location all the time, only have access to location while they are in use, or not
+            to have location access at all.
+
+            <h3 id="hardware-identifiers">
+                <a href="#hardware-identifiers">Hardware identifiers</a>
+            </h3>
+
+            <p>To address privacy concerns, on Android 10 and by extension on GrapheneOS, Apps
+            cannot access non-resettable persistent hardware identifiers such as IMEI, Phone or SIM
+            Serial Number, and MAC addresses. Only privileged specific system components can access
+            non-resettable hardware identifiers, and only to connect to the cellular network.</p>
 
             <h2 id="camera">
                 <a href="#camera">Camera</a>
