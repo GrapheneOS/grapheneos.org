@@ -173,15 +173,19 @@ Installed as /home/username/downloads/platform-tools/fastboot</pre>
             these installation instructions from our site, which is hosted on the same static web
             server infrastructure as the releases.</p>
 
-            <p>On many distributions, signify is available via a <code>signify</code> package in
-            the official repositories. On Debian-based distributions like Ubuntu, the package and
-            command were renamed to <code>signify-openbsd</code>. Following Debian tradition,
-            the <code>signify</code> package and command are an <a
-            href="http://signify.sourceforge.net/">unmaintained mail-related tool for generating
-            mail signatures (not cryptographic signatures) with the final 3 releases from
-            2003-2004 made directly by the developer via the Debian package without upstream
-            releases</a>. This is clearly not what you want, but it's easy to end up trying to use
-            it instead of <code>signify-openbsd</code>.</p>
+            <p>List of distributions with proper packages:</p>
+
+            <ul>
+                <li>Arch Linux: <code>signify</code></li>
+                <li>Debian: <code>signify-openbsd</code> with the command renamed to <code>signify-openbsd</code></li>
+                <li>Ubuntu: <code>signify-openbsd</code> with the command renamed to <code>signify-openbsd</code></li>
+            </ul>
+
+            <p>On Debian-based distributions, the <code>signify</code> package and command are an
+            <a href="http://signify.sourceforge.net/">unmaintained mail-related tool for
+            generating mail signatures (not cryptographic signatures)</a> with the final releases
+            from 2003-2004 made directly by the developer via the Debian package without upstream
+            releases. Please pressure them to correct this usability issue.</p>
 
             <h2 id="enabling-oem-unlocking">
                 <a href="#enabling-oem-unlocking">Enabling OEM unlocking</a>
