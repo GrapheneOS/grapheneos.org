@@ -69,6 +69,8 @@
                 <li>
                     <a href="#security-and-privacy">Security and privacy</a>
                     <ul>
+                        <li><a href="#clipboard">Can apps spy on the clipboard in the background
+                        or inject content into it?</a></li>
                         <li><a href="#hardware-identifiers">Can apps access hardware
                         identifiers?</a></li>
                         <li><a href="#non-hardware-identifiers">What about non-hardware identifiers?</a></li>
@@ -259,6 +261,23 @@
             <h2 id="security-and-privacy">
                 <a href="#security-and-privacy">Security and privacy</a>
             </h2>
+
+            <h3 id="clipboard">
+                <a href="#clipboard">Can apps spy on the clipboard in the background or inject
+                content into it?</a>
+            </h3>
+
+            <p>As of Android 10, only the configured default input method editor (your keyboard of
+            choice) and the currently focused app can access the clipboard. Apps without focus
+            cannot access the clipboard. This is a stricter restriction than preventing apps in
+            the background from accessing it, since an app in the foreground or a foreground
+            service cannot access it, only the foreground app that's currently focused. Clipboard
+            managers need to be implemented by the keyboard chosen as the default by the user.</p>
+
+            <p>GrapheneOS previously restricted background clipboard access as a much earlier and
+            slightly less strict implementation of this feature. It provided a toggle for users to
+            whitelist clipboard managers, which is no longer needed now that keyboards are
+            expected to provide it.</p>
 
             <h3 id="hardware-identifiers">
                 <a href="#hardware-identifiers">Can apps access hardware identifiers?</a>
