@@ -279,17 +279,14 @@ cd crosshatch-qq2a.200405.005</pre>
 
             <p>Wait for the flashing process to complete (message about not formatting 'userdata' 
             and 'metadata' can be expected).</p>
-            
+
             <p>On current generation devices like the Pixel 3, Pixel 3 XL, Pixel 3a and Pixel 3a
             XL the script ends with the fastbootd menu on the phone. On other devices it might 
             boot the OS. From the fastbootd menu choose Reboot to bootloader. In case the OS 
             booted, shutdown and boot in bootloader using Volume Down + Power.</p>
 
-            <p>Re-lock the bootloader before using the device as locking wipes the data again:</p>
-
-            <pre>fastboot flashing lock</pre>
-
-            <p>The command needs to be confirmed on the device.</p>
+            <p>Re-lock the bootloader (using instructions below) before using the device (as 
+            locking wipes the data again).</p>
 
             <h3 id="troubleshooting">
                 <a href="#troubleshooting">Troubleshooting</a>
