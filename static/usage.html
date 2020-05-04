@@ -73,6 +73,7 @@
                         <li><a href="#wifi-privacy-associated">Associated with an Access Point (AP)</a></li>
                     </ul>
                 </li>
+                <li><a href="#lte-only-mode">LTE-only mode</a></li>
             </ul>
 
             <h2 id="auditor">
@@ -387,6 +388,25 @@
             device MAC". In GrapheneOS, the default is generating a new random MAC address when
             connecting to a network. It has 3 options available: "Use fully randomized MAC
             (default)", "Use per-network randomized MAC" and "Use device MAC".</p>
+            
+            <h2 id="lte-only-mode">
+                <a href="#lte-only-mode">LTE-only mode</a>
+            </h2>
+
+            <p>If you have a reliable LTE connection from your carrier, you can reduce attack
+            surface by disabling 2G / 3G connectivity in Settings ➔ Network &amp; Internet ➔ Mobile
+            network ➔ Preferred network type. Traditional voice calls will only work in the LTE-only
+            mode if you have either an LTE connection and VoLTE (Voice over LTE) support or a Wi-Fi
+            connection and VoWi-Fi (Voice over Wi-Fi) support. Currently, VoLTE / VoWi-Fi works on
+            GrapheneOS but not on most carriers, since the configuration and extra apps for them on 
+            most carriers are not yet around.</p>
+
+            <p>This feature is not intended to improve the confidentiality of traditional calls and
+            texts, but it might somewhat raise the bar for some forms of interception. It's not a
+            substitute for end-to-end encrypted calls / texts or even transport layer encryption.
+            LTE does provide basic network authentication / encryption, but it's for the network
+            itself. The intention of the LTE-only feature is only hardening against remote
+            exploitation by disabling an enormous amount of legacy code.</p>
         </div>
         <footer>
             <a href="/"><img src="/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
