@@ -207,6 +207,21 @@
             self-updating variant avoids dealing with out-of-date distribution packages and
             depends on GPG to verify updates.</p>
 
+            <p>Additional Linux kernel build dependencies not provided by the source tree:</p>
+
+            <ul>
+                <li>make</li>
+                <li>gcc (for the host, not the target)</li>
+                <li>binutils (for the host, not the target)</li>
+                <li>which</li>
+                <li>bc</li>
+                <li>cmp (diffutils)</li>
+            </ul>
+
+            <p>The dependency on the host gcc and binutils for building utilities during the build
+            process is being phased out by using the same LLVM toolchain as building and linking
+            for the target.</p>
+
             <ul>
                 <li>x86_64 Linux build environment (macOS is not supported, unlike AOSP which
                 partially supports it)</li>
