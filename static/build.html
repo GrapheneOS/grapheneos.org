@@ -202,6 +202,20 @@
                     lightweight sync</li>
             </ul>
 
+            <p>Baseline build dependencies:</p>
+
+            <ul>
+                <li>x86_64 Linux build environment (macOS is not supported, unlike AOSP which
+                partially supports it)</li>
+                <li>Android Open Source Project build dependencies</li>
+                <li>16GiB of memory or more. Link-Time Optimization (LTO) creates huge peaks
+                    during linking and is mandatory for Control Flow Integrity (CFI). Linking
+                    Vanadium (Chromium) and the Linux kernel with LTO + CFI are the most memory
+                    demanding tasks.</li>
+                <li>100GiB+ of additional free storage space</li>
+                <li>en_US.UTF-8 locale supported</li>
+            </ul>
+
             <p>You can either obtain <code>repo</code> as a distribution package or the
             self-updating standalone version from the Android Open Source Project. The
             self-updating variant avoids dealing with out-of-date distribution packages and
@@ -222,16 +236,10 @@
             process is being phased out by using the same LLVM toolchain as building and linking
             for the target.</p>
 
+            <p>Android Open Source Project build dependencies:</p>
+
             <ul>
-                <li>x86_64 Linux build environment (macOS is not supported, unlike AOSP which
-                partially supports it)</li>
-                <li>Android Open Source Project build dependencies</li>
-                <li>Linux kernel build dependencies</li>
-                <li>16GiB of memory or more. Link-Time Optimization (LTO) creates huge peaks
-                    during linking and is mandatory for Control Flow Integrity (CFI). Linking
-                    Vanadium (Chromium) and the Linux kernel with LTO + CFI are the most memory
-                    demanding tasks.</li>
-                <li>300GiB of free storage space</li>
+                <li>python2 (being replaced with python3 for the next major release)</li>
             </ul>
 
             <h2 id="downloading-source-code">
