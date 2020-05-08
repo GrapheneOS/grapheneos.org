@@ -5,6 +5,7 @@ shopt -s extglob globstar
 
 export PATH="$PWD/node_modules/.bin:$PATH"
 
+json_verify < static/manifest.webmanifest >/dev/null
 xmllint --noout static/**/*.@(html|svg|xml)
 jshint --verbose static/**/*.js
 stylelint static/**/*.css

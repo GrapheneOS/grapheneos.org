@@ -49,6 +49,7 @@
             <h2 id="table-of-contents">
                 <a href="#table-of-contents">Table of contents</a>
             </h2>
+
             <ul>
                 <li>
                     <a href="#prerequisites">Prerequisites</a>
@@ -75,7 +76,15 @@
             <h2 id="prerequisites">
                 <a href="#prerequisites">Prerequisites</a>
             </h2>
+
             <p>You should have at least 2GB of free memory available.</p>
+
+            <p>Windows 10, macOS Catalina, Arch Linux, Debian buster and Ubuntu 20.04 LTS are the
+            officially supported operating systems for installing GrapheneOS. You should make sure
+            your operating system is up-to-date before proceeding with these instructions. Older
+            versions and other Linux distributions usually work, but if you encounter problems try
+            using one of the officially supported options.</p>
+
             <p>You need one of the officially supported devices. To make sure that the device can
             be unlocked to install GrapheneOS, avoid carrier variants of the devices. Carrier
             variants of Pixels use the same stock OS and firmware with a non-zero carrier id
@@ -84,7 +93,8 @@
             bootloader unlocking. The carrier may be able to remotely disable this, but their
             support staff may not be aware and they probably won't do it. Get a carrier agnostic
             device to avoid the risk and potential hassle. If you CAN figure out a way to unlock a
-            carrier device, installing GrapheneOS won't be a problem.</p>
+            carrier device, GrapheneOS will ignore the carrier id and can be installed with no problem.</p>
+              
             <p>It's best practice to update the stock OS on the device to make sure it's running
             the latest firmware before proceeding with these instructions. This avoids running
             into bugs, missing features or other differences in older firmware versions. Early
@@ -94,19 +104,22 @@
             from the <a href="https://developers.google.com/android/ota">full update package
             page</a>.</p>
 
+            <p>These instructions use command-line tools. On Windows, use PowerShell rather than
+            the legacy Command Prompt.</p>
+
             <h3 id="obtaining-fastboot">
                 <a href="#obtaining-fastboot">Obtaining fastboot</a>
             </h3>
 
             <p>You need an updated copy of the <code>fastboot</code> tool and it needs to be
             included in your <code>PATH</code> environment variable. You can run <code>fastboot
-            --version</code> to determine the current version. It should be at least
+            --version</code> to determine the current version. It must be at least
             <code>28.0.2</code>. You can use a distribution package for this, but most of them
             mistakenly package development snapshots of fastboot, clobber the standard version
             scheme for platform-tools (adb, fastboot, etc.) with their own scheme and don't keep
             it up-to-date despite that being crucial.</p>
 
-            <p>List of distributions with proper packages:</p>
+            <p>List of distribution packages:</p>
 
             <ul>
                 <li>Arch Linux: <code>android-tools</code> provides fastboot and other useful
@@ -114,35 +127,41 @@
                     provides udev rules allowing fastboot and adb to work in local sessions
                     without root.</li>
                 <li>Manjaro Linux: Arch-based distribution with access to <code>android-tools</code> 
-		    and <code>android-udev</code> as well.</li>    
+                    and <code>android-udev</code>.</li>    
+                <li>Debian: package is both broken and out-of-date, do not use (see paragraph
+                    above)</li>
+                <li>Ubuntu: package is both broken and out-of-date, do not use (see paragraph
+                    above)</li>
             </ul>
 
-            <p>If your distribution doesn't have a proper fastboot package, which is likely,
-            consider using the official releases of platform-tools from Google. You can either
-            obtain these as part of the standalone SDK or Android Studio which are self-updating
-            or via the standalone platform-tools releases. For one time usage, it's easiest to
-            obtain the <a href="https://developer.android.com/studio/releases/platform-tools">latest
-            standalone platform-tools release</a>, extract it and add it to your <code>PATH</code>
-            in the current shell. For example:</p>
+            <p>If your operating system doesn't make a proper version of fastboot available,
+            consider using the
+            <a href="https://developer.android.com/studio/releases/platform-tools">standalone
+            releases of platform-tools from Google</a>. If you have the Android SDK or intend to
+            do development work, you install the platform-tools package via the Android SDK
+            package manager which can be used to keep it up-to-date. The Android SDK is available
+            by itself or can be obtained via Android Studio.</p>
 
-            <pre>unzip platform-tools_r29.0.6-linux.zip
-export PATH="$PWD/platform-tools:$PATH"</pre>
+            <p>To download, verify and extract the standalone platform-tools on Linux:</p>
+
+            <pre>curl -O https://dl.google.com/android/repository/platform-tools_r30.0.0-linux.zip
+echo 'f05b3d78def516d6fdf64be1caa1e1698e482b3adcf54a48dfaf9c972ddbd18e  platform-tools_r30.0.0-linux.zip' | sha256sum -c
+unzip platform-tools_r30.0.0-linux.zip</pre>
+
+            <p>Next, add the tools to your <code>PATH</code> in the current shell so they can be
+            used without referencing them by file path, enabling usage by the flashing script. On
+            Linux and macOS:</p>
+
+            <pre>export PATH="$PWD/platform-tools:$PATH"</pre>
+
+            <p>On Windows:</p>
+
+            <pre>$env:Path = "$pwd\platform-tools;$env:Path"</pre>
 
             <p>Sample output from <code>fastboot --version</code> afterwards:</p>
 
-            <pre>fastboot version 29.0.6-6198805
+            <pre>fastboot version 30.0.0-6374843
 Installed as /home/username/downloads/platform-tools/fastboot</pre>
-
-            <p>Don't proceed with the installation process until this is set up properly in your
-            current shell. A very common mistake is using an outdated copy of
-            <code>fastboot</code> from a Linux distribution package not receiving regular updates.
-            Make sure that the <code>fastboot</code> found earliest in your <code>PATH</code> is
-            the correct one if you have multiple copies on your system. The <code>fastboot
-            --version</code> output includes the installation path for the copy of
-            <code>fastboot</code> that's being used. Older versions of fastboot do not have support
-            for current devices and OS versions. Very old versions of <code>fastboot</code> are
-            still shipped by Linux distributions like Debian and lack the compatibility detection
-            of modern versions so they can soft brick devices.</p>
 
             <h3 id="obtaining-signify">
                 <a href="#obtaining-signify">Obtaining signify</a>
@@ -159,38 +178,50 @@ Installed as /home/username/downloads/platform-tools/fastboot</pre>
             these installation instructions from our site, which is hosted on the same static web
             server infrastructure as the releases.</p>
 
-            <p>On many distributions, signify is available via a <code>signify</code> package in
-            the official repositories. On Debian-based distributions like Ubuntu, the package and
-            command were renamed to <code>signify-openbsd</code>. Following Debian tradition,
-            the <code>signify</code> package and command are an <a
-            href="http://signify.sourceforge.net/">unmaintained mail-related tool for generating
-            mail signatures (not cryptographic signatures) with the final 3 releases from
-            2003-2004 made directly by the developer via the Debian package without upstream
-            releases</a>. This is clearly not what you want, but it's easy to end up trying to use
-            it instead of <code>signify-openbsd</code>.</p>
+            <p>List of distribution packages:</p>
+
+            <ul>
+                <li>Arch Linux: <code>signify</code></li>
+                <li>Debian: <code>signify-openbsd</code> with the command renamed to <code>signify-openbsd</code></li>
+                <li>Ubuntu: <code>signify-openbsd</code> with the command renamed to <code>signify-openbsd</code></li>
+            </ul>
+
+            <p>On Debian-based distributions, the <code>signify</code> package and command are an
+            <a href="http://signify.sourceforge.net/" rel="nofollow">unmaintained mail-related
+            tool for generating mail signatures (not cryptographic signatures)</a> with the final
+            releases from 2003-2004 made directly by the developer via the Debian package without
+            upstream releases. Please pressure them to correct this usability issue.</p>
 
             <h2 id="enabling-oem-unlocking">
                 <a href="#enabling-oem-unlocking">Enabling OEM unlocking</a>
             </h2>
-            <p>OEM unlocking needs to be enabled from within the operating system.
-            If the option to 'Enable OEM unlocking' is disabled (i.e., Greyed out) 
-            it is most likely locked by the carrier.</p>
+
+            <p>OEM unlocking needs to be enabled from within the operating system.</p>
+
             <p>Enable the developer options menu by going to Settings ➔ About phone and
             pressing on the build number menu entry until developer mode is enabled.</p>
+
             <p>Next, go to Settings ➔ System ➔ Advanced ➔ Developer options and toggle on the
             'Enable OEM unlocking' setting. This requires internet access on devices with Google
             Play Services as part of Factory Reset Protection (FRP) for anti-theft protection.</p>
+
             <h2 id="unlocking-the-bootloader">
                 <a href="#unlocking-the-bootloader">Unlocking the bootloader</a>
             </h2>
+
             <p>First, boot into the bootloader interface. You can do this by turning off the
             device and then turning it on by holding both the Volume Down and Power buttons.</p>
-            <p>The bootloader now needs to be unlocked to allow flashing new images:</p>
+
+            <p>Unlock the bootloader to allow flashing the OS and firmware:</p>
+
             <pre>fastboot flashing unlock</pre>
-            <p>The command needs to be confirmed on the device.</p>
+
+            <p>The command needs to be confirmed on the device and will wipe all data.</p>
+
             <h2 id="obtaining-factory-images">
                 <a href="#obtaining-factory-images">Obtaining factory images</a>
             </h2>
+
             <p>The initial install will be performed by flashing the factory images. This will
             replace the existing OS installation and wipe all the existing data.</p>
 
@@ -205,8 +236,10 @@ Installed as /home/username/downloads/platform-tools/fastboot</pre>
             <pre>curl -O https://releases.grapheneos.org/factory.pub</pre>
 
             <p>This is the content of <code>factory.pub</code>:</p>
+
             <pre>untrusted comment: GrapheneOS factory images public key
 RWQZW9NItOuQYJ86EooQBxScfclrWiieJtAO9GpnfEjKbCO/3FriLGX3</pre>
+
             <p>The public key has also been published via the official
             <a href="https://twitter.com/GrapheneOS/status/1145259815851253762">@GrapheneOS Twitter
             account</a>,
@@ -217,11 +250,12 @@ RWQZW9NItOuQYJ86EooQBxScfclrWiieJtAO9GpnfEjKbCO/3FriLGX3</pre>
             <p>Download the factory images for the device from <a href="/releases">the releases
             page</a>. For example, to download the 2020.04.14.23 release for the Pixel 3 XL (crosshatch):</p>
 
-            <pre>curl -O https://releases.grapheneos.org/crosshatch-factory-2020.04.14.23.zip;
-	    curl -O https://releases.grapheneos.org/crosshatch-factory-2020.04.14.23.zip.sig</pre>
+            <pre>curl -O https://releases.grapheneos.org/crosshatch-factory-2020.05.05.02.zip
+curl -O https://releases.grapheneos.org/crosshatch-factory-2020.05.05.02.zip.sig</pre>
 
             <p>Verify the factory images using the signature:</p>
-            <pre>signify -Cqp factory.pub -x crosshatch-factory-2020.04.14.23.zip.sig &amp;&amp; echo verified</pre>
+
+            <pre>signify -Cqp factory.pub -x crosshatch-factory-2020.05.05.02.zip.sig &amp;&amp; echo verified</pre>
 
             <p>This will output <code>verified</code> if verification is successful. If something
             goes wrong, it will output an error message rather than <code>verified</code>.</p>
@@ -229,45 +263,65 @@ RWQZW9NItOuQYJ86EooQBxScfclrWiieJtAO9GpnfEjKbCO/3FriLGX3</pre>
             <h2 id="flashing-factory-images">
                 <a href="#flashing-factory-images">Flashing factory images</a>
             </h2>
+
             <p>Reboot into the bootloader interface to begin the flashing procedure.</p>
-            <p>Next, extract the factory images and run the script to flash them. Note that the
-            <code>fastboot</code> command run by the flashing script requires a fair bit of free
-            space in a temporary directory, which defaults to <code>/tmp</code>:</p>
-            <pre>unzip crosshatch-factory-2020.04.14.23.zip
-cd crosshatch-qq2a.200405.005
-./flash-all.sh</pre>
-            <p>Use a different temporary directory if your <code>/tmp</code> doesn't have enough
-            space available:</p>
-            <pre>mkdir tmp
-TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
-            <p>Wait for the flashing process to complete and for the device to boot up using the
-            new operating system.</p>
-            <p>You should now proceed to locking the bootloader before using the device as locking
-            wipes the data again.</p>
+
+            <p>Next, extract the factory images and move into the directory:</p>
+
+            <pre>unzip crosshatch-factory-2020.05.05.02.zip
+cd crosshatch-factory-2020.05.05.02</pre>
+
+            <p>Flash the images with the flash-all script in the directory. On Linux and macOS:</p>
+
+            <pre>./flash-all.sh</pre>
+
+            <p>On Windows:</p>
+
+            <pre>./flash-all.bat</pre>
+
+            <p>Wait for the flashing process to complete and proceed to locking the bootloader
+            before using the device as locking wipes the data again.</p>
+
             <p>On current generation devices like the Pixel 3, Pixel 3 XL, Pixel 3a and Pixel 3a
             XL, you'll need to reboot from the userspace fastbootd mode to the bootloader by
             selecting <code>Reboot to bootloader</code> from the fastbootd menu using the volume
             keys and the power button in order to continue the installation.</p>
+
             <h3 id="troubleshooting">
                 <a href="#troubleshooting">Troubleshooting</a>
             </h3>
+
+            <p>A common issue on Linux distributions is that they mount the default temporary file
+            directory <code>/tmp</code> as tmpfs which results in it being backed by memory and
+            swap rather than persistent storage. By default, the size is 50% of the available
+            virtual memory. This is often not enough for the flashing process, especially since
+            <code>/tmp</code> is shared between applications and users. To use a different
+            temporary directory if your <code>/tmp</code> doesn't have enough space available:</p>
+
+            <pre>mkdir tmp
+TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
+
             <p>A majority of failed flashes tend to be caused by substandard USB connectors,
             plugging in via hubs or bad cables which aren't properly up to the USB standard. The
             scrollback from a failed flash will contain valuable diagnostic information which
             is essential in knowing where and how the process went wrong.</p>
+
             <p>Front I/O ports on desktop computer cases and USB 3.1 or USB C on many laptops
             often aren't implemented properly or are broken in subtle ways, which may cause flashing
             to fail even on a USB port that works for other peripherals. Older Linux kernels that
             predate version 5 may have inadequate or patchwork support for USB C or USB 3. If you
             are installing from a Linux distribution, ensure your distribution uses a modern
             kernel.</p>
+
             <p>Always use a high quality USB A to USB C cable with a rear USB port directly on your
             motherboard, and never use a USB hub for flashing. <em>Never install from a virtual
             machine;</em> USB passthrough in software emulation may be broken or inadequate and this
             can cause the flashing to fail.</p>
+
             <h2 id="locking-the-bootloader">
                 <a href="#locking-the-bootloader">Locking the bootloader</a>
             </h2>
+
             <p>Locking the bootloader is important as it enables full verified boot. It also
             prevents using fastboot to flash, format or erase partitions.  Verified boot will
             detect modifications to any of the OS partitions (vbmeta, boot/dtbo, product, system,
@@ -275,19 +329,27 @@ TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
             detected, error correction data is used to attempt to obtain the original data at
             which point it's verified again which makes verified boot robust to non-malicious
             corruption.</p>
+
             <p>In the bootloader interface, set it to locked:</p>
+
             <pre>fastboot flashing lock</pre>
+
             <p>The command needs to be confirmed on the device since it needs to perform a factory
             reset.</p>
+
             <p>Unlocking the bootloader again will perform a factory reset.</p>
+
             <h2 id="disabling-oem-unlocking">
                 <a href="#disabling-oem-unlocking">Disabling OEM unlocking</a>
             </h2>
+
             <p>OEM unlocking can be disabled again in the developer settings menu within the
             operating system after booting it up again.</p>
+
             <h2 id="verifying-installation">
                 <a href="#verifying-installation">Verifying installation</a>
             </h2>
+
             <p>Verified boot authenticates and validates the firmware images and OS from the
             hardware root of trust. Since GrapheneOS supports full verified boot, the OS images
             are entirely verified. However, it's possible that the computer you used to flash the
@@ -304,21 +366,26 @@ TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
             include the serial number in the hardware verified information to allow checking
             against the one on the box / displayed in the bootloader. See the
             <a href="https://attestation.app/tutorial">Auditor tutorial</a> for a guide.</p>
+
             <p>After the initial verification, which results in pairing, performing verification
             against between the same Auditor and Auditee (as long as the app data hasn't been
             cleared) will provide strong validation of the identity and integrity of the
             device. That makes it best to get the pairing done right after installation. You can
             also consider setting up the optional remote attestation service.</p>
+
             <h2 id="replacing-grapheneos-with-the-stock-os">
                 <a href="#replacing-grapheneos-with-the-stock-os">Replacing GrapheneOS with the stock OS</a>
             </h2>
+
             <p>Installation of the stock OS via the stock factory images is the same process
             described above. However, before locking, there's an additional step to fully revert
             the device to a clean factory state.</p>
+
             <p>The GrapheneOS factory images flash a non-stock Android Verified Boot key which
             needs to be erased to fully revert back to a stock device state. After flashing the
             stock factory images and before locking the bootloader, you should erase the custom
             Android Verified Boot key to untrust it:</p>
+
             <pre>fastboot erase avb_custom_key</pre>
         </div>
         <footer>

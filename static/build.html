@@ -195,7 +195,10 @@
                 partially supports it)</li>
                 <li>Android Open Source Project build dependencies</li>
                 <li>Linux kernel build dependencies</li>
-                <li>16GiB of memory or more</li>
+                <li>16GiB of memory or more. Link-Time Optimization (LTO) creates huge peaks
+                    during linking and is mandatory for Control Flow Integrity (CFI). Linking
+                    Vanadium (Chromium) and the Linux kernel with LTO + CFI are the most memory
+                    demanding tasks.</li>
                 <li>300GiB of free storage space</li>
             </ul>
 
@@ -656,7 +659,7 @@ git am --whitespace=nowarn ../patches/*.patch</pre>
 
             <p>Build the components:</p>
 
-            <pre>ninja -C out/Default/ trichrome_webview_apk trichrome_chrome_bundle trichrome_library_apk</pre>
+            <pre>ninja -C out/Default/ trichrome_webview_64_32_apk trichrome_chrome_64_32_bundle trichrome_library_64_32_apk</pre>
 
             <p>Generate TrichromeChrome.apk from the bundle and sign the apks:</p>
 
