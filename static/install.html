@@ -147,6 +147,12 @@
 echo 'f05b3d78def516d6fdf64be1caa1e1698e482b3adcf54a48dfaf9c972ddbd18e  platform-tools_r30.0.0-linux.zip' | sha256sum -c
 unzip platform-tools_r30.0.0-linux.zip</pre>
 
+            <p>To download, verify and extract the standalone platform-tools on Windows:</p>
+
+            <pre>curl.exe -O https://dl.google.com/android/repository/platform-tools_r30.0.0-windows.zip
+(Get-FileHash platform-tools_r30.0.0-windows.zip).hash -eq "854305f9a702f5ea2c3de73edde402bd26afa0ee944c9b0c4380420f5a862e0d"
+tar xf platform-tools_r30.0.0-windows.zip</pre>
+
             <p>Next, add the tools to your <code>PATH</code> in the current shell so they can be
             used without referencing them by file path, enabling usage by the flashing script. On
             Linux and macOS:</p>
