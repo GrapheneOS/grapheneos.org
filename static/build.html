@@ -221,6 +221,17 @@
             self-updating variant avoids dealing with out-of-date distribution packages and
             depends on GPG to verify updates.</p>
 
+            <p>The Android Open Source Project build system is designed to provide reliable and
+            reproducible builds. To accomplish this, it provides a prebuilt toolchain and other
+            utilities fulfilling most of the build dependency requirements itself. These prebuilt
+            tools have reproducible builds themselves. It runs the build process within a loose
+            sandbox to avoid accidental dependencies on the host system. The process of moving to
+            a fully self-contained build process with minimal external dependencies is gradual and
+            there are still dependencies that need to be installed on the host system.</p>
+
+            <p>The Linux kernel build process is not integrated into the rest of the AOSP build
+            process, but does reuse the same prebuilts to make the build reproducible.</p>
+
             <p>Additional Linux kernel build dependencies not provided by the source tree:</p>
 
             <ul>
