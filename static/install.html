@@ -259,7 +259,8 @@ RWQZW9NItOuQYJ86EooQBxScfclrWiieJtAO9GpnfEjKbCO/3FriLGX3</pre>
             <pre>curl -O https://releases.grapheneos.org/crosshatch-factory-2020.05.05.02.zip
 curl -O https://releases.grapheneos.org/crosshatch-factory-2020.05.05.02.zip.sig</pre>
 
-            <p>Verify the factory images using the signature:</p>
+            <p>Verify the factory images using the signature if you were able to obtain
+            <code>signify</code> from trusted package repositories (see above):</p>
 
             <pre>signify -Cqp factory.pub -x crosshatch-factory-2020.05.05.02.zip.sig &amp;&amp; echo verified</pre>
 
