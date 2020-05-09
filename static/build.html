@@ -236,16 +236,17 @@
             <p>Additional Linux kernel build dependencies not provided by the source tree:</p>
 
             <ul>
-                <li>gcc (for the host, not the target)</li>
+                <li>libgcc (for the host, not the target)</li>
                 <li>binutils (for the host, not the target)</li>
                 <li>which</li>
                 <li>bc</li>
                 <li>cmp (diffutils)</li>
             </ul>
 
-            <p>The dependency on the host gcc and binutils for building utilities during the build
-            process is being phased out by using the same LLVM toolchain as building and linking
-            for the target.</p>
+            <p>The dependency on the host libgcc and binutils for building utilities during the
+            build process will be phased out by moving to a pure LLVM-based toolchain alongside
+            doing it for the target. This is lagging a bit behind for the kernel, particularly
+            code built for the host.</p>
 
             <p>Additional Android Open Source Project build dependencies not provided by the
             source tree:</p>
