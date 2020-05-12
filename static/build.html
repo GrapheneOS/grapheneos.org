@@ -84,6 +84,7 @@
                     </ul>
                 </li>
                 <li><a href="#standalone-sdk">Standalone SDK</a></li>
+                <li><a href="#android-studio">Android Studio</a></li>
                 <li>
                     <a href="#testing">Testing</a>
                     <ul>
@@ -811,6 +812,25 @@ export PATH="$HOME/android/sdk/cmdline-tools/latest/bin"</pre>
             <p>You should update the sdk before use from this point onwards:</p>
 
             <pre>sdkmanager --update</pre>
+
+            <h2 id="android-studio">
+                <a href="#android-studio">Android Studio</a>
+            </h2>
+
+            <p>You can install Android Studio alongside the standalone SDK and it will detect it
+            via the <code>ANDROID_HOME</code> environment variable rather than installing another
+            copy of it. For example:</p>
+
+            <pre>cd ~/android
+curl -O https://dl.google.com/dl/android/studio/ide-zips/3.6.3.0/android-studio-ide-192.6392135-linux.tar.gz
+tar xf android-studio-ide-192.6392135-linux.tar.gz
+mv android-studio studio</pre>
+
+            <p>Add the Android Studio executables to your <code>PATH</code>:</p>
+
+            <pre>export PATH="$HOME/android/studio/bin:$PATH"</pre>
+
+            <p>You can start it with <code>studio.sh</code>.</p>
 
             <h2 id="testing">
                 <a href="#testing">Testing</a>
