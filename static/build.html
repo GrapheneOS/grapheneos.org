@@ -769,6 +769,7 @@ git am --whitespace=nowarn ../patches/*.patch</pre>
             <pre>mkdir -p ~/android/sdk/cmdline-tools
 cd ~/android/sdk/cmdline-tools
 curl -O https://dl.google.com/android/repository/commandlinetools-linux-6200805_latest.zip
+echo 'f10f9d5bca53cc27e2d210be2cbc7c0f1ee906ad9b868748d74d62e10f2c8275  commandlinetools-linux-6200805_latest.zip' | sha256sum -c
 unzip commandlinetools-linux-6200805_latest.zip
 rm commandlinetools-linux-6200805_latest.zip
 mv tools latest</pre>
@@ -823,6 +824,7 @@ export PATH="$HOME/android/sdk/cmdline-tools/latest/bin"</pre>
 
             <pre>cd ~/android
 curl -O https://dl.google.com/dl/android/studio/ide-zips/3.6.3.0/android-studio-ide-192.6392135-linux.tar.gz
+echo '33ec9f61b20b71ca175cd39083b1379ebba896de78b826ea5df5d440c6adfd2a  android-studio-ide-192.6392135-linux.tar.gz' | sha256sum -c
 tar xf android-studio-ide-192.6392135-linux.tar.gz
 rm android-studio-ide-192.6392135-linux.tar.gz
 mv android-studio studio</pre>
