@@ -779,9 +779,9 @@ mv tools latest</pre>
             <pre>export ANDROID_HOME="$HOME/android/sdk"
 export PATH="$HOME/android/sdk/cmdline-tools/latest/bin"</pre>
 
-            <p>Run an initial update:</p>
+            <p>Make <code>cmdline-tools</code> responsible for updating itself:</p>
 
-            <pre>sdkmanager --update</pre>
+            <pre>sdkmanager 'cmdline-tools;latest'</pre>
 
             <p>Install platform-tools for tools like adb and fastboot:</p>
 
