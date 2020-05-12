@@ -762,20 +762,22 @@ git am --whitespace=nowarn ../patches/*.patch</pre>
 
             <p>Using the official releases of the SDK is recommended for simplicity, although with
             a lot of effort you can build everything yourself. Distribution packages are generally
-            quite out-of-date and should be avoided. To set up a minimal SDK installation without
-            Android Studio on Linux:</p>
+            quite out-of-date and should be avoided. To set up a minimal SDK installation at
+            `~/android/sdk` without Android Studio:</p>
 
-            <pre>mkdir ~/sdk
-cd ~/sdk
-curl -O https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
-unzip sdk-tools-linux-4333796.zip
-rm sdk-tools-linux-4333796.zip</pre>
+            <pre>mkdir -p ~/android/sdk/cmdline-tools
+cd ~/android/sdk/cmdline-tools
+curl -O https://dl.google.com/android/repository/commandlinetools-linux-6200805_latest.zip
+unzip commandlinetools-linux-6200805_latest.zip
+rm commandlinetools-linux-6200805_latest.zip
+mv tools latest</pre>
 
-            <p>Add the directories to your PATH in your shell profile configuration and do the
-            same in your current shell:</p>
+            <p>Set <code>ANDROID_HOME</code> to point at the SDK installation in your current
+            shell and shell profile configuration. You also need to add the
+            <code>cmdline-tools</code> binaries to your <code>PATH</code>. For example:</p>
 
-            <pre>export PATH="$HOME/sdk/tools:$HOME/sdk/tools/bin:$HOME/sdk/platform-tools:$HOME/sdk/build-tools/29.0.3:$PATH:$HOME/sdk/ndk-bundle"
-export ANDROID_HOME="$HOME/sdk"</pre>
+            <pre>export ANDROID_HOME="$HOME/android/sdk"
+export PATH="$HOME/android/sdk/cmdline-tools/latest/bin"</pre>
 
             <p>Run an initial update:</p>
 
@@ -785,14 +787,26 @@ export ANDROID_HOME="$HOME/sdk"</pre>
 
             <pre>sdkmanager platform-tools</pre>
 
+            <p>Add the <code>platform-tools</code> executables to your <code>PATH</code>:</p>
+
+            <pre>export PATH="$HOME/android/platform-tools:$PATH"</pre>
+
             <p>For running the Compatibility Test Suite you'll also need the build-tools for
             aapt:</p>
 
             <pre>sdkmanager 'build-tools;29.0.3'</pre>
 
+            <p>Add the <code>build-tools</code> executables to your <code>PATH</code>:</p>
+
+            <pre>export PATH="$HOME/android/sdk/build-tools/29.0.3:$PATH"</pre>
+
             <p>For working with native code, you need the NDK:</p>
 
             <pre>sdkmanager ndk-bundle</pre>
+
+            <p>Add the <code>ndk-bundle</code> executables to your <code>PATH</code>:</p>
+
+            <pre>export PATH="$HOME/android/sdk/ndk-bundle:$PATH"</pre>
 
             <p>You should update the sdk before use from this point onwards:</p>
 
@@ -836,10 +850,9 @@ export ANDROID_HOME="$HOME/sdk"</pre>
             </h4>
             <p>You'll need a device attached to your computer with ADB enabled along with the
             Android SDK installed. The build-tools and platform-tools packages need to be
-            installed and the binaries need to be added to your PATH. For example, with the SDK
-            located at <code>/home/username</code>:</p>
-            <pre>export ANDROID_HOME="$HOME/sdk"
-export PATH="$PATH:$HOME/sdk/tools:$HOME/sdk/tools/bin:$HOME/sdk/platform-tools:$HOME/sdk/build-tools/29.0.3:$HOME/sdk/ndk-bundle"</pre>
+            installed and the binaries need to be added to your PATH. See the
+            <a href="#standalone-sdk">standalone SDK installation instructions</a> above.</p>
+
             <p>Copy media onto the device:</p>
             <pre>cd android-cts-media-1.4
 ./copy_images.sh
