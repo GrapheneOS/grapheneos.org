@@ -203,7 +203,7 @@
                     lightweight sync</li>
             </ul>
 
-            <p>Baseline build dependencies:</p>
+            <p>Dependencies for baseline build:</p>
 
             <ul>
                 <li>x86_64 Linux build environment (macOS is not supported, unlike AOSP which
@@ -218,7 +218,7 @@
                 <li>en_US.UTF-8 locale supported</li>
             </ul>
 
-            <p>You can either obtain <code>repo</code> as a distribution package or the
+            <p>You can obtain <code>repo</code> as a distribution package or the
             self-updating standalone version from the Android Open Source Project. The
             self-updating variant avoids dealing with out-of-date distribution packages and
             depends on GPG to verify updates.</p>
@@ -280,10 +280,10 @@
             </h2>
 
             <p>The <code>10</code> branch is the only active development branch for GrapheneOS
-            development. Older branches are no longer maintained. It is currently used for all
-            officially supported devices and should be used for the basis of ports to other
-            devices. Occasionally, some devices may be supported through device support branches
-            to avoid impacting other devices with changes needed to support them.</p>
+            development. Older branches are no longer maintained and should not be used. It is
+            currently used for all officially supported devices and should be used for the basis 
+            of ports to other devices. Occasionally, some devices may be supported through device 
+            support branches to avoid impacting other devices with changes needed to support them.</p>
 
             <pre>mkdir grapheneos-10
 cd grapheneos-10
@@ -298,7 +298,7 @@ repo sync -j32</pre>
                 <a href="#stable-release">Stable release</a>
             </h2>
 
-            <p>Pick a specific build for a device from the <a href="/releases">releases page</a>
+            <p>Pick a specific build version for a device from the <a href="/releases">releases page</a>
             and download the source tree. Note that some devices use different Android Open Source
             Project branches so they can end up with different tags. Make sure to use the correct
             tag for a device. For devices without official support, use the latest tag for the
@@ -354,10 +354,10 @@ cd ../..</pre>
 
             <p>As part of the hardening in GrapheneOS, it uses fully monolithic kernel builds with
             dynamic kernel modules disabled. This improves the effectiveness of mitigations like
-            Control Flow Integrity benefiting from whole program analysis. It also reduces attack
-            surface and complexity including making the build system simpler. The kernel trees
-            marked as using a separate build above need to have the device variant passed to the
-            GrapheneOS kernel build script to select the device.</p>
+            Control Flow Integrity benefiting from whole program analysis. It also reduces the attack
+            surface and complexity while making the build system simpler. The kernel trees
+            marked as using a separate build from above need to have the device variant passed so the
+            GrapheneOS kernel build script can select the correct device.</p>
 
             <p>For the Pixel 3, Pixel 3 XL, Pixel 3a and Pixel 3a XL, the kernel repository uses
             submodules for building in out-of-tree modules. You need to make sure the submodule
@@ -380,7 +380,7 @@ git submodule update --init
                 <a href="#setting-up-the-os-build-environment">Setting up the OS build environment</a>
             </h2>
 
-            <p>The build has to be done from bash as envsetup.sh is not compatible with other
+            <p>The build has to be done from bash as envsetup.sh, it is not compatible with other
             shells like zsh.</p>
 
             <p>Set up the build environment:</p>
@@ -391,20 +391,18 @@ git submodule update --init
 
             <pre>choosecombo release aosp_crosshatch user</pre>
 
-            <p>For a development build, you may want to replace <code>user</code> with
-            <code>userdebug</code> in order to have better debugging support. Production builds
-            should be <code>user</code> builds as they are significantly more secure and don't
-            make additional performance sacrifices to improve debugging.</p>
+            <p>For a development build, you should replace <code>user</code> with <code>userdebug</code>
+            for better debugging support. Production builds should be <code>user</code> builds as
+            they are significantly more secure and don't make additional performance sacrifices to improve debugging.</p>
 
-            <p>Set <code>OFFICIAL_BUILD=true</code> to include the Updater app. You
-            <strong>must</strong> change the URL in
-            <code>packages/apps/Updater/res/values/config.xml</code> to your own domain. Using the
-            official update server with a build signed with different keys will not work and will
-            essentially perform a denial of service attack on our update service. If you try to
-            use the official URL, the app will download an official update and will detect it as
-            corrupted or tampered. It will delete the update and try to download it over and over
-            again since it will never be signed with your key.</p>
+            <p>You <strong>must</strong> change the URL in <code>packages/apps/Updater/res/values/config.xml</code>
+            to your own domain. Using the official update server with a build signed with different
+            keys will not work and will essentially perform a denial of service attack on our update
+            service. If you try to use the official URL, the app will download an official update and
+            will detect it as corrupted or tampered. It will delete the update and try to download it
+            over and over again since it will never be signed with your key.</p>
 
+            <p>Set <code>OFFICIAL_BUILD=true</code> to include the Updater app.</p>
             <pre>export OFFICIAL_BUILD=true</pre>
 
             <h2 id="reproducible-builds">
@@ -674,10 +672,8 @@ cd ../..</pre>
             Chromium's Android build instructions</a> for details on obtaining the
             prerequisites.</p>
 
-            <p>You can obtain the proper configuration from the
-            <a href="https://github.com/GrapheneOS/Vanadium">
-            GrapheneOS Vanadium repository</a> in <code>args.gn</code> including the correct
-            version.</p>
+            <p>You can obtain the proper configuration from the <a href="https://github.com/GrapheneOS/Vanadium">
+            GrapheneOS Vanadium repository</a> in <code>args.gn</code> including the correct version.</p>
 
             <pre>git clone https://github.com/GrapheneOS/Vanadium.git
 cd Vanadium
@@ -687,8 +683,7 @@ git checkout $CORRECT_BRANCH_OR_TAG</pre>
 
             <pre>fetch --nohooks android</pre>
 
-            <p>Sync to the latest stable release for Android (replace $VERSION with the correct
-            value):</p>
+            <p>Sync to the latest stable release for Android (replace $VERSION with the version name):</p>
 
             <pre>gclient sync -D --with_branch_heads -r $VERSION --jobs 32</pre>
 
