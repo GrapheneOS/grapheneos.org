@@ -531,7 +531,13 @@
 
             <p>VPN service apps can also provide their own DNS implementation and/or servers,
             including an alternate implementation of encrypted DNS. Private DNS takes precedence
-            over VPN-provided DNS and using Private DNS is still recommended with a VPN.</p>
+            over VPN-provided DNS, since it's just the network-provided DNS.</p>
+
+            <p>Apps and web sites can detect the configured DNS servers by generating random
+            subdomains resolved by querying their authoritative DNS server. This can be used as
+            part of fingerprinting users. If you're using a VPN, you should consider using the
+            standard DNS service provided by the VPN service to avoid standing out from other
+            users.</p>
 
             <h3 id="private-dns-ip">
                 <a href="#private-dns-ip">Why does Private DNS not accept IP addresses?</a>
@@ -640,6 +646,12 @@
             user-defined blacklist for the local DNS resolver</a>. This feature used to be
             included by the project many years ago, but it needs to be reimplemented, and it's a
             low priority feature depending on contributors stepping up to work on it.</p>
+
+            <p>Apps and web sites can detect that ad-blocking is being used and can determine
+            what's being blocked. This can be used as part of fingerprinting users. Using a widely
+            used service like AdGuard with a standard block list is much less of an issue than a
+            custom set of subscriptions / rules, but it still stands out compared to the default
+            of not doing it.</p>
 
             <h3 id="ad-blocking-apps">
                 <a href="#ad-blocking-apps">Are ad-blocking apps supported?</a>
