@@ -53,9 +53,13 @@
             <ul>
                 <li><a href="#build-targets">Build targets</a></li>
                 <li><a href="#build-dependencies">Build dependencies</a></li>
-                <li><a href="#downloading-source-code">Downloading source code</a></li>
-                <li><a href="#development-branch">Development branch</a></li>
-                <li><a href="#stable-release">Stable release</a></li>
+                <li>
+                    <a href="#downloading-source-code">Downloading source code</a>
+                    <ul>
+                        <li><a href="#development-branch">Development branch</a></li>
+                        <li><a href="#stable-release">Stable release</a></li>
+                    </ul>
+                </li>
                 <li><a href="#updating-and-switching-branches-or-tags">Updating and switching branches or tags</a></li>
                 <li><a href="#kernel">Kernel</a></li>
                 <li><a href="#setting-up-the-os-build-environment">Setting up the OS build environment</a></li>
@@ -288,9 +292,9 @@
             for developing a feature. It's easier to port between stable tags that are known to
             work properly than dealing with a moving target.</p>
 
-            <h2 id="development-branch">
+            <h3 id="development-branch">
                 <a href="#development-branch">Development branch</a>
-            </h2>
+            </h3>
 
             <p>The <code>10</code> branch is the only active development branch for GrapheneOS
             development. Older branches are no longer maintained. It is currently used for all
@@ -307,9 +311,9 @@ repo sync -j32</pre>
             <code>repo sync</code> command again to continue from where it was interrupted. It
             handles connection failures robustly and you shouldn't start over from scratch.</p>
 
-            <h2 id="stable-release">
+            <h3 id="stable-release">
                 <a href="#stable-release">Stable release</a>
-            </h2>
+            </h3>
 
             <p>Pick a specific release for a device from the <a href="/releases">releases page</a>
             and download the source tree. Note that some devices use different Android Open Source
