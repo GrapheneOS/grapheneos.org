@@ -644,6 +644,24 @@ cd ../..</pre>
             factory images. See the <a href="/usage#updates-sideloading">usage guide section on
             sideloading updates</a> for information on how to use the update packages.</p>
 
+            <p>Running <code>script/release.sh</code> also generates channel metadata for the
+            update server. If you configured the Updater client URL and set the build to include
+            it (see the information on <code>OFFICIAL_BUILD</code> above), you can push signed
+            over-the-air updates via the update system. Simply upload the update package to the
+            update server along with the channel metadata for the release channel, and it will be
+            pushed out to the update client. The <code>$DEVICE-beta</code> and
+            <code>$DEVICE-stable</code> metadata provide the Beta and Stable release channels used
+            by the update client. The <code>$DEVICE-testing</code> metadata provides
+            provides an internal testing channel for the OS developers, which can be temporarily
+            enabled using <code>adb shell setprop sys.update.channel testing</code>. The name is
+            arbitrary and you can also use any other name for internal testing channels. For
+            GrapheneOS itself, the testing channel is used to push out updates to developer
+            devices, followed by a sample future release to test that the release which is about
+            to be pushed out to the Beta channel is able to update to a future release. Once it's
+            tested internally, the release is pushed out to the Beta channel, and finally to the
+            Stable channel after public testing. A similar approach is recommended for derivatives
+            of GrapheneOS.</p>
+
             <h4 id="generating-delta-updates">
                 <a href="#generating-delta-updates">Generating delta updates</a>
             </h4>
