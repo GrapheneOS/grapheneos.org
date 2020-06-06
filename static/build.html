@@ -51,33 +51,38 @@
                 <a href="#table-of-contents">Table of contents</a>
             </h2>
             <ul>
-                <li><a href="#build-targets">Build targets</a></li>
-                <li><a href="#build-dependencies">Build dependencies</a></li>
                 <li>
-                    <a href="#downloading-source-code">Downloading source code</a>
+                    <a href="#building-grapheneos">Building GrapheneOS</a>
                     <ul>
-                        <li><a href="#development-branch">Development branch</a></li>
-                        <li><a href="#stable-release">Stable release</a></li>
-                    </ul>
-                </li>
-                <li><a href="#updating-and-switching-branches-or-tags">Updating and switching branches or tags</a></li>
-                <li><a href="#kernel">Kernel</a></li>
-                <li><a href="#setting-up-the-os-build-environment">Setting up the OS build environment</a></li>
-                <li><a href="#reproducible-builds">Reproducible builds</a></li>
-                <li><a href="#extracting-vendor-files-for-pixel-devices">Extracting vendor files for Pixel devices</a></li>
-                <li><a href="#building">Building</a></li>
-                <li><a href="#faster-builds-for-development-use-only">Faster builds for development use only</a></li>
-                <li>
-                    <a href="#generating-release-signing-keys">Generating release signing keys</a>
-                    <ul>
-                        <li><a href="#encrypting-keys">Encrypting keys</a></li>
-                        <li><a href="#enabling-updatable-apex-components">Enabling updatable APEX components</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#generating-signed-factory-images-and-full-update-packages">Generating signed factory images and full update packages</a>
-                    <ul>
-                        <li><a href="#generating-delta-updates">Generating delta updates</a></li>
+                        <li><a href="#build-targets">Build targets</a></li>
+                        <li><a href="#build-dependencies">Build dependencies</a></li>
+                        <li>
+                            <a href="#downloading-source-code">Downloading source code</a>
+                            <ul>
+                                <li><a href="#development-branch">Development branch</a></li>
+                                <li><a href="#stable-release">Stable release</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#updating-and-switching-branches-or-tags">Updating and switching branches or tags</a></li>
+                        <li><a href="#kernel">Kernel</a></li>
+                        <li><a href="#setting-up-the-os-build-environment">Setting up the OS build environment</a></li>
+                        <li><a href="#reproducible-builds">Reproducible builds</a></li>
+                        <li><a href="#extracting-vendor-files-for-pixel-devices">Extracting vendor files for Pixel devices</a></li>
+                        <li><a href="#building">Building</a></li>
+                        <li><a href="#faster-builds-for-development-use-only">Faster builds for development use only</a></li>
+                        <li>
+                            <a href="#generating-release-signing-keys">Generating release signing keys</a>
+                            <ul>
+                                <li><a href="#encrypting-keys">Encrypting keys</a></li>
+                                <li><a href="#enabling-updatable-apex-components">Enabling updatable APEX components</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#generating-signed-factory-images-and-full-update-packages">Generating signed factory images and full update packages</a>
+                            <ul>
+                                <li><a href="#generating-delta-updates">Generating delta updates</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
                 <li>
@@ -113,9 +118,13 @@
                 </li>
             </ul>
 
-            <h2 id="build-targets">
-                <a href="#build-targets">Build targets</a>
+            <h2 id="building-grapheneos">
+                <a href="#building-grapheneos">Building GrapheneOS</a>
             </h2>
+
+            <h3 id="build-targets">
+                <a href="#build-targets">Build targets</a>
+            </h3>
 
             <p>Smartphone targets:</p>
 
@@ -194,9 +203,9 @@
             don't receive full monthly security updates, don't provide all of the baseline
             security features and are intended for development usage.</p>
 
-            <h2 id="build-dependencies">
+            <h3 id="build-dependencies">
                 <a href="#build-dependencies">Build dependencies</a>
-            </h2>
+            </h3>
 
             <p>Arch Linux, Debian buster and Ubuntu 20.04 LTS are the officially supported
             operating systems for building GrapheneOS.</p>
@@ -281,9 +290,9 @@
             <p>The <code>signify</code> tool (with the proper naming) is also required for signing
             factory images zips.</p>
 
-            <h2 id="downloading-source-code">
+            <h3 id="downloading-source-code">
                 <a href="#downloading-source-code">Downloading source code</a>
-            </h2>
+            </h3>
 
             <p>Since this is syncing the sources for the entire operating system and application
             layer, it will use a lot of bandwidth and storage space.</p>
@@ -292,9 +301,9 @@
             for developing a feature. It's easier to port between stable tags that are known to
             work properly than dealing with a moving target.</p>
 
-            <h3 id="development-branch">
+            <h4 id="development-branch">
                 <a href="#development-branch">Development branch</a>
-            </h3>
+            </h4>
 
             <p>The <code>10</code> branch is the only active development branch for GrapheneOS
             development. Older branches are no longer maintained. It is currently used for all
@@ -311,9 +320,9 @@ repo sync -j32</pre>
             <code>repo sync</code> command again to continue from where it was interrupted. It
             handles connection failures robustly and you shouldn't start over from scratch.</p>
 
-            <h3 id="stable-release">
+            <h4 id="stable-release">
                 <a href="#stable-release">Stable release</a>
-            </h3>
+            </h4>
 
             <p>Pick a specific release for a device from the <a href="/releases">releases page</a>
             and download the source tree. Note that some devices use different Android Open Source
@@ -344,9 +353,9 @@ cd ../..</pre>
             <p>Note that the repo command itself takes care of updating itself and uses gpg to
             verify by default.</p>
 
-            <h2 id="updating-and-switching-branches-or-tags">
+            <h3 id="updating-and-switching-branches-or-tags">
                 <a href="#updating-and-switching-branches-or-tags">Updating and switching branches or tags</a>
-            </h2>
+            </h3>
 
             <p>To update the source tree, run the <code>repo init</code> command again to select
             the branch or tag and then run <code>repo sync -j32</code> again. You may need to add
@@ -356,9 +365,9 @@ cd ../..</pre>
             need to run <code>repo init</code> again to continue down the same branch since
             GrapheneOS only provides a stable history via tags.</p>
 
-            <h2 id="kernel">
+            <h3 id="kernel">
                 <a href="#kernel">Kernel</a>
-            </h2>
+            </h3>
 
             <p>The kernel needs to be built in advance, since it uses a separate build system.</p>
 
@@ -395,9 +404,9 @@ git submodule update --init
             and the <code>kernel/google/crosshatch</code> repository is for the Pixel 3, Pixel 3
             XL, Pixel 3a and Pixel 3a XL.</p>
 
-            <h2 id="setting-up-the-os-build-environment">
+            <h3 id="setting-up-the-os-build-environment">
                 <a href="#setting-up-the-os-build-environment">Setting up the OS build environment</a>
-            </h2>
+            </h3>
 
             <p>The build has to be done from bash as envsetup.sh is not compatible with other
             shells like zsh.</p>
@@ -426,9 +435,9 @@ git submodule update --init
 
             <pre>export OFFICIAL_BUILD=true</pre>
 
-            <h2 id="reproducible-builds">
+            <h3 id="reproducible-builds">
                 <a href="#reproducible-builds">Reproducible builds</a>
-            </h2>
+            </h3>
 
             <p>To reproduce a past build, you need to export <code>BUILD_DATETIME_FROM_FILE</code>
             and <code>BUILD_NUMBER</code> to the values set for the past build. These can be
@@ -449,9 +458,9 @@ git submodule update --init
             to the internet, or you will be performing a denial of service attack on our official
             update server.</p>
 
-            <h2 id="extracting-vendor-files-for-pixel-devices">
+            <h3 id="extracting-vendor-files-for-pixel-devices">
                 <a href="#extracting-vendor-files-for-pixel-devices">Extracting vendor files for Pixel devices</a>
-            </h2>
+            </h3>
 
             <p>This section does not apply to devices where no extra vendor files are required (HiKey, HiKey 960, emulator, generic targets).</p>
 
@@ -473,9 +482,9 @@ mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/
             <p>Note that android-prepare-vendor is non-deterministic unless a timestamp parameter is
             passed with <code>--timestamp</code> (seconds since Epoch).</p>
 
-            <h2 id="building">
+            <h3 id="building">
                 <a href="#building">Building</a>
-            </h2>
+            </h3>
 
             <p>Incremental builds (i.e. starting from the old build) usually work for development
             and are the normal way to develop changes. However, there are cases where changes are
@@ -496,9 +505,9 @@ mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/
 
             <p><strong>For an emulator build, always use the development build approach below.</strong></p>
 
-            <h2 id="faster-builds-for-development-use-only">
+            <h3 id="faster-builds-for-development-use-only">
                 <a href="#faster-builds-for-development-use-only">Faster builds for development use only</a>
-            </h2>
+            </h3>
 
             <p>The normal production build process involves building a target files package to be
             resigned with secure release keys and then converted into factory images and/or an
@@ -520,9 +529,9 @@ mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/
             lot more sense to test it with proper signing keys rather than the default public test
             keys.</p>
 
-            <h2 id="generating-release-signing-keys">
+            <h3 id="generating-release-signing-keys">
                 <a href="#generating-release-signing-keys">Generating release signing keys</a>
-            </h2>
+            </h3>
 
             <p>Keys need to be generated for resigning completed builds from the publicly
             available test keys.  The keys must then be reused for subsequent builds and cannot be
@@ -573,9 +582,9 @@ cd ../..</pre>
             same scripts along with the expectation of it using the same passphrase as the other
             keys.</p>
 
-            <h3 id="encrypting-keys">
+            <h4 id="encrypting-keys">
                 <a href="#encrypting-keys">Encrypting keys</a>
-            </h3>
+            </h4>
 
             <p>You can (re-)encrypt your signing keys using the <code>encrypt_keys</code> script,
             which will prompt for the old passphrase (if any) and new passphrase:</p>
@@ -586,9 +595,9 @@ cd ../..</pre>
             which is not recommended. The script exists primarily for internal usage to decrypt
             the keys in tmpfs to perform signing.</p>
 
-            <h3 id="enabling-updatable-apex-components">
+            <h4 id="enabling-updatable-apex-components">
                 <a href="#enabling-updatable-apex-components">Enabling updatable APEX components</a>
-            </h3>
+            </h4>
 
             <p>GrapheneOS disables updatable APEX components for the officially supported devices
             and targets inheriting from the mainline target, so APEX signing keys are not needed
@@ -611,9 +620,9 @@ cd ../..</pre>
             <p>For now, consult the upstream documentation on generating these keys. It will be
             covered here in the future.</p>
 
-            <h2 id="generating-signed-factory-images-and-full-update-packages">
+            <h3 id="generating-signed-factory-images-and-full-update-packages">
                 <a href="#generating-signed-factory-images-and-full-update-packages">Generating signed factory images and full update packages</a>
-            </h2>
+            </h3>
 
             <p>Build the tool needed to generate A/B updates:</p>
 
@@ -631,9 +640,9 @@ cd ../..</pre>
             incremental updates from those to the most recent signed <code>target_files</code>
             zip.</p>
 
-            <h3 id="generating-delta-updates">
+            <h4 id="generating-delta-updates">
                 <a href="#generating-delta-updates">Generating delta updates</a>
-            </h3>
+            </h4>
 
             <p>Incremental updates shipping only the changes between two versions can be generated
             as a much more efficient way of shipping updates than a full update package containing
