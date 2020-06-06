@@ -439,10 +439,10 @@ git submodule update --init
                 <a href="#reproducible-builds">Reproducible builds</a>
             </h3>
 
-            <p>To reproduce a past build, you need to export <code>BUILD_DATETIME_FROM_FILE</code>
-            and <code>BUILD_NUMBER</code> to the values set for the past build. These can be
-            obtained from <code>out/build_date.txt</code> and <code>out/build_number.txt</code> in
-            a build output directory and the <code>ro.build.date.utc</code> and
+            <p>To reproduce a past build, you need to export <code>BUILD_DATETIME</code> and
+            <code>BUILD_NUMBER</code> to the values set for the past build. These can be obtained
+            from <code>out/build_date.txt</code> and <code>out/build_number.txt</code> in a build
+            output directory and the <code>ro.build.date.utc</code> and
             <code>ro.build.version.incremental</code> properties which are also included in the
             over-the-air zip metadata rather than just the OS itself.</p>
 
