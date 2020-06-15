@@ -43,28 +43,74 @@
             <h1 id="grapheneos">
                 <a href="#grapheneos">GrapheneOS</a>
             </h1>
+
             <p>GrapheneOS is an open source privacy and security focused mobile OS with Android
             app compatibility. It's focused on the research and development of privacy and
             security technology including substantial improvements to sandboxing, exploit
             mitigations and the permission model. GrapheneOS also develops various apps and
             services with a focus on privacy and security.</p>
+
             <p>GrapheneOS is a collaborative open source project, not a company. It's used and
             supported by a variety of companies and other organizations. It won't be closely tied
             to any company in particular. There will eventually be a non-profit GrapheneOS
             foundation, but for now the developers represent the project.</p>
+
+            <p>GrapheneOS improves the privacy and security of the OS from the bottom up. It
+            has a hardened kernel, libc, malloc and compiler toolchain with many low-level
+            improvements. These changes are designed to eliminate whole classes of serious
+            vulnerabilities or provide meaningful barriers to exploitation. We avoid making
+            changes without a clear rationale and we regularly work towards simplifying and
+            replacing these low-level improvements. The malloc implementation is our own <a
+            href="https://github.com/GrapheneOS/hardened_malloc/blob/master/README.md">hardened_malloc</a>
+            providing cutting edge security for modern systems. The hardened_malloc project is
+            portable to other Linux-based operating systems and is being adopted by other
+            security-focused operating systems like Whonix. The <a
+            href="https://github.com/GrapheneOS/hardened_malloc/blob/master/README.md">hardened_malloc
+            README</a> has extensive documentation on it. Our work also heavily influenced the
+            design of the <a href="https://www.openwall.com/lists/musl/2020/05/13/1">next-generation
+            musl malloc implementation</a> which offers substantially better security while still
+            having minimal memory usage and code size.</p>
+
+            <p>There are also many under-the-hood changes at a higher level, including major
+            improvements to SELinux policies particularly for the app sandbox. GrapheneOS tries to
+            avoid impacting the user experience with the privacy and security features. Ideally,
+            the features can be designed so that they're always enabled with no impact on the user
+            experience and no additional complexity like configuration options. It's not always
+            feasible, and GrapheneOS does add various toggles for features like the Network
+            permission, Sensors permission, restrictions when the device is locked (USB
+            peripherals, camera, quick tiles), etc. along with more complex user-facing privacy
+            and security features with their own UX.</p>
+
             <p>GrapheneOS has made substantial contributions to the privacy and security of the
             Android Open Source Project, along with contributions to the Linux kernel, LLVM,
-            OpenBSD and other projects.</p>
+            OpenBSD and other projects. Much of our past work is no longer part of the downstream
+            GrapheneOS project because we've successfully landed many patches upstream. We've had
+            even more success with making suggestions and participating in design discussions to
+            steer things in the direction we want. Many upstream changes in AOSP such as removing
+            app access to low-level process, network, timing and profiling information originated
+            in the GrapheneOS project. The needs of the upstream projects are often different from
+            ours, so they'll often reimplement the features in a more flexible way. We've almost
+            always been able to move to using the upstream features and even when we still need
+            our our implementation it helps to have the concepts/restrictions considered by the
+            upstream project and apps needing to be compatible with it. Getting features upstream
+            often leads to an improved user experience and app compatibility.</p>
+
             <p>Official releases are available on the <a href="/releases">releases page</a> and
             installation instructions are on the <a href="/install">install page</a>.</p>
+
             <p>See the <a href="https://github.com/GrapheneOS">GitHub organization</a> for sources
             of the OS and various standalone sub-projects including the cutting edge
             <a href="https://github.com/GrapheneOS/hardened_malloc/blob/master/README.md">new
             hardened memory allocator</a> and other projects.</p>
-            <p>The official GrapheneOS releases are supported by the
+
+            <p>The official GrapheneOS releases are supported by our
             <a href="https://github.com/GrapheneOS/Auditor/releases">Auditor app</a> and
-            <a href="https://attestation.app/">attestation service</a> for hardware-based
-            attestation. For more details, see the <a
+            <a href="https://attestation.app/">attestation service</a>. The Auditor app and
+            attestation service provide strong hardware-based verification of the authenticity and
+            integrity of the firmware/software on the device. A strong pairing-based approach is
+            used which also provides verification of the device's identity based on the hardware
+            backed key generated for each pairing. Software-based checks are layered on top with
+            trust securely chained from the hardware. For more details, see the <a
             href="https://attestation.app/about">about page</a> and <a
             href="https://attestation.app/tutorial">tutorial</a>. These also support other
             operating systems.</p>
