@@ -385,7 +385,14 @@ cd ../..</pre>
             surface and complexity including making the build system simpler. The kernel trees
             marked as using a separate build above need to have the device variant passed to the
             GrapheneOS kernel build script to select the device.</p>
-
+            
+            <p>For the Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4 and Pixel 4 XL the
+            kernel repository uses submodules for building in out-of-tree modules. You need to
+            make sure the submodule sources are updated before building. In the future, this
+            should end up being handled automatically by <code>repo</code>. There's no harm in
+            running the submodule commands for other devices as they will simply not do
+            anything.</p>
+            
             <p>For example, to build the kernel for blueline:</p>
 
             <pre>cd kernel/google/crosshatch
