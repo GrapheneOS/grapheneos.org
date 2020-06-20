@@ -440,6 +440,11 @@
             connecting to a network. It has 3 options available: "Use fully randomized MAC
             (default)", "Use per-network randomized MAC" and "Use device MAC".</p>
 
+            <p>GrapheneOS also disables support for stable link-local IPv6 addresses, since these
+            have the potential to be used as identifiers. It's more sensible to use typical
+            link-local address generation based on the (randomized) MAC address since link-local
+            devices have access to both.</p>
+
             <h2 id="lte-only-mode">
                 <a href="#lte-only-mode">LTE-only mode</a>
             </h2>
