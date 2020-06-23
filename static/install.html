@@ -152,21 +152,21 @@
 
             <p>To download, verify and extract the standalone platform-tools on Linux:</p>
 
-            <pre>curl -O https://dl.google.com/android/repository/platform-tools_r30.0.2-linux.zip
-echo 'f7306a7c66d8149c4430aff270d6ed644c720ea29ef799dc613d3dc537485c6e platform-tools_r30.0.2-linux.zip' | sha256sum -c
-unzip platform-tools_r30.0.2-linux.zip</pre>
+            <pre>curl -O https://dl.google.com/android/repository/platform-tools_r30.0.3-linux.zip
+echo '19c74e779f3d81f15ba21207ec405439416d99330c3f5a337dab6d58ea20b465 platform-tools_r30.0.3-linux.zip' | sha256sum -c
+unzip platform-tools_r30.0.3-linux.zip</pre>
 
             <p>To download, verify and extract the standalone platform-tools on macOS:</p>
 
-            <pre>curl -O https://dl.google.com/android/repository/platform-tools_r30.0.2-darwin.zip
-echo 'SHA256 (platform-tools_r30.0.2-darwin.zip) = ab9dbab873fff677deb2cfd95ea60b9295ebd53b58ec8533e9e1110b2451e540' | shasum -c
-tar xvf platform-tools_r30.0.2-darwin.zip</pre>
+            <pre>curl -O https://dl.google.com/android/repository/73f3f0b3034f61563f787bef8ebf51f38df457de.platform-tools_r30.0.3-darwin.zip
+echo 'SHA256 (73f3f0b3034f61563f787bef8ebf51f38df457de.platform-tools_r30.0.3-darwin.zip) = 5c533cd87a2024f52b08877eaceea6f32bf2289d8453056f259d86dafbf622a4' | shasum -c
+tar xvf 73f3f0b3034f61563f787bef8ebf51f38df457de.platform-tools_r30.0.3-darwin.zip</pre>
 
             <p>To download, verify and extract the standalone platform-tools on Windows:</p>
 
-            <pre>curl.exe -O https://dl.google.com/android/repository/platform-tools_r30.0.2-windows.zip
-(Get-FileHash platform-tools_r30.0.2-windows.zip).hash -eq "265dd7b55f58dff1a5ad5073a92f4a5308bd070b72bd8b0d604674add6db8a41"
-tar xvf platform-tools_r30.0.2-windows.zip</pre>
+            <pre>curl.exe -O https://dl.google.com/android/repository/platform-tools_r30.0.3-windows.zip
+(Get-FileHash platform-tools_r30.0.3-windows.zip).hash -eq "5c8fb6d72da581baa608a38853d05aeeaf920f2ac9ca2cb463d9fd62acb0871b"
+tar xvf platform-tools_r30.0.3-windows.zip</pre>
 
             <p>Next, add the tools to your <code>PATH</code> in the current shell so they can be
             used without referencing them by file path, enabling usage by the flashing script. On
@@ -180,7 +180,7 @@ tar xvf platform-tools_r30.0.2-windows.zip</pre>
 
             <p>Sample output from <code>fastboot --version</code> afterwards:</p>
 
-            <pre>fastboot version 30.0.2-6538114
+            <pre>fastboot version 30.0.3-6597393
 Installed as /home/username/downloads/platform-tools/fastboot</pre>
 
             <p>This is a temporary change to <code>PATH</code> for the current shell and will need
