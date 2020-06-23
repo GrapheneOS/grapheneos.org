@@ -1012,7 +1012,11 @@ rm android-cts-media-1.4.zip</pre>
             <p>The Android Open Source Project has branches and/or tags for the releases of many
             different components. There are tags and/or branches for the OS, device kernels,
             mainline components (APEX), the NDK, Android Studio, the platform-tools distribution
-            packages, the CTS, androidx components, etc.</p>
+            packages, the CTS, androidx components, etc. You should obtain the sources via
+            manifests using the repo tool, either using the manifest for a tag / branch in
+            platform/manifest.git or a manifest provided elsewhere. Different projects use
+            different subsets of the repositories. Many of the repositories only exist as an
+            archive for older releases and aren't referenced in current manifests.</p>
 
             <p>Some components don't have the infrastructure set up to generate and push their own
             branches and tags to AOSP. In other cases, it's simply not obvious to an outsider
