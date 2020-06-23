@@ -94,6 +94,7 @@
                 </li>
                 <li><a href="#standalone-sdk">Standalone SDK</a></li>
                 <li><a href="#android-studio">Android Studio</a></li>
+                <li><a href="#obtaining-upstream-manifests">Obtaining upstream manifests</a></li>
                 <li>
                     <a href="#testing">Testing</a>
                     <ul>
@@ -1003,6 +1004,38 @@ rm android-cts-media-1.4.zip</pre>
             <p>It's possible to run the whole standard CTS plan with a single command, but running
             specific modules is recommended, especially if you don't have everything set up for
             the entire test suite.</p>
+
+            <h2 id="obtaining-upstream-manifests">
+                <a href="#obtaining-upstream-manifests">Obtaining upstream manifests</a>
+            </h2>
+
+            <p>The Android Open Source Project has branches and/or tags for the releases of many
+            different components. There are tags and/or branches for the OS, device kernels,
+            mainline components (APEX), the NDK, Android Studio, the platform-tools distribution
+            packages, the CTS, androidx components, etc.</p>
+
+            <p>Some components don't have the infrastructure set up to generate and push their own
+            branches and tags to AOSP. In other cases, it's simply not obvious to an outsider
+            which one should be used. As long as the component is built on the standard Android
+            project CI infrastructure, it's possible to obtain the manifests to build it based on
+            the build number, which is generally incorporated into the build. For example, even
+            without a platform-tools tag, you can obtain the build number from <code>adb
+            version</code> or <code>fastboot version</code>. Their version output uses the format
+            <code>$VERSION-$BUILD_NUMBER</code> such as <code>30.0.3-6597393</code> for the
+            version <code>30.0.3</code> where the official release had the build number
+            <code>6597393</code>. You can obtain the manifest properties with the appropriate
+            repository revisions from ci.android.com with a URL like this:
+            <a href="https://ci.android.com/builds/submitted/6597393/sdk/latest/view/repo.prop">
+            https://ci.android.com/builds/submitted/6597393/sdk/latest/view/repo.prop</a></p>
+
+            <p>The platform-tools tags exist because the GrapheneOS project requested them. The
+            same could be done for other projects, but it's not strictly necessarily as long as
+            it's possible to obtain the build number to request the information from the Android
+            project CI server.</p>
+
+            <p>As another kind of example, <code>prebuilts/clang</code>,
+            <code>prebuilts/build-tools</code>, etc. have a manifest file committed alongside the
+            prebuilts. Other AOSP toolchain prebuilts reference a build number.</p>
 
             <h2 id="development-guidelines">
                 <a href="#development-guidelines">Development guidelines</a>
