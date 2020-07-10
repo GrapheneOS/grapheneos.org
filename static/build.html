@@ -69,7 +69,12 @@
                         <li><a href="#reproducible-builds">Reproducible builds</a></li>
                         <li><a href="#extracting-vendor-files-for-pixel-devices">Extracting vendor files for Pixel devices</a></li>
                         <li><a href="#building">Building</a></li>
-                        <li><a href="#faster-builds-for-development-use-only">Faster builds for development use only</a></li>
+                        <li>
+                            <a href="#faster-builds-for-development-use-only">Faster builds for development use only</a>
+                            <ul>
+                                <li><a href="#installing-debug-builds">Installing debug builds</a></li>
+                            </ul>
+                        </li>
                         <li>
                             <a href="#generating-release-signing-keys">Generating release signing keys</a>
                             <ul>
@@ -533,6 +538,25 @@ mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/
             signing the build with release keys would be testing that functionality and it makes a
             lot more sense to test it with proper signing keys rather than the default public test
             keys.</p>
+
+
+            <h4 id="installing-debug-builds">
+                <a href="#installing-debug-builds">Installing debug builds</a>
+            </h4>
+
+            <p>The release script will not work for debug or userdebug builds, which are intended
+            for testing and debugging only. To install a debug build on a device, after finishing
+            the debug or userdebug build and unlocking the bootloader, it is necessary to use
+            fastboot and set the environment variable with the following command sequence (replacing
+            <code>crosshatch</code> with the appropriate device codename):</p>
+
+            <pre>cd out/target/product/crosshatch
+ANDROID_PRODUCT_OUT=`pwd` fastboot flashall -w</pre>
+
+            <p>Wait for the command to run to completion. Note that verified boot is <em>not</em>
+            supported on debug builds. <strong>Do not attempt to lock the bootloader on a device
+            that has had a debugging build installed to it. The device could become stuck in a
+            bootloop and subsequently rendered unusable.</strong></p>
 
             <h3 id="generating-release-signing-keys">
                 <a href="#generating-release-signing-keys">Generating release signing keys</a>
