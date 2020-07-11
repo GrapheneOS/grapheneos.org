@@ -92,6 +92,7 @@
                         <li><a href="#prebuilt-apps">Prebuilt apps</a></li>
                     </ul>
                 </li>
+                <li><a href="#stable-release-manifest">Stable release manifest</a></li>
                 <li><a href="#standalone-sdk">Standalone SDK</a></li>
                 <li><a href="#android-studio">Android Studio</a></li>
                 <li><a href="#obtaining-upstream-manifests">Obtaining upstream manifests</a></li>
@@ -806,6 +807,19 @@ cd src</pre>
 
             <p>A build of Seedvault is bundled as an apk into an external/ repository. There are
             no modifications made to it.</p>
+
+            <h2 id="stable-release-manifest">
+                <a href="#stable-release-manifest">Stable release manifest</a>
+            </h2>
+
+            <p>Manifests for stable releases are generated with <code>repo manifest -r</code>
+            after tagging the release across all the repositories in a temporary branch and
+            syncing to it. This provides a manifest referencing the commits by hashes instead of
+            just tags to lock in the revisions. This makes verification of the releases simpler,
+            since only the manifest tag needs to be verified rather than tags for each
+            repository. This also means the whole release can be verified using the GrapheneOS
+            signing key despite referencing many upstream repositories that are not forked by the
+            GrapheneOS project.</p>
 
             <h2 id="standalone-sdk">
                 <a href="#standalone-sdk">Standalone SDK</a>
