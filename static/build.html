@@ -771,7 +771,7 @@ git am --whitespace=nowarn ../patches/*.patch</pre>
 
             <p>Build the components:</p>
 
-            <pre>ninja -C out/Default/ trichrome_webview_64_32_apk trichrome_chrome_64_32_apk trichrome_library_64_32_apk</pre>
+            <pre>ninja -C out/Default/ trichrome_webview_64_32_apk trichrome_chrome_64_32_bundle trichrome_library_64_32_apk</pre>
 
             <p>Generate a signing key for Vanadium if this is the initial build:</p>
 
@@ -783,7 +783,7 @@ cd src</pre>
             signing releases. You should back this up the generated keystore with your other
             keys.</p>
 
-            <p>Sign the apks:</p>
+            <p>Generate TrichromeChrome.apk from the bundle and sign the apks:</p>
 
             <pre>../generate_release.sh</pre>
 
