@@ -340,16 +340,31 @@
                 <a href="#exec-spawning">Exec spawning</a>
             </h2>
 
-            <p>You may notice that cold start app spawning time takes a bit longer (i.e. in the
-            ballpark of 100ms) than stock Android, along with higher app memory usage. This is due
-            to security centric exec spawning model used by GrapheneOS to provide each application
-            with a unique address space layout, random hardened_malloc heap layout and unique keys
-            / seeds for other probabilistic exploit mitigations like stack canaries, setjmp
-            protection and future features like randomized memory tags. Exec spawning doesn't
-            cause a performance cost after launching an app, and similarly doesn't cause any extra
-            latency for app spawning if the app was already running / cached in the background. It
-            isn't very noticeable on flagship devices with a high end CPU like a Pixel 3, and is a
-            lot more noticeable on a lower end device like a Pixel 3a.</p>
+            <p>GrapheneOS creates fresh processes (via exec) when spawning applications instead of
+            using the traditional Zygote spawning model. This improves privacy and security at the
+            expense of higher cold start app spawning time and higher initial memory usage. It
+            doesn't impact runtime performance beyond the initial spawning time. It adds somewhere
+            in the ballpark of 100ms to app spawning time on the flagship devices and is only very
+            noticeable on lower-end devices with a weaker CPU and slower storage. The spawning
+            time impact only applies when the app doesn't already have an app process and the OS
+            will try to keep app processes cached in the background until memory pressure forces
+            it to start killing them.</p>
+
+            <p>In the typical Zygote model, a template app process is created during boot and
+            every app is spawned as a clone of it. This results in every app sharing the same
+            initial memory content and layout, including sharing secrets that are meant to be
+            randomized for each process. It saves time by reusing the initialization work. The
+            initial memory usage is reduced due to copy-on-write semantics resulting in memory
+            written only during initialization being shared between app processes.</p>
+
+            <p>The Zygote model weakens the security provided by features based on random secrets
+            including Address Space Layout Randomization (ASLR), stack canaries, heap canaries,
+            randomized heap layout and memory tags. It cripples these security features for since
+            every app has the values for every other app and the values don't change for fresh app
+            processes until reboot. Much of the OS itself is implemented via non-user-facing apps
+            with privileges reserved for OS components. The Zygote template is reused across user
+            profiles, so it also provides a temporary set of device identifiers across profiles
+            for each boot via the shared randomized values.</p>
 
             <h2 id="bugs-uncovered-by-security-features">
                 <a href="#bugs-uncovered-by-security-features">Bugs uncovered by security features</a>
