@@ -388,6 +388,27 @@
                 <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ3A.200805.001.2020.09.07.01">QQ3A.200805.001.2020.09.07.01</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, emulator, generic, other targets)</li>
             </ul>
 
+            <p>This should be the final GrapheneOS release based on Android 10. It ships the
+            device-independent monthly security patches and migrates over to using the Android 11
+            branch of the GrapheneOS kernels, which brings all the upstream kernel hardening in
+            Android 11 along with the full September kernel updates. The remaining patches for the
+            full 2020-09-05 patch level require finishing the migration to Android 11 in order to
+            ship the September update for the other device support code. It's possible we could
+            ship some of this early, but instead we're going to be focusing on finishing the
+            enormous task of migrating to Android 11. Further help with bringing up support for
+            the devices with Android 11 and porting over each of the GrapheneOS hardening features
+            to it would be greatly appreciated. Donations are also extremely helpful. GrapheneOS
+            has brought on another full time developer using donated funds and there are 3 part
+            time developers helping with Android 11. We're also collaborating with CalyxOS and
+            others in the AOSP Alliance to bring up fully signed, production device support.</p>
+
+            <p>Pixel 4 kernel tags are not published yet since that's still a work in progress. We
+            want to fix some side channel mitigation regressions caused by upstream Android 10
+            hardening work. We can't simply revert the upstream changes since they're important
+            mitigations too. This should be handled within 24 hours. We'll publish releases and
+            tags whether or not we get these side channel mitigations working, but the plan is to
+            finish the work first.</p>
+
             <p>Changes since the 2020.08.07.01 release:</p>
 
             <ul>
@@ -398,7 +419,7 @@
                 <li>Vanadium: update Chromium base to 85.0.4183.101</li>
                 <li>Vanadium: remove unused learn more link from Incognito page</li>
                 <li>recovery: reject updates with serialno constraints to match the GrapheneOS Updater app</li>
-                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL): update base kernel to Android 11
+                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL): update base kernel to Android 11</li>
                 <li>SetupWizard: update base to latest CalyxOS SetupWizard</li>
                 <li>conscrypt: drop temporary upstream revert of version code which was accidentally kept during a rebase</li>
                 <li>backport fix for USB audio regression from Android 11</li>
