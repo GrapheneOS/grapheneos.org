@@ -391,10 +391,16 @@
                 <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ3A.200805.001.2020.09.10.05">QQ3A.200805.001.2020.09.10.05</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, emulator, generic, other targets)</li>
             </ul>
 
+            <p>Testing the Android 11 kernels was useful, but we weren't able to ship the previous
+            release due to issues uncovered during testing. The Android 11 kernels have backwards
+            incompatible changes in the drivers so we'll need to ship them with the rest of the
+            changes. It was a nice idea, but ultimately not a workable one. Thanks to our testers
+            for helping us with this.</p>
+
             <p>Changes since the 2020.09.10.05 release:</p>
 
             <ul>
-                <li>go back to using the Android 10 kernel branches until we're ready to ship the rest of Android 11</li>
+                <li>revert to using the Android 10 kernels on the devices that were switched over early due to backwards incompatible changes</li>
             </ul>
 
             -->
