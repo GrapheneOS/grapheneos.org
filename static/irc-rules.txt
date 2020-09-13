@@ -1,47 +1,43 @@
 The GrapheneOS IRC Channel Rules
 ================================
-Last updated August 2nd, 2020 21:40UTC
- 
-Hello and welcome to the GrapheneOS IRC channel, which is bridged to Matrix. We
-try to be welcoming and flexible in this channel and have as much of an "honour
-system" as we can here, so please don't abuse it. Please read the following in
-full: 
- 
-1. Rule Zero or the "Don't be a dick" rule applies. Please don't engage in
-harassment, spamming, trolling, trying to inflame the channel, impersonating
-developers or moderators, or spreading misinformation.
- 
-2. Please read the FAQ at https://grapheneos.org/faq in its entirety prior to
-posting.
- 
-3. Please don't engage in bikeshedding. Bikeshedding is the act of fussing
-around trivialities that soak up mental bandwidth and divert resources away from
-handling bigger and more important problems. This includes certain topics such
-as:
-    A) Discussion of service providers or asking whether a certain app, service
-provider, or protocol that doesn't come with GrapheneOS is trustworthy. Services
-such as mail, messaging, and cloud storage services, are outside of GrapheneOS'
-control and aren't on-topic here. 
-    B) Discussion on other operating systems that aren't GrapheneOS outside of
-the context of either building or installing GrapheneOS. (If you're looking for
-an operating system to install from, please see the official installation guide
-at https://grapheneos.org/install.)
-    C) Speculation or discussion on politics, such as comparing privacy laws in
-different jurisdictions. This is again, outside of GrapheneOS' control.
-    D) Fantasizing about hypothetical worst-case scenarios like backdoors,
-nationstate adversaries, intelligence agencies, and their capabilities, or
-"GrapheneOS versus Three Letter Agency" speculation. It's unfortunate but this
-type of discussion just ends up being GrapheneOS versus your imagination. Code
-has limits, your imagination doesn't, and it's not useful to try to threat model
-against an adversary whose capabilities are hypothetical and unlimited.
-    E) Discussion about software licenses. The licenses in GrapheneOS were
-chosen very deliberately to comply with future goals and aspirations of the
-project.
-The reason these topics are on this list due to past experience, where they
-always end up descending into playing "mine is [bigger/more paranoid/more
-private/more technical/more libre] than yours" which is extremely toxic and
-contributes to communities exhibiting cult-like behaviour. We don't want
-#GrapheneOS to turn into a privacy cult or a circlejerk, so these topics are
-currently embargoed.
- 
+Last updated September 13 2020
+
+Hello and welcome to the GrapheneOS IRC channel, which is bridged to
+Matrix. We try to be welcoming and flexible and operate under the
+honour system as much as possible, so please don't abuse it.
+
+0. Rule Zero or the "Don't be a dick" rule applies. Don't engage
+in harassment, spamming, trolling, or flame wars. Don't impersonate
+developers or moderators, or spread misinformation.
+
+1. Read the FAQ at https://grapheneos.org/faq in its entirety
+prior to posting.
+
+2. Don't engage in bikeshedding. Bikeshedding is the act of fussing
+around trivialities that soak up mental bandwidth and divert resources
+away from handling bigger and more important problems. This includes
+certain topics such as:
+    A) Apps, service providers, or protocols that don't come with
+    GrapheneOS. Services such as mail, messaging, and cloud storage
+    services, are outside of GrapheneOS control and off-topic.
+    B) Operating systems outside of the context of building or
+    installing GrapheneOS. Officially supported install operating
+    systems are mentioned at https://grapheneos.org/install#prerequisites
+    C) Politics, such as comparing privacy laws in different
+    jurisdictions. This is outside of GrapheneOS control.
+    D) Hypothetical worst-case scenarios like backdoors, nationstate
+    adversaries, intelligence agencies or "Three Letter Agencies" and
+    their capabilities. This type of discussion just ends up being
+    GrapheneOS versus your imagination. Code has limits, your
+    imagination doesn't, and it's not useful to threat model against an
+    adversary whose capabilities are hypothetical and unlimited.
+    E) Software licenses. The licenses in GrapheneOS were chosen very
+    deliberately to comply with future goals and aspirations of the project.
+
+According to past experience, these topics descend into unresolvable ego-driven
+disputes. Playing a game of "mine is bigger, more paranoid, private, technical,
+or libre than yours" is extremely toxic and exhibits cult-like behaviour within
+communities. We don't want #GrapheneOS to turn into a privacy cult so these
+topics are currently embargoed.
+
 With all that said, enjoy your stay and welcome to #GrapheneOS!
