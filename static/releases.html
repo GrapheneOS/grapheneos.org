@@ -374,6 +374,8 @@
                 <li>temporarily use stock WebView until the next release of Chromium is available with public support for Android 11 to provide the WebView via Vanadium again</li>
                 <li>fix VPN lockdown setting getting overridden on user stop</li>
                 <li>SELinux policy: disable gmscore_app domain</li>
+                <li>SELinux policy: use dedicated SELinux domain for Updater app based on the modern untrusted_app domain</li>
+                <li>stop disabling support for stable local privacy addresses since Android 11 handles it better by only using it when MAC randomization is disabled</li>
             </ul>
 
             <p>Installations made before this project was renamed to GrapheneOS and before the
