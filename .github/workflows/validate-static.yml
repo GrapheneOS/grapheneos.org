@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      VALIDATOR_VERSION: 20.3.16
+      VALIDATOR_VERSION: 20.6.30
 
     steps:
     - uses: actions/checkout@v2
