@@ -1,7 +1,11 @@
 {
     "browser": true,
     "module": true,
+    "curly": true,
     "devel": true,
     "esversion": 6,
-    "strict": "global"
+    "freeze": true,
+    "futurehostile": true,
+    "strict": "global",
+    "varstmt": true
 }
