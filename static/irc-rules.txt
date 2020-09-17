@@ -40,4 +40,8 @@ or libre than yours" is extremely toxic and exhibits cult-like behaviour within
 communities. We don't want #GrapheneOS to turn into a privacy cult so these
 topics are currently embargoed.
 
+Topics listed under Rule 2, may be redirected to #grapheneos-offtopic to
+a limited extent, as long as discussions remain civil and non-inflammatory.
+Rule Zero still applies and Rule 1 is still strongly encouraged.
+
 With all that said, enjoy your stay and welcome to #GrapheneOS!
