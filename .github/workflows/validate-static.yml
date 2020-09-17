@@ -45,4 +45,3 @@ jobs:
 
     - name: validate static
       run: ./validate_static
-
