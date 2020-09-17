@@ -949,29 +949,29 @@ mv android-studio studio</pre>
             <p>Official releases of the CTS can be downloaded from
             <a href="https://source.android.com/compatibility/cts/downloads">the Compatibility
             Suite Downloads page</a>. You should download the CTS for the relevant release
-            (Android 10) and architecture (ARM). There's a separate zip for the main CTS, the
+            (Android 11) and architecture (ARM). There's a separate zip for the main CTS, the
             manual portion (CTS Verifier) and the CTS for Instant Apps. The latest release of the
             CTS Media Files also needs to be downloaded from that section.</p>
 
             <pre>mkdir -p ~/android/cts/{arm,x86}
 cd ~/android/cts/arm
-curl -O https://dl.google.com/dl/android/cts/android-cts-10_r3-linux_x86-arm.zip
-unzip android-cts-10_r3-linux_x86-arm.zip
-rm android-cts-10_r3-linux_x86-arm.zip
-curl -O https://dl.google.com/dl/android/cts/android-cts-verifier-10_r3-linux_x86-arm.zip
-unzip android-cts-verifier-10_r3-linux_x86-arm.zip
-rm android-cts-verifier-10_r3-linux_x86-arm.zip
+curl -O https://dl.google.com/dl/android/cts/android-cts-11_r1-linux_x86-arm.zip
+unzip android-cts-11_r1-linux_x86-arm.zip
+rm android-cts-11_r1-linux_x86-arm.zip
+curl -O https://dl.google.com/dl/android/cts/android-cts-verifier-11_r1-linux_x86-arm.zip
+unzip android-cts-verifier-11_r1-linux_x86-arm.zip
+rm android-cts-verifier-11_r1-linux_x86-arm.zip
 cd ~/android/cts/x86
-curl -O https://dl.google.com/dl/android/cts/android-cts-verifier-10_r3-linux_x86-x86.zip
-unzip android-cts-verifier-10_r3-linux_x86-x86.zip
-rm android-cts-verifier-10_r3-linux_x86-x86.zip
-curl -O https://dl.google.com/dl/android/cts/android-cts-10_r3-linux_x86-x86.zip
-unzip android-cts-10_r3-linux_x86-x86.zip
-rm android-cts-10_r3-linux_x86-x86.zip
+curl -O https://dl.google.com/dl/android/cts/android-cts-verifier-11_r1-linux_x86-x86.zip
+unzip android-cts-verifier-11_r1-linux_x86-x86.zip
+rm android-cts-verifier-11_r1-linux_x86-x86.zip
+curl -O https://dl.google.com/dl/android/cts/android-cts-11_r1-linux_x86-x86.zip
+unzip android-cts-11_r1-linux_x86-x86.zip
+rm android-cts-11_r1-linux_x86-x86.zip
 cd ~/android/cts
-curl -O https://dl.google.com/dl/android/cts/android-cts-media-1.4.zip
-unzip android-cts-media-1.4.zip
-rm android-cts-media-1.4.zip</pre>
+curl -O https://dl.google.com/dl/android/cts/android-cts-media-1.5.zip
+unzip android-cts-media-1.5.zip
+rm android-cts-media-1.5.zip</pre>
 
             <h4 id="compatibility-test-suite-setup">
                 <a href="#compatibility-test-suite-setup">Setup</a>
@@ -982,7 +982,7 @@ rm android-cts-media-1.4.zip</pre>
             <a href="#standalone-sdk">standalone SDK installation instructions</a> above.</p>
 
             <p>Copy media onto the device:</p>
-            <pre>cd android-cts-media-1.4
+            <pre>cd android-cts-media-1.5
 ./copy_images.sh
 ./copy_media.sh</pre>
 
