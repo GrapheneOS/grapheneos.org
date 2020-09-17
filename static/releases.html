@@ -381,6 +381,8 @@
                 <li>build and use otatools.zip for signing releases instead of an ad-hoc approach</li>
                 <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/18">version 19</a></li>
                 <li>Updater: update targetSdkVersion to 30</li>
+                <li>disable Scudo on 64-bit since we use the substantially more secure hardened_malloc</li>
+                <li>fully replace jemalloc with Scudo on 32-bit</li>
             </ul>
 
             <p>Installations made before this project was renamed to GrapheneOS and before the
