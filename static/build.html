@@ -792,14 +792,13 @@ keytool -genkey -v -keystore vanadium.keystore -storetype pkcs12 -alias vanadium
 cd src</pre>
 
             <p>You will be prompted to enter a password which will be requested by the script for
-            signing releases. You should back this up the generated keystore with your other
-            keys.</p>
+            signing releases. You should back up the generated keystore with your other keys.</p>
 
             <p>Generate TrichromeChrome.apk from the bundle and sign the apks:</p>
 
             <pre>../generate_release.sh</pre>
 
-            <p>The apks needs to be copied from <code>out/Default/apks/release/*.apk</code>
+            <p>The apks need to be copied from <code>out/Default/apks/release/*.apk</code>
             into the Android source tree at
             <code>external/vanadium/prebuilt/arm64/</code> with arm64
             substituted with the correct value for other architectures (arm, x86, x86_64).</p>
