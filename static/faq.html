@@ -450,10 +450,14 @@
                     <p>An HTTPS connection is made to https://time.grapheneos.org/ to update the
                     time from the date header field. This is a full replacement of Android's
                     standard network time update implementation, which uses the cellular network
-                    when available with a fallback to SNTP when it's not available. This can be
-                    disabled with the toggle at Settings ➔ System ➔ Date &amp; time ➔ Use
-                    network-provided time. The time zone is still obtained directly via the time
-                    zone provided by the mobile network when available.</p>
+                    when available with a fallback to SNTP when it's not available.</p>
+
+                    <p>Network time can be disabled with the toggle at Settings ➔ System ➔ Date
+                    &amp; time ➔ Use network-provided time. Unlike AOSP or the stock OS,
+                    GrapheneOS stops making network time connections when using network time is
+                    disabled rather than just not setting the clock based on it. The time zone is
+                    still obtained directly via the time zone provided by the mobile network when
+                    available.</p>
                 </li>
                 <li>
                     <p>On devices with a Qualcomm baseband (which provides GPS), when location
