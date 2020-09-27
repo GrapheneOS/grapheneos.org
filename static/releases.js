@@ -2,7 +2,7 @@
 
 const baseUrl = "https://releases.grapheneos.org/";
 const versionBaseUrl = "https://github.com/GrapheneOS/platform_manifest/releases/tag/";
-const devices = ["coral", "flame", "bonito", "sargo", "crosshatch", "blueline", "taimen", "walleye"];
+const devices = ["sunfish", "coral", "flame", "bonito", "sargo", "crosshatch", "blueline", "taimen", "walleye"];
 const channels = ["stable", "beta"];
 
 for (const channel of channels) {
