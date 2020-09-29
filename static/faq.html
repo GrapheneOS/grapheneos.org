@@ -488,15 +488,18 @@
                     are designed to detect and handle captive portals which substitute the
                     expected empty 204 response with their own web page.</p>
 
+                    <p>By default, GrapheneOS leaves these set to the standard four URLs to blend
+                    into the crowd of billions of other Android devices with and without Google
+                    Mobile Services performing the same empty GET requests. For privacy reasons,
+                    it isn't desirable to stand out from the crowd and changing these URLs or even
+                    disabling the feature will likely reduce your privacy by giving your device a
+                    more unique fingerprint. GrapheneOS aims to appear like any other common
+                    mobile device on the network.</p>
+
                     <p>These need use a very common domain and URL in order to bypass whitelisting
-                    systems only permitting access to common domains / URLs so a domain like
-                    grapheneos.org would likely be inadequate. GrapheneOS leaves these set to the
-                    standard four URLs to blend into the crowd of billions of other Android
-                    devices with and without Google Mobile Services performing the same empty GET
-                    requests. For privacy reasons, it isn't desirable to stand out from the crowd
-                    and changing these URLs or even disabling the feature will likely reduce your
-                    privacy by giving your device a more unique fingerprint. GrapheneOS aims to
-                    appear like any other common mobile device on the network.</p>
+                    systems only permitting access to common domains / URLs so you may experience
+                    issues if you choose to use connectivitycheck.grapheneos.org instead of the
+                    standard URLs.</p>
 
                     <p>Standard frozen AOSP user agent for the GET request:</p>
                     <p>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.32 Safari/537.36</p>
