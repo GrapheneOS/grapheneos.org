@@ -438,16 +438,25 @@
                     <p>Users are in control of which types of networks the Updater app will use
                     and can disable the Updater app in extreme cases. It's strongly recommended to
                     leave it enabled to quickly receive security updates including updates outside
-                    the regular monthly schedule. See the <a href="/usage#updates">usage guide's
-                    section on updates</a> for more information.</p>
+                    the regular monthly schedule.</p>
+                    <p>The update client avoids trusting the data obtained from the update server
+                    via signature verification with downgrade protection. Verified boot provides
+                    another layer of signature verification with downgrade protection. GrapheneOS
+                    servers do not have access to GrapheneOS signing keys.</p>
+                    <p>See the <a href="/usage#updates">usage guide's section on updates</a> for
+                    more information.</p>
                 </li>
                 <li>
                     <p>An HTTPS connection is made to https://time.grapheneos.org/ to update the
                     time from the date header field. This is a full replacement of Android's
                     standard network time update implementation, which uses the cellular network
-                    when available with a fallback to SNTP when it's not available. We plan to
-                    offer a toggle to use the standard functionality instead of HTTPS-based time
-                    updates in order to blend in with other devices.</p>
+                    when available with a fallback to SNTP when it's not available. Network time
+                    updates are security sensitive since certificate validation depends on having
+                    an accurate time, but the standard NTP / SNTP protocols used across most OSes
+                    have no authentication.</p>
+
+                    <p>We plan to offer a toggle to use the standard functionality instead of
+                    HTTPS-based time updates in order to blend in with other devices.</p>
 
                     <p>Network time can be disabled with the toggle at Settings ➔ System ➔ Date
                     &amp; time ➔ Use network-provided time. Unlike AOSP or the stock OS on the
@@ -458,7 +467,7 @@
                 </li>
                 <li>
                     <p>On devices with a Qualcomm baseband (which provides GPS), when location
-                    functionality is being used,
+                    functionality is enabled and being used,
                     <a href="https://en.wikipedia.org/wiki/GPS_signals#Almanac">GPS almanacs</a>
                     are downloaded from https://xtrapath1.izatcloud.net/xtra3grc.bin,
                     https://xtrapath2.izatcloud.net/xtra3grc.bin or
@@ -489,17 +498,21 @@
                     privacy by giving your device a more unique fingerprint. GrapheneOS aims to
                     appear like any other common mobile device on the network.</p>
 
+                    <p>Standard frozen AOSP user agent for the GET request:</p>
+                    <p>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.32 Safari/537.36</p>
+                    <p>No query / data is sent to the servers and the response is unused beyond
+                    checking the response code.</p>
+
+                    <p>Standard URLs used by Android and when blending in with other devices on
+                    GrapheneOS:</p>
+
                     <ul>
                         <li>HTTPS: https://www.google.com/generate_204</li>
                         <li>HTTP: http://connectivitycheck.gstatic.com/generate_204</li>
                         <li>HTTP fallback: http://www.google.com/gen_204</li>
                         <li>HTTP other fallback: http://play.googleapis.com/generate_204</li>
                     </ul>
-                    <p>Standard AOSP user agent for the GET request:</p>
-                    <p>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.32 Safari/537.36</p>
-                    <p>No query / data is sent to the servers and the response is unused beyond
-                    checking the response code.</p>
-                    <p>Similar connectivity checks are also performed by Vanadium.</p>
+
                     <p>We have our own connectivitycheck.grapheneos.org server as an alternative
                     to using the standard URLs. This can currently be enabled by users interested
                     in using it via the developer tools. Providing a toggle in the Settings app
@@ -509,6 +522,19 @@
                     important and must remain supported for people who need to be able to blend in
                     rather than getting the nice feeling that comes from using GrapheneOS
                     servers.</p>
+
+                    <ul>
+                        <li>HTTPS: https://connectivitycheck.grapheneos.org/generate_204</li>
+                        <li>HTTP: http://connectivitycheck.grapheneos.org/generate_204</li>
+                    </ul>
+
+                    <p>We do not currently provide a separate fallback domain so the fallback HTTP
+                    fallback should be set to
+                    http://connectivitycheck.grapheneos.org/generate_204.</p>
+
+                    <p>Similar connectivity checks are also performed by Vanadium. Configuration
+                    will need to be extended to these, likely by reusing the OS configuration
+                    instead of it being separate.</p>
                 </li>
                 <li>
                     <p>DNS connectivity and functionality tests</p>
