@@ -92,6 +92,7 @@
                         <li><a href="#firewall">Does GrapheneOS provide a firewall?</a></li>
                         <li><a href="#ad-blocking">How can I set up system-wide ad-blocking?</a></li>
                         <li><a href="#ad-blocking-apps">Are ad-blocking apps supported?</a></li>
+                        <li><a href="#baseband-isolation">Is the baseband isolated?</a></li>
                     </ul>
                 </li>
                 <li>
@@ -730,6 +731,33 @@
             providing one, and very few have bothered to implement this. NetGuard is an one
             example implementing SOCKS5 forwarding, which can be used to forward to apps like
             Orbot (Tor).</p>
+
+            <h3 id="baseband-isolation">
+                <a href="#baseband-isolation">Is the baseband isolated?</a>
+            </h3>
+
+            <p>Yes, the baseband is isolated on all of the officially supported devices. Memory
+            access is partitioned by the IOMMU and limited to internal memory and memory shared
+            by the driver implementations. The baseband on the officially supported devices with a
+            Qualcomm SoC implements Wi-Fi and Bluetooth as internal sandboxed processes rather
+            than having a separate baseband for those like earlier devices.</p>
+
+            <p>Earlier generation devices we used to support prior to Pixels had Wi-Fi + Bluetooth
+            implemented on a separate SoC. This was not was not properly contained by the stock OS
+            and we put substantial work into addressing that problem. However, that work has been
+            obsoleted now that Wi-Fi and Bluetooth are provided by the SoC on the officially
+            supported devices.</p>
+
+            <p>A component being on a separate chip is orthogonal to whether it's isolated. In
+            order to be isolated, the drivers need to treat it as untrusted. If it has DMA access
+            that needs to be contained via IOMMU and the driver needs to treat the shared memory
+            as untrusted, as it would data received another way. There's a lot of attack surface
+            between the baseband and the kernel/userspace software stack connected to it. OS
+            security is very relevant to containing hardware components including the radios and
+            the vast majority of the attack surface is in software. The OS relies upon the
+            hardware and firmware to be able to contain components but ends up being primarily
+            responsible for it due to control over the configuration of shared memory and the
+            complexity of the interface and the OS side implementation.</p>
 
             <h2 id="day-to-day-use">
                 <a href="#day-to-day-use">Day to day use</a>
