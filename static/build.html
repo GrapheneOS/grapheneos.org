@@ -139,6 +139,7 @@
                 <li>aosp_sargo (Pixel 3a)</li>
                 <li>aosp_coral (Pixel 4 XL)</li>
                 <li>aosp_flame (Pixel 4)</li>
+                <li>aosp_sunfish (Pixel 4a)</li>
             </ul>
 
             <p>These are all fully supported production-ready targets supporting all the baseline
@@ -148,7 +149,8 @@
             devices have stronger hardware / firmware security and hardware-based OS security
             features and are better development devices for that reason. It's not possible to work
             on everything via past generation devices. The best development devices are the Pixel
-            3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4 and Pixel 4 XL.</p>
+            3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4 and Pixel 4 XL. Pixel 4a support is
+            still in development.</p>
 
             <p>Generic targets:</p>
 
@@ -394,6 +396,7 @@ cd ../..</pre>
                     </ul>
                 </li>
                 <li>Pixel 4, Pixel 4 XL: coral</li>
+                <li>Pixel 4a: sunfish</li>
             </ul>
 
             <p>As part of the hardening in GrapheneOS, it uses fully monolithic kernel builds with
@@ -403,9 +406,9 @@ cd ../..</pre>
             marked as using a separate build above need to have the device variant passed to the
             GrapheneOS kernel build script to select the device.</p>
 
-            <p>For the Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4 and Pixel 4 XL the
-            kernel repository uses submodules for building in out-of-tree modules. You need to
-            make sure the submodule sources are updated before building. In the future, this
+            <p>For the Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL and Pixel
+            4a the kernel repository uses submodules for building in out-of-tree modules. You need
+            to make sure the submodule sources are updated before building. In the future, this
             should end up being handled automatically by <code>repo</code>. There's no harm in
             running the submodule commands for other devices as they will simply not do
             anything.</p>
