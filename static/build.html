@@ -759,6 +759,14 @@ git checkout $CORRECT_BRANCH_OR_TAG</pre>
             value):</p>
 
             <pre>gclient sync -D --with_branch_heads -r $VERSION --jobs 32</pre>
+            
+            <p>Generate a signing key for Vanadium if this is the initial build:</p>
+
+            <pre>keytool -genkey -v -keystore vanadium.keystore -storetype pkcs12 -alias vanadium -keyalg RSA -keysize 4096 -sigalg SHA512withRSA -validity 10000 -dname "cn=GrapheneOS"</pre>
+
+            <p>You will be prompted to enter a password which will be requested by the
+            <code>generate_release.sh</code> script for signing releases. You should back up
+            the generated keystore with your other keys.</p>
 
             <p>Apply the GrapheneOS patches on top of the tagged release:</p>
 
@@ -782,15 +790,6 @@ git am --whitespace=nowarn ../patches/*.patch</pre>
             <p>Build the components:</p>
 
             <pre>ninja -C out/Default/ trichrome_webview_64_32_apk trichrome_chrome_64_32_bundle trichrome_library_64_32_apk</pre>
-
-            <p>Generate a signing key for Vanadium if this is the initial build:</p>
-
-            <pre>cd ..
-keytool -genkey -v -keystore vanadium.keystore -storetype pkcs12 -alias vanadium -keyalg RSA -keysize 4096 -sigalg SHA512withRSA -validity 10000 -dname "cn=GrapheneOS"
-cd src</pre>
-
-            <p>You will be prompted to enter a password which will be requested by the script for
-            signing releases. You should back up the generated keystore with your other keys.</p>
 
             <p>Generate TrichromeChrome.apk from the bundle and sign the apks:</p>
 
