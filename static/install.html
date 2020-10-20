@@ -252,8 +252,12 @@ Installed as /home/username/downloads/platform-tools/fastboot</pre>
             <p>You can either download the files with your browser or using a command like
             <code>curl</code>. It's generally easier to use the command-line since you're already
             using it for the rest of the installation process, so these instructions use
-            <code>curl</code>. On Windows, you need to reference <code>curl</code> as
-            <code>curl.exe</code> since PowerShell has a legacy <code>curl</code> alias.</p>
+            <code>curl</code>.</p>
+
+            <p>On Windows, remove PowerShell's legacy curl alias for the current shell to avoid
+            needing to reference it as <code>curl.exe</code> instead of <code>curl</code>:</p>
+
+            <pre>Remove-Item Alias:Curl</pre>
 
             <p>Download <a href="https://releases.grapheneos.org/factory.pub">the factory images
             public key (factory.pub)</a> in order to verify the factory images:</p>
