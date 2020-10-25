@@ -758,7 +758,7 @@ git checkout $CORRECT_BRANCH_OR_TAG</pre>
             value):</p>
 
             <pre>gclient sync -D --with_branch_heads -r $VERSION --jobs 32</pre>
-            
+
             <p>Generate a signing key for Vanadium if this is the initial build:</p>
 
             <pre>keytool -genkey -v -keystore vanadium.keystore -storetype pkcs12 -alias vanadium -keyalg RSA -keysize 4096 -sigalg SHA512withRSA -validity 10000 -dname "cn=GrapheneOS"</pre>
