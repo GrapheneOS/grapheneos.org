@@ -529,9 +529,10 @@
                         <li>HTTP: http://connectivitycheck.grapheneos.org/generate_204</li>
                     </ul>
 
-                    <p>We do not currently provide a separate fallback domain so the fallback HTTP
-                    fallback should be set to
-                    http://connectivitycheck.grapheneos.org/generate_204.</p>
+                    <p>We do not currently provide a separate fallback domain so the HTTP fallback
+                    should be set to http://connectivitycheck.grapheneos.org/generate_204. We've
+                    changed the network connectivity tests to disable other fallback URLs when a
+                    custom one is configured.</p>
 
                     <p>Similar connectivity checks are also performed by Vanadium. Configuration
                     will need to be extended to these, likely by reusing the OS configuration
