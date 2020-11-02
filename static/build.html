@@ -93,6 +93,7 @@
                         <li><a href="#prebuilt-apps">Prebuilt apps</a></li>
                     </ul>
                 </li>
+                <li><a href="#update-server">Update server</a></li>
                 <li><a href="#stable-release-manifest">Stable release manifest</a></li>
                 <li><a href="#standalone-sdk">Standalone SDK</a></li>
                 <li><a href="#android-studio">Android Studio</a></li>
@@ -442,12 +443,12 @@ git submodule update --init --recursive
 
             <p>Set <code>OFFICIAL_BUILD=true</code> to include the Updater app. You
             <strong>must</strong> change the URL in
-            <code>packages/apps/Updater/res/values/config.xml</code> to your own domain. Using the
-            official update server with a build signed with different keys will not work and will
-            essentially perform a denial of service attack on our update service. If you try to
-            use the official URL, the app will download an official update and will detect it as
-            corrupted or tampered. It will delete the update and try to download it over and over
-            again since it will never be signed with your key.</p>
+            <code>packages/apps/Updater/res/values/config.xml</code> to your own update server
+            URL. Using the official update server with a build signed with different keys will not
+            work and will essentially perform a denial of service attack on our update service. If
+            you try to use the official URL, the app will download an official update and will
+            detect it as corrupted or tampered. It will delete the update and try to download it
+            over and over again since it will never be signed with your key.</p>
 
             <pre>export OFFICIAL_BUILD=true</pre>
 
@@ -815,6 +816,50 @@ git am --whitespace=nowarn ../patches/*.patch</pre>
 
             <p>A build of Seedvault is bundled as an apk into an external/ repository. There are
             no modifications made to it.</p>
+
+            <h2 id="update-server">
+                <a href="#update-server">Update server</a>
+            </h2>
+
+            <p>GrapheneOS uses a static web server as the update server. The release signing
+            script generates the necessary metadata alongside the release files. You simply need
+            to host these files at the URL configured in
+            <code>packages/apps/Updater/res/values/config.xml</code>. See above for details on
+            including the Updater app in a release. These are the relevant files:</p>
+
+            <pre>$DEVICE-ota_update-$BUILD_NUMBER.zip
+$DEVICE-factory-BUILD_NUMBER.zip
+$DEVICE-factory-BUILD_NUMBER.zip.sig
+$DEVICE-testing
+$DEVICE-beta
+$DEVICE-stable</pre>
+
+            <p>Generally, you should start by uploading the ota_update, factory images and testing
+            channel metadata.</p>
+
+            <p>The <code>testing</code> release channel is an example of an internal release
+            channel not configurable via the update client GUI. Internal release channels can have
+            arbitrary names. You can override the release channel configured in the update client
+            via ADB with the following command:</p>
+
+            <pre>adb shell setprop sys.update.channel channel_name</pre>
+
+            <p>Replace <code>channel_name</code> with the name of the release channel, such as
+            <code>testing</code>.</p>
+
+            <p>After pushing out and testing the new release via the internal release channel,
+            it's recommended to build a sample future release and push that out as another update
+            via an internal testing channel. This is important to test that the changes in your
+            latest release have not broken the future upgrade path.</p>
+
+            <p>Finally, once the release has gone through internal testing, upload the metadata
+            for the beta channel. Once the release has gone through beta testing, upload the
+            metadata for the stable channel.</p>
+
+            <p>Delta update packages should simply be uploaded alongside the rest of the releases.
+            The update client will check for the presence of a delta update from the current
+            version on the device to the newer release in the selected release channel. There is
+            no additional metadata to include alongside the delta update package.</p>
 
             <h2 id="stable-release-manifest">
                 <a href="#stable-release-manifest">Stable release manifest</a>
