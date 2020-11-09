@@ -1188,18 +1188,36 @@ rm android-cts-media-1.5.zip</pre>
             declare variables, unless they are reassigned in which case they should be declared
             with <code>let</code> but never use <code>var</code> as it is effectively broken. Try
             to prefer loops with <code>for..of</code>. JavaScript must pass verification with
-            <code>jshint</code> using the following <code>.jslintrc</code> configuration:</p>
+            <code>eslint</code> using the following <code>.eslintrc.json</code> configuration:</p>
 
             <pre>{
-    "browser": true,
-    "module": true,
-    "curly": true,
-    "devel": true,
-    "esversion": 6,
-    "freeze": true,
-    "futurehostile": true,
-    "strict": "global",
-    "varstmt": true
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "rules": {
+        "indent": [
+            "error",
+            4
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "double"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ]
+    }
 }</pre>
 
             <p>Cookies are only used for login sessions. The only other use case considered valid
