@@ -151,21 +151,21 @@
 
             <p>To download, verify and extract the standalone platform-tools on Linux:</p>
 
-            <pre>curl -O https://dl.google.com/android/repository/platform-tools_r30.0.4-linux.zip
-echo '5be24ed897c7e061ba800bfa7b9ebb4b0f8958cc062f4b2202701e02f2725891  platform-tools_r30.0.4-linux.zip' | sha256sum -c
-unzip platform-tools_r30.0.4-linux.zip</pre>
+            <pre>curl -O https://dl.google.com/android/repository/platform-tools_r30.0.5-linux.zip
+echo 'd6d72d006c03bd55d49b6cef9f00295db02f0a31da10e121427e1f4cb43e7cb9  platform-tools_r30.0.5-linux.zip' | sha256sum -c
+unzip platform-tools_r30.0.5-linux.zip</pre>
 
             <p>To download, verify and extract the standalone platform-tools on macOS:</p>
 
-            <pre>curl -O https://dl.google.com/android/repository/fbad467867e935dce68a0296b00e6d1e76f15b15.platform-tools_r30.0.4-darwin.zip
-echo 'SHA256 (fbad467867e935dce68a0296b00e6d1e76f15b15.platform-tools_r30.0.4-darwin.zip) = e0db2bdc784c41847f854d6608e91597ebc3cef66686f647125f5a046068a890' | shasum -c
-tar xvf fbad467867e935dce68a0296b00e6d1e76f15b15.platform-tools_r30.0.4-darwin.zip</pre>
+            <pre>curl -O https://dl.google.com/android/repository/eabcd8b4b7ab518c6af9c941af8494072f17ec4b.platform-tools_r30.0.5-darwin.zip
+echo 'SHA256 (eabcd8b4b7ab518c6af9c941af8494072f17ec4b.platform-tools_r30.0.5-darwin.zip) = e5780bad71a53cf9d693e1053a0748f49e4a67cc1f71d16a94ab4c943af3345f' | shasum -c
+tar xvf fbad467867e935dce68a0296b00e6d1e76f15b15.platform-tools_r30.0.5-darwin.zip</pre>
 
             <p>To download, verify and extract the standalone platform-tools on Windows:</p>
 
-            <pre>curl.exe -O https://dl.google.com/android/repository/platform-tools_r30.0.4-windows.zip
-(Get-FileHash platform-tools_r30.0.4-windows.zip).hash -eq "413182fff6c5957911e231b9e97e6be4fc6a539035e3dfb580b5c54bd5950fee"
-tar xvf platform-tools_r30.0.4-windows.zip</pre>
+            <pre>curl.exe -O https://dl.google.com/android/repository/platform-tools_r30.0.5-windows.zip
+(Get-FileHash platform-tools_r30.0.5-windows.zip).hash -eq "549ba2bdc31f335eb8a504f005f77606a479cc216d6b64a3e8b64c780003661f"
+tar xvf platform-tools_r30.0.5-windows.zip</pre>
 
             <p>Next, add the tools to your <code>PATH</code> in the current shell so they can be
             used without referencing them by file path, enabling usage by the flashing script.</p>
@@ -180,7 +180,7 @@ tar xvf platform-tools_r30.0.4-windows.zip</pre>
 
             <p>Sample output from <code>fastboot --version</code> afterwards:</p>
 
-            <pre>fastboot version 30.0.4-6686687
+            <pre>fastboot version 30.0.5-6877874
 Installed as /home/username/downloads/platform-tools/fastboot</pre>
 
             <p>This is a temporary change to <code>PATH</code> for the current shell and will need
