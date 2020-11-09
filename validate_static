@@ -7,6 +7,6 @@ export PATH="$PWD/node_modules/.bin:$PATH"
 
 json_verify < static/manifest.webmanifest >/dev/null
 xmllint --noout static/**/*.@(html|svg|xml)
-jshint --verbose static/**/*.js
+eslint static/**/*.js
 stylelint static/**/*.css
 validatornu --Werror --also-check-css --also-check-svg static/**/*.@(css|html|svg)
