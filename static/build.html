@@ -756,7 +756,7 @@ git checkout $CORRECT_BRANCH_OR_TAG</pre>
             <p>Sync to the latest stable release for Android (replace $VERSION with the correct
             value):</p>
 
-            <pre>gclient sync -D --with_branch_heads -r $VERSION --jobs 32</pre>
+            <pre>gclient sync -D --with_branch_heads --with_tags -r $VERSION --jobs 32</pre>
 
             <p>Generate a signing key for Vanadium if this is the initial build:</p>
 
