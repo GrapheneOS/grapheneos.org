@@ -764,12 +764,14 @@ git checkout $CORRECT_BRANCH_OR_TAG</pre>
             <p>Sync to the latest stable release for Android (replace $VERSION with the correct
             value):</p>
 
-            <pre>gclient sync -D --with_branch_heads --with_tags -r $VERSION --jobs 32</pre>
+            <pre>cd src
+git fetch --tags
+git checkout $VERSION
+gclient sync -D --with_branch_heads --with_tags --jobs 32</pre>
 
             <p>Apply the GrapheneOS patches on top of the tagged release:</p>
 
-            <pre>cd src
-git am --whitespace=nowarn ../patches/*.patch</pre>
+            <pre>git am --whitespace=nowarn ../patches/*.patch</pre>
 
             <p>Then, configure the build in the <code>src</code> directory:</p>
 
