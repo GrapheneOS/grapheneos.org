@@ -7,6 +7,7 @@ export PATH="$PWD/node_modules/.bin:$PATH"
 rm -rf static_tmp
 cp -a static static_tmp
 json_reformat -m < static_tmp/manifest.webmanifest | sponge static_tmp/manifest.webmanifest
+find static_tmp -name '*.xml' -exec xmllint --noblanks {} --output {} \;
 find static_tmp -name '*.css' -exec csso {} -o {} \;
 find static_tmp -name '*.html' -exec html-minifier --collapse-whitespace --process-scripts "application/ld+json" --collapse-boolean-attributes --remove-attribute-quotes --remove-comments --remove-empty-attributes --remove-redundant-attributes --remove-script-type-attributes --remove-style-link-type-attributes --sort-attributes --sort-class-name {} -o {} \;
 find static_tmp -name '*.js' -exec terser --module -cmo {} {} \;
