@@ -16,6 +16,6 @@ find static_tmp -name '*.xml' -exec xmllint --noblanks {} --output {} \;
 find static_tmp -name '*.css' -exec csso {} -o {} \;
 find static_tmp -name '*.html' -exec html-minifier --collapse-whitespace --process-scripts "application/ld+json" --collapse-boolean-attributes --remove-attribute-quotes --remove-comments --remove-empty-attributes --remove-redundant-attributes --remove-script-type-attributes --remove-style-link-type-attributes --sort-attributes --sort-class-name {} -o {} \;
 find static_tmp -name '*.js' -exec terser --module -cmo {} {} \;
-find static_tmp -regex '\(.+/LICENSE\|.+\.\(css\|html\|ico\|js\|svg\|json\|pdf\|txt\|webmanifest\|xml\)\)' \
+find static_tmp -regex '\(.+/LICENSE\|.+\.\(css\|html\|ico\|js\|json\|pdf\|svg\|txt\|webmanifest\|xml\)\)' \
     -exec zopfli {} \; -exec touch -r {} {}.gz \; \
     -exec brotli -k {} \;
