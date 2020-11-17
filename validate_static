@@ -1,11 +1,14 @@
 #!/bin/bash
 
 set -o errexit -o nounset -o pipefail
-shopt -s extglob globstar
+shopt -s dotglob extglob globstar
 
 export PATH="$PWD/node_modules/.bin:$PATH"
 
-json_verify < static/manifest.webmanifest >/dev/null
+for file in static/**/*.@(json|webmanifest); do
+    json_verify < "$file" >/dev/null
+done
+
 xmllint --noout static/**/*.@(html|svg|xml)
 eslint static/**/*.js
 stylelint static/**/*.css
