@@ -79,6 +79,7 @@
                         tracking and silent SMS?</a></li>
                         <li><a href="#default-connections">Which connections do the OS and
                         bundled apps make by default?</a></li>
+                        <li><a href="#privacy-policy">What is the privacy policy for GrapheneOS services?</a></li>
                         <li><a href="#default-dns">Which DNS servers are used by default?</a></li>
                         <li><a href="#custom-dns">How do I use a custom DNS server?</a></li>
                         <li><a href="#private-dns-ip">Why does Private DNS not accept IP
@@ -545,6 +546,33 @@
                     <p>DNS resolution for other connections</p>
                 </li>
             </ul>
+
+            <h3 id="privacy-policy">
+                <a href="#privacy-policy">What is the privacy policy for GrapheneOS services?</a>
+            </h3>
+
+            <p>GrapheneOS services follow the <a href="https://www.eff.org/dnt-policy">EFF's
+            privacy-friendly Do Not Track (DNT) policy</a> for all users of our publicly available
+            services, not just those opting out of tracking via Do Not Track. Our policy is the
+            same with "DNT User" redefined as "user" to cover any user. This serves as a standard
+            privacy policy across all of our public services:</p>
+
+            <ul>
+                <li>attestation.app</li>
+                <li>connectivitycheck.grapheneos.org</li>
+                <li>grapheneos.org</li>
+                <li>releases.grapheneos.org</li>
+                <li>time.grapheneos.org</li>
+            </ul>
+
+            <p>Our implementation of the policy primarily consists of making sure our servers only
+            retain logs for 10 days. In practice, we follow much stricter privacy guidelines than
+            than the rules laid out in the EFF policy. However, we don't want to define our own
+            complex, ad-hoc privacy policy rather than reusing a sensible one with serious thought
+            put into it by experts.</p>
+
+            <p>Our mail server (mail.grapheneos.org) isn't offered as a public service and doesn't
+            have a privacy policy since it's only used internally by GrapheneOS developers.</p>
 
             <h3 id="default-dns">
                 <a href="#default-dns">Which DNS servers are used by default?</a>
