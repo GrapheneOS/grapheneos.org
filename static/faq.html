@@ -94,6 +94,7 @@
                         <li><a href="#firewall">Does GrapheneOS provide a firewall?</a></li>
                         <li><a href="#ad-blocking">How can I set up system-wide ad-blocking?</a></li>
                         <li><a href="#ad-blocking-apps">Are ad-blocking apps supported?</a></li>
+                        <li><a href="#browser-fingerprinting">How does GrapheneOS deal with browser fingerprinting?</a></li>
                         <li><a href="#baseband-isolation">Is the baseband isolated?</a></li>
                     </ul>
                 </li>
@@ -757,6 +758,27 @@
             providing one, and very few have bothered to implement this. NetGuard is an one
             example implementing SOCKS5 forwarding, which can be used to forward to apps like
             Orbot (Tor).</p>
+
+            <h3 id="browser-fingerprinting">
+                <a href="#browser-fingerprinting">How does GrapheneOS deal with browser fingerprinting?</a>
+            </h3>
+
+            <p>GrapheneOS very deliberately eschews frills, theatrics or useless/weak mitigations and
+            deliberately aims to have an identical fingerprint to Chrome on a comparable Android
+            device running the factory operating system with invasive Play Services functionality turned
+            off. Sites are capable of bypassing weak mitigations such as clientside checks and spoofing
+            via sidechannels (not sending information typical of other web browsers is itself
+            information). Techniques such as spoofing and clientside code injection, as well as blocking
+            of advertising domains increases the uniqueness of your browser.</p>
+
+            <p>Disguising GrapheneOS in this way, rather than the use of clientside checks and spoofing
+            serves to better camouflauge your device running GrapheneOS as one of the many other handsets
+            devices running the factory operating system and serve fewer bits of unique and identifying
+            information to websites that could be running more sophisticated means of identifying your
+            browser via side-channels. Any further measures you take as a user, such as installing addons,
+            implementing blocking of advertising domains, or useragent spoofing, is likely to simply
+            make your browser more identifiable to determined adversaries that know how to bypass
+            these unsophisticated methods.</p>
 
             <h3 id="baseband-isolation">
                 <a href="#baseband-isolation">Is the baseband isolated?</a>
