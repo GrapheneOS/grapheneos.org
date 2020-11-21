@@ -131,10 +131,12 @@
                     tools not required for installation such as adb. <code>android-udev</code>
                     provides udev rules allowing fastboot and adb to work in local sessions
                     without root.</li>
-                <li>Debian: package is both broken and out-of-date, do not use (see paragraph
-                    above)</li>
-                <li>Ubuntu: package is both broken and out-of-date, do not use (see paragraph
-                    above)</li>
+                <li>Debian and Ubuntu: <code>android-sdk-platform-tools-common</code> provides
+                    udev rules allowing fastboot and adb to work in local sessions without root.
+                    The udev rules in Debian and Ubuntu are out-of-date, but it has the necessary
+                    entries for Pixel phones. The adb and fastboot packages are currently both
+                    broken and far too out-of-date to be any use, so avoid those. The version
+                    check in the flashing script will prevent accidentally using these.</li>
             </ul>
 
             <h4 id="standalone-platform-tools">
