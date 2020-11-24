@@ -5,13 +5,13 @@ set -o errexit -o nounset -o pipefail
 ./validate_static
 ./process_static
 
-remote=www-data@grapheneos.org
-active=$(ssh $remote readlink html)
+remote=root@grapheneos.org
+active=$(ssh $remote readlink /var/www/html)
 
-if [[ $active = html_a ]]; then
-    target=html_b
+if [[ $active = /var/www/html_a ]]; then
+    target=/var/www/html_b
 else
-    target=html_a
+    target=/var/www/html_a
 fi
 
 echo active is $active
@@ -20,7 +20,7 @@ echo
 
 rsync -rpcv --chmod=D755,F644 --delete static_tmp/ $remote:$target
 ssh $remote sync -f $target
-ssh $remote ln -snf $target html
+ssh $remote ln -snf $target /var/www/html
 ssh $remote sync .
 
 echo
