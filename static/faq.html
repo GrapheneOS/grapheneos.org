@@ -516,24 +516,17 @@
                     </ul>
 
                     <p>We have our own connectivitycheck.grapheneos.org server as an alternative
-                    to using the standard URLs. This can currently be enabled by users interested
-                    in using it via the developer tools. Providing a toggle in the Settings app
-                    for using connectivitycheck.grapheneos.org as an alternative
-                    <a href="https://github.com/GrapheneOS/os_issue_tracker/issues/198">is
-                    planned</a>. The option to blend into the crowd with the standard URLs is
-                    important and must remain supported for people who need to be able to blend in
-                    rather than getting the nice feeling that comes from using GrapheneOS
-                    servers.</p>
+                    to using the standard URLs. The next release of GrapheneOS will use this by
+                    default with a configuration option in the Settings app to toggle between the
+                    GrapheneOS servers and the standard servers in order to preserve the option of
+                    blending in with the crowd of billions of other Android devices.</p>
 
                     <ul>
                         <li>HTTPS: https://connectivitycheck.grapheneos.org/generate_204</li>
                         <li>HTTP: http://connectivitycheck.grapheneos.org/generate_204</li>
+                        <li>HTTP fallback: http://connectivitycheck.grapheneos.org/gen_204</li>
+                        <li>HTTP other fallback: http://connectivitycheck.grapheneos.org/generate_204</li>
                     </ul>
-
-                    <p>We do not currently provide a separate fallback domain so the HTTP fallback
-                    should be set to http://connectivitycheck.grapheneos.org/generate_204 along
-                    with setting the other fallbacks list to
-                    http://connectivitycheck.grapheneos.org/generate_204.</p>
 
                     <p>Similar connectivity checks are also performed by Vanadium. Configuration
                     will need to be extended to these, likely by reusing the OS configuration
