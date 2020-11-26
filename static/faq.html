@@ -487,39 +487,18 @@
                     are designed to detect and handle captive portals which substitute the
                     expected empty 204 response with their own web page.</p>
 
-                    <p>By default, GrapheneOS leaves these set to the standard four URLs to blend
-                    into the crowd of billions of other Android devices with and without Google
-                    Mobile Services performing the same empty GET requests. For privacy reasons,
-                    it isn't desirable to stand out from the crowd and changing these URLs or even
-                    disabling the feature will likely reduce your privacy by giving your device a
-                    more unique fingerprint. GrapheneOS aims to appear like any other common
-                    mobile device on the network.</p>
-
-                    <p>These need use a very common domain and URL in order to bypass whitelisting
-                    systems only permitting access to common domains / URLs so you may experience
-                    issues if you choose to use connectivitycheck.grapheneos.org instead of the
-                    standard URLs.</p>
+                    <p>The connectivity checks are done by performing an empty GET request to a
+                    server returning an empty response with a 204 No Content response code. The
+                    request a standard, frozen value for the user agent and doesn't send any data
+                    to the server.</p>
 
                     <p>Standard frozen AOSP user agent for the GET request:</p>
                     <p>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.32 Safari/537.36</p>
                     <p>No query / data is sent to the servers and the response is unused beyond
                     checking the response code.</p>
 
-                    <p>Standard URLs used by Android and when blending in with other devices on
-                    GrapheneOS:</p>
-
-                    <ul>
-                        <li>HTTPS: https://www.google.com/generate_204</li>
-                        <li>HTTP: http://connectivitycheck.gstatic.com/generate_204</li>
-                        <li>HTTP fallback: http://www.google.com/gen_204</li>
-                        <li>HTTP other fallback: http://play.googleapis.com/generate_204</li>
-                    </ul>
-
-                    <p>We have our own connectivity check server as an alternative to using the
-                    standard URLs. The next release of GrapheneOS will use this by default with a
-                    configuration option in the Settings app to toggle between the GrapheneOS
-                    servers and the standard servers in order to preserve the option of blending
-                    in with the crowd of billions of other Android devices.</p>
+                    <p>By default, the GrapheneOS connectivity check server is used via the
+                    following URLs:</p>
 
                     <ul>
                         <li>HTTPS: https://connectivitycheck.grapheneos.org/generate_204</li>
@@ -528,9 +507,23 @@
                         <li>HTTP other fallback: http://connectivity.grapheneos.org/generate_204</li>
                     </ul>
 
-                    <p>Similar connectivity checks are also performed by Vanadium. Configuration
-                    will need to be extended to these, likely by reusing the OS configuration
-                    instead of it being separate.</p>
+                    <p>You can change the connectivity check URLs via the Settings ➔ Network &amp;
+                    internet ➔ Advanced ➔ Internet connectivity check setting. At the moment, it
+                    can be toggled between the GrapheneOS server and the standard Google servers
+                    used by billions of other Android devices. This can be used to blend in with
+                    other Android devices, both with and without Play services. Changing this to
+                    the Standard (Google) mode will use the same URLs used by AOSP and the stock
+                    OS along with the vast majority of other devices:</p>
+
+                    <ul>
+                        <li>HTTPS: https://www.google.com/generate_204</li>
+                        <li>HTTP: http://connectivitycheck.gstatic.com/generate_204</li>
+                        <li>HTTP fallback: http://www.google.com/gen_204</li>
+                        <li>HTTP other fallback: http://play.googleapis.com/generate_204</li>
+                    </ul>
+
+                    <p>Similar connectivity checks are also performed by Vanadium. We plan to make
+                    it respect the OS configuration option added by GrapheneOS.</p>
                 </li>
                 <li>
                     <p>DNS connectivity and functionality tests</p>
