@@ -522,8 +522,11 @@
                         <li>HTTP other fallback: http://play.googleapis.com/generate_204</li>
                     </ul>
 
-                    <p>Similar connectivity checks are also performed by Vanadium. We plan to make
-                    it respect the OS configuration option added by GrapheneOS.</p>
+                    <p>Similar connectivity checks are also performed by Vanadium in the browser
+                    app, but not the WebView. This matches the behavior of Chrome and Chromium. In
+                    the future, we plan to have it follow our OS configuration option by having it
+                    switch between the GrapheneOS server and blending in with Chrome based on the
+                    user's choice.</p>
                 </li>
                 <li>
                     <p>DNS connectivity and functionality tests</p>
