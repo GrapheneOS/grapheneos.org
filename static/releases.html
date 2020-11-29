@@ -410,10 +410,10 @@
 
             <ul>
                 <li>script: support any number of source versions for deltas</li>
-                <li>set read timeout for HTTPS network time update connection</li>
-                <li>always disconnect HTTPS time connection ASAP</li>
-                <li>remove unnecessary Accept-Charset header for HTTPS time requests</li>
-                <li>disable keepalive for secure network time updates</li>
+                <li>set read timeout for HTTPS network time connections</li>
+                <li>disable keepalive for HTTPS network time connections</li>
+                <li>always disconnect HTTPS time connections</li>
+                <li>remove unnecessary Accept-Charset header for HTTPS network time requests</li>
             </ul>
 
             -->
@@ -570,7 +570,7 @@
                 <li>work around upstream bug causing null pointer crashes from media notifications in secondary profiles</li>
                 <li>enable secondary user logout support by default (purges credential encrypted storage keys from memory)</li>
                 <li>add back screenshot action to global action list as an alternative to the key chord (power button + volume down) and screenshot button in the gesture navigation recent apps list</li>
-                <li>reject received unix timestamps before build unix time for https-based network time implementation</li>
+                <li>reject received unix timestamps before build unix time for HTTPS-based network time implementation</li>
                 <li>Clock: apply fixes for various upstream issues</li>
                 <li>Updater: harden PendingIntent usage</li>
             </ul>
