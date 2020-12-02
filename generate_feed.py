@@ -35,7 +35,7 @@ for release in releases:
 feed = f"""<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://grapheneos.org/releases#changelog</id>
-    <link href="http://grapheneos.org/releases#changelog"/>
+    <link href="https://grapheneos.org/releases#changelog"/>
     <link rel="self" href="https://grapheneos.org/releases.atom"/>
     <title>GrapheneOS changelog</title>
     <updated>{updated}</updated>
