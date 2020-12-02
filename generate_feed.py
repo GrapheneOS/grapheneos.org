@@ -6,7 +6,7 @@ import lxml.html
 from lxml import etree
 
 document = lxml.html.parse("static_tmp/releases.html").getroot()
-releases = document.body.cssselect("#changelog h3")
+releases = document.body.cssselect("#changelog article")
 
 updated = None
 entries = []
@@ -16,11 +16,7 @@ for release in releases:
     time = datetime.strptime(title, "%Y.%m.%d.%H").isoformat() + "Z"
     if updated is None:
         updated = time
-    content = []
-    element = release.getnext()
-    while element is not None and element.tag != "h3":
-        content.append(etree.tostring(element).decode())
-        element = element.getnext()
+    content = [etree.tostring(e).decode() for e in release.getchildren()[1:]]
     entry = f"""\
     <entry>
         <id>https://grapheneos.org/releases#{title}</id>
