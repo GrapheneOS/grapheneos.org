@@ -388,1431 +388,1433 @@
                 </section>
             </section>
 
-            <h2 id="changelog">
-                <a href="#changelog">Changelog</a>
-            </h2>
-
-            <p>List of tagged releases. Snapshot releases without tags such as early releases of
-            the project and early device support releases are not listed.</p>
-
-            <!--
-
-            <h3 id="2020.11.27.15">
-                <a href="#2020.11.27.15">2020.11.27.15</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.201105.002.2020.11.27.15">RP1A.201105.002.2020.11.27.15</a> (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2020.11.27.15 release:</p>
-
-            <ul>
-                <li>script: support any number of source versions for deltas</li>
-                <li>set read timeout for HTTPS network time connections</li>
-                <li>disable keepalive for HTTPS network time connections</li>
-                <li>always disconnect HTTPS time connections</li>
-                <li>remove unnecessary Accept-Charset header for HTTPS network time requests</li>
-                <li>adbd: backport upstream fix for use-after-move bug</li>
-                <li>Vanadium: ask permission to play protected media by default</li>
-                <li>Vanadium: disable autofill server communication by default</li>
-                <li>Settings: remove partial MAC randomization translations</li>
-            </ul>
-
-            -->
-
-            <h3 id="2020.11.27.15">
-                <a href="#2020.11.27.15">2020.11.27.15</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.201105.002.2020.11.27.15">RP1A.201105.002.2020.11.27.15</a> (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2020.11.25.22 release:</p>
-
-            <ul>
-                <li>Vanadium: disable autofill assistant by default (restores previous Vanadium behavior)</li>
-                <li>Vanadium: backport upstream fix for missing manifest changes (this fixes issues with opening URLs in external apps)</li>
-                <li>Vanadium: disable component updater pings by default</li>
-                <li>Settings: disallow configuring connectivity checks for users disallowed to configure Private DNS by the administrator (in theory, it could be a separate option, but we need to use one that's already part of the public API)</li>
-            </ul>
-
-            <h3 id="2020.11.25.22">
-                <a href="#2020.11.25.22">2020.11.25.22 preview</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.201105.002.2020.11.25.22">RP1A.201105.002.2020.11.25.22</a> (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2020.11.05.18 release:</p>
-
-            <ul>
-                <li>PDF Viewer: update to <a href="https://github.com/GrapheneOS/PdfViewer/releases/tag/6">version 6</a></li>
-                <li>NFC: backport compatibility fix for certain broken apps from AOSP master</li>
-                <li>Bluetooth: backport fix for Bluetooth capacity string</li>
-                <li>Vanadium: update Chromium base to 86.0.4240.198</li>
-                <li>Vanadium: update Chromium base to 87.0.4280.66</li>
-                <li>Vanadium: disable new high-level functionality for fetching variations</li>
-                <li>Vanadium: disable unused Omaha update check support</li>
-                <li>Vanadium: disable GaiaAuthFetcher code due to upstream bug</li>
-                <li>Vanadium: disable deprecated FTP support by default</li>
-                <li>Pixel 4 XL: correctly mark certain unsupported features as unavailable per the Pixel 4</li>
-                <li>Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a: use device-specific NFC configuration</li>
-                <li>add initial runtime flags handling for exec-based spawning to improve compatibility</li>
-                <li>Pixel 3, Pixel 3 XL, Pixel 4, Pixel 4 XL, Pixel 4a: disable chained vbmeta to simplify verified boot and improve attestation (Pixel 3a and Pixel 3a XL never used this)</li>
-                <li>Seedvault: update to latest revision</li>
-                <li>NetworkStack: remove change to connectivity check handling that's no longer required with Android 11</li>
-                <li>use GrapheneOS connectivity check server by default for connectivity checks in the OS</li>
-                <li>Settings: add setting to toggle between GrapheneOS connectivity check server and the standard Android connectivity check URLs to continue supporting blending in with other Android devices without a VPN</li>
-                <li>Updater: remove unused READ_PHONE_STATE permission</li>
-            </ul>
-
-            <h3 id="2020.11.05.18">
-                <a href="#2020.11.05.18">2020.11.05.18</a>
-            </h3>
-
-            <p>While waiting for this release to become available, you can manually add a battery
-            optimization exemption for the Clock app via Settings ➔ Apps &amp; notifications ➔
-            Special app access ➔ Battery optimization where you can select "All apps", scroll down
-            to the Clock app and manually add an exemption. Should get this added upstream.</p>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.201105.002.2020.11.05.18">RP1A.201105.002.2020.11.05.18</a> (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2020.11.03.03 release:</p>
-
-            <ul>
-                <li>Clock: add battery optimization exemption required for the new target API level (this is missing in AOSP)</li>
-            </ul>
-
-            <h3 id="2020.11.03.03">
-                <a href="#2020.11.03.03">2020.11.03.03</a>
-            </h3>
-
-            <p>Pixel 2 and Pixel 2 XL support will now be provided via separate extended support
-            releases for obsolete devices. We'll be making the first one based on an official
-            release in the near future. They can only reach the 2020-11-01 security patch this
-            month due to the lack of a release with changes outside the scope of AOSP such as new
-            GPU firmware.</p>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.201105.002.2020.11.03.03">RP1A.201105.002.2020.11.03.03</a> (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2020.10.23.04 release:</p>
-
-            <ul>
-                <li>full 2020-11-01 security patch level</li>
-                <li>full 2020-11-05 security patch level</li>
-                <li>rebased onto RP1A.201105.002 release</li>
-                <li>Vanadium: update Chromium base to 86.0.4240.110</li>
-                <li>Vanadium: update Chromium base to 86.0.4240.114</li>
-                <li>Vanadium: update Chromium base to 86.0.4240.185</li>
-                <li>Vanadium: enable prefetch privacy changes by default</li>
-                <li>Vanadium: enable reduced referrer granularity by default</li>
-                <li>Camera: request fine location instead of coarse location for the disabled-by-default geotagging feature</li>
-                <li>Camera: remove unused INTERNET permission</li>
-                <li>Clock: apply assorted fixes from upstream</li>
-                <li>add explicit detection of fastboot being missing to the factory images flash-all scripts</li>
-                <li>Gallery: apply upstream fix from NXP for null pointer dereference bug</li>
-                <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/22">version 22</a></li>
-                <li>script: make generate_deltas ask for the password only once</li>
-                <li>enable screenshot action for 3 button nav too (the upstream release limited it to being enabled for 2 button navigation)</li>
-            </ul>
-
-            <h3 id="2020.10.23.04">
-                <a href="#2020.10.23.04">2020.10.23.04</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.201005.004.2020.10.23.04">RP1A.201005.004.2020.10.23.04</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL)</li>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.201005.006.2020.10.23.04">RP1A.201005.006.2020.10.23.04</a> (Pixel 4a, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2020.10.06.02 release:</p>
-
-            <ul>
-                <li>Vanadium: update Chromium base to 86.0.4240.75</li>
-                <li>Vanadium: update Chromium base to 86.0.4240.99</li>
-                <li>Vanadium: remove deprecated, unused storage permissions</li>
-                <li>replace standard WebView with Vanadium WebView again</li>
-                <li>Pixel 4, Pixel 4 XL: disable unsupported aware feature so that ambient display is available</li>
-                <li>Seedvault: switch to upstream development branch now that it supports Android 11</li>
-                <li>SELinux policy: port hardening from Android 10</li>
-                <li>hardened_malloc: log fatal errors (detected memory corruption bugs) to Android's log system</li>
-                <li>fix minor issues with Android 11 port of Wi-Fi and Bluetooth quick tile unlock requirement</li>
-                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a): apply Bluetooth fixes from the stable kernel branch including fixes for CVE-2020-12351, CVE-2020-12352 and CVE-2020-24490</li>
-                <li>improve experimental support for the Pixel 4a including porting most device-specific changes implemented for other devices</li>
-            </ul>
-
-            <h3 id="2020.10.06.02">
-                <a href="#2020.10.06.02">2020.10.06.02</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.201005.004.2020.10.06.02">RP1A.201005.004.2020.10.06.02</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL)</li>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.201005.006.2020.10.06.02">RP1A.201005.006.2020.10.06.02</a> (emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2020.10.01.23 release:</p>
-
-            <ul>
-                <li>full 2020-10-01 security patch level</li>
-                <li>full 2020-10-05 security patch level</li>
-                <li>rebased onto RP1A.201005.006 release</li>
-                <li>hardened_malloc: optimize and harden initialization sanity checks</li>
-                <li>work around upstream bug causing null pointer crashes from media notifications in secondary profiles</li>
-                <li>enable secondary user logout support by default (purges credential encrypted storage keys from memory)</li>
-                <li>add back screenshot action to global action list as an alternative to the key chord (power button + volume down) and screenshot button in the gesture navigation recent apps list</li>
-                <li>reject received unix timestamps before build unix time for HTTPS-based network time implementation</li>
-                <li>Clock: apply fixes for various upstream issues</li>
-                <li>Updater: harden PendingIntent usage</li>
-            </ul>
-
-            <h3 id="2020.10.01.23">
-                <a href="#2020.10.01.23">2020.10.01.23</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.200720.009.2020.10.01.23">RP1A.200720.009.2020.10.01.23</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL)</li>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.200720.011.2020.10.01.23">RP1A.200720.011.2020.10.01.23</a> (emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2020.09.29.20 release:</p>
-
-            <ul>
-                <li>Pixel 4 (non-XL): stop overriding default Bluetooth toggle to disable it by default like other devices</li>
-                <li>use otatools.zip for generating delta updates</li>
-                <li>Settings: fix integration of LTE only mode option to preferred network setting</li>
-                <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/21">version 21</a></li>
-            </ul>
-
-            <h3 id="2020.09.29.20">
-                <a href="#2020.09.29.20">2020.09.29.20</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.200720.009.2020.09.29.20">RP1A.200720.009.2020.09.29.20</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL)</li>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.200720.011.2020.09.29.20">RP1A.200720.011.2020.09.29.20</a> (emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2020.09.25.00 release:</p>
-
-            <ul>
-                <li>add overlay to show 2 button navigation option in Settings again</li>
-                <li>Calculator: gesture compatibility fix</li>
-                <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/20">version 20</a></li>
-                <li>WebView: update to 85.0.4183.120</li>
-                <li>WebView: update to 85.0.4183.127</li>
-                <li>Vanadium: update Chromium base to 85.0.4183.127</li>
-                <li>fix syncing time for the port of our HTTPS-based network time update implementation to Android 11</li>
-                <li>stop using dedicated keys for signing OsuLogin and ServiceWifiResources rather than simply using the regular testkey/releasekey</li>
-            </ul>
-
-            <h3 id="2020.09.25.00">
-                <a href="#2020.09.25.00">2020.09.25.00</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.200720.009.2020.09.25.00">RP1A.200720.009.2020.09.25.00</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL)</li>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.200720.011.2020.09.25.00">RP1A.200720.011.2020.09.25.00</a> (emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2020.09.18.13 release:</p>
-
-            <ul>
-                <li>fix Wi-Fi MAC randomization settings for translations that were missing our added option</li>
-                <li>Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL: add missing configuration for biometric sensors in Android 11</li>
-                <li>fix upstream bug in the NFC quick settings tile for Android 11 breaking it after reboot</li>
-                <li>fix NFC quick settings tile icon handling for Android 11</li>
-                <li>Settings: fix upstream NFC preference so that it listens for changes and can see it being toggled via the NFC tile</li>
-                <li>Vanadium: update Chromium base to 85.0.4183.120</li>
-                <li>Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL: update APNs with carriersettings-extractor</li>
-                <li>add back SetupWizard</li>
-                <li>Settings: fix launching WifiSettings</li>
-            </ul>
-
-            <p>We're no longer going to be listing out restored past features in a separate section for the release notes.</p>
-
-            <h3 id="2020.09.18.13">
-                <a href="#2020.09.18.13">2020.09.18.13 preview</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.200720.009.2020.09.18.13">RP1A.200720.009.2020.09.18.13</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL)</li>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.200720.011.2020.09.18.13">RP1A.200720.011.2020.09.18.13</a> (emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2020.09.11.14 release:</p>
-
-            <ul>
-                <li>initial port to Android 11 with most GrapheneOS changes ported over (missing most SELinux policy hardening, some Pixel 4 / 4 XL kernel side channel mitigations, finer-grained Pixel 4 kernel Control Flow Integrity and the setup wizard)</li>
-                <li>full 2020-09-05 security patch level</li>
-                <li>temporarily use stock WebView until the next release of Chromium is available with public support for Android 11 to provide the WebView via Vanadium again</li>
-                <li>fix VPN lockdown setting getting overridden on user stop</li>
-                <li>SELinux policy: disable gmscore_app domain</li>
-                <li>SELinux policy: use dedicated SELinux domain for Updater app based on the modern untrusted_app domain</li>
-                <li>stop disabling support for stable local privacy addresses since Android 11 handles it better by only using it when MAC randomization is disabled</li>
-                <li>update to a new version of Seedvault for Android 11</li>
-                <li>build and use otatools.zip for signing releases instead of an ad-hoc approach</li>
-                <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/19">version 19</a></li>
-                <li>Updater: update targetSdkVersion to 30</li>
-                <li>disable Scudo on 64-bit since we use the substantially more secure hardened_malloc</li>
-                <li>fully replace jemalloc with Scudo on 32-bit</li>
-                <li>hardened_malloc: improve stats implementation</li>
-            </ul>
-
-            <p>Installations made before this project was renamed to GrapheneOS and before the
-            first official release of the Android Hardening project will be forced to factory
-            reset as part of this upgrade, due to lack of backwards compatibility with the
-            unaltered AOSP encryption format.</p>
-
-            <h3 id="2020.09.11.14">
-                <a href="#2020.09.11.14">2020.09.11.14</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ3A.200805.001.2020.09.11.14">QQ3A.200805.001.2020.09.11.14</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Testing the Android 11 kernels was useful, but we weren't able to ship the previous
-            release due to issues uncovered during testing. The Android 11 kernels have minor
-            backwards incompatible changes in the drivers for at least a subset of the devices so
-            we'll need to ship them with the rest of the changes. Thanks to our testers for
-            helping us with this. This will be the new final Android 10 release, assuming no
-            further problems are uncovered during testing.</p>
-
-            <p>Changes since the 2020.09.10.05 release:</p>
-
-            <ul>
-                <li>revert to using the Android 10 kernels on the devices that were switched over early due to backwards incompatible changes in some drivers</li>
-            </ul>
-
-            <h3 id="2020.09.10.05">
-                <a href="#2020.09.10.05">2020.09.10.05 preview</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ3A.200805.001.2020.09.10.05">QQ3A.200805.001.2020.09.10.05</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>This should be the final GrapheneOS release based on Android 10. It ships the
-            device-independent monthly security patches and migrates over to using the Android 11
-            branch of the GrapheneOS kernels for most devices, which brings all the upstream
-            kernel hardening in Android 11 along with the full September kernel updates. The
-            remaining patches for the full 2020-09-05 patch level require finishing the migration
-            to Android 11 in order to ship the September update for the other device support code.
-            It's possible we could ship some of this early, but instead we're going to be focusing
-            on finishing the enormous task of migrating to Android 11. Further help with bringing
-            up support for the devices with Android 11 and porting over each of the GrapheneOS
-            hardening features to it would be greatly appreciated. Donations are also extremely
-            helpful. GrapheneOS has brought on another full time developer using donated funds and
-            there are 3 part time developers helping with Android 11. We're also collaborating
-            with CalyxOS and others in the AOSP Alliance to bring up fully signed, production
-            device support.</p>
-
-            <p>Changes since the 2020.08.07.01 release:</p>
-
-            <ul>
-                <li>full 2020-09-01 security patch level</li>
-                <li>partial 2020-09-05 security patch level (missing userspace device support changes until port to Android 11 is finished)</li>
-                <li>Vanadium: update Chromium base to 84.0.4147.125</li>
-                <li>Vanadium: update Chromium base to 85.0.4183.81</li>
-                <li>Vanadium: update Chromium base to 85.0.4183.101</li>
-                <li>Vanadium: remove unused learn more link from Incognito page</li>
-                <li>recovery: reject updates with serialno constraints to match the GrapheneOS Updater app</li>
-                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): update base kernel to Android 11</li>
-                <li>SetupWizard: update base to latest CalyxOS SetupWizard</li>
-                <li>conscrypt: drop temporary upstream revert of version code which was accidentally kept during a rebase</li>
-                <li>backport fix for USB audio regression from Android 11</li>
-            </ul>
-
-            <p>Restoration of past features since the 2020.07.06.20 release:</p>
-
-            <ul>
-                <li>kernel (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL): enable intra-object FORTIFY_SOURCE overflow checks</li>
-            </ul>
-
-            <h3 id="2020.08.07.01">
-                <a href="#2020.08.07.01">2020.08.07.01</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ3A.200805.001.2020.08.07.01">QQ3A.200805.001.2020.08.07.01</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2020.08.03.22 release:</p>
-
-            <ul>
-                <li>SELinux policy: fix executing apk libraries as executables for third party applications</li>
-            </ul>
-
-            <h3 id="2020.08.03.22">
-                <a href="#2020.08.03.22">2020.08.03.22</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ3A.200805.001.2020.08.03.22">QQ3A.200805.001.2020.08.03.22</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2020.07.06.20 release:</p>
-
-            <ul>
-                <li>full 2020-08-01 security patch level</li>
-                <li>full 2020-08-05 security patch level</li>
-                <li>rebased onto QQ3A.200805.001 release</li>
-                <li>fix build for Pixel 3 when Pixel 3 XL kernel is not built</li>
-                <li>fix secondary stack hardening when a non-page-size multiple stack size is specified</li>
-                <li>fix picking up previous build date when doing incremental builds</li>
-                <li>Vanadium: update Chromium base to 84.0.4147.89</li>
-                <li>Vanadium: update Chromium base to 84.0.4147.105</li>
-                <li>Vanadium: update Chromium base to 84.0.4147.111</li>
-                <li>Vanadium: remove Chromium logo in chrome://version</li>
-            </ul>
-
-            <p>Restoration of past features since the 2020.07.06.20 release:</p>
-
-            <ul>
-                <li>kernel (Pixel 4, Pixel 4 XL): read-only data expansion</li>
-            </ul>
-
-            <h3 id="2020.07.06.20">
-                <a href="#2020.07.06.20">2020.07.06.20</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ3A.200705.002.2020.07.06.20">QQ3A.200705.002.2020.07.06.20</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2020.06.22.21 release:</p>
-
-            <ul>
-                <li>full 2020-07-01 security patch level</li>
-                <li>full 2020-07-05 security patch level</li>
-                <li>rebased onto QQ3A.200705.002 release</li>
-                <li>change TrichromeLibrary package name</li>
-                <li>drop MAC randomization preference migration code</li>
-                <li>Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL: update APNs with carriersettings-extractor</li>
-                <li>disable network time refresh when network time is disabled (previous behavior inherited from upstream)</li>
-                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL): make reproducible builds simpler</li>
-                <li>kernel (Pixel 4, Pixel 4 XL): use max mmap entropy by default to cover init</li>
-            </ul>
-
-            <p>Restoration of past features since the 2020.06.22.21 release:</p>
-
-            <ul>
-                <li>kernel (Pixel 4, Pixel 4 XL): enable UNMAP_KERNEL_AT_EL0 Meltdown mitigation (KPTI)</li>
-                <li>kernel (Pixel 4, Pixel 4 XL): enable ARM64_SSBD Spectre v4 mitigation</li>
-                <li>kernel (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL): enable PANIC_ON_OOPS</li>
-                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL): set PANIC_TIMEOUT to -1</li>
-                <li>kernel (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL): disable SECURITY_SELINUX_DEVELOP</li>
-            </ul>
-
-            <h3 id="2020.06.22.21">
-                <a href="#2020.06.22.21">2020.06.22.21</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ3A.200605.001.2020.06.22.21">QQ3A.200605.001.2020.06.22.21</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 4, Pixel 4 XL)</li>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ3A.200605.002.2020.06.22.21">QQ3A.200605.002.2020.06.22.21</a> (Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2020.06.02.02 release:</p>
-
-            <ul>
-                <li>SystemUI: handle non-SRGB wallpapers</li>
-                <li>Vanadium: update Chromium base to 83.0.4103.96</li>
-                <li>Vanadium: update Chromium base to 83.0.4103.101</li>
-                <li>Vanadium: update Chromium base to 83.0.4103.106</li>
-                <li>script/generate_metadata.py: add channel name to update channel metadata</li>
-                <li>Updater: sanity check channel name in update channel metadata</li>
-                <li>Updater: raise minSdkVersion to 29</li>
-                <li>Updater: extract care_map.pb rather than care_map.txt</li>
-                <li>Updater: use a different zip for streaming updates (still an experimental / hidden feature)</li>
-                <li>disable RFC 7217 support (stable link-local IPv6 privacy addresses) and stick to link-local IP addresses based on the (random) MAC addresses</li>
-                <li>rebase SetupWizard changes onto upstream CalyxOS SetupWizard</li>
-                <li>SetupWizard: use system captive portal URL, rather than a custom Google URL</li>
-                <li>NetworkStack: ignore captive portal fallbacks when one is set at runtime</li>
-                <li>factory images flash-all script: reboot to bootloader after installing update</li>
-                <li>make_key: use 4096-bit RSA keys</li>
-                <li>script/release.sh: auto-detect AVB algorithm to support 4096-bit RSA keys for verified boot</li>
-                <li>add experimental Pixel 4 and Pixel 4 XL support</li>
-                <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/18">version 18</a></li>
-            </ul>
-
-            <p>Restoration of past features since the 2020.06.02.02 release:</p>
-
-            <ul>
-                <li>kernel (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): add back FORTIFY_SOURCE enhancements</li>
-                <li>kernel (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): add back userspace ASLR improvements</li>
-            </ul>
-
-            <h3 id="2020.06.02.02">
-                <a href="#2020.06.02.02">2020.06.02.02</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ3A.200605.001.2020.06.02.02">QQ3A.200605.001.2020.06.02.02</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL)</li>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ3A.200605.002.2020.06.02.02">QQ3A.200605.002.2020.06.02.02</a> (Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2020.05.29.00 release:</p>
-
-            <ul>
-                <li>full 2020-06-01 security patch level</li>
-                <li>full 2020-06-05 security patch level</li>
-                <li>rebased onto QQ3A.200605.002 release</li>
-                <li>Vanadium: update Chromium base to 83.0.4103.83</li>
-                <li>factory images: add fastboot version detection to flash-all.bat on Windows</li>
-            </ul>
-
-            <h3 id="2020.05.29.00">
-                <a href="#2020.05.29.00">2020.05.29.00</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ2A.200501.001.B2.2020.05.29.00">QQ2A.200501.001.B2.2020.05.29.00</a> (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL)</li>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ2A.200501.001.B3.2020.05.29.00">QQ2A.200501.001.B3.2020.05.29.00</a> (Pixel 2, Pixel 2 XL, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2020.05.23.12 release:</p>
-
-            <ul>
-                <li>PDF Viewer: update to <a href="https://github.com/GrapheneOS/PdfViewer/releases/tag/4">version 4</a></li>
-                <li>PDF Viewer: update to <a href="https://github.com/GrapheneOS/PdfViewer/releases/tag/5">version 5</a></li>
-                <li>revert attempt at fixing audio DeviceDescriptor sorting</li>
-                <li>hardened_malloc: temporarily disable SLOT_RANDOMIZE for audioserver to work around DeviceDescriptor sorting bug</li>
-            </ul>
-
-            <h3 id="2020.05.23.12">
-                <a href="#2020.05.23.12">2020.05.23.12</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ2A.200501.001.B2.2020.05.23.12">QQ2A.200501.001.B2.2020.05.23.12</a> (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL)</li>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ2A.200501.001.B3.2020.05.23.12">QQ2A.200501.001.B3.2020.05.23.12</a> (Pixel 2, Pixel 2 XL, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2020.05.05.02 release:</p>
-
-            <ul>
-                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): use Clang for compiling code for the host too</li>
-                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): add build-tools prebuilts to PATH to reduce external dependencies and avoid potential reproducibility issues</li>
-                <li>add build-tools prebuilts to PATH in the release signing and delta generation scripts to reduce external dependencies and avoid potential reproducibility issues</li>
-                <li>fix upstream bug relying on malloc addresses for sort order of 3 items, causing Bluetooth A2DP audio to fail 2/3 of the time with hardened_malloc when the expected item isn't first</li>
-                <li>use the same datetime for build number and build date</li>
-                <li>always use UTC as the time zone for build dates</li>
-                <li>update GrapheneOS fork of android-prepare-vendor to the collaborative AOSPAlliance fork</li>
-                <li>raise minimum supported API level to 28 from 23, producing a warning for apps targeting API &lt; 28 (the Play Store disallows uploading new apps or app updates targeting API &lt; 28 so this isn't an aggressive warning)</li>
-                <li>Vanadium: update Chromium base to 81.0.4044.138</li>
-                <li>Vanadium: update Chromium base to 83.0.4103.60</li>
-                <li>Vanadium: disable media DRM preprovisioning</li>
-                <li>Vanadium: most private WebRTC IP handling policy by default</li>
-                <li>set SCHED_BATCH in the kernel build scripts</li>
-            </ul>
-
-            <p>Restoration of past features since the 2020.05.05.02 release:</p>
-
-            <ul>
-                <li>Settings: allow disabling Vanadium browser app via the Settings UI now that Trichrome (browser, WebView, shared library) has replaced Monochrome (monolithic app) for providing the WebView without having 2 copies of the browser engine</li>
-            </ul>
-
-            <h3 id="2020.05.05.02">
-                <a href="#2020.05.05.02">2020.05.05.02</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a
-                href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ2A.200501.001.B2.2020.05.05.02">QQ2A.200501.001.B2.2020.05.05.02</a> (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL)</li>
-                <li><a
-                href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ2A.200501.001.B3.2020.05.05.02">QQ2A.200501.001.B3.2020.05.05.02</a> (Pixel 2, Pixel 2 XL, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2020.04.14.23 release:</p>
-
-            <ul>
-                <li>full 2020-05-01 security patch level</li>
-                <li>full 2020-05-05 security patch level</li>
-                <li>rebased onto QQ2A.200501.001.B3 release</li>
-                <li>Vanadium: update Chromium base to 81.0.4044.111</li>
-                <li>Vanadium: update Chromium base to 81.0.4044.117</li>
-                <li>disable safe volume feature everywhere instead of only the US</li>
-                <li>hardened_malloc: implement slab allocation memory corruption checks for malloc_usable_size</li>
-                <li>set SCHED_BATCH in the build system and release generation scripts instead of the interactive shell</li>
-                <li>use more sensible factory images zip naming scheme</li>
-                <li>Settings: add missing title for top_level_settings to fix showing it as null in search results</li>
-            </ul>
-
-            <p>Restoration of past features since the 2020.04.14.23 release:</p>
-
-            <ul>
-                <li>Vanadium: use 64-bit Trichrome browser processes</li>
-            </ul>
-
-            <h3 id="2020.04.14.23">
-                <a href="#2020.04.14.23">2020.04.14.23</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ2A.200405.005.2020.04.14.23">QQ2A.200405.005.2020.04.14.23</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2020.04.13.21 release:</p>
-
-            <ul>
-                <li>Settings: adjust wifi_privacy_values to the new values</li>
-                <li>Settings: remove unnecessary workaround for MAC randomization preference</li>
-                <li>Settings: tweak MAC randomization preference wording</li>
-            </ul>
-
-            <h3 id="2020.04.13.21">
-                <a href="#2020.04.13.21">2020.04.13.21</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ2A.200405.005.2020.04.13.21">QQ2A.200405.005.2020.04.13.21</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2020.04.07.10 release:</p>
-
-            <ul>
-                <li>Vanadium: update Chromium base to 81.0.4044.96</li>
-                <li>Vanadium: remove unsupported password leak detection option</li>
-                <li>Vanadium: expand automated string rebranding</li>
-                <li>Vanadium: remove Google prefix from storage settings label</li>
-                <li>reword random MAC options to make them clearer</li>
-                <li>start the final phase of the migration process for random MAC preference values</li>
-                <li>generate manifests for stable releases directly referencing revisions by hash instead of tag name to simplify signature verification for the sources</li>
-            </ul>
-
-            <p>Restoration of past features since the 2020.04.07.10 release:</p>
-
-            <ul>
-                <li>globally enable -ftrivial-auto-var-init=zero rather than porting our downstream -fsanitize=local-init feature</li>
-                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): globally enable -ftrivial-auto-var-init=zero rather than porting our downstream -fsanitize=local-init feature</li>
-                <li>Vanadium: enable -ftrivial-auto-var-init=zero rather than porting our downstream -fsanitize=local-init feature</li>
-            </ul>
-
-            <h3 id="2020.04.07.10">
-                <a href="#2020.04.07.10">2020.04.07.10</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ2A.200405.005.2020.04.07.10">QQ2A.200405.005.2020.04.07.10</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2020.03.23.22 release:</p>
-
-            <ul>
-                <li>full 2020-04-01 security patch level</li>
-                <li>full 2020-04-05 security patch level</li>
-                <li>rebased onto QQ2A.200405.005 release</li>
-                <li>Pixel 3a, Pixel 3a XL: fix SystemUI paths in memory pinning configuration</li>
-                <li>only include Updater app when OFFICIAL_BUILD=true is set in the environment to avoid accidental use of the default update server with unofficial builds that are not compatible</li>
-                <li>Vanadium: update Chromium base to 80.0.3987.162</li>
-                <li>PDF Viewer: update to <a href="https://github.com/GrapheneOS/PdfViewer/releases/tag/3">version 3</a></li>
-                <li>update SELinux policy for officially supported devices based on isolated_app domain split</li>
-                <li>raise protected_fifos / protected_regular from 1 (world-writable directories) to 2 (group-writable directories too)</li>
-                <li>remove use of "Hey Google" as an example feature for battery saver in Settings</li>
-            </ul>
-
-            <h3 id="2020.03.23.22">
-                <a href="#2020.03.23.22">2020.03.23.22</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ2A.200305.002.2020.03.23.22">QQ2A.200305.002.2020.03.23.22</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2020.03.04.16 release:</p>
-
-            <ul>
-                <li>integrate <a href="https://calyxinstitute.org/projects/seedvault-encrypted-backup-for-android">Seedvault</a> backup app as the default backup service</li>
-                <li>integrate port of CalyxOS SetupWizard app to support restoring with Seedvault and other initial setup</li>
-                <li>Vanadium: disable unused safe browsing feature by default (Safe Browsing is
-                currently a no-op due to the lack of Play services, and support for using the
-                local database backend hasn't been implemented. Various changes would be needed to
-                make it available and to make sure that privacy is preserved.)</li>
-                <li>Vanadium: disable unused Google VR support</li>
-                <li>Vanadium: disable content feed suggestions by default</li>
-                <li>Vanadium: update Chromium base to 80.0.3987.149</li>
-                <li>Settings: fix broken upstream MAC randomization value mapping uncovered by the always randomize option value</li>
-                <li>make_key: use scrypt for key derivation used to encrypt keys</li>
-                <li>add script/encrypt_keys.sh and script/decrypt_keys.sh for handling key encryption</li>
-                <li>improve UX, performance and algorithm support for encrypted keys in script/release.sh and script/generate_delta.sh</li>
-                <li>dexpreopt: disable BOARD_USES_SYSTEM_OTHER_ODEX for mainline devices, which was causing odex files to be unintentionally omitted from the system image for modern devices</li>
-                <li>dexpreopt: use speed filter for boot images and non-prebuilts rather than unintentionally only setting it for prebuilts</li>
-                <li>dexpreopt: disable pre-optimization for apps bundled by android-prepare-vendor to work around unresolved issues with conflicting inlined definitions</li>
-            </ul>
-
-            <h3 id="2020.03.04.16">
-                <a href="#2020.03.04.16">2020.03.04.16</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ2A.200305.002.2020.03.04.16">QQ2A.200305.002.2020.03.04.16</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2020.03.03.03 release:</p>
-
-            <ul>
-                <li>Vanadium: backport upstream fix for Android 10 downloads</li>
-                <li>Vanadium: update Chromium base to 80.0.3987.132</li>
-                <li>Settings: avoid overriding MAC address with random persistent MAC address when viewing MAC address</li>
-                <li>finish porting support for per-connection random MAC rather than using the per-network random address</li>
-            </ul>
-
-            <h3 id="2020.03.03.03">
-                <a href="#2020.03.03.03">2020.03.03.03</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ2A.200305.002.2020.03.03.03">QQ2A.200305.002.2020.03.03.03</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2020.02.07.19 release:</p>
-
-            <ul>
-                <li>full 2020-03-01 security patch level</li>
-                <li>full 2020-03-05 security patch level</li>
-                <li>rebased onto QQ2A.200305.002 release</li>
-                <li>use time.grapheneos.org instead of grapheneos.org for HTTPS-based time updates</li>
-                <li>Vanadium: migrate to Trichrome for unified builds of separate browser and WebView apps with a shared library app</li>
-                <li>Vanadium: use org.grapheneos.vanadium.webview instead of com.android.webview as the WebView package name</li>
-                <li>Vanadium: rename WebView to Vanadium System WebView from Android System WebView</li>
-                <li>Vanadium: update Chromium base to 80.0.3987.99</li>
-                <li>Vanadium: update Chromium base to 80.0.3987.117</li>
-                <li>Vanadium: update Chromium base to 80.0.3987.119</li>
-                <li>SELinux policy: remove base system app apk_data_file execute</li>
-                <li>SELinux policy: remove zygote access to apk_data_file</li>
-            </ul>
-
-            <p>Restoration of past features since the 2020.02.07.19 release:</p>
-
-            <ul>
-                <li>Vanadium: stop replacing signature from the Vanadium signing key with the OS release key</li>
-                <li>Settings: add back control over camera access while the screen is locked</li>
-                <li>fix MAC randomization after reboot for the always randomize MAC option</li>
-                <li>SELinux policy: split out base system untrusted_app (normal unprivileged apps) and isolated_app (isolatedProcess sandbox) SELinux policy domains for future work</li>
-                <li>SELinux policy: remove base system app execmod</li>
-                <li>SELinux policy: remove base system app execmem</li>
-                <li>SELinux policy: remove base system app execute_no_trans</li>
-                <li>SELinux policy: remove base system app app_data_file execute</li>
-                <li>SELinux policy: remove base system app ashmem execute</li>
-                <li>SELinux policy: remove base system app tmpfs execute</li>
-                <li>SELinux policy: remove zygote execmem</li>
-                <li>SELinux policy: remove system_server_startup domain</li>
-                <li>add LTE only mobile network configuration option</li>
-            </ul>
-
-            <h3 id="2020.02.07.19">
-                <a href="#2020.02.07.19">2020.02.07.19</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ1A.200205.002.2020.02.07.19">QQ1A.200205.002.2020.02.07.19</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2020.02.04.01 release:</p>
-
-            <ul>
-                <li>rebuild crosshatch kernel to correct build environment issue</li>
-                <li>Vanadium (including WebView): update Chromium base to 80.0.3987.87</li>
-                <li>Vanadium (including WebView): drop partially working AImageReader workarounds</li>
-                <li>fully work around bug with AImageReader caught by CFI on 64-bit to fix crashes during video rendering in Vanadium, Bromite, etc.</li>
-            </ul>
-
-            <p>Restoration of past features since the 2020.02.04.01 release:</p>
-
-            <ul>
-                <li>WebView: use Vanadium WebView as provider</li>
-            </ul>
-
-            <h3 id="2020.02.04.01">
-                <a href="#2020.02.04.01">2020.02.04.01</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ1A.200205.002.2020.02.04.01">QQ1A.200205.002.2020.02.04.01</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2019.01.06.21 release:</p>
-
-            <ul>
-                <li>full 2020-02-01 security patch level</li>
-                <li>full 2020-02-05 security patch level</li>
-                <li>rebased onto QQ1A.200205.002 release</li>
-                <li>remove obsolete Email app</li>
-                <li>Vanadium: update Chromium base to 79.0.3945.116</li>
-                <li>WebView: update to 79.0.3945.116</li>
-                <li>Vanadium: update Chromium base to 79.0.3945.136</li>
-                <li>WebView: update to 79.0.3945.136</li>
-                <li>Vanadium: fully disable AImageReader to fix remaining issues with video playback uncovered by CFI on 64-bit</li>
-                <li>Settings: fix MAC randomization setting for other locales by removing incomplete translations</li>
-            </ul>
-
-            <p>Restoration of past features since the 2019.01.06.21 release:</p>
-
-            <ul>
-                <li>add PIN scrambling feature</li>
-            </ul>
-
-            <h3 id="2020.01.06.21">
-                <a href="#2020.01.06.21">2020.01.06.21</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ1A.200105.002.2020.01.06.21">QQ1A.200105.002.2020.01.06.21</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2019.12.02.23 release:</p>
-
-            <ul>
-                <li>full 2020-01-01 security patch level</li>
-                <li>full 2020-01-05 security patch level</li>
-                <li>rebased onto QQ1A.200105.002 release</li>
-                <li>Vanadium: update Chromium base to 79.0.3945.93</li>
-                <li>Vanadium: disable hiding trivial subdomains</li>
-                <li>WebView: update to 79.0.3945.93</li>
-                <li>add the option to randomize the MAC address for each connection instead of per-network</li>
-                <li>authenticated network time updates via HTTPS</li>
-            </ul>
-
-            <p>Restoration of past features since the 2019.12.02.23 release:</p>
-
-            <ul>
-                <li>Settings: expose control over USB peripheral denial feature</li>
-            </ul>
-
-            <h3 id="2019.12.02.23">
-                <a href="#2019.12.02.23">2019.12.02.23</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ1A.191205.008.2019.12.02.23">QQ1A.191205.008.2019.12.02.23</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL)</li>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ1A.191205.011.2019.12.02.23">QQ1A.191205.011.2019.12.02.23</a> (Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2019.11.05.23 release:</p>
-
-            <ul>
-                <li>full 2019-12-01 security patch level</li>
-                <li>full 2019-12-05 security patch level</li>
-                <li>rebased onto QQ1A.191205.011 release</li>
-                <li>Pixel 3a, Pixel 3a XL: fix userspace hw_random stirring service</li>
-                <li>Vanadium: update Chromium base to 78.0.3904.96</li>
-                <li>WebView: update to 78.0.3904.96</li>
-                <li>Vanadium: update Chromium base to 78.0.3904.108</li>
-                <li>WebView: update to 78.0.3904.108</li>
-                <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/17">version 17</a></li>
-                <li>QuickSearchBox: disable widget</li>
-                <li>QuickSearchBox: disable launcher icon</li>
-                <li>Launcher: rebranding</li>
-                <li>require unlocking to use work tile</li>
-            </ul>
-
-            <h3 id="2019.11.05.23">
-                <a href="#2019.11.05.23">2019.11.05.23</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QP1A.191105.003.2019.11.05.23">QP1A.191105.003.2019.11.05.23</a> (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL)</li>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QP1A.191105.004.2019.11.05.23">QP1A.191105.004.2019.11.05.23</a> (Pixel 2, Pixel 2 XL, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2019.11.04.23 release:</p>
-
-            <ul>
-                <li>Vanadium: fix Services preferences menu</li>
-                <li>WebView: avoid incompatibility due to wrong apk variant</li>
-            </ul>
-
-            <h3 id="2019.11.04.23">
-                <a href="#2019.11.04.23">2019.11.04.23</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QP1A.191105.003.2019.11.04.23">QP1A.191105.003.2019.11.04.23</a> (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL)</li>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QP1A.191105.004.2019.11.04.23">QP1A.191105.004.2019.11.04.23</a> (Pixel 2, Pixel 2 XL, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2019.09.25.00 release:</p>
-
-            <ul>
-                <li>full 2019-11-01 security patch level</li>
-                <li>full 2019-11-05 security patch level</li>
-                <li>rebased onto QP1A.191105.004 release</li>
-                <li>Settings: disable legacy suggestions mode</li>
-                <li>recovery: GrapheneOS branding for fastboot mode</li>
-                <li>Vanadium: update Chromium base to 77.0.3865.116</li>
-                <li>WebView: update to 77.0.3865.116</li>
-                <li>Vanadium: update Chromium base to 78.0.3904.62</li>
-                <li>WebView: update to 78.0.3904.62</li>
-                <li>Vanadium: update Chromium base to 78.0.3904.90</li>
-                <li>WebView: update to 78.0.3904.90</li>
-                <li>kernel (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): mark functions with address taken via assembly (this fixes compatibility with CFI in a build with !CONFIG_MODULES)</li>
-                <li>protect static TLS from stack buffer overflows</li>
-                <li>drop legacy Pixel and Pixel XL support due to absence of any GrapheneOS device maintainers, the end of vendor support and an increasingly large security gap with current generation devices for the hardware, firmware and device / generation specific software</li>
-            </ul>
-
-            <p>Restoration of past features since the 2019.09.25.00 release:</p>
-
-            <ul>
-                <li>Bluetooth: add alloc_size attribute to OSI allocator</li>
-                <li>protect pthread_internal_t from stack buffer overflows</li>
-                <li>add secondary stack randomization</li>
-                <li>kernel (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): disable dynamic kernel module support (resulting in substantially improved CFI granularity)</li>
-            </ul>
-
-            <h3 id="2019.10.07.21">
-                <a href="#2019.10.07.21">2019.10.07.21</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QP1A.191005.007.A1.2019.10.07.21">QP1A.191005.007.A1.2019.10.07.21</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, emulator, generic, other targets)</li>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QP1A.191005.007.2019.10.07.21">QP1A.191005.007.2019.10.07.21</a> (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL)</li>
-            </ul>
-
-            <p>Changes since the 2019.09.25.00 release:</p>
-
-            <ul>
-                <li>full 2019-10-01 security patch level</li>
-                <li>full 2019-10-05 security patch level</li>
-                <li>full 2019-10-06 security patch level</li>
-                <li>rebased onto QP1A.191005.007.A1 release</li>
-                <li>add changes to support disabling full preloading with exec spawning to the public libcore API</li>
-                <li>add OTHER_SENSORS to the public frameworks/base API</li>
-                <li>Messaging app: fix notifications with a backport</li>
-                <li>Vanadium: switch back to ChromeModern (standalone browser app) from Monochrome (monolithic browser + WebView app, no longer supported for Android 10) until Vanadium is moved to Trichrome (separate browser and WebView apps with a third shared library app)</li>
-                <li>unified kernel tree (kernel/google/crosshatch) for Pixel 3, Pixel 3 XL, Pixel 3a and Pixel 3a XL</li>
-            </ul>
-
-            <p>Restoration of past features since the 2019.09.25.00 release:</p>
-
-            <ul>
-                <li>begin generating / uploading delta updates from the last release to the current release</li>
-            </ul>
-
-            <h3 id="2019.09.25.00">
-                <a href="#2019.09.25.00">2019.09.25.00</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QP1A.190711.020.C3.2019.09.25.00">QP1A.190711.020.C3.2019.09.25.00</a> (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QP1A.190711.020.2019.09.25.00">QP1A.190711.020.2019.09.25.00</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL)</li>
-            </ul>
-
-            <p>Changes since the 2019.09.23.19 release:</p>
-
-            <ul>
-                <li>update to QP1A.190711.020.C3 bug fix release</li>
-                <li>fix granting Network and Sensors permissions at install time</li>
-                <li>fix wording for Network permission group</li>
-            </ul>
-
-            <h3 id="2019.09.23.19">
-                <a href="#2019.09.23.19">2019.09.23.19</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QP1A.190711.020.2019.09.23.19">QP1A.190711.020.2019.09.23.19</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2019.09.21.18 release:</p>
-
-            <ul>
-                <li>disable enforcing Runtime Resource Overlays for baseline overlays to work around incompatibility with exec spawning</li>
-                <li>enable exec spawning for com.android.phone again</li>
-            </ul>
-
-            <h3 id="2019.09.21.18">
-                <a href="#2019.09.21.18">2019.09.21.18 preview</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QP1A.190711.020.2019.09.21.18">QP1A.190711.020.2019.09.21.18</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2019.09.18.14 release:</p>
-
-            <ul>
-                <li>Settings: use Mainline branding for APEX components</li>
-                <li>Vanadium: update Chromium base to 77.0.3865.92</li>
-                <li>WebView: update to 77.0.3865.92</li>
-                <li>temporarily disable exec spawning for com.android.phone</li>
-                <li>Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, mainline: disable updatable apex for simplicity</li>
-                <li>Pixel 2, Pixel 2 XL: enable increased system.img inode count</li>
-                <li>script: replace networkstack key</li>
-            </ul>
-
-            <h3 id="2019.09.18.14">
-                <a href="#2019.09.18.14">2019.09.18.14 preview</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QP1A.190711.020.2019.09.18.14">QP1A.190711.020.2019.09.18.14</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
-            </ul>
-
-            <p>Changes since the 2019.08.25.15 release:</p>
-
-            <ul>
-                <li>full port to Android 10 with some exceptions (listed below)</li>
-                <li>full 2019-08-05 security patch level</li>
-                <li>full 2019-09-01 security patch level</li>
-                <li>full 2019-09-05 security patch level</li>
-                <li>temporarily add back standalone WebView (77.0.3865.73) until Vanadium supports it for Android 10</li>
-                <li>Vanadium: update Chromium base to 76.0.3809.132</li>
-                <li>Vanadium: update Chromium base to 77.0.3865.73</li>
-                <li>Updater: update targetSdkVersion to 29</li>
-                <li>retrofit dynamic partitions for Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL</li>
-                <li>disable GSI keys</li>
-                <li>kernel (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): temporarily disable slab canary implementation until an issue is narrowed down and addressed</li>
-                <li>kernel (Pixel 3, Pixel 3 XL): temporarily re-enable dynamic kernel module support until an issue is narrowed down and addressed (no dynamic kernel modules are ever actually loaded but something breaks internally with it disabled)</li>
-                <li>add guard page between the stack and the new static TLS region</li>
-                <li>bionic: pthread_internal_t changes have not yet been ported over so that feature is temporarily gone</li>
-            </ul>
-
-            <h3 id="2019.08.25.15">
-                <a href="#2019.08.25.15">2019.08.25.15</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190801.002.2019.08.25.15">PQ3A.190801.002.2019.08.25.15</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, emulator, generic, other targets)</li>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3B.190801.002.2019.08.25.15">PQ3B.190801.002.2019.08.25.15</a> (Pixel 3a, Pixel 3a XL)</li>
-            </ul>
-
-            <p>Changes since the 2019.08.05.19 release:</p>
-
-            <ul>
-                <li>add missing privileged permission whitelist for SdkSetup in SDK emulator builds</li>
-                <li>set up Vanadium for other architectures (arm, x86, x86_64)</li>
-                <li>hardened_malloc (GrapheneOS only): remove workaround for use-after-free in the citadel (Titan M) driver's key attestation support since it was fixed upstream</li>
-                <li>hardened_malloc: update libdivide to 2.0</li>
-                <li>Vanadium (browser and WebView): update Chromium base to 76.0.3809.111</li>
-                <li>Vanadium: redirect settings help icon</li>
-                <li>Vanadium: set default search engine to DuckDuckGo</li>
-                <li>apply partial fix for package manager original-package feature</li>
-                <li>PDF Viewer: update to <a href="https://github.com/GrapheneOS/PdfViewer/releases/tag/2">version 2</a></li>
-                <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/16">version 16</a></li>
-                <li>add Vanadium to the apps that cannot be disabled via Settings (can still be disabled) since the warning isn't enough to deter people from unknowingly breaking apps using the WebView</li>
-                <li>Updater: add settings entry to manually trigger check for updates</li>
-                <li>Updater: reschedule update check job on channel change</li>
-                <li>arm, x86 and x86_64 are now supported / tested architectures</li>
-                <li>generic and emulator build targets are now supported / tested for development usage (not suitable for secure production releases)</li>
-            </ul>
-
-            <h3 id="2019.08.05.19">
-                <a href="#2019.08.05.19">2019.08.05.19</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190801.002.2019.08.05.19">PQ3A.190801.002.2019.08.05.19</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, other devices)</li>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3B.190801.002.2019.08.05.19">PQ3B.190801.002.2019.08.05.19</a> (Pixel 3a, Pixel 3a XL)</li>
-            </ul>
-
-            <p>Changes since the 2019.07.16.22 release:</p>
-
-            <ul>
-                <li>full 2019-08-01 security patch level</li>
-                <li>partial 2019-08-05 security patch level (not yet fully available)</li>
-                <li>Vanadium (browser and WebView): update Chromium base to 76.0.3809.89</li>
-                <li>Vanadium: expand string rebranding including covering translations</li>
-                <li>Vanadium: rename Sync and Google services to Services</li>
-                <li>Vanadium: remove data reduction preference</li>
-                <li>Vanadium: remove translate offer preference</li>
-                <li>Vanadium: remove sync preferences</li>
-                <li>Vanadium: remove navigation error preference</li>
-                <li>Vanadium: remove safe browsing reporting preference</li>
-                <li>Vanadium: remove usage and crash reports preference</li>
-                <li>Vanadium: remove url keyed anonymized data preference</li>
-                <li>Vanadium: disable contextual search by default</li>
-                <li>Vanadium: remove redundant services preference category</li>
-                <li>Vanadium (browser and WebView): use a unified Vanadium signing key instead of the device-specific release key</li>
-                <li>rename WebView provider to Vanadium</li>
-                <li>SELinux policy: label protected_{fifos,regular} as proc_security (this is needed for init to override the default values)</li>
-            </ul>
-
-            <h3 id="2019.07.16.22">
-                <a href="#2019.07.16.22">2019.07.16.22</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190705.001.2019.07.16.22">PQ3A.190705.001.2019.07.16.22</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL)</li>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190705.003.2019.07.16.22">PQ3A.190705.003.2019.07.16.22</a> (Pixel 3, Pixel 3 XL, other devices)</li>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3B.190705.003.2019.07.16.22">PQ3B.190705.003.2019.07.16.22</a> (Pixel 3a, Pixel 3a XL)</li>
-            </ul>
-
-            <p>Changes since the 2019.07.01.21 release:</p>
-
-            <ul>
-                <li>Vanadium (browser and WebView): update Chromium base to 75.0.3770.143</li>
-                <li>Vanadium: disable media router media remoting by default</li>
-                <li>Vanadium: disable media router by default (avoids the triggering warning about not having Play services)</li>
-                <li>Vanadium: remove Help &amp; feedback menu entry</li>
-                <li>Vanadium: further string rebranding from Chromium / Chrome to Vanadium</li>
-                <li>Vanadium: disable unused reporting feature at compile-time</li>
-                <li>Vanadium: disable unused remoting feature at compile-time</li>
-                <li>Vanadium (browser and WebView): move from external/chromium to external/vanadium in the GrapheneOS source tree and rename module from Chromium to Vanadium</li>
-                <li>Vanadium: disable offering translations by default</li>
-                <li>Vanadium: disable prefetching suggested pages by default</li>
-                <li>Vanadium: disable browser sign in feature by default</li>
-                <li>Vanadium: disable safe browsing reporting opt-in by default</li>
-                <li>extend release.sh to call the script for signing factory images</li>
-                <li>extend release.sh to call the script for generating update channel metadata</li>
-                <li>kernel build script (Pixel, Pixel XL, Pixel 3a, Pixel 3a XL): verify that no arguments are passed</li>
-                <li>kernel build script (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL): verify that a single argument (device variant) is passed</li>
-                <li>enable kernel mitigations for file spoofing</li>
-            </ul>
-
-            <p>Restoration of past features since the 2019.07.01.21 release:</p>
-
-            <ul>
-                <li>Vanadium (browser and WebView): enable type-based CFI for virtual calls</li>
-                <li>enable kernel mitigations for link races</li>
-                <li>kernel (Pixel 2, Pixel 2 XL): backport fixes for SLAB_FREELIST_RANDOM</li>
-                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): enable SLAB_FREELIST_RANDOM</li>
-                <li>kernel (Pixel 2, Pixel 2 XL): backport slub dynamic DEBUG_PAGEALLOC setting</li>
-                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): backport slub free list pointer obfuscation</li>
-                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): backport slub free list pointer obfuscation prefetch fix</li>
-                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): backport slub native double free detection</li>
-                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): enable SLAB_FREELIST_HARDENED</li>
-                <li>kernel (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): enable DEBUG_LIST</li>
-                <li>kernel (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): enable DEBUG_SG</li>
-                <li>kernel (Pixel, Pixel XL): reduce DEBUG_SG virt_addr_valid check to a warning (this works around a bug in the legacy QCE driver)</li>
-                <li>kernel (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): enable DEBUG_NOTIFIERS</li>
-                <li>kernel (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): enable DEBUG_CREDENTIALS</li>
-                <li>kernel (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): enable SCHED_STACK_END_CHECK</li>
-                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): bug on !PageSlab &amp;&amp; !PageCompound in ksize</li>
-                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): always perform cache_from_obj consistency checks</li>
-                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): bug on kmem_cache_free with the wrong cache</li>
-                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): real slab_equal_or_root check for !MEMCG_KMEM</li>
-                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): add missing cache_from_obj !PageSlab check</li>
-                <li>kernel (Pixel 2, Pixel 2 XL): backport upstreamed FORTIFY_SOURCE implementation</li>
-                <li>kernel (Pixel 2, Pixel 2 XL): backport upstreamed leading zero byte for stack canary</li>
-                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): add simpler page sanitization</li>
-                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): add support for verifying page sanitization</li>
-                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): slub: add basic full slab sanitization</li>
-                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): slub: add support for verifying slab sanitization</li>
-                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): slub: add multi-purpose random canaries</li>
-            </ul>
-
-            <h3 id="2019.07.01.21">
-                <a href="#2019.07.01.21">2019.07.01.21</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190705.001.2019.07.01.21">PQ3A.190705.001.2019.07.01.21</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL)</li>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190705.003.2019.07.01.21">PQ3A.190705.003.2019.07.01.21</a> (Pixel 3, Pixel 3 XL, other devices)</li>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3B.190705.003.2019.07.01.21">PQ3B.190705.003.2019.07.01.21</a> (Pixel 3a, Pixel 3a XL)</li>
-            </ul>
-
-            <p>Changes since the 2019.06.23.05 release:</p>
-
-            <ul>
-                <li>full 2019-07-01 security patch level</li>
-                <li>full 2019-07-05 security patch level</li>
-                <li>rebased onto PQ3A.190705.003/PQ3B.190705.003 releases</li>
-                <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/15">version 15</a></li>
-            </ul>
-
-            <p>Restoration of past features since the 2019.06.23.05 release:</p>
-
-            <ul>
-                <li>add GrapheneOS PDF Viewer app (version 1)</li>
-                <li>Vanadium: stop ignoring download location prompt setting</li>
-                <li>Vanadium: show download prompt again by default</li>
-            </ul>
-
-            <h3 id="2019.06.23.05">
-                <a href="#2019.06.23.05">2019.06.23.05</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190605.003.2019.06.23.05">PQ3A.190605.003.2019.06.23.05</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, other devices)</li>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3B.190605.006.2019.06.23.05">PQ3B.190605.006.2019.06.23.05</a> (Pixel 3a, Pixel 3a XL)</li>
-            </ul>
-
-            <p>Changes since the 2019.06.14.02 release:</p>
-
-            <ul>
-                <li>hardened_malloc: use copy_size to check for canaries (tiny performance / hardening fix and avoids an erroneous abort in a corner case with realloc from 0 byte allocations)</li>
-                <li>hardened_malloc: update libdivide to 1.1</li>
-                <li>Pixel 3a, Pixel 3a XL: raise maximum users to 16</li>
-                <li>Pixel 3a, Pixel 3a XL: disable system_other odex</li>
-                <li>Pixel 3a, Pixel 3a XL: disable system_other preloads_copy</li>
-                <li>Pixel 3a, Pixel 3a XL: show connected mac randomization feature</li>
-                <li>Pixel 3a, Pixel 3a XL: move to custom kernel</li>
-                <li>Pixel 3a, Pixel 3a XL: use monolithic kernel builds</li>
-                <li>kernel (Pixel 3a, Pixel 3a XL): disable slab merging</li>
-                <li>kernel (Pixel 3a, Pixel 3a XL): add toggle for disabling newly added USB devices</li>
-                <li>kernel (Pixel 3a, Pixel 3a XL): replace SECURITY_SMACK with SECURITY_NETWORK</li>
-                <li>kernel (Pixel 3a, Pixel 3a XL): mark qcedev data const</li>
-                <li>Vanadium (browser and WebView): update Chromium base to 75.0.3770.101</li>
-                <li>Vanadium: disable sensors access by default</li>
-                <li>Vanadium: disable third party cookies by default</li>
-                <li>Vanadium: disable background sync by default</li>
-                <li>Vanadium (browser and WebView): stub out battery API</li>
-                <li>Vanadium: disable search logo</li>
-                <li>Vanadium: always use local new tab page</li>
-                <li>Vanadium: disable payment support by default</li>
-            </ul>
-
-            <p>Restoration of past features since the 2019.06.14.02 release:</p>
-
-            <ul>
-                <li>Vanadium: do not enable default search engine notification permission by default</li>
-            </ul>
-
-            <h3 id="2019.06.14.02">
-                <a href="#2019.06.14.02">2019.06.14.02</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190605.003.2019.06.14.02">PQ3A.190605.003.2019.06.14.02</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, other devices)</li>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3B.190605.006.2019.06.14.02">PQ3B.190605.006.2019.06.14.02</a> (Pixel 3a, Pixel 3a XL)</li>
-            </ul>
-
-            <p>Changes since the 2019.06.03.18 release:</p>
-
-            <ul>
-                <li>Vanadium (browser and WebView): update Chromium base to 75.0.3770.67</li>
-                <li>add back brk system call to the seccomp whitelist for compatibility with Go</li>
-                <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/13">version 13</a></li>
-                <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/14">version 14</a></li>
-                <li>Music: backport bug fix for passing CTS</li>
-                <li>Updater: replace seamlessupdate.app with releases.grapheneos.org alias</li>
-                <li>add initial experimental support for the Pixel 3a and Pixel 3a XL</li>
-                <li>Pixel 2, Pixel 2 XL: set AVB rollback index to security patch timestamp (backport of the implementation for the Pixel 3)</li>
-            </ul>
-
-            <p>Restoration of past features since the 2019.06.03.18 release:</p>
-
-            <ul>
-                <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL): replace SECURITY_SMACK with SECURITY_NETWORK</li>
-            </ul>
-
-            <h3 id="2019.06.03.18">
-                <a href="#2019.06.03.18">2019.06.03.18</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190605.003.2019.06.03.18">PQ3A.190605.003.2019.06.03.18</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, other devices)</li>
-            </ul>
-
-            <p>Changes since the 2019.05.18.20 release:</p>
-
-            <ul>
-                <li>full 2019-06-01 security patch level</li>
-                <li>full 2019-06-05 security patch level</li>
-                <li>rebased onto PQ3A.190605.003 release</li>
-                <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/11">version 11</a></li>
-                <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/12">version 12</a></li>
-                <li>hardened_malloc (GrapheneOS only): further expand workaround for Pixel 3 and Pixel 3 XL camera issues</li>
-            </ul>
-
-            <p>Restoration of past features since the 2019.05.18.20 release:</p>
-
-            <ul>
-                <li>disable exec spawning when using debugging options</li>
-                <li>enable exec spawning by default</li>
-                <li>enable Verizon visual voicemail support</li>
-                <li>kernel (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL): add toggle for disabling newly added USB devices</li>
-                <li>add properties for controlling deny_new_usb</li>
-                <li>implement dynamic deny_new_usb toggle mode</li>
-                <li>set deny_new_usb feature to dynamic by default</li>
-                <li>sepolicy: deny_new_usb sysctl and system property policy</li>
-            </ul>
-
-            <h3 id="2019.05.18.20">
-                <a href="#2019.05.18.20">2019.05.18.20</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190505.001.2019.05.18.20">PQ3A.190505.001.2019.05.18.20</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL)</li>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190505.002.2019.05.18.20">PQ3A.190505.002.2019.05.18.20</a> (Pixel 3, Pixel 3 XL, other devices)</li>
-            </ul>
-
-            <p>Changes since the 2019.05.08.15 release:</p>
-
-            <ul>
-                <li>GrapheneOS logo mask</li>
-                <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/10">version 10</a></li>
-                <li>add preload parameter for avoiding full preload with exec</li>
-                <li>raise maximum users to 16</li>
-                <li>Vanadium (browser and WebView): update Chromium base to 74.0.3729.157</li>
-                <li>hardened_malloc (GrapheneOS only): apply temporary workaround for citadel HAL
-                    use-after-free (need to start building vendor HALs from the sources to fix
-                    issues like this)</li>
-            </ul>
-
-            <p>Restoration of past features since the 2019.05.08.15 release:</p>
-
-            <ul>
-                <li>disable OpenGL preloading for exec spawning</li>
-                <li>disable resource preloading for exec spawning</li>
-                <li>disable ICU cache pinning for exec spawning</li>
-                <li>disable class preloading for exec spawning</li>
-                <li>disable WebView reservation for exec spawning</li>
-                <li>disable JCA provider warm up for exec spawning</li>
-                <li>avoid AssetManager errors with exec spawning</li>
-            </ul>
-
-            <h3 id="2019.05.08.15">
-                <a href="#2019.05.08.15">2019.05.08.15</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190505.001.2019.05.08.15">PQ3A.190505.001.2019.05.08.15</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL)</li>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190505.002.2019.05.08.15">PQ3A.190505.002.2019.05.08.15</a> (Pixel 3, Pixel 3 XL, other devices)</li>
-            </ul>
-
-            <p>Changes since the 2019.05.07.00 release:</p>
-
-            <ul>
-                <li>fix cellular, hotspot and battery saver quick settings tiles (they became no-ops when unlocked)</li>
-            </ul>
-
-            <h3 id="2019.05.07.00">
-                <a href="#2019.05.07.00">2019.05.07.00</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190505.001.2019.05.07.00">PQ3A.190505.001.2019.05.07.00</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL)</li>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190505.002.2019.05.07.00">PQ3A.190505.002.2019.05.07.00</a> (Pixel 3, Pixel 3 XL, other devices)</li>
-            </ul>
-
-            <p>Changes since the 2019.04.01.19 release:</p>
-
-            <ul>
-                <li>full 2019-05-01 security patch level</li>
-                <li>full 2019-05-05 security patch level</li>
-                <li>rebased onto PQ3A.190505.002 release</li>
-                <li>add Pixel and Pixel XL support including standard changes to kernel and device code</li>
-                <li>Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL: fix hw_random permissions</li>
-                <li>bundle Auditor (version 9)</li>
-                <li>Chromium (browser and WebView): update to 74.0.3729.136</li>
-                <li>Chromium: enable strict site isolation by default</li>
-                <li>Chromium: initial rebranding to Vanadium including icon recolor</li>
-                <li>hardened_malloc: extensive work on refactoring, micro-optimization and documentation (see commits for details)</li>
-                <li>hardened_malloc: implement mallinfo and mallinfo extensions for Android</li>
-                <li>hardened_malloc: implement Android API for requesting purging</li>
-                <li>hardened_malloc: implement the option of large size classes (enabled by default)</li>
-                <li>hardened_malloc: support extended range of small size classes (enabled by default)</li>
-                <li>hardened_malloc: support for slabs with 1 slot for largest sizes</li>
-                <li>hardened_malloc: use round-robin assignment to arenas</li>
-                <li>hardened_malloc: disable current in-place growth code path</li>
-                <li>hardened_malloc: harden arena implementation</li>
-                <li>hardened_malloc: fix non-init size for malloc_object_size extension</li>
-                <li>hardened_malloc: shrink initial region table size to fit in 1 page</li>
-                <li>hardened_malloc (GrapheneOS only): expand workaround for Pixel 3 and Pixel 3 XL camera issues</li>
-                <li>Pixel 3, Pixel 3 XL: change SystemUIGoogle pinning to SystemUI</li>
-            </ul>
-
-            <p>Restoration of past features since the 2019.04.01.19 release:</p>
-
-            <ul>
-                <li>use -fwrapv when signed overflow checking is off</li>
-                <li>add exec-based spawning support (disabled by default for now)</li>
-                <li>require unlocking to use battery saver quick tile</li>
-                <li>require unlocking to use cellular quick tile</li>
-                <li>require unlocking to use hotspot quick tile</li>
-                <li>require unlocking to use data saver quick tile</li>
-                <li>require unlocking to use rotation lock quick tile</li>
-                <li>require unlocking to use wifi quick tile</li>
-                <li>require unlocking to use airplane mode quick tile</li>
-                <li>require unlocking to use bluetooth quick tile</li>
-                <li>require unlocking to use nfc quick tile</li>
-                <li>add support for kernels without module support enabled to the VTS and compatibility tests</li>
-                <li>kernel (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL): disable slab merging</li>
-                <li>kernel (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL): disable loadable kernel module support</li>
-                <li>kernel (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL): mark qcedev data const</li>
-                <li>kernel (Pixel 2, Pixel 2 XL): disable unused ramdisk compression formats</li>
-                <li>SELinux policy: remove priv_app app_data_file execute</li>
-                <li>SELinux policy: remove dumpstate ashmem execute and execmem (GrapheneOS doesn't use the ART JIT compiler)</li>
-                <li>SELinux policy: remove healthd ashmem execute and execmem (GrapheneOS doesn't use the ART JIT compiler)</li>
-                <li>SELinux policy: auditallow app execmem (moving back towards an exception system)</li>
-                <li>SELinux policy: auditallow app ashmem execute (moving back towards an exception system)</li>
-                <li>SELinux policy: auditallow ephemeral_app app_data_file execute (moving back towards an exception system)</li>
-                <li>SELinux policy: auditallow untrusted_app_all execmod (moving back towards an exception system)</li>
-                <li>SELinux policy: auditallow untrusted_app_all app_data_file execute (moving back towards an exception system)</li>
-                <li>SELinux policy: auditallow untrusted_app_all app_data_file execute_no_trans (moving back towards an exception system)</li>
-            </ul>
-
-            <h3 id="2019.04.01.19">
-                <a href="#2019.04.01.19">2019.04.01.19</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ2A.190405.003.2019.04.01.19">PQ2A.190405.003.2019.04.01.19</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, other devices)</li>
-            </ul>
-
-            <p>Initial release of GrapheneOS. Detailed changelogs were not written at this
-            point.</p>
-
-            <h3 id="2019.03.05.03">
-                <a href="#2019.03.05.03">2019.03.05.03</a>
-            </h3>
-
-            <p>Tags:</p>
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ2A.190305.002.2019.03.05.03">PQ2A.190305.002.2019.03.05.03</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, other devices)</li>
-            </ul>
-
-            <p>Final and only tagged release of the AndroidHardening project before it became
-            GrapheneOS. Earlier AndroidHardening releases were only snapshots and are not listed
-            here. Detailed changelogs were not written at this point.</p>
+            <section id="changelog">
+                <h2>
+                    <a href="#changelog">Changelog</a>
+                </h2>
+
+                <p>List of tagged releases. Snapshot releases without tags such as early releases of
+                the project and early device support releases are not listed.</p>
+
+                <!--
+
+                <h3 id="2020.11.27.15">
+                    <a href="#2020.11.27.15">2020.11.27.15</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.201105.002.2020.11.27.15">RP1A.201105.002.2020.11.27.15</a> (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2020.11.27.15 release:</p>
+
+                <ul>
+                    <li>script: support any number of source versions for deltas</li>
+                    <li>set read timeout for HTTPS network time connections</li>
+                    <li>disable keepalive for HTTPS network time connections</li>
+                    <li>always disconnect HTTPS time connections</li>
+                    <li>remove unnecessary Accept-Charset header for HTTPS network time requests</li>
+                    <li>adbd: backport upstream fix for use-after-move bug</li>
+                    <li>Vanadium: ask permission to play protected media by default</li>
+                    <li>Vanadium: disable autofill server communication by default</li>
+                    <li>Settings: remove partial MAC randomization translations</li>
+                </ul>
+
+                -->
+
+                <h3 id="2020.11.27.15">
+                    <a href="#2020.11.27.15">2020.11.27.15</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.201105.002.2020.11.27.15">RP1A.201105.002.2020.11.27.15</a> (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2020.11.25.22 release:</p>
+
+                <ul>
+                    <li>Vanadium: disable autofill assistant by default (restores previous Vanadium behavior)</li>
+                    <li>Vanadium: backport upstream fix for missing manifest changes (this fixes issues with opening URLs in external apps)</li>
+                    <li>Vanadium: disable component updater pings by default</li>
+                    <li>Settings: disallow configuring connectivity checks for users disallowed to configure Private DNS by the administrator (in theory, it could be a separate option, but we need to use one that's already part of the public API)</li>
+                </ul>
+
+                <h3 id="2020.11.25.22">
+                    <a href="#2020.11.25.22">2020.11.25.22 preview</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.201105.002.2020.11.25.22">RP1A.201105.002.2020.11.25.22</a> (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2020.11.05.18 release:</p>
+
+                <ul>
+                    <li>PDF Viewer: update to <a href="https://github.com/GrapheneOS/PdfViewer/releases/tag/6">version 6</a></li>
+                    <li>NFC: backport compatibility fix for certain broken apps from AOSP master</li>
+                    <li>Bluetooth: backport fix for Bluetooth capacity string</li>
+                    <li>Vanadium: update Chromium base to 86.0.4240.198</li>
+                    <li>Vanadium: update Chromium base to 87.0.4280.66</li>
+                    <li>Vanadium: disable new high-level functionality for fetching variations</li>
+                    <li>Vanadium: disable unused Omaha update check support</li>
+                    <li>Vanadium: disable GaiaAuthFetcher code due to upstream bug</li>
+                    <li>Vanadium: disable deprecated FTP support by default</li>
+                    <li>Pixel 4 XL: correctly mark certain unsupported features as unavailable per the Pixel 4</li>
+                    <li>Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a: use device-specific NFC configuration</li>
+                    <li>add initial runtime flags handling for exec-based spawning to improve compatibility</li>
+                    <li>Pixel 3, Pixel 3 XL, Pixel 4, Pixel 4 XL, Pixel 4a: disable chained vbmeta to simplify verified boot and improve attestation (Pixel 3a and Pixel 3a XL never used this)</li>
+                    <li>Seedvault: update to latest revision</li>
+                    <li>NetworkStack: remove change to connectivity check handling that's no longer required with Android 11</li>
+                    <li>use GrapheneOS connectivity check server by default for connectivity checks in the OS</li>
+                    <li>Settings: add setting to toggle between GrapheneOS connectivity check server and the standard Android connectivity check URLs to continue supporting blending in with other Android devices without a VPN</li>
+                    <li>Updater: remove unused READ_PHONE_STATE permission</li>
+                </ul>
+
+                <h3 id="2020.11.05.18">
+                    <a href="#2020.11.05.18">2020.11.05.18</a>
+                </h3>
+
+                <p>While waiting for this release to become available, you can manually add a battery
+                optimization exemption for the Clock app via Settings ➔ Apps &amp; notifications ➔
+                Special app access ➔ Battery optimization where you can select "All apps", scroll down
+                to the Clock app and manually add an exemption. Should get this added upstream.</p>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.201105.002.2020.11.05.18">RP1A.201105.002.2020.11.05.18</a> (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2020.11.03.03 release:</p>
+
+                <ul>
+                    <li>Clock: add battery optimization exemption required for the new target API level (this is missing in AOSP)</li>
+                </ul>
+
+                <h3 id="2020.11.03.03">
+                    <a href="#2020.11.03.03">2020.11.03.03</a>
+                </h3>
+
+                <p>Pixel 2 and Pixel 2 XL support will now be provided via separate extended support
+                releases for obsolete devices. We'll be making the first one based on an official
+                release in the near future. They can only reach the 2020-11-01 security patch this
+                month due to the lack of a release with changes outside the scope of AOSP such as new
+                GPU firmware.</p>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.201105.002.2020.11.03.03">RP1A.201105.002.2020.11.03.03</a> (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2020.10.23.04 release:</p>
+
+                <ul>
+                    <li>full 2020-11-01 security patch level</li>
+                    <li>full 2020-11-05 security patch level</li>
+                    <li>rebased onto RP1A.201105.002 release</li>
+                    <li>Vanadium: update Chromium base to 86.0.4240.110</li>
+                    <li>Vanadium: update Chromium base to 86.0.4240.114</li>
+                    <li>Vanadium: update Chromium base to 86.0.4240.185</li>
+                    <li>Vanadium: enable prefetch privacy changes by default</li>
+                    <li>Vanadium: enable reduced referrer granularity by default</li>
+                    <li>Camera: request fine location instead of coarse location for the disabled-by-default geotagging feature</li>
+                    <li>Camera: remove unused INTERNET permission</li>
+                    <li>Clock: apply assorted fixes from upstream</li>
+                    <li>add explicit detection of fastboot being missing to the factory images flash-all scripts</li>
+                    <li>Gallery: apply upstream fix from NXP for null pointer dereference bug</li>
+                    <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/22">version 22</a></li>
+                    <li>script: make generate_deltas ask for the password only once</li>
+                    <li>enable screenshot action for 3 button nav too (the upstream release limited it to being enabled for 2 button navigation)</li>
+                </ul>
+
+                <h3 id="2020.10.23.04">
+                    <a href="#2020.10.23.04">2020.10.23.04</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.201005.004.2020.10.23.04">RP1A.201005.004.2020.10.23.04</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL)</li>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.201005.006.2020.10.23.04">RP1A.201005.006.2020.10.23.04</a> (Pixel 4a, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2020.10.06.02 release:</p>
+
+                <ul>
+                    <li>Vanadium: update Chromium base to 86.0.4240.75</li>
+                    <li>Vanadium: update Chromium base to 86.0.4240.99</li>
+                    <li>Vanadium: remove deprecated, unused storage permissions</li>
+                    <li>replace standard WebView with Vanadium WebView again</li>
+                    <li>Pixel 4, Pixel 4 XL: disable unsupported aware feature so that ambient display is available</li>
+                    <li>Seedvault: switch to upstream development branch now that it supports Android 11</li>
+                    <li>SELinux policy: port hardening from Android 10</li>
+                    <li>hardened_malloc: log fatal errors (detected memory corruption bugs) to Android's log system</li>
+                    <li>fix minor issues with Android 11 port of Wi-Fi and Bluetooth quick tile unlock requirement</li>
+                    <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a): apply Bluetooth fixes from the stable kernel branch including fixes for CVE-2020-12351, CVE-2020-12352 and CVE-2020-24490</li>
+                    <li>improve experimental support for the Pixel 4a including porting most device-specific changes implemented for other devices</li>
+                </ul>
+
+                <h3 id="2020.10.06.02">
+                    <a href="#2020.10.06.02">2020.10.06.02</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.201005.004.2020.10.06.02">RP1A.201005.004.2020.10.06.02</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL)</li>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.201005.006.2020.10.06.02">RP1A.201005.006.2020.10.06.02</a> (emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2020.10.01.23 release:</p>
+
+                <ul>
+                    <li>full 2020-10-01 security patch level</li>
+                    <li>full 2020-10-05 security patch level</li>
+                    <li>rebased onto RP1A.201005.006 release</li>
+                    <li>hardened_malloc: optimize and harden initialization sanity checks</li>
+                    <li>work around upstream bug causing null pointer crashes from media notifications in secondary profiles</li>
+                    <li>enable secondary user logout support by default (purges credential encrypted storage keys from memory)</li>
+                    <li>add back screenshot action to global action list as an alternative to the key chord (power button + volume down) and screenshot button in the gesture navigation recent apps list</li>
+                    <li>reject received unix timestamps before build unix time for HTTPS-based network time implementation</li>
+                    <li>Clock: apply fixes for various upstream issues</li>
+                    <li>Updater: harden PendingIntent usage</li>
+                </ul>
+
+                <h3 id="2020.10.01.23">
+                    <a href="#2020.10.01.23">2020.10.01.23</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.200720.009.2020.10.01.23">RP1A.200720.009.2020.10.01.23</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL)</li>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.200720.011.2020.10.01.23">RP1A.200720.011.2020.10.01.23</a> (emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2020.09.29.20 release:</p>
+
+                <ul>
+                    <li>Pixel 4 (non-XL): stop overriding default Bluetooth toggle to disable it by default like other devices</li>
+                    <li>use otatools.zip for generating delta updates</li>
+                    <li>Settings: fix integration of LTE only mode option to preferred network setting</li>
+                    <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/21">version 21</a></li>
+                </ul>
+
+                <h3 id="2020.09.29.20">
+                    <a href="#2020.09.29.20">2020.09.29.20</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.200720.009.2020.09.29.20">RP1A.200720.009.2020.09.29.20</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL)</li>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.200720.011.2020.09.29.20">RP1A.200720.011.2020.09.29.20</a> (emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2020.09.25.00 release:</p>
+
+                <ul>
+                    <li>add overlay to show 2 button navigation option in Settings again</li>
+                    <li>Calculator: gesture compatibility fix</li>
+                    <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/20">version 20</a></li>
+                    <li>WebView: update to 85.0.4183.120</li>
+                    <li>WebView: update to 85.0.4183.127</li>
+                    <li>Vanadium: update Chromium base to 85.0.4183.127</li>
+                    <li>fix syncing time for the port of our HTTPS-based network time update implementation to Android 11</li>
+                    <li>stop using dedicated keys for signing OsuLogin and ServiceWifiResources rather than simply using the regular testkey/releasekey</li>
+                </ul>
+
+                <h3 id="2020.09.25.00">
+                    <a href="#2020.09.25.00">2020.09.25.00</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.200720.009.2020.09.25.00">RP1A.200720.009.2020.09.25.00</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL)</li>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.200720.011.2020.09.25.00">RP1A.200720.011.2020.09.25.00</a> (emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2020.09.18.13 release:</p>
+
+                <ul>
+                    <li>fix Wi-Fi MAC randomization settings for translations that were missing our added option</li>
+                    <li>Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL: add missing configuration for biometric sensors in Android 11</li>
+                    <li>fix upstream bug in the NFC quick settings tile for Android 11 breaking it after reboot</li>
+                    <li>fix NFC quick settings tile icon handling for Android 11</li>
+                    <li>Settings: fix upstream NFC preference so that it listens for changes and can see it being toggled via the NFC tile</li>
+                    <li>Vanadium: update Chromium base to 85.0.4183.120</li>
+                    <li>Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL: update APNs with carriersettings-extractor</li>
+                    <li>add back SetupWizard</li>
+                    <li>Settings: fix launching WifiSettings</li>
+                </ul>
+
+                <p>We're no longer going to be listing out restored past features in a separate section for the release notes.</p>
+
+                <h3 id="2020.09.18.13">
+                    <a href="#2020.09.18.13">2020.09.18.13 preview</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.200720.009.2020.09.18.13">RP1A.200720.009.2020.09.18.13</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL)</li>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RP1A.200720.011.2020.09.18.13">RP1A.200720.011.2020.09.18.13</a> (emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2020.09.11.14 release:</p>
+
+                <ul>
+                    <li>initial port to Android 11 with most GrapheneOS changes ported over (missing most SELinux policy hardening, some Pixel 4 / 4 XL kernel side channel mitigations, finer-grained Pixel 4 kernel Control Flow Integrity and the setup wizard)</li>
+                    <li>full 2020-09-05 security patch level</li>
+                    <li>temporarily use stock WebView until the next release of Chromium is available with public support for Android 11 to provide the WebView via Vanadium again</li>
+                    <li>fix VPN lockdown setting getting overridden on user stop</li>
+                    <li>SELinux policy: disable gmscore_app domain</li>
+                    <li>SELinux policy: use dedicated SELinux domain for Updater app based on the modern untrusted_app domain</li>
+                    <li>stop disabling support for stable local privacy addresses since Android 11 handles it better by only using it when MAC randomization is disabled</li>
+                    <li>update to a new version of Seedvault for Android 11</li>
+                    <li>build and use otatools.zip for signing releases instead of an ad-hoc approach</li>
+                    <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/19">version 19</a></li>
+                    <li>Updater: update targetSdkVersion to 30</li>
+                    <li>disable Scudo on 64-bit since we use the substantially more secure hardened_malloc</li>
+                    <li>fully replace jemalloc with Scudo on 32-bit</li>
+                    <li>hardened_malloc: improve stats implementation</li>
+                </ul>
+
+                <p>Installations made before this project was renamed to GrapheneOS and before the
+                first official release of the Android Hardening project will be forced to factory
+                reset as part of this upgrade, due to lack of backwards compatibility with the
+                unaltered AOSP encryption format.</p>
+
+                <h3 id="2020.09.11.14">
+                    <a href="#2020.09.11.14">2020.09.11.14</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ3A.200805.001.2020.09.11.14">QQ3A.200805.001.2020.09.11.14</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Testing the Android 11 kernels was useful, but we weren't able to ship the previous
+                release due to issues uncovered during testing. The Android 11 kernels have minor
+                backwards incompatible changes in the drivers for at least a subset of the devices so
+                we'll need to ship them with the rest of the changes. Thanks to our testers for
+                helping us with this. This will be the new final Android 10 release, assuming no
+                further problems are uncovered during testing.</p>
+
+                <p>Changes since the 2020.09.10.05 release:</p>
+
+                <ul>
+                    <li>revert to using the Android 10 kernels on the devices that were switched over early due to backwards incompatible changes in some drivers</li>
+                </ul>
+
+                <h3 id="2020.09.10.05">
+                    <a href="#2020.09.10.05">2020.09.10.05 preview</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ3A.200805.001.2020.09.10.05">QQ3A.200805.001.2020.09.10.05</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>This should be the final GrapheneOS release based on Android 10. It ships the
+                device-independent monthly security patches and migrates over to using the Android 11
+                branch of the GrapheneOS kernels for most devices, which brings all the upstream
+                kernel hardening in Android 11 along with the full September kernel updates. The
+                remaining patches for the full 2020-09-05 patch level require finishing the migration
+                to Android 11 in order to ship the September update for the other device support code.
+                It's possible we could ship some of this early, but instead we're going to be focusing
+                on finishing the enormous task of migrating to Android 11. Further help with bringing
+                up support for the devices with Android 11 and porting over each of the GrapheneOS
+                hardening features to it would be greatly appreciated. Donations are also extremely
+                helpful. GrapheneOS has brought on another full time developer using donated funds and
+                there are 3 part time developers helping with Android 11. We're also collaborating
+                with CalyxOS and others in the AOSP Alliance to bring up fully signed, production
+                device support.</p>
+
+                <p>Changes since the 2020.08.07.01 release:</p>
+
+                <ul>
+                    <li>full 2020-09-01 security patch level</li>
+                    <li>partial 2020-09-05 security patch level (missing userspace device support changes until port to Android 11 is finished)</li>
+                    <li>Vanadium: update Chromium base to 84.0.4147.125</li>
+                    <li>Vanadium: update Chromium base to 85.0.4183.81</li>
+                    <li>Vanadium: update Chromium base to 85.0.4183.101</li>
+                    <li>Vanadium: remove unused learn more link from Incognito page</li>
+                    <li>recovery: reject updates with serialno constraints to match the GrapheneOS Updater app</li>
+                    <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): update base kernel to Android 11</li>
+                    <li>SetupWizard: update base to latest CalyxOS SetupWizard</li>
+                    <li>conscrypt: drop temporary upstream revert of version code which was accidentally kept during a rebase</li>
+                    <li>backport fix for USB audio regression from Android 11</li>
+                </ul>
+
+                <p>Restoration of past features since the 2020.07.06.20 release:</p>
+
+                <ul>
+                    <li>kernel (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL): enable intra-object FORTIFY_SOURCE overflow checks</li>
+                </ul>
+
+                <h3 id="2020.08.07.01">
+                    <a href="#2020.08.07.01">2020.08.07.01</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ3A.200805.001.2020.08.07.01">QQ3A.200805.001.2020.08.07.01</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2020.08.03.22 release:</p>
+
+                <ul>
+                    <li>SELinux policy: fix executing apk libraries as executables for third party applications</li>
+                </ul>
+
+                <h3 id="2020.08.03.22">
+                    <a href="#2020.08.03.22">2020.08.03.22</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ3A.200805.001.2020.08.03.22">QQ3A.200805.001.2020.08.03.22</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2020.07.06.20 release:</p>
+
+                <ul>
+                    <li>full 2020-08-01 security patch level</li>
+                    <li>full 2020-08-05 security patch level</li>
+                    <li>rebased onto QQ3A.200805.001 release</li>
+                    <li>fix build for Pixel 3 when Pixel 3 XL kernel is not built</li>
+                    <li>fix secondary stack hardening when a non-page-size multiple stack size is specified</li>
+                    <li>fix picking up previous build date when doing incremental builds</li>
+                    <li>Vanadium: update Chromium base to 84.0.4147.89</li>
+                    <li>Vanadium: update Chromium base to 84.0.4147.105</li>
+                    <li>Vanadium: update Chromium base to 84.0.4147.111</li>
+                    <li>Vanadium: remove Chromium logo in chrome://version</li>
+                </ul>
+
+                <p>Restoration of past features since the 2020.07.06.20 release:</p>
+
+                <ul>
+                    <li>kernel (Pixel 4, Pixel 4 XL): read-only data expansion</li>
+                </ul>
+
+                <h3 id="2020.07.06.20">
+                    <a href="#2020.07.06.20">2020.07.06.20</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ3A.200705.002.2020.07.06.20">QQ3A.200705.002.2020.07.06.20</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2020.06.22.21 release:</p>
+
+                <ul>
+                    <li>full 2020-07-01 security patch level</li>
+                    <li>full 2020-07-05 security patch level</li>
+                    <li>rebased onto QQ3A.200705.002 release</li>
+                    <li>change TrichromeLibrary package name</li>
+                    <li>drop MAC randomization preference migration code</li>
+                    <li>Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL: update APNs with carriersettings-extractor</li>
+                    <li>disable network time refresh when network time is disabled (previous behavior inherited from upstream)</li>
+                    <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL): make reproducible builds simpler</li>
+                    <li>kernel (Pixel 4, Pixel 4 XL): use max mmap entropy by default to cover init</li>
+                </ul>
+
+                <p>Restoration of past features since the 2020.06.22.21 release:</p>
+
+                <ul>
+                    <li>kernel (Pixel 4, Pixel 4 XL): enable UNMAP_KERNEL_AT_EL0 Meltdown mitigation (KPTI)</li>
+                    <li>kernel (Pixel 4, Pixel 4 XL): enable ARM64_SSBD Spectre v4 mitigation</li>
+                    <li>kernel (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL): enable PANIC_ON_OOPS</li>
+                    <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL): set PANIC_TIMEOUT to -1</li>
+                    <li>kernel (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL): disable SECURITY_SELINUX_DEVELOP</li>
+                </ul>
+
+                <h3 id="2020.06.22.21">
+                    <a href="#2020.06.22.21">2020.06.22.21</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ3A.200605.001.2020.06.22.21">QQ3A.200605.001.2020.06.22.21</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 4, Pixel 4 XL)</li>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ3A.200605.002.2020.06.22.21">QQ3A.200605.002.2020.06.22.21</a> (Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2020.06.02.02 release:</p>
+
+                <ul>
+                    <li>SystemUI: handle non-SRGB wallpapers</li>
+                    <li>Vanadium: update Chromium base to 83.0.4103.96</li>
+                    <li>Vanadium: update Chromium base to 83.0.4103.101</li>
+                    <li>Vanadium: update Chromium base to 83.0.4103.106</li>
+                    <li>script/generate_metadata.py: add channel name to update channel metadata</li>
+                    <li>Updater: sanity check channel name in update channel metadata</li>
+                    <li>Updater: raise minSdkVersion to 29</li>
+                    <li>Updater: extract care_map.pb rather than care_map.txt</li>
+                    <li>Updater: use a different zip for streaming updates (still an experimental / hidden feature)</li>
+                    <li>disable RFC 7217 support (stable link-local IPv6 privacy addresses) and stick to link-local IP addresses based on the (random) MAC addresses</li>
+                    <li>rebase SetupWizard changes onto upstream CalyxOS SetupWizard</li>
+                    <li>SetupWizard: use system captive portal URL, rather than a custom Google URL</li>
+                    <li>NetworkStack: ignore captive portal fallbacks when one is set at runtime</li>
+                    <li>factory images flash-all script: reboot to bootloader after installing update</li>
+                    <li>make_key: use 4096-bit RSA keys</li>
+                    <li>script/release.sh: auto-detect AVB algorithm to support 4096-bit RSA keys for verified boot</li>
+                    <li>add experimental Pixel 4 and Pixel 4 XL support</li>
+                    <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/18">version 18</a></li>
+                </ul>
+
+                <p>Restoration of past features since the 2020.06.02.02 release:</p>
+
+                <ul>
+                    <li>kernel (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): add back FORTIFY_SOURCE enhancements</li>
+                    <li>kernel (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): add back userspace ASLR improvements</li>
+                </ul>
+
+                <h3 id="2020.06.02.02">
+                    <a href="#2020.06.02.02">2020.06.02.02</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ3A.200605.001.2020.06.02.02">QQ3A.200605.001.2020.06.02.02</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL)</li>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ3A.200605.002.2020.06.02.02">QQ3A.200605.002.2020.06.02.02</a> (Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2020.05.29.00 release:</p>
+
+                <ul>
+                    <li>full 2020-06-01 security patch level</li>
+                    <li>full 2020-06-05 security patch level</li>
+                    <li>rebased onto QQ3A.200605.002 release</li>
+                    <li>Vanadium: update Chromium base to 83.0.4103.83</li>
+                    <li>factory images: add fastboot version detection to flash-all.bat on Windows</li>
+                </ul>
+
+                <h3 id="2020.05.29.00">
+                    <a href="#2020.05.29.00">2020.05.29.00</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ2A.200501.001.B2.2020.05.29.00">QQ2A.200501.001.B2.2020.05.29.00</a> (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL)</li>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ2A.200501.001.B3.2020.05.29.00">QQ2A.200501.001.B3.2020.05.29.00</a> (Pixel 2, Pixel 2 XL, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2020.05.23.12 release:</p>
+
+                <ul>
+                    <li>PDF Viewer: update to <a href="https://github.com/GrapheneOS/PdfViewer/releases/tag/4">version 4</a></li>
+                    <li>PDF Viewer: update to <a href="https://github.com/GrapheneOS/PdfViewer/releases/tag/5">version 5</a></li>
+                    <li>revert attempt at fixing audio DeviceDescriptor sorting</li>
+                    <li>hardened_malloc: temporarily disable SLOT_RANDOMIZE for audioserver to work around DeviceDescriptor sorting bug</li>
+                </ul>
+
+                <h3 id="2020.05.23.12">
+                    <a href="#2020.05.23.12">2020.05.23.12</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ2A.200501.001.B2.2020.05.23.12">QQ2A.200501.001.B2.2020.05.23.12</a> (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL)</li>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ2A.200501.001.B3.2020.05.23.12">QQ2A.200501.001.B3.2020.05.23.12</a> (Pixel 2, Pixel 2 XL, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2020.05.05.02 release:</p>
+
+                <ul>
+                    <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): use Clang for compiling code for the host too</li>
+                    <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): add build-tools prebuilts to PATH to reduce external dependencies and avoid potential reproducibility issues</li>
+                    <li>add build-tools prebuilts to PATH in the release signing and delta generation scripts to reduce external dependencies and avoid potential reproducibility issues</li>
+                    <li>fix upstream bug relying on malloc addresses for sort order of 3 items, causing Bluetooth A2DP audio to fail 2/3 of the time with hardened_malloc when the expected item isn't first</li>
+                    <li>use the same datetime for build number and build date</li>
+                    <li>always use UTC as the time zone for build dates</li>
+                    <li>update GrapheneOS fork of android-prepare-vendor to the collaborative AOSPAlliance fork</li>
+                    <li>raise minimum supported API level to 28 from 23, producing a warning for apps targeting API &lt; 28 (the Play Store disallows uploading new apps or app updates targeting API &lt; 28 so this isn't an aggressive warning)</li>
+                    <li>Vanadium: update Chromium base to 81.0.4044.138</li>
+                    <li>Vanadium: update Chromium base to 83.0.4103.60</li>
+                    <li>Vanadium: disable media DRM preprovisioning</li>
+                    <li>Vanadium: most private WebRTC IP handling policy by default</li>
+                    <li>set SCHED_BATCH in the kernel build scripts</li>
+                </ul>
+
+                <p>Restoration of past features since the 2020.05.05.02 release:</p>
+
+                <ul>
+                    <li>Settings: allow disabling Vanadium browser app via the Settings UI now that Trichrome (browser, WebView, shared library) has replaced Monochrome (monolithic app) for providing the WebView without having 2 copies of the browser engine</li>
+                </ul>
+
+                <h3 id="2020.05.05.02">
+                    <a href="#2020.05.05.02">2020.05.05.02</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a
+                    href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ2A.200501.001.B2.2020.05.05.02">QQ2A.200501.001.B2.2020.05.05.02</a> (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL)</li>
+                    <li><a
+                    href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ2A.200501.001.B3.2020.05.05.02">QQ2A.200501.001.B3.2020.05.05.02</a> (Pixel 2, Pixel 2 XL, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2020.04.14.23 release:</p>
+
+                <ul>
+                    <li>full 2020-05-01 security patch level</li>
+                    <li>full 2020-05-05 security patch level</li>
+                    <li>rebased onto QQ2A.200501.001.B3 release</li>
+                    <li>Vanadium: update Chromium base to 81.0.4044.111</li>
+                    <li>Vanadium: update Chromium base to 81.0.4044.117</li>
+                    <li>disable safe volume feature everywhere instead of only the US</li>
+                    <li>hardened_malloc: implement slab allocation memory corruption checks for malloc_usable_size</li>
+                    <li>set SCHED_BATCH in the build system and release generation scripts instead of the interactive shell</li>
+                    <li>use more sensible factory images zip naming scheme</li>
+                    <li>Settings: add missing title for top_level_settings to fix showing it as null in search results</li>
+                </ul>
+
+                <p>Restoration of past features since the 2020.04.14.23 release:</p>
+
+                <ul>
+                    <li>Vanadium: use 64-bit Trichrome browser processes</li>
+                </ul>
+
+                <h3 id="2020.04.14.23">
+                    <a href="#2020.04.14.23">2020.04.14.23</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ2A.200405.005.2020.04.14.23">QQ2A.200405.005.2020.04.14.23</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2020.04.13.21 release:</p>
+
+                <ul>
+                    <li>Settings: adjust wifi_privacy_values to the new values</li>
+                    <li>Settings: remove unnecessary workaround for MAC randomization preference</li>
+                    <li>Settings: tweak MAC randomization preference wording</li>
+                </ul>
+
+                <h3 id="2020.04.13.21">
+                    <a href="#2020.04.13.21">2020.04.13.21</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ2A.200405.005.2020.04.13.21">QQ2A.200405.005.2020.04.13.21</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2020.04.07.10 release:</p>
+
+                <ul>
+                    <li>Vanadium: update Chromium base to 81.0.4044.96</li>
+                    <li>Vanadium: remove unsupported password leak detection option</li>
+                    <li>Vanadium: expand automated string rebranding</li>
+                    <li>Vanadium: remove Google prefix from storage settings label</li>
+                    <li>reword random MAC options to make them clearer</li>
+                    <li>start the final phase of the migration process for random MAC preference values</li>
+                    <li>generate manifests for stable releases directly referencing revisions by hash instead of tag name to simplify signature verification for the sources</li>
+                </ul>
+
+                <p>Restoration of past features since the 2020.04.07.10 release:</p>
+
+                <ul>
+                    <li>globally enable -ftrivial-auto-var-init=zero rather than porting our downstream -fsanitize=local-init feature</li>
+                    <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): globally enable -ftrivial-auto-var-init=zero rather than porting our downstream -fsanitize=local-init feature</li>
+                    <li>Vanadium: enable -ftrivial-auto-var-init=zero rather than porting our downstream -fsanitize=local-init feature</li>
+                </ul>
+
+                <h3 id="2020.04.07.10">
+                    <a href="#2020.04.07.10">2020.04.07.10</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ2A.200405.005.2020.04.07.10">QQ2A.200405.005.2020.04.07.10</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2020.03.23.22 release:</p>
+
+                <ul>
+                    <li>full 2020-04-01 security patch level</li>
+                    <li>full 2020-04-05 security patch level</li>
+                    <li>rebased onto QQ2A.200405.005 release</li>
+                    <li>Pixel 3a, Pixel 3a XL: fix SystemUI paths in memory pinning configuration</li>
+                    <li>only include Updater app when OFFICIAL_BUILD=true is set in the environment to avoid accidental use of the default update server with unofficial builds that are not compatible</li>
+                    <li>Vanadium: update Chromium base to 80.0.3987.162</li>
+                    <li>PDF Viewer: update to <a href="https://github.com/GrapheneOS/PdfViewer/releases/tag/3">version 3</a></li>
+                    <li>update SELinux policy for officially supported devices based on isolated_app domain split</li>
+                    <li>raise protected_fifos / protected_regular from 1 (world-writable directories) to 2 (group-writable directories too)</li>
+                    <li>remove use of "Hey Google" as an example feature for battery saver in Settings</li>
+                </ul>
+
+                <h3 id="2020.03.23.22">
+                    <a href="#2020.03.23.22">2020.03.23.22</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ2A.200305.002.2020.03.23.22">QQ2A.200305.002.2020.03.23.22</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2020.03.04.16 release:</p>
+
+                <ul>
+                    <li>integrate <a href="https://calyxinstitute.org/projects/seedvault-encrypted-backup-for-android">Seedvault</a> backup app as the default backup service</li>
+                    <li>integrate port of CalyxOS SetupWizard app to support restoring with Seedvault and other initial setup</li>
+                    <li>Vanadium: disable unused safe browsing feature by default (Safe Browsing is
+                    currently a no-op due to the lack of Play services, and support for using the
+                    local database backend hasn't been implemented. Various changes would be needed to
+                    make it available and to make sure that privacy is preserved.)</li>
+                    <li>Vanadium: disable unused Google VR support</li>
+                    <li>Vanadium: disable content feed suggestions by default</li>
+                    <li>Vanadium: update Chromium base to 80.0.3987.149</li>
+                    <li>Settings: fix broken upstream MAC randomization value mapping uncovered by the always randomize option value</li>
+                    <li>make_key: use scrypt for key derivation used to encrypt keys</li>
+                    <li>add script/encrypt_keys.sh and script/decrypt_keys.sh for handling key encryption</li>
+                    <li>improve UX, performance and algorithm support for encrypted keys in script/release.sh and script/generate_delta.sh</li>
+                    <li>dexpreopt: disable BOARD_USES_SYSTEM_OTHER_ODEX for mainline devices, which was causing odex files to be unintentionally omitted from the system image for modern devices</li>
+                    <li>dexpreopt: use speed filter for boot images and non-prebuilts rather than unintentionally only setting it for prebuilts</li>
+                    <li>dexpreopt: disable pre-optimization for apps bundled by android-prepare-vendor to work around unresolved issues with conflicting inlined definitions</li>
+                </ul>
+
+                <h3 id="2020.03.04.16">
+                    <a href="#2020.03.04.16">2020.03.04.16</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ2A.200305.002.2020.03.04.16">QQ2A.200305.002.2020.03.04.16</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2020.03.03.03 release:</p>
+
+                <ul>
+                    <li>Vanadium: backport upstream fix for Android 10 downloads</li>
+                    <li>Vanadium: update Chromium base to 80.0.3987.132</li>
+                    <li>Settings: avoid overriding MAC address with random persistent MAC address when viewing MAC address</li>
+                    <li>finish porting support for per-connection random MAC rather than using the per-network random address</li>
+                </ul>
+
+                <h3 id="2020.03.03.03">
+                    <a href="#2020.03.03.03">2020.03.03.03</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ2A.200305.002.2020.03.03.03">QQ2A.200305.002.2020.03.03.03</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2020.02.07.19 release:</p>
+
+                <ul>
+                    <li>full 2020-03-01 security patch level</li>
+                    <li>full 2020-03-05 security patch level</li>
+                    <li>rebased onto QQ2A.200305.002 release</li>
+                    <li>use time.grapheneos.org instead of grapheneos.org for HTTPS-based time updates</li>
+                    <li>Vanadium: migrate to Trichrome for unified builds of separate browser and WebView apps with a shared library app</li>
+                    <li>Vanadium: use org.grapheneos.vanadium.webview instead of com.android.webview as the WebView package name</li>
+                    <li>Vanadium: rename WebView to Vanadium System WebView from Android System WebView</li>
+                    <li>Vanadium: update Chromium base to 80.0.3987.99</li>
+                    <li>Vanadium: update Chromium base to 80.0.3987.117</li>
+                    <li>Vanadium: update Chromium base to 80.0.3987.119</li>
+                    <li>SELinux policy: remove base system app apk_data_file execute</li>
+                    <li>SELinux policy: remove zygote access to apk_data_file</li>
+                </ul>
+
+                <p>Restoration of past features since the 2020.02.07.19 release:</p>
+
+                <ul>
+                    <li>Vanadium: stop replacing signature from the Vanadium signing key with the OS release key</li>
+                    <li>Settings: add back control over camera access while the screen is locked</li>
+                    <li>fix MAC randomization after reboot for the always randomize MAC option</li>
+                    <li>SELinux policy: split out base system untrusted_app (normal unprivileged apps) and isolated_app (isolatedProcess sandbox) SELinux policy domains for future work</li>
+                    <li>SELinux policy: remove base system app execmod</li>
+                    <li>SELinux policy: remove base system app execmem</li>
+                    <li>SELinux policy: remove base system app execute_no_trans</li>
+                    <li>SELinux policy: remove base system app app_data_file execute</li>
+                    <li>SELinux policy: remove base system app ashmem execute</li>
+                    <li>SELinux policy: remove base system app tmpfs execute</li>
+                    <li>SELinux policy: remove zygote execmem</li>
+                    <li>SELinux policy: remove system_server_startup domain</li>
+                    <li>add LTE only mobile network configuration option</li>
+                </ul>
+
+                <h3 id="2020.02.07.19">
+                    <a href="#2020.02.07.19">2020.02.07.19</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ1A.200205.002.2020.02.07.19">QQ1A.200205.002.2020.02.07.19</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2020.02.04.01 release:</p>
+
+                <ul>
+                    <li>rebuild crosshatch kernel to correct build environment issue</li>
+                    <li>Vanadium (including WebView): update Chromium base to 80.0.3987.87</li>
+                    <li>Vanadium (including WebView): drop partially working AImageReader workarounds</li>
+                    <li>fully work around bug with AImageReader caught by CFI on 64-bit to fix crashes during video rendering in Vanadium, Bromite, etc.</li>
+                </ul>
+
+                <p>Restoration of past features since the 2020.02.04.01 release:</p>
+
+                <ul>
+                    <li>WebView: use Vanadium WebView as provider</li>
+                </ul>
+
+                <h3 id="2020.02.04.01">
+                    <a href="#2020.02.04.01">2020.02.04.01</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ1A.200205.002.2020.02.04.01">QQ1A.200205.002.2020.02.04.01</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2019.01.06.21 release:</p>
+
+                <ul>
+                    <li>full 2020-02-01 security patch level</li>
+                    <li>full 2020-02-05 security patch level</li>
+                    <li>rebased onto QQ1A.200205.002 release</li>
+                    <li>remove obsolete Email app</li>
+                    <li>Vanadium: update Chromium base to 79.0.3945.116</li>
+                    <li>WebView: update to 79.0.3945.116</li>
+                    <li>Vanadium: update Chromium base to 79.0.3945.136</li>
+                    <li>WebView: update to 79.0.3945.136</li>
+                    <li>Vanadium: fully disable AImageReader to fix remaining issues with video playback uncovered by CFI on 64-bit</li>
+                    <li>Settings: fix MAC randomization setting for other locales by removing incomplete translations</li>
+                </ul>
+
+                <p>Restoration of past features since the 2019.01.06.21 release:</p>
+
+                <ul>
+                    <li>add PIN scrambling feature</li>
+                </ul>
+
+                <h3 id="2020.01.06.21">
+                    <a href="#2020.01.06.21">2020.01.06.21</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ1A.200105.002.2020.01.06.21">QQ1A.200105.002.2020.01.06.21</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2019.12.02.23 release:</p>
+
+                <ul>
+                    <li>full 2020-01-01 security patch level</li>
+                    <li>full 2020-01-05 security patch level</li>
+                    <li>rebased onto QQ1A.200105.002 release</li>
+                    <li>Vanadium: update Chromium base to 79.0.3945.93</li>
+                    <li>Vanadium: disable hiding trivial subdomains</li>
+                    <li>WebView: update to 79.0.3945.93</li>
+                    <li>add the option to randomize the MAC address for each connection instead of per-network</li>
+                    <li>authenticated network time updates via HTTPS</li>
+                </ul>
+
+                <p>Restoration of past features since the 2019.12.02.23 release:</p>
+
+                <ul>
+                    <li>Settings: expose control over USB peripheral denial feature</li>
+                </ul>
+
+                <h3 id="2019.12.02.23">
+                    <a href="#2019.12.02.23">2019.12.02.23</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ1A.191205.008.2019.12.02.23">QQ1A.191205.008.2019.12.02.23</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL)</li>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QQ1A.191205.011.2019.12.02.23">QQ1A.191205.011.2019.12.02.23</a> (Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2019.11.05.23 release:</p>
+
+                <ul>
+                    <li>full 2019-12-01 security patch level</li>
+                    <li>full 2019-12-05 security patch level</li>
+                    <li>rebased onto QQ1A.191205.011 release</li>
+                    <li>Pixel 3a, Pixel 3a XL: fix userspace hw_random stirring service</li>
+                    <li>Vanadium: update Chromium base to 78.0.3904.96</li>
+                    <li>WebView: update to 78.0.3904.96</li>
+                    <li>Vanadium: update Chromium base to 78.0.3904.108</li>
+                    <li>WebView: update to 78.0.3904.108</li>
+                    <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/17">version 17</a></li>
+                    <li>QuickSearchBox: disable widget</li>
+                    <li>QuickSearchBox: disable launcher icon</li>
+                    <li>Launcher: rebranding</li>
+                    <li>require unlocking to use work tile</li>
+                </ul>
+
+                <h3 id="2019.11.05.23">
+                    <a href="#2019.11.05.23">2019.11.05.23</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QP1A.191105.003.2019.11.05.23">QP1A.191105.003.2019.11.05.23</a> (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL)</li>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QP1A.191105.004.2019.11.05.23">QP1A.191105.004.2019.11.05.23</a> (Pixel 2, Pixel 2 XL, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2019.11.04.23 release:</p>
+
+                <ul>
+                    <li>Vanadium: fix Services preferences menu</li>
+                    <li>WebView: avoid incompatibility due to wrong apk variant</li>
+                </ul>
+
+                <h3 id="2019.11.04.23">
+                    <a href="#2019.11.04.23">2019.11.04.23</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QP1A.191105.003.2019.11.04.23">QP1A.191105.003.2019.11.04.23</a> (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL)</li>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QP1A.191105.004.2019.11.04.23">QP1A.191105.004.2019.11.04.23</a> (Pixel 2, Pixel 2 XL, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2019.09.25.00 release:</p>
+
+                <ul>
+                    <li>full 2019-11-01 security patch level</li>
+                    <li>full 2019-11-05 security patch level</li>
+                    <li>rebased onto QP1A.191105.004 release</li>
+                    <li>Settings: disable legacy suggestions mode</li>
+                    <li>recovery: GrapheneOS branding for fastboot mode</li>
+                    <li>Vanadium: update Chromium base to 77.0.3865.116</li>
+                    <li>WebView: update to 77.0.3865.116</li>
+                    <li>Vanadium: update Chromium base to 78.0.3904.62</li>
+                    <li>WebView: update to 78.0.3904.62</li>
+                    <li>Vanadium: update Chromium base to 78.0.3904.90</li>
+                    <li>WebView: update to 78.0.3904.90</li>
+                    <li>kernel (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): mark functions with address taken via assembly (this fixes compatibility with CFI in a build with !CONFIG_MODULES)</li>
+                    <li>protect static TLS from stack buffer overflows</li>
+                    <li>drop legacy Pixel and Pixel XL support due to absence of any GrapheneOS device maintainers, the end of vendor support and an increasingly large security gap with current generation devices for the hardware, firmware and device / generation specific software</li>
+                </ul>
+
+                <p>Restoration of past features since the 2019.09.25.00 release:</p>
+
+                <ul>
+                    <li>Bluetooth: add alloc_size attribute to OSI allocator</li>
+                    <li>protect pthread_internal_t from stack buffer overflows</li>
+                    <li>add secondary stack randomization</li>
+                    <li>kernel (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): disable dynamic kernel module support (resulting in substantially improved CFI granularity)</li>
+                </ul>
+
+                <h3 id="2019.10.07.21">
+                    <a href="#2019.10.07.21">2019.10.07.21</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QP1A.191005.007.A1.2019.10.07.21">QP1A.191005.007.A1.2019.10.07.21</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, emulator, generic, other targets)</li>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QP1A.191005.007.2019.10.07.21">QP1A.191005.007.2019.10.07.21</a> (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL)</li>
+                </ul>
+
+                <p>Changes since the 2019.09.25.00 release:</p>
+
+                <ul>
+                    <li>full 2019-10-01 security patch level</li>
+                    <li>full 2019-10-05 security patch level</li>
+                    <li>full 2019-10-06 security patch level</li>
+                    <li>rebased onto QP1A.191005.007.A1 release</li>
+                    <li>add changes to support disabling full preloading with exec spawning to the public libcore API</li>
+                    <li>add OTHER_SENSORS to the public frameworks/base API</li>
+                    <li>Messaging app: fix notifications with a backport</li>
+                    <li>Vanadium: switch back to ChromeModern (standalone browser app) from Monochrome (monolithic browser + WebView app, no longer supported for Android 10) until Vanadium is moved to Trichrome (separate browser and WebView apps with a third shared library app)</li>
+                    <li>unified kernel tree (kernel/google/crosshatch) for Pixel 3, Pixel 3 XL, Pixel 3a and Pixel 3a XL</li>
+                </ul>
+
+                <p>Restoration of past features since the 2019.09.25.00 release:</p>
+
+                <ul>
+                    <li>begin generating / uploading delta updates from the last release to the current release</li>
+                </ul>
+
+                <h3 id="2019.09.25.00">
+                    <a href="#2019.09.25.00">2019.09.25.00</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QP1A.190711.020.C3.2019.09.25.00">QP1A.190711.020.C3.2019.09.25.00</a> (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QP1A.190711.020.2019.09.25.00">QP1A.190711.020.2019.09.25.00</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL)</li>
+                </ul>
+
+                <p>Changes since the 2019.09.23.19 release:</p>
+
+                <ul>
+                    <li>update to QP1A.190711.020.C3 bug fix release</li>
+                    <li>fix granting Network and Sensors permissions at install time</li>
+                    <li>fix wording for Network permission group</li>
+                </ul>
+
+                <h3 id="2019.09.23.19">
+                    <a href="#2019.09.23.19">2019.09.23.19</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QP1A.190711.020.2019.09.23.19">QP1A.190711.020.2019.09.23.19</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2019.09.21.18 release:</p>
+
+                <ul>
+                    <li>disable enforcing Runtime Resource Overlays for baseline overlays to work around incompatibility with exec spawning</li>
+                    <li>enable exec spawning for com.android.phone again</li>
+                </ul>
+
+                <h3 id="2019.09.21.18">
+                    <a href="#2019.09.21.18">2019.09.21.18 preview</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QP1A.190711.020.2019.09.21.18">QP1A.190711.020.2019.09.21.18</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2019.09.18.14 release:</p>
+
+                <ul>
+                    <li>Settings: use Mainline branding for APEX components</li>
+                    <li>Vanadium: update Chromium base to 77.0.3865.92</li>
+                    <li>WebView: update to 77.0.3865.92</li>
+                    <li>temporarily disable exec spawning for com.android.phone</li>
+                    <li>Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, mainline: disable updatable apex for simplicity</li>
+                    <li>Pixel 2, Pixel 2 XL: enable increased system.img inode count</li>
+                    <li>script: replace networkstack key</li>
+                </ul>
+
+                <h3 id="2019.09.18.14">
+                    <a href="#2019.09.18.14">2019.09.18.14 preview</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/QP1A.190711.020.2019.09.18.14">QP1A.190711.020.2019.09.18.14</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, emulator, generic, other targets)</li>
+                </ul>
+
+                <p>Changes since the 2019.08.25.15 release:</p>
+
+                <ul>
+                    <li>full port to Android 10 with some exceptions (listed below)</li>
+                    <li>full 2019-08-05 security patch level</li>
+                    <li>full 2019-09-01 security patch level</li>
+                    <li>full 2019-09-05 security patch level</li>
+                    <li>temporarily add back standalone WebView (77.0.3865.73) until Vanadium supports it for Android 10</li>
+                    <li>Vanadium: update Chromium base to 76.0.3809.132</li>
+                    <li>Vanadium: update Chromium base to 77.0.3865.73</li>
+                    <li>Updater: update targetSdkVersion to 29</li>
+                    <li>retrofit dynamic partitions for Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL</li>
+                    <li>disable GSI keys</li>
+                    <li>kernel (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): temporarily disable slab canary implementation until an issue is narrowed down and addressed</li>
+                    <li>kernel (Pixel 3, Pixel 3 XL): temporarily re-enable dynamic kernel module support until an issue is narrowed down and addressed (no dynamic kernel modules are ever actually loaded but something breaks internally with it disabled)</li>
+                    <li>add guard page between the stack and the new static TLS region</li>
+                    <li>bionic: pthread_internal_t changes have not yet been ported over so that feature is temporarily gone</li>
+                </ul>
+
+                <h3 id="2019.08.25.15">
+                    <a href="#2019.08.25.15">2019.08.25.15</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190801.002.2019.08.25.15">PQ3A.190801.002.2019.08.25.15</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, emulator, generic, other targets)</li>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3B.190801.002.2019.08.25.15">PQ3B.190801.002.2019.08.25.15</a> (Pixel 3a, Pixel 3a XL)</li>
+                </ul>
+
+                <p>Changes since the 2019.08.05.19 release:</p>
+
+                <ul>
+                    <li>add missing privileged permission whitelist for SdkSetup in SDK emulator builds</li>
+                    <li>set up Vanadium for other architectures (arm, x86, x86_64)</li>
+                    <li>hardened_malloc (GrapheneOS only): remove workaround for use-after-free in the citadel (Titan M) driver's key attestation support since it was fixed upstream</li>
+                    <li>hardened_malloc: update libdivide to 2.0</li>
+                    <li>Vanadium (browser and WebView): update Chromium base to 76.0.3809.111</li>
+                    <li>Vanadium: redirect settings help icon</li>
+                    <li>Vanadium: set default search engine to DuckDuckGo</li>
+                    <li>apply partial fix for package manager original-package feature</li>
+                    <li>PDF Viewer: update to <a href="https://github.com/GrapheneOS/PdfViewer/releases/tag/2">version 2</a></li>
+                    <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/16">version 16</a></li>
+                    <li>add Vanadium to the apps that cannot be disabled via Settings (can still be disabled) since the warning isn't enough to deter people from unknowingly breaking apps using the WebView</li>
+                    <li>Updater: add settings entry to manually trigger check for updates</li>
+                    <li>Updater: reschedule update check job on channel change</li>
+                    <li>arm, x86 and x86_64 are now supported / tested architectures</li>
+                    <li>generic and emulator build targets are now supported / tested for development usage (not suitable for secure production releases)</li>
+                </ul>
+
+                <h3 id="2019.08.05.19">
+                    <a href="#2019.08.05.19">2019.08.05.19</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190801.002.2019.08.05.19">PQ3A.190801.002.2019.08.05.19</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, other devices)</li>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3B.190801.002.2019.08.05.19">PQ3B.190801.002.2019.08.05.19</a> (Pixel 3a, Pixel 3a XL)</li>
+                </ul>
+
+                <p>Changes since the 2019.07.16.22 release:</p>
+
+                <ul>
+                    <li>full 2019-08-01 security patch level</li>
+                    <li>partial 2019-08-05 security patch level (not yet fully available)</li>
+                    <li>Vanadium (browser and WebView): update Chromium base to 76.0.3809.89</li>
+                    <li>Vanadium: expand string rebranding including covering translations</li>
+                    <li>Vanadium: rename Sync and Google services to Services</li>
+                    <li>Vanadium: remove data reduction preference</li>
+                    <li>Vanadium: remove translate offer preference</li>
+                    <li>Vanadium: remove sync preferences</li>
+                    <li>Vanadium: remove navigation error preference</li>
+                    <li>Vanadium: remove safe browsing reporting preference</li>
+                    <li>Vanadium: remove usage and crash reports preference</li>
+                    <li>Vanadium: remove url keyed anonymized data preference</li>
+                    <li>Vanadium: disable contextual search by default</li>
+                    <li>Vanadium: remove redundant services preference category</li>
+                    <li>Vanadium (browser and WebView): use a unified Vanadium signing key instead of the device-specific release key</li>
+                    <li>rename WebView provider to Vanadium</li>
+                    <li>SELinux policy: label protected_{fifos,regular} as proc_security (this is needed for init to override the default values)</li>
+                </ul>
+
+                <h3 id="2019.07.16.22">
+                    <a href="#2019.07.16.22">2019.07.16.22</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190705.001.2019.07.16.22">PQ3A.190705.001.2019.07.16.22</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL)</li>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190705.003.2019.07.16.22">PQ3A.190705.003.2019.07.16.22</a> (Pixel 3, Pixel 3 XL, other devices)</li>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3B.190705.003.2019.07.16.22">PQ3B.190705.003.2019.07.16.22</a> (Pixel 3a, Pixel 3a XL)</li>
+                </ul>
+
+                <p>Changes since the 2019.07.01.21 release:</p>
+
+                <ul>
+                    <li>Vanadium (browser and WebView): update Chromium base to 75.0.3770.143</li>
+                    <li>Vanadium: disable media router media remoting by default</li>
+                    <li>Vanadium: disable media router by default (avoids the triggering warning about not having Play services)</li>
+                    <li>Vanadium: remove Help &amp; feedback menu entry</li>
+                    <li>Vanadium: further string rebranding from Chromium / Chrome to Vanadium</li>
+                    <li>Vanadium: disable unused reporting feature at compile-time</li>
+                    <li>Vanadium: disable unused remoting feature at compile-time</li>
+                    <li>Vanadium (browser and WebView): move from external/chromium to external/vanadium in the GrapheneOS source tree and rename module from Chromium to Vanadium</li>
+                    <li>Vanadium: disable offering translations by default</li>
+                    <li>Vanadium: disable prefetching suggested pages by default</li>
+                    <li>Vanadium: disable browser sign in feature by default</li>
+                    <li>Vanadium: disable safe browsing reporting opt-in by default</li>
+                    <li>extend release.sh to call the script for signing factory images</li>
+                    <li>extend release.sh to call the script for generating update channel metadata</li>
+                    <li>kernel build script (Pixel, Pixel XL, Pixel 3a, Pixel 3a XL): verify that no arguments are passed</li>
+                    <li>kernel build script (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL): verify that a single argument (device variant) is passed</li>
+                    <li>enable kernel mitigations for file spoofing</li>
+                </ul>
+
+                <p>Restoration of past features since the 2019.07.01.21 release:</p>
+
+                <ul>
+                    <li>Vanadium (browser and WebView): enable type-based CFI for virtual calls</li>
+                    <li>enable kernel mitigations for link races</li>
+                    <li>kernel (Pixel 2, Pixel 2 XL): backport fixes for SLAB_FREELIST_RANDOM</li>
+                    <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): enable SLAB_FREELIST_RANDOM</li>
+                    <li>kernel (Pixel 2, Pixel 2 XL): backport slub dynamic DEBUG_PAGEALLOC setting</li>
+                    <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): backport slub free list pointer obfuscation</li>
+                    <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): backport slub free list pointer obfuscation prefetch fix</li>
+                    <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): backport slub native double free detection</li>
+                    <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): enable SLAB_FREELIST_HARDENED</li>
+                    <li>kernel (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): enable DEBUG_LIST</li>
+                    <li>kernel (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): enable DEBUG_SG</li>
+                    <li>kernel (Pixel, Pixel XL): reduce DEBUG_SG virt_addr_valid check to a warning (this works around a bug in the legacy QCE driver)</li>
+                    <li>kernel (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): enable DEBUG_NOTIFIERS</li>
+                    <li>kernel (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): enable DEBUG_CREDENTIALS</li>
+                    <li>kernel (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): enable SCHED_STACK_END_CHECK</li>
+                    <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): bug on !PageSlab &amp;&amp; !PageCompound in ksize</li>
+                    <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): always perform cache_from_obj consistency checks</li>
+                    <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): bug on kmem_cache_free with the wrong cache</li>
+                    <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): real slab_equal_or_root check for !MEMCG_KMEM</li>
+                    <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): add missing cache_from_obj !PageSlab check</li>
+                    <li>kernel (Pixel 2, Pixel 2 XL): backport upstreamed FORTIFY_SOURCE implementation</li>
+                    <li>kernel (Pixel 2, Pixel 2 XL): backport upstreamed leading zero byte for stack canary</li>
+                    <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): add simpler page sanitization</li>
+                    <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): add support for verifying page sanitization</li>
+                    <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): slub: add basic full slab sanitization</li>
+                    <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): slub: add support for verifying slab sanitization</li>
+                    <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): slub: add multi-purpose random canaries</li>
+                </ul>
+
+                <h3 id="2019.07.01.21">
+                    <a href="#2019.07.01.21">2019.07.01.21</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190705.001.2019.07.01.21">PQ3A.190705.001.2019.07.01.21</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL)</li>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190705.003.2019.07.01.21">PQ3A.190705.003.2019.07.01.21</a> (Pixel 3, Pixel 3 XL, other devices)</li>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3B.190705.003.2019.07.01.21">PQ3B.190705.003.2019.07.01.21</a> (Pixel 3a, Pixel 3a XL)</li>
+                </ul>
+
+                <p>Changes since the 2019.06.23.05 release:</p>
+
+                <ul>
+                    <li>full 2019-07-01 security patch level</li>
+                    <li>full 2019-07-05 security patch level</li>
+                    <li>rebased onto PQ3A.190705.003/PQ3B.190705.003 releases</li>
+                    <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/15">version 15</a></li>
+                </ul>
+
+                <p>Restoration of past features since the 2019.06.23.05 release:</p>
+
+                <ul>
+                    <li>add GrapheneOS PDF Viewer app (version 1)</li>
+                    <li>Vanadium: stop ignoring download location prompt setting</li>
+                    <li>Vanadium: show download prompt again by default</li>
+                </ul>
+
+                <h3 id="2019.06.23.05">
+                    <a href="#2019.06.23.05">2019.06.23.05</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190605.003.2019.06.23.05">PQ3A.190605.003.2019.06.23.05</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, other devices)</li>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3B.190605.006.2019.06.23.05">PQ3B.190605.006.2019.06.23.05</a> (Pixel 3a, Pixel 3a XL)</li>
+                </ul>
+
+                <p>Changes since the 2019.06.14.02 release:</p>
+
+                <ul>
+                    <li>hardened_malloc: use copy_size to check for canaries (tiny performance / hardening fix and avoids an erroneous abort in a corner case with realloc from 0 byte allocations)</li>
+                    <li>hardened_malloc: update libdivide to 1.1</li>
+                    <li>Pixel 3a, Pixel 3a XL: raise maximum users to 16</li>
+                    <li>Pixel 3a, Pixel 3a XL: disable system_other odex</li>
+                    <li>Pixel 3a, Pixel 3a XL: disable system_other preloads_copy</li>
+                    <li>Pixel 3a, Pixel 3a XL: show connected mac randomization feature</li>
+                    <li>Pixel 3a, Pixel 3a XL: move to custom kernel</li>
+                    <li>Pixel 3a, Pixel 3a XL: use monolithic kernel builds</li>
+                    <li>kernel (Pixel 3a, Pixel 3a XL): disable slab merging</li>
+                    <li>kernel (Pixel 3a, Pixel 3a XL): add toggle for disabling newly added USB devices</li>
+                    <li>kernel (Pixel 3a, Pixel 3a XL): replace SECURITY_SMACK with SECURITY_NETWORK</li>
+                    <li>kernel (Pixel 3a, Pixel 3a XL): mark qcedev data const</li>
+                    <li>Vanadium (browser and WebView): update Chromium base to 75.0.3770.101</li>
+                    <li>Vanadium: disable sensors access by default</li>
+                    <li>Vanadium: disable third party cookies by default</li>
+                    <li>Vanadium: disable background sync by default</li>
+                    <li>Vanadium (browser and WebView): stub out battery API</li>
+                    <li>Vanadium: disable search logo</li>
+                    <li>Vanadium: always use local new tab page</li>
+                    <li>Vanadium: disable payment support by default</li>
+                </ul>
+
+                <p>Restoration of past features since the 2019.06.14.02 release:</p>
+
+                <ul>
+                    <li>Vanadium: do not enable default search engine notification permission by default</li>
+                </ul>
+
+                <h3 id="2019.06.14.02">
+                    <a href="#2019.06.14.02">2019.06.14.02</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190605.003.2019.06.14.02">PQ3A.190605.003.2019.06.14.02</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, other devices)</li>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3B.190605.006.2019.06.14.02">PQ3B.190605.006.2019.06.14.02</a> (Pixel 3a, Pixel 3a XL)</li>
+                </ul>
+
+                <p>Changes since the 2019.06.03.18 release:</p>
+
+                <ul>
+                    <li>Vanadium (browser and WebView): update Chromium base to 75.0.3770.67</li>
+                    <li>add back brk system call to the seccomp whitelist for compatibility with Go</li>
+                    <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/13">version 13</a></li>
+                    <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/14">version 14</a></li>
+                    <li>Music: backport bug fix for passing CTS</li>
+                    <li>Updater: replace seamlessupdate.app with releases.grapheneos.org alias</li>
+                    <li>add initial experimental support for the Pixel 3a and Pixel 3a XL</li>
+                    <li>Pixel 2, Pixel 2 XL: set AVB rollback index to security patch timestamp (backport of the implementation for the Pixel 3)</li>
+                </ul>
+
+                <p>Restoration of past features since the 2019.06.03.18 release:</p>
+
+                <ul>
+                    <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL): replace SECURITY_SMACK with SECURITY_NETWORK</li>
+                </ul>
+
+                <h3 id="2019.06.03.18">
+                    <a href="#2019.06.03.18">2019.06.03.18</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190605.003.2019.06.03.18">PQ3A.190605.003.2019.06.03.18</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, other devices)</li>
+                </ul>
+
+                <p>Changes since the 2019.05.18.20 release:</p>
+
+                <ul>
+                    <li>full 2019-06-01 security patch level</li>
+                    <li>full 2019-06-05 security patch level</li>
+                    <li>rebased onto PQ3A.190605.003 release</li>
+                    <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/11">version 11</a></li>
+                    <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/12">version 12</a></li>
+                    <li>hardened_malloc (GrapheneOS only): further expand workaround for Pixel 3 and Pixel 3 XL camera issues</li>
+                </ul>
+
+                <p>Restoration of past features since the 2019.05.18.20 release:</p>
+
+                <ul>
+                    <li>disable exec spawning when using debugging options</li>
+                    <li>enable exec spawning by default</li>
+                    <li>enable Verizon visual voicemail support</li>
+                    <li>kernel (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL): add toggle for disabling newly added USB devices</li>
+                    <li>add properties for controlling deny_new_usb</li>
+                    <li>implement dynamic deny_new_usb toggle mode</li>
+                    <li>set deny_new_usb feature to dynamic by default</li>
+                    <li>sepolicy: deny_new_usb sysctl and system property policy</li>
+                </ul>
+
+                <h3 id="2019.05.18.20">
+                    <a href="#2019.05.18.20">2019.05.18.20</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190505.001.2019.05.18.20">PQ3A.190505.001.2019.05.18.20</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL)</li>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190505.002.2019.05.18.20">PQ3A.190505.002.2019.05.18.20</a> (Pixel 3, Pixel 3 XL, other devices)</li>
+                </ul>
+
+                <p>Changes since the 2019.05.08.15 release:</p>
+
+                <ul>
+                    <li>GrapheneOS logo mask</li>
+                    <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/10">version 10</a></li>
+                    <li>add preload parameter for avoiding full preload with exec</li>
+                    <li>raise maximum users to 16</li>
+                    <li>Vanadium (browser and WebView): update Chromium base to 74.0.3729.157</li>
+                    <li>hardened_malloc (GrapheneOS only): apply temporary workaround for citadel HAL
+                        use-after-free (need to start building vendor HALs from the sources to fix
+                        issues like this)</li>
+                </ul>
+
+                <p>Restoration of past features since the 2019.05.08.15 release:</p>
+
+                <ul>
+                    <li>disable OpenGL preloading for exec spawning</li>
+                    <li>disable resource preloading for exec spawning</li>
+                    <li>disable ICU cache pinning for exec spawning</li>
+                    <li>disable class preloading for exec spawning</li>
+                    <li>disable WebView reservation for exec spawning</li>
+                    <li>disable JCA provider warm up for exec spawning</li>
+                    <li>avoid AssetManager errors with exec spawning</li>
+                </ul>
+
+                <h3 id="2019.05.08.15">
+                    <a href="#2019.05.08.15">2019.05.08.15</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190505.001.2019.05.08.15">PQ3A.190505.001.2019.05.08.15</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL)</li>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190505.002.2019.05.08.15">PQ3A.190505.002.2019.05.08.15</a> (Pixel 3, Pixel 3 XL, other devices)</li>
+                </ul>
+
+                <p>Changes since the 2019.05.07.00 release:</p>
+
+                <ul>
+                    <li>fix cellular, hotspot and battery saver quick settings tiles (they became no-ops when unlocked)</li>
+                </ul>
+
+                <h3 id="2019.05.07.00">
+                    <a href="#2019.05.07.00">2019.05.07.00</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190505.001.2019.05.07.00">PQ3A.190505.001.2019.05.07.00</a> (Pixel, Pixel XL, Pixel 2, Pixel 2 XL)</li>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ3A.190505.002.2019.05.07.00">PQ3A.190505.002.2019.05.07.00</a> (Pixel 3, Pixel 3 XL, other devices)</li>
+                </ul>
+
+                <p>Changes since the 2019.04.01.19 release:</p>
+
+                <ul>
+                    <li>full 2019-05-01 security patch level</li>
+                    <li>full 2019-05-05 security patch level</li>
+                    <li>rebased onto PQ3A.190505.002 release</li>
+                    <li>add Pixel and Pixel XL support including standard changes to kernel and device code</li>
+                    <li>Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL: fix hw_random permissions</li>
+                    <li>bundle Auditor (version 9)</li>
+                    <li>Chromium (browser and WebView): update to 74.0.3729.136</li>
+                    <li>Chromium: enable strict site isolation by default</li>
+                    <li>Chromium: initial rebranding to Vanadium including icon recolor</li>
+                    <li>hardened_malloc: extensive work on refactoring, micro-optimization and documentation (see commits for details)</li>
+                    <li>hardened_malloc: implement mallinfo and mallinfo extensions for Android</li>
+                    <li>hardened_malloc: implement Android API for requesting purging</li>
+                    <li>hardened_malloc: implement the option of large size classes (enabled by default)</li>
+                    <li>hardened_malloc: support extended range of small size classes (enabled by default)</li>
+                    <li>hardened_malloc: support for slabs with 1 slot for largest sizes</li>
+                    <li>hardened_malloc: use round-robin assignment to arenas</li>
+                    <li>hardened_malloc: disable current in-place growth code path</li>
+                    <li>hardened_malloc: harden arena implementation</li>
+                    <li>hardened_malloc: fix non-init size for malloc_object_size extension</li>
+                    <li>hardened_malloc: shrink initial region table size to fit in 1 page</li>
+                    <li>hardened_malloc (GrapheneOS only): expand workaround for Pixel 3 and Pixel 3 XL camera issues</li>
+                    <li>Pixel 3, Pixel 3 XL: change SystemUIGoogle pinning to SystemUI</li>
+                </ul>
+
+                <p>Restoration of past features since the 2019.04.01.19 release:</p>
+
+                <ul>
+                    <li>use -fwrapv when signed overflow checking is off</li>
+                    <li>add exec-based spawning support (disabled by default for now)</li>
+                    <li>require unlocking to use battery saver quick tile</li>
+                    <li>require unlocking to use cellular quick tile</li>
+                    <li>require unlocking to use hotspot quick tile</li>
+                    <li>require unlocking to use data saver quick tile</li>
+                    <li>require unlocking to use rotation lock quick tile</li>
+                    <li>require unlocking to use wifi quick tile</li>
+                    <li>require unlocking to use airplane mode quick tile</li>
+                    <li>require unlocking to use bluetooth quick tile</li>
+                    <li>require unlocking to use nfc quick tile</li>
+                    <li>add support for kernels without module support enabled to the VTS and compatibility tests</li>
+                    <li>kernel (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL): disable slab merging</li>
+                    <li>kernel (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL): disable loadable kernel module support</li>
+                    <li>kernel (Pixel, Pixel XL, Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL): mark qcedev data const</li>
+                    <li>kernel (Pixel 2, Pixel 2 XL): disable unused ramdisk compression formats</li>
+                    <li>SELinux policy: remove priv_app app_data_file execute</li>
+                    <li>SELinux policy: remove dumpstate ashmem execute and execmem (GrapheneOS doesn't use the ART JIT compiler)</li>
+                    <li>SELinux policy: remove healthd ashmem execute and execmem (GrapheneOS doesn't use the ART JIT compiler)</li>
+                    <li>SELinux policy: auditallow app execmem (moving back towards an exception system)</li>
+                    <li>SELinux policy: auditallow app ashmem execute (moving back towards an exception system)</li>
+                    <li>SELinux policy: auditallow ephemeral_app app_data_file execute (moving back towards an exception system)</li>
+                    <li>SELinux policy: auditallow untrusted_app_all execmod (moving back towards an exception system)</li>
+                    <li>SELinux policy: auditallow untrusted_app_all app_data_file execute (moving back towards an exception system)</li>
+                    <li>SELinux policy: auditallow untrusted_app_all app_data_file execute_no_trans (moving back towards an exception system)</li>
+                </ul>
+
+                <h3 id="2019.04.01.19">
+                    <a href="#2019.04.01.19">2019.04.01.19</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ2A.190405.003.2019.04.01.19">PQ2A.190405.003.2019.04.01.19</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, other devices)</li>
+                </ul>
+
+                <p>Initial release of GrapheneOS. Detailed changelogs were not written at this
+                point.</p>
+
+                <h3 id="2019.03.05.03">
+                    <a href="#2019.03.05.03">2019.03.05.03</a>
+                </h3>
+
+                <p>Tags:</p>
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/PQ2A.190305.002.2019.03.05.03">PQ2A.190305.002.2019.03.05.03</a> (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, other devices)</li>
+                </ul>
+
+                <p>Final and only tagged release of the AndroidHardening project before it became
+                GrapheneOS. Earlier AndroidHardening releases were only snapshots and are not listed
+                here. Detailed changelogs were not written at this point.</p>
+            </section>
         </main>
         <footer>
             <a href="/"><img src="/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
