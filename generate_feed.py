@@ -23,6 +23,7 @@ for release in releases:
         <link href="https://grapheneos.org/releases#{title}"/>
         <title>{title}</title>
         <updated>{time}</updated>
+        <published>{time}</published>
         <content type="xhtml">
             <div xmlns="http://www.w3.org/1999/xhtml">
                 {"".join(content)}
