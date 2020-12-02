@@ -75,7 +75,7 @@ nav ul li a:visited {
     color: #fff; /* 100% white */
 }
 
-nav ul li.active a {
+nav ul li[aria-current] a {
     color: #64b5f6; /* blue300 */
 }
 
