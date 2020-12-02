@@ -567,6 +567,15 @@
                 </li>
             </ul>
 
+            <p>Vanadium does not make connections not requested by the app as part of providing
+            the WebView implementation in the OS. If you choose to use it as your browser, it
+            performs similar connections as the ones performed by the OS above. It does not send
+            any identifying information to servers, etc. but rather fetches some static assets
+            like dictionaries when triggered by usage of the app. We're working on eliminating
+            everything unnecessary and making our servers the default for handling anything that
+            cannot simply be shipped with Vanadium for one reason or another such as requiring
+            quicker updates.</p>
+
             <h3 id="privacy-policy">
                 <a href="#privacy-policy">What is the privacy policy for GrapheneOS services?</a>
             </h3>
