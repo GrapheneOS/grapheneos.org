@@ -76,8 +76,8 @@
                             <li><a href="#hardware-identifiers">Can apps access hardware
                             identifiers?</a></li>
                             <li><a href="#non-hardware-identifiers">What about non-hardware identifiers?</a></li>
-                            <li><a href="#cellular-tracking">What does GrapheneOS do about cellular
-                            tracking and silent SMS?</a></li>
+                            <li><a href="#cellular-tracking">What does GrapheneOS do about cellular tracking,
+                            interception and silent SMS?</a></li>
                             <li><a href="#wifi-privacy">How private is Wi-Fi?</a></li>
                             <li><a href="#default-connections">Which connections do the OS and
                             bundled apps make by default?</a></li>
@@ -380,36 +380,56 @@
             between apps within the same profile, but never between them.</p>
 
             <h3 id="cellular-tracking">
-                <a href="#cellular-tracking">What does GrapheneOS do about cellular tracking and
-                silent SMS?</a>
+                <a href="#cellular-tracking">What does GrapheneOS do about cellular tracking,
+                interception and silent SMS?</a>
             </h3>
 
-            <p>GrapheneOS always considers the network to be hostile and does not implement weak
-            or useless mitigations. Therefore, it does not have the assorted gimmicks seen elsewhere
-            providing privacy/security theatre to make users feel better about these issues. One
-            of the core tenets of GrapheneOS is being honest with users and avoiding scams/frills
-            based around marketing rather than real world privacy/security threat models.</p>
+            <p>GrapheneOS always considers networks to be hostile and avoids placing trust in
+            them. It leaves out various carrier apps included in the stock OS granting carriers
+            varying levels of administrative access beyond standard carrier configuration.
+            GrapheneOS also avoids trust in the cellular network in other ways including providing
+            a secure network time update implementation rather than trusting the cellular network
+            for this. Time is sensitive and can be used to bypass security checks depending on
+            certificate / key expiry.</p>
 
-            <p>Activating airplane mode will fully disable the cellular radio transmit and receive
-            capabilities, which will prevent your phone from being reached from the cellular
-            network and stop your carrier (and anyone impersonating them to you) from tracking the
-            device via the cellular radio. The baseband implements other functionality such as
-            Wi-Fi and GPS functionality, but each of these components is separately sandboxed on
-            the baseband and independent of each other. Enabling airplane mode disables the
-            cellular radio, but Wi-Fi can be re-enabled and used without activating the cellular
-            radio again. This allows using the device as a Wi-Fi only device.</p>
+            <p>Cellular networks use inherently insecure protocols and have many trusted parties.
+            Even if interception of the connection or some other man-in-the-middle attack along
+            the network is not currently occurring, the network is still untrustworthy and
+            information should not be sent unencrypted.</p>
+
+            <p> Authenticated transport encryption such as HTTPS for web sites avoids trusting the
+            cellular network. End-to-end encrypted protocols such as the Signal messaging protocol
+            also avoid trusting the servers. GrapheneOS uses authenticated encryption with modern
+            protocols, forward secrecy and strong cipher configurations for our services. We only
+            recommend apps taking a decent approach in this area.</p>
+
+            <p>Legacy calls and texts should be avoided as they're not secure and trust the
+            carrier / network along with having weak security against other parties. Trying to
+            detect some forms of interception rather than dealing with the root of the problem
+            (unencrypted communications / data transfer) would be foolish and doomed to
+            failure.</p>
+
+            <p>Connecting to your carrier's network inherently depends on you identifying yourself to
+            it and anyone able to obtain administrative access. Activating airplane mode will
+            fully disable the cellular radio transmit and receive capabilities, which will prevent
+            your phone from being reached from the cellular network and stop your carrier (and
+            anyone impersonating them to you) from tracking the device via the cellular radio. The
+            baseband implements other functionality such as Wi-Fi and GPS functionality, but each
+            of these components is separately sandboxed on the baseband and independent of each
+            other. Enabling airplane mode disables the cellular radio, but Wi-Fi can be re-enabled
+            and used without activating the cellular radio again. This allows using the device as
+            a Wi-Fi only device.</p>
 
             <p>The <a href="/usage#lte-only-mode">LTE-only mode added by GrapheneOS is solely
             intended for attack surface reduction</a>. It should not be mistaken as a way to make
             the cellular network into something that can be trusted.</p>
 
-            <p>Even if interception of the connection or some other man-in-the-middle attack along
-            the network is not currently occurring, the network is still untrustworthy and
-            information should not be sent unencrypted. Legacy calls and texts should be avoided
-            as they're not secure and trust the carrier / network along with having weak security
-            against other parties. Trying to detect some forms of interception rather than dealing
-            with the root of the problem (unencrypted communications / data transfer) would be
-            foolish and doomed to failure.</p>
+            <p>GrapheneOS does not add gimmicks without a proper threat model and rationale. We
+            won't include flawed heuristics to guess when the cellular network should be trusted.
+            These kinds of features provide a false sense of security and encourage unwarranted
+            trust in cellular protocols and carrier networks as the default. These also trigger
+            false positives causing unnecessary concern and panic. Make good use of authenticated
+            encryption and airplane mode to avoid needing to depend on an insecure network.</p>
 
             <p>Receiving a silent SMS is not a good indicator of being targeted by your cell
             carrier, police or government because <em>anyone on the cell network can send
