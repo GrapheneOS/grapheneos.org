@@ -43,7 +43,7 @@ code, pre {
     font-family: "Roboto Mono", monospace;
 }
 
-nav ul {
+#site-menu ul {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -51,31 +51,31 @@ nav ul {
     padding: 0;
 }
 
-nav {
+#site-menu {
     background-color: #212121; /* grey900 */
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
 
-nav ul li {
+#site-menu ul li {
     list-style-type: none;
 }
 
-nav ul li:hover {
+#site-menu ul li:hover {
     background-color: #424242; /* grey800 */
 }
 
-nav ul li a {
+#site-menu ul li a {
     color: #fff; /* 100% white */
     display: block;
     text-decoration: none;
     padding: 1em;
 }
 
-nav ul li a:visited {
+#site-menu ul li a:visited {
     color: #fff; /* 100% white */
 }
 
-nav ul li[aria-current] a {
+#site-menu ul li[aria-current] a {
     color: #64b5f6; /* blue300 */
 }
 
