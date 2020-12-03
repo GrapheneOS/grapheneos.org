@@ -138,38 +138,40 @@
                 </ul>
             </nav>
 
-            <h2 id="about-the-releases">
-                <a href="#about-the-releases">About the releases</a>
-            </h2>
+            <section id="about-the-releases">
+                <h2>
+                    <a href="#about-the-releases">About the releases</a>
+                </h2>
 
-            <p>These releases are available as both tags in the source code repositories and
-            official builds.</p>
+                <p>These releases are available as both tags in the source code repositories and
+                official builds.</p>
 
-            <p>The factory images are used for the initial installation and can be verified with
-            signify. See the <a href="/install">installation guide</a> for details.</p>
+                <p>The factory images are used for the initial installation and can be verified with
+                signify. See the <a href="/install">installation guide</a> for details.</p>
 
-            <p>GrapheneOS uses automatic over-the-air updates, but full update packages are listed
-            below for uncommon use cases like never connecting the device to the internet. A full
-            update package can upgrade from any past version to the new version. The over-the-air
-            updates use delta update packages when available. Those aren't currently linked below
-            but may be in the future once they're being used more consistently. Update packages
-            are not for performing the initial installation and you should ignore incorrect guides
-            trying to use them to install the OS.</p>
+                <p>GrapheneOS uses automatic over-the-air updates, but full update packages are listed
+                below for uncommon use cases like never connecting the device to the internet. A full
+                update package can upgrade from any past version to the new version. The over-the-air
+                updates use delta update packages when available. Those aren't currently linked below
+                but may be in the future once they're being used more consistently. Update packages
+                are not for performing the initial installation and you should ignore incorrect guides
+                trying to use them to install the OS.</p>
 
-            <p>The update packages have a internal signature verified by the update client (or
-            recovery when sideloading). Downgrade attacks are also prevented, and downgrades
-            cannot be done unless a special downgrade update package has been signed with the
-            release key. The internal payload for <code>update_engine</code> is also signed,
-            providing another layer of signature verification and downgrade protection. Verified
-            boot and the hardware-backed keystore also act as a final layer of protection.</p>
+                <p>The update packages have a internal signature verified by the update client (or
+                recovery when sideloading). Downgrade attacks are also prevented, and downgrades
+                cannot be done unless a special downgrade update package has been signed with the
+                release key. The internal payload for <code>update_engine</code> is also signed,
+                providing another layer of signature verification and downgrade protection. Verified
+                boot and the hardware-backed keystore also act as a final layer of protection.</p>
 
-            <p>Releases are tested by the developers and are then pushed out via the Beta channel.
-            The release is then pushed out via the Stable channel after being tested by some users
-            using the Beta channel. In some cases, problems are caught during Beta channel testing
-            and a new release is made via the Beta channel to replace the aborted one. In general,
-            it's not possible to downgrade unless a downgrade update package is generated, so use
-            the Stable channel if you cannot tolerate dealing with temporary issues while a new
-            release for the Beta channel is being created.</p>
+                <p>Releases are tested by the developers and are then pushed out via the Beta channel.
+                The release is then pushed out via the Stable channel after being tested by some users
+                using the Beta channel. In some cases, problems are caught during Beta channel testing
+                and a new release is made via the Beta channel to replace the aborted one. In general,
+                it's not possible to downgrade unless a downgrade update package is generated, so use
+                the Stable channel if you cannot tolerate dealing with temporary issues while a new
+                release for the Beta channel is being created.</p>
+            </section>
 
             <section id="stable-channel">
                 <h2>
