@@ -63,9 +63,10 @@
                 <li>Stronger app sandbox</li>
                 <li>Hardened libc providing defenses against the most common classes of vulnerabilities (memory
   corruption)</li>
-                <li>Hardened malloc (memory allocator) leveraging modern hardware capabilities to provide
-  substantial defenses against the most common classes of vulnerabilities (heap memory corruption)
-  along with reducing the lifetime of sensitive data in memory</li>
+                <li>Our own <a href="https://github.com/GrapheneOS/hardened_malloc/blob/master/README.md">hardened malloc (memory allocator)</a>
+                leveraging modern hardware capabilities to provide substantial defenses against
+                the most common classes of vulnerabilities (heap memory corruption) along with
+                reducing the lifetime of sensitive data in memory</li>
                 <li>Hardened kernel</li>
                 <li>Prevention of dynamic native code execution in-memory or via the filesystem
                 for the base OS without going via the package manager, etc.</li>
