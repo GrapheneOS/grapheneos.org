@@ -113,800 +113,806 @@
                 </ul>
             </nav>
 
-            <h2 id="device-support">
-                <a href="#device-support">Device support</a>
-            </h2>
-
-            <h3 id="supported-devices">
-                <a href="#supported-devices">Which devices are supported?</a>
-            </h3>
-
-            <p>GrapheneOS has official production support for the Pixel 3, Pixel 3 XL, Pixel 3a,
-            Pixel 3a XL, Pixel 4, Pixel 4 XL and Pixel 4a. The release tags for these devices have
-            official builds and updates available. These devices meet the stringent privacy and
-            security standards and have substantial upstream and downstream hardening specific to
-            the devices.</p>
-
-            <p>The Pixel 4a 5G and Pixel 5 aren't currently supported. The Pixel 4a 5G is poorly
-            named and isn't really a variant of the Pixel 4a. It shares more in common with the
-            Pixel 5 and our existing Pixel 4a support isn't relevant to it.</p>
-
-            <p>Many other devices are supported by GrapheneOS at a source level, and it can be
-            built for them without modifications to the existing GrapheneOS source tree. Device
-            support repositories for the Android Open Source Project can simply be dropped into
-            the source tree, with at most minor modifications within them to support GrapheneOS.
-            In most cases, substantial work beyond that will be needed to bring the support up to
-            the same standards. For most devices, the hardware and firmware will prevent providing
-            a reasonably secure device, regardless of the work put into device support.</p>
-
-            <p>GrapheneOS also supports generic targets, but these aren't suitable for production
-            usage and are only intended for development and testing use. For mobile devices, the
-            generic targets simply run on top of the underlying device support code (firmware,
-            kernel, device trees, vendor code) rather than shipping it and keeping it updated. It
-            would be possible to ship generic system images with separate updates for the device
-            support code. However, it would be drastically more complicated to maintain and
-            support due to combinations of different versions and it would cause complications for
-            the hardening done by GrapheneOS. The motivation doesn't exist for GrapheneOS, since
-            full updates with deltas to minimize bandwidth can be shipped for every device and
-            GrapheneOS is the only party involved in providing the updates. For the same reason,
-            it has little use for the ability to provide out-of-band updates to system image
-            components including all the apps and many other components.</p>
-
-            <p>Some of the GrapheneOS sub-projects support other operating systems on a broader
-            range of devices. Device support for Auditor and AttestationServer is documented in
-            the <a href="https://attestation.app/about">overview of those projects</a>. The
-            <a href="https://github.com/GrapheneOS">hardened_malloc</a> project supports nearly
-            any Linux-based environment due to official support for musl, glibc and Bionic along
-            with easily added support for other environments. It can easily run on non-Linux-based
-            operating systems too, and supporting some like HardenedBSD is planned but depends on
-            contributors from those communities.</p>
-
-            <h3 id="recommended-devices">
-                <a href="#recommended-devices">Which devices are recommended?</a>
-            </h3>
-
-            <p>The recommended devices with the best hardware, firmware and software security
-            along with the longest future support time are the Pixel 4, Pixel 4 XL and Pixel
-            4a.</p>
-
-            <p>On the Pixel 4 and Pixel 4 XL, support for fingerprint unlock as a secondary unlock
-            mechanism has been removed and replaced with IR-based 3D facial scanning. GrapheneOS
-            plans to extend secondary unlock support with the option of 2-factor authentication
-            using a secondary PIN or passphrase required for fingerprint / face unlock. The Pixel
-            4a has a fingerprint scanner instead of the dual infrared face scanning cameras.</p>
-
-            <p>The Pixel 4a is a budget device meeting the same security standards as the more
-            expensive flagship devices. You can read more on the differences between the hardware
-            elsewhere. Unlike the Pixel 3a, the Pixel 4a has a proper SSD which provides a much
-            better experience with the GrapheneOS exec-based spawning security feature.</p>
-
-            <h3 id="future-devices">
-                <a href="#future-devices">Which devices will be supported in the future?</a>
-            </h3>
-
-            <p>Devices are carefully chosen based on their merits rather than the project aiming
-            to have broad device support. Broad device support is counter to the aims of the
-            project, and the project will eventually be engaging in hardware and firmware level
-            improvements rather than only offering suggestions and bug reports upstream for those
-            areas. Much of the work on the project involves changes that are specific to different
-            devices, and officially supported devices are the ones targeted by most of this
-            ongoing work.</p>
-
-            <p>Devices need to be meeting the standards of the project in order to be considered as
-            potential targets. In addition to support for installing other operating systems,
-            standard hardware-based security features like the hardware-backed keystores, verified
-            boot, attestation and various hardware-based exploit mitigations need to be available.
-            Devices also need to have decent integration of IOMMUs for isolating components such
-            as the GPU, radios (NFC, Wi-Fi, Bluetooth, Cellular), media decode / encode, image
-            processor, etc., because if the hardware / firmware support is missing or broken,
-            there's not much that the OS can do to provide an alternative. Devices with support for
-            alternative operating systems as an afterthought will not be considered. Devices need
-            to have proper ongoing support for their firmware and software specific to the hardware
-            like drivers in order to provide proper full security updates too. Devices that are
-            end-of-life and no longer receiving these updates will not be supported.</p>
-
-            <p>In order to support a device, the appropriate resources also need to be available
-            and dedicated towards it. Releases for each supported device need to be robust and
-            stable, with all standard functionality working properly and testing for each of the
-            releases.</p>
-
-            <p>Hardware, firmware and software specific to devices like drivers play a huge role
-            in the overall security of a device. The goal of the project is not to slightly
-            improve some aspects of insecure devices and supporting a broad set of devices would
-            be directly counter to the values of the project. A lot of the low-level work also
-            ends up being fairly tied to the hardware.</p>
-
-            <h3 id="when-devices">
-                <a href="#when-devices">When will more devices be supported?</a>
-            </h3>
-
-            <p>Broader device support can only happen after the community (companies,
-            organizations and individuals) steps up to make substantial, ongoing contributions to
-            making the existing device support sustainable. Once the existing device support is
-            more sustainable, early research and development work for other devices can begin.
-            Once a device is deemed to be a worthwhile target, the project needs maintainers to
-            develop and maintain support for it including addressing device-specific issues that
-            are uncovered, which will include issues uncovered in the device support code by
-            GrapheneOS hardening features.</p>
-
-            <p>It's not really a matter of time but rather a need for community support for the
-            project increasing. As an open source project, the way to get something to happen in
-            GrapheneOS is to contribute to it, and this is particularly true for device support
-            since it's very self-contained and can be delegated to separate teams for each
-            device. If you want to see more devices supported sooner, you should get to work on
-            identifying good devices with full support for alternative operating systems with
-            verified boot, etc. and then start working on integrating and testing support.</p>
-
-            <p>It should also be clear that the expectation is for people to buy a device to run
-            GrapheneOS, rather than GrapheneOS supporting their existing devices. This will only
-            become more true if GrapheneOS is successful enough to accomplish the goal of having
-            devices produced based on an SoC reference design with minor improvements for privacy
-            and security. Broad device support is the opposite of what the project wants to
-            achieve in the long term.</p>
-
-            <h3 id="legacy-devices">
-                <a href="#legacy-devices">Why are older devices no longer supported?</a>
-            </h3>
-
-            <p>GrapheneOS aims to provide reasonably private and secure devices. It cannot do that
-            once device support code like firmware, kernel and vendor code is no longer actively
-            maintained. Even if the community was prepared to take over maintenance of the open
-            source code and to replace the rest, firmware would present a major issue, and the
-            community has never been active or interested enough in device support to consider
-            attempting this. Unlike many other platforms, GrapheneOS has a much higher minimum
-            standard than simply having devices fully functional, as they also need to provide the
-            expected level of security. It would start to become realistic to provide
-            substantially longer device support once GrapheneOS controls the hardware and firmware
-            via custom hardware manufactured for it. Until then, the lifetime of devices will
-            remain based on manufacturer support. It's also important to keep in mind that phone
-            vendors claiming to provide longer support often aren't actually doing it and some
-            never even ship firmware updates when the hardware is still supported by the
-            vendors...</p>
-
-            <p>GrapheneOS also has high standards for the privacy and security properties of the
-            hardware and firmware, and these standards are regularly advancing. The rapid pace of
-            improvement has been slowing down, but each hardware generation still brings major
-            improvements. Over time, the older hardware starts to become a substantial liability
-            and holds back the project. It becomes complex to simply make statements about the
-            security of the project when exceptions for old devices need to be listed out. The
-            project ends up wanting to drop devices for this reason but has always kept them going
-            until the end-of-life date to provide more time for people to migrate.</p>
-
-            <h2 id="security-and-privacy">
-                <a href="#security-and-privacy">Security and privacy</a>
-            </h2>
-
-            <h3 id="clipboard">
-                <a href="#clipboard">Can apps spy on the clipboard in the background or inject
-                content into it?</a>
-            </h3>
-
-            <p>As of Android 10, only the configured default input method editor (your keyboard of
-            choice) and the currently focused app can access the clipboard. Apps without focus
-            cannot access the clipboard. This is a stricter restriction than preventing apps in
-            the background from accessing it, since an app in the foreground or a foreground
-            service cannot access it, only the foreground app that's currently focused. Clipboard
-            managers need to be implemented by the keyboard chosen as the default by the user.</p>
-
-            <p>GrapheneOS previously restricted background clipboard access as a much earlier and
-            slightly less strict implementation of this feature. It provided a toggle for users to
-            whitelist clipboard managers, which is no longer needed now that keyboards are
-            expected to provide it.</p>
-
-            <h3 id="hardware-identifiers">
-                <a href="#hardware-identifiers">Can apps access hardware identifiers?</a>
-            </h3>
-
-            <p>As of Android 10, apps cannot obtain permission to access non-resettable hardware
-            identifiers such as the serial number, MAC addresses, IMEIs/MEIDs, SIM card serial
-            numbers and subscriber IDs. Only privileged apps included in the base system with
-            <code>READ_PRIVILEGED_PHONE_STATE</code> whitelisted can access these hardware
-            identifiers. Apps targeting Android 10 will receive a <code>SecurityException</code>
-            and older apps will receive an empty value for compatibility.</p>
-
-            <p>Since these restrictions became standard, GrapheneOS only makes a small change to
-            remove a legacy form of access to the serial number by legacy apps, which was still
-            around for compatibility. It used to need more extensive changes such as disallowing
-            access to the serial number but those restrictions are now standard.</p>
-
-            <p>Apps can determine the model of the device (such as it being a Pixel 4) either
-            directly or indirectly through the properties of the hardware and software. There
-            isn't a way to avoid this short of the OS supporting running apps in a virtual machine
-            with limited functionality and hardware acceleration. Hiding the CPU/SoC model would
-            require not even using basic hardware virtualization support and these things could
-            probably still be detected via performance measurements.</p>
-
-            <h3 id="non-hardware-identifiers">
-                <a href="#non-hardware-identifiers">What about non-hardware identifiers?</a>
-            </h3>
-
-            <p>In addition to not having a way to identify the hardware, apps cannot directly
-            identify the installation of the OS on the hardware. Apps only have a small portion of
-            the OS configuration exposed to them and there is not much for device owners to change
-            which could identify their installation. Apps can detect that they're being run on
-            GrapheneOS via the privacy and security features placing further restrictions on them
-            and hardening them against further exploitation. Apps can identify their own app
-            installation via their app data and can directly (until that's removed) or indirectly
-            identify a profile. Profiles should be used when separate identities are desired.
-            Profiles can be used as temporary ephemeral identifies by creating them for a specific
-            need and then deleting them. The rest of this answer only provides more technical
-            details, so you can stop reading here if you only want an overview and actionable
-            advice (i.e. use profiles as identities not inherently tied to each other).</p>
-
-            <p>Apps can generate their own 128-bit or larger random value and use that as an
-            identifier for the app installation. Apps can create data in their app-specific
-            external storage directory by default without needing permission, and in the legacy
-            storage model before API 29 that data persists after the app is uninstalled, so it can
-            be used to store an ID that persists through the app being uninstalled and
-            reinstalled. However, external storage is under control of the user and the user can
-            delete this data at any time, including after uninstalling the app. In the modern
-            storage model, this data is automatically removed when the app is uninstalled.
-            GrapheneOS includes Seedvault as an OS backup service which must be explicitly
-            enabled, and it has the option to automatically restore app data when an app is
-            reinstalled, so it wouldn't lose track of it being the same profile.</p>
-
-            <p>The <code>ANDROID_ID</code> string is a 64-bit random number, unique to each
-            combination of profile and app signing key. The 64-bit limitation means it isn't
-            particularly useful due to the possibility of collisions. It's tied to the lifetime of
-            profiles and does not persist through profile deletion or a factory reset. This is
-            comparable to an app targeting the legacy storage model storing a 64-bit random value
-            in the app-specific external storage directory. In the future, GrapheneOS will likely
-            change this to be tied to the lifetime of app installations rather than profiles. An
-            app could still track the identity of the profile through data you give it access to or
-            via data another app chooses to share with them.</p>
-
-            <p>The advertising ID is a Google Play services feature not included in the baseline
-            Android API, so it isn't an API included in GrapheneOS. The advertising ID is unique
-            to each profile. It isn't unique to each app signing key like <code>ANDROID_ID</code>,
-            but that makes little difference since apps within the same profile can communicate
-            with each other with mutual consent. It's comparable to <code>ANDROID_ID</code> but
-            provides an 128-bit value so it provides a strong cryptographic guarantee against
-            collisions, although a device messing with apps could set it to the same value used in
-            another profile. The advertising ID is exposed via the Settings app and can be reset
-            to a new random value, unlike <code>ANDROID_ID</code> which remains the same for the
-            lifetime of the profile, but apps can tie it the previous ID since they can detect
-            that it changed via their own ID in their app data.</p>
-
-            <p>Apps do not have access to user data by default and cannot ever access the data of
-            other apps without those apps going out of the way to share it with them. If apps are
-            granted read access to user data like media or contacts, they could use it to identify
-            the profile. If apps are granted write access to user data, they could tag it to keep
-            track of the profile. Apps previously had little reason to do things like this because
-            they were able to persist data through an uninstall and reinstallation by default. The
-            modern storage model means they need to request access to user data to do this. The
-            existence of <code>ANDROID_ID</code> means they don't yet need to bother with that but
-            that will change on GrapheneOS and will likely change for baseline Android too.
-            However, profiles are the only way to provide a strong assurance of separate
-            identities since the application model of the OS is designed to support communication
-            between apps within the same profile, but never between them.</p>
-
-            <h3 id="cellular-tracking">
-                <a href="#cellular-tracking">What does GrapheneOS do about cellular tracking,
-                interception and silent SMS?</a>
-            </h3>
-
-            <p>GrapheneOS always considers networks to be hostile and avoids placing trust in
-            them. It leaves out various carrier apps included in the stock OS granting carriers
-            varying levels of administrative access beyond standard carrier configuration.
-            GrapheneOS also avoids trust in the cellular network in other ways including providing
-            a secure network time update implementation rather than trusting the cellular network
-            for this. Time is sensitive and can be used to bypass security checks depending on
-            certificate / key expiry.</p>
-
-            <p>Cellular networks use inherently insecure protocols and have many trusted parties.
-            Even if interception of the connection or some other man-in-the-middle attack along
-            the network is not currently occurring, the network is still untrustworthy and
-            information should not be sent unencrypted.</p>
-
-            <p> Authenticated transport encryption such as HTTPS for web sites avoids trusting the
-            cellular network. End-to-end encrypted protocols such as the Signal messaging protocol
-            also avoid trusting the servers. GrapheneOS uses authenticated encryption with modern
-            protocols, forward secrecy and strong cipher configurations for our services. We only
-            recommend apps taking a decent approach in this area.</p>
-
-            <p>Legacy calls and texts should be avoided as they're not secure and trust the
-            carrier / network along with having weak security against other parties. Trying to
-            detect some forms of interception rather than dealing with the root of the problem
-            (unencrypted communications / data transfer) would be foolish and doomed to
-            failure.</p>
-
-            <p>Connecting to your carrier's network inherently depends on you identifying yourself to
-            it and anyone able to obtain administrative access. Activating airplane mode will
-            fully disable the cellular radio transmit and receive capabilities, which will prevent
-            your phone from being reached from the cellular network and stop your carrier (and
-            anyone impersonating them to you) from tracking the device via the cellular radio. The
-            baseband implements other functionality such as Wi-Fi and GPS functionality, but each
-            of these components is separately sandboxed on the baseband and independent of each
-            other. Enabling airplane mode disables the cellular radio, but Wi-Fi can be re-enabled
-            and used without activating the cellular radio again. This allows using the device as
-            a Wi-Fi only device.</p>
-
-            <p>The <a href="/usage#lte-only-mode">LTE-only mode added by GrapheneOS is solely
-            intended for attack surface reduction</a>. It should not be mistaken as a way to make
-            the cellular network into something that can be trusted.</p>
-
-            <p>GrapheneOS does not add gimmicks without a proper threat model and rationale. We
-            won't include flawed heuristics to guess when the cellular network should be trusted.
-            These kinds of features provide a false sense of security and encourage unwarranted
-            trust in cellular protocols and carrier networks as the default. These also trigger
-            false positives causing unnecessary concern and panic. Make good use of authenticated
-            encryption and airplane mode to avoid needing to depend on an insecure network.</p>
-
-            <p>Receiving a silent SMS is not a good indicator of being targeted by your cell
-            carrier, police or government because <em>anyone on the cell network can send
-            them</em> including yourself. Cellular triangulation will happen regardless of whether
-            or not SMS texts are being sent or received by the phone. Even if an SMS did serve a
-            useful purpose for tracking, a silent SMS would be little different than receiving
-            unsolicited spam. In fact, sending spam would be stealthier since it wouldn't trigger
-            alerts for silent SMS but rather would be ignored with the rest of the spam. Regardless,
-            sending texts or other data is not required or particularly useful to track devices
-            connected to a network for an adversary with the appropriate access.</p>
-
-            <h3 id="wifi-privacy">
-                <a href="#wifi-privacy">How private is Wi-Fi?</a>
-            </h3>
-
-            <p>See the <a href="/usage#wifi-privacy">usage guide section on Wi-Fi privacy</a>.</p>
-
-            <h3 id="default-connections">
-                <a href="#default-connections">What kind of connections do the OS and bundled apps
-                make by default?</a>
-            </h3>
-
-            <p>GrapheneOS makes connections to the outside world to test connectivity, detect
-            captive portals and download updates. No data varying per user / installation / device
-            is sent in these connections. There aren't analytics / telemetry in GrapheneOS.</p>
-
-            <p>The expected default connections by GrapheneOS (including all base system apps) are
-            the following:</p>
-
-            <ul>
-                <li>
-                    <p>The GrapheneOS Updater app fetches update metadata from
-                    https://releases.grapheneos.org/DEVICE-CHANNEL approximately once every four hours
-                    when connected to a permitted network for updates.</p>
-                    <p>Once an update is available, it tries to download
-                    https://releases.grapheneos.org/DEVICE-incremental-OLD_VERSION-NEW_VERSION.zip
-                    for a delta update, and then falls back to
-                    https://releases.grapheneos.org/DEVICE-ota_update-NEW_VERSION.zip.</p>
-                    <p>No query / data is sent to the server, so the only information leaked to it
-                    are the variables in these 3 URLs (device, channel, current version) which is
-                    necessary to obtain the update.</p>
-                    <p>Users are in control of which types of networks the Updater app will use
-                    and can disable the Updater app in extreme cases. It's strongly recommended to
-                    leave it enabled to quickly receive security updates including updates outside
-                    the regular monthly schedule.</p>
-                    <p>The update client avoids trusting the data obtained from the update server
-                    via signature verification with downgrade protection. Verified boot provides
-                    another layer of signature verification with downgrade protection. GrapheneOS
-                    servers do not have access to GrapheneOS signing keys.</p>
-                    <p>See the <a href="/usage#updates">usage guide's section on updates</a> for
-                    more information.</p>
-                </li>
-                <li>
-                    <p>An HTTPS connection is made to https://time.grapheneos.org/ to update the
-                    time from the date header field. This is a full replacement of Android's
-                    standard network time update implementation, which uses the cellular network
-                    when available with a fallback to SNTP when it's not available. Network time
-                    updates are security sensitive since certificate validation depends on having
-                    an accurate time, but the standard NTP / SNTP protocols used across most OSes
-                    have no authentication.</p>
-
-                    <p>We plan to offer a toggle to use the standard functionality instead of
-                    HTTPS-based time updates in order to blend in with other devices.</p>
-
-                    <p>Network time can be disabled with the toggle at Settings ➔ System ➔ Date
-                    &amp; time ➔ Use network-provided time. Unlike AOSP or the stock OS on the
-                    supported devices, GrapheneOS stops making network time connections when using
-                    network time is disabled rather than just not setting the clock based on it.
-                    The time zone is still obtained directly via the time zone provided by the
-                    mobile network when available.</p>
-                </li>
-                <li>
-                    <p>On devices with a Qualcomm baseband (which provides GPS), when location
-                    functionality is enabled and being used,
-                    <a href="https://en.wikipedia.org/wiki/GPS_signals#Almanac">GPS almanacs</a>
-                    are downloaded from https://xtrapath1.izatcloud.net/xtra3grc.bin,
-                    https://xtrapath2.izatcloud.net/xtra3grc.bin or
-                    https://xtrapath3.izatcloud.net/xtra3grc.bin which are currently (as of
-                    September 2020) hosted via Amazon Web Services. GrapheneOS has modified all
-                    references to these servers to use HTTPS rather than a mix of HTTP and HTTPS.
-                    No query / data is sent to the server.</p>
-
-                    <p>We plan to offer the option to download these files from the GrapheneOS
-                    servers, but we'll retain the option to use the standard servers to blend in
-                    with other devices.</p>
-                </li>
-                <li>
-                    <p>Connectivity checks designed to mimic a web browser user agent are performed
-                    by using HTTP and HTTPS to fetch standard URLs generating an HTTP 204 status
-                    code. This is used to detect when internet connectivity is lost on a network,
-                    which triggers fallback to other available networks if possible. These checks
-                    are designed to detect and handle captive portals which substitute the
-                    expected empty 204 response with their own web page.</p>
-
-                    <p>The connectivity checks are done by performing an empty GET request to a
-                    server returning an empty response with a 204 No Content response code. The
-                    request uses a standard, frozen value for the user agent matching the same
-                    value used by billions of other Android devices:</p>
-
-                    <pre>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.32 Safari/537.36</pre>
-
-                    <p>No query / data is sent to the servers and the response is unused beyond
-                    checking the response code.</p>
-
-                    <p>By default, the GrapheneOS connectivity check server is used via the
-                    following URLs:</p>
-
-                    <ul>
-                        <li>HTTPS: https://connectivitycheck.grapheneos.org/generate_204</li>
-                        <li>HTTP: http://connectivitycheck.grapheneos.org/generate_204</li>
-                        <li>HTTP fallback: http://connectivity.grapheneos.org/gen_204</li>
-                        <li>HTTP other fallback: http://connectivity.grapheneos.org/generate_204</li>
-                    </ul>
-
-                    <p>You can change the connectivity check URLs via the Settings ➔ Network &amp;
-                    internet ➔ Advanced ➔ Internet connectivity check setting. At the moment, it
-                    can be toggled between the GrapheneOS server and the standard Google servers
-                    used by billions of other Android devices. This can be used to blend in with
-                    other Android devices, both with and without Play services. Changing this to
-                    the Standard (Google) mode will use the same URLs used by AOSP and the stock
-                    OS along with the vast majority of other devices:</p>
-
-                    <ul>
-                        <li>HTTPS: https://www.google.com/generate_204</li>
-                        <li>HTTP: http://connectivitycheck.gstatic.com/generate_204</li>
-                        <li>HTTP fallback: http://www.google.com/gen_204</li>
-                        <li>HTTP other fallback: http://play.googleapis.com/generate_204</li>
-                    </ul>
-                </li>
-                <li>
-                    <p>DNS connectivity and functionality tests</p>
-                </li>
-                <li>
-                    <p>DNS resolution for other connections</p>
-                </li>
-            </ul>
-
-            <p>Vanadium does not make connections not requested by the app as part of providing
-            the WebView implementation in the OS. If you choose to use it as your browser, it
-            performs similar connections as the ones performed by the OS above. It does not send
-            any identifying information to servers, etc. but rather fetches some static assets
-            like dictionaries when triggered by usage of the app. We're working on eliminating
-            everything unnecessary and making our servers the default for handling anything that
-            cannot simply be shipped with Vanadium for one reason or another such as requiring
-            quicker updates.</p>
-
-            <h3 id="privacy-policy">
-                <a href="#privacy-policy">What is the privacy policy for GrapheneOS services?</a>
-            </h3>
-
-            <p>GrapheneOS services follow the <a href="https://www.eff.org/dnt-policy">EFF's
-            privacy-friendly Do Not Track (DNT) policy</a> for all users of our publicly available
-            services, not just those opting out of tracking via Do Not Track. Our policy is the
-            same with "DNT User" redefined as "user" to cover any user. This serves as a standard
-            privacy policy across all of our public services:</p>
-
-            <ul>
-                <li>attestation.app</li>
-                <li>connectivitycheck.grapheneos.org</li>
-                <li>grapheneos.org</li>
-                <li>releases.grapheneos.org</li>
-                <li>time.grapheneos.org</li>
-            </ul>
-
-            <p>Our implementation of the policy primarily consists of making sure our servers only
-            retain logs for 10 days. In practice, we follow much stricter privacy guidelines than
-            than the rules laid out in the EFF policy. However, we don't want to define our own
-            complex, ad-hoc privacy policy rather than reusing a sensible one with serious thought
-            put into it by experts.</p>
-
-            <p>Our mail server (mail.grapheneos.org) isn't offered as a public service and doesn't
-            have a privacy policy since it's only used internally by GrapheneOS developers.</p>
-
-            <h3 id="default-dns">
-                <a href="#default-dns">Which DNS servers are used by default?</a>
-            </h3>
-
-            <p>By default, the OS uses the network-provided DNS servers, whether those come from
-            DHCP or static network configuration. VPNs provide their own DNS servers. If no DNS
-            servers are provided, GrapheneOS uses <a href="https://developers.cloudflare.com/1.1.1.1/what-is-1.1.1.1/">Cloudflare DNS</a>
-            as the fallback rather than Google Public DNS. In practice, the fallback is rarely used
-            and has little real world impact.</p>
-
-            <h3 id="custom-dns">
-                <a href="#custom-dns">How do I use a custom DNS server?</a>
-            </h3>
-
-            <p>It isn't possible to directly override the DNS servers provided by the network via
-            DHCP. Instead, use the Private DNS feature in Settings ➔ Network &amp; internet ➔
-            Advanced ➔ Private DNS to set the hostname of a DNS-over-TLS server. It needs to have
-            a valid certificate such as a free certificate from Let's Encrypt. The OS will look up
-            the Private DNS hostname via the network provided DNS servers and will then force all
-            other DNS requests through the Private DNS server. Unlike an option to override the
-            network-provided DNS servers, this prevents the network from monitoring or tampering
-            with DNS requests/responses.</p>
-
-            <p>As an example, set the hostname to <code>one.one.one.one</code> for Cloudflare DNS.
-            There are various other mainstream DNS-over-TLS options available including Quad9,
-            Google and AdGuard.</p>
-
-            <p>Configuring a static IP address for a network requires entering DNS servers
-            manually, but you should still use the Private DNS feature with it, and you shouldn't
-            misuse the static IP address option just to override the DNS servers.</p>
-
-            <p>VPN service apps can also provide their own DNS implementation and/or servers,
-            including an alternate implementation of encrypted DNS. Private DNS takes precedence
-            over VPN-provided DNS, since it's just the network-provided DNS.</p>
-
-            <p>Apps and web sites can detect the configured DNS servers by generating random
-            subdomains resolved by querying their authoritative DNS server. This can be used as
-            part of fingerprinting users. If you're using a VPN, you should consider using the
-            standard DNS service provided by the VPN service to avoid standing out from other
-            users.</p>
-
-            <h3 id="private-dns-ip">
-                <a href="#private-dns-ip">Why does Private DNS not accept IP addresses?</a>
-            </h3>
-
-            <p>By default, in the automatic mode, the Private DNS feature provides opportunistic
-            encryption by using DNS-over-TLS when supported by the DNS server IP addresses
-            provided by the network (DHCP) or the static IP configuration. Opportunistic
-            encryption provides protection against a passive listener, not an active attacker,
-            since they can force falling back to unencrypted DNS by blocking DNS-over-TLS. In the
-            automatic mode, certificate validation is not enforced, as it would provide no
-            additional security and would reduce the availability of opportunistic encryption.</p>
-
-            <p>When Private DNS is explicitly enabled, it uses authenticated encryption without a
-            fallback. The authentication is performed based on the hostname of the server, so it
-            isn't possible to provide an IP address. The OS will look up the hostname of the Private
-            DNS server via unencrypted DNS and then force all other DNS lookups via DNS-over-TLS
-            with the identity of the server authenticated as part of providing authenticated
-            encryption.</p>
-
-            <h3 id="private-dns-other">
-                <a href="#private-dns-other">Does DNS-over-TLS (Private DNS) protect other connections?</a>
-            </h3>
-
-            <p>No, it only provides privacy for DNS resolution. Even authenticating DNS results
-            with DNSSEC does not protect other connections, unless the DNS records are part of the
-            system used to provide authenticated encryption, and DNS-over-TLS is not a substitute
-            for DNSSEC. If connections have authenticated encryption, they're secure even if DNS
-            resolution is hijacked by an attacker. If connections do not have authenticated
-            encryption, an attacker can listen in and tamper with them without hijacking DNS.
-            There are other ways to perform a MITM attack than DNS hijacking and internet routing
-            is fundamentally insecure. DNS-over-TLS may make a MITM harder for some attackers, but
-            don't count on it at all.</p>
-
-            <h3 id="private-dns-visited">
-                <a href="#private-dns-visited">Does DNS-over-TLS (Private DNS) hide which sites are visited, etc.?</a>
-            </h3>
-
-            <p>Private DNS only encrypts DNS, and an adversary monitoring connections can still
-            see the IP address at the other end of those connections. Many domains resolve to
-            ambiguous IP addresses, so encrypted DNS is part of what's required to take away a lot
-            of the information leaked to adversaries. However, TLS currently leaks domains via
-            SNI, so encrypted DNS is not yet accomplishing much. It's a forward looking feature
-            that will become more useful in the future. Using it is recommended, but it's not an
-            alternative to using Tor or a VPN.</p>
-
-            <h3 id="vpn-support">
-                <a href="#vpn-support">What kind of VPN and Tor support is available?</a>
-            </h3>
-
-            <p>VPNs can be configured under Settings ➔ Network &amp; Internet ➔ Advanced ➔ VPN.
-            Support for the following protocols is included: PPTP (insecure, obsolete), L2TP/IPSec
-            PSK, L2TP/IPSec RSA, IPSec Xauth PSK, IPSec Xauth RSA and IPSec Hybrid RSA. Apps can
-            also provide userspace VPN implementations and the following open source apps are
-            recommended: Orbot (Tor), WireGuard, OpenVPN for Android and the Private Internet
-            Access client (OpenVPN).</p>
-
-            <p>VPN configurations created with the built-in support can be set as the always-on
-            VPN in the configuration panel. This will keep the VPN running, reconnecting as
-            necessary and will force all connections through them. An app providing a VPN service
-            can also be set as the always-on VPN via the entry in the Settings page. For app-based
-            VPN implementations, there's also an additional "Block connections without VPN" toggle
-            which is needed to prevent leaks when the app's VPN service isn't running.</p>
-
-            <h3 id="network-monitoring">
-                <a href="#network-monitoring">Can apps monitor network connections or statistics?</a>
-            </h3>
-
-            <p>Apps cannot monitor network connections unless they're made into the active VPN
-            service by the user. Apps cannot normally access network stats and cannot directly
-            request access to them. However, app-based stats can be explicitly granted by users as
-            part of access to app usage stats in Settings ➔ Apps &amp; notifications ➔ Special app
-            access ➔ Usage access.</p>
-
-            <p>This was previously part of the GrapheneOS privacy improvements, but became a
-            standard Android feature with Android 10.</p>
-
-            <h3 id="firewall">
-                <a href="#firewall">Does GrapheneOS provide a firewall?</a>
-            </h3>
-
-            <p>Yes, GrapheneOS inherits the deeply integrated firewall from the Android Open
-            Source Project, which is used to implement portions of the security model and various
-            other features. The GrapheneOS project historically made various improvements to the
-            firewall but over time most of these changes have been integrated upstream or became
-            irrelevant.</p>
-
-            <p>GrapheneOS adds a user-facing Network permission toggle providing a robust way to
-            deny both direct and indirect network access to applications. It builds upon the
-            standard non-user-facing INTERNET permission, so it's already fully adopted by the app
-            ecosystem. Revoking the permission denies indirect access via OS components and apps
-            enforcing the INTERNET permission, such as DownloadManager. Direct access is denied
-            by blocking low-level network socket access.</p>
-
-            <h3 id="ad-blocking">
-                <a href="#ad-blocking">How can I set up system-wide ad-blocking?</a>
-            </h3>
-
-            <p>The recommended approach to system-wide ad-blocking is setting up domain-based
-            ad-blocking as part of DNS resolution. You can do this by
-            <a href="#custom-dns">choosing a Private DNS (DNS-over-TLS) server</a> with support
-            for blocking ad domains. As an example, AdGuard DNS can be used by setting
-            <code>dns.adguard.com</code> as the Private DNS domain. In the future, GrapheneOS
-            plans on adding back <a
-            href="https://github.com/GrapheneOS/os_issue_tracker/issues/184">an efficient
-            user-defined blacklist for the local DNS resolver</a>. This feature used to be
-            included by the project many years ago, but it needs to be reimplemented, and it's a
-            low priority feature depending on contributors stepping up to work on it.</p>
-
-            <p>Apps and web sites can detect that ad-blocking is being used and can determine
-            what's being blocked. This can be used as part of fingerprinting users. Using a widely
-            used service like AdGuard with a standard block list is much less of an issue than a
-            custom set of subscriptions / rules, but it still stands out compared to the default
-            of not doing it.</p>
-
-            <h3 id="ad-blocking-apps">
-                <a href="#ad-blocking-apps">Are ad-blocking apps supported?</a>
-            </h3>
-
-            <p>Content filtering apps are fully compatible with GrapheneOS, but they have serious
-            drawbacks and are not recommended. These apps use the VPN service feature to route
-            traffic through themselves to perform filtering.</p>
-
-            <p>The approach of intercepting traffic is inherently incompatible with encryption
-            from the client to the server. The AdGuard app works around encryption by supporting
-            optional
-            <a href="https://kb.adguard.com/en/general/https-filtering">HTTPS interception</a> by
-            having the user trust a local certificate authority, which is a security risk and
-            weakens HTTPS security even if their implementation is flawless (which they openly
-            acknowledge in their documentation, although it understates the risks). It also can't
-            intercept connections using certificate pinning, with the exception of browsers which
-            go out of the way to allow overriding pinning with locally added certificate
-            authorities. Many of these apps only provide domain-based filtering, unlike the deeper
-            filtering by AdGuard, but they're still impacted by encryption due to Private DNS
-            (DNS-over-TLS) and require disabling the feature. They could provide their own
-            DNS-over-TLS resolver to avoid losing the feature, but few of the developers care
-            enough to do that.</p>
-
-            <p>Using the VPN service to provide something other than a VPN also means that these
-            apps need to provide an actual VPN implementation or a way to forward to apps
-            providing one, and very few have bothered to implement this. NetGuard is an one
-            example implementing SOCKS5 forwarding, which can be used to forward to apps like
-            Orbot (Tor).</p>
-
-            <h3 id="baseband-isolation">
-                <a href="#baseband-isolation">Is the baseband isolated?</a>
-            </h3>
-
-            <p>Yes, the baseband is isolated on all of the officially supported devices. Memory
-            access is partitioned by the IOMMU and limited to internal memory and memory shared
-            by the driver implementations. The baseband on the officially supported devices with a
-            Qualcomm SoC implements Wi-Fi and Bluetooth as internal sandboxed processes rather
-            than having a separate baseband for those like earlier devices.</p>
-
-            <p>Earlier generation devices we used to support prior to Pixels had Wi-Fi + Bluetooth
-            implemented on a separate SoC. This was not properly contained by the stock OS and we
-            put substantial work into addressing that problem. However, that work has been
-            obsoleted now that Wi-Fi and Bluetooth are provided by the SoC on the officially
-            supported devices.</p>
-
-            <p>A component being on a separate chip is orthogonal to whether it's isolated. In
-            order to be isolated, the drivers need to treat it as untrusted. If it has DMA access
-            that needs to be contained via IOMMU and the driver needs to treat the shared memory
-            as untrusted, as it would data received another way. There's a lot of attack surface
-            between the baseband and the kernel/userspace software stack connected to it. OS
-            security is very relevant to containing hardware components including the radios and
-            the vast majority of the attack surface is in software. The OS relies upon the
-            hardware and firmware to be able to contain components but ends up being primarily
-            responsible for it due to control over the configuration of shared memory and the
-            complexity of the interface and the OS side implementation.</p>
-
-            <p>The mobile Atheros Wi-Fi driver/firmware is primarily a SoftMAC implementation with
-            the vast majority of the complexity in the driver rather than the firmware. The fully
-            functional driver is massive and the firmware is quite small. Unfortunately, since the
-            Linux kernel is monolithic and has no internal security boundaries, the attack surface
-            is problematic and a HardMAC implementation with most complexity in the isolated
-            firmware could be better than the status quo. An isolated driver would be ideal.</p>
-
-            <h2 id="day-to-day-use">
-                <a href="#day-to-day-use">Day to day use</a>
-            </h2>
-
-            <h3 id="updates">
-                <a href="#updates">How do I keep the OS updated?</a>
-            </h3>
-
-            <p>GrapheneOS has entirely automatic background updates. More details are available in
-            the <a href="/usage#updates">the usage guide's updates section</a>.</p>
-
-            <h3 id="updates-sideloading">
-                <a href="#updates-sideloading">How do I update without connecting the device to the internet?</a>
-            </h3>
-
-            <p>Updates can be <a href="/usage#updates-sideloading">sideloaded via
-            recovery</a>.</p>
-
-            <h2 id="anti-theft">
-                <a href="#anti-theft">Does GrapheneOS provide Factory Reset Protection?</a>
-            </h2>
-
-            <p>No, since this is strictly a theft deterrence feature, not a security feature, and
-            the standard implementation depends on having the device tied to an account on an
-            online service. The only advantage would be encouraging thieves to return a stolen
-            device for a potential reward after realizing that it has no value beyond scrapping it
-            for parts.</p>
-
-            <p>Google's Factory Reset Protection ties devices to a Google account using a tiny,
-            special region of persistent state not wiped by a factory reset. It prevents a thief
-            from wiping the device to a fresh state for resale without being stuck at a screen for
-            authenticating with the Google account persisted on the device after wiping.</p>
-
-            <p>It would be possible to make an implementation not reliant upon an online service
-            where the user has the option to enable Factory Reset Protection and is given a seed
-            phrase required to use the device after wiping data from recovery. However, since this
-            has no security value and the ability to deter theft is questionable, implementing
-            this is an extremely low priority.</p>
-
-            <p>Providing the option to disable wiping from recovery would be simpler, but would be
-            incompatible with features designed to wipe data automatically in certain cases. This
-            will not be implemented by GrapheneOS since it isn't a good approach and it conflicts
-            with other planned features.</p>
-
-            <h2 id="bundled-apps">
-                <a href="#bundled-apps">Why aren't my favorite apps bundled with GrapheneOS?</a>
-            </h2>
-
-            <p>There are drawbacks to bundling apps into the OS and few advantages in most cases.
-            Rather than GrapheneOS bundling a bunch of apps, it makes far more sense for users to
-            install their preferred apps via F-Droid, Aurora Store or other sources. GrapheneOS is
-            also working on designing and implementing a first party app update system for a first
-            party repository with higher robustness and security than the existing options. Rather
-            than bundling apps, it could just offer recommendations as part of an initial setup
-            wizard. Users have unique needs and preferences and there has to be a very compelling
-            reason to bundle additional apps with the OS. For example, it's useful to have the
-            Auditor app available before connecting to the internet (see the
-            <a href="/install#verifying-installation">installation guide</a> documentation on
-            this).</p>
-
-            <p>Bundling additional apps with the OS can increase attack surface, unless users go
-            out of the way to disable apps they aren't using. Bundling an app into the base OS is
-            also painful to reverse, since removing the app without implementing a migration
-            mechanism will lose user data stored in the app. Some users are also going to take
-            issue with the choices made by the project or will want to make suggestions for
-            bundling more apps, and having this as a regular topic of discussion and debate is
-            unproductive and distracts from the real work of the project. Each bundled app also
-            increases the size of the base OS, and shipping the app updates as part of the OS
-            updates results in more overall bandwidth usage. It would be possible to ship only
-            out-of-band app updates to avoid wasted bandwidth for apps users have disabled, but
-            then the apps would be temporarily out-of-date and vulnerable to patched security
-            issues after a factory reset or the user re-enabling them. If the updates aren't going
-            to be shipped with the OS, it really makes no sense to bundle them.</p>
-
-            <p>GrapheneOS is focused on making meaningful improvements to privacy and security,
-            and bundling assorted apps into the OS is not only usually outside of that focus but
-            often counter to it.</p>
-
-            <p>In some cases, licensing is also an issue. GrapheneOS is permissively licensed and
-            is usable for building devices with an immutable root of trust. GPLv3 is deliberately
-            incompatible with these kinds of locked down devices, unlike GPLv2 code such as the
-            Linux kernel. This means GrapheneOS can't include GPLv3 code without forbidding use
-            cases we want to support. GPLv3 is no problem for our own usage, but we don't want to
-            forbid using GrapheneOS as a replacement for the Android Open Source Project in locked
-            down devices.</p>
+            <section id="device-support">
+                <h2>
+                    <a href="#device-support">Device support</a>
+                </h2>
+
+                <h3 id="supported-devices">
+                    <a href="#supported-devices">Which devices are supported?</a>
+                </h3>
+
+                <p>GrapheneOS has official production support for the Pixel 3, Pixel 3 XL, Pixel 3a,
+                Pixel 3a XL, Pixel 4, Pixel 4 XL and Pixel 4a. The release tags for these devices have
+                official builds and updates available. These devices meet the stringent privacy and
+                security standards and have substantial upstream and downstream hardening specific to
+                the devices.</p>
+
+                <p>The Pixel 4a 5G and Pixel 5 aren't currently supported. The Pixel 4a 5G is poorly
+                named and isn't really a variant of the Pixel 4a. It shares more in common with the
+                Pixel 5 and our existing Pixel 4a support isn't relevant to it.</p>
+
+                <p>Many other devices are supported by GrapheneOS at a source level, and it can be
+                built for them without modifications to the existing GrapheneOS source tree. Device
+                support repositories for the Android Open Source Project can simply be dropped into
+                the source tree, with at most minor modifications within them to support GrapheneOS.
+                In most cases, substantial work beyond that will be needed to bring the support up to
+                the same standards. For most devices, the hardware and firmware will prevent providing
+                a reasonably secure device, regardless of the work put into device support.</p>
+
+                <p>GrapheneOS also supports generic targets, but these aren't suitable for production
+                usage and are only intended for development and testing use. For mobile devices, the
+                generic targets simply run on top of the underlying device support code (firmware,
+                kernel, device trees, vendor code) rather than shipping it and keeping it updated. It
+                would be possible to ship generic system images with separate updates for the device
+                support code. However, it would be drastically more complicated to maintain and
+                support due to combinations of different versions and it would cause complications for
+                the hardening done by GrapheneOS. The motivation doesn't exist for GrapheneOS, since
+                full updates with deltas to minimize bandwidth can be shipped for every device and
+                GrapheneOS is the only party involved in providing the updates. For the same reason,
+                it has little use for the ability to provide out-of-band updates to system image
+                components including all the apps and many other components.</p>
+
+                <p>Some of the GrapheneOS sub-projects support other operating systems on a broader
+                range of devices. Device support for Auditor and AttestationServer is documented in
+                the <a href="https://attestation.app/about">overview of those projects</a>. The
+                <a href="https://github.com/GrapheneOS">hardened_malloc</a> project supports nearly
+                any Linux-based environment due to official support for musl, glibc and Bionic along
+                with easily added support for other environments. It can easily run on non-Linux-based
+                operating systems too, and supporting some like HardenedBSD is planned but depends on
+                contributors from those communities.</p>
+
+                <h3 id="recommended-devices">
+                    <a href="#recommended-devices">Which devices are recommended?</a>
+                </h3>
+
+                <p>The recommended devices with the best hardware, firmware and software security
+                along with the longest future support time are the Pixel 4, Pixel 4 XL and Pixel
+                4a.</p>
+
+                <p>On the Pixel 4 and Pixel 4 XL, support for fingerprint unlock as a secondary unlock
+                mechanism has been removed and replaced with IR-based 3D facial scanning. GrapheneOS
+                plans to extend secondary unlock support with the option of 2-factor authentication
+                using a secondary PIN or passphrase required for fingerprint / face unlock. The Pixel
+                4a has a fingerprint scanner instead of the dual infrared face scanning cameras.</p>
+
+                <p>The Pixel 4a is a budget device meeting the same security standards as the more
+                expensive flagship devices. You can read more on the differences between the hardware
+                elsewhere. Unlike the Pixel 3a, the Pixel 4a has a proper SSD which provides a much
+                better experience with the GrapheneOS exec-based spawning security feature.</p>
+
+                <h3 id="future-devices">
+                    <a href="#future-devices">Which devices will be supported in the future?</a>
+                </h3>
+
+                <p>Devices are carefully chosen based on their merits rather than the project aiming
+                to have broad device support. Broad device support is counter to the aims of the
+                project, and the project will eventually be engaging in hardware and firmware level
+                improvements rather than only offering suggestions and bug reports upstream for those
+                areas. Much of the work on the project involves changes that are specific to different
+                devices, and officially supported devices are the ones targeted by most of this
+                ongoing work.</p>
+
+                <p>Devices need to be meeting the standards of the project in order to be considered as
+                potential targets. In addition to support for installing other operating systems,
+                standard hardware-based security features like the hardware-backed keystores, verified
+                boot, attestation and various hardware-based exploit mitigations need to be available.
+                Devices also need to have decent integration of IOMMUs for isolating components such
+                as the GPU, radios (NFC, Wi-Fi, Bluetooth, Cellular), media decode / encode, image
+                processor, etc., because if the hardware / firmware support is missing or broken,
+                there's not much that the OS can do to provide an alternative. Devices with support for
+                alternative operating systems as an afterthought will not be considered. Devices need
+                to have proper ongoing support for their firmware and software specific to the hardware
+                like drivers in order to provide proper full security updates too. Devices that are
+                end-of-life and no longer receiving these updates will not be supported.</p>
+
+                <p>In order to support a device, the appropriate resources also need to be available
+                and dedicated towards it. Releases for each supported device need to be robust and
+                stable, with all standard functionality working properly and testing for each of the
+                releases.</p>
+
+                <p>Hardware, firmware and software specific to devices like drivers play a huge role
+                in the overall security of a device. The goal of the project is not to slightly
+                improve some aspects of insecure devices and supporting a broad set of devices would
+                be directly counter to the values of the project. A lot of the low-level work also
+                ends up being fairly tied to the hardware.</p>
+
+                <h3 id="when-devices">
+                    <a href="#when-devices">When will more devices be supported?</a>
+                </h3>
+
+                <p>Broader device support can only happen after the community (companies,
+                organizations and individuals) steps up to make substantial, ongoing contributions to
+                making the existing device support sustainable. Once the existing device support is
+                more sustainable, early research and development work for other devices can begin.
+                Once a device is deemed to be a worthwhile target, the project needs maintainers to
+                develop and maintain support for it including addressing device-specific issues that
+                are uncovered, which will include issues uncovered in the device support code by
+                GrapheneOS hardening features.</p>
+
+                <p>It's not really a matter of time but rather a need for community support for the
+                project increasing. As an open source project, the way to get something to happen in
+                GrapheneOS is to contribute to it, and this is particularly true for device support
+                since it's very self-contained and can be delegated to separate teams for each
+                device. If you want to see more devices supported sooner, you should get to work on
+                identifying good devices with full support for alternative operating systems with
+                verified boot, etc. and then start working on integrating and testing support.</p>
+
+                <p>It should also be clear that the expectation is for people to buy a device to run
+                GrapheneOS, rather than GrapheneOS supporting their existing devices. This will only
+                become more true if GrapheneOS is successful enough to accomplish the goal of having
+                devices produced based on an SoC reference design with minor improvements for privacy
+                and security. Broad device support is the opposite of what the project wants to
+                achieve in the long term.</p>
+
+                <h3 id="legacy-devices">
+                    <a href="#legacy-devices">Why are older devices no longer supported?</a>
+                </h3>
+
+                <p>GrapheneOS aims to provide reasonably private and secure devices. It cannot do that
+                once device support code like firmware, kernel and vendor code is no longer actively
+                maintained. Even if the community was prepared to take over maintenance of the open
+                source code and to replace the rest, firmware would present a major issue, and the
+                community has never been active or interested enough in device support to consider
+                attempting this. Unlike many other platforms, GrapheneOS has a much higher minimum
+                standard than simply having devices fully functional, as they also need to provide the
+                expected level of security. It would start to become realistic to provide
+                substantially longer device support once GrapheneOS controls the hardware and firmware
+                via custom hardware manufactured for it. Until then, the lifetime of devices will
+                remain based on manufacturer support. It's also important to keep in mind that phone
+                vendors claiming to provide longer support often aren't actually doing it and some
+                never even ship firmware updates when the hardware is still supported by the
+                vendors...</p>
+
+                <p>GrapheneOS also has high standards for the privacy and security properties of the
+                hardware and firmware, and these standards are regularly advancing. The rapid pace of
+                improvement has been slowing down, but each hardware generation still brings major
+                improvements. Over time, the older hardware starts to become a substantial liability
+                and holds back the project. It becomes complex to simply make statements about the
+                security of the project when exceptions for old devices need to be listed out. The
+                project ends up wanting to drop devices for this reason but has always kept them going
+                until the end-of-life date to provide more time for people to migrate.</p>
+            </section>
+
+            <section id="security-and-privacy">
+                <h2>
+                    <a href="#security-and-privacy">Security and privacy</a>
+                </h2>
+
+                <h3 id="clipboard">
+                    <a href="#clipboard">Can apps spy on the clipboard in the background or inject
+                    content into it?</a>
+                </h3>
+
+                <p>As of Android 10, only the configured default input method editor (your keyboard of
+                choice) and the currently focused app can access the clipboard. Apps without focus
+                cannot access the clipboard. This is a stricter restriction than preventing apps in
+                the background from accessing it, since an app in the foreground or a foreground
+                service cannot access it, only the foreground app that's currently focused. Clipboard
+                managers need to be implemented by the keyboard chosen as the default by the user.</p>
+
+                <p>GrapheneOS previously restricted background clipboard access as a much earlier and
+                slightly less strict implementation of this feature. It provided a toggle for users to
+                whitelist clipboard managers, which is no longer needed now that keyboards are
+                expected to provide it.</p>
+
+                <h3 id="hardware-identifiers">
+                    <a href="#hardware-identifiers">Can apps access hardware identifiers?</a>
+                </h3>
+
+                <p>As of Android 10, apps cannot obtain permission to access non-resettable hardware
+                identifiers such as the serial number, MAC addresses, IMEIs/MEIDs, SIM card serial
+                numbers and subscriber IDs. Only privileged apps included in the base system with
+                <code>READ_PRIVILEGED_PHONE_STATE</code> whitelisted can access these hardware
+                identifiers. Apps targeting Android 10 will receive a <code>SecurityException</code>
+                and older apps will receive an empty value for compatibility.</p>
+
+                <p>Since these restrictions became standard, GrapheneOS only makes a small change to
+                remove a legacy form of access to the serial number by legacy apps, which was still
+                around for compatibility. It used to need more extensive changes such as disallowing
+                access to the serial number but those restrictions are now standard.</p>
+
+                <p>Apps can determine the model of the device (such as it being a Pixel 4) either
+                directly or indirectly through the properties of the hardware and software. There
+                isn't a way to avoid this short of the OS supporting running apps in a virtual machine
+                with limited functionality and hardware acceleration. Hiding the CPU/SoC model would
+                require not even using basic hardware virtualization support and these things could
+                probably still be detected via performance measurements.</p>
+
+                <h3 id="non-hardware-identifiers">
+                    <a href="#non-hardware-identifiers">What about non-hardware identifiers?</a>
+                </h3>
+
+                <p>In addition to not having a way to identify the hardware, apps cannot directly
+                identify the installation of the OS on the hardware. Apps only have a small portion of
+                the OS configuration exposed to them and there is not much for device owners to change
+                which could identify their installation. Apps can detect that they're being run on
+                GrapheneOS via the privacy and security features placing further restrictions on them
+                and hardening them against further exploitation. Apps can identify their own app
+                installation via their app data and can directly (until that's removed) or indirectly
+                identify a profile. Profiles should be used when separate identities are desired.
+                Profiles can be used as temporary ephemeral identifies by creating them for a specific
+                need and then deleting them. The rest of this answer only provides more technical
+                details, so you can stop reading here if you only want an overview and actionable
+                advice (i.e. use profiles as identities not inherently tied to each other).</p>
+
+                <p>Apps can generate their own 128-bit or larger random value and use that as an
+                identifier for the app installation. Apps can create data in their app-specific
+                external storage directory by default without needing permission, and in the legacy
+                storage model before API 29 that data persists after the app is uninstalled, so it can
+                be used to store an ID that persists through the app being uninstalled and
+                reinstalled. However, external storage is under control of the user and the user can
+                delete this data at any time, including after uninstalling the app. In the modern
+                storage model, this data is automatically removed when the app is uninstalled.
+                GrapheneOS includes Seedvault as an OS backup service which must be explicitly
+                enabled, and it has the option to automatically restore app data when an app is
+                reinstalled, so it wouldn't lose track of it being the same profile.</p>
+
+                <p>The <code>ANDROID_ID</code> string is a 64-bit random number, unique to each
+                combination of profile and app signing key. The 64-bit limitation means it isn't
+                particularly useful due to the possibility of collisions. It's tied to the lifetime of
+                profiles and does not persist through profile deletion or a factory reset. This is
+                comparable to an app targeting the legacy storage model storing a 64-bit random value
+                in the app-specific external storage directory. In the future, GrapheneOS will likely
+                change this to be tied to the lifetime of app installations rather than profiles. An
+                app could still track the identity of the profile through data you give it access to or
+                via data another app chooses to share with them.</p>
+
+                <p>The advertising ID is a Google Play services feature not included in the baseline
+                Android API, so it isn't an API included in GrapheneOS. The advertising ID is unique
+                to each profile. It isn't unique to each app signing key like <code>ANDROID_ID</code>,
+                but that makes little difference since apps within the same profile can communicate
+                with each other with mutual consent. It's comparable to <code>ANDROID_ID</code> but
+                provides an 128-bit value so it provides a strong cryptographic guarantee against
+                collisions, although a device messing with apps could set it to the same value used in
+                another profile. The advertising ID is exposed via the Settings app and can be reset
+                to a new random value, unlike <code>ANDROID_ID</code> which remains the same for the
+                lifetime of the profile, but apps can tie it the previous ID since they can detect
+                that it changed via their own ID in their app data.</p>
+
+                <p>Apps do not have access to user data by default and cannot ever access the data of
+                other apps without those apps going out of the way to share it with them. If apps are
+                granted read access to user data like media or contacts, they could use it to identify
+                the profile. If apps are granted write access to user data, they could tag it to keep
+                track of the profile. Apps previously had little reason to do things like this because
+                they were able to persist data through an uninstall and reinstallation by default. The
+                modern storage model means they need to request access to user data to do this. The
+                existence of <code>ANDROID_ID</code> means they don't yet need to bother with that but
+                that will change on GrapheneOS and will likely change for baseline Android too.
+                However, profiles are the only way to provide a strong assurance of separate
+                identities since the application model of the OS is designed to support communication
+                between apps within the same profile, but never between them.</p>
+
+                <h3 id="cellular-tracking">
+                    <a href="#cellular-tracking">What does GrapheneOS do about cellular tracking,
+                    interception and silent SMS?</a>
+                </h3>
+
+                <p>GrapheneOS always considers networks to be hostile and avoids placing trust in
+                them. It leaves out various carrier apps included in the stock OS granting carriers
+                varying levels of administrative access beyond standard carrier configuration.
+                GrapheneOS also avoids trust in the cellular network in other ways including providing
+                a secure network time update implementation rather than trusting the cellular network
+                for this. Time is sensitive and can be used to bypass security checks depending on
+                certificate / key expiry.</p>
+
+                <p>Cellular networks use inherently insecure protocols and have many trusted parties.
+                Even if interception of the connection or some other man-in-the-middle attack along
+                the network is not currently occurring, the network is still untrustworthy and
+                information should not be sent unencrypted.</p>
+
+                <p> Authenticated transport encryption such as HTTPS for web sites avoids trusting the
+                cellular network. End-to-end encrypted protocols such as the Signal messaging protocol
+                also avoid trusting the servers. GrapheneOS uses authenticated encryption with modern
+                protocols, forward secrecy and strong cipher configurations for our services. We only
+                recommend apps taking a decent approach in this area.</p>
+
+                <p>Legacy calls and texts should be avoided as they're not secure and trust the
+                carrier / network along with having weak security against other parties. Trying to
+                detect some forms of interception rather than dealing with the root of the problem
+                (unencrypted communications / data transfer) would be foolish and doomed to
+                failure.</p>
+
+                <p>Connecting to your carrier's network inherently depends on you identifying yourself to
+                it and anyone able to obtain administrative access. Activating airplane mode will
+                fully disable the cellular radio transmit and receive capabilities, which will prevent
+                your phone from being reached from the cellular network and stop your carrier (and
+                anyone impersonating them to you) from tracking the device via the cellular radio. The
+                baseband implements other functionality such as Wi-Fi and GPS functionality, but each
+                of these components is separately sandboxed on the baseband and independent of each
+                other. Enabling airplane mode disables the cellular radio, but Wi-Fi can be re-enabled
+                and used without activating the cellular radio again. This allows using the device as
+                a Wi-Fi only device.</p>
+
+                <p>The <a href="/usage#lte-only-mode">LTE-only mode added by GrapheneOS is solely
+                intended for attack surface reduction</a>. It should not be mistaken as a way to make
+                the cellular network into something that can be trusted.</p>
+
+                <p>GrapheneOS does not add gimmicks without a proper threat model and rationale. We
+                won't include flawed heuristics to guess when the cellular network should be trusted.
+                These kinds of features provide a false sense of security and encourage unwarranted
+                trust in cellular protocols and carrier networks as the default. These also trigger
+                false positives causing unnecessary concern and panic. Make good use of authenticated
+                encryption and airplane mode to avoid needing to depend on an insecure network.</p>
+
+                <p>Receiving a silent SMS is not a good indicator of being targeted by your cell
+                carrier, police or government because <em>anyone on the cell network can send
+                them</em> including yourself. Cellular triangulation will happen regardless of whether
+                or not SMS texts are being sent or received by the phone. Even if an SMS did serve a
+                useful purpose for tracking, a silent SMS would be little different than receiving
+                unsolicited spam. In fact, sending spam would be stealthier since it wouldn't trigger
+                alerts for silent SMS but rather would be ignored with the rest of the spam. Regardless,
+                sending texts or other data is not required or particularly useful to track devices
+                connected to a network for an adversary with the appropriate access.</p>
+
+                <h3 id="wifi-privacy">
+                    <a href="#wifi-privacy">How private is Wi-Fi?</a>
+                </h3>
+
+                <p>See the <a href="/usage#wifi-privacy">usage guide section on Wi-Fi privacy</a>.</p>
+
+                <h3 id="default-connections">
+                    <a href="#default-connections">What kind of connections do the OS and bundled apps
+                    make by default?</a>
+                </h3>
+
+                <p>GrapheneOS makes connections to the outside world to test connectivity, detect
+                captive portals and download updates. No data varying per user / installation / device
+                is sent in these connections. There aren't analytics / telemetry in GrapheneOS.</p>
+
+                <p>The expected default connections by GrapheneOS (including all base system apps) are
+                the following:</p>
+
+                <ul>
+                    <li>
+                        <p>The GrapheneOS Updater app fetches update metadata from
+                        https://releases.grapheneos.org/DEVICE-CHANNEL approximately once every four hours
+                        when connected to a permitted network for updates.</p>
+                        <p>Once an update is available, it tries to download
+                        https://releases.grapheneos.org/DEVICE-incremental-OLD_VERSION-NEW_VERSION.zip
+                        for a delta update, and then falls back to
+                        https://releases.grapheneos.org/DEVICE-ota_update-NEW_VERSION.zip.</p>
+                        <p>No query / data is sent to the server, so the only information leaked to it
+                        are the variables in these 3 URLs (device, channel, current version) which is
+                        necessary to obtain the update.</p>
+                        <p>Users are in control of which types of networks the Updater app will use
+                        and can disable the Updater app in extreme cases. It's strongly recommended to
+                        leave it enabled to quickly receive security updates including updates outside
+                        the regular monthly schedule.</p>
+                        <p>The update client avoids trusting the data obtained from the update server
+                        via signature verification with downgrade protection. Verified boot provides
+                        another layer of signature verification with downgrade protection. GrapheneOS
+                        servers do not have access to GrapheneOS signing keys.</p>
+                        <p>See the <a href="/usage#updates">usage guide's section on updates</a> for
+                        more information.</p>
+                    </li>
+                    <li>
+                        <p>An HTTPS connection is made to https://time.grapheneos.org/ to update the
+                        time from the date header field. This is a full replacement of Android's
+                        standard network time update implementation, which uses the cellular network
+                        when available with a fallback to SNTP when it's not available. Network time
+                        updates are security sensitive since certificate validation depends on having
+                        an accurate time, but the standard NTP / SNTP protocols used across most OSes
+                        have no authentication.</p>
+
+                        <p>We plan to offer a toggle to use the standard functionality instead of
+                        HTTPS-based time updates in order to blend in with other devices.</p>
+
+                        <p>Network time can be disabled with the toggle at Settings ➔ System ➔ Date
+                        &amp; time ➔ Use network-provided time. Unlike AOSP or the stock OS on the
+                        supported devices, GrapheneOS stops making network time connections when using
+                        network time is disabled rather than just not setting the clock based on it.
+                        The time zone is still obtained directly via the time zone provided by the
+                        mobile network when available.</p>
+                    </li>
+                    <li>
+                        <p>On devices with a Qualcomm baseband (which provides GPS), when location
+                        functionality is enabled and being used,
+                        <a href="https://en.wikipedia.org/wiki/GPS_signals#Almanac">GPS almanacs</a>
+                        are downloaded from https://xtrapath1.izatcloud.net/xtra3grc.bin,
+                        https://xtrapath2.izatcloud.net/xtra3grc.bin or
+                        https://xtrapath3.izatcloud.net/xtra3grc.bin which are currently (as of
+                        September 2020) hosted via Amazon Web Services. GrapheneOS has modified all
+                        references to these servers to use HTTPS rather than a mix of HTTP and HTTPS.
+                        No query / data is sent to the server.</p>
+
+                        <p>We plan to offer the option to download these files from the GrapheneOS
+                        servers, but we'll retain the option to use the standard servers to blend in
+                        with other devices.</p>
+                    </li>
+                    <li>
+                        <p>Connectivity checks designed to mimic a web browser user agent are performed
+                        by using HTTP and HTTPS to fetch standard URLs generating an HTTP 204 status
+                        code. This is used to detect when internet connectivity is lost on a network,
+                        which triggers fallback to other available networks if possible. These checks
+                        are designed to detect and handle captive portals which substitute the
+                        expected empty 204 response with their own web page.</p>
+
+                        <p>The connectivity checks are done by performing an empty GET request to a
+                        server returning an empty response with a 204 No Content response code. The
+                        request uses a standard, frozen value for the user agent matching the same
+                        value used by billions of other Android devices:</p>
+
+                        <pre>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.32 Safari/537.36</pre>
+
+                        <p>No query / data is sent to the servers and the response is unused beyond
+                        checking the response code.</p>
+
+                        <p>By default, the GrapheneOS connectivity check server is used via the
+                        following URLs:</p>
+
+                        <ul>
+                            <li>HTTPS: https://connectivitycheck.grapheneos.org/generate_204</li>
+                            <li>HTTP: http://connectivitycheck.grapheneos.org/generate_204</li>
+                            <li>HTTP fallback: http://connectivity.grapheneos.org/gen_204</li>
+                            <li>HTTP other fallback: http://connectivity.grapheneos.org/generate_204</li>
+                        </ul>
+
+                        <p>You can change the connectivity check URLs via the Settings ➔ Network &amp;
+                        internet ➔ Advanced ➔ Internet connectivity check setting. At the moment, it
+                        can be toggled between the GrapheneOS server and the standard Google servers
+                        used by billions of other Android devices. This can be used to blend in with
+                        other Android devices, both with and without Play services. Changing this to
+                        the Standard (Google) mode will use the same URLs used by AOSP and the stock
+                        OS along with the vast majority of other devices:</p>
+
+                        <ul>
+                            <li>HTTPS: https://www.google.com/generate_204</li>
+                            <li>HTTP: http://connectivitycheck.gstatic.com/generate_204</li>
+                            <li>HTTP fallback: http://www.google.com/gen_204</li>
+                            <li>HTTP other fallback: http://play.googleapis.com/generate_204</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <p>DNS connectivity and functionality tests</p>
+                    </li>
+                    <li>
+                        <p>DNS resolution for other connections</p>
+                    </li>
+                </ul>
+
+                <p>Vanadium does not make connections not requested by the app as part of providing
+                the WebView implementation in the OS. If you choose to use it as your browser, it
+                performs similar connections as the ones performed by the OS above. It does not send
+                any identifying information to servers, etc. but rather fetches some static assets
+                like dictionaries when triggered by usage of the app. We're working on eliminating
+                everything unnecessary and making our servers the default for handling anything that
+                cannot simply be shipped with Vanadium for one reason or another such as requiring
+                quicker updates.</p>
+
+                <h3 id="privacy-policy">
+                    <a href="#privacy-policy">What is the privacy policy for GrapheneOS services?</a>
+                </h3>
+
+                <p>GrapheneOS services follow the <a href="https://www.eff.org/dnt-policy">EFF's
+                privacy-friendly Do Not Track (DNT) policy</a> for all users of our publicly available
+                services, not just those opting out of tracking via Do Not Track. Our policy is the
+                same with "DNT User" redefined as "user" to cover any user. This serves as a standard
+                privacy policy across all of our public services:</p>
+
+                <ul>
+                    <li>attestation.app</li>
+                    <li>connectivitycheck.grapheneos.org</li>
+                    <li>grapheneos.org</li>
+                    <li>releases.grapheneos.org</li>
+                    <li>time.grapheneos.org</li>
+                </ul>
+
+                <p>Our implementation of the policy primarily consists of making sure our servers only
+                retain logs for 10 days. In practice, we follow much stricter privacy guidelines than
+                than the rules laid out in the EFF policy. However, we don't want to define our own
+                complex, ad-hoc privacy policy rather than reusing a sensible one with serious thought
+                put into it by experts.</p>
+
+                <p>Our mail server (mail.grapheneos.org) isn't offered as a public service and doesn't
+                have a privacy policy since it's only used internally by GrapheneOS developers.</p>
+
+                <h3 id="default-dns">
+                    <a href="#default-dns">Which DNS servers are used by default?</a>
+                </h3>
+
+                <p>By default, the OS uses the network-provided DNS servers, whether those come from
+                DHCP or static network configuration. VPNs provide their own DNS servers. If no DNS
+                servers are provided, GrapheneOS uses <a href="https://developers.cloudflare.com/1.1.1.1/what-is-1.1.1.1/">Cloudflare DNS</a>
+                as the fallback rather than Google Public DNS. In practice, the fallback is rarely used
+                and has little real world impact.</p>
+
+                <h3 id="custom-dns">
+                    <a href="#custom-dns">How do I use a custom DNS server?</a>
+                </h3>
+
+                <p>It isn't possible to directly override the DNS servers provided by the network via
+                DHCP. Instead, use the Private DNS feature in Settings ➔ Network &amp; internet ➔
+                Advanced ➔ Private DNS to set the hostname of a DNS-over-TLS server. It needs to have
+                a valid certificate such as a free certificate from Let's Encrypt. The OS will look up
+                the Private DNS hostname via the network provided DNS servers and will then force all
+                other DNS requests through the Private DNS server. Unlike an option to override the
+                network-provided DNS servers, this prevents the network from monitoring or tampering
+                with DNS requests/responses.</p>
+
+                <p>As an example, set the hostname to <code>one.one.one.one</code> for Cloudflare DNS.
+                There are various other mainstream DNS-over-TLS options available including Quad9,
+                Google and AdGuard.</p>
+
+                <p>Configuring a static IP address for a network requires entering DNS servers
+                manually, but you should still use the Private DNS feature with it, and you shouldn't
+                misuse the static IP address option just to override the DNS servers.</p>
+
+                <p>VPN service apps can also provide their own DNS implementation and/or servers,
+                including an alternate implementation of encrypted DNS. Private DNS takes precedence
+                over VPN-provided DNS, since it's just the network-provided DNS.</p>
+
+                <p>Apps and web sites can detect the configured DNS servers by generating random
+                subdomains resolved by querying their authoritative DNS server. This can be used as
+                part of fingerprinting users. If you're using a VPN, you should consider using the
+                standard DNS service provided by the VPN service to avoid standing out from other
+                users.</p>
+
+                <h3 id="private-dns-ip">
+                    <a href="#private-dns-ip">Why does Private DNS not accept IP addresses?</a>
+                </h3>
+
+                <p>By default, in the automatic mode, the Private DNS feature provides opportunistic
+                encryption by using DNS-over-TLS when supported by the DNS server IP addresses
+                provided by the network (DHCP) or the static IP configuration. Opportunistic
+                encryption provides protection against a passive listener, not an active attacker,
+                since they can force falling back to unencrypted DNS by blocking DNS-over-TLS. In the
+                automatic mode, certificate validation is not enforced, as it would provide no
+                additional security and would reduce the availability of opportunistic encryption.</p>
+
+                <p>When Private DNS is explicitly enabled, it uses authenticated encryption without a
+                fallback. The authentication is performed based on the hostname of the server, so it
+                isn't possible to provide an IP address. The OS will look up the hostname of the Private
+                DNS server via unencrypted DNS and then force all other DNS lookups via DNS-over-TLS
+                with the identity of the server authenticated as part of providing authenticated
+                encryption.</p>
+
+                <h3 id="private-dns-other">
+                    <a href="#private-dns-other">Does DNS-over-TLS (Private DNS) protect other connections?</a>
+                </h3>
+
+                <p>No, it only provides privacy for DNS resolution. Even authenticating DNS results
+                with DNSSEC does not protect other connections, unless the DNS records are part of the
+                system used to provide authenticated encryption, and DNS-over-TLS is not a substitute
+                for DNSSEC. If connections have authenticated encryption, they're secure even if DNS
+                resolution is hijacked by an attacker. If connections do not have authenticated
+                encryption, an attacker can listen in and tamper with them without hijacking DNS.
+                There are other ways to perform a MITM attack than DNS hijacking and internet routing
+                is fundamentally insecure. DNS-over-TLS may make a MITM harder for some attackers, but
+                don't count on it at all.</p>
+
+                <h3 id="private-dns-visited">
+                    <a href="#private-dns-visited">Does DNS-over-TLS (Private DNS) hide which sites are visited, etc.?</a>
+                </h3>
+
+                <p>Private DNS only encrypts DNS, and an adversary monitoring connections can still
+                see the IP address at the other end of those connections. Many domains resolve to
+                ambiguous IP addresses, so encrypted DNS is part of what's required to take away a lot
+                of the information leaked to adversaries. However, TLS currently leaks domains via
+                SNI, so encrypted DNS is not yet accomplishing much. It's a forward looking feature
+                that will become more useful in the future. Using it is recommended, but it's not an
+                alternative to using Tor or a VPN.</p>
+
+                <h3 id="vpn-support">
+                    <a href="#vpn-support">What kind of VPN and Tor support is available?</a>
+                </h3>
+
+                <p>VPNs can be configured under Settings ➔ Network &amp; Internet ➔ Advanced ➔ VPN.
+                Support for the following protocols is included: PPTP (insecure, obsolete), L2TP/IPSec
+                PSK, L2TP/IPSec RSA, IPSec Xauth PSK, IPSec Xauth RSA and IPSec Hybrid RSA. Apps can
+                also provide userspace VPN implementations and the following open source apps are
+                recommended: Orbot (Tor), WireGuard, OpenVPN for Android and the Private Internet
+                Access client (OpenVPN).</p>
+
+                <p>VPN configurations created with the built-in support can be set as the always-on
+                VPN in the configuration panel. This will keep the VPN running, reconnecting as
+                necessary and will force all connections through them. An app providing a VPN service
+                can also be set as the always-on VPN via the entry in the Settings page. For app-based
+                VPN implementations, there's also an additional "Block connections without VPN" toggle
+                which is needed to prevent leaks when the app's VPN service isn't running.</p>
+
+                <h3 id="network-monitoring">
+                    <a href="#network-monitoring">Can apps monitor network connections or statistics?</a>
+                </h3>
+
+                <p>Apps cannot monitor network connections unless they're made into the active VPN
+                service by the user. Apps cannot normally access network stats and cannot directly
+                request access to them. However, app-based stats can be explicitly granted by users as
+                part of access to app usage stats in Settings ➔ Apps &amp; notifications ➔ Special app
+                access ➔ Usage access.</p>
+
+                <p>This was previously part of the GrapheneOS privacy improvements, but became a
+                standard Android feature with Android 10.</p>
+
+                <h3 id="firewall">
+                    <a href="#firewall">Does GrapheneOS provide a firewall?</a>
+                </h3>
+
+                <p>Yes, GrapheneOS inherits the deeply integrated firewall from the Android Open
+                Source Project, which is used to implement portions of the security model and various
+                other features. The GrapheneOS project historically made various improvements to the
+                firewall but over time most of these changes have been integrated upstream or became
+                irrelevant.</p>
+
+                <p>GrapheneOS adds a user-facing Network permission toggle providing a robust way to
+                deny both direct and indirect network access to applications. It builds upon the
+                standard non-user-facing INTERNET permission, so it's already fully adopted by the app
+                ecosystem. Revoking the permission denies indirect access via OS components and apps
+                enforcing the INTERNET permission, such as DownloadManager. Direct access is denied
+                by blocking low-level network socket access.</p>
+
+                <h3 id="ad-blocking">
+                    <a href="#ad-blocking">How can I set up system-wide ad-blocking?</a>
+                </h3>
+
+                <p>The recommended approach to system-wide ad-blocking is setting up domain-based
+                ad-blocking as part of DNS resolution. You can do this by
+                <a href="#custom-dns">choosing a Private DNS (DNS-over-TLS) server</a> with support
+                for blocking ad domains. As an example, AdGuard DNS can be used by setting
+                <code>dns.adguard.com</code> as the Private DNS domain. In the future, GrapheneOS
+                plans on adding back <a
+                href="https://github.com/GrapheneOS/os_issue_tracker/issues/184">an efficient
+                user-defined blacklist for the local DNS resolver</a>. This feature used to be
+                included by the project many years ago, but it needs to be reimplemented, and it's a
+                low priority feature depending on contributors stepping up to work on it.</p>
+
+                <p>Apps and web sites can detect that ad-blocking is being used and can determine
+                what's being blocked. This can be used as part of fingerprinting users. Using a widely
+                used service like AdGuard with a standard block list is much less of an issue than a
+                custom set of subscriptions / rules, but it still stands out compared to the default
+                of not doing it.</p>
+
+                <h3 id="ad-blocking-apps">
+                    <a href="#ad-blocking-apps">Are ad-blocking apps supported?</a>
+                </h3>
+
+                <p>Content filtering apps are fully compatible with GrapheneOS, but they have serious
+                drawbacks and are not recommended. These apps use the VPN service feature to route
+                traffic through themselves to perform filtering.</p>
+
+                <p>The approach of intercepting traffic is inherently incompatible with encryption
+                from the client to the server. The AdGuard app works around encryption by supporting
+                optional
+                <a href="https://kb.adguard.com/en/general/https-filtering">HTTPS interception</a> by
+                having the user trust a local certificate authority, which is a security risk and
+                weakens HTTPS security even if their implementation is flawless (which they openly
+                acknowledge in their documentation, although it understates the risks). It also can't
+                intercept connections using certificate pinning, with the exception of browsers which
+                go out of the way to allow overriding pinning with locally added certificate
+                authorities. Many of these apps only provide domain-based filtering, unlike the deeper
+                filtering by AdGuard, but they're still impacted by encryption due to Private DNS
+                (DNS-over-TLS) and require disabling the feature. They could provide their own
+                DNS-over-TLS resolver to avoid losing the feature, but few of the developers care
+                enough to do that.</p>
+
+                <p>Using the VPN service to provide something other than a VPN also means that these
+                apps need to provide an actual VPN implementation or a way to forward to apps
+                providing one, and very few have bothered to implement this. NetGuard is an one
+                example implementing SOCKS5 forwarding, which can be used to forward to apps like
+                Orbot (Tor).</p>
+
+                <h3 id="baseband-isolation">
+                    <a href="#baseband-isolation">Is the baseband isolated?</a>
+                </h3>
+
+                <p>Yes, the baseband is isolated on all of the officially supported devices. Memory
+                access is partitioned by the IOMMU and limited to internal memory and memory shared
+                by the driver implementations. The baseband on the officially supported devices with a
+                Qualcomm SoC implements Wi-Fi and Bluetooth as internal sandboxed processes rather
+                than having a separate baseband for those like earlier devices.</p>
+
+                <p>Earlier generation devices we used to support prior to Pixels had Wi-Fi + Bluetooth
+                implemented on a separate SoC. This was not properly contained by the stock OS and we
+                put substantial work into addressing that problem. However, that work has been
+                obsoleted now that Wi-Fi and Bluetooth are provided by the SoC on the officially
+                supported devices.</p>
+
+                <p>A component being on a separate chip is orthogonal to whether it's isolated. In
+                order to be isolated, the drivers need to treat it as untrusted. If it has DMA access
+                that needs to be contained via IOMMU and the driver needs to treat the shared memory
+                as untrusted, as it would data received another way. There's a lot of attack surface
+                between the baseband and the kernel/userspace software stack connected to it. OS
+                security is very relevant to containing hardware components including the radios and
+                the vast majority of the attack surface is in software. The OS relies upon the
+                hardware and firmware to be able to contain components but ends up being primarily
+                responsible for it due to control over the configuration of shared memory and the
+                complexity of the interface and the OS side implementation.</p>
+
+                <p>The mobile Atheros Wi-Fi driver/firmware is primarily a SoftMAC implementation with
+                the vast majority of the complexity in the driver rather than the firmware. The fully
+                functional driver is massive and the firmware is quite small. Unfortunately, since the
+                Linux kernel is monolithic and has no internal security boundaries, the attack surface
+                is problematic and a HardMAC implementation with most complexity in the isolated
+                firmware could be better than the status quo. An isolated driver would be ideal.</p>
+            </section>
+
+            <section id="day-to-day-use">
+                <h2>
+                    <a href="#day-to-day-use">Day to day use</a>
+                </h2>
+
+                <h3 id="updates">
+                    <a href="#updates">How do I keep the OS updated?</a>
+                </h3>
+
+                <p>GrapheneOS has entirely automatic background updates. More details are available in
+                the <a href="/usage#updates">the usage guide's updates section</a>.</p>
+
+                <h3 id="updates-sideloading">
+                    <a href="#updates-sideloading">How do I update without connecting the device to the internet?</a>
+                </h3>
+
+                <p>Updates can be <a href="/usage#updates-sideloading">sideloaded via
+                recovery</a>.</p>
+
+                <h2 id="anti-theft">
+                    <a href="#anti-theft">Does GrapheneOS provide Factory Reset Protection?</a>
+                </h2>
+
+                <p>No, since this is strictly a theft deterrence feature, not a security feature, and
+                the standard implementation depends on having the device tied to an account on an
+                online service. The only advantage would be encouraging thieves to return a stolen
+                device for a potential reward after realizing that it has no value beyond scrapping it
+                for parts.</p>
+
+                <p>Google's Factory Reset Protection ties devices to a Google account using a tiny,
+                special region of persistent state not wiped by a factory reset. It prevents a thief
+                from wiping the device to a fresh state for resale without being stuck at a screen for
+                authenticating with the Google account persisted on the device after wiping.</p>
+
+                <p>It would be possible to make an implementation not reliant upon an online service
+                where the user has the option to enable Factory Reset Protection and is given a seed
+                phrase required to use the device after wiping data from recovery. However, since this
+                has no security value and the ability to deter theft is questionable, implementing
+                this is an extremely low priority.</p>
+
+                <p>Providing the option to disable wiping from recovery would be simpler, but would be
+                incompatible with features designed to wipe data automatically in certain cases. This
+                will not be implemented by GrapheneOS since it isn't a good approach and it conflicts
+                with other planned features.</p>
+
+                <h2 id="bundled-apps">
+                    <a href="#bundled-apps">Why aren't my favorite apps bundled with GrapheneOS?</a>
+                </h2>
+
+                <p>There are drawbacks to bundling apps into the OS and few advantages in most cases.
+                Rather than GrapheneOS bundling a bunch of apps, it makes far more sense for users to
+                install their preferred apps via F-Droid, Aurora Store or other sources. GrapheneOS is
+                also working on designing and implementing a first party app update system for a first
+                party repository with higher robustness and security than the existing options. Rather
+                than bundling apps, it could just offer recommendations as part of an initial setup
+                wizard. Users have unique needs and preferences and there has to be a very compelling
+                reason to bundle additional apps with the OS. For example, it's useful to have the
+                Auditor app available before connecting to the internet (see the
+                <a href="/install#verifying-installation">installation guide</a> documentation on
+                this).</p>
+
+                <p>Bundling additional apps with the OS can increase attack surface, unless users go
+                out of the way to disable apps they aren't using. Bundling an app into the base OS is
+                also painful to reverse, since removing the app without implementing a migration
+                mechanism will lose user data stored in the app. Some users are also going to take
+                issue with the choices made by the project or will want to make suggestions for
+                bundling more apps, and having this as a regular topic of discussion and debate is
+                unproductive and distracts from the real work of the project. Each bundled app also
+                increases the size of the base OS, and shipping the app updates as part of the OS
+                updates results in more overall bandwidth usage. It would be possible to ship only
+                out-of-band app updates to avoid wasted bandwidth for apps users have disabled, but
+                then the apps would be temporarily out-of-date and vulnerable to patched security
+                issues after a factory reset or the user re-enabling them. If the updates aren't going
+                to be shipped with the OS, it really makes no sense to bundle them.</p>
+
+                <p>GrapheneOS is focused on making meaningful improvements to privacy and security,
+                and bundling assorted apps into the OS is not only usually outside of that focus but
+                often counter to it.</p>
+
+                <p>In some cases, licensing is also an issue. GrapheneOS is permissively licensed and
+                is usable for building devices with an immutable root of trust. GPLv3 is deliberately
+                incompatible with these kinds of locked down devices, unlike GPLv2 code such as the
+                Linux kernel. This means GrapheneOS can't include GPLv3 code without forbidding use
+                cases we want to support. GPLv3 is no problem for our own usage, but we don't want to
+                forbid using GrapheneOS as a replacement for the Android Open Source Project in locked
+                down devices.</p>
+            </section>
         </main>
         <footer>
             <a href="/"><img src="/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
