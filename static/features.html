@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Contact | GrapheneOS</title>
+        <meta name="description" content="Overview of GrapheneOS features."/>
+        <meta name="theme-color" content="#212121"/>
+        <meta name="msapplication-TileColor" content="#ffffff"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="twitter:site" content="@GrapheneOS"/>
+        <meta name="twitter:creator" content="@GrapheneOS"/>
+        <meta property="og:title" content="GrapheneOS feature overview"/>
+        <meta property="og:description" content="Overview of GrapheneOS features."/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
+        <meta property="og:image:width" content="512"/>
+        <meta property="og:image:height" content="512"/>
+        <meta property="og:image:alt" content="GrapheneOS logo"/>
+        <meta property="og:url" content="https://grapheneos.org/features"/>
+        <meta property="og:site_name" content="GrapheneOS"/>
+        <link rel="icon" sizes="16x16 24x24 32x32 48x48 64x64" type="image/vnd.microsoft.icon" href="/favicon.ico"/>
+        <link rel="icon" sizes="any" type="image/svg+xml" href="/mask-icon.svg"/>
+        <link rel="mask-icon" href="/mask-icon.svg" color="#1a1a1a"/>
+        <link rel="stylesheet" href="/grapheneos.css?22"/>
+        <link rel="manifest" href="/manifest.webmanifest"/>
+        <link rel="canonical" href="https://grapheneos.org/features"/>
+    </head>
+    <body>
+        <nav id="site-menu">
+            <ul>
+                <li><a href="/">GrapheneOS</a></li>
+                <li aria-current="page"><a href="/features">GrapheneOS feature overview</a></li>
+                <li><a href="/install">Install</a></li>
+                <li><a href="/build">Build</a></li>
+                <li><a href="/usage">Usage</a></li>
+                <li><a href="/faq">FAQ</a></li>
+                <li><a href="/releases">Releases</a></li>
+                <li><a href="/source">Source</a></li>
+                <li><a href="/donate">Donate</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+        <main>
+            <h1 id="features">
+                <a href="#features">GrapheneOS feature overview</a>
+            </h1>
+
+            <p><strong>This is a newly created page (started 2020-12-05) and is in the process of
+            being written. More details and links to more detailed documentation and relevant
+            repositories will be added over time.</strong></p>
+
+            <p>This is an overview of the current set of features differentiating GrapheneOS from
+            the Android Open Source Project (AOSP). Each major release of AOSP brings substantial
+            privacy and security improvements, many of which have obsoleted historical features in
+            GrapheneOS. This page does not currently cover any of the historical features since it
+            aims to cover the current differences rather than what we've done over the years.</p>
+
+            <p>Graphene features:</p>
+
+            <ul>
+                <li>Hardened kernel</li>
+                <li>Hardened libc providing defenses against the most common classes of vulnerabilities (memory
+  corruption)</li>
+                <li>Hardened malloc (memory allocator) leveraging modern hardware capabilities to provide
+  substantial defenses against the most common classes of vulnerabilities (heap memory corruption)
+  along with reducing the lifetime of sensitive data in memory</li>
+                <li>Hardened app runtime</li>
+                <li>Filesystem access hardening</li>
+                <li>Enhanced verified boot with better security properties and reduced attack surface</li>
+                <li>Enhanced hardware-based attestation with more precise version information</li>
+                <li>Eliminates remaining holes for apps to access hardware-based identifiers</li>
+                <li>Greatly reduced remote, local and proximity-based attack surface by stripping out unnecessary
+  code, making more features optional and disabling optional features by default or when the
+  screen is locked</li>
+                <li>Low-level improvements to the filesystem-based full disk encryption used on
+                modern Android</li>
+                <li>Support for logging out of user profiles without needing a device manager: makes them inactive so that they can't continue running code while using another profile, purges disk encryption keys (which are per-profile) from memory and hardware registers</li>
+                <li>LTE-only mode to reduce cellular radio attack surface by disabling enormous amounts of legacy
+  code</li>
+                <li>Default enabled per-connection MAC randomization as an improvement over Android's default
+  per-network MAC randomization reusing the same MAC address until the DHCP lease with that
+  network expires</li>
+                <li>Vanadium: hardened WebView and default browser</li>
+                <li>Auditor: hardware-based attestation used to secure devices for users and
+  organizations instead of using it as a form of DRM</li>
+                <li>PDF Viewer: sandboxed, hardened PDF viewer using HiDPI rendering with pinch to zoom, text
+  selection, etc.</li>
+                <li>Secure application spawning system</li>
+                <li>Network permission toggle disallowing both direct and indirect network access, superior to a purely firewall-based implementation only disallowing direct access to the network without covering inter-process communication</li>
+                <li>Sensors permission toggle</li>
+                <li>Authenticated encryption for network time updates via a first party server to
+                prevent attackers from changing the time and enabling attacks based on bypassing
+                certificate / key expiry, etc.</li>
+                <li>Proper support for disabling network time updates rather than just not using
+                the results</li>
+                <li>Connectivity checks via a first party server with the option to revert to the
+                standard checks</li>
+                <li>Hardened local build / signing infrastructure</li>
+                <li>Seamless automatic OS update system that just works and stays out of the way
+                    in the background without disrupting device usage</li>
+            </ul>
+
+            <p>Infrastructure features:</p>
+
+            <ul>
+                <li>Strict privacy and security practices for our infrastructure</li>
+                <li>Services hosted on OVH without involving any additional parties for CDNs,
+                mirrors or other services - we don't outsource to others</li>
+                <li>Our services are built with open technology stacks to avoid being locked in to
+                any particular hosting provider or vendor</li>
+                <li>Open documentation on our infrastructure including listing out all of our
+                services, guides on making similar setups, published configurations for each
+                of our web services, etc.</li>
+                <li>No proprietary services</li>
+                <li>Authenticated encryption for all of our services</li>
+                <li>Strong cipher configurations for all of our services (SSH, TLS, etc.)</li>
+                <li>DNSSEC for all our domains</li>
+                <li>SSHFP across all domains for pinning SSH keys</li>
+                <li>DANE TLSA records for pinning keys for all our TLS services (unfortunately only
+                used by a subset of other mail services in practice, and not yet web
+                browsers)</li>
+                <li>Static key pinning for our services in apps like Auditor</li>
+                <li>No cookies or similar client-side state for anything other than login sessions,
+                which are set up via SameSite=strict cookies and have server-side session tracking
+                with the ability to log out of other sessions</li>
+                <li>scrypt-based password hashing (likely Argon2 when the available implementations
+                are more mature)</li>
+            </ul>
+
+            <p>Beyond the technical features of the OS:</p>
+
+            <ul>
+                <li>Collaborative, open source project with a very active community and contributors</li>
+                <li>Can make your own builds and make desired changes, so you aren't stuck with
+                the decisions made by the upstream project</li>
+                <li>Non-profit project avoiding conflicts of interest by keeping commercialization
+                at a distance. Companies support the project rather than the project serving the
+                needs of any particular company</li>
+                <li>No proprietary services</li>
+                <li>Strong privacy policies</li>
+            </ul>
+        </main>
+        <footer>
+            <a href="/"><img src="/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
+            <ul id="social">
+                <li><a href="https://twitter.com/GrapheneOS">Twitter</a></li>
+                <li><a href="https://github.com/GrapheneOS">GitHub</a></li>
+                <li><a href="https://reddit.com/r/GrapheneOS">Reddit</a></li>
+            </ul>
+        </footer>
+    </body>
+</html>
