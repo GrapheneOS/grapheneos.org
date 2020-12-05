@@ -101,8 +101,12 @@
   selection, etc.</li>
                 <li>Secure application spawning system avoiding sharing address space layout and
                 other secrets across applications</li>
-                <li>Network permission toggle disallowing both direct and indirect network access, superior to a purely firewall-based implementation only disallowing direct access to the network without covering inter-process communication</li>
-                <li>Sensors permission toggle</li>
+                <li>Network permission toggle disallowing both direct and indirect network access,
+                superior to a purely firewall-based implementation only disallowing direct
+                access to the network without covering inter-process communication (enabled by
+                default for compatibility)</li>
+                <li>Sensors permission toggle: disallow access to all other sensors not covered by
+                existing Android permissions (enabled by default for compatibility)</li>
                 <li>Authenticated encryption for network time updates via a first party server to
                 prevent attackers from changing the time and enabling attacks based on bypassing
                 certificate / key expiry, etc.</li>
