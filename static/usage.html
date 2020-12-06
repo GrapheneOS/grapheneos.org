@@ -76,410 +76,410 @@
                 </ul>
             </nav>
 
-            <h2 id="auditor">
-                <a href="#auditor">Auditor</a>
-            </h2>
-            <p>See the <a href="https://attestation.app/tutorial">tutorial page on the site for the attestation sub-project</a>.</p>
+            <section id="auditor">
+                <h2><a href="#auditor">Auditor</a></h2>
+                <p>See the <a href="https://attestation.app/tutorial">tutorial page on the site for the attestation sub-project</a>.</p>
+            </section>
 
-            <h2 id="updates">
-                <a href="#updates">Updates</a>
-            </h2>
+            <section id="updates">
+                <h2><a href="#updates">Updates</a></h2>
 
-            <p>The update system implements automatic background updates. It checks for updates
-            approximately once every four hours when there's network connectivity and then
-            downloads and installs updates in the background. It will pick up where it left off if
-            downloads are interrupted, so you don't need to worry about interrupting it.
-            Similarly, interrupting the installation isn't a risk because updates are installed to
-            a secondary installation of GrapheneOS which only becomes the active installation
-            after the update is complete. Once the update is complete, you'll be informed with a
-            notification and simply need to reboot with the button in the notification or via a
-            normal reboot. If the new version fails to boot, the OS will be rolled back to the
-            past version and the updater will attempt to download and install the update
-            again.</p>
+                <p>The update system implements automatic background updates. It checks for updates
+                approximately once every four hours when there's network connectivity and then
+                downloads and installs updates in the background. It will pick up where it left off if
+                downloads are interrupted, so you don't need to worry about interrupting it.
+                Similarly, interrupting the installation isn't a risk because updates are installed to
+                a secondary installation of GrapheneOS which only becomes the active installation
+                after the update is complete. Once the update is complete, you'll be informed with a
+                notification and simply need to reboot with the button in the notification or via a
+                normal reboot. If the new version fails to boot, the OS will be rolled back to the
+                past version and the updater will attempt to download and install the update
+                again.</p>
 
-            <p>The updater will use incremental (delta) updates to download only changes rather
-            than the whole OS when one is available to go directly from the installed version to
-            the latest version. As long as you have working network connectivity on a regular
-            basis and reboot when asked, you'll almost always be on one of the past couple
-            versions of the OS which will minimize bandwidth usage since incrementals will always
-            be available.</p>
+                <p>The updater will use incremental (delta) updates to download only changes rather
+                than the whole OS when one is available to go directly from the installed version to
+                the latest version. As long as you have working network connectivity on a regular
+                basis and reboot when asked, you'll almost always be on one of the past couple
+                versions of the OS which will minimize bandwidth usage since incrementals will always
+                be available.</p>
 
-            <p>The updater works while the device is locked / idle, including before the first
-            unlock since it's explicitly designed to be able to run before decryption of user
-            data.</p>
+                <p>The updater works while the device is locked / idle, including before the first
+                unlock since it's explicitly designed to be able to run before decryption of user
+                data.</p>
 
-            <p>Release changelogs are available <a href="/releases#changelog">in a section on the releases page</a>.</p>
+                <p>Release changelogs are available <a href="/releases#changelog">in a section on the releases page</a>.</p>
 
-            <h3 id="updates-settings">
-                <a href="#updates-settings">Settings</a>
-            </h3>
+                <section id="updates-settings">
+                    <h3><a href="#updates-settings">Settings</a></h3>
 
-            <p>The settings are available in the Settings app in System ➔ Advanced ➔ Update
-            settings.</p>
+                    <p>The settings are available in the Settings app in System ➔ Advanced ➔ Update
+                    settings.</p>
 
-            <p>The "Check for updates" option will manually trigger an update check as soon as
-            possible. It will still wait for the configuration conditions listed below to be
-            satisfied, such as being connected to the internet via one of the permitted network
-            types.</p>
+                    <p>The "Check for updates" option will manually trigger an update check as soon as
+                    possible. It will still wait for the configuration conditions listed below to be
+                    satisfied, such as being connected to the internet via one of the permitted network
+                    types.</p>
 
-            <p>The "Release channel" setting can be changed from the default Stable channel to the
-            Beta channel if you want to help with testing. The Beta channel will usually simply
-            follow the Stable channel, but the Beta channel may be used to experiment with new
-            features.</p>
+                    <p>The "Release channel" setting can be changed from the default Stable channel to the
+                    Beta channel if you want to help with testing. The Beta channel will usually simply
+                    follow the Stable channel, but the Beta channel may be used to experiment with new
+                    features.</p>
 
-            <p>The "Permitted networks" setting controls which networks will be used to perform
-            updates. It defaults to using any network connection. It can be set to "Non-roaming"
-            to disable it when the cellular service is marked as roaming or "Unmetered" to disable
-            it on cellular networks and also Wi-Fi networks marked as metered.</p>
+                    <p>The "Permitted networks" setting controls which networks will be used to perform
+                    updates. It defaults to using any network connection. It can be set to "Non-roaming"
+                    to disable it when the cellular service is marked as roaming or "Unmetered" to disable
+                    it on cellular networks and also Wi-Fi networks marked as metered.</p>
 
-            <p>The "Require battery above warning level" setting controls whether updates will
-            only be performed when the battery is above the level where the warning message is
-            shown. The standard value is at 15% capacity.</p>
+                    <p>The "Require battery above warning level" setting controls whether updates will
+                    only be performed when the battery is above the level where the warning message is
+                    shown. The standard value is at 15% capacity.</p>
 
-            <p>Enabling the opt-in "Automatic reboot" setting allows the updater to reboot the
-            device after an update once it has been idle for a long time. When this setting is
-            enabled, a device can take care of any number of updates completely automatically even
-            if it's left completely idle.</p>
+                    <p>Enabling the opt-in "Automatic reboot" setting allows the updater to reboot the
+                    device after an update once it has been idle for a long time. When this setting is
+                    enabled, a device can take care of any number of updates completely automatically even
+                    if it's left completely idle.</p>
+                </section>
 
-            <h3 id="updates-security">
-                <a href="#updates-security">Security</a>
-            </h3>
+                <section id="updates-security">
+                    <h3><a href="#updates-security">Security</a></h3>
 
-            <p>The update server isn't a trusted party since updates are signed and verified along
-            with downgrade attacks being prevented. The update protocol doesn't send identifiable
-            information to the update server and works well over a VPN / Tor. GrapheneOS isn't
-            able to comply with a government order to build, sign and ship a malicious update to a
-            specific user's device based on information like the IMEI, serial number, etc. The
-            update server only ends up knowing the IP address used to connect to it and the
-            version being upgraded from based on the requested incremental.</p>
+                    <p>The update server isn't a trusted party since updates are signed and verified along
+                    with downgrade attacks being prevented. The update protocol doesn't send identifiable
+                    information to the update server and works well over a VPN / Tor. GrapheneOS isn't
+                    able to comply with a government order to build, sign and ship a malicious update to a
+                    specific user's device based on information like the IMEI, serial number, etc. The
+                    update server only ends up knowing the IP address used to connect to it and the
+                    version being upgraded from based on the requested incremental.</p>
 
-            <p>Android updates can support serialno constraints to make them validate only on a
-            certain device but GrapheneOS rejects any update with a serialno constraint for both
-            over-the-air updates (Updater app) and sideloaded updates (recovery).</p>
+                    <p>Android updates can support serialno constraints to make them validate only on a
+                    certain device but GrapheneOS rejects any update with a serialno constraint for both
+                    over-the-air updates (Updater app) and sideloaded updates (recovery).</p>
+                </section>
 
-            <h3 id="updates-disabling">
-                <a href="#updates-disabling">Disabling</a>
-            </h3>
+                <section id="updates-disabling">
+                    <h3><a href="#updates-disabling">Disabling</a></h3>
 
-            <p>It's highly recommended to leave automatic updates enabled and to configure the
-            permitted networks if the bandwidth usage is a problem on your mobile data connection.
-            However, it's possible to turn off the update client by going to Settings ➔ Apps,
-            enabling Show system via the menu, selecting Seamless Update Client and disabling the
-            app.  If you do this, you'll need to remember to enable it again to start receiving
-            updates.</p>
+                    <p>It's highly recommended to leave automatic updates enabled and to configure the
+                    permitted networks if the bandwidth usage is a problem on your mobile data connection.
+                    However, it's possible to turn off the update client by going to Settings ➔ Apps,
+                    enabling Show system via the menu, selecting Seamless Update Client and disabling the
+                    app.  If you do this, you'll need to remember to enable it again to start receiving
+                    updates.</p>
+                </section>
 
-            <h3 id="updates-sideloading">
-                <a href="#updates-sideloading">Sideloading</a>
-            </h3>
+                <section id="updates-sideloading">
+                    <h3><a href="#updates-sideloading">Sideloading</a></h3>
 
-            <p>Updates can be downloaded via
-            <a href="https://grapheneos.org/releases">the releases page</a> and installed via recovery
-            with adb sideloading. The zip files are signed and verified by recovery, just as they
-            are by the update client within the OS. This includes providing downgrade protection,
-            which prevents attempting to downgrade the version. If recovery didn't enforce these
-            things, they would still be enforced via verified boot including downgrade protection
-            on modern devices (Pixel 2 and later) and the attempted update would just fail to boot
-            and be rolled back.</p>
+                    <p>Updates can be downloaded via
+                    <a href="https://grapheneos.org/releases">the releases page</a> and installed via recovery
+                    with adb sideloading. The zip files are signed and verified by recovery, just as they
+                    are by the update client within the OS. This includes providing downgrade protection,
+                    which prevents attempting to downgrade the version. If recovery didn't enforce these
+                    things, they would still be enforced via verified boot including downgrade protection
+                    on modern devices (Pixel 2 and later) and the attempted update would just fail to boot
+                    and be rolled back.</p>
 
-            <p>To install one by sideloading, first, boot into recovery. You may do this either by
-            using <code>adb reboot recovery</code> from the operating system, or by selecting the
-            "Recovery" option in the bootloader menu.</p>
+                    <p>To install one by sideloading, first, boot into recovery. You may do this either by
+                    using <code>adb reboot recovery</code> from the operating system, or by selecting the
+                    "Recovery" option in the bootloader menu.</p>
 
-            <p>You should see the green Android lying on its back being repaired, with the text "No
-            command" meaning that no command has been passed to recovery.</p>
+                    <p>You should see the green Android lying on its back being repaired, with the text "No
+                    command" meaning that no command has been passed to recovery.</p>
 
-            <p>Next, access the recovery menu by holding down the power button and pressing the volume
-            up button a single time. This key combination toggles between the GUI and text-based mode
-            with the menu and log output.</p>
+                    <p>Next, access the recovery menu by holding down the power button and pressing the volume
+                    up button a single time. This key combination toggles between the GUI and text-based mode
+                    with the menu and log output.</p>
 
-            <p>Finally, select the "Apply update from ADB" option in the recovery menu and
-            sideload the update with adb. For example:</p>
+                    <p>Finally, select the "Apply update from ADB" option in the recovery menu and
+                    sideload the update with adb. For example:</p>
 
-            <pre>adb sideload blueline-ota_update-2019.07.01.21.zip</pre>
+                    <pre>adb sideload blueline-ota_update-2019.07.01.21.zip</pre>
 
-            <p><strong>You do not need to have adb enabled within the OS or the host's ADB key
-            whitelisted within the OS to sideload an update to recovery. Recovery mode does not
-            trust the attached computer and this can be considered a production feature. Trusting
-            a computer with ADB access within the OS is much different and exposes the device to a
-            huge amount of attack surface and control by the trusted computer.</strong></p>
+                    <p><strong>You do not need to have adb enabled within the OS or the host's ADB key
+                    whitelisted within the OS to sideload an update to recovery. Recovery mode does not
+                    trust the attached computer and this can be considered a production feature. Trusting
+                    a computer with ADB access within the OS is much different and exposes the device to a
+                    huge amount of attack surface and control by the trusted computer.</strong></p>
+                </section>
+            </section>
 
-            <h2 id="web-browsing">
-                <a href="#web-browsing">Web browsing</a>
-            </h2>
+            <section id="web-browsing">
+                <h2><a href="#web-browsing">Web browsing</a></h2>
 
-            <p>GrapheneOS includes a Vanadium subproject providing privacy and security enhanced
-            releases of Chromium. Vanadium is both the user-facing browser included in the OS and
-            the provider of the WebView used by other apps to render web content. The WebView is
-            the browser engine used by the vast majority of web browsers and nearly all other apps
-            embedding web content or using web technologies for other uses.</p>
+                <p>GrapheneOS includes a Vanadium subproject providing privacy and security enhanced
+                releases of Chromium. Vanadium is both the user-facing browser included in the OS and
+                the provider of the WebView used by other apps to render web content. The WebView is
+                the browser engine used by the vast majority of web browsers and nearly all other apps
+                embedding web content or using web technologies for other uses.</p>
 
-            <p>Using Vanadium is highly recommended. Bromite is a solid alternative and is the
-            only other browser we recommend. Bromite provides integrated ad-blocking and more
-            advanced anti-fingerprinting. For now, Vanadium is more focused on security hardening
-            and Bromite is more focused on anti-fingerprinting. The projects are collaborating
-            together and will likely converge to providing more of the same features. Vanadium
-            will be providing content filtering and anti-fingerprinting, but it needs to be done
-            in a way that meets the standards of the project, which takes time.</p>
+                <p>Using Vanadium is highly recommended. Bromite is a solid alternative and is the
+                only other browser we recommend. Bromite provides integrated ad-blocking and more
+                advanced anti-fingerprinting. For now, Vanadium is more focused on security hardening
+                and Bromite is more focused on anti-fingerprinting. The projects are collaborating
+                together and will likely converge to providing more of the same features. Vanadium
+                will be providing content filtering and anti-fingerprinting, but it needs to be done
+                in a way that meets the standards of the project, which takes time.</p>
 
-            <p>Vanadium is designed for use on GrapheneOS and does not duplicate the OS privacy
-            and security features such as the hardened malloc implementation. This leads to some
-            of the differences from Bromite, such as relying on OS support for encrypted DNS
-            rather than enabling Chromium's DNS-over-HTTPS support.</p>
+                <p>Vanadium is designed for use on GrapheneOS and does not duplicate the OS privacy
+                and security features such as the hardened malloc implementation. This leads to some
+                of the differences from Bromite, such as relying on OS support for encrypted DNS
+                rather than enabling Chromium's DNS-over-HTTPS support.</p>
 
-            <p>Chromium-based browsers like Vanadium and Bromite provide the strongest sandbox
-            implementation, leagues ahead of the alternatives. It is much harder to escape from
-            the sandbox and it provides much more than acting as a barrier to compromising the
-            rest of the OS. Site isolation enforces security boundaries around each site using the
-            sandbox by placing each site into an isolated sandbox. It required a huge overhaul of
-            the browser since it has to enforce these rules on all the IPC APIs. Site isolation is
-            important even without a compromise, due to side channels. Browsers without site
-            isolation are very vulnerable to attacks like Spectre. On mobile, due to the lack of
-            memory available to apps, there are different modes for site isolation. Vanadium turns
-            on strict site isolation, matching Chromium on the desktop. Bromite enables strict
-            site isolation on high memory devices, including all the devices that are officially
-            supported by GrapheneOS.</p>
+                <p>Chromium-based browsers like Vanadium and Bromite provide the strongest sandbox
+                implementation, leagues ahead of the alternatives. It is much harder to escape from
+                the sandbox and it provides much more than acting as a barrier to compromising the
+                rest of the OS. Site isolation enforces security boundaries around each site using the
+                sandbox by placing each site into an isolated sandbox. It required a huge overhaul of
+                the browser since it has to enforce these rules on all the IPC APIs. Site isolation is
+                important even without a compromise, due to side channels. Browsers without site
+                isolation are very vulnerable to attacks like Spectre. On mobile, due to the lack of
+                memory available to apps, there are different modes for site isolation. Vanadium turns
+                on strict site isolation, matching Chromium on the desktop. Bromite enables strict
+                site isolation on high memory devices, including all the devices that are officially
+                supported by GrapheneOS.</p>
 
-            <p>Chromium has decent exploit mitigations, unlike the available alternatives. This is
-            improved upon in Vanadium by enabling further mitigations, including those developed
-            upstream but not yet fully enabled due to code size, memory usage or performance. For
-            example, it enables type-based CFI like Chromium on the desktop, uses a stronger SSP
-            configuration, zero initializes variables by default, etc. Some of the mitigations are
-            inherited from the OS itself, which also applies to other browsers, at least if they
-            don't do things to break them.</p>
+                <p>Chromium has decent exploit mitigations, unlike the available alternatives. This is
+                improved upon in Vanadium by enabling further mitigations, including those developed
+                upstream but not yet fully enabled due to code size, memory usage or performance. For
+                example, it enables type-based CFI like Chromium on the desktop, uses a stronger SSP
+                configuration, zero initializes variables by default, etc. Some of the mitigations are
+                inherited from the OS itself, which also applies to other browsers, at least if they
+                don't do things to break them.</p>
 
-            <p>We recommend against trying to achieve browser privacy and security through piling
-            on browser extensions and modifications. Most privacy features for browsers are
-            privacy theater without a clear threat model and these features often reduce privacy
-            by aiding fingerprinting and adding more state shared between sites. Every change you
-            make results in you standing out from the crowd and generally provides more ways to
-            track you. Enumerating badness via content filtering is not a viable approach to
-            achieving decent privacy, just as AntiVirus isn't a viable way to achieving decent
-            security. These are losing battles, and are at best a stopgap reducing exposure while
-            waiting for real privacy and security features.</p>
+                <p>We recommend against trying to achieve browser privacy and security through piling
+                on browser extensions and modifications. Most privacy features for browsers are
+                privacy theater without a clear threat model and these features often reduce privacy
+                by aiding fingerprinting and adding more state shared between sites. Every change you
+                make results in you standing out from the crowd and generally provides more ways to
+                track you. Enumerating badness via content filtering is not a viable approach to
+                achieving decent privacy, just as AntiVirus isn't a viable way to achieving decent
+                security. These are losing battles, and are at best a stopgap reducing exposure while
+                waiting for real privacy and security features.</p>
 
-            <p>Vanadium will be following the school of thought where hiding the IP address
-            through Tor or a trusted VPN shared between many users is the essential baseline, with
-            the browser partitioning state based on site and mitigating fingerprinting to avoid
-            that being trivially bypassed. The Tor Browser's approach is the only one with any
-            real potential, however flawed the current implementation may be. This work is
-            currently in a very early stage and it is largely being implemented upstream with the
-            strongest available implementation of state partitioning. Chromium is using Network
-            Isolation Keys to divide up connection pools, caches and other state based on site and
-            this will be the foundation for privacy. Chromium itself aims to prevent tracking
-            through mechanisms other than cookies, greatly narrowing the scope downstream work
-            needs to cover. Bromite is doing a lot of work in these areas and Vanadium will be
-            benefiting from that along with this upstream work. The focus is currently on research
-            since we don't see much benefit in deploying bits and pieces of this before everything
-            is ready to come together. At the moment, the only browser with any semblance of
-            privacy is the Tor Browser but there are many ways to bypass the anti-fingerprinting
-            and state partitioning. The Tor Browser's security is weak which makes the privacy
-            protection weak. The need to avoid diversity (fingerprinting) creates a monoculture
-            for the most interesting targets. This needs to change, especially since Tor itself
-            makes people into much more of a target (both locally and by the exit nodes).</p>
+                <p>Vanadium will be following the school of thought where hiding the IP address
+                through Tor or a trusted VPN shared between many users is the essential baseline, with
+                the browser partitioning state based on site and mitigating fingerprinting to avoid
+                that being trivially bypassed. The Tor Browser's approach is the only one with any
+                real potential, however flawed the current implementation may be. This work is
+                currently in a very early stage and it is largely being implemented upstream with the
+                strongest available implementation of state partitioning. Chromium is using Network
+                Isolation Keys to divide up connection pools, caches and other state based on site and
+                this will be the foundation for privacy. Chromium itself aims to prevent tracking
+                through mechanisms other than cookies, greatly narrowing the scope downstream work
+                needs to cover. Bromite is doing a lot of work in these areas and Vanadium will be
+                benefiting from that along with this upstream work. The focus is currently on research
+                since we don't see much benefit in deploying bits and pieces of this before everything
+                is ready to come together. At the moment, the only browser with any semblance of
+                privacy is the Tor Browser but there are many ways to bypass the anti-fingerprinting
+                and state partitioning. The Tor Browser's security is weak which makes the privacy
+                protection weak. The need to avoid diversity (fingerprinting) creates a monoculture
+                for the most interesting targets. This needs to change, especially since Tor itself
+                makes people into much more of a target (both locally and by the exit nodes).</p>
 
-            <p>WebView-based browsers use the hardened Vanadium rendering engine, but they can't
-            offer as much privacy and control due to being limited to the capabilities supported
-            by the WebView widget. For example, they can't provide a setting for toggling sensors
-            access because the feature is fairly new and the WebView WebSettings API doesn't yet
-            include support for it as it does for JavaScript, location, cookies, DOM storage and
-            other older features. For sensors, the Sensors app permission added by GrapheneOS can
-            be toggled off for the browser app as a whole instead. The WebView sandbox also
-            currently runs every instance within the same sandbox and doesn't support site
-            isolation.</p>
+                <p>WebView-based browsers use the hardened Vanadium rendering engine, but they can't
+                offer as much privacy and control due to being limited to the capabilities supported
+                by the WebView widget. For example, they can't provide a setting for toggling sensors
+                access because the feature is fairly new and the WebView WebSettings API doesn't yet
+                include support for it as it does for JavaScript, location, cookies, DOM storage and
+                other older features. For sensors, the Sensors app permission added by GrapheneOS can
+                be toggled off for the browser app as a whole instead. The WebView sandbox also
+                currently runs every instance within the same sandbox and doesn't support site
+                isolation.</p>
 
-            <p>Avoid Gecko-based browsers like Firefox as they're currently much more vulnerable
-            to exploitation and inherently add a huge amount of attack surface. Gecko doesn't have
-            a WebView implementation (GeckoView is not a WebView implementation), so it has to be
-            used alongside the Chromium-based WebView rather than instead of Chromium, which means
-            having the remote attack surface of two separate browser engines instead of only one.
-            Firefox / Gecko also bypass or cripple a fair bit of the upstream and GrapheneOS
-            hardening work for apps. Worst of all, Firefox runs as a single process on mobile and
-            has no sandbox beyond the OS sandbox. This is despite the fact that Chromium semantic
-            sandbox layer on Android is implemented via the OS <code>isolatedProcess</code>
-            feature, which is a very easy to use boolean property for app service processes to
-            provide strong isolation with only the ability to communicate with the app running
-            them via the standard service API. Even in the desktop version, Firefox's sandbox is
-            still substantially weaker (especially on Linux, where it can hardly be considered a
-            sandbox at all) and lacks support for isolating sites from each other rather than only
-            containing content as a whole.</p>
+                <p>Avoid Gecko-based browsers like Firefox as they're currently much more vulnerable
+                to exploitation and inherently add a huge amount of attack surface. Gecko doesn't have
+                a WebView implementation (GeckoView is not a WebView implementation), so it has to be
+                used alongside the Chromium-based WebView rather than instead of Chromium, which means
+                having the remote attack surface of two separate browser engines instead of only one.
+                Firefox / Gecko also bypass or cripple a fair bit of the upstream and GrapheneOS
+                hardening work for apps. Worst of all, Firefox runs as a single process on mobile and
+                has no sandbox beyond the OS sandbox. This is despite the fact that Chromium semantic
+                sandbox layer on Android is implemented via the OS <code>isolatedProcess</code>
+                feature, which is a very easy to use boolean property for app service processes to
+                provide strong isolation with only the ability to communicate with the app running
+                them via the standard service API. Even in the desktop version, Firefox's sandbox is
+                still substantially weaker (especially on Linux, where it can hardly be considered a
+                sandbox at all) and lacks support for isolating sites from each other rather than only
+                containing content as a whole.</p>
+            </section>
 
-            <h2 id="camera">
-                <a href="#camera">Camera</a>
-            </h2>
+            <section id="camera">
+                <h2><a href="#camera">Camera</a></h2>
 
-            <p>The Camera app included in GrapheneOS is very basic and can't take full advantage
-            of the hardware. It doesn't offer much in the way of configuration. In the long term,
-            it's going to be replaced. In the short term, there are other apps available providing
-            more capabilities and better support for taking advantage of the hardware.</p>
+                <p>The Camera app included in GrapheneOS is very basic and can't take full advantage
+                of the hardware. It doesn't offer much in the way of configuration. In the long term,
+                it's going to be replaced. In the short term, there are other apps available providing
+                more capabilities and better support for taking advantage of the hardware.</p>
 
-            <p>The Pixel 2 and Pixel 3 (but not the Pixel 3a) have a Pixel Visual Core providing
-            a hardware-based implementation of HDR+. HDR+ captures many images and intelligently
-            merges data across them, taking into account motion, etc. It substantially improves
-            the quality of images, especially in low light. This is used transparently for third
-            party apps that are compatible with it, and there isn't an explicit switch to turn it
-            on or off for most of them. An example of a compatible app is Open Camera's default
-            configuration, or Open Camera with the Camera 2 API and other settings (including the
-            the various knobs / toggles outside of the settings menu) left alone. In general, HDR+
-            will work transparently in most apps as long as they keep things simple and use a good
-            minimalist approach to taking pictures. It should work transparently in most messaging
-            apps, etc. with internal support for taking pictures.</p>
+                <p>The Pixel 2 and Pixel 3 (but not the Pixel 3a) have a Pixel Visual Core providing
+                a hardware-based implementation of HDR+. HDR+ captures many images and intelligently
+                merges data across them, taking into account motion, etc. It substantially improves
+                the quality of images, especially in low light. This is used transparently for third
+                party apps that are compatible with it, and there isn't an explicit switch to turn it
+                on or off for most of them. An example of a compatible app is Open Camera's default
+                configuration, or Open Camera with the Camera 2 API and other settings (including the
+                the various knobs / toggles outside of the settings menu) left alone. In general, HDR+
+                will work transparently in most apps as long as they keep things simple and use a good
+                minimalist approach to taking pictures. It should work transparently in most messaging
+                apps, etc. with internal support for taking pictures.</p>
 
-            <p>In addition to supporting HDR+ via the Pixel Visual Core, or similar features on
-            other devices with the same constraints, Open Camera offers advanced configuration and
-            various advanced features. Make sure to enable the Camera 2 API in the settings, which
-            should be the default, but the app doesn't have a great user interface / user
-            experience. You probably don't want to use the traditional HDR feature in the app.
-            That's not HDR+, but rather captures 3 images and merges them in a way that isn't at
-            all intelligent and causes a lot of blur and distortion. The HDR+ implementation can
-            actually benefit from the camera not being completely steady as it's smart enough to
-            match up the picture and it provides it with more data vs. a traditional HDR
-            implementation where it essentially doesn't work without a tripod and is not really at
-            all useful on a phone unless you actually have that for it.</p>
+                <p>In addition to supporting HDR+ via the Pixel Visual Core, or similar features on
+                other devices with the same constraints, Open Camera offers advanced configuration and
+                various advanced features. Make sure to enable the Camera 2 API in the settings, which
+                should be the default, but the app doesn't have a great user interface / user
+                experience. You probably don't want to use the traditional HDR feature in the app.
+                That's not HDR+, but rather captures 3 images and merges them in a way that isn't at
+                all intelligent and causes a lot of blur and distortion. The HDR+ implementation can
+                actually benefit from the camera not being completely steady as it's smart enough to
+                match up the picture and it provides it with more data vs. a traditional HDR
+                implementation where it essentially doesn't work without a tripod and is not really at
+                all useful on a phone unless you actually have that for it.</p>
+            </section>
 
-            <h2 id="exec-spawning">
-                <a href="#exec-spawning">Exec spawning</a>
-            </h2>
+            <section id="exec-spawning">
+                <h2><a href="#exec-spawning">Exec spawning</a></h2>
 
-            <p>GrapheneOS creates fresh processes (via exec) when spawning applications instead of
-            using the traditional Zygote spawning model. This improves privacy and security at the
-            expense of higher cold start app spawning time and higher initial memory usage. It
-            doesn't impact runtime performance beyond the initial spawning time. It adds somewhere
-            in the ballpark of 100ms to app spawning time on the flagship devices and is only very
-            noticeable on lower-end devices with a weaker CPU and slower storage. The spawning
-            time impact only applies when the app doesn't already have an app process and the OS
-            will try to keep app processes cached in the background until memory pressure forces
-            it to start killing them.</p>
+                <p>GrapheneOS creates fresh processes (via exec) when spawning applications instead of
+                using the traditional Zygote spawning model. This improves privacy and security at the
+                expense of higher cold start app spawning time and higher initial memory usage. It
+                doesn't impact runtime performance beyond the initial spawning time. It adds somewhere
+                in the ballpark of 100ms to app spawning time on the flagship devices and is only very
+                noticeable on lower-end devices with a weaker CPU and slower storage. The spawning
+                time impact only applies when the app doesn't already have an app process and the OS
+                will try to keep app processes cached in the background until memory pressure forces
+                it to start killing them.</p>
 
-            <p>In the typical Zygote model, a template app process is created during boot and
-            every app is spawned as a clone of it. This results in every app sharing the same
-            initial memory content and layout, including sharing secrets that are meant to be
-            randomized for each process. It saves time by reusing the initialization work. The
-            initial memory usage is reduced due to copy-on-write semantics resulting in memory
-            written only during initialization being shared between app processes.</p>
+                <p>In the typical Zygote model, a template app process is created during boot and
+                every app is spawned as a clone of it. This results in every app sharing the same
+                initial memory content and layout, including sharing secrets that are meant to be
+                randomized for each process. It saves time by reusing the initialization work. The
+                initial memory usage is reduced due to copy-on-write semantics resulting in memory
+                written only during initialization being shared between app processes.</p>
 
-            <p>The Zygote model weakens the security provided by features based on random secrets
-            including Address Space Layout Randomization (ASLR), stack canaries, heap canaries,
-            randomized heap layout and memory tags. It cripples these security features since
-            every app has the values for every other app and the values don't change for fresh app
-            processes until reboot. Much of the OS itself is implemented via non-user-facing apps
-            with privileges reserved for OS components. The Zygote template is reused across user
-            profiles, so it also provides a temporary set of device identifiers across profiles
-            for each boot via the shared randomized values.</p>
+                <p>The Zygote model weakens the security provided by features based on random secrets
+                including Address Space Layout Randomization (ASLR), stack canaries, heap canaries,
+                randomized heap layout and memory tags. It cripples these security features since
+                every app has the values for every other app and the values don't change for fresh app
+                processes until reboot. Much of the OS itself is implemented via non-user-facing apps
+                with privileges reserved for OS components. The Zygote template is reused across user
+                profiles, so it also provides a temporary set of device identifiers across profiles
+                for each boot via the shared randomized values.</p>
+            </section>
 
-            <h2 id="bugs-uncovered-by-security-features">
-                <a href="#bugs-uncovered-by-security-features">Bugs uncovered by security features</a>
-            </h2>
+            <section id="bugs-uncovered-by-security-features">
+                <h2><a href="#bugs-uncovered-by-security-features">Bugs uncovered by security features</a></h2>
 
-            <p>GrapheneOS substantially expands the standard mitigations for memory corruption
-            vulnerabilities. Some of these features are designed to directly catch the memory
-            corruption bugs either via an explicit check or memory protection and abort the
-            program in order to prevent them from being exploited. Other features mitigate issues
-            a bit less directly such as zeroing data immediately upon free, isolated memory
-            regions, heap randomization, etc. and can also lead to latent memory corruption bugs
-            crashing instead of the program continuing onwards with corrupted memory. This means
-            that many latent memory corruption bugs in apps are caught along with some in the OS
-            itself. These bugs are not caused by GrapheneOS, but rather already existed and are
-            uncovered by the features. The features are aimed at preventing or hindering exploits,
-            not finding bugs, but they do that as part of doing their actual job.</p>
+                <p>GrapheneOS substantially expands the standard mitigations for memory corruption
+                vulnerabilities. Some of these features are designed to directly catch the memory
+                corruption bugs either via an explicit check or memory protection and abort the
+                program in order to prevent them from being exploited. Other features mitigate issues
+                a bit less directly such as zeroing data immediately upon free, isolated memory
+                regions, heap randomization, etc. and can also lead to latent memory corruption bugs
+                crashing instead of the program continuing onwards with corrupted memory. This means
+                that many latent memory corruption bugs in apps are caught along with some in the OS
+                itself. These bugs are not caused by GrapheneOS, but rather already existed and are
+                uncovered by the features. The features are aimed at preventing or hindering exploits,
+                not finding bugs, but they do that as part of doing their actual job.</p>
 
-            <p>Similarly, some of the other privacy and security improvements reduce the access
-            available to applications and they may crash. Some of these features are always
-            enabled under the hood, while others like the Network and Sensors toggles are
-            controlled by users via opt-in or opt-out toggles. Apps may not handle having access
-            taken away like this, although it generally doesn't cause any issues as it's all
-            designed to be friendly to apps and fully compatible rather than killing the
-            application when it violates the rules.</p>
+                <p>Similarly, some of the other privacy and security improvements reduce the access
+                available to applications and they may crash. Some of these features are always
+                enabled under the hood, while others like the Network and Sensors toggles are
+                controlled by users via opt-in or opt-out toggles. Apps may not handle having access
+                taken away like this, although it generally doesn't cause any issues as it's all
+                designed to be friendly to apps and fully compatible rather than killing the
+                application when it violates the rules.</p>
 
-            <p>If you run into an application aborting, try to come up with a process for
-            reproducing the issue and then capture a bug report via the 'Take bug report' feature
-            in Developer options. Report an issue to the GrapheneOS OS issue tracker and email the
-            bug report capture zip to contact@grapheneos.org with the issue tracker number in the
-            subject like "Bug report capture for issue #104". The bug report capture includes
-            plain text 'tombstones' with logs, tracebacks, address space layout, register content
-            and a tiny bit of context from memory from areas that are interesting for debugging.
-            This may contain some sensitive data. Feel free to provide only the tombstone for the
-            relevant crash and filter out information you don't want to send. However, it will be
-            more difficult to debug if you provide less of the information. If the app doesn't
-            work with sensitive information, just send the whole tombstone.</p>
+                <p>If you run into an application aborting, try to come up with a process for
+                reproducing the issue and then capture a bug report via the 'Take bug report' feature
+                in Developer options. Report an issue to the GrapheneOS OS issue tracker and email the
+                bug report capture zip to contact@grapheneos.org with the issue tracker number in the
+                subject like "Bug report capture for issue #104". The bug report capture includes
+                plain text 'tombstones' with logs, tracebacks, address space layout, register content
+                and a tiny bit of context from memory from areas that are interesting for debugging.
+                This may contain some sensitive data. Feel free to provide only the tombstone for the
+                relevant crash and filter out information you don't want to send. However, it will be
+                more difficult to debug if you provide less of the information. If the app doesn't
+                work with sensitive information, just send the whole tombstone.</p>
+            </section>
 
-            <h2 id="wifi-privacy">
-                <a href="#wifi-privacy">Wi-Fi privacy</a>
-            </h2>
+            <section id="wifi-privacy">
+                <h2><a href="#wifi-privacy">Wi-Fi privacy</a></h2>
 
-            <p>Wi-Fi on GrapheneOS is very privacy-friendly and is essentially anonymous as long
-            as apps do not leak uniquely identifying information to the network. GrapheneOS avoids
-            allowing itself to be fingerprinted as GrapheneOS, other than connections which are
-            documented (see the FAQ) and can be easily disabled or forced through a VPN
-            service.</p>
+                <p>Wi-Fi on GrapheneOS is very privacy-friendly and is essentially anonymous as long
+                as apps do not leak uniquely identifying information to the network. GrapheneOS avoids
+                allowing itself to be fingerprinted as GrapheneOS, other than connections which are
+                documented (see the FAQ) and can be easily disabled or forced through a VPN
+                service.</p>
 
-            <h3 id="wifi-privacy-scanning">
-                <a href="#wifi-privacy-scanning">Scanning</a>
-            </h3>
+                <section id="wifi-privacy-scanning">
+                    <h3><a href="#wifi-privacy-scanning">Scanning</a></h3>
 
-            <p>MAC randomization is always performed for Wi-Fi scanning. Pixel
-            phones have firmware support for scanning MAC randomization going
-            <a href="https://android-developers.googleblog.com/2017/04/changes-to-device-identifiers-in.html">significantly beyond a naive implementation</a>.
-            On many other devices, there are identifiers exposed by Wi-Fi scanning beyond the MAC
-            address such as the packet sequence number and assorted identifying information in the
-            probe requests.</p>
+                    <p>MAC randomization is always performed for Wi-Fi scanning. Pixel
+                    phones have firmware support for scanning MAC randomization going
+                    <a href="https://android-developers.googleblog.com/2017/04/changes-to-device-identifiers-in.html">significantly beyond a naive implementation</a>.
+                    On many other devices, there are identifiers exposed by Wi-Fi scanning beyond the MAC
+                    address such as the packet sequence number and assorted identifying information in the
+                    probe requests.</p>
 
-            <p>Avoid using hidden APs (i.e. APs not broadcasting their SSID) since known hidden
-            SSIDs end up being broadcast to find them again. SSIDs are not broadcast for standard
-            non-hidden APs.</p>
+                    <p>Avoid using hidden APs (i.e. APs not broadcasting their SSID) since known hidden
+                    SSIDs end up being broadcast to find them again. SSIDs are not broadcast for standard
+                    non-hidden APs.</p>
 
-            <p>Wi-Fi and Bluetooth scanning for improving location detection are disabled by
-            default, unlike the stock OS. These can be toggled in Settings ➔ Location ➔ Wi-Fi and
-            Bluetooth scanning. These features enable scanning even when Wi-Fi or Bluetooth is
-            disabled, so these need to be kept disabled to fully disable the radios when Wi-Fi and
-            Bluetooth are disabled. GrapheneOS doesn't yet have an implementation of a coarse
-            location service to supplement GPS location, so enabling these options doesn't
-            actually do anything at the moment. Implementing a supplementary location service is
-            planning but we need a robust, secure and private implementation via a local database.
-            The initial focus will likely be a cell phone tower database, so these features still
-            wouldn't be relevant.</p>
+                    <p>Wi-Fi and Bluetooth scanning for improving location detection are disabled by
+                    default, unlike the stock OS. These can be toggled in Settings ➔ Location ➔ Wi-Fi and
+                    Bluetooth scanning. These features enable scanning even when Wi-Fi or Bluetooth is
+                    disabled, so these need to be kept disabled to fully disable the radios when Wi-Fi and
+                    Bluetooth are disabled. GrapheneOS doesn't yet have an implementation of a coarse
+                    location service to supplement GPS location, so enabling these options doesn't
+                    actually do anything at the moment. Implementing a supplementary location service is
+                    planning but we need a robust, secure and private implementation via a local database.
+                    The initial focus will likely be a cell phone tower database, so these features still
+                    wouldn't be relevant.</p>
+                </section>
 
-            <h3 id="wifi-privacy-associated">
-                <a href="#wifi-privacy-associated">Associated with an Access Point (AP)</a>
-            </h3>
+                <section id="wifi-privacy-associated">
+                    <h3><a href="#wifi-privacy-associated">Associated with an Access Point (AP)</a></h3>
 
-            <p>The DHCP client uses the anonymity profile rather than sending a hostname so it
-            doesn't compromise the privacy offered by MAC randomization.</p>
+                    <p>The DHCP client uses the anonymity profile rather than sending a hostname so it
+                    doesn't compromise the privacy offered by MAC randomization.</p>
 
-            <p>Associated MAC randomization is performed by default. This can be controlled
-            per-network with Settings ➔ Network &amp; Internet ➔ Wi-Fi ➔ &lt;network&gt; ➔
-            Advanced  ➔ Privacy.</p>
+                    <p>Associated MAC randomization is performed by default. This can be controlled
+                    per-network with Settings ➔ Network &amp; Internet ➔ Wi-Fi ➔ &lt;network&gt; ➔
+                    Advanced  ➔ Privacy.</p>
 
-            <p>In the stock OS, the default is to use a unique persistent random MAC address for
-            each network. It has 2 options available: "Use randomized MAC (default)" and "Use
-            device MAC". In GrapheneOS, the default is generating a new random MAC address when
-            connecting to a network. It has 3 options available: "Use fully randomized MAC
-            (default)", "Use per-network randomized MAC" and "Use device MAC".</p>
+                    <p>In the stock OS, the default is to use a unique persistent random MAC address for
+                    each network. It has 2 options available: "Use randomized MAC (default)" and "Use
+                    device MAC". In GrapheneOS, the default is generating a new random MAC address when
+                    connecting to a network. It has 3 options available: "Use fully randomized MAC
+                    (default)", "Use per-network randomized MAC" and "Use device MAC".</p>
 
-            <p>GrapheneOS also disables support for stable link-local IPv6 addresses, since these
-            have the potential to be used as identifiers. It's more sensible to use typical
-            link-local address generation based on the (randomized) MAC address since link-local
-            devices have access to both. As of Android 11, Android only uses stable link-local
-            privacy addresses when MAC randomization is disabled, so we no longer need to disable
-            the feature.</p>
+                    <p>GrapheneOS also disables support for stable link-local IPv6 addresses, since these
+                    have the potential to be used as identifiers. It's more sensible to use typical
+                    link-local address generation based on the (randomized) MAC address since link-local
+                    devices have access to both. As of Android 11, Android only uses stable link-local
+                    privacy addresses when MAC randomization is disabled, so we no longer need to disable
+                    the feature.</p>
+                </section>
+            </section>
 
-            <h2 id="lte-only-mode">
-                <a href="#lte-only-mode">LTE-only mode</a>
-            </h2>
+            <section id="lte-only-mode">
+                <h2><a href="#lte-only-mode">LTE-only mode</a></h2>
 
-            <p>If you have a reliable LTE connection from your carrier, you can reduce attack
-            surface by disabling 2G / 3G connectivity in Settings ➔ Network &amp; Internet ➔ Mobile
-            network ➔ Preferred network type. Traditional voice calls will only work in the LTE-only
-            mode if you have either an LTE connection and VoLTE (Voice over LTE) support or a Wi-Fi
-            connection and VoWi-Fi (Voice over Wi-Fi) support. Currently, VoLTE / VoWi-Fi works on
-            GrapheneOS but not on most carriers, since the configuration and extra apps for them on
-            most carriers are not yet around.</p>
+                <p>If you have a reliable LTE connection from your carrier, you can reduce attack
+                surface by disabling 2G / 3G connectivity in Settings ➔ Network &amp; Internet ➔ Mobile
+                network ➔ Preferred network type. Traditional voice calls will only work in the LTE-only
+                mode if you have either an LTE connection and VoLTE (Voice over LTE) support or a Wi-Fi
+                connection and VoWi-Fi (Voice over Wi-Fi) support. Currently, VoLTE / VoWi-Fi works on
+                GrapheneOS but not on most carriers, since the configuration and extra apps for them on
+                most carriers are not yet around.</p>
 
-            <p>This feature is not intended to improve the confidentiality of traditional calls and
-            texts, but it might somewhat raise the bar for some forms of interception. It's not a
-            substitute for end-to-end encrypted calls / texts or even transport layer encryption.
-            LTE does provide basic network authentication / encryption, but it's for the network
-            itself. The intention of the LTE-only feature is only hardening against remote
-            exploitation by disabling an enormous amount of legacy code.</p>
+                <p>This feature is not intended to improve the confidentiality of traditional calls and
+                texts, but it might somewhat raise the bar for some forms of interception. It's not a
+                substitute for end-to-end encrypted calls / texts or even transport layer encryption.
+                LTE does provide basic network authentication / encryption, but it's for the network
+                itself. The intention of the LTE-only feature is only hardening against remote
+                exploitation by disabling an enormous amount of legacy code.</p>
+            </section>
         </main>
         <footer>
             <a href="/"><img src="/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
