@@ -121,7 +121,7 @@
                 </ul>
             </nav>
 
-            <section id="building-grapheneos">
+            <article id="building-grapheneos">
                 <h2><a href="#building-grapheneos">Building GrapheneOS</a></h2>
 
                 <section id="build-targets">
@@ -703,9 +703,9 @@ cd ../..</pre>
                         metadata is needed to make incremental updates work.</p>
                     </section>
                 </section>
-            </section>
+            </article>
 
-            <section id="prebuilt-code">
+            <article id="prebuilt-code">
                 <h2><a href="#prebuilt-code">Prebuilt code</a></h2>
 
                 <p>Like the Android Open Source Project, GrapheneOS contains some code that's built
@@ -800,9 +800,9 @@ gclient sync -D --with_branch_heads --with_tags --jobs 32</pre>
                     <p>A build of Seedvault is bundled as an apk into an external/ repository. There are
                     no modifications made to it.</p>
                 </section>
-            </section>
+            </article>
 
-            <section id="update-server">
+            <article id="update-server">
                 <h2><a href="#update-server">Update server</a></h2>
 
                 <p>GrapheneOS uses a static web server as the update server. The release signing
@@ -844,9 +844,9 @@ $DEVICE-stable</pre>
                 The update client will check for the presence of a delta update from the current
                 version on the device to the newer release in the selected release channel. There is
                 no additional metadata to include alongside the delta update package.</p>
-            </section>
+            </article>
 
-            <section id="stable-release-manifest">
+            <article id="stable-release-manifest">
                 <h2><a href="#stable-release-manifest">Stable release manifest</a></h2>
 
                 <p>Manifests for stable releases are generated with <code>repo manifest -r</code>
@@ -857,9 +857,9 @@ $DEVICE-stable</pre>
                 repository. This also means the whole release can be verified using the GrapheneOS
                 signing key despite referencing many upstream repositories that are not forked by the
                 GrapheneOS project.</p>
-            </section>
+            </article>
 
-            <section id="standalone-sdk">
+            <article id="standalone-sdk">
                 <h2><a href="#standalone-sdk">Standalone SDK</a></h2>
 
                 <p>It can be useful to set up a standalone installation of the SDK separate from
@@ -923,9 +923,9 @@ export PATH="$HOME/android/sdk/cmdline-tools/latest/bin:$PATH"</pre>
                 <p>You should update the sdk before use from this point onwards:</p>
 
                 <pre>sdkmanager --update</pre>
-            </section>
+            </article>
 
-            <section id="android-studio">
+            <article id="android-studio">
                 <h2><a href="#android-studio">Android Studio</a></h2>
 
                 <p>You can install Android Studio alongside the standalone SDK and it will detect it
@@ -944,9 +944,9 @@ mv android-studio studio</pre>
                 <pre>export PATH="$HOME/android/studio/bin:$PATH"</pre>
 
                 <p>You can start it with <code>studio.sh</code>.</p>
-            </section>
+            </article>
 
-            <section id="testing">
+            <article id="testing">
                 <h2><a href="#testing">Testing</a></h2>
 
                 <p>This section will be expanded to cover various test suites and testing procedures
@@ -1057,9 +1057,9 @@ rm android-cts-media-1.5.zip</pre>
                         the entire test suite.</p>
                     </section>
                 </section>
-            </section>
+            </article>
 
-            <section id="obtaining-upstream-manifests">
+            <article id="obtaining-upstream-manifests">
                 <h2><a href="#obtaining-upstream-manifests">Obtaining upstream manifests</a></h2>
 
                 <p>The Android Open Source Project has branches and/or tags for the releases of many
@@ -1093,9 +1093,9 @@ rm android-cts-media-1.5.zip</pre>
                 <p>As another kind of example, <code>prebuilts/clang</code>,
                 <code>prebuilts/build-tools</code>, etc. have a manifest file committed alongside the
                 prebuilts. Other AOSP toolchain prebuilts reference a build number.</p>
-            </section>
+            </article>
 
-            <section id="development-guidelines">
+            <article id="development-guidelines">
                 <h2><a href="#development-guidelines">Development guidelines</a></h2>
 
                 <section id="programming-languages">
@@ -1268,7 +1268,7 @@ rm android-cts-media-1.5.zip</pre>
                     actually makes sense to use, otherwise just stick to the old fashioned way if the
                     fancy alternatives aren't genuinely better.</p>
                 </section>
-            </section>
+            </article>
         </main>
         <footer>
             <a href="/"><img src="/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
