@@ -78,353 +78,353 @@
                 </ul>
             </nav>
 
-            <h2 id="prerequisites">
-                <a href="#prerequisites">Prerequisites</a>
-            </h2>
+            <section id="prerequisites">
+                <h2><a href="#prerequisites">Prerequisites</a></h2>
 
-            <p>You should have at least 2GB of free memory available.</p>
+                <p>You should have at least 2GB of free memory available.</p>
 
-            <p>Windows 10, macOS Catalina, Arch Linux, Debian buster and Ubuntu 20.04 LTS are the
-            officially supported operating systems for installing GrapheneOS. You should make sure
-            your operating system is up-to-date before proceeding with these instructions. Older
-            versions and other Linux distributions usually work, but if you encounter problems try
-            using one of the officially supported options.</p>
+                <p>Windows 10, macOS Catalina, Arch Linux, Debian buster and Ubuntu 20.04 LTS are the
+                officially supported operating systems for installing GrapheneOS. You should make sure
+                your operating system is up-to-date before proceeding with these instructions. Older
+                versions and other Linux distributions usually work, but if you encounter problems try
+                using one of the officially supported options.</p>
 
-            <p>You need one of the officially supported devices. To make sure that the device can
-            be unlocked to install GrapheneOS, avoid carrier variants of the devices. Carrier
-            variants of Pixels use the same stock OS and firmware with a non-zero carrier id
-            flashed onto the persist partition in the factory. The carrier id activates
-            carrier-specific configuration in the stock OS including disabling carrier and
-            bootloader unlocking. The carrier may be able to remotely disable this, but their
-            support staff may not be aware and they probably won't do it. Get a carrier agnostic
-            device to avoid the risk and potential hassle. If you CAN figure out a way to unlock a
-            carrier device, it isn't a problem as GrapheneOS can just ignore the carrier id and
-            it's otherwise the same.</p>
+                <p>You need one of the officially supported devices. To make sure that the device can
+                be unlocked to install GrapheneOS, avoid carrier variants of the devices. Carrier
+                variants of Pixels use the same stock OS and firmware with a non-zero carrier id
+                flashed onto the persist partition in the factory. The carrier id activates
+                carrier-specific configuration in the stock OS including disabling carrier and
+                bootloader unlocking. The carrier may be able to remotely disable this, but their
+                support staff may not be aware and they probably won't do it. Get a carrier agnostic
+                device to avoid the risk and potential hassle. If you CAN figure out a way to unlock a
+                carrier device, it isn't a problem as GrapheneOS can just ignore the carrier id and
+                it's otherwise the same.</p>
 
-            <p>It's best practice to update the stock OS on the device to make sure it's running
-            the latest firmware before proceeding with these instructions. This avoids running
-            into bugs, missing features or other differences in older firmware versions. You can
-            either update the device via over-the-air updates or sideload a full update, which for
-            Pixel phones can be obtained from the
-            <a href="https://developers.google.com/android/ota">full update package page</a>.</p>
+                <p>It's best practice to update the stock OS on the device to make sure it's running
+                the latest firmware before proceeding with these instructions. This avoids running
+                into bugs, missing features or other differences in older firmware versions. You can
+                either update the device via over-the-air updates or sideload a full update, which for
+                Pixel phones can be obtained from the
+                <a href="https://developers.google.com/android/ota">full update package page</a>.</p>
 
-            <p>These instructions use command-line tools. On Windows, use PowerShell rather than
-            the legacy Command Prompt.</p>
+                <p>These instructions use command-line tools. On Windows, use PowerShell rather than
+                the legacy Command Prompt.</p>
 
-            <h3 id="obtaining-fastboot">
-                <a href="#obtaining-fastboot">Obtaining fastboot</a>
-            </h3>
+                <section id="obtaining-fastboot">
+                    <h3><a href="#obtaining-fastboot">Obtaining fastboot</a></h3>
 
-            <p>You need an updated copy of the <code>fastboot</code> tool and it needs to be
-            included in your <code>PATH</code> environment variable. You can run <code>fastboot
-            --version</code> to determine the current version. It must be at least
-            <code>29.0.6</code>. You can use a distribution package for this, but most of them
-            mistakenly package development snapshots of fastboot, clobber the standard version
-            scheme for platform-tools (adb, fastboot, etc.) with their own scheme and don't keep
-            it up-to-date despite that being crucial.</p>
+                    <p>You need an updated copy of the <code>fastboot</code> tool and it needs to be
+                    included in your <code>PATH</code> environment variable. You can run <code>fastboot
+                    --version</code> to determine the current version. It must be at least
+                    <code>29.0.6</code>. You can use a distribution package for this, but most of them
+                    mistakenly package development snapshots of fastboot, clobber the standard version
+                    scheme for platform-tools (adb, fastboot, etc.) with their own scheme and don't keep
+                    it up-to-date despite that being crucial.</p>
 
-            <p>List of distribution packages:</p>
+                    <p>List of distribution packages:</p>
 
-            <ul>
-                <li>Arch Linux: <code>android-tools</code> provides fastboot and other useful
-                    tools not required for installation such as adb. <code>android-udev</code>
-                    provides udev rules allowing fastboot and adb to work in local sessions
-                    without root.</li>
-                <li>Debian and Ubuntu: <code>android-sdk-platform-tools-common</code> provides
-                    udev rules allowing fastboot and adb to work in local sessions without root.
-                    The udev rules in Debian and Ubuntu are out-of-date, but it has the necessary
-                    entries for Pixel phones. The adb and fastboot packages are currently both
-                    broken and far too out-of-date to be any use, so avoid those. The version
-                    check in the flashing script will prevent accidentally using these.</li>
-            </ul>
+                    <ul>
+                        <li>Arch Linux: <code>android-tools</code> provides fastboot and other useful
+                            tools not required for installation such as adb. <code>android-udev</code>
+                            provides udev rules allowing fastboot and adb to work in local sessions
+                            without root.</li>
+                        <li>Debian and Ubuntu: <code>android-sdk-platform-tools-common</code> provides
+                            udev rules allowing fastboot and adb to work in local sessions without root.
+                            The udev rules in Debian and Ubuntu are out-of-date, but it has the necessary
+                            entries for Pixel phones. The adb and fastboot packages are currently both
+                            broken and far too out-of-date to be any use, so avoid those. The version
+                            check in the flashing script will prevent accidentally using these.</li>
+                    </ul>
 
-            <h4 id="standalone-platform-tools">
-                <a href="#standalone-platform-tools">Standalone platform-tools</a>
-            </h4>
+                    <section id="standalone-platform-tools">
+                        <h4><a href="#standalone-platform-tools">Standalone platform-tools</a></h4>
 
-            <p>If your operating system doesn't make a proper version of fastboot available,
-            consider using the
-            <a href="https://developer.android.com/studio/releases/platform-tools">standalone
-            releases of platform-tools from Google</a>. If you have the Android SDK or intend to
-            do development work, you install the platform-tools package via the Android SDK
-            package manager which can be used to keep it up-to-date. The Android SDK is available
-            by itself or can be obtained via Android Studio.</p>
+                        <p>If your operating system doesn't make a proper version of fastboot available,
+                        consider using the
+                        <a href="https://developer.android.com/studio/releases/platform-tools">standalone
+                        releases of platform-tools from Google</a>. If you have the Android SDK or intend to
+                        do development work, you install the platform-tools package via the Android SDK
+                        package manager which can be used to keep it up-to-date. The Android SDK is available
+                        by itself or can be obtained via Android Studio.</p>
 
-            <p>To download, verify and extract the standalone platform-tools on Linux:</p>
+                        <p>To download, verify and extract the standalone platform-tools on Linux:</p>
 
-            <pre>curl -O https://dl.google.com/android/repository/platform-tools_r30.0.5-linux.zip
+                        <pre>curl -O https://dl.google.com/android/repository/platform-tools_r30.0.5-linux.zip
 echo 'd6d72d006c03bd55d49b6cef9f00295db02f0a31da10e121427e1f4cb43e7cb9  platform-tools_r30.0.5-linux.zip' | sha256sum -c
 unzip platform-tools_r30.0.5-linux.zip</pre>
 
-            <p>To download, verify and extract the standalone platform-tools on macOS:</p>
+                        <p>To download, verify and extract the standalone platform-tools on macOS:</p>
 
-            <pre>curl -O https://dl.google.com/android/repository/eabcd8b4b7ab518c6af9c941af8494072f17ec4b.platform-tools_r30.0.5-darwin.zip
+                        <pre>curl -O https://dl.google.com/android/repository/eabcd8b4b7ab518c6af9c941af8494072f17ec4b.platform-tools_r30.0.5-darwin.zip
 echo 'SHA256 (eabcd8b4b7ab518c6af9c941af8494072f17ec4b.platform-tools_r30.0.5-darwin.zip) = e5780bad71a53cf9d693e1053a0748f49e4a67cc1f71d16a94ab4c943af3345f' | shasum -c
 tar xvf fbad467867e935dce68a0296b00e6d1e76f15b15.platform-tools_r30.0.5-darwin.zip</pre>
 
-            <p>To download, verify and extract the standalone platform-tools on Windows:</p>
+                        <p>To download, verify and extract the standalone platform-tools on Windows:</p>
 
-            <pre>curl.exe -O https://dl.google.com/android/repository/platform-tools_r30.0.5-windows.zip
+                        <pre>curl.exe -O https://dl.google.com/android/repository/platform-tools_r30.0.5-windows.zip
 (Get-FileHash platform-tools_r30.0.5-windows.zip).hash -eq "549ba2bdc31f335eb8a504f005f77606a479cc216d6b64a3e8b64c780003661f"
 tar xvf platform-tools_r30.0.5-windows.zip</pre>
 
-            <p>Next, add the tools to your <code>PATH</code> in the current shell so they can be
-            used without referencing them by file path, enabling usage by the flashing script.</p>
+                        <p>Next, add the tools to your <code>PATH</code> in the current shell so they can be
+                        used without referencing them by file path, enabling usage by the flashing script.</p>
 
-            <p>On Linux and macOS:</p>
+                        <p>On Linux and macOS:</p>
 
-            <pre>export PATH="$PWD/platform-tools:$PATH"</pre>
+                        <pre>export PATH="$PWD/platform-tools:$PATH"</pre>
 
-            <p>On Windows:</p>
+                        <p>On Windows:</p>
 
-            <pre>$env:Path = "$pwd\platform-tools;$env:Path"</pre>
+                        <pre>$env:Path = "$pwd\platform-tools;$env:Path"</pre>
 
-            <p>Sample output from <code>fastboot --version</code> afterwards:</p>
+                        <p>Sample output from <code>fastboot --version</code> afterwards:</p>
 
-            <pre>fastboot version 30.0.5-6877874
+                        <pre>fastboot version 30.0.5-6877874
 Installed as /home/username/downloads/platform-tools/fastboot</pre>
 
-            <p>This is a temporary change to <code>PATH</code> for the current shell and will need
-            to be done again if you open a new terminal. Make sure that the <code>fastboot</code>
-            command works in the current shell before trying to run the flashing script.</p>
+                        <p>This is a temporary change to <code>PATH</code> for the current shell and will need
+                        to be done again if you open a new terminal. Make sure that the <code>fastboot</code>
+                        command works in the current shell before trying to run the flashing script.</p>
+                    </section>
+                </section>
 
-            <h3 id="obtaining-signify">
-                <a href="#obtaining-signify">Obtaining signify</a>
-            </h3>
+                <section id="obtaining-signify">
+                    <h3><a href="#obtaining-signify">Obtaining signify</a></h3>
 
-            <p>To verify the download of the OS beyond the security offered by HTTPS, you can use
-            the signify tool. If you do not have a way to obtain signify from a package repository
-            you're already trusting, it does not make sense to use it. GrapheneOS releases are
-            hosted on our servers and we do not have third party mirrors. A compromised signify
-            would be able to compromise your OS and the GrapheneOS download due to the lack of an
-            application security model on traditional operating systems. It would be worse than
-            not trying to verify the signatures. It's far less likely that our servers would be
-            compromised than someone's GitHub account or GitHub itself. You're already trusting
-            these installation instructions from our site, which is hosted on the same static web
-            server infrastructure as the releases.</p>
+                    <p>To verify the download of the OS beyond the security offered by HTTPS, you can use
+                    the signify tool. If you do not have a way to obtain signify from a package repository
+                    you're already trusting, it does not make sense to use it. GrapheneOS releases are
+                    hosted on our servers and we do not have third party mirrors. A compromised signify
+                    would be able to compromise your OS and the GrapheneOS download due to the lack of an
+                    application security model on traditional operating systems. It would be worse than
+                    not trying to verify the signatures. It's far less likely that our servers would be
+                    compromised than someone's GitHub account or GitHub itself. You're already trusting
+                    these installation instructions from our site, which is hosted on the same static web
+                    server infrastructure as the releases.</p>
 
-            <p>List of distribution packages:</p>
+                    <p>List of distribution packages:</p>
 
-            <ul>
-                <li>Arch Linux: <code>signify</code></li>
-                <li>Debian: <code>signify-openbsd</code> with the command renamed to <code>signify-openbsd</code></li>
-                <li>Ubuntu: <code>signify-openbsd</code> with the command renamed to <code>signify-openbsd</code></li>
-            </ul>
+                    <ul>
+                        <li>Arch Linux: <code>signify</code></li>
+                        <li>Debian: <code>signify-openbsd</code> with the command renamed to <code>signify-openbsd</code></li>
+                        <li>Ubuntu: <code>signify-openbsd</code> with the command renamed to <code>signify-openbsd</code></li>
+                    </ul>
 
-            <p>On Debian-based distributions, the <code>signify</code> package and command are an
-            <a href="http://signify.sourceforge.net/" rel="nofollow">unmaintained mail-related
-            tool for generating mail signatures (not cryptographic signatures)</a> with the final
-            releases from 2003-2004 made directly by the developer via the Debian package without
-            upstream releases. Please pressure them to correct this usability issue.</p>
+                    <p>On Debian-based distributions, the <code>signify</code> package and command are an
+                    <a href="http://signify.sourceforge.net/" rel="nofollow">unmaintained mail-related
+                    tool for generating mail signatures (not cryptographic signatures)</a> with the final
+                    releases from 2003-2004 made directly by the developer via the Debian package without
+                    upstream releases. Please pressure them to correct this usability issue.</p>
+                </section>
+            </section>
 
-            <h2 id="enabling-oem-unlocking">
-                <a href="#enabling-oem-unlocking">Enabling OEM unlocking</a>
-            </h2>
+            <section id="enabling-oem-unlocking">
+                <h2><a href="#enabling-oem-unlocking">Enabling OEM unlocking</a></h2>
 
-            <p>OEM unlocking needs to be enabled from within the operating system.</p>
+                <p>OEM unlocking needs to be enabled from within the operating system.</p>
 
-            <p>Enable the developer options menu by going to Settings ➔ About phone and
-            pressing on the build number menu entry until developer mode is enabled.</p>
+                <p>Enable the developer options menu by going to Settings ➔ About phone and
+                pressing on the build number menu entry until developer mode is enabled.</p>
 
-            <p>Next, go to Settings ➔ System ➔ Advanced ➔ Developer options and toggle on the
-            'Enable OEM unlocking' setting. This requires internet access on devices with Google
-            Play services as part of Factory Reset Protection (FRP) for anti-theft protection.</p>
+                <p>Next, go to Settings ➔ System ➔ Advanced ➔ Developer options and toggle on the
+                'Enable OEM unlocking' setting. This requires internet access on devices with Google
+                Play services as part of Factory Reset Protection (FRP) for anti-theft protection.</p>
+            </section>
 
-            <h2 id="unlocking-the-bootloader">
-                <a href="#unlocking-the-bootloader">Unlocking the bootloader</a>
-            </h2>
+            <section id="unlocking-the-bootloader">
+                <h2><a href="#unlocking-the-bootloader">Unlocking the bootloader</a></h2>
 
-            <p>First, boot into the bootloader interface. You can do this by turning off the
-            device and then turning it on by holding both the Volume Down and Power buttons.</p>
+                <p>First, boot into the bootloader interface. You can do this by turning off the
+                device and then turning it on by holding both the Volume Down and Power buttons.</p>
 
-            <p>Unlock the bootloader to allow flashing the OS and firmware:</p>
+                <p>Unlock the bootloader to allow flashing the OS and firmware:</p>
 
-            <pre>fastboot flashing unlock</pre>
+                <pre>fastboot flashing unlock</pre>
 
-            <p>The command needs to be confirmed on the device and will wipe all data.</p>
+                <p>The command needs to be confirmed on the device and will wipe all data.</p>
+            </section>
 
-            <h2 id="obtaining-factory-images">
-                <a href="#obtaining-factory-images">Obtaining factory images</a>
-            </h2>
+            <section id="obtaining-factory-images">
+                <h2><a href="#obtaining-factory-images">Obtaining factory images</a></h2>
 
-            <p>You need to obtain the GrapheneOS factory images for your device to proceed with
-            the installation process.</p>
+                <p>You need to obtain the GrapheneOS factory images for your device to proceed with
+                the installation process.</p>
 
-            <p>You can either download the files with your browser or using a command like
-            <code>curl</code>. It's generally easier to use the command-line since you're already
-            using it for the rest of the installation process, so these instructions use
-            <code>curl</code>.</p>
+                <p>You can either download the files with your browser or using a command like
+                <code>curl</code>. It's generally easier to use the command-line since you're already
+                using it for the rest of the installation process, so these instructions use
+                <code>curl</code>.</p>
 
-            <p>On Windows, remove PowerShell's legacy curl alias for the current shell to avoid
-            needing to reference it as <code>curl.exe</code> instead of <code>curl</code>:</p>
+                <p>On Windows, remove PowerShell's legacy curl alias for the current shell to avoid
+                needing to reference it as <code>curl.exe</code> instead of <code>curl</code>:</p>
 
-            <pre>Remove-Item Alias:Curl</pre>
+                <pre>Remove-Item Alias:Curl</pre>
 
-            <p>Download <a href="https://releases.grapheneos.org/factory.pub">the factory images
-            public key (factory.pub)</a> in order to verify the factory images:</p>
+                <p>Download <a href="https://releases.grapheneos.org/factory.pub">the factory images
+                public key (factory.pub)</a> in order to verify the factory images:</p>
 
-            <pre>curl -O https://releases.grapheneos.org/factory.pub</pre>
+                <pre>curl -O https://releases.grapheneos.org/factory.pub</pre>
 
-            <p>This is the content of <code>factory.pub</code>:</p>
+                <p>This is the content of <code>factory.pub</code>:</p>
 
-            <pre>untrusted comment: GrapheneOS factory images public key
+                <pre>untrusted comment: GrapheneOS factory images public key
 RWQZW9NItOuQYJ86EooQBxScfclrWiieJtAO9GpnfEjKbCO/3FriLGX3</pre>
 
-            <p>The public key has also been published via the official
-            <a href="https://twitter.com/GrapheneOS/status/1145259815851253762">@GrapheneOS Twitter
-            account</a>,
-            <a href="https://www.reddit.com/r/GrapheneOS/comments/c7gb3f/grapheneos_factory_images_are_now_signed_with/esewpm9">the /u/GrapheneOS
-            Reddit account</a> and <a href="https://github.com/GrapheneOS/releases.grapheneos.org/blob/master/static/factory.pub">is available on GitHub</a>.
-            When the current signing key is replaced, the new key will be signed with it.</p>
+                <p>The public key has also been published via the official
+                <a href="https://twitter.com/GrapheneOS/status/1145259815851253762">@GrapheneOS Twitter
+                account</a>,
+                <a href="https://www.reddit.com/r/GrapheneOS/comments/c7gb3f/grapheneos_factory_images_are_now_signed_with/esewpm9">the /u/GrapheneOS
+                Reddit account</a> and <a href="https://github.com/GrapheneOS/releases.grapheneos.org/blob/master/static/factory.pub">is available on GitHub</a>.
+                When the current signing key is replaced, the new key will be signed with it.</p>
 
-            <p>Download the factory images for the device from <a href="/releases">the releases
-            page</a>. For example, to download the 2020.11.05.18 release for the Pixel 4a (sunfish):</p>
+                <p>Download the factory images for the device from <a href="/releases">the releases
+                page</a>. For example, to download the 2020.11.05.18 release for the Pixel 4a (sunfish):</p>
 
-            <pre>curl -O https://releases.grapheneos.org/sunfish-factory-2020.11.05.18.zip
+                <pre>curl -O https://releases.grapheneos.org/sunfish-factory-2020.11.05.18.zip
 curl -O https://releases.grapheneos.org/sunfish-factory-2020.11.05.18.zip.sig</pre>
 
-            <p>Verify the factory images using the signature if you were able to obtain
-            <code>signify</code> from trusted package repositories (see above):</p>
+                <p>Verify the factory images using the signature if you were able to obtain
+                <code>signify</code> from trusted package repositories (see above):</p>
 
-            <pre>signify -Cqp factory.pub -x sunfish-factory-2020.11.05.18.zip.sig &amp;&amp; echo verified</pre>
+                <pre>signify -Cqp factory.pub -x sunfish-factory-2020.11.05.18.zip.sig &amp;&amp; echo verified</pre>
 
-            <p>This will output <code>verified</code> if verification is successful. If something
-            goes wrong, it will output an error message rather than <code>verified</code>.</p>
+                <p>This will output <code>verified</code> if verification is successful. If something
+                goes wrong, it will output an error message rather than <code>verified</code>.</p>
+            </section>
 
-            <h2 id="flashing-factory-images">
-                <a href="#flashing-factory-images">Flashing factory images</a>
-            </h2>
+            <section id="flashing-factory-images">
+                <h2><a href="#flashing-factory-images">Flashing factory images</a></h2>
 
-            <p>The initial install will be performed by flashing the factory images. This will
-            replace the existing OS installation and wipe all the existing data.</p>
+                <p>The initial install will be performed by flashing the factory images. This will
+                replace the existing OS installation and wipe all the existing data.</p>
 
-            <p>Next, extract the factory images.</p>
+                <p>Next, extract the factory images.</p>
 
-            <p>On Linux:</p>
+                <p>On Linux:</p>
 
-            <pre>unzip sunfish-factory-2020.11.05.18.zip</pre>
+                <pre>unzip sunfish-factory-2020.11.05.18.zip</pre>
 
-            <p>On macOS and Windows:</p>
+                <p>On macOS and Windows:</p>
 
-            <pre>tar xvf sunfish-factory-2020.11.05.18.zip</pre>
+                <pre>tar xvf sunfish-factory-2020.11.05.18.zip</pre>
 
-            <p>Move into the directory:</p>
+                <p>Move into the directory:</p>
 
-            <pre>cd sunfish-factory-2020.11.05.18</pre>
+                <pre>cd sunfish-factory-2020.11.05.18</pre>
 
-            <p>Flash the images with the flash-all script in the directory.</p>
+                <p>Flash the images with the flash-all script in the directory.</p>
 
-            <p>On Linux and macOS:</p>
+                <p>On Linux and macOS:</p>
 
-            <pre>./flash-all.sh</pre>
+                <pre>./flash-all.sh</pre>
 
-            <p>On Windows:</p>
+                <p>On Windows:</p>
 
-            <pre>./flash-all.bat</pre>
+                <pre>./flash-all.bat</pre>
 
-            <p>Wait for the flashing process to complete and proceed to <a href="#locking-the-bootloader">locking the bootloader</a>
-            before using the device as locking wipes the data again.</p>
+                <p>Wait for the flashing process to complete and proceed to <a href="#locking-the-bootloader">locking the bootloader</a>
+                before using the device as locking wipes the data again.</p>
 
-            <h3 id="troubleshooting">
-                <a href="#troubleshooting">Troubleshooting</a>
-            </h3>
+                <section id="troubleshooting">
+                    <h3><a href="#troubleshooting">Troubleshooting</a></h3>
 
-            <p>A common issue on Linux distributions is that they mount the default temporary file
-            directory <code>/tmp</code> as tmpfs which results in it being backed by memory and
-            swap rather than persistent storage. By default, the size is 50% of the available
-            virtual memory. This is often not enough for the flashing process, especially since
-            <code>/tmp</code> is shared between applications and users. To use a different
-            temporary directory if your <code>/tmp</code> doesn't have enough space available:</p>
+                    <p>A common issue on Linux distributions is that they mount the default temporary file
+                    directory <code>/tmp</code> as tmpfs which results in it being backed by memory and
+                    swap rather than persistent storage. By default, the size is 50% of the available
+                    virtual memory. This is often not enough for the flashing process, especially since
+                    <code>/tmp</code> is shared between applications and users. To use a different
+                    temporary directory if your <code>/tmp</code> doesn't have enough space available:</p>
 
-            <pre>mkdir tmp
+                    <pre>mkdir tmp
 TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
 
-            <p>A majority of failed flashes tend to be caused by substandard USB connectors,
-            plugging in via hubs or bad cables which aren't properly up to the USB standard. The
-            scrollback from a failed flash will contain valuable diagnostic information which
-            is essential in knowing where and how the process went wrong.</p>
+                    <p>A majority of failed flashes tend to be caused by substandard USB connectors,
+                    plugging in via hubs or bad cables which aren't properly up to the USB standard. The
+                    scrollback from a failed flash will contain valuable diagnostic information which
+                    is essential in knowing where and how the process went wrong.</p>
 
-            <p>Front I/O ports on desktop computer cases and USB 3.1 or USB C on many laptops
-            often aren't implemented properly or are broken in subtle ways, which may cause flashing
-            to fail even on a USB port that works for other peripherals. Older Linux kernels that
-            predate version 5 may have inadequate or patchwork support for USB C or USB 3. If you
-            are installing from a Linux distribution, ensure your distribution uses a modern
-            kernel.</p>
+                    <p>Front I/O ports on desktop computer cases and USB 3.1 or USB C on many laptops
+                    often aren't implemented properly or are broken in subtle ways, which may cause flashing
+                    to fail even on a USB port that works for other peripherals. Older Linux kernels that
+                    predate version 5 may have inadequate or patchwork support for USB C or USB 3. If you
+                    are installing from a Linux distribution, ensure your distribution uses a modern
+                    kernel.</p>
 
-            <p>Always use a high quality USB A to USB C cable with a rear USB port directly on your
-            motherboard, and never use a USB hub for flashing. <em>Never install from a virtual
-            machine;</em> USB passthrough in software emulation may be broken or inadequate and this
-            can cause the flashing to fail.</p>
+                    <p>Always use a high quality USB A to USB C cable with a rear USB port directly on your
+                    motherboard, and never use a USB hub for flashing. <em>Never install from a virtual
+                    machine;</em> USB passthrough in software emulation may be broken or inadequate and this
+                    can cause the flashing to fail.</p>
+                </section>
+            </section>
 
-            <h2 id="locking-the-bootloader">
-                <a href="#locking-the-bootloader">Locking the bootloader</a>
-            </h2>
+            <section id="locking-the-bootloader">
+                <h2><a href="#locking-the-bootloader">Locking the bootloader</a></h2>
 
-            <p>Locking the bootloader is important as it enables full verified boot. It also
-            prevents using fastboot to flash, format or erase partitions.  Verified boot will
-            detect modifications to any of the OS partitions (vbmeta, boot/dtbo, product, system,
-            vendor) and it will prevent reading any modified / corrupted data. If changes are
-            detected, error correction data is used to attempt to obtain the original data at
-            which point it's verified again which makes verified boot robust to non-malicious
-            corruption.</p>
+                <p>Locking the bootloader is important as it enables full verified boot. It also
+                prevents using fastboot to flash, format or erase partitions.  Verified boot will
+                detect modifications to any of the OS partitions (vbmeta, boot/dtbo, product, system,
+                vendor) and it will prevent reading any modified / corrupted data. If changes are
+                detected, error correction data is used to attempt to obtain the original data at
+                which point it's verified again which makes verified boot robust to non-malicious
+                corruption.</p>
 
-            <p>In the bootloader interface, set it to locked:</p>
+                <p>In the bootloader interface, set it to locked:</p>
 
-            <pre>fastboot flashing lock</pre>
+                <pre>fastboot flashing lock</pre>
 
-            <p>The command needs to be confirmed on the device since it needs to perform a factory
-            reset.</p>
+                <p>The command needs to be confirmed on the device since it needs to perform a factory
+                reset.</p>
 
-            <p>Unlocking the bootloader again will perform a factory reset.</p>
+                <p>Unlocking the bootloader again will perform a factory reset.</p>
+            </section>
 
-            <h2 id="disabling-oem-unlocking">
-                <a href="#disabling-oem-unlocking">Disabling OEM unlocking</a>
-            </h2>
+            <section id="disabling-oem-unlocking">
+                <h2><a href="#disabling-oem-unlocking">Disabling OEM unlocking</a></h2>
 
-            <p>OEM unlocking can be disabled again in the developer settings menu within the
-            operating system after booting it up again.</p>
+                <p>OEM unlocking can be disabled again in the developer settings menu within the
+                operating system after booting it up again.</p>
+            </section>
 
-            <h2 id="verifying-installation">
-                <a href="#verifying-installation">Verifying installation</a>
-            </h2>
+            <section id="verifying-installation">
+                <h2><a href="#verifying-installation">Verifying installation</a></h2>
 
-            <p>Verified boot authenticates and validates the firmware images and OS from the
-            hardware root of trust. Since GrapheneOS supports full verified boot, the OS images
-            are entirely verified. However, it's possible that the computer you used to flash the
-            OS was compromised, leading to flashing a malicious verified boot public key and
-            images. To detect this kind of attack, you can use the Auditor app included in
-            GrapheneOS in the Auditee mode and verify it with another Android device in the
-            Auditor mode. The Auditor app works best once it's already paired with a device and
-            has pinned a persistent hardware-backed key and the attestation certificate chain.
-            However, it can still provide a bit of security for the initial verification via the
-            attestation root. Ideally, you should also do this before connecting the device to the
-            network, so an attacker can't proxy to another device (which stops being possible
-            after the initial verification). Further protection against proxying the initial
-            pairing will be provided in the future via optional support for ID attestation to
-            include the serial number in the hardware verified information to allow checking
-            against the one on the box / displayed in the bootloader. See the
-            <a href="https://attestation.app/tutorial">Auditor tutorial</a> for a guide.</p>
+                <p>Verified boot authenticates and validates the firmware images and OS from the
+                hardware root of trust. Since GrapheneOS supports full verified boot, the OS images
+                are entirely verified. However, it's possible that the computer you used to flash the
+                OS was compromised, leading to flashing a malicious verified boot public key and
+                images. To detect this kind of attack, you can use the Auditor app included in
+                GrapheneOS in the Auditee mode and verify it with another Android device in the
+                Auditor mode. The Auditor app works best once it's already paired with a device and
+                has pinned a persistent hardware-backed key and the attestation certificate chain.
+                However, it can still provide a bit of security for the initial verification via the
+                attestation root. Ideally, you should also do this before connecting the device to the
+                network, so an attacker can't proxy to another device (which stops being possible
+                after the initial verification). Further protection against proxying the initial
+                pairing will be provided in the future via optional support for ID attestation to
+                include the serial number in the hardware verified information to allow checking
+                against the one on the box / displayed in the bootloader. See the
+                <a href="https://attestation.app/tutorial">Auditor tutorial</a> for a guide.</p>
 
-            <p>After the initial verification, which results in pairing, performing verification
-            against between the same Auditor and Auditee (as long as the app data hasn't been
-            cleared) will provide strong validation of the identity and integrity of the
-            device. That makes it best to get the pairing done right after installation. You can
-            also consider setting up the optional remote attestation service.</p>
+                <p>After the initial verification, which results in pairing, performing verification
+                against between the same Auditor and Auditee (as long as the app data hasn't been
+                cleared) will provide strong validation of the identity and integrity of the
+                device. That makes it best to get the pairing done right after installation. You can
+                also consider setting up the optional remote attestation service.</p>
+            </section>
 
-            <h2 id="replacing-grapheneos-with-the-stock-os">
-                <a href="#replacing-grapheneos-with-the-stock-os">Replacing GrapheneOS with the stock OS</a>
-            </h2>
+            <section id="replacing-grapheneos-with-the-stock-os">
+                <h2><a href="#replacing-grapheneos-with-the-stock-os">Replacing GrapheneOS with the stock OS</a></h2>
 
-            <p>Installation of the stock OS via the stock factory images is the same process
-            described above. However, before locking, there's an additional step to fully revert
-            the device to a clean factory state.</p>
+                <p>Installation of the stock OS via the stock factory images is the same process
+                described above. However, before locking, there's an additional step to fully revert
+                the device to a clean factory state.</p>
 
-            <p>The GrapheneOS factory images flash a non-stock Android Verified Boot key which
-            needs to be erased to fully revert back to a stock device state. After flashing the
-            stock factory images and before locking the bootloader, you should erase the custom
-            Android Verified Boot key to untrust it:</p>
+                <p>The GrapheneOS factory images flash a non-stock Android Verified Boot key which
+                needs to be erased to fully revert back to a stock device state. After flashing the
+                stock factory images and before locking the bootloader, you should erase the custom
+                Android Verified Boot key to untrust it:</p>
 
-            <pre>fastboot erase avb_custom_key</pre>
+                <pre>fastboot erase avb_custom_key</pre>
+            </section>
         </main>
         <footer>
             <a href="/"><img src="/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
