@@ -18,6 +18,8 @@ echo active is $active
 echo target is $target
 echo
 
+ssh $remote rm -rf $target
+ssh $remote cp -a $active $target
 rsync -rpcv --chmod=D755,F644 --delete static_tmp/ $remote:$target
 ssh $remote sync -f $target
 ssh $remote ln -snf $target /var/www/html
