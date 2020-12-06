@@ -90,11 +90,11 @@ main {
     overflow-wrap: break-word;
 }
 
-#bitcoin_address {
+#bitcoin-address {
     display: inline-block;
 }
 
-#bitcoin_address > * {
+#bitcoin-address > * {
     display: block;
     margin-left: auto;
     margin-right: auto;
