@@ -118,165 +118,165 @@
             href="https://attestation.app/tutorial">tutorial</a>. These also support other
             operating systems.</p>
 
-            <h2 id="never-google-services">
-                <a href="#never-google-services">No Google apps or services</a>
-            </h2>
+            <section id="never-google-services">
+                <h2><a href="#never-google-services">No Google apps or services</a></h2>
 
-            <p>GrapheneOS will never include either Google Play services or another implementation
-            of Google services like microG. Those are not part of the Android Open Source Project
-            and are not required for baseline Android compatibility. Apps designed to run on
-            Android rather than only Android with bundled Google apps and services already work on
-            GrapheneOS, so a huge number of both open and closed source apps are already available
-            for it.</p>
+                <p>GrapheneOS will never include either Google Play services or another implementation
+                of Google services like microG. Those are not part of the Android Open Source Project
+                and are not required for baseline Android compatibility. Apps designed to run on
+                Android rather than only Android with bundled Google apps and services already work on
+                GrapheneOS, so a huge number of both open and closed source apps are already available
+                for it.</p>
 
-            <p>AOSP APIs not tied to Google but that are typically provided via Play services will
-            continue to be implemented using open source providers like the Seedvault backup app.
-            Text-to-speech, voice-to-text, non-GPS-based location services, geocoding,
-            accessibility services, etc. are examples of other open Android APIs where we need to
-            develop/bundle an implementation based on existing open source projects. GrapheneOS is
-            not going to be implementing these via a Google service compatibility layer because
-            these APIs are in no way inherently tied to Google services.</p>
+                <p>AOSP APIs not tied to Google but that are typically provided via Play services will
+                continue to be implemented using open source providers like the Seedvault backup app.
+                Text-to-speech, voice-to-text, non-GPS-based location services, geocoding,
+                accessibility services, etc. are examples of other open Android APIs where we need to
+                develop/bundle an implementation based on existing open source projects. GrapheneOS is
+                not going to be implementing these via a Google service compatibility layer because
+                these APIs are in no way inherently tied to Google services.</p>
 
-            <p>We're developing support for installing microG as a regular app without any special
-            privileges. This will allow users to choose to use a partial reimplementation of Play
-            services in a specific profile. We won't be supporting arbitrary signature spoofing by
-            microG or any other app since it seriously compromises the OS security model. Guarding
-            it by a permission isn't enough, both because users don't understand the substantial
-            impact on the security model and it weakens security for the verified boot threat
-            model where persistent state such as granted permissions is controlled by an attacker.
-            Instead, the OS will specifically make microG signed with our microG signing key
-            appear to other apps as signed with the Google Play services key. It won't bypass any
-            other signature checks, only a check for Play services, and other apps also won't be
-            able to pretend to be Play services to intercept FCM messages, obtain Google
-            credentials, etc. It will not be granted any privileged permissions or other special
-            capabilities unavailable to a regular untrusted app.</p>
+                <p>We're developing support for installing microG as a regular app without any special
+                privileges. This will allow users to choose to use a partial reimplementation of Play
+                services in a specific profile. We won't be supporting arbitrary signature spoofing by
+                microG or any other app since it seriously compromises the OS security model. Guarding
+                it by a permission isn't enough, both because users don't understand the substantial
+                impact on the security model and it weakens security for the verified boot threat
+                model where persistent state such as granted permissions is controlled by an attacker.
+                Instead, the OS will specifically make microG signed with our microG signing key
+                appear to other apps as signed with the Google Play services key. It won't bypass any
+                other signature checks, only a check for Play services, and other apps also won't be
+                able to pretend to be Play services to intercept FCM messages, obtain Google
+                credentials, etc. It will not be granted any privileged permissions or other special
+                capabilities unavailable to a regular untrusted app.</p>
 
-            <p>In the longer term, we also plan to offer a more minimal compatibility layer which
-            pretends that Google services are offline rather than implementing them. Users will
-            have the choice between no implementation of Play services, microG and this minimal
-            implementation not implementing Google services. This choice will be available because
-            we won't be bundling any of this into the OS. Ideally, Google themselves would support
-            installing the official Play services as a regular Android app, rather than taking the
-            monopolistic approach of forcing it to be bundled into the OS in a deeply integrated
-            way with special privileged permissions and capabilities unavailable to other cloud
-            service providers competing with them.</p>
+                <p>In the longer term, we also plan to offer a more minimal compatibility layer which
+                pretends that Google services are offline rather than implementing them. Users will
+                have the choice between no implementation of Play services, microG and this minimal
+                implementation not implementing Google services. This choice will be available because
+                we won't be bundling any of this into the OS. Ideally, Google themselves would support
+                installing the official Play services as a regular Android app, rather than taking the
+                monopolistic approach of forcing it to be bundled into the OS in a deeply integrated
+                way with special privileged permissions and capabilities unavailable to other cloud
+                service providers competing with them.</p>
+            </section>
 
-            <h2 id="history">
-                <a href="#history">History</a>
-            </h2>
+            <section id="history">
+                <h2><a href="#history">History</a></h2>
 
-            <p>GrapheneOS was founded by Daniel Micay in late 2014. It started as a solo project
-            incorporating his previous open source privacy/security work. The project initially
-            created a port of OpenBSD malloc to Android's Bionic libc and a port of the PaX kernel
-            patches to the kernels for the supported devices. It quickly expanded to having a
-            large set of homegrown privacy and security improvements, particularly low-level
-            hardening work on the compiler toolchain and Bionic. Work began on landing code
-            upstream in AOSP and other upstream projects. A substantial portion of these early
-            changes were either successfully landed upstream or heavily influenced the upstream
-            changes which replaced them. The project was able to move very quickly in these days
-            because there was so much low hanging fruit to address and it wasn't yet trying to
-            produce a highly robust, production quality OS.</p>
+                <p>GrapheneOS was founded by Daniel Micay in late 2014. It started as a solo project
+                incorporating his previous open source privacy/security work. The project initially
+                created a port of OpenBSD malloc to Android's Bionic libc and a port of the PaX kernel
+                patches to the kernels for the supported devices. It quickly expanded to having a
+                large set of homegrown privacy and security improvements, particularly low-level
+                hardening work on the compiler toolchain and Bionic. Work began on landing code
+                upstream in AOSP and other upstream projects. A substantial portion of these early
+                changes were either successfully landed upstream or heavily influenced the upstream
+                changes which replaced them. The project was able to move very quickly in these days
+                because there was so much low hanging fruit to address and it wasn't yet trying to
+                produce a highly robust, production quality OS.</p>
 
-            <p>In late 2015, a company was incorporated which became the primary sponsor of the
-            project. GrapheneOS was previously known as CopperheadOS while it was sponsored by
-            this company. The intention was to use the company to build a business around
-            GrapheneOS selling support, contract work and customized proprietary variants of the
-            OS. The company was supposed to serve the needs of the open source project, rather
-            than vice versa. It was explicitly agreed that GrapheneOS would remain independently
-            owned and controlled by Daniel Micay. This company failed to live up the promises and
-            is no longer associated in any way with GrapheneOS. The fact that the company was
-            accidentally founded as 'Coppperhead Limited' was just the beginning of a multi-year
-            trainwreck holding back and poisoning a successful open source project it ended up
-            leeching off rather than supporting.</p>
+                <p>In late 2015, a company was incorporated which became the primary sponsor of the
+                project. GrapheneOS was previously known as CopperheadOS while it was sponsored by
+                this company. The intention was to use the company to build a business around
+                GrapheneOS selling support, contract work and customized proprietary variants of the
+                OS. The company was supposed to serve the needs of the open source project, rather
+                than vice versa. It was explicitly agreed that GrapheneOS would remain independently
+                owned and controlled by Daniel Micay. This company failed to live up the promises and
+                is no longer associated in any way with GrapheneOS. The fact that the company was
+                accidentally founded as 'Coppperhead Limited' was just the beginning of a multi-year
+                trainwreck holding back and poisoning a successful open source project it ended up
+                leeching off rather than supporting.</p>
 
-            <p>In 2018, the company was hijacked by the CEO who attempted to take over the project
-            through coercion, but they were rebuked. They seized the infrastructure and stole the
-            donations, but the project successfully moved on without them and has been fully
-            revived. Since then, they've taken to fraudulently claiming ownership and authorship
-            of our work, which has no basis in fact. They've tried to retroactively change the
-            terms of their involvement and rewrite the history of the project. These claims are
-            easily falsified through the public record and by people involved with the open source
-            project and the former sponsor. This former sponsor has engaged in a campaign of
-            misinformation and harassment of contributors to the project. Be aware that they are
-            actively trying to sabotage GrapheneOS and are engaging in many forms of attacks
-            against the project, the developers, contributors and supporters. Meanwhile, they
-            continue profiting from our open source work which they falsely claim as their own
-            creation.</p>
+                <p>In 2018, the company was hijacked by the CEO who attempted to take over the project
+                through coercion, but they were rebuked. They seized the infrastructure and stole the
+                donations, but the project successfully moved on without them and has been fully
+                revived. Since then, they've taken to fraudulently claiming ownership and authorship
+                of our work, which has no basis in fact. They've tried to retroactively change the
+                terms of their involvement and rewrite the history of the project. These claims are
+                easily falsified through the public record and by people involved with the open source
+                project and the former sponsor. This former sponsor has engaged in a campaign of
+                misinformation and harassment of contributors to the project. Be aware that they are
+                actively trying to sabotage GrapheneOS and are engaging in many forms of attacks
+                against the project, the developers, contributors and supporters. Meanwhile, they
+                continue profiting from our open source work which they falsely claim as their own
+                creation.</p>
 
-            <p>After splitting from the former sponsor, the project was rebranded to
-            AndroidHardening and then to GrapheneOS and it has continued down the original path of
-            being an independent open source project. It will never again be closely tied to any
-            particular sponsor or company.</p>
+                <p>After splitting from the former sponsor, the project was rebranded to
+                AndroidHardening and then to GrapheneOS and it has continued down the original path of
+                being an independent open source project. It will never again be closely tied to any
+                particular sponsor or company.</p>
+            </section>
 
-            <h2 id="copyright-and-licensing">
-                <a href="#copyright-and-licensing">Copyright and licensing</a>
-            </h2>
+            <section id="copyright-and-licensing">
+                <h2><a href="#copyright-and-licensing">Copyright and licensing</a></h2>
 
-            <p>The copyright for GrapheneOS code is entirely owned by the GrapheneOS developers
-            and is made available under OSI-approved Open Source licenses. The upstream licensing
-            is inherited for the modifications to those projects and MIT licensing is used for our
-            own standalone projects. GrapheneOS has never had any copyright assignment and the
-            developers have always owned their own contributions.</p>
+                <p>The copyright for GrapheneOS code is entirely owned by the GrapheneOS developers
+                and is made available under OSI-approved Open Source licenses. The upstream licensing
+                is inherited for the modifications to those projects and MIT licensing is used for our
+                own standalone projects. GrapheneOS has never had any copyright assignment and the
+                developers have always owned their own contributions.</p>
 
-            <p>The tiny portion of the code written by people under contract with the former
-            sponsor has not been included in the project since it was ported from Android Oreo to
-            Pie in 2018. This code became obsolete and was no longer useful. The vast majority of
-            the code from the previous era was owned by Daniel Micay, with very few exceptions. It
-            was never written under any contracts or employment agreements, was never assigned to
-            any company or organization and was the continuation of the original independent open
-            source project. The code was originally published under the same permissive open
-            source licenses that are used by GrapheneOS today. Only a small portion of this
-            historical code is actually still in use today. Most has become obsolete or has been
-            replaced by rewrites taking better approaches than in the past.</p>
+                <p>The tiny portion of the code written by people under contract with the former
+                sponsor has not been included in the project since it was ported from Android Oreo to
+                Pie in 2018. This code became obsolete and was no longer useful. The vast majority of
+                the code from the previous era was owned by Daniel Micay, with very few exceptions. It
+                was never written under any contracts or employment agreements, was never assigned to
+                any company or organization and was the continuation of the original independent open
+                source project. The code was originally published under the same permissive open
+                source licenses that are used by GrapheneOS today. Only a small portion of this
+                historical code is actually still in use today. Most has become obsolete or has been
+                replaced by rewrites taking better approaches than in the past.</p>
 
-            <p>There was an era from September 2016 until the project split from the former
-            sponsor in 2018 where non-commercial usage licensing was used for revisions to the
-            existing permissively licensed code. This was an attempt to prop up the sponsor that
-            was supposed to be supporting the open source project. This did not impact ownership
-            of the code and Daniel Micay has relicensed the portions of the code that are used by
-            GrapheneOS. GrapheneOS does not contain any code based on code under non-commercial
-            usage licensing. Great care was taken to avoid pulling in anything that was not solely
-            owned by Daniel Micay, which was the case for nearly everything in the project.</p>
+                <p>There was an era from September 2016 until the project split from the former
+                sponsor in 2018 where non-commercial usage licensing was used for revisions to the
+                existing permissively licensed code. This was an attempt to prop up the sponsor that
+                was supposed to be supporting the open source project. This did not impact ownership
+                of the code and Daniel Micay has relicensed the portions of the code that are used by
+                GrapheneOS. GrapheneOS does not contain any code based on code under non-commercial
+                usage licensing. Great care was taken to avoid pulling in anything that was not solely
+                owned by Daniel Micay, which was the case for nearly everything in the project.</p>
+            </section>
 
-            <h2 id="roadmap">
-                <a href="#roadmap">Roadmap</a>
-            </h2>
+            <section id="roadmap">
+                <h2><a href="#roadmap">Roadmap</a></h2>
 
-            <p>Details on the roadmap of the project will be posted on the site in the near
-            future.</p>
-            <p>To get an idea of the near term roadmap, check out the
-            <a href="/contact#reporting-issues">issue trackers</a>. The vast majority of the
-            issues filed in the trackers are planned enhancements, with care taken to make sure
-            all of the issues open in the tracker are concrete and actionable.</p>
-            <p>In the long term, GrapheneOS aims to move beyond a hardened fork of the Android
-            Open Source Project. Achieving the goals requires moving away from relying on the Linux
-            kernel as the core of the OS and foundation of the security model. It needs to move
-            towards a microkernel-based model with a Linux compatibility layer, with many stepping
-            stones leading towards that goal including adopting virtualization-based
-            isolation.</p>
-            <p>The initial phase for the long-term roadmap of moving away from the current
-            foundation will be to deploy and integrate a hypervisor like Xen to leverage it for
-            reinforcing existing security boundaries. Linux would be running inside the virtual
-            machines at this point, inside and outside of the sandboxes being reinforced. In the
-            longer term, Linux inside the sandboxes can be replaced with a compatibility layer
-            like gVisor, which would need to be ported to arm64 and given a new backend alongside
-            the existing KVM backend. Over the longer term, i.e. many years from now, Linux can
-            fade away completely and so can the usage of virtualization. The anticipation is that
-            many other projects are going to be interested in this kind of migration, so it's not
-            going to be solely a GrapheneOS project, as demonstrated by the current existence of
-            the gVisor project and various other projects working on virtualization deployments
-            for mobile. Having a hypervisor with verified boot still intact will also provide a
-            way to achieve some of the goals based on extensions to Trusted Execution Environment
-            (TEE) functionality even without having GrapheneOS hardware.</p>
-            <p>Hardware and firmware security are core parts of the project, but it's currently
-            limited to research and submitting suggestions and bug reports upstream. In the long
-            term, the project will need to move into the hardware space.</p>
+                <p>Details on the roadmap of the project will be posted on the site in the near
+                future.</p>
+                <p>To get an idea of the near term roadmap, check out the
+                <a href="/contact#reporting-issues">issue trackers</a>. The vast majority of the
+                issues filed in the trackers are planned enhancements, with care taken to make sure
+                all of the issues open in the tracker are concrete and actionable.</p>
+                <p>In the long term, GrapheneOS aims to move beyond a hardened fork of the Android
+                Open Source Project. Achieving the goals requires moving away from relying on the Linux
+                kernel as the core of the OS and foundation of the security model. It needs to move
+                towards a microkernel-based model with a Linux compatibility layer, with many stepping
+                stones leading towards that goal including adopting virtualization-based
+                isolation.</p>
+                <p>The initial phase for the long-term roadmap of moving away from the current
+                foundation will be to deploy and integrate a hypervisor like Xen to leverage it for
+                reinforcing existing security boundaries. Linux would be running inside the virtual
+                machines at this point, inside and outside of the sandboxes being reinforced. In the
+                longer term, Linux inside the sandboxes can be replaced with a compatibility layer
+                like gVisor, which would need to be ported to arm64 and given a new backend alongside
+                the existing KVM backend. Over the longer term, i.e. many years from now, Linux can
+                fade away completely and so can the usage of virtualization. The anticipation is that
+                many other projects are going to be interested in this kind of migration, so it's not
+                going to be solely a GrapheneOS project, as demonstrated by the current existence of
+                the gVisor project and various other projects working on virtualization deployments
+                for mobile. Having a hypervisor with verified boot still intact will also provide a
+                way to achieve some of the goals based on extensions to Trusted Execution Environment
+                (TEE) functionality even without having GrapheneOS hardware.</p>
+                <p>Hardware and firmware security are core parts of the project, but it's currently
+                limited to research and submitting suggestions and bug reports upstream. In the long
+                term, the project will need to move into the hardware space.</p>
+            </section>
 
-            <h2 id="device-support">
-                <a href="/faq#device-support">Device support</a>
-            </h2>
+            <section id="device-support">
+                <h2><a href="/faq#device-support">Device support</a></h2>
 
-            <p>See <a href="/faq#device-support">the FAQ section on device support</a>.</p>
+                <p>See <a href="/faq#device-support">the FAQ section on device support</a>.</p>
+            </section>
         </main>
         <footer>
             <a href="/"><img src="/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
