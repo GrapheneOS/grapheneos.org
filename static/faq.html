@@ -113,7 +113,7 @@
             <section id="device-support">
                 <h2><a href="#device-support">Device support</a></h2>
 
-                <section id="supported-devices">
+                <article id="supported-devices">
                     <h3><a href="#supported-devices">Which devices are supported?</a></h3>
 
                     <p>GrapheneOS has official production support for the Pixel 3, Pixel 3 XL, Pixel 3a,
@@ -155,9 +155,9 @@
                     with easily added support for other environments. It can easily run on non-Linux-based
                     operating systems too, and supporting some like HardenedBSD is planned but depends on
                     contributors from those communities.</p>
-                </section>
+                </article>
 
-                <section id="recommended-devices">
+                <article id="recommended-devices">
                     <h3><a href="#recommended-devices">Which devices are recommended?</a></h3>
 
                     <p>The recommended devices with the best hardware, firmware and software security
@@ -174,9 +174,9 @@
                     expensive flagship devices. You can read more on the differences between the hardware
                     elsewhere. Unlike the Pixel 3a, the Pixel 4a has a proper SSD which provides a much
                     better experience with the GrapheneOS exec-based spawning security feature.</p>
-                </section>
+                </article>
 
-                <section id="future-devices">
+                <article id="future-devices">
                     <h3><a href="#future-devices">Which devices will be supported in the future?</a></h3>
 
                     <p>Devices are carefully chosen based on their merits rather than the project aiming
@@ -210,9 +210,9 @@
                     improve some aspects of insecure devices and supporting a broad set of devices would
                     be directly counter to the values of the project. A lot of the low-level work also
                     ends up being fairly tied to the hardware.</p>
-                </section>
+                </article>
 
-                <section id="when-devices">
+                <article id="when-devices">
                     <h3><a href="#when-devices">When will more devices be supported?</a></h3>
 
                     <p>Broader device support can only happen after the community (companies,
@@ -238,9 +238,9 @@
                     devices produced based on an SoC reference design with minor improvements for privacy
                     and security. Broad device support is the opposite of what the project wants to
                     achieve in the long term.</p>
-                </section>
+                </article>
 
-                <section id="legacy-devices">
+                <article id="legacy-devices">
                     <h3><a href="#legacy-devices">Why are older devices no longer supported?</a></h3>
 
                     <p>GrapheneOS aims to provide reasonably private and secure devices. It cannot do that
@@ -266,13 +266,13 @@
                     security of the project when exceptions for old devices need to be listed out. The
                     project ends up wanting to drop devices for this reason but has always kept them going
                     until the end-of-life date to provide more time for people to migrate.</p>
-                </section>
+                </article>
             </section>
 
             <section id="security-and-privacy">
                 <h2><a href="#security-and-privacy">Security and privacy</a></h2>
 
-                <section id="clipboard">
+                <article id="clipboard">
                     <h3><a href="#clipboard">Can apps spy on the clipboard in the background or inject content into it?</a></h3>
 
                     <p>As of Android 10, only the configured default input method editor (your keyboard of
@@ -286,9 +286,9 @@
                     slightly less strict implementation of this feature. It provided a toggle for users to
                     whitelist clipboard managers, which is no longer needed now that keyboards are
                     expected to provide it.</p>
-                </section>
+                </article>
 
-                <section id="hardware-identifiers">
+                <article id="hardware-identifiers">
                     <h3><a href="#hardware-identifiers">Can apps access hardware identifiers?</a></h3>
 
                     <p>As of Android 10, apps cannot obtain permission to access non-resettable hardware
@@ -309,9 +309,9 @@
                     with limited functionality and hardware acceleration. Hiding the CPU/SoC model would
                     require not even using basic hardware virtualization support and these things could
                     probably still be detected via performance measurements.</p>
-                </section>
+                </article>
 
-                <section id="non-hardware-identifiers">
+                <article id="non-hardware-identifiers">
                     <h3><a href="#non-hardware-identifiers">What about non-hardware identifiers?</a></h3>
 
                     <p>In addition to not having a way to identify the hardware, apps cannot directly
@@ -373,9 +373,9 @@
                     However, profiles are the only way to provide a strong assurance of separate
                     identities since the application model of the OS is designed to support communication
                     between apps within the same profile, but never between them.</p>
-                </section>
+                </article>
 
-                <section id="cellular-tracking">
+                <article id="cellular-tracking">
                     <h3><a href="#cellular-tracking">What does GrapheneOS do about cellular tracking, interception and silent SMS?</a></h3>
 
                     <p>GrapheneOS always considers networks to be hostile and avoids placing trust in
@@ -434,15 +434,15 @@
                     alerts for silent SMS but rather would be ignored with the rest of the spam. Regardless,
                     sending texts or other data is not required or particularly useful to track devices
                     connected to a network for an adversary with the appropriate access.</p>
-                </section>
+                </article>
 
-                <section id="wifi-privacy">
+                <article id="wifi-privacy">
                     <h3><a href="#wifi-privacy">How private is Wi-Fi?</a></h3>
 
                     <p>See the <a href="/usage#wifi-privacy">usage guide section on Wi-Fi privacy</a>.</p>
-                </section>
+                </article>
 
-                <section id="default-connections">
+                <article id="default-connections">
                     <h3><a href="#default-connections">What kind of connections do the OS and bundled apps make by default?</a></h3>
 
                     <p>GrapheneOS makes connections to the outside world to test connectivity, detect
@@ -568,9 +568,9 @@
                     everything unnecessary and making our servers the default for handling anything that
                     cannot simply be shipped with Vanadium for one reason or another such as requiring
                     quicker updates.</p>
-                </section>
+                </article>
 
-                <section id="privacy-policy">
+                <article id="privacy-policy">
                     <h3><a href="#privacy-policy">What is the privacy policy for GrapheneOS services?</a></h3>
 
                     <p>GrapheneOS services follow the <a href="https://www.eff.org/dnt-policy">EFF's
@@ -595,9 +595,9 @@
 
                     <p>Our mail server (mail.grapheneos.org) isn't offered as a public service and doesn't
                     have a privacy policy since it's only used internally by GrapheneOS developers.</p>
-                </section>
+                </article>
 
-                <section id="default-dns">
+                <article id="default-dns">
                     <h3><a href="#default-dns">Which DNS servers are used by default?</a></h3>
 
                     <p>By default, the OS uses the network-provided DNS servers, whether those come from
@@ -605,9 +605,9 @@
                     servers are provided, GrapheneOS uses <a href="https://developers.cloudflare.com/1.1.1.1/what-is-1.1.1.1/">Cloudflare DNS</a>
                     as the fallback rather than Google Public DNS. In practice, the fallback is rarely used
                     and has little real world impact.</p>
-                </section>
+                </article>
 
-                <section id="custom-dns">
+                <article id="custom-dns">
                     <h3><a href="#custom-dns">How do I use a custom DNS server?</a></h3>
 
                     <p>It isn't possible to directly override the DNS servers provided by the network via
@@ -636,9 +636,9 @@
                     part of fingerprinting users. If you're using a VPN, you should consider using the
                     standard DNS service provided by the VPN service to avoid standing out from other
                     users.</p>
-                </section>
+                </article>
 
-                <section id="private-dns-ip">
+                <article id="private-dns-ip">
                     <h3><a href="#private-dns-ip">Why does Private DNS not accept IP addresses?</a></h3>
 
                     <p>By default, in the automatic mode, the Private DNS feature provides opportunistic
@@ -655,9 +655,9 @@
                     DNS server via unencrypted DNS and then force all other DNS lookups via DNS-over-TLS
                     with the identity of the server authenticated as part of providing authenticated
                     encryption.</p>
-                </section>
+                </article>
 
-                <section id="private-dns-other">
+                <article id="private-dns-other">
                     <h3><a href="#private-dns-other">Does DNS-over-TLS (Private DNS) protect other connections?</a></h3>
 
                     <p>No, it only provides privacy for DNS resolution. Even authenticating DNS results
@@ -669,9 +669,9 @@
                     There are other ways to perform a MITM attack than DNS hijacking and internet routing
                     is fundamentally insecure. DNS-over-TLS may make a MITM harder for some attackers, but
                     don't count on it at all.</p>
-                </section>
+                </article>
 
-                <section id="private-dns-visited">
+                <article id="private-dns-visited">
                     <h3><a href="#private-dns-visited">Does DNS-over-TLS (Private DNS) hide which sites are visited, etc.?</a></h3>
 
                     <p>Private DNS only encrypts DNS, and an adversary monitoring connections can still
@@ -681,9 +681,9 @@
                     SNI, so encrypted DNS is not yet accomplishing much. It's a forward looking feature
                     that will become more useful in the future. Using it is recommended, but it's not an
                     alternative to using Tor or a VPN.</p>
-                </section>
+                </article>
 
-                <section id="vpn-support">
+                <article id="vpn-support">
                     <h3><a href="#vpn-support">What kind of VPN and Tor support is available?</a></h3>
 
                     <p>VPNs can be configured under Settings ➔ Network &amp; Internet ➔ Advanced ➔ VPN.
@@ -699,9 +699,9 @@
                     can also be set as the always-on VPN via the entry in the Settings page. For app-based
                     VPN implementations, there's also an additional "Block connections without VPN" toggle
                     which is needed to prevent leaks when the app's VPN service isn't running.</p>
-                </section>
+                </article>
 
-                <section id="network-monitoring">
+                <article id="network-monitoring">
                     <h3><a href="#network-monitoring">Can apps monitor network connections or statistics?</a></h3>
 
                     <p>Apps cannot monitor network connections unless they're made into the active VPN
@@ -712,9 +712,9 @@
 
                     <p>This was previously part of the GrapheneOS privacy improvements, but became a
                     standard Android feature with Android 10.</p>
-                </section>
+                </article>
 
-                <section id="firewall">
+                <article id="firewall">
                     <h3><a href="#firewall">Does GrapheneOS provide a firewall?</a></h3>
 
                     <p>Yes, GrapheneOS inherits the deeply integrated firewall from the Android Open
@@ -729,9 +729,9 @@
                     ecosystem. Revoking the permission denies indirect access via OS components and apps
                     enforcing the INTERNET permission, such as DownloadManager. Direct access is denied
                     by blocking low-level network socket access.</p>
-                </section>
+                </article>
 
-                <section id="ad-blocking">
+                <article id="ad-blocking">
                     <h3><a href="#ad-blocking">How can I set up system-wide ad-blocking?</a></h3>
 
                     <p>The recommended approach to system-wide ad-blocking is setting up domain-based
@@ -750,9 +750,9 @@
                     used service like AdGuard with a standard block list is much less of an issue than a
                     custom set of subscriptions / rules, but it still stands out compared to the default
                     of not doing it.</p>
-                </section>
+                </article>
 
-                <section id="ad-blocking-apps">
+                <article id="ad-blocking-apps">
                     <h3><a href="#ad-blocking-apps">Are ad-blocking apps supported?</a></h3>
 
                     <p>Content filtering apps are fully compatible with GrapheneOS, but they have serious
@@ -779,9 +779,9 @@
                     providing one, and very few have bothered to implement this. NetGuard is an one
                     example implementing SOCKS5 forwarding, which can be used to forward to apps like
                     Orbot (Tor).</p>
-                </section>
+                </article>
 
-                <section id="baseband-isolation">
+                <article id="baseband-isolation">
                     <h3><a href="#baseband-isolation">Is the baseband isolated?</a></h3>
 
                     <p>Yes, the baseband is isolated on all of the officially supported devices. Memory
@@ -813,35 +813,35 @@
                     Linux kernel is monolithic and has no internal security boundaries, the attack surface
                     is problematic and a HardMAC implementation with most complexity in the isolated
                     firmware could be better than the status quo. An isolated driver would be ideal.</p>
-                </section>
+                </article>
             </section>
 
             <section id="day-to-day-use">
                 <h2><a href="#day-to-day-use">Day to day use</a></h2>
 
-                <section id="updates">
+                <article id="updates">
                     <h3><a href="#updates">How do I keep the OS updated?</a></h3>
 
                     <p>GrapheneOS has entirely automatic background updates. More details are
                     available in the <a href="/usage#updates">the usage guide's updates
                     section</a>.</p>
-                </section>
+                </article>
 
-                <section id="updates-sideloading">
+                <article id="updates-sideloading">
                     <h3><a href="#updates-sideloading">How do I update without connecting the device to the internet?</a> </h3>
 
                     <p>Updates can be <a href="/usage#updates-sideloading">sideloaded via
                     recovery</a>.</p>
-                </section>
+                </article>
             </section>
 
-            <section id="features">
+            <article id="features">
                 <h2><a href="#features">What features does GrapheneOS implement?</a></h2>
 
                 <p>See the <a href="/features">features page</a>.</p>
-            </section>
+            </article>
 
-            <section id="anti-theft">
+            <article id="anti-theft">
                 <h2><a href="#anti-theft">Does GrapheneOS provide Factory Reset Protection?</a></h2>
 
                 <p>No, since this is strictly a theft deterrence feature, not a security feature, and
@@ -865,9 +865,9 @@
                 incompatible with features designed to wipe data automatically in certain cases. This
                 will not be implemented by GrapheneOS since it isn't a good approach and it conflicts
                 with other planned features.</p>
-            </section>
+            </article>
 
-            <section id="bundled-apps">
+            <article id="bundled-apps">
                 <h2><a href="#bundled-apps">Why aren't my favorite apps bundled with GrapheneOS?</a></h2>
 
                 <p>There are drawbacks to bundling apps into the OS and few advantages in most cases.
@@ -907,7 +907,7 @@
                 cases we want to support. GPLv3 is no problem for our own usage, but we don't want to
                 forbid using GrapheneOS as a replacement for the Android Open Source Project in locked
                 down devices.</p>
-            </section>
+            </article>
         </main>
         <footer>
             <a href="/"><img src="/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
