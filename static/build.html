@@ -287,57 +287,57 @@
                     for developing a feature. It's easier to port between stable tags that are known to
                     work properly than dealing with a moving target.</p>
 
-                    <h4 id="development-branch">
-                        <a href="#development-branch">Development branch</a>
-                    </h4>
+                    <section id="development-branch">
+                        <h4><a href="#development-branch">Development branch</a></h4>
 
-                    <p>The <code>11</code> branch is the only active development branch for GrapheneOS
-                    development. Older branches are no longer maintained. It is currently used for all
-                    officially supported devices and should be used for the basis of ports to other
-                    devices. Occasionally, some devices may be supported through device support branches
-                    to avoid impacting other devices with changes needed to support them.</p>
+                        <p>The <code>11</code> branch is the only active development branch for GrapheneOS
+                        development. Older branches are no longer maintained. It is currently used for all
+                        officially supported devices and should be used for the basis of ports to other
+                        devices. Occasionally, some devices may be supported through device support branches
+                        to avoid impacting other devices with changes needed to support them.</p>
 
-                    <pre>mkdir grapheneos-11
+                        <pre>mkdir grapheneos-11
 cd grapheneos-11
 repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 11
 repo sync -j32</pre>
 
-                    <p>If your network is unreliable and <code>repo sync</code> fails, you can run the
-                    <code>repo sync</code> command again to continue from where it was interrupted. It
-                    handles connection failures robustly and you shouldn't start over from scratch.</p>
+                        <p>If your network is unreliable and <code>repo sync</code> fails, you can run the
+                        <code>repo sync</code> command again to continue from where it was interrupted. It
+                        handles connection failures robustly and you shouldn't start over from scratch.</p>
+                    </section>
 
-                    <h4 id="stable-release">
-                        <a href="#stable-release">Stable release</a>
-                    </h4>
+                    <section id="stable-release">
+                        <h4><a href="#stable-release">Stable release</a></h4>
 
-                    <p>Pick a specific release for a device from the <a href="/releases">releases page</a>
-                    and download the source tree. Note that some devices use different Android Open Source
-                    Project branches so they can end up with different tags. Make sure to use the correct
-                    tag for a device. For devices without official support, use the latest tag marked as
-                    being appropriate for generic / other devices in the release notes.</p>
+                        <p>Pick a specific release for a device from the <a href="/releases">releases page</a>
+                        and download the source tree. Note that some devices use different Android Open Source
+                        Project branches so they can end up with different tags. Make sure to use the correct
+                        tag for a device. For devices without official support, use the latest tag marked as
+                        being appropriate for generic / other devices in the release notes.</p>
 
-                    <pre>mkdir grapheneos-TAG_NAME
+                        <pre>mkdir grapheneos-TAG_NAME
 cd grapheneos-TAG_NAME
 repo init -u https://github.com/GrapheneOS/platform_manifest.git -b refs/tags/TAG_NAME</pre>
 
-                    <p>Verify the manifest:</p>
+                        <p>Verify the manifest:</p>
 
-                    <pre>gpg --recv-keys 65EEFE022108E2B708CBFCF7F9E712E59AF5F22A
+                        <pre>gpg --recv-keys 65EEFE022108E2B708CBFCF7F9E712E59AF5F22A
 cd .repo/manifests
 git verify-tag $(git describe)
 cd ../..</pre>
 
-                    <p>Complete the source tree download:</p>
+                        <p>Complete the source tree download:</p>
 
-                    <pre>repo sync -j32</pre>
+                        <pre>repo sync -j32</pre>
 
-                    <p>The manifest for the latest stable release refers to the revisions in other
-                    repositories via commit hashes rather than tag names. This avoids the need to use a
-                    script to verify tag signatures across all the repositories, since they simply point
-                    to the same commits with the same hashes.</p>
+                        <p>The manifest for the latest stable release refers to the revisions in other
+                        repositories via commit hashes rather than tag names. This avoids the need to use a
+                        script to verify tag signatures across all the repositories, since they simply point
+                        to the same commits with the same hashes.</p>
 
-                    <p>Note that the repo command itself takes care of updating itself and uses gpg to
-                    verify by default.</p>
+                        <p>Note that the repo command itself takes care of updating itself and uses gpg to
+                        verify by default.</p>
+                    </section>
                 </section>
 
                 <section id="updating-and-switching-branches-or-tags">
@@ -580,43 +580,43 @@ cd ../..</pre>
                     same scripts along with the expectation of it using the same passphrase as the other
                     keys.</p>
 
-                    <h4 id="encrypting-keys">
-                        <a href="#encrypting-keys">Encrypting keys</a>
-                    </h4>
+                    <section id="encrypting-keys">
+                        <h4><a href="#encrypting-keys">Encrypting keys</a></h4>
 
-                    <p>You can (re-)encrypt your signing keys using the <code>encrypt_keys</code> script,
-                    which will prompt for the old passphrase (if any) and new passphrase:</p>
+                        <p>You can (re-)encrypt your signing keys using the <code>encrypt_keys</code> script,
+                        which will prompt for the old passphrase (if any) and new passphrase:</p>
 
-                    <pre>script/encrypt_keys.sh keys/crosshatch</pre>
+                        <pre>script/encrypt_keys.sh keys/crosshatch</pre>
 
-                    <p>The <code>script/decrypt_keys.sh</code> script can be used to remove encryption,
-                    which is not recommended. The script exists primarily for internal usage to decrypt
-                    the keys in tmpfs to perform signing.</p>
+                        <p>The <code>script/decrypt_keys.sh</code> script can be used to remove encryption,
+                        which is not recommended. The script exists primarily for internal usage to decrypt
+                        the keys in tmpfs to perform signing.</p>
+                    </section>
 
-                    <h4 id="enabling-updatable-apex-components">
-                        <a href="#enabling-updatable-apex-components">Enabling updatable APEX components</a>
-                    </h4>
+                    <section id="enabling-updatable-apex-components">
+                        <h4><a href="#enabling-updatable-apex-components">Enabling updatable APEX components</a></h4>
 
-                    <p>GrapheneOS disables updatable APEX components for the officially supported devices
-                    and targets inheriting from the mainline target, so APEX signing keys are not needed
-                    and this section can be ignored for unmodified builds.</p>
+                        <p>GrapheneOS disables updatable APEX components for the officially supported devices
+                        and targets inheriting from the mainline target, so APEX signing keys are not needed
+                        and this section can be ignored for unmodified builds.</p>
 
-                    <p>GrapheneOS uses the <code>TARGET_FLATTEN_APEX := true</code> format to include APEX
-                    components as part of the base OS without supporting out-of-band updates.</p>
+                        <p>GrapheneOS uses the <code>TARGET_FLATTEN_APEX := true</code> format to include APEX
+                        components as part of the base OS without supporting out-of-band updates.</p>
 
-                    <p><strong>If you don't disable updatable APEX packages, you need to generate an APK and
-                    AVB key for each APEX component and extend the GrapheneOS release.sh script to pass
-                    the appropriate parameters to replace the APK and AVB keys for each APEX
-                    component.</strong></p>
+                        <p><strong>If you don't disable updatable APEX packages, you need to generate an APK and
+                        AVB key for each APEX component and extend the GrapheneOS release.sh script to pass
+                        the appropriate parameters to replace the APK and AVB keys for each APEX
+                        component.</strong></p>
 
-                    <p>APEX components that are not flattened are a signed APK (used to verify updates)
-                    with an embedded filesystem image signed with an AVB key (for verified boot). Each
-                    APEX package must have a unique set of keys. GrapheneOS has no use for these
-                    out-of-band updates at this time and flattening APEX components avoids needing a bunch
-                    of extra keys and complexity.</p>
+                        <p>APEX components that are not flattened are a signed APK (used to verify updates)
+                        with an embedded filesystem image signed with an AVB key (for verified boot). Each
+                        APEX package must have a unique set of keys. GrapheneOS has no use for these
+                        out-of-band updates at this time and flattening APEX components avoids needing a bunch
+                        of extra keys and complexity.</p>
 
-                    <p>For now, consult the upstream documentation on generating these keys. It will be
-                    covered here in the future.</p>
+                        <p>For now, consult the upstream documentation on generating these keys. It will be
+                        covered here in the future.</p>
+                    </section>
                 </section>
 
                 <section id="generating-signed-factory-images-and-full-update-packages">
@@ -661,26 +661,25 @@ cd ../..</pre>
                     Stable channel after public testing. A similar approach is recommended for derivatives
                     of GrapheneOS.</p>
 
-                    <h4 id="generating-delta-updates">
-                        <a href="#generating-delta-updates">Generating delta updates</a>
-                    </h4>
+                    <section id="generating-delta-updates">
+                        <h4><a href="#generating-delta-updates">Generating delta updates</a></h4>
 
-                    <p>Incremental updates shipping only the changes between two versions can be generated
-                    as a much more efficient way of shipping updates than a full update package containing
-                    the entire operating system. The GrapheneOS Updater app will automatically use a delta
-                    update if one exists for going directly from the currently installed version to the
-                    latest release. In order to generate a delta update, the original signed target files
-                    package for both the source version and target version are needed. The
-                    <code>script/generate_delta.sh</code> script provides a wrapper script for generating
-                    delta updates by passing the device, source version build number and target version
-                    build number. For example:</p>
+                        <p>Incremental updates shipping only the changes between two versions can be generated
+                        as a much more efficient way of shipping updates than a full update package containing
+                        the entire operating system. The GrapheneOS Updater app will automatically use a delta
+                        update if one exists for going directly from the currently installed version to the
+                        latest release. In order to generate a delta update, the original signed target files
+                        package for both the source version and target version are needed. The
+                        <code>script/generate_delta.sh</code> script provides a wrapper script for generating
+                        delta updates by passing the device, source version build number and target version
+                        build number. For example:</p>
 
-                    <pre>script/generate_delta.sh crosshatch 2019.09.25.00 2019.10.07.21</pre>
+                        <pre>script/generate_delta.sh crosshatch 2019.09.25.00 2019.10.07.21</pre>
 
-                    <p>The script assumes that the releases are organized in the following directory
-                    structure:</p>
+                        <p>The script assumes that the releases are organized in the following directory
+                        structure:</p>
 
-                    <pre>releases
+                        <pre>releases
 ├── 2019.09.25.00
 │   └── release-crosshatch-2019.09.25.00
 │       ├── crosshatch-factory-2019.09.25.00.zip
@@ -698,10 +697,11 @@ cd ../..</pre>
         ├── crosshatch-target_files-2019.10.07.21.zip
         └── crosshatch-testing</pre>
 
-                    <p>Incremental updates are uploaded alongside the update packages and update metadata
-                    on the static web server used as an update server. The update client will
-                    automatically check for an incremental update and use it if available. No additional
-                    metadata is needed to make incremental updates work.</p>
+                        <p>Incremental updates are uploaded alongside the update packages and update metadata
+                        on the static web server used as an update server. The update client will
+                        automatically check for an incremental update and use it if available. No additional
+                        metadata is needed to make incremental updates work.</p>
+                    </section>
                 </section>
             </section>
 
@@ -964,20 +964,19 @@ mv android-studio studio</pre>
                 <section id="compatibility-test-suite">
                     <h3><a href="#compatibility-test-suite">Compatibility Test Suite</a></h3>
 
-                    <h4 id="compatibility-test-suite-download">
-                        <a href="#compatibility-test-suite-download">Download</a>
-                    </h4>
+                    <section id="compatibility-test-suite-download">
+                        <h4><a href="#compatibility-test-suite-download">Download</a></h4>
 
-                    <p>Testing with the Compatibility Test Suite (CTS) can be done by either building the
-                    test suite from source or using the official releases.</p>
-                    <p>Official releases of the CTS can be downloaded from
-                    <a href="https://source.android.com/compatibility/cts/downloads">the Compatibility
-                    Suite Downloads page</a>. You should download the CTS for the relevant release
-                    (Android 11) and architecture (ARM). There's a separate zip for the main CTS, the
-                    manual portion (CTS Verifier) and the CTS for Instant Apps. The latest release of the
-                    CTS Media Files also needs to be downloaded from that section.</p>
+                        <p>Testing with the Compatibility Test Suite (CTS) can be done by either building the
+                        test suite from source or using the official releases.</p>
+                        <p>Official releases of the CTS can be downloaded from
+                        <a href="https://source.android.com/compatibility/cts/downloads">the Compatibility
+                        Suite Downloads page</a>. You should download the CTS for the relevant release
+                        (Android 11) and architecture (ARM). There's a separate zip for the main CTS, the
+                        manual portion (CTS Verifier) and the CTS for Instant Apps. The latest release of the
+                        CTS Media Files also needs to be downloaded from that section.</p>
 
-                    <pre>mkdir -p ~/android/cts/{arm,x86}
+                        <pre>mkdir -p ~/android/cts/{arm,x86}
 cd ~/android/cts/arm
 curl -O https://dl.google.com/dl/android/cts/android-cts-11_r1-linux_x86-arm.zip
 unzip android-cts-11_r1-linux_x86-arm.zip
@@ -996,66 +995,67 @@ cd ~/android/cts
 curl -O https://dl.google.com/dl/android/cts/android-cts-media-1.5.zip
 unzip android-cts-media-1.5.zip
 rm android-cts-media-1.5.zip</pre>
+                    </section>
 
-                    <h4 id="compatibility-test-suite-setup">
-                        <a href="#compatibility-test-suite-setup">Setup</a>
-                    </h4>
-                    <p>You'll need a device attached to your computer with ADB enabled along with the
-                    Android SDK installed. The build-tools and platform-tools packages need to be
-                    installed and the binaries need to be added to your PATH. See the
-                    <a href="#standalone-sdk">standalone SDK installation instructions</a> above.</p>
+                    <section id="compatibility-test-suite-setup">
+                        <h4><a href="#compatibility-test-suite-setup">Setup</a></h4>
+                        <p>You'll need a device attached to your computer with ADB enabled along with the
+                        Android SDK installed. The build-tools and platform-tools packages need to be
+                        installed and the binaries need to be added to your PATH. See the
+                        <a href="#standalone-sdk">standalone SDK installation instructions</a> above.</p>
 
-                    <p>Copy media onto the device:</p>
-                    <pre>cd android-cts-media-1.5
+                        <p>Copy media onto the device:</p>
+                        <pre>cd android-cts-media-1.5
 ./copy_images.sh
 ./copy_media.sh</pre>
 
-                    <p>You also need to do some basic setup for the device. It's possible for changes from
-                    a baseline install to cause interference, so it can be a good idea to factory reset
-                    the device if assorted changes have been made. The device needs to be running a user
-                    build for the security model to be fully intact in order to pass all the security
-                    tests. A userdebug build is expected to fail some of the tests. GrapheneOS also makes
-                    various changes intentionally deviating from the requirements expected by the CTS, so
-                    there will always be some expected failures. A few of the tests are also known to be
-                    quite flaky or broken even with the stock OS and/or AOSP. These will be documented
-                    here at some point.</p>
+                        <p>You also need to do some basic setup for the device. It's possible for changes from
+                        a baseline install to cause interference, so it can be a good idea to factory reset
+                        the device if assorted changes have been made. The device needs to be running a user
+                        build for the security model to be fully intact in order to pass all the security
+                        tests. A userdebug build is expected to fail some of the tests. GrapheneOS also makes
+                        various changes intentionally deviating from the requirements expected by the CTS, so
+                        there will always be some expected failures. A few of the tests are also known to be
+                        quite flaky or broken even with the stock OS and/or AOSP. These will be documented
+                        here at some point.</p>
 
-                    <ul>
-                        <li>Must be connected to a WiFi network with IPv6 internet access</li>
-                        <li>Must have a working SIM card with mobile data with IPv6 internet access</li>
-                        <li>Disable SIM lock</li>
-                        <li>Enable Bluetooth</li>
-                        <li>Enable NFC</li>
-                        <li>Open / close Chromium to deal with initial setup</li>
-                        <li>Prop up with a good object to focus on and good lighting for Camera tests.
-                        Both the front and rear cameras will be used, so ensure this is true for both the
-                        front and the rear cameras.</li>
-                        <li>Bluetooth beacons for Bluetooth tests</li>
-                        <li>Must have a great GPS/GNSS signal for location tests</li>
-                        <li>SIM card with carrier privilege rules</li>
-                        <li>Secure element applet installed on the embedded secure element or SIM
-                            card</li>
-                        <li>At least one Wi-Fi RTT access point powered up but not connected to any
-                            network</li>
-                        <li>The screen lock must be disabled.</li>
-                    </ul>
+                        <ul>
+                            <li>Must be connected to a WiFi network with IPv6 internet access</li>
+                            <li>Must have a working SIM card with mobile data with IPv6 internet access</li>
+                            <li>Disable SIM lock</li>
+                            <li>Enable Bluetooth</li>
+                            <li>Enable NFC</li>
+                            <li>Open / close Chromium to deal with initial setup</li>
+                            <li>Prop up with a good object to focus on and good lighting for Camera tests.
+                            Both the front and rear cameras will be used, so ensure this is true for both the
+                            front and the rear cameras.</li>
+                            <li>Bluetooth beacons for Bluetooth tests</li>
+                            <li>Must have a great GPS/GNSS signal for location tests</li>
+                            <li>SIM card with carrier privilege rules</li>
+                            <li>Secure element applet installed on the embedded secure element or SIM
+                                card</li>
+                            <li>At least one Wi-Fi RTT access point powered up but not connected to any
+                                network</li>
+                            <li>The screen lock must be disabled.</li>
+                        </ul>
+                    </section>
 
-                    <h4 id="compatibility-test-suite-run-modules">
-                        <a href="#compatibility-test-suite-run-modules">Run modules</a>
-                    </h4>
+                    <section id="compatibility-test-suite-run-modules">
+                        <h4><a href="#compatibility-test-suite-run-modules">Run modules</a></h4>
 
-                    <p>Run the test harness:</p>
-                    <pre>./android-cts/tools/cts-tradefed</pre>
-                    <p>Note that <code>_JAVA_OPTIONS</code> being set will break the version detection.</p>
-                    <p>To obtain a list of CTS modules:</p>
-                    <pre>list modules</pre>
-                    <p>To run a specific module and avoid wasting time capturing device information:</p>
-                    <pre>run cts --skip-device-info --module CtsModuleName</pre>
-                    <p>To speed up initialization after running some initial tests:</p>
-                    <pre>run cts --skip-device-info --skip-preconditions --module CtsModuleName</pre>
-                    <p>It's possible to run the whole standard CTS plan with a single command, but running
-                    specific modules is recommended, especially if you don't have everything set up for
-                    the entire test suite.</p>
+                        <p>Run the test harness:</p>
+                        <pre>./android-cts/tools/cts-tradefed</pre>
+                        <p>Note that <code>_JAVA_OPTIONS</code> being set will break the version detection.</p>
+                        <p>To obtain a list of CTS modules:</p>
+                        <pre>list modules</pre>
+                        <p>To run a specific module and avoid wasting time capturing device information:</p>
+                        <pre>run cts --skip-device-info --module CtsModuleName</pre>
+                        <p>To speed up initialization after running some initial tests:</p>
+                        <pre>run cts --skip-device-info --skip-preconditions --module CtsModuleName</pre>
+                        <p>It's possible to run the whole standard CTS plan with a single command, but running
+                        specific modules is recommended, especially if you don't have everything set up for
+                        the entire test suite.</p>
+                    </section>
                 </section>
             </section>
 
