@@ -22,6 +22,6 @@ done
 
 find static_tmp -name '*.css' -exec csso {} -o {} \;
 find static_tmp -name '*.js' -exec terser --module -cmo {} {} \;
-find static_tmp -regex '\(.+/LICENSE\|.+\.\(atom\|css\|html\|ico\|js\|json\|pdf\|svg\|txt\|webmanifest\|xml\)\)' \
+find static_tmp -regex '.+\.\(atom\|css\|html\|ico\|js\|json\|pdf\|svg\|txt\|webmanifest\|xml\)' \
     -exec zopfli {} \; -exec touch -r {} {}.gz \; \
     -exec brotli -k {} \;
