@@ -175,8 +175,7 @@
                     are by the update client within the OS. This includes providing downgrade protection,
                     which prevents attempting to downgrade the version. If recovery didn't enforce these
                     things, they would still be enforced via verified boot including downgrade protection
-                    on modern devices (Pixel 2 and later) and the attempted update would just fail to boot
-                    and be rolled back.</p>
+                    and the attempted update would just fail to boot and be rolled back.</p>
 
                     <p>To install one by sideloading, first, boot into recovery. You may do this either by
                     using <code>adb reboot recovery</code> from the operating system, or by selecting the
@@ -310,17 +309,19 @@
                 it's going to be replaced. In the short term, there are other apps available providing
                 more capabilities and better support for taking advantage of the hardware.</p>
 
-                <p>The Pixel 2 and Pixel 3 (but not the Pixel 3a) have a Pixel Visual Core providing
-                a hardware-based implementation of HDR+. HDR+ captures many images and intelligently
-                merges data across them, taking into account motion, etc. It substantially improves
-                the quality of images, especially in low light. This is used transparently for third
-                party apps that are compatible with it, and there isn't an explicit switch to turn it
-                on or off for most of them. An example of a compatible app is Open Camera's default
-                configuration, or Open Camera with the Camera 2 API and other settings (including the
-                the various knobs / toggles outside of the settings menu) left alone. In general, HDR+
-                will work transparently in most apps as long as they keep things simple and use a good
-                minimalist approach to taking pictures. It should work transparently in most messaging
-                apps, etc. with internal support for taking pictures.</p>
+                <p>The Pixel 3 (but not the Pixel 3a) and Pixel 4 (but not the Pixel 4a) have a
+                Pixel Visual Core / Pixel Neural Core providing a hardware-based implementation of
+                HDR+. HDR+ captures many images and intelligently merges data across them, taking
+                into account motion, etc. It substantially improves the quality of images,
+                especially in low light. This is used transparently for third party apps that are
+                compatible with it, and there isn't an explicit switch to turn it on or off for
+                most of them. An example of a compatible app is Open Camera's default
+                configuration, or Open Camera with the Camera 2 API and other settings (including
+                the the various knobs / toggles outside of the settings menu) left alone. In
+                general, HDR+ will work transparently in most apps as long as they keep things
+                simple and use a good minimalist approach to taking pictures. It should work
+                transparently in most messaging apps, etc. with internal support for taking
+                pictures.</p>
 
                 <p>In addition to supporting HDR+ via the Pixel Visual Core, or similar features on
                 other devices with the same constraints, Open Camera offers advanced configuration and
