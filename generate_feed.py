@@ -37,6 +37,7 @@ feed = f"""<?xml version="1.0" encoding="utf-8"?>
     <id>https://grapheneos.org/releases#changelog</id>
     <link href="https://grapheneos.org/releases#changelog"/>
     <link rel="self" href="https://grapheneos.org/releases.atom"/>
+    <link rel="license" href="https://grapheneos.org/LICENSE.txt"/>
     <icon>https://grapheneos.org/favicon.ico</icon>
     <title>GrapheneOS changelog</title>
     <updated>{updated}</updated>
