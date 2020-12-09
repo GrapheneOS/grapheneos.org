@@ -93,11 +93,12 @@
                 only 5 attempts rather than 20 before permanent lockout (our recommendation is
                 still keeping sensitive data in user profiles without fingerprint unlock)</li>
                 <li>PIN scrambling option</li>
-                <li>LTE-only mode to reduce cellular radio attack surface by disabling enormous amounts of legacy
+                <li><a href="/usage#lte-only-mode">LTE-only mode</a> to reduce cellular radio attack surface by disabling enormous amounts of legacy
   code</li>
-                <li>Default enabled per-connection MAC randomization as an improvement over Android's default
-  per-network MAC randomization reusing the same MAC address until the DHCP lease with that
-  network expires (can still use the standard implementation or fully disable it)</li>
+                <li><a href="/usage#wifi-privacy-associated">Default enabled per-connection MAC randomization</a>
+                as an improvement over Android's default per-network MAC randomization reusing
+                the same MAC address until the DHCP lease with that network expires (can still
+                use the standard implementation or fully disable it)</li>
                 <li>Vanadium: hardened WebView and default browser - the WebView is what most
                 other apps use to handle web content, so you benefit from Vanadium in many apps
                 even if you choose another browser</li>
@@ -109,12 +110,15 @@
                 <a href="https://attestation.app/">attestation.app</a> service. See the
                 <a href="https://attestation.app/about">detailed explanation on the site</a> for
                 more information.</li>
-                <li>PDF Viewer: sandboxed, hardened PDF viewer using HiDPI rendering with pinch to zoom, text
-  selection, etc.</li>
-                <li>Encrypted backups via integration of the Seedvault app with support for local
-                backups and any cloud storage provider with a storage provider app</li>
-                <li>Secure application spawning system avoiding sharing address space layout and
-                other secrets across applications</li>
+                <li><a href="https://github.com/GrapheneOS/PdfViewer">PDF Viewer</a>: sandboxed,
+                hardened PDF viewer using HiDPI rendering with pinch to zoom, text selection,
+                etc.</li>
+                <li>Encrypted backups via integration of the
+                <a href="https://github.com/seedvault-app/seedvault">Seedvault app</a> with
+                support for local backups and any cloud storage provider with a storage provider
+                app</li>
+                <li><a href="/usage#exec-spawning">Secure application spawning system</a> avoiding
+                sharing address space layout and other secrets across applications</li>
                 <li>Network permission toggle disallowing both direct and indirect network access,
                 superior to a purely firewall-based implementation only disallowing direct
                 access to the network without covering inter-process communication (enabled by
@@ -129,10 +133,11 @@
                 <li>Connectivity checks via a first party server with the option to revert to the
                 standard checks</li>
                 <li>Hardened local build / signing infrastructure</li>
-                <li>Seamless automatic OS update system that just works and stays out of the way
-                in the background without disrupting device usage, with full support for the
-                standard automatic rollback if the first boot of the updated OS fails</li>
-                <li>Require unlocking to access sensitive function via quick tiles</li>
+                <li><a href="/usage#updates">Seamless automatic OS update system</a> that just
+                works and stays out of the way in the background without disrupting device
+                usage, with full support for the standard automatic rollback if the first boot
+                of the updated OS fails</li> <li>Require unlocking to access sensitive function
+                via quick tiles</li>
             </ul>
 
             <p>Infrastructure features:</p>
@@ -172,7 +177,7 @@
                 <li>Non-profit project avoiding conflicts of interest by keeping commercialization
                 at a distance. Companies support the project rather than the project serving the
                 needs of any particular company</li>
-                <li>Strong privacy policies</li>
+                <li><a href="/faq#privacy-policy">Strong privacy policies</a></li>
             </ul>
         </main>
         <footer>
