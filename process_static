@@ -12,7 +12,11 @@ for file in static_tmp/**/*.@(json|webmanifest); do
     json_reformat -m < "$file" | sponge "$file"
 done
 
-find static_tmp -name '*.html' -exec html-minifier --collapse-whitespace --process-scripts "application/ld+json" --collapse-boolean-attributes --remove-attribute-quotes --remove-comments --remove-empty-attributes --remove-redundant-attributes --remove-script-type-attributes --remove-style-link-type-attributes --sort-attributes --sort-class-name {} -o {} \;
+find static_tmp -name '*.html' -exec html-minifier --collapse-whitespace \
+    --process-scripts "application/ld+json" --collapse-boolean-attributes \
+    --remove-attribute-quotes --remove-comments --remove-empty-attributes \
+    --remove-redundant-attributes --remove-script-type-attributes \
+    --remove-style-link-type-attributes --sort-attributes --sort-class-name {} -o {} \;
 
 ./generate_feed.py
 
