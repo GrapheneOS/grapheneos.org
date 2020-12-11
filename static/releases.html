@@ -387,6 +387,7 @@
 
                     <ul>
                         <li>Vanadium: disable WebView variations support</li>
+                        <li>SetupWizard: update to latest upstream code</li>
                     </ul>
                 </article>
 
@@ -736,7 +737,7 @@
                         <li>Vanadium: remove unused learn more link from Incognito page</li>
                         <li>recovery: reject updates with serialno constraints to match the GrapheneOS Updater app</li>
                         <li>kernel (Pixel 2, Pixel 2 XL, Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): update base kernel to Android 11</li>
-                        <li>SetupWizard: update base to latest CalyxOS SetupWizard</li>
+                        <li>SetupWizard: update to latest upstream code</li>
                         <li>conscrypt: drop temporary upstream revert of version code which was accidentally kept during a rebase</li>
                         <li>backport fix for USB audio regression from Android 11</li>
                     </ul>
@@ -848,7 +849,7 @@
                         <li>Updater: extract care_map.pb rather than care_map.txt</li>
                         <li>Updater: use a different zip for streaming updates (still an experimental / hidden feature)</li>
                         <li>disable RFC 7217 support (stable link-local IPv6 privacy addresses) and stick to link-local IP addresses based on the (random) MAC addresses</li>
-                        <li>rebase SetupWizard changes onto upstream CalyxOS SetupWizard</li>
+                        <li>SetupWizard: update to latest upstream code</li>
                         <li>SetupWizard: use system captive portal URL, rather than a custom Google URL</li>
                         <li>NetworkStack: ignore captive portal fallbacks when one is set at runtime</li>
                         <li>factory images flash-all script: reboot to bootloader after installing update</li>
@@ -1054,7 +1055,7 @@
 
                     <ul>
                         <li>integrate <a href="https://calyxinstitute.org/projects/seedvault-encrypted-backup-for-android">Seedvault</a> backup app as the default backup service</li>
-                        <li>integrate port of CalyxOS SetupWizard app to support restoring with Seedvault and other initial setup</li>
+                        <li>integrate SetupWizard app to support restoring with Seedvault and other initial setup</li>
                         <li>Vanadium: disable unused safe browsing feature by default (Safe Browsing is
                         currently a no-op due to the lack of Play services, and support for using the
                         local database backend hasn't been implemented. Various changes would be needed to
