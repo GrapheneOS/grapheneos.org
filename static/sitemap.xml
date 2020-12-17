@@ -4,7 +4,7 @@
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
         <loc>https://grapheneos.org/</loc>
-        <priority>1.0</priority>
+        <priority>0.5</priority>
     </url>
     <url>
         <loc>https://grapheneos.org/features</loc>
