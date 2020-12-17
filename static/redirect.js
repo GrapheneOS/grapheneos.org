@@ -10,6 +10,7 @@
 
 const redirects = new Map([
     ["/#device-support", "/faq#device-support"],
+    ["/#roadmap", "/faq#roadmap"],
     ["/usage#default-connections", "/faq#default-connections"],
     ["/releases#marlin-stable", "/faq#legacy-devices"],
     ["/releases#sailfish-stable", "/faq#legacy-devices"],
