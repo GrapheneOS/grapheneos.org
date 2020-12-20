@@ -297,7 +297,8 @@ RWQZW9NItOuQYJ86EooQBxScfclrWiieJtAO9GpnfEjKbCO/3FriLGX3</pre>
 curl -O https://releases.grapheneos.org/sunfish-factory-2020.12.12.03.zip.sig</pre>
 
                 <p>Verify the factory images using the signature if you were able to obtain
-                <code>signify</code> from trusted package repositories (see above):</p>
+                <code>signify</code> from trusted package repositories (see above), otherwise
+                continue on to the next section without this:</p>
 
                 <pre>signify -Cqp factory.pub -x sunfish-factory-2020.12.12.03.zip.sig &amp;&amp; echo verified</pre>
 
