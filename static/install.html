@@ -75,9 +75,14 @@
                         </ul>
                     </li>
                     <li><a href="#locking-the-bootloader">Locking the bootloader</a></li>
-                    <li><a href="#disabling-oem-unlocking">Disabling OEM unlocking</a></li>
-                    <li><a href="#verifying-installation">Verifying installation</a></li>
-                    <li><a href="#replacing-grapheneos-with-the-stock-os">Replacing GrapheneOS with the stock OS</a></li>
+                    <li>
+                        <a href="#post-installation">Post-installation</a>
+                        <ul>
+                            <li><a href="#disabling-oem-unlocking">Disabling OEM unlocking</a></li>
+                            <li><a href="#verifying-installation">Verifying installation</a></li>
+                            <li><a href="#replacing-grapheneos-with-the-stock-os">Replacing GrapheneOS with the stock OS</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
 
@@ -381,53 +386,57 @@ TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
                 <p>The command needs to be confirmed on the device and will wipe all data.</p>
             </section>
 
-            <section id="disabling-oem-unlocking">
-                <h2><a href="#disabling-oem-unlocking">Disabling OEM unlocking</a></h2>
+            <section id="post-installation">
+                <h2><a href="#post-installation">Post-installation</a></h2>
 
-                <p>OEM unlocking can be disabled again in the developer settings menu within the
-                operating system after booting it up again.</p>
-            </section>
+                <section id="disabling-oem-unlocking">
+                    <h3><a href="#disabling-oem-unlocking">Disabling OEM unlocking</a></h3>
 
-            <section id="verifying-installation">
-                <h2><a href="#verifying-installation">Verifying installation</a></h2>
+                    <p>OEM unlocking can be disabled again in the developer settings menu within the
+                    operating system after booting it up again.</p>
+                </section>
 
-                <p>Verified boot authenticates and validates the firmware images and OS from the
-                hardware root of trust. Since GrapheneOS supports full verified boot, the OS images
-                are entirely verified. However, it's possible that the computer you used to flash the
-                OS was compromised, leading to flashing a malicious verified boot public key and
-                images. To detect this kind of attack, you can use the Auditor app included in
-                GrapheneOS in the Auditee mode and verify it with another Android device in the
-                Auditor mode. The Auditor app works best once it's already paired with a device and
-                has pinned a persistent hardware-backed key and the attestation certificate chain.
-                However, it can still provide a bit of security for the initial verification via the
-                attestation root. Ideally, you should also do this before connecting the device to the
-                network, so an attacker can't proxy to another device (which stops being possible
-                after the initial verification). Further protection against proxying the initial
-                pairing will be provided in the future via optional support for ID attestation to
-                include the serial number in the hardware verified information to allow checking
-                against the one on the box / displayed in the bootloader. See the
-                <a href="https://attestation.app/tutorial">Auditor tutorial</a> for a guide.</p>
+                <section id="verifying-installation">
+                    <h3><a href="#verifying-installation">Verifying installation</a></h3>
 
-                <p>After the initial verification, which results in pairing, performing verification
-                against between the same Auditor and Auditee (as long as the app data hasn't been
-                cleared) will provide strong validation of the identity and integrity of the
-                device. That makes it best to get the pairing done right after installation. You can
-                also consider setting up the optional remote attestation service.</p>
-            </section>
+                    <p>Verified boot authenticates and validates the firmware images and OS from the
+                    hardware root of trust. Since GrapheneOS supports full verified boot, the OS images
+                    are entirely verified. However, it's possible that the computer you used to flash the
+                    OS was compromised, leading to flashing a malicious verified boot public key and
+                    images. To detect this kind of attack, you can use the Auditor app included in
+                    GrapheneOS in the Auditee mode and verify it with another Android device in the
+                    Auditor mode. The Auditor app works best once it's already paired with a device and
+                    has pinned a persistent hardware-backed key and the attestation certificate chain.
+                    However, it can still provide a bit of security for the initial verification via the
+                    attestation root. Ideally, you should also do this before connecting the device to the
+                    network, so an attacker can't proxy to another device (which stops being possible
+                    after the initial verification). Further protection against proxying the initial
+                    pairing will be provided in the future via optional support for ID attestation to
+                    include the serial number in the hardware verified information to allow checking
+                    against the one on the box / displayed in the bootloader. See the
+                    <a href="https://attestation.app/tutorial">Auditor tutorial</a> for a guide.</p>
 
-            <section id="replacing-grapheneos-with-the-stock-os">
-                <h2><a href="#replacing-grapheneos-with-the-stock-os">Replacing GrapheneOS with the stock OS</a></h2>
+                    <p>After the initial verification, which results in pairing, performing verification
+                    against between the same Auditor and Auditee (as long as the app data hasn't been
+                    cleared) will provide strong validation of the identity and integrity of the
+                    device. That makes it best to get the pairing done right after installation. You can
+                    also consider setting up the optional remote attestation service.</p>
+                </section>
 
-                <p>Installation of the stock OS via the stock factory images is the same process
-                described above. However, before locking, there's an additional step to fully revert
-                the device to a clean factory state.</p>
+                <section id="replacing-grapheneos-with-the-stock-os">
+                    <h3><a href="#replacing-grapheneos-with-the-stock-os">Replacing GrapheneOS with the stock OS</a></h3>
 
-                <p>The GrapheneOS factory images flash a non-stock Android Verified Boot key which
-                needs to be erased to fully revert back to a stock device state. After flashing the
-                stock factory images and before locking the bootloader, you should erase the custom
-                Android Verified Boot key to untrust it:</p>
+                    <p>Installation of the stock OS via the stock factory images is the same process
+                    described above. However, before locking, there's an additional step to fully revert
+                    the device to a clean factory state.</p>
 
-                <pre>fastboot erase avb_custom_key</pre>
+                    <p>The GrapheneOS factory images flash a non-stock Android Verified Boot key which
+                    needs to be erased to fully revert back to a stock device state. After flashing the
+                    stock factory images and before locking the bootloader, you should erase the custom
+                    Android Verified Boot key to untrust it:</p>
+
+                    <pre>fastboot erase avb_custom_key</pre>
+                </section>
             </section>
         </main>
         <footer>
