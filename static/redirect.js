@@ -11,6 +11,7 @@
 const redirects = new Map([
     ["/#device-support", "/faq#device-support"],
     ["/#roadmap", "/faq#roadmap"],
+    ["/#copyright-and-licensing", "/faq#copyright-and-licensing"],
     ["/usage#default-connections", "/faq#default-connections"],
     ["/releases#marlin-stable", "/faq#legacy-devices"],
     ["/releases#sailfish-stable", "/faq#legacy-devices"],
