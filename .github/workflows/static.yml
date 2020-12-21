@@ -1,4 +1,4 @@
-name: Validate static
+name: Validate and process static files
 
 on:
   pull_request:
@@ -6,7 +6,7 @@ on:
     branches: [master]
 
 jobs:
-  validate-static:
+  static:
     runs-on: ubuntu-latest
 
     env:
@@ -32,7 +32,7 @@ jobs:
         key: ${{ runner.os }}-validator-${{ env.VALIDATOR_VERSION }}
 
     - run: sudo apt-get update
-    - run: sudo apt-get -y install libxml2-utils yajl-tools
+    - run: sudo apt-get -y install libxml2-utils yajl-tools python3-lxml python3-cssselect moreutils brotli zopfli
     - run: npm install
 
     - name: Download validatornu
@@ -45,3 +45,6 @@ jobs:
 
     - name: validate static
       run: ./validate_static
+
+    - name: process static
+      run: ./process_static
