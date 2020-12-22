@@ -139,7 +139,24 @@ footer a, footer a:visited {
     padding: 0;
     list-style-type: none;
 }
-
+/* Scrollbar */
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+::-webkit-scrollbar:horizontal {
+    height: .7rem;
+}
+::-webkit-scrollbar:vertical {
+    width: .7rem;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgba(42, 42, 42, 0.5);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #fff;
+}
 /* latin */
 @font-face {
     font-family: 'Roboto';
