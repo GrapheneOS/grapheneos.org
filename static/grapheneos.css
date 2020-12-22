@@ -146,11 +146,11 @@ footer a, footer a:visited {
 }
 
 ::-webkit-scrollbar:horizontal {
-    height: .7rem;
+    height: 0.7rem;
 }
 
 ::-webkit-scrollbar:vertical {
-    width: .7rem;
+    width: 0.7rem;
 }
 
 ::-webkit-scrollbar-thumb {
