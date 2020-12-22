@@ -143,14 +143,9 @@ footer a, footer a:visited {
 
 ::-webkit-scrollbar {
     -webkit-appearance: none;
-}
-
-::-webkit-scrollbar:horizontal {
-    height: 0.7rem;
-}
-
-::-webkit-scrollbar:vertical {
     width: 0.7rem;
+    height: 0.7rem;
+    background: #fff;
 }
 
 ::-webkit-scrollbar-thumb {
