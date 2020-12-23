@@ -92,16 +92,24 @@
 
                 <p>You should have at least 2GB of free memory available.</p>
 
-                <p>You need a USB cable for attaching the device to a laptop or desktop. If it
-                doesn't have a USB-C port, you'll need a high quality USB-C to USB-A cable. Avoid
-                low quality USB hubs and cables including the low quality front panel hubs on many
-                desktop computers.</p>
+                <p>You need a USB cable for attaching the device to a laptop or desktop. Whenever
+                possible, use the high quality standards compliant USB-C cable that comes with the
+                device. If your computer doesn't have any USB-C ports, you'll need a high quality
+                USB-C to USB-A cable. You should avoid using a USB hub such as the front panel on
+                a desktop computer case. Connect directly to a rear port on a desktop or the ports
+                on a laptop. Many widely distributed USB cables and hubs are broken and are the
+                most common source of issues for installing GrapheneOS.</p>
 
                 <p>Windows 10, macOS Catalina, Arch Linux, Debian buster and Ubuntu 20.04 LTS are the
                 officially supported operating systems for installing GrapheneOS. You should make sure
                 your operating system is up-to-date before proceeding with these instructions. Older
                 versions and other Linux distributions usually work, but if you encounter problems try
                 using one of the officially supported options.</p>
+
+                <p>Installing from an OS in a virtual machine is not recommended. USB passthrough
+                is often not reliable. To rule out these problems, install from an OS running on
+                bare metal. Virtual machines are also often configured to have overly limited
+                memory and storage space.</p>
 
                 <p>You need one of the officially supported devices. To make sure that the device can
                 be unlocked to install GrapheneOS, avoid carrier variants of the devices. Carrier
@@ -121,8 +129,9 @@
                 Pixel phones can be obtained from the
                 <a href="https://developers.google.com/android/ota">full update package page</a>.</p>
 
-                <p>These instructions use command-line tools. On Windows, use PowerShell rather than
-                the legacy Command Prompt.</p>
+                <p>These instructions use command-line tools. On Windows, use PowerShell rather
+                than the legacy Command Prompt. Open up a single terminal and use it for the whole
+                installation process.</p>
 
                 <section id="obtaining-fastboot">
                     <h3><a href="#obtaining-fastboot">Obtaining fastboot</a></h3>
@@ -344,6 +353,11 @@ curl -O https://releases.grapheneos.org/sunfish-factory-2020.12.12.03.zip.sig</p
                 <section id="troubleshooting">
                     <h3><a href="#troubleshooting">Troubleshooting</a></h3>
 
+                    <p>The text output from a failed attempt at flashing will contain valuable
+                    diagnostic information which is essential in knowing where and how the process
+                    went wrong. Please provide this information when asking for help on the
+                    GrapheneOS IRC / Matrix channel.</p>
+
                     <p>A common issue on Linux distributions is that they mount the default temporary file
                     directory <code>/tmp</code> as tmpfs which results in it being backed by memory and
                     swap rather than persistent storage. By default, the size is 50% of the available
@@ -353,23 +367,6 @@ curl -O https://releases.grapheneos.org/sunfish-factory-2020.12.12.03.zip.sig</p
 
                     <pre>mkdir tmp
 TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
-
-                    <p>A majority of failed flashes tend to be caused by substandard USB connectors,
-                    plugging in via hubs or bad cables which aren't properly up to the USB standard. The
-                    scrollback from a failed flash will contain valuable diagnostic information which
-                    is essential in knowing where and how the process went wrong.</p>
-
-                    <p>Front I/O ports on desktop computer cases and USB 3.1 or USB C on many laptops
-                    often aren't implemented properly or are broken in subtle ways, which may cause flashing
-                    to fail even on a USB port that works for other peripherals. Older Linux kernels that
-                    predate version 5 may have inadequate or patchwork support for USB C or USB 3. If you
-                    are installing from a Linux distribution, ensure your distribution uses a modern
-                    kernel.</p>
-
-                    <p>Always use a high quality USB A to USB C cable with a rear USB port directly on your
-                    motherboard, and never use a USB hub for flashing. <em>Never install from a virtual
-                    machine;</em> USB passthrough in software emulation may be broken or inadequate and this
-                    can cause the flashing to fail.</p>
                 </section>
             </section>
 
