@@ -60,135 +60,147 @@
             AOSP and the hardware are not covered here. Documentation on that will be gradually
             added elsewhere on our site.</p>
 
-            <p>Partial list of GrapheneOS features beyond what AOSP 11 provides:</p>
+            <section id="grapheneos">
+                <h2><a href="#grapheneos">GrapheneOS</a></h2>
 
-            <ul>
-                <li>Hardened app runtime</li>
-                <li>Stronger app sandbox</li>
-                <li>Hardened libc providing defenses against the most common classes of vulnerabilities (memory
-  corruption)</li>
-                <li>Our own <a href="https://github.com/GrapheneOS/hardened_malloc">hardened malloc (memory allocator)</a>
-                leveraging modern hardware capabilities to provide substantial defenses against
-                the most common classes of vulnerabilities (heap memory corruption) along with
-                reducing the lifetime of sensitive data in memory. The
-                <a href="https://github.com/GrapheneOS/hardened_malloc/blob/master/README.md">hardened_malloc
-                README</a> has extensive documentation on it. The hardened_malloc project is
-                portable to other Linux-based operating systems and is being adopted by other
-                security-focused operating systems like Whonix.  Our allocator also heavily influenced the
-                design of the <a href="https://www.openwall.com/lists/musl/2020/05/13/1">next-generation
-                musl malloc implementation</a> which offers substantially better security than musl's
-                previous malloc while still having minimal memory usage and code size.</li>
-                <li>Hardened compiler toolchain</li>
-                <li>Hardened kernel</li>
-                <li>Prevention of dynamic native code execution in-memory or via the filesystem
-                for the base OS without going via the package manager, etc.</li>
-                <li>Filesystem access hardening</li>
-                <li>Enhanced verified boot with better security properties and reduced attack surface</li>
-                <li>Enhanced hardware-based attestation with more precise version information</li>
-                <li>Eliminates remaining holes for apps to access hardware-based identifiers</li>
-                <li>Greatly reduced remote, local and proximity-based attack surface by stripping out unnecessary
-  code, making more features optional and disabling optional features by default (NFC, Bluetooth, etc.) or when the
-  screen is locked (connecting new USB peripherals, camera access)</li>
-                <li>Low-level improvements to the filesystem-based full disk encryption used on
-                modern Android</li>
-                <li>Support for logging out of user profiles without needing a device manager: makes them inactive so that they can't continue running code while using another profile and purges the disk encryption keys (which are per-profile) from memory and hardware registers</li>
-                <li>Support longer passwords by default without a device manager</li>
-                <li>Stricter implementation of the optional fingerprint unlock feature permitting
-                only 5 attempts rather than 20 before permanent lockout (our recommendation is
-                still keeping sensitive data in user profiles without fingerprint unlock)</li>
-                <li>PIN scrambling option</li>
-                <li><a href="/usage#lte-only-mode">LTE-only mode</a> to reduce cellular radio attack surface by disabling enormous amounts of legacy
-  code</li>
-                <li><a href="/usage#wifi-privacy-associated">Default enabled per-connection MAC randomization</a>
-                as an improvement over Android's default per-network MAC randomization reusing
-                the same MAC address until the DHCP lease with that network expires (can still
-                use the standard implementation or fully disable it)</li>
-                <li>Vanadium: hardened WebView and default browser - the WebView is what most
-                other apps use to handle web content, so you benefit from Vanadium in many apps
-                even if you choose another browser</li>
-                <li>Hardware-based security verification and monitoring: the
-                <a href="https://github.com/GrapheneOS/Auditor/releases">Auditor app</a> app and
-                <a href="https://attestation.app/">attestation service</a> provide strong
-                hardware-based verification of the authenticity and integrity of the
-                firmware/software on the device. A strong pairing-based approach is used which
-                also provides verification of the device's identity based on the hardware backed
-                key generated for each pairing. Software-based checks are layered on top with
-                trust securely chained from the hardware. For more details, see the
-                <a href="https://attestation.app/about">about page</a>
-                and <a href="https://attestation.app/tutorial">tutorial</a>.</li>
-                <li><a href="https://github.com/GrapheneOS/PdfViewer">PDF Viewer</a>: sandboxed,
-                hardened PDF viewer using HiDPI rendering with pinch to zoom, text selection,
-                etc.</li>
-                <li>Encrypted backups via integration of the
-                <a href="https://github.com/seedvault-app/seedvault">Seedvault app</a> with
-                support for local backups and any cloud storage provider with a storage provider
-                app</li>
-                <li><a href="/usage#exec-spawning">Secure application spawning system</a> avoiding
-                sharing address space layout and other secrets across applications</li>
-                <li>Network permission toggle disallowing both direct and indirect network access,
-                superior to a purely firewall-based implementation only disallowing direct
-                access to the network without covering inter-process communication (enabled by
-                default for compatibility)</li>
-                <li>Sensors permission toggle: disallow access to all other sensors not covered by
-                existing Android permissions (enabled by default for compatibility)</li>
-                <li>Authenticated encryption for network time updates via a first party server to
-                prevent attackers from changing the time and enabling attacks based on bypassing
-                certificate / key expiry, etc.</li>
-                <li>Proper support for disabling network time updates rather than just not using
-                the results</li>
-                <li>Connectivity checks via a first party server with the option to revert to the
-                standard checks</li>
-                <li>Hardened local build / signing infrastructure</li>
-                <li><a href="/usage#updates">Seamless automatic OS update system</a> that just
-                works and stays out of the way in the background without disrupting device
-                usage, with full support for the standard automatic rollback if the first boot
-                of the updated OS fails</li> <li>Require unlocking to access sensitive function
-                via quick tiles</li>
-                <li>Minor changes to default settings to prefer privacy over small conveniences:
-                personalized keyboard suggestions based on gathering input history are disabled by
-                default, sensitive notifications are hidden on the lockscreen by default and
-                passwords are hidden during entry by default</li>
-            </ul>
+                <p>Partial list of GrapheneOS features beyond what AOSP 11 provides:</p>
 
-            <p>Infrastructure features:</p>
+                <ul>
+                    <li>Hardened app runtime</li>
+                    <li>Stronger app sandbox</li>
+                    <li>Hardened libc providing defenses against the most common classes of vulnerabilities (memory
+      corruption)</li>
+                    <li>Our own <a href="https://github.com/GrapheneOS/hardened_malloc">hardened malloc (memory allocator)</a>
+                    leveraging modern hardware capabilities to provide substantial defenses against
+                    the most common classes of vulnerabilities (heap memory corruption) along with
+                    reducing the lifetime of sensitive data in memory. The
+                    <a href="https://github.com/GrapheneOS/hardened_malloc/blob/master/README.md">hardened_malloc
+                    README</a> has extensive documentation on it. The hardened_malloc project is
+                    portable to other Linux-based operating systems and is being adopted by other
+                    security-focused operating systems like Whonix.  Our allocator also heavily influenced the
+                    design of the <a href="https://www.openwall.com/lists/musl/2020/05/13/1">next-generation
+                    musl malloc implementation</a> which offers substantially better security than musl's
+                    previous malloc while still having minimal memory usage and code size.</li>
+                    <li>Hardened compiler toolchain</li>
+                    <li>Hardened kernel</li>
+                    <li>Prevention of dynamic native code execution in-memory or via the filesystem
+                    for the base OS without going via the package manager, etc.</li>
+                    <li>Filesystem access hardening</li>
+                    <li>Enhanced verified boot with better security properties and reduced attack surface</li>
+                    <li>Enhanced hardware-based attestation with more precise version information</li>
+                    <li>Eliminates remaining holes for apps to access hardware-based identifiers</li>
+                    <li>Greatly reduced remote, local and proximity-based attack surface by stripping out unnecessary
+      code, making more features optional and disabling optional features by default (NFC, Bluetooth, etc.) or when the
+      screen is locked (connecting new USB peripherals, camera access)</li>
+                    <li>Low-level improvements to the filesystem-based full disk encryption used on
+                    modern Android</li>
+                    <li>Support for logging out of user profiles without needing a device manager: makes them inactive so that they can't continue running code while using another profile and purges the disk encryption keys (which are per-profile) from memory and hardware registers</li>
+                    <li>Support longer passwords by default without a device manager</li>
+                    <li>Stricter implementation of the optional fingerprint unlock feature permitting
+                    only 5 attempts rather than 20 before permanent lockout (our recommendation is
+                    still keeping sensitive data in user profiles without fingerprint unlock)</li>
+                    <li>PIN scrambling option</li>
+                    <li><a href="/usage#lte-only-mode">LTE-only mode</a> to reduce cellular radio attack surface by disabling enormous amounts of legacy
+      code</li>
+                    <li><a href="/usage#wifi-privacy-associated">Default enabled per-connection MAC randomization</a>
+                    as an improvement over Android's default per-network MAC randomization reusing
+                    the same MAC address until the DHCP lease with that network expires (can still
+                    use the standard implementation or fully disable it)</li>
+                    <li>Vanadium: hardened WebView and default browser - the WebView is what most
+                    other apps use to handle web content, so you benefit from Vanadium in many apps
+                    even if you choose another browser</li>
+                    <li>Hardware-based security verification and monitoring: the
+                    <a href="https://github.com/GrapheneOS/Auditor/releases">Auditor app</a> app and
+                    <a href="https://attestation.app/">attestation service</a> provide strong
+                    hardware-based verification of the authenticity and integrity of the
+                    firmware/software on the device. A strong pairing-based approach is used which
+                    also provides verification of the device's identity based on the hardware backed
+                    key generated for each pairing. Software-based checks are layered on top with
+                    trust securely chained from the hardware. For more details, see the
+                    <a href="https://attestation.app/about">about page</a>
+                    and <a href="https://attestation.app/tutorial">tutorial</a>.</li>
+                    <li><a href="https://github.com/GrapheneOS/PdfViewer">PDF Viewer</a>: sandboxed,
+                    hardened PDF viewer using HiDPI rendering with pinch to zoom, text selection,
+                    etc.</li>
+                    <li>Encrypted backups via integration of the
+                    <a href="https://github.com/seedvault-app/seedvault">Seedvault app</a> with
+                    support for local backups and any cloud storage provider with a storage provider
+                    app</li>
+                    <li><a href="/usage#exec-spawning">Secure application spawning system</a> avoiding
+                    sharing address space layout and other secrets across applications</li>
+                    <li>Network permission toggle disallowing both direct and indirect network access,
+                    superior to a purely firewall-based implementation only disallowing direct
+                    access to the network without covering inter-process communication (enabled by
+                    default for compatibility)</li>
+                    <li>Sensors permission toggle: disallow access to all other sensors not covered by
+                    existing Android permissions (enabled by default for compatibility)</li>
+                    <li>Authenticated encryption for network time updates via a first party server to
+                    prevent attackers from changing the time and enabling attacks based on bypassing
+                    certificate / key expiry, etc.</li>
+                    <li>Proper support for disabling network time updates rather than just not using
+                    the results</li>
+                    <li>Connectivity checks via a first party server with the option to revert to the
+                    standard checks</li>
+                    <li>Hardened local build / signing infrastructure</li>
+                    <li><a href="/usage#updates">Seamless automatic OS update system</a> that just
+                    works and stays out of the way in the background without disrupting device
+                    usage, with full support for the standard automatic rollback if the first boot
+                    of the updated OS fails</li> <li>Require unlocking to access sensitive function
+                    via quick tiles</li>
+                    <li>Minor changes to default settings to prefer privacy over small conveniences:
+                    personalized keyboard suggestions based on gathering input history are disabled by
+                    default, sensitive notifications are hidden on the lockscreen by default and
+                    passwords are hidden during entry by default</li>
+                </ul>
+            </section>
 
-            <ul>
-                <li>Strict privacy and security practices for our infrastructure</li>
-                <li>Unnecessary logging is avoided and logs are automatically purged after 10 days</li>
-                <li>Services hosted on OVH without involving any additional parties for CDNs,
-                mirrors or other services - we don't outsource to others</li>
-                <li>Our services are built with open technology stacks to avoid being locked in to
-                any particular hosting provider or vendor</li>
-                <li>Open documentation on our infrastructure including listing out all of our
-                services, guides on making similar setups, published configurations for each
-                of our web services, etc.</li>
-                <li>No proprietary services</li>
-                <li>Authenticated encryption for all of our services</li>
-                <li>Strong cipher configurations for all of our services (SSH, TLS, etc.)</li>
-                <li>DNSSEC for all our domains</li>
-                <li>SSHFP across all domains for pinning SSH keys</li>
-                <li>DANE TLSA records for pinning keys for all our TLS services (unfortunately only
-                used by a subset of other mail services in practice, and not yet web
-                browsers)</li>
-                <li>Static key pinning for our services in apps like Auditor</li>
-                <li>No cookies or similar client-side state for anything other than login sessions,
-                which are set up via SameSite=strict cookies and have server-side session tracking
-                with the ability to log out of other sessions</li>
-                <li>scrypt-based password hashing (likely Argon2 when the available implementations
-                are more mature)</li>
-            </ul>
+            <section id="services">
+                <h2><a href="#services">Services</a></h2>
 
-            <p>Beyond the technical features of the OS:</p>
+                <p>Service infrastructure features:</p>
 
-            <ul>
-                <li>Collaborative, open source project with a very active community and contributors</li>
-                <li>Can make your own builds and make desired changes, so you aren't stuck with
-                the decisions made by the upstream project</li>
-                <li>Non-profit project avoiding conflicts of interest by keeping commercialization
-                at a distance. Companies support the project rather than the project serving the
-                needs of any particular company</li>
-                <li><a href="/faq#privacy-policy">Strong privacy policies</a></li>
-            </ul>
+                <ul>
+                    <li>Strict privacy and security practices for our infrastructure</li>
+                    <li>Unnecessary logging is avoided and logs are automatically purged after 10 days</li>
+                    <li>Services hosted on OVH without involving any additional parties for CDNs,
+                    mirrors or other services - we don't outsource to others</li>
+                    <li>Our services are built with open technology stacks to avoid being locked in to
+                    any particular hosting provider or vendor</li>
+                    <li>Open documentation on our infrastructure including listing out all of our
+                    services, guides on making similar setups, published configurations for each
+                    of our web services, etc.</li>
+                    <li>No proprietary services</li>
+                    <li>Authenticated encryption for all of our services</li>
+                    <li>Strong cipher configurations for all of our services (SSH, TLS, etc.)</li>
+                    <li>DNSSEC for all our domains</li>
+                    <li>SSHFP across all domains for pinning SSH keys</li>
+                    <li>DANE TLSA records for pinning keys for all our TLS services (unfortunately only
+                    used by a subset of other mail services in practice, and not yet web
+                    browsers)</li>
+                    <li>Static key pinning for our services in apps like Auditor</li>
+                    <li>No cookies or similar client-side state for anything other than login sessions,
+                    which are set up via SameSite=strict cookies and have server-side session tracking
+                    with the ability to log out of other sessions</li>
+                    <li>scrypt-based password hashing (likely Argon2 when the available implementations
+                    are more mature)</li>
+                </ul>
+            </section>
+
+            <section id="project">
+                <h2><a href="#project">Project</a></h2>
+
+                <p>Beyond the technical features of the OS:</p>
+
+                <ul>
+                    <li>Collaborative, open source project with a very active community and contributors</li>
+                    <li>Can make your own builds and make desired changes, so you aren't stuck with
+                    the decisions made by the upstream project</li>
+                    <li>Non-profit project avoiding conflicts of interest by keeping commercialization
+                    at a distance. Companies support the project rather than the project serving the
+                    needs of any particular company</li>
+                    <li><a href="/faq#privacy-policy">Strong privacy policies</a></li>
+                </ul>
+            </section>
         </main>
         <footer>
             <a href="/"><img src="/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
