@@ -154,13 +154,14 @@
                     <section id="standalone-platform-tools">
                         <h4><a href="#standalone-platform-tools">Standalone platform-tools</a></h4>
 
-                        <p>If your operating system doesn't make a proper version of fastboot available,
-                        consider using the
-                        <a href="https://developer.android.com/studio/releases/platform-tools">standalone
-                        releases of platform-tools from Google</a>. If you have the Android SDK or intend to
-                        do development work, you install the platform-tools package via the Android SDK
-                        package manager which can be used to keep it up-to-date. The Android SDK is available
-                        by itself or can be obtained via Android Studio.</p>
+                        <!-- https://developer.android.com/studio/releases/platform-tools -->
+
+                        <p>If your operating system doesn't include a usable version of fastboot,
+                        you can use the official standalone releases of platform-tools. This is
+                        our recommendation for most users. The flashing process won't work unless
+                        you follow these instructions including setting up PATH. If you close and
+                        reopen the terminal after doing this, you'll need to set PATH again in the
+                        new terminal.</p>
 
                         <p>To download, verify and extract the standalone platform-tools on Linux:</p>
 
