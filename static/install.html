@@ -60,6 +60,7 @@
                                 <a href="#obtaining-fastboot">Obtaining fastboot</a>
                                 <ul>
                                     <li><a href="#standalone-platform-tools">Standalone platform-tools</a></li>
+                                    <li><a href="#checking-fastboot-version">Checking fastboot version</a></li>
                                 </ul>
                             </li>
                             <li><a href="#obtaining-signify">Obtaining signify</a></li>
@@ -202,14 +203,20 @@ tar xvf platform-tools_r30.0.5-windows.zip</pre>
 
                         <pre>$env:Path = "$pwd\platform-tools;$env:Path"</pre>
 
-                        <p>Sample output from <code>fastboot --version</code> afterwards:</p>
+                        <p>This is a temporary change to <code>PATH</code> for the current shell and will need
+                        to be done again if you open a new terminal.</p>
+                    </section>
+
+                    <section id="checking-fastboot-version">
+                        <h4><a href="#checking-fastboot-version">Checking fastboot version</a></h4>
+
+                        <p>Check the output of <code>fastboot --version</code> before continuing.</p>
+
+                        <p>Example of the output after following the instructions above for the
+                        standalone platform-tools:</p>
 
                         <pre>fastboot version 30.0.5-6877874
-Installed as /home/username/downloads/platform-tools/fastboot</pre>
-
-                        <p>This is a temporary change to <code>PATH</code> for the current shell and will need
-                        to be done again if you open a new terminal. Make sure that the <code>fastboot</code>
-                        command works in the current shell before trying to run the flashing script.</p>
+Installed as /home/username/platform-tools/fastboot</pre>
                     </section>
                 </section>
 
