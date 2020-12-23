@@ -2,14 +2,14 @@
 /* https://android.googlesource.com/platform/frameworks/base/+/android-9.0.0_r35/core/res/res/values/colors_material.xml */
 
 html {
-    height: -webkit-fill-available;
+    height: -webkit-fill-available; /* replace with stretch when standardized */
 }
 
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    min-height: -webkit-fill-available;
+    min-height: -webkit-fill-available; /* replace with stretch when standardized */
     font-family: Roboto, sans-serif;
     background-color: #fafafa; /* grey50 */
     color: rgba(0, 0, 0, 0.87); /* 87% black */
