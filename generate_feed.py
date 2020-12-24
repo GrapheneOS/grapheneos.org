@@ -17,7 +17,7 @@ for release in releases:
     if updated is None:
         updated = time
     content = [etree.tostring(e).decode() for e in release.getchildren()[1:]]
-    entry = f"""\
+    entries.append(f"""
     <entry>
         <id>https://grapheneos.org/releases#{title}</id>
         <link href="https://grapheneos.org/releases#{title}"/>
@@ -29,8 +29,7 @@ for release in releases:
                 {"".join(content)}
             </div>
         </content>
-    </entry>"""
-    entries.append(entry)
+    </entry>""")
 
 feed = f"""<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
@@ -45,8 +44,7 @@ feed = f"""<?xml version="1.0" encoding="utf-8"?>
         <name>GrapheneOS</name>
         <email>contact@grapheneos.org</email>
         <uri>https://grapheneos.org/</uri>
-    </author>
-    {"".join(entries)}
+    </author>{"".join(entries)}
 </feed>
 """
 
