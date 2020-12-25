@@ -71,6 +71,7 @@
                     <li>
                         <a href="#security-and-privacy">Security and privacy</a>
                         <ul>
+                            <li><a href="#encryption">How is disk encryption implemented?</a></li>
                             <li><a href="#clipboard">Can apps spy on the clipboard in the background
                             or inject content into it?</a></li>
                             <li><a href="#hardware-identifiers">Can apps access hardware
@@ -277,6 +278,100 @@
 
             <section id="security-and-privacy">
                 <h2><a href="#security-and-privacy">Security and privacy</a></h2>
+
+                <article id="encryption">
+                    <h3><a href="#encryption">How is disk encryption implemented?</a></h3>
+
+                    <p>GrapheneOS uses an enhanced version of the modern filesystem-based disk
+                    encryption implementation in the Android Open Source Project. The officially
+                    supported devices have substantial hardware-based support for enhancing the
+                    security of the encryption implementation. GrapheneOS has full support for the
+                    hardware-based encryption features just as it does with other hardware-based
+                    security features.</p>
+
+                    <p>Firmware and OS partitions are identical copies of the images published in
+                    the official releases. The authenticity and integrity of these partitions is
+                    verified from a root of trust on every boot. No data is read from any of these
+                    images without being cryptographically verified. Encryption is out of scope
+                    due to the images being publicly available. Verified boot offers much stronger
+                    security properties than disk encryption. Further details will be provided in
+                    another section on verified boot in the future.</p>
+
+                    <p>The data partition stores all of the persistent state for the operating
+                    system. Full disk encryption is implemented via filesystem-based encryption
+                    with metadata encryption. All data, file names and other metadata is always
+                    stored encrypted. This is often referred to as file-based encryption but it
+                    makes more sense to call it filesystem-based encryption. It's implemented by
+                    the Linux kernel as part of the ext4 / f2fs implementation rather than running
+                    a block-based encryption layer. The advantage of filesystem-based encryption
+                    is the ability to use fine-grained keys rather than a single global key that's
+                    always in memory once the device is booted.</p>
+
+                    <p>Disk encryption keys are randomly generated with a high quality CSPRNG and
+                    stored encrypted with a key encryption key. Key encryption keys are derived at
+                    runtime and are never stored anywhere.</p>
+
+                    <p>Sensitive data is stored in user profiles. User profiles each have their
+                    own unique, randomly generated disk encryption key and their own unique key
+                    encryption key is used to encrypt it. The owner profile is special and is used
+                    to store sensitive system-wide operating system data. This is why the owner
+                    profile needs to be logged in after a reboot before other user profiles can be
+                    used. The owner profile does not have access to the data in other profiles.
+                    Filesystem-based encryption is designed so that files can be deleted without
+                    having the keys for their data and file names, which enables the owner profile
+                    to delete other profiles without them being active.</p>
+
+                    <p>GrapheneOS enables upport for ending secondary user profile sessions after
+                    logging into them. It adds an end session button to the lockscreen and in the
+                    global action menu accessed by holding the power button. This fully purges the
+                    encryption keys and puts the profiles back at rest. This can't be done for the
+                    owner profile without rebooting due to it encrypting the sensitive system-wide
+                    operating system data.</p>
+
+                    <p>Our recommendation for a high security setup is to use the owner profile
+                    only for managing other profiles. Using a secondary profile for regular usage
+                    allows you to make use of the device without decrypting the data in your
+                    regular usage profile. It also allows putting it at rest without rebooting the
+                    device.</p>
+
+                    <p>File data is encrypted with AES-256-XTS and file names with AES-256-CTS. A
+                    unique key is derived using HKDF-SHA512 for each regular file, directory and
+                    symbolic link from the per-profile encryption keys, or the device encryption
+                    key for non-sensitive data stored outside of profiles. GrapheneOS increases
+                    the file name padding from 16 bytes to 32 bytes.</p>
+
+                    <p>The OS derives a password token from the profile's lock method credential
+                    using scrypt. This is used as the main input for key derivation.</p>
+
+                    <p>The OS stores a high entropy random value as the Weaver token on the secure
+                    element (Titan M on Pixels) and uses it as another input for key derivation.
+                    The Weaver token is stored alongside a Weaver key derived by the OS from the
+                    password token. In order to retrieve the Weaver token, the secure element
+                    requires the correct Weaver key. This is used to implement hardware-based
+                    exponentially increasing delays for each attempt at key derivation and quickly
+                    ramps up to 1 day per attempt. Weaver also provides reliable wiping of data
+                    since the secure element can reliably wipe a Weaver slot. Deleting a profile
+                    will wipe the corresponding Weaver slot and a factory reset of the device
+                    wipes all of the data on the secure element including Weaver slots.</p>
+
+                    <p>GrapheneOS only officially supports devices with Weaver. The fallback
+                    implementation for devices without it is out-of-scope for this FAQ.</p>
+
+                    <p>The password token, Weaver token and other values like the OS verified boot
+                    key are used by the TEE as inputs to a hardware-bound key derivation algorithm
+                    provided by the SoC. The general concept is having the SoC perform hardware
+                    accelerated key derivation using an algorithm like AES or HMAC keyed with a
+                    hard-wired hardware key inaccessible to software or firmware. This is meant to
+                    prevent offloading a brute force attack onto more powerful hardware without an
+                    expensive process of extracting the hardware key from the SoC.</p>
+
+                    <p>Many apps use the hardware keystore, their own encryption implementation or
+                    a combination of those to provide an additional layer of encryption. As an
+                    example, an app can use the hardware keystore to encrypt their data with a key
+                    only available when the device is unlocked to keep their data at rest when the
+                    profile is locked but not logged out. This is beyond the scope of this FAQ
+                    section.</p>
+                </article>
 
                 <article id="clipboard">
                     <h3><a href="#clipboard">Can apps spy on the clipboard in the background or inject content into it?</a></h3>
