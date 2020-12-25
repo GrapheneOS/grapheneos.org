@@ -336,10 +336,10 @@
 
                     <p>File data is encrypted with AES-256-XTS and file names with AES-256-CTS. A
                     unique key is derived using HKDF-SHA512 for each regular file, directory and
-                    symbolic link from the per-profile encryption keys, or the device encryption
+                    symbolic link from the per-profile encryption keys, or the global encryption
                     key for non-sensitive data stored outside of profiles. The directory key is
                     used to encrypt the file names. GrapheneOS increases the file name padding
-                    from 16 bytes to 32 bytes. AES-256-XTS with the device encryption key is also
+                    from 16 bytes to 32 bytes. AES-256-XTS with the global encryption key is also
                     used to encrypt filesystem metadata as a whole beyond the finer-grained file
                     name encryption.</p>
 
