@@ -350,14 +350,14 @@
                     element (Titan M on Pixels) and uses it as another input for key derivation.
                     The Weaver token is stored alongside a Weaver key derived by the OS from the
                     password token. In order to retrieve the Weaver token, the secure element
-                    requires the correct Weaver key. This is used to implement hardware-based
-                    exponentially increasing delays for each attempt at key derivation and quickly
-                    ramps up to 1 day per attempt. Weaver also provides reliable wiping of data
-                    since the secure element can reliably wipe a Weaver slot. Deleting a profile
-                    will wipe the corresponding Weaver slot and a factory reset of the device
-                    wipes all of the Weaver slots. The secure element also provides insider attack
-                    resistance preventing firmware updates before authenticating with the owner
-                    profile.</p>
+                    requires the correct Weaver key. A secure internal timer is used to implement
+                    hardware-based exponentially increasing delays for each attempt at key
+                    derivation and quickly ramps up to 1 day per attempt. Weaver also provides
+                    reliable wiping of data since the secure element can reliably wipe a Weaver
+                    slot. Deleting a profile will wipe the corresponding Weaver slot and a factory
+                    reset of the device wipes all of the Weaver slots. The secure element also
+                    provides insider attack resistance preventing firmware updates before
+                    authenticating with the owner profile.</p>
 
                     <p>GrapheneOS only officially supports devices with Weaver. The fallback
                     implementation for devices without it is out-of-scope for this FAQ.</p>
