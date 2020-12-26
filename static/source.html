@@ -45,15 +45,18 @@
         </header>
         <main id="source">
             <h1><a href="#source">Source</a></h1>
+
             <p>The GrapheneOS sources are hosted in the
             <a href="https://github.com/GrapheneOS">GrapheneOS organization on GitHub</a>. Since
             there are many repositories, this page aims to provide a guide for it. See the
             <a href="/contact#reporting-issues">reporting issues section on the contact page</a>
             for an comparable overview of where issues should be filed.</p>
+
             <ul>
                 <li><a href="https://github.com/GrapheneOS/platform_manifest">Manifest for OS repositories</a></li>
                 <li><a href="https://github.com/GrapheneOS/hardened_malloc">hardened_malloc</a></li>
             </ul>
+
             <p>The operating system source tree includes hundreds of repositories. Many of these
             are only used for debugging, testing or development and are not actually part of what
             gets used for building a production release. The manifest repository references all of
@@ -66,10 +69,12 @@
             cross-compilation toolchains for each host and target platform combination, etc. The
             prebuilts can all be built from source if desired. The build instructions will be
             expanded to cover all of this in the future.</p>
+
             <p>Vanadium needs to be included in the GrapheneOS source tree as a prebuilt before
             building. The GrapheneOS build metadata and patches are in the
             <a href="https://github.com/GrapheneOS/Vanadium">Vanadium repository</a>. See the
             GrapheneOS building instructions for more details.</p>
+
             <p>See <a href="https://attestation.app/source">https://attestation.app/source</a>
             for the Auditor and AttestationServer sources. The latest release of the Auditor app
             is included in the GrapheneOS source tree as a prebuilt since it uses a different
