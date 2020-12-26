@@ -52,23 +52,39 @@
             <a href="/contact#reporting-issues">reporting issues section on the contact page</a>
             for an comparable overview of where issues should be filed.</p>
 
-            <ul>
-                <li><a href="https://github.com/GrapheneOS/platform_manifest">Manifest for OS repositories</a></li>
-                <li><a href="https://github.com/GrapheneOS/hardened_malloc">hardened_malloc</a></li>
-            </ul>
+            <nav id="table-of-contents">
+                <h2><a href="#table-of-contents">Table of contents</a></h2>
 
-            <p>The operating system source tree includes hundreds of repositories. Many of these
-            are only used for debugging, testing or development and are not actually part of what
-            gets used for building a production release. The manifest repository references all of
-            these. Most of these are used unmodified from the Android Open Source Project (AOSP).
-            A few dozen of the repositories including most of the core OS are either forked from
-            AOSP or are unique to GrapheneOS. The operating system has a unified build system, but
-            some components like Chromium are too complex to fit into it so they're included as
-            prebuilts instead of porting them to the AOSP build system. This is also done for
-            developer convenience and bootstrapping, to avoid needing to build all the native /
-            cross-compilation toolchains for each host and target platform combination, etc. The
-            prebuilts can all be built from source if desired. The build instructions will be
-            expanded to cover all of this in the future.</p>
+                <ul>
+                    <li><a href="#grapheneos">GrapheneOS</a></li>
+                    <li><a href="#standalone-apps">Standalone apps</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#utilities">Utilities</a></li>
+                    <li><a href="#archive">Archive</a></li>
+                </ul>
+            </nav>
+
+            <section id="grapheneos">
+                <h2><a href="#grapheneos">GrapheneOS</a></h2>
+
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest">Manifest for OS repositories</a></li>
+                    <li><a href="https://github.com/GrapheneOS/hardened_malloc">hardened_malloc</a></li>
+                </ul>
+
+                <p>The operating system source tree includes hundreds of repositories. Many of these
+                are only used for debugging, testing or development and are not actually part of what
+                gets used for building a production release. The manifest repository references all of
+                these. Most of these are used unmodified from the Android Open Source Project (AOSP).
+                A few dozen of the repositories including most of the core OS are either forked from
+                AOSP or are unique to GrapheneOS. The operating system has a unified build system, but
+                some components like Chromium are too complex to fit into it so they're included as
+                prebuilts instead of porting them to the AOSP build system. This is also done for
+                developer convenience and bootstrapping, to avoid needing to build all the native /
+                cross-compilation toolchains for each host and target platform combination, etc. The
+                prebuilts can all be built from source if desired. The build instructions will be
+                expanded to cover all of this in the future.</p>
+            </section>
 
             <section id="standalone-apps">
                 <h2><a href="#standalone-apps">Standalone apps</a></h2>
