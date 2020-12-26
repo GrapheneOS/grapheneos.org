@@ -67,6 +67,25 @@
             <section id="grapheneos">
                 <h2><a href="#grapheneos">GrapheneOS</a></h2>
 
+                <p>The operating system source tree includes hundreds of repositories. Many of these
+                are only used for debugging, testing or development and are not actually part of what
+                gets used for building a production release. The manifest repository references all of
+                these. Most of these are used unmodified from the Android Open Source Project (AOSP).
+                A few dozen of the repositories including most of the core OS are either forked from
+                AOSP or are unique to GrapheneOS.</p>
+
+                <p>The operating system has a unified build system, but some components like
+                Chromium are too complex to fit into it so they're included as prebuilts instead
+                of porting them to the AOSP build system. This is also done for developer
+                convenience and bootstrapping, to avoid needing to build all the native /
+                cross-compilation toolchains for each host and target platform combination, etc.
+                The prebuilts can all be built from source if desired. The build instructions will
+                be expanded to cover all of this in the future.</p>
+
+                <p>For a full list of the repositories in the OS source tree, look at the
+                <a href="https://github.com/GrapheneOS/platform_manifest/blob/11/default.xml">default.xml
+                list in the manifest repository</a>.</p>
+
                 <p>Subset of the forks of AOSP repositories:</p>
 
                 <ul>
@@ -86,19 +105,6 @@
                     <li><a href="https://github.com/GrapheneOS/platform_packages_apps_Updater">OS update client (platform_packages_apps_Updater)</a></li>
                     <li><a href="https://github.com/GrapheneOS/script">script</a></li>
                 </ul>
-
-                <p>The operating system source tree includes hundreds of repositories. Many of these
-                are only used for debugging, testing or development and are not actually part of what
-                gets used for building a production release. The manifest repository references all of
-                these. Most of these are used unmodified from the Android Open Source Project (AOSP).
-                A few dozen of the repositories including most of the core OS are either forked from
-                AOSP or are unique to GrapheneOS. The operating system has a unified build system, but
-                some components like Chromium are too complex to fit into it so they're included as
-                prebuilts instead of porting them to the AOSP build system. This is also done for
-                developer convenience and bootstrapping, to avoid needing to build all the native /
-                cross-compilation toolchains for each host and target platform combination, etc. The
-                prebuilts can all be built from source if desired. The build instructions will be
-                expanded to cover all of this in the future.</p>
             </section>
 
             <section id="standalone-apps">
