@@ -174,10 +174,9 @@
                     <li>Strong cipher configurations for all of our services (SSH, TLS, etc.) with
                     only modern AEAD ciphers providing forward secrecy</li>
                     <li>DNSSEC for all our domains</li>
+                    <li>DANE TLSA records for pinning keys for all our TLS services (mostly helps
+                    to secure email due to lack of browser support)</li>
                     <li>SSHFP across all domains for pinning SSH keys</li>
-                    <li>DANE TLSA records for pinning keys for all our TLS services (unfortunately only
-                    used by a subset of other mail services in practice, and not yet web
-                    browsers)</li>
                     <li>Static key pinning for our services in apps like Auditor</li>
                     <li>No cookies or similar client-side state for anything other than login sessions,
                     which are set up via SameSite=strict cookies and have server-side session tracking
@@ -197,8 +196,9 @@
                     <li>Can make your own builds and make desired changes, so you aren't stuck with
                     the decisions made by the upstream project</li>
                     <li>Non-profit project avoiding conflicts of interest by keeping commercialization
-                    at a distance. Companies support the project rather than the project serving the
-                    needs of any particular company</li>
+                    at a distance. Companies support the project
+                    <a href="/faq#company">rather than the project serving the needs of any
+                    particular company</a></li>
                     <li><a href="/faq#privacy-policy">Strong privacy policies</a></li>
                 </ul>
             </section>
