@@ -68,8 +68,8 @@
                 <ul>
                     <li>Hardened app runtime</li>
                     <li>Stronger app sandbox</li>
-                    <li>Hardened libc providing defenses against the most common classes of vulnerabilities (memory
-      corruption)</li>
+                    <li>Hardened libc providing defenses against the most common classes of
+                    vulnerabilities (memory corruption)</li>
                     <li>Our own <a href="https://github.com/GrapheneOS/hardened_malloc">hardened malloc (memory allocator)</a>
                     leveraging modern hardware capabilities to provide substantial defenses against
                     the most common classes of vulnerabilities (heap memory corruption) along with
@@ -89,19 +89,23 @@
                     <li>Enhanced verified boot with better security properties and reduced attack surface</li>
                     <li>Enhanced hardware-based attestation with more precise version information</li>
                     <li>Eliminates remaining holes for apps to access hardware-based identifiers</li>
-                    <li>Greatly reduced remote, local and proximity-based attack surface by stripping out unnecessary
-      code, making more features optional and disabling optional features by default (NFC, Bluetooth, etc.) or when the
-      screen is locked (connecting new USB peripherals, camera access)</li>
+                    <li>Greatly reduced remote, local and proximity-based attack surface by
+                    stripping out unnecessary code, making more features optional and disabling
+                    optional features by default (NFC, Bluetooth, etc.) or when the screen is
+                    locked (connecting new USB peripherals, camera access)</li>
                     <li>Low-level improvements to the filesystem-based full disk encryption used on
                     modern Android</li>
-                    <li>Support for logging out of user profiles without needing a device manager: makes them inactive so that they can't continue running code while using another profile and purges the disk encryption keys (which are per-profile) from memory and hardware registers</li>
+                    <li>Support for logging out of user profiles without needing a device manager:
+                    makes them inactive so that they can't continue running code while using
+                    another profile and purges the disk encryption keys (which are per-profile)
+                    from memory and hardware registers</li>
                     <li>Support longer passwords by default without a device manager</li>
                     <li>Stricter implementation of the optional fingerprint unlock feature permitting
                     only 5 attempts rather than 20 before permanent lockout (our recommendation is
                     still keeping sensitive data in user profiles without fingerprint unlock)</li>
                     <li>PIN scrambling option</li>
-                    <li><a href="/usage#lte-only-mode">LTE-only mode</a> to reduce cellular radio attack surface by disabling enormous amounts of legacy
-      code</li>
+                    <li><a href="/usage#lte-only-mode">LTE-only mode</a> to reduce cellular radio
+                    attack surface by disabling enormous amounts of legacy code</li>
                     <li><a href="/usage#wifi-privacy-associated">Default enabled per-connection MAC randomization</a>
                     as an improvement over Android's default per-network MAC randomization reusing
                     the same MAC address until the DHCP lease with that network expires (can still
