@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Server traffic shaping | GrapheneOS</title>
+        <meta name="description" content="Implementing server traffic shaping on Linux with CAKE"/>
+        <meta name="theme-color" content="#212121"/>
+        <meta name="msapplication-TileColor" content="#ffffff"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="twitter:site" content="@GrapheneOS"/>
+        <meta name="twitter:creator" content="@GrapheneOS"/>
+        <meta property="og:title" content="Server traffic shaping"/>
+        <meta property="og:description" content="Implementing server traffic shaping on Linux with CAKE."/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
+        <meta property="og:image:width" content="512"/>
+        <meta property="og:image:height" content="512"/>
+        <meta property="og:image:alt" content="GrapheneOS logo"/>
+        <meta property="og:url" content="https://grapheneos.org/articles/server-traffic-shaping"/>
+        <meta property="og:site_name" content="GrapheneOS"/>
+        <link rel="icon" sizes="16x16 24x24 32x32 48x48 64x64" type="image/vnd.microsoft.icon" href="/favicon.ico"/>
+        <link rel="icon" sizes="any" type="image/svg+xml" href="/mask-icon.svg"/>
+        <link rel="mask-icon" href="/mask-icon.svg" color="#1a1a1a"/>
+        <link rel="stylesheet" href="/grapheneos.css?27"/>
+        <link rel="manifest" href="/manifest.webmanifest"/>
+        <link rel="canonical" href="https://grapheneos.org/articles/server-traffic-shaping"/>
+        <link rel="license" href="/LICENSE.txt"/>
+    </head>
+    <body>
+        <header>
+            <nav id="site-menu">
+                <ul>
+                    <li><a href="/">GrapheneOS</a></li>
+                    <li><a href="/features">Features</a></li>
+                    <li><a href="/install">Install</a></li>
+                    <li><a href="/build">Build</a></li>
+                    <li><a href="/usage">Usage</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                    <li><a href="/releases">Releases</a></li>
+                    <li><a href="/source">Source</a></li>
+                    <li><a href="/donate">Donate</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main id="server-traffic-shaping">
+            <h1><a href="#server-traffic-shaping">Server traffic shaping</a></h1>
+
+            <p>This article covers implementing server traffic shaping on Linux with CAKE. The aim
+            is to provide fair usage of bandwidth between clients and consistently low latency
+            for dedicated and virtual servers provided by companies like OVH and others.</p>
+
+            <p>Traffic shaping is generally discussed in the context of a router shaping traffic
+            for a local network with assorted clients connected. It also has a lot to offer on a
+            server where you don't control the network. If you control your own infrastructure
+            from the server to the ISP, you probably want to do this on the routers instead.</p>
+
+            <p>This article was motivated by the serious lack of up-to-date information on this
+            topic elsewhere. It's very easy to implement on modern Linux kernels and the results
+            and impressive from extremely simple test cases to heavily loaded servers.</p>
+
+            <p>We'll be improving this article with more details and results. It's documentation
+            we intend to maintain and expand, not a fire and forget blog post.</p>
+
+            <section id="problem">
+                <h2><a href="#problem">Problem</a></h2>
+
+                <p>A server will generally be provisioned with a specific amount of bandwidth
+                enforced by a router in close proximity. This router acts as the bottleneck and
+                ends up being in charge of most of the queuing and congestion decisions. Unless
+                that's under your control, the best you can hope for is that the router is
+                configured to use <code>fq_codel</code> as the queuing discipline (qdisc) to
+                provide fair queuing between streams and low latency by preventing a substantial
+                backlog of data.</p>
+
+                <p>Unfortunately, the Linux kernel still defaults to <code>pfifo_fast</code>
+                instead of the much saner <code>fq_codel</code> algorithm. This is changed by a
+                configuration file shipped with systemd, so <em>most</em> distributions using
+                systemd as init end up with a sane default. Debian removes that configuration and
+                doesn't set a sane default itself, and is widely used. Many server providers like
+                OVH do not appear to use consistently use modern queue disciplines like
+                <code>fq_codel</code> within their networks, particularly at artificial
+                bottlenecks implementing rate limiting based on product tiers.</p>
+
+                <p>If the bottleneck doesn't use fair queuing, division of bandwidth across
+                streams is very arbitrary and latency suffers under congestion. These issues are
+                often referred to as bufferbloat, and <code>fq_codel</code> is quite good at
+                resolving it.</p>
+
+                <p>The <code>fq_codel</code> algorithm is far from perfect. It has issues with
+                hash collisions and more importantly only does fair queuing between streams.
+                Buffer bloat also isn't the only relevant issue. Clients with multiple connections
+                receive more bandwidth and a client can open a large number of connections to
+                maximize their bandwidth usage at the expense of others. Fair queuing is important
+                beyond as a solution to bufferbloat and there's more to fair queuing than doing it
+                only based on streams.</p>
+
+                <p>Traditionally, web browsers open a bunch of HTTP/1.1 connections to each server
+                which ends up giving them an unfair amount of bandwidth. HTTP/2 is much friendlier
+                since it uses a single connection to each server for the entire browser. Download
+                managers take this to the extreme and intentionally use many connections to bypass
+                server limits and game the division of resources between clients.</p>
+            </section>
+
+            <section id="solution">
+                <h2><a href="#solution">Solution</a></h2>
+
+                <p>Linux 4.19 and later makes it easy to solve all of these problems. The CAKE
+                queuing discipline provides sophisticated fair queuing based on destination and
+                source addresses with finer-grained fairness for individual streams.</p>
+
+                <p> Unfortunately, simply enabling it as your queuing discipline isn't enough
+                since it's highly unlikely that your server is the network bottleneck. You need to
+                configure it with a bandwidth limit based on the provisioned bandwidth to move the
+                bottleneck under your control where you can control how traffic is queued.</p>
+            </section>
+
+            <section id="results">
+                <h2><a href="#results">Results</a></h2>
+
+                <p>We've used an 100mbit OVH server for as a test platform for a case where
+                clients can easily max out the server bandwidth on their own. As a very simple
+                example, consider 2 clients with more than 100mbit of bandwidth each downloading a
+                large file. These are (rounded) real world results with CAKE:</p>
+
+                <ul>
+                    <li>client A with 1 connection gets 50mbit</li>
+                    <li>client B with 10 connections gets 5mbit each adding up to 50mbit</li>
+                </ul>
+
+                <p>CAKE with <code>flows</code> instead of the default <code>triple-isolate</code> to
+                mimic <code>fq_codel</code> at a bottleneck:</p>
+
+                <ul>
+                    <li>client A with 1 connection gets 9mbit</li>
+                    <li>client B with 10 connections gets 9mbit each adding up to 90mbit</li>
+                </ul>
+
+                <p>The situation without traffic shaping is a mess. Latency takes a serious hit
+                that's very noticeable via SSH. Bandwidth is consistently allocated very unevenly
+                and ends up fluctuating substantially between test runs. The connections tend to
+                settle near a rate, often significantly lower or higher than the fair 9mbit
+                amount. It's generally something like this, but the range varies a lot:</p>
+
+                <ul>
+                    <li>client A with 1 connection gets ~6mbit to ~14mbit</li>
+                    <li>client B with 10 connections gets ~6mbit to ~14mbit each adding up to ~86mbit
+                    to ~94mbit</li>
+                </ul>
+
+                <p>CAKE continues working as expected with a far higher number of connections. It
+                technically has a higher CPU cost than <code>fq_codel</code>, but that's much more
+                of a concern for low end router hardware. It hardly matters on a server, even one
+                that's under heavy CPU load. The improvement in user experience is substantial and
+                it's very noticeable in web page load speeds when a server is under load.</p>
+            </section>
+
+            <section id="implementation">
+                <h2><a href="#implementation">Implementation</a></h2>
+
+                <p>For a server with 2000mbit of bandwidth provisioned, you could start by trying
+                it with 99.75% of the provisioned bandwidth:</p>
+
+                <pre>tc qdisc replace dev eth0 root cake bandwidth 1995mbit besteffort</pre>
+
+                <p>This also sets <code>besteffort</code> for the common case where the server
+                doesn't have Quality of Service markings via Diffserv. If you actually have
+                traffic marked as bulk, video or voice to differentiate it consider changing that.
+                On a server, setting it to use 100% of the provisioned bandwidth may work fine in
+                practice. Unlike a local network connected to a consumer ISP, you shouldn't need
+                to sacrifice anywhere close to the typically recommended 5-10% of your bandwidth
+                for traffic shaping.</p>
+
+                <p>You can use the <code>tc -s qdisc</code> command to monitor CAKE:</p>
+
+                <pre>tc -s qdisc show dev eth0</pre>
+
+                <p>If you want to keep an eye on how it changes over time:</p>
+
+                <pre>watch -n 1 tc -s qdisc show dev eth0</pre>
+
+                <p>This is very helpful for figuring out if you've successfully moved the
+                bottleneck to the server. If the bandwidth is being fully used, it should
+                consistently have a backlog of data where it's applying the queuing discipline.
+                The backlog shouldn't be draining to near zero under full bandwidth usage as that
+                indicates the bottleneck is the server application itself or a different network
+                bottleneck.</p>
+            </section>
+
+            <section id="future">
+                <h2><a href="#future">Future</a></h2>
+
+                <p>Ideally, data centers would deploy CAKE within their networks. This may mean
+                they need to use more powerful hardware for routing. If the natural bottlenecks
+                used CAKE, setting up traffic shaping on the server wouldn't be necessary. This
+                doesn't seem likely any time soon. Deploying <code>fq_codel</code> is much more
+                realistic and tackles buffer bloat but not the issue of fairness between hosts
+                rather than only streams.</p>
+            </section>
+        </main>
+        <footer>
+            <a href="/"><img src="/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
+            <ul id="social">
+                <li><a href="https://twitter.com/GrapheneOS">Twitter</a></li>
+                <li><a href="https://github.com/GrapheneOS">GitHub</a></li>
+                <li><a href="https://reddit.com/r/GrapheneOS">Reddit</a></li>
+            </ul>
+        </footer>
+    </body>
+</html>

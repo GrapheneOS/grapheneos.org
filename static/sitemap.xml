@@ -58,4 +58,8 @@
         <loc>https://grapheneos.org/legal/Micay_%20Copperhead_%20Statement%20of%20Defendant%20and%20Counterclaim.pdf</loc>
         <priority>0.5</priority>
     </url>
+    <url>
+        <loc>https://grapheneos.org/articles/server-traffic-shaping</loc>
+        <priority>0.5</priority>
+    </url>
 </urlset>
