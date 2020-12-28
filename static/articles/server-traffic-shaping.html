@@ -164,13 +164,20 @@
 
                 <pre>tc qdisc replace dev eth0 root cake bandwidth 1995mbit besteffort</pre>
 
+                <p>On a server, setting it to use 100% of the provisioned bandwidth may work fine
+                in practice. Unlike a local network connected to a consumer ISP, you shouldn't
+                need to sacrifice anywhere close to the typically recommended 5-10% of your
+                bandwidth for traffic shaping.</p>
+
                 <p>This also sets <code>besteffort</code> for the common case where the server
-                doesn't have Quality of Service markings via Diffserv. If you actually have
-                traffic marked as bulk, video or voice to differentiate it consider changing that.
-                On a server, setting it to use 100% of the provisioned bandwidth may work fine in
-                practice. Unlike a local network connected to a consumer ISP, you shouldn't need
-                to sacrifice anywhere close to the typically recommended 5-10% of your bandwidth
-                for traffic shaping.</p>
+                doesn't have appropriate Quality of Service markings set up via Diffserv. Fair
+                scheduling is already great at providing low latency by cycling through the hosts
+                and streams without needing this kind of configuration. The defaults for Diffserv
+                traffic classes like real-time video are set up to yield substantial bandwidth in
+                exchange for lower latency. It's easy to set this up wrong and it usually won't
+                make much sense on a server. You might want to set up marking low priority traffic
+                like system updates, but it will already get a tiny share of the overall traffic
+                on a loaded server due to fair scheduling between hosts and streams.</p>
 
                 <p>You can use the <code>tc -s qdisc</code> command to monitor CAKE:</p>
 
