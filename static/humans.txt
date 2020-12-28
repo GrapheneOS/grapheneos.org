@@ -1,0 +1,60 @@
+
+
+                                                 0N:
+                                                 0N:
+                                                 0N:
+                                                 0N:
+                                                 0N:
+                                                 0N:
+                                               .;KNx,.
+                                            .lKNNNNNNNO;
+                                           .KNNNNNNNNNNNx
+                                           xNNNNNNNNNNNNN,
+                                           xNNNNNNNNNNNNN'
+                                         .:ONNNNNNNNNNNNNd,
+       dl'                            ,o0N0o,cONNNNNNXx;:xKXkc.                           .;oc
+      .lONXx:.                    .ckXXk:.     .';;,.      'l0NKd;.                    'lONXx:
+         .;o0NOl'  'okKXK0xc. .;dKXOl'                        .;dKNOl'  'okKXK0xc. .;dKXkl'
+             .cOXX0NNNNNNNNNN0NKd;.                               .ckNX0NNNNNNNNNN0NXx;
+                .XNNNNNNNNNNNNO                                      .NNNNNNNNNNNNNk
+                'NNNNNNNNNNNNNK                                      'NNNNNNNNNNNNNK
+                 KNNNNNNNNNNNNo                                       KNNNNNNNNNNNNo
+                 .xNNNNNNNNNXc                                        .xNNNNNNNNNXl
+                   .cxKNXOd;                                            .cx0NNOd;
+                      dNx                                                   NN.
+                      dNx                                                   NN.
+                      dNx                                                   NN.
+                      dNx                                                   NN.
+                      dNx                                                   NN.
+                      dNx                                                   NN.
+                      dNx                                                   NN.
+                      dNx                                                   NN.
+                   'oOXNX0xc.                                           'oOKNNKkc.
+                 .ONNNNNNNNNXo                                        .ONNNNNNNNNXo
+                 KNNNNNNNNNNNNd                                       KNNNNNNNNNNNNd
+                'NNNNNNNNNNNNNK                                      'NNNNNNNNNNNNNK
+                .XNNNNNNNNNNNNO                                      'NNNNNNNNNNNNNO.
+             'o0NKONNNNNNNNNXkXXkc.                               'l0NKONNNNNNNNNXkXXOc.
+         .:xXXx:.  .cxO00kd;   ,o0N0d;.                       .cxXXkc.  .cxO00ko;   'lON0o;.
+      .dKN0o,                     .;xKN0l.     .;cc:,.     ;dKN0o,                     .:xXNOl
+       l:.                            .ckXKx:oKNNNNNNNO:lkXKd;.                            'l:
+                                          ;kNNNNNNNNNNNNNl'
+                                           xNNNNNNNNNNNNN,
+                                           xNNNNNNNNNNNNN,
+                                           .0NNNNNNNNNNNd
+                                             cONNNNNNXx,
+                                               .'KNd.
+                                                 0N:
+                                                 0N:
+                                                 0N:
+                                                 0N:
+                                                 0N:
+                                                 0N:
+
+
+
+GrapheneOS is a collaboratively developed open source project.
+
+See the repositories at https://github.com/GrapheneOS for more details.
+
+This website is developed in the https://github.com/GrapheneOS/grapheneos.org repository.
