@@ -354,13 +354,30 @@
                     The Weaver token is stored alongside a Weaver key derived by the OS from the
                     password token. In order to retrieve the Weaver token, the secure element
                     requires the correct Weaver key. A secure internal timer is used to implement
-                    hardware-based exponentially increasing delays for each attempt at key
-                    derivation and quickly ramps up to 1 day per attempt. Weaver also provides
-                    reliable wiping of data since the secure element can reliably wipe a Weaver
-                    slot. Deleting a profile will wipe the corresponding Weaver slot and a factory
-                    reset of the device wipes all of the Weaver slots. The secure element also
-                    provides insider attack resistance preventing firmware updates before
-                    authenticating with the owner profile.</p>
+                    hardware-based delays for each attempt at key derivation. It quickly ramps up
+                    to 1 day delays before the next attempt. Weaver also provides reliable wiping
+                    of data since the secure element can reliably wipe a Weaver slot. Deleting a
+                    profile will wipe the corresponding Weaver slot and a factory reset of the
+                    device wipes all of the Weaver slots. The secure element also provides insider
+                    attack resistance preventing firmware updates before authenticating with the
+                    owner profile.</p>
+
+                    <p>Standard delays for encryption key derivation enforced by the secure
+                    element:</p>
+
+                    <ul>
+                        <li>0 to 4 failed attempts: no delay</li>
+                        <li>5 failed attempts: 30 second delay</li>
+                        <li>6 to 9 failed attempts: no delay</li>
+                        <li>10 to 29 failed attempts: 30 second delay</li>
+                        <li>30 to 139 failed attempts: 30 × 2<sup>⌊(<var>n</var> - 30) ÷ 10⌋</sup>
+                        where <var>n</var> is the number of failed attempts. This means the delay
+                        doubles after every 10 attempts. There's a 30 second delay after 30 failed
+                        attempts, 60s after 40, 120s after 50, 240s after 60, 480s after 70, 960s
+                        after 80, 1920s after 90, 3840s after 100, 7680s after 110, 15360s after
+                        120 and 30720s after 130</li>
+                        <li>140 or more failed attempts: 86400 second delay (1 day)</li>
+                    </ul>
 
                     <p>GrapheneOS only officially supports devices with Weaver. The fallback
                     implementation for devices without it is out-of-scope for this FAQ.</p>
