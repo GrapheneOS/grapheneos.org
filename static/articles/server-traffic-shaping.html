@@ -199,12 +199,13 @@
             <section id="future">
                 <h2><a href="#future">Future</a></h2>
 
-                <p>Ideally, data centers would deploy CAKE within their networks. This may mean
-                they need to use more powerful hardware for routing. If the natural bottlenecks
-                used CAKE, setting up traffic shaping on the server wouldn't be necessary. This
-                doesn't seem likely any time soon. Deploying <code>fq_codel</code> is much more
-                realistic and tackles buffer bloat but not the issue of fairness between hosts
-                rather than only streams.</p>
+                <p>Ideally, data centers would deploy CAKE throughout their networks with the
+                default <code>triple-isolate</code> flow isolation. This may mean they need to use
+                more powerful hardware for routing. If the natural bottlenecks used CAKE, setting
+                up traffic shaping on the server wouldn't be necessary. This doesn't seem likely
+                any time soon. Deploying <code>fq_codel</code> is much more realistic and tackles
+                buffer bloat but not the issue of fairness between hosts rather than only
+                streams.</p>
             </section>
         </main>
         <footer>
