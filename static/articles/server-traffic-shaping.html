@@ -196,6 +196,45 @@
                 bottleneck.</p>
             </section>
 
+            <section id="quicker-backpressure-propagation">
+                <h2><a href="#quicker-backpressure-propagation">Quicker backpressure propagation</a></h2>
+
+                <p>The Linux kernel can be tuned to more quickly propagate TCP backpressure up to
+                applications while still maximizing bandwidth usage. This is incredibly useful for
+                interactive applications aiming to send the freshest possible copy of data and for
+                protocols like HTTP/2 multiplexing streams/messages with different priorities over
+                the same TCP connection. This can also substantially reduce memory usage for TCP
+                by reducing buffer sizes closer to the optimal amount for maximizing bandwidth
+                use without wasting memory. The downside to quicker backpressure propagation is
+                increased CPU usage from additional system calls and context switches.</p>
+
+                <p>The Linux kernel automatically adjusts the size of the write queue to maximize
+                bandwidth usage. The write queue is divided into unacknowledged bytes (TCP window
+                size) and unsent bytes. As acknowledgements of transmitted data are received, it
+                frees up space for the application to queue more data. The queue of unsent bytes
+                provides the leeway needed to wake the application and obtain more data. This can
+                be reduced using <code>net.ipv4.tcp_notsent_lowat</code> to reduce the default and
+                the <code>TCP_NOTSENT_LOWAT</code> socket option to override it per-socket.</p>
+
+                <p>A reasonable choice for internet-based workloads concerned about latency and
+                particularly prioritization within TCP connections is 128kiB. To configure this,
+                set the following in <code>/etc/sysctl.d/local.conf</code> or another sysctl
+                configuration file and load it with <code>sysctl --system</code>:</p>
+
+                <pre>net.ipv4.tcp_notsent_lowat = 131072</pre>
+
+                <p>Using values as low as 16384 can make sense to further improve latency and
+                prioritization. However, it's more likely to negatively impact throughput and will
+                further increase CPU usage. Use at least 128k or the default of not limiting the
+                automatic unsent buffer size unless you're going to do substantial testing to make
+                sure there's not a negative impact for the workload.</p>
+
+                <p>If you decide to use <code>tcp_notsent_lowat</code>, be aware that newer Linux
+                kernels (Linux 5.0+ with a further improvement for Linux 5.10+) substantially
+                reduce system calls / context switches by not triggering the application to
+                provide more data until over half the unsent byte buffer is empty.</p>
+            </section>
+
             <section id="future">
                 <h2><a href="#future">Future</a></h2>
 
