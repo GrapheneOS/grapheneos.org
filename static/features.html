@@ -194,6 +194,8 @@
                     for securing email due to it relying on DNS records</li>
                     <li>DANE TLSA records for pinning keys for all our TLS services (mostly helps
                     to secure email due to lack of browser support)</li>
+                    <li>Our mail server enforces DNSSEC/DANE to provide authenticated encryption
+                    when sending mail including alert messages from the attestation service</li>
                     <li>SSHFP across all domains for pinning SSH keys</li>
                     <li>Static key pinning for our services in apps like Auditor</li>
                     <li>No cookies or similar client-side state for anything other than login sessions,
