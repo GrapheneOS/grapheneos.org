@@ -217,9 +217,10 @@
                 the <code>TCP_NOTSENT_LOWAT</code> socket option to override it per-socket.</p>
 
                 <p>A reasonable choice for internet-based workloads concerned about latency and
-                particularly prioritization within TCP connections is 128kiB. To configure this,
-                set the following in <code>/etc/sysctl.d/local.conf</code> or another sysctl
-                configuration file and load it with <code>sysctl --system</code>:</p>
+                particularly prioritization within TCP connections but unwilling to sacrifice
+                throughput is 128kiB. To configure this, set the following in
+                <code>/etc/sysctl.d/local.conf</code> or another sysctl configuration file and
+                load it with <code>sysctl --system</code>:</p>
 
                 <pre>net.ipv4.tcp_notsent_lowat = 131072</pre>
 
