@@ -231,9 +231,10 @@
                 sure there's not a negative impact for the workload.</p>
 
                 <p>If you decide to use <code>tcp_notsent_lowat</code>, be aware that newer Linux
-                kernels (Linux 5.0+ with a further improvement for Linux 5.10+) substantially
-                reduce system calls / context switches by not triggering the application to
-                provide more data until over half the unsent byte buffer is empty.</p>
+                kernels (Linux 5.0+ with a further improvement for Linux 5.10+) are recommended to
+                substantially reduce system calls / context switches by not triggering the
+                application to provide more data until over half the unsent byte buffer is
+                empty.</p>
             </section>
 
             <section id="future">
