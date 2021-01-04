@@ -64,9 +64,9 @@
                         <a href="#obtaining-fastboot">Obtaining fastboot</a>
                         <ul>
                             <li><a href="#standalone-platform-tools">Standalone platform-tools</a></li>
-                            <li><a href="#checking-fastboot-version">Checking fastboot version</a></li>
                         </ul>
                     </li>
+                    <li><a href="#checking-fastboot-version">Checking fastboot version</a></li>
                     <li><a href="#fastboot-as-non-root">Fastboot as non-root</a></li>
                     <li><a href="#connecting-phone">Connecting the phone</a></li>
                     <li><a href="#unlocking-the-bootloader">Unlocking the bootloader</a></li>
@@ -179,17 +179,14 @@
                 (adb, fastboot, etc.) with their own scheme and don't keep it up-to-date
                 despite that being crucial.</p>
 
-                <p>List of distribution packages:</p>
+                <p>On Arch Linux, install <code>android-tools</code> and skip the section below on
+                using the standalone release of platform-tools from Android:</p>
 
-                <ul>
-                    <li>Arch Linux: <code>android-tools</code> provides fastboot and other useful
-                        tools not required for installation such as adb. Skip the section
-                        below on using the standalone platform-tools releases.</li>
-                    <li>Debian and Ubuntu: The adb and fastboot packages are currently both
-                        broken and far too out-of-date to be any use, so avoid those. The
-                        version check in the flashing script will prevent accidentally using
-                        these.</li>
-                </ul>
+                <pre>sudo pacman -S android-tools</pre>
+
+                <p>Debian and Ubuntu do not have a usable package for fastboot. Their packages for
+                these tools are both broken and many years out-of-date. Follow the instructions
+                below for platforms without a proper package.</p>
 
                 <section id="standalone-platform-tools">
                     <h3><a href="#standalone-platform-tools">Standalone platform-tools</a></h3>
@@ -233,25 +230,26 @@ tar xvf platform-tools_r30.0.5-windows.zip</pre>
                     <p>This only changes <code>PATH</code> for the current shell and will need
                     to be done again if you open a new terminal.</p>
                 </section>
+            </section>
 
-                <section id="checking-fastboot-version">
-                    <h3><a href="#checking-fastboot-version">Checking fastboot version</a></h3>
+            <section id="checking-fastboot-version">
+                <h2><a href="#checking-fastboot-version">Checking fastboot version</a></h2>
 
-                    <p>Check the output of <code>fastboot --version</code> before continuing.</p>
+                <p>Check the output of <code>fastboot --version</code> before continuing.</p>
 
-                    <p>Example of the output after following the instructions above for the
-                    standalone platform-tools:</p>
+                <p>Example of the output after following the instructions above for the
+                standalone platform-tools:</p>
 
-                    <pre>fastboot version 30.0.5-6877874
+                <pre>fastboot version 30.0.5-6877874
 Installed as /home/username/platform-tools/fastboot</pre>
-                </section>
             </section>
 
             <section id="fastboot-as-non-root">
                 <h2><a href="#fastboot-as-non-root">Fastboot as non-root</a></h2>
 
-                <p>On Linux, in order to run the <code>fastboot</code> command as non-root you'll
-                need udev rules to properly set up the USB device.</p>
+                <p>On Linux, in order for the <code>fastboot</code> command to connect to a device
+                as non-root, the appropriate udev rules need to be set up. This is not an issue on
+                either macOS or Windows.</p>
 
                 <p>On Arch Linux:</p>
 
