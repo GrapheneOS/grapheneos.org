@@ -59,6 +59,7 @@
                 <ul>
                     <li><a href="#prerequisites">Prerequisites</a></li>
                     <li><a href="#enabling-oem-unlocking">Enabling OEM unlocking</a></li>
+                    <li><a href="#opening-terminal">Opening terminal</a></li>
                     <li>
                         <a href="#obtaining-fastboot">Obtaining fastboot</a>
                         <ul>
@@ -133,10 +134,6 @@
                 either update the device via over-the-air updates or sideload a full update, which for
                 Pixel phones can be obtained from the
                 <a href="https://developers.google.com/android/ota">full update package page</a>.</p>
-
-                <p>These instructions use command-line tools. On Windows, use PowerShell rather
-                than the legacy Command Prompt. Open up a single terminal and use it for the whole
-                installation process.</p>
             </section>
 
             <section id="enabling-oem-unlocking">
@@ -150,6 +147,24 @@
                 <p>Next, go to Settings ➔ System ➔ Advanced ➔ Developer options and toggle on the
                 'Enable OEM unlocking' setting. This requires internet access on devices with Google
                 Play services as part of Factory Reset Protection (FRP) for anti-theft protection.</p>
+            </section>
+
+            <section id="opening-terminal">
+                <h2><a href="#opening-terminal">Opening terminal</a></h2>
+
+                <p>These instructions use command-line tools. Launch the terminal as you would any
+                other application. On Windows, launch a regular non-administrator instance of the
+                PowerShell terminal. Do not use the legacy Command Prompt or administrator variant
+                of PowerShell.</p>
+
+                <p>Use the same terminal for the whole installation process. If you close it,
+                you'll lose the setup of the environment for the installation.</p>
+
+                <p>On Windows, run the following command to remove PowerShell's legacy curl alias
+                for the current shell to avoid needing to reference it as <code>curl.exe</code>
+                instead of <code>curl</code>:</p>
+
+                <pre>Remove-Item Alias:Curl</pre>
             </section>
 
             <section id="obtaining-fastboot">
@@ -200,7 +215,7 @@ tar xvf eabcd8b4b7ab518c6af9c941af8494072f17ec4b.platform-tools_r30.0.5-darwin.z
 
                     <p>To download, verify and extract the standalone platform-tools on Windows:</p>
 
-                    <pre>curl.exe -O https://dl.google.com/android/repository/platform-tools_r30.0.5-windows.zip
+                    <pre>curl -O https://dl.google.com/android/repository/platform-tools_r30.0.5-windows.zip
 (Get-FileHash platform-tools_r30.0.5-windows.zip).hash -eq "549ba2bdc31f335eb8a504f005f77606a479cc216d6b64a3e8b64c780003661f"
 tar xvf platform-tools_r30.0.5-windows.zip</pre>
 
@@ -306,11 +321,6 @@ alias signify=signify-openbsd</pre>
                 <code>curl</code>. It's generally easier to use the command-line since you're already
                 using it for the rest of the installation process, so these instructions use
                 <code>curl</code>.</p>
-
-                <p>On Windows, remove PowerShell's legacy curl alias for the current shell to avoid
-                needing to reference it as <code>curl.exe</code> instead of <code>curl</code>:</p>
-
-                <pre>Remove-Item Alias:Curl</pre>
 
                 <p>Download <a href="https://releases.grapheneos.org/factory.pub">the factory images
                 public key (factory.pub)</a> in order to verify the factory images:</p>
