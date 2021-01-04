@@ -201,9 +201,10 @@
                     <p>To download, verify and extract the standalone platform-tools on Debian and
                     Ubuntu:</p>
 
-                    <pre>curl -O https://dl.google.com/android/repository/platform-tools_r30.0.5-linux.zip
+                    <pre>sudo apt install bsdtar
+curl -O https://dl.google.com/android/repository/platform-tools_r30.0.5-linux.zip
 echo 'd6d72d006c03bd55d49b6cef9f00295db02f0a31da10e121427e1f4cb43e7cb9  platform-tools_r30.0.5-linux.zip' | sha256sum -c
-unzip platform-tools_r30.0.5-linux.zip</pre>
+bsdtar xvf platform-tools_r30.0.5-linux.zip</pre>
 
                     <p>To download, verify and extract the standalone platform-tools on macOS:</p>
 
@@ -364,7 +365,7 @@ curl -O https://releases.grapheneos.org/sunfish-factory-2020.12.12.03.zip.sig</p
 
                 <p>On Linux:</p>
 
-                <pre>unzip sunfish-factory-2020.12.12.03.zip</pre>
+                <pre>bsdtar xvf sunfish-factory-2020.12.12.03.zip</pre>
 
                 <p>On macOS and Windows:</p>
 
