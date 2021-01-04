@@ -402,8 +402,7 @@ curl -O https://releases.grapheneos.org/sunfish-factory-2020.12.12.03.zip.sig</p
                     <code>/tmp</code> is shared between applications and users. To use a different
                     temporary directory if your <code>/tmp</code> doesn't have enough space available:</p>
 
-                    <pre>mkdir tmp
-TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
+                    <pre>mkdir tmp &amp;&amp; TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
                 </section>
             </section>
 
