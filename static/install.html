@@ -57,19 +57,15 @@
                 <h2><a href="#table-of-contents">Table of contents</a></h2>
 
                 <ul>
+                    <li><a href="#prerequisites">Prerequisites</a></li>
+                    <li><a href="#enabling-oem-unlocking">Enabling OEM unlocking</a></li>
                     <li>
-                        <a href="#prerequisites">Prerequisites</a>
+                        <a href="#obtaining-fastboot">Obtaining fastboot</a>
                         <ul>
-                            <li>
-                                <a href="#obtaining-fastboot">Obtaining fastboot</a>
-                                <ul>
-                                    <li><a href="#standalone-platform-tools">Standalone platform-tools</a></li>
-                                    <li><a href="#checking-fastboot-version">Checking fastboot version</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="#standalone-platform-tools">Standalone platform-tools</a></li>
+                            <li><a href="#checking-fastboot-version">Checking fastboot version</a></li>
                         </ul>
                     </li>
-                    <li><a href="#enabling-oem-unlocking">Enabling OEM unlocking</a></li>
                     <li><a href="#fastboot-as-non-root">Fastboot as non-root</a></li>
                     <li><a href="#connecting-phone">Connecting the phone</a></li>
                     <li><a href="#unlocking-the-bootloader">Unlocking the bootloader</a></li>
@@ -141,86 +137,6 @@
                 <p>These instructions use command-line tools. On Windows, use PowerShell rather
                 than the legacy Command Prompt. Open up a single terminal and use it for the whole
                 installation process.</p>
-
-                <section id="obtaining-fastboot">
-                    <h3><a href="#obtaining-fastboot">Obtaining fastboot</a></h3>
-
-                    <p>You need an updated copy of the <code>fastboot</code> tool and the
-                    directory containing it needs to be included in the <code>PATH</code>
-                    environment variable. You can run <code>fastboot --version</code> to determine
-                    the current version. It must be at least <code>29.0.6</code>. You can use a
-                    distribution package for this, but most of them mistakenly package development
-                    snapshots of fastboot, clobber the standard version scheme for platform-tools
-                    (adb, fastboot, etc.) with their own scheme and don't keep it up-to-date
-                    despite that being crucial.</p>
-
-                    <p>List of distribution packages:</p>
-
-                    <ul>
-                        <li>Arch Linux: <code>android-tools</code> provides fastboot and other useful
-                            tools not required for installation such as adb. Skip the section
-                            below on using the standalone platform-tools releases.</li>
-                        <li>Debian and Ubuntu: The adb and fastboot packages are currently both
-                            broken and far too out-of-date to be any use, so avoid those. The
-                            version check in the flashing script will prevent accidentally using
-                            these.</li>
-                    </ul>
-
-                    <section id="standalone-platform-tools">
-                        <h4><a href="#standalone-platform-tools">Standalone platform-tools</a></h4>
-
-                        <!-- https://developer.android.com/studio/releases/platform-tools -->
-
-                        <p>If your operating system doesn't include a usable version of fastboot,
-                        you can use the official standalone releases of platform-tools. This is
-                        our recommendation for most users. The flashing process won't work unless
-                        you follow these instructions including setting up PATH.</p>
-
-                        <p>To download, verify and extract the standalone platform-tools on Linux:</p>
-
-                        <pre>curl -O https://dl.google.com/android/repository/platform-tools_r30.0.5-linux.zip
-echo 'd6d72d006c03bd55d49b6cef9f00295db02f0a31da10e121427e1f4cb43e7cb9  platform-tools_r30.0.5-linux.zip' | sha256sum -c
-unzip platform-tools_r30.0.5-linux.zip</pre>
-
-                        <p>To download, verify and extract the standalone platform-tools on macOS:</p>
-
-                        <pre>curl -O https://dl.google.com/android/repository/eabcd8b4b7ab518c6af9c941af8494072f17ec4b.platform-tools_r30.0.5-darwin.zip
-echo 'SHA256 (eabcd8b4b7ab518c6af9c941af8494072f17ec4b.platform-tools_r30.0.5-darwin.zip) = e5780bad71a53cf9d693e1053a0748f49e4a67cc1f71d16a94ab4c943af3345f' | shasum -c
-tar xvf eabcd8b4b7ab518c6af9c941af8494072f17ec4b.platform-tools_r30.0.5-darwin.zip</pre>
-
-                        <p>To download, verify and extract the standalone platform-tools on Windows:</p>
-
-                        <pre>curl.exe -O https://dl.google.com/android/repository/platform-tools_r30.0.5-windows.zip
-(Get-FileHash platform-tools_r30.0.5-windows.zip).hash -eq "549ba2bdc31f335eb8a504f005f77606a479cc216d6b64a3e8b64c780003661f"
-tar xvf platform-tools_r30.0.5-windows.zip</pre>
-
-                        <p>Next, add the tools to your <code>PATH</code> in the current shell so they can be
-                        used without referencing them by file path, enabling usage by the flashing script.</p>
-
-                        <p>On Linux and macOS:</p>
-
-                        <pre>export PATH="$PWD/platform-tools:$PATH"</pre>
-
-                        <p>On Windows:</p>
-
-                        <pre>$env:Path = "$pwd\platform-tools;$env:Path"</pre>
-
-                        <p>This only changes <code>PATH</code> for the current shell and will need
-                        to be done again if you open a new terminal.</p>
-                    </section>
-
-                    <section id="checking-fastboot-version">
-                        <h4><a href="#checking-fastboot-version">Checking fastboot version</a></h4>
-
-                        <p>Check the output of <code>fastboot --version</code> before continuing.</p>
-
-                        <p>Example of the output after following the instructions above for the
-                        standalone platform-tools:</p>
-
-                        <pre>fastboot version 30.0.5-6877874
-Installed as /home/username/platform-tools/fastboot</pre>
-                    </section>
-                </section>
             </section>
 
             <section id="enabling-oem-unlocking">
@@ -234,6 +150,86 @@ Installed as /home/username/platform-tools/fastboot</pre>
                 <p>Next, go to Settings ➔ System ➔ Advanced ➔ Developer options and toggle on the
                 'Enable OEM unlocking' setting. This requires internet access on devices with Google
                 Play services as part of Factory Reset Protection (FRP) for anti-theft protection.</p>
+            </section>
+
+            <section id="obtaining-fastboot">
+                <h2><a href="#obtaining-fastboot">Obtaining fastboot</a></h2>
+
+                <p>You need an updated copy of the <code>fastboot</code> tool and the
+                directory containing it needs to be included in the <code>PATH</code>
+                environment variable. You can run <code>fastboot --version</code> to determine
+                the current version. It must be at least <code>29.0.6</code>. You can use a
+                distribution package for this, but most of them mistakenly package development
+                snapshots of fastboot, clobber the standard version scheme for platform-tools
+                (adb, fastboot, etc.) with their own scheme and don't keep it up-to-date
+                despite that being crucial.</p>
+
+                <p>List of distribution packages:</p>
+
+                <ul>
+                    <li>Arch Linux: <code>android-tools</code> provides fastboot and other useful
+                        tools not required for installation such as adb. Skip the section
+                        below on using the standalone platform-tools releases.</li>
+                    <li>Debian and Ubuntu: The adb and fastboot packages are currently both
+                        broken and far too out-of-date to be any use, so avoid those. The
+                        version check in the flashing script will prevent accidentally using
+                        these.</li>
+                </ul>
+
+                <section id="standalone-platform-tools">
+                    <h3><a href="#standalone-platform-tools">Standalone platform-tools</a></h3>
+
+                    <!-- https://developer.android.com/studio/releases/platform-tools -->
+
+                    <p>If your operating system doesn't include a usable version of fastboot,
+                    you can use the official standalone releases of platform-tools. This is
+                    our recommendation for most users. The flashing process won't work unless
+                    you follow these instructions including setting up PATH.</p>
+
+                    <p>To download, verify and extract the standalone platform-tools on Linux:</p>
+
+                    <pre>curl -O https://dl.google.com/android/repository/platform-tools_r30.0.5-linux.zip
+echo 'd6d72d006c03bd55d49b6cef9f00295db02f0a31da10e121427e1f4cb43e7cb9  platform-tools_r30.0.5-linux.zip' | sha256sum -c
+unzip platform-tools_r30.0.5-linux.zip</pre>
+
+                    <p>To download, verify and extract the standalone platform-tools on macOS:</p>
+
+                    <pre>curl -O https://dl.google.com/android/repository/eabcd8b4b7ab518c6af9c941af8494072f17ec4b.platform-tools_r30.0.5-darwin.zip
+echo 'SHA256 (eabcd8b4b7ab518c6af9c941af8494072f17ec4b.platform-tools_r30.0.5-darwin.zip) = e5780bad71a53cf9d693e1053a0748f49e4a67cc1f71d16a94ab4c943af3345f' | shasum -c
+tar xvf eabcd8b4b7ab518c6af9c941af8494072f17ec4b.platform-tools_r30.0.5-darwin.zip</pre>
+
+                    <p>To download, verify and extract the standalone platform-tools on Windows:</p>
+
+                    <pre>curl.exe -O https://dl.google.com/android/repository/platform-tools_r30.0.5-windows.zip
+(Get-FileHash platform-tools_r30.0.5-windows.zip).hash -eq "549ba2bdc31f335eb8a504f005f77606a479cc216d6b64a3e8b64c780003661f"
+tar xvf platform-tools_r30.0.5-windows.zip</pre>
+
+                    <p>Next, add the tools to your <code>PATH</code> in the current shell so they can be
+                    used without referencing them by file path, enabling usage by the flashing script.</p>
+
+                    <p>On Linux and macOS:</p>
+
+                    <pre>export PATH="$PWD/platform-tools:$PATH"</pre>
+
+                    <p>On Windows:</p>
+
+                    <pre>$env:Path = "$pwd\platform-tools;$env:Path"</pre>
+
+                    <p>This only changes <code>PATH</code> for the current shell and will need
+                    to be done again if you open a new terminal.</p>
+                </section>
+
+                <section id="checking-fastboot-version">
+                    <h3><a href="#checking-fastboot-version">Checking fastboot version</a></h3>
+
+                    <p>Check the output of <code>fastboot --version</code> before continuing.</p>
+
+                    <p>Example of the output after following the instructions above for the
+                    standalone platform-tools:</p>
+
+                    <pre>fastboot version 30.0.5-6877874
+Installed as /home/username/platform-tools/fastboot</pre>
+                </section>
             </section>
 
             <section id="fastboot-as-non-root">
