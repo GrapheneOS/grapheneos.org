@@ -67,12 +67,12 @@
                                     <li><a href="#checking-fastboot-version">Checking fastboot version</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#obtaining-signify">Obtaining signify</a></li>
                         </ul>
                     </li>
                     <li><a href="#enabling-oem-unlocking">Enabling OEM unlocking</a></li>
                     <li><a href="#connecting-phone">Connecting the phone</a></li>
                     <li><a href="#unlocking-the-bootloader">Unlocking the bootloader</a></li>
+                    <li><a href="#obtaining-signify">Obtaining signify</a></li>
                     <li><a href="#obtaining-factory-images">Obtaining factory images</a></li>
                     <li>
                         <a href="#flashing-factory-images">Flashing factory images</a>
@@ -224,35 +224,6 @@ tar xvf platform-tools_r30.0.5-windows.zip</pre>
 Installed as /home/username/platform-tools/fastboot</pre>
                     </section>
                 </section>
-
-                <section id="obtaining-signify">
-                    <h3><a href="#obtaining-signify">Obtaining signify</a></h3>
-
-                    <p>To verify the download of the OS beyond the security offered by HTTPS, you can use
-                    the signify tool. If you do not have a way to obtain signify from a package repository
-                    you're already trusting, it does not make sense to use it. GrapheneOS releases are
-                    hosted on our servers and we do not have third party mirrors. A compromised signify
-                    would be able to compromise your OS and the GrapheneOS download due to the lack of an
-                    application security model on traditional operating systems. It would be worse than
-                    not trying to verify the signatures. It's far less likely that our servers would be
-                    compromised than someone's GitHub account or GitHub itself. You're already trusting
-                    these installation instructions from our site, which is hosted on the same static web
-                    server infrastructure as the releases.</p>
-
-                    <p>List of distribution packages:</p>
-
-                    <ul>
-                        <li>Arch Linux: <code>signify</code></li>
-                        <li>Debian: <code>signify-openbsd</code> with the command renamed to <code>signify-openbsd</code></li>
-                        <li>Ubuntu: <code>signify-openbsd</code> with the command renamed to <code>signify-openbsd</code></li>
-                    </ul>
-
-                    <p>On Debian-based distributions, the <code>signify</code> package and command are an
-                    <a href="http://signify.sourceforge.net/" rel="nofollow">unmaintained mail-related
-                    tool for generating mail signatures (not cryptographic signatures)</a> with the final
-                    releases from 2003-2004 made directly by the developer via the Debian package without
-                    upstream releases. Please pressure them to correct this usability issue.</p>
-                </section>
             </section>
 
             <section id="enabling-oem-unlocking">
@@ -285,6 +256,31 @@ Installed as /home/username/platform-tools/fastboot</pre>
                 <pre>fastboot flashing unlock</pre>
 
                 <p>The command needs to be confirmed on the device and will wipe all data.</p>
+            </section>
+
+            <section id="obtaining-signify">
+                <h2><a href="#obtaining-signify">Obtaining signify</a></h2>
+
+                <p>On the supported Linux distributions, the signify tool is used to verify the
+                download of the OS beyond the security offered by HTTPS. You should skip this on
+                macOS and Windows. It only makes sense to do this if you can obtain signify from
+                the distribution package repositories. GrapheneOS releases are hosted on our
+                servers and we do not have third party mirrors.</p>
+
+                <p>On Arch Linux:</p>
+
+                <pre>sudo pacman -S signify</pre>
+
+                <p>On Debian and Ubuntu</p>
+
+                <pre>sudo apt install signify-openbsd
+alias signify=signify-openbsd</pre>
+
+                <p>On Debian-based distributions, the <code>signify</code> package and command are an
+                <a href="http://signify.sourceforge.net/" rel="nofollow">unmaintained mail-related
+                tool for generating mail signatures (not cryptographic signatures)</a> with the final
+                releases from 2003-2004 made directly by the developer via the Debian package without
+                upstream releases. Make sure to install <code>signify-openbsd</code>.</p>
             </section>
 
             <section id="obtaining-factory-images">
