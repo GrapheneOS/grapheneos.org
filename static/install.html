@@ -70,6 +70,7 @@
                         </ul>
                     </li>
                     <li><a href="#enabling-oem-unlocking">Enabling OEM unlocking</a></li>
+                    <li><a href="#fastboot-as-non-root">Fastboot as non-root</a></li>
                     <li><a href="#connecting-phone">Connecting the phone</a></li>
                     <li><a href="#unlocking-the-bootloader">Unlocking the bootloader</a></li>
                     <li><a href="#obtaining-signify">Obtaining signify</a></li>
@@ -157,16 +158,12 @@
 
                     <ul>
                         <li>Arch Linux: <code>android-tools</code> provides fastboot and other useful
-                            tools not required for installation such as adb. <code>android-udev</code>
-                            provides udev rules allowing fastboot and adb to work in local sessions
-                            without root. Install both of these packages and skip the section
+                            tools not required for installation such as adb. Skip the section
                             below on using the standalone platform-tools releases.</li>
-                        <li>Debian and Ubuntu: <code>android-sdk-platform-tools-common</code> provides
-                            udev rules allowing fastboot and adb to work in local sessions without root.
-                            The udev rules in Debian and Ubuntu are out-of-date, but it has the necessary
-                            entries for Pixel phones. The adb and fastboot packages are currently both
-                            broken and far too out-of-date to be any use, so avoid those. The version
-                            check in the flashing script will prevent accidentally using these.</li>
+                        <li>Debian and Ubuntu: The adb and fastboot packages are currently both
+                            broken and far too out-of-date to be any use, so avoid those. The
+                            version check in the flashing script will prevent accidentally using
+                            these.</li>
                     </ul>
 
                     <section id="standalone-platform-tools">
@@ -239,10 +236,30 @@ Installed as /home/username/platform-tools/fastboot</pre>
                 Play services as part of Factory Reset Protection (FRP) for anti-theft protection.</p>
             </section>
 
+            <section id="fastboot-as-non-root">
+                <h2><a href="#fastboot-as-non-root">Fastboot as non-root</a></h2>
+
+                <p>On Linux, in order to run the <code>fastboot</code> command as non-root you'll
+                need udev rules to properly set up the USB device.</p>
+
+                <p>On Arch Linux:</p>
+
+                <pre>sudo pacman -S android-udev</pre>
+
+                <p>On Debian and Ubuntu:</p>
+
+                <pre>sudo apt install android-sdk-platform-tools-common</pre>
+
+                <p>The udev rules on Debian and Ubuntu are very out-of-date but the package has
+                the rules needed for Pixel phones since the same USB IDs have been used for many
+                years.</p>
+            </section>
+
             <section id="connecting-phone">
                 <h2><a href="#connecting-phone">Connecting the phone</a></h2>
 
-                <p>Connect the phone to the computer if you haven't already.</p>
+                <p>Connect the phone to the computer. On Linux, you'll need to do this again if
+                you didn't have the udev rules set up when you connected it.</p>
             </section>
 
             <section id="unlocking-the-bootloader">
