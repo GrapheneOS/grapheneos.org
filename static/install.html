@@ -198,7 +198,8 @@
                     our recommendation for most users. The flashing process won't work unless
                     you follow these instructions including setting up PATH.</p>
 
-                    <p>To download, verify and extract the standalone platform-tools on Linux:</p>
+                    <p>To download, verify and extract the standalone platform-tools on Debian and
+                    Ubuntu:</p>
 
                     <pre>curl -O https://dl.google.com/android/repository/platform-tools_r30.0.5-linux.zip
 echo 'd6d72d006c03bd55d49b6cef9f00295db02f0a31da10e121427e1f4cb43e7cb9  platform-tools_r30.0.5-linux.zip' | sha256sum -c
@@ -219,7 +220,7 @@ tar xvf platform-tools_r30.0.5-windows.zip</pre>
                     <p>Next, add the tools to your <code>PATH</code> in the current shell so they can be
                     used without referencing them by file path, enabling usage by the flashing script.</p>
 
-                    <p>On Linux and macOS:</p>
+                    <p>On Debian, Ubuntu and macOS:</p>
 
                     <pre>export PATH="$PWD/platform-tools:$PATH"</pre>
 
