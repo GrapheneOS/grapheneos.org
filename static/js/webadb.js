@@ -229,6 +229,8 @@
 
 		this.ep_in = get_ep_num(match.alt.endpoints, "in");
 		this.ep_out = get_ep_num(match.alt.endpoints, "out");
+
+		this.transport.reset();
 	};
 
 	Fastboot.WebUSB.Device.prototype.send = function(data) {
