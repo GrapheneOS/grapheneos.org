@@ -28,6 +28,20 @@ async function unlockBootloader() {
     await fastboot.receive();
 }
 
+async function lockBootloader() {
+    const webusb = await Adb.open("WebUSB");
+
+    if (!webusb.isFastboot()) {
+        console.log("error: not in fastboot mode");
+    }
+
+    console.log("connecting with fastboot");
+
+    const fastboot = await webusb.connectFastboot();
+    await fastboot.send("flashing lock");
+    await fastboot.receive();
+}
+
 if ("usb" in navigator) {
     console.log("WebUSB available");
 
@@ -38,6 +52,10 @@ if ("usb" in navigator) {
     const unlockBootloaderButton = document.getElementById("unlock-bootloader");
     unlockBootloaderButton.disabled = false;
     unlockBootloaderButton.onclick = unlockBootloader;
+
+    const lockBootloaderButton = document.getElementById("lock-bootloader");
+    lockBootloaderButton.disabled = false;
+    lockBootloaderButton.onclick = lockBootloader;
 } else {
     console.log("WebUSB unavailable");
 }

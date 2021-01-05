@@ -138,6 +138,29 @@
                 of the volume keys to switch the selection to accepting it and the power button to
                 confirm.</p>
             </section>
+
+            <section>
+                <h2>Incomplete</h2>
+            </section>
+
+            <section id="locking-the-bootloader">
+                <h2><a href="#locking-the-bootloader">Locking the bootloader</a></h2>
+
+                <p>Locking the bootloader is important as it enables full verified boot. It also
+                prevents using fastboot to flash, format or erase partitions.  Verified boot will
+                detect modifications to any of the OS partitions and it will prevent reading any
+                modified / corrupted data. If changes are detected, error correction data is used
+                to attempt to obtain the original data at which point it's verified again which
+                makes verified boot robust to non-malicious corruption.</p>
+
+                <p>In the bootloader interface, set it to locked:</p>
+
+                <button id="lock-bootloader" disabled="disabled">Lock bootloader</button>
+
+                <p>The command needs to be confirmed on the device and will wipe all data. Use one
+                of the volume buttons to switch the selection to accepting it and the power button
+                to confirm.</p>
+            </section>
         </main>
         <footer>
             <a href="/"><img src="/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
