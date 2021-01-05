@@ -152,8 +152,20 @@
                 <p><strong>Download not implemented yet.</strong></p>
             </section>
 
-            <section>
-                <h2>Incomplete</h2>
+            <section id="flashing-factory-images">
+                <h2><a href="#flashing-factory-images">Flashing factory images</a></h2>
+
+                <p>The initial install will be performed by flashing the factory images. This will
+                replace the existing OS installation and wipe all the existing data.</p>
+
+                <p><strong>Needs to be implemented based on extracting and flashing images from
+                the downloaded zip (or a split approach to downloading files).</strong></p>
+
+                <button id="flash-release" disabled="disabled">Flash release</button>
+
+                <p>Wait for the flashing process to complete and proceed to
+                <a href="#locking-the-bootloader">locking the bootloader</a> before using the
+                device as locking wipes the data again.</p>
             </section>
 
             <section id="locking-the-bootloader">
