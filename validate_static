@@ -10,6 +10,6 @@ for file in static/**/*.@(json|webmanifest); do
 done
 
 xmllint --noout static/**/*.@(html|svg|xml)
-eslint static/**/!(webadb).js
+eslint static/**/!(web-install|webadb).js
 stylelint static/**/*.css
 validatornu --Werror --also-check-css --also-check-svg static/**/*.@(css|html|svg)
