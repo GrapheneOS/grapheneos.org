@@ -425,9 +425,13 @@
                     address such as the packet sequence number and assorted identifying information in the
                     probe requests.</p>
 
-                    <p>Avoid using hidden APs (i.e. APs not broadcasting their SSID) since known hidden
-                    SSIDs end up being broadcast to find them again. SSIDs are not broadcast for standard
-                    non-hidden APs.</p>
+                    <p>Avoid using hidden APs (i.e. APs not broadcasting their SSID) since all
+                    known hidden SSIDs end up being broadcast as part of scanning for networks to
+                    find them again. Hidden APs are only hidden when not devices are connected and
+                    it makes little sense as a privacy feature, especially for a non-mobile AP. It
+                    reduces your privacy rather than increasing it. SSIDs are not broadcast for
+                    standard non-hidden APs. If you need to use a hidden AP, make sure to delete
+                    the saved network afterwards.</p>
 
                     <p>Wi-Fi and Bluetooth scanning for improving location detection are disabled by
                     default, unlike the stock OS. These can be toggled in Settings ➔ Location ➔ Wi-Fi and
