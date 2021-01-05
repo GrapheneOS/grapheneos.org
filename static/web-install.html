@@ -54,7 +54,41 @@
             been implemented and it doesn't do anything useful yet. You should ignore this page
             and use the <a href="/install">official install guide</a>.</p>
 
-            <button id="connect">Connect</button>
+            <section id="enabling-oem-unlocking">
+                <h2><a href="#enabling-oem-unlocking">Enabling OEM unlocking</a></h2>
+
+                <p>OEM unlocking needs to be enabled from within the operating system.</p>
+
+                <p>Enable the developer options menu by going to Settings ➔ About phone and
+                pressing on the build number menu entry until developer mode is enabled.</p>
+
+                <p>Next, go to Settings ➔ System ➔ Advanced ➔ Developer options and toggle on the
+                'Enable OEM unlocking' setting. This requires internet access on devices with Google
+                Play services as part of Factory Reset Protection (FRP) for anti-theft protection.</p>
+            </section>
+
+            <section id="connecting-phone">
+                <h2><a href="#connecting-phone">Connecting the phone</a></h2>
+
+                <p>Connect the phone to the computer. On Linux, you'll need to do this again if
+                you didn't have the udev rules set up when you connected it.</p>
+            </section>
+
+            <section id="unlocking-the-bootloader">
+                <h2><a href="#unlocking-the-bootloader">Unlocking the bootloader</a></h2>
+
+                <p>First, boot into the bootloader interface. You can do this by turning off the
+                device and then turning it on by holding both the Volume Down and Power buttons.
+                Alternatively, use ADB to reboot to the bootloader with the button below:</p>
+
+                <button id="adb-reboot-bootloader" disabled="disabled">Reboot to bootloader with ADB</button>
+
+                <p>Unlock the bootloader to allow flashing the OS and firmware:</p>
+
+                <button id="unlock-bootloader" disabled="disabled">Unlock bootloader</button>
+
+                <p>The command needs to be confirmed on the device and will wipe all data.</p>
+            </section>
         </main>
         <footer>
             <a href="/"><img src="/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
