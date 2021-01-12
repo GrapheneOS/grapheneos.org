@@ -338,7 +338,9 @@
                     only for managing other profiles. Using a secondary profile for regular usage
                     allows you to make use of the device without decrypting the data in your
                     regular usage profile. It also allows putting it at rest without rebooting the
-                    device.</p>
+                    device. Since the keys are specific to each profile, different profiles will be
+                    encrypted to different keys even if the profiles share the same passphrase or
+                    pincode.</p>
 
                     <p>File data is encrypted with AES-256-XTS and file names with AES-256-CTS. A
                     unique key is derived using HKDF-SHA512 for each regular file, directory and
