@@ -1,19 +1,5 @@
 // @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt MIT
 
-async function adbRebootBootloader() {
-    const webusb = await Adb.open("WebUSB");
-
-    if (!webusb.isAdb()) {
-        console.log("error: not in adb mode");
-        return;
-    }
-
-    console.log("connecting with adb");
-
-    const adb = await webusb.connectAdb("host::");
-    await adb.reboot("bootloader");
-}
-
 async function unlockBootloader() {
     const webusb = await Adb.open("WebUSB");
 
@@ -74,10 +60,6 @@ async function lockBootloader() {
 
 if ("usb" in navigator) {
     console.log("WebUSB available");
-
-    const adbRebootBootloaderButton = document.getElementById("adb-reboot-bootloader");
-    adbRebootBootloaderButton.disabled = false;
-    adbRebootBootloaderButton.onclick = adbRebootBootloader;
 
     const unlockBootloaderButton = document.getElementById("unlock-bootloader");
     unlockBootloaderButton.disabled = false;
