@@ -183,6 +183,61 @@
                 of the volume buttons to switch the selection to accepting it and the power button
                 to confirm.</p>
             </section>
+
+            <section id="post-installation">
+                <h2><a href="#post-installation">Post-installation</a></h2>
+
+                <section id="booting">
+                    <h3><a href="#booting">Booting</a></h3>
+
+                    <p>You've now successfully installed GrapheneOS and can boot it. Pressing the
+                    power button with the default Start option selected in the bootloader menu
+                    will boot the OS.</p>
+                </section>
+
+                <section id="disabling-oem-unlocking">
+                    <h3><a href="#disabling-oem-unlocking">Disabling OEM unlocking</a></h3>
+
+                    <p>OEM unlocking can be disabled again in the developer settings menu within the
+                    operating system after booting it up again.</p>
+                </section>
+
+                <section id="verifying-installation">
+                    <h3><a href="#verifying-installation">Verifying installation</a></h3>
+
+                    <p>Verified boot authenticates and validates the firmware images and OS from the
+                    hardware root of trust. Since GrapheneOS supports full verified boot, the OS images
+                    are entirely verified. However, it's possible that the computer you used to flash the
+                    OS was compromised, leading to flashing a malicious verified boot public key and
+                    images. To detect this kind of attack, you can use the Auditor app included in
+                    GrapheneOS in the Auditee mode and verify it with another Android device in the
+                    Auditor mode. The Auditor app works best once it's already paired with a device and
+                    has pinned a persistent hardware-backed key and the attestation certificate chain.
+                    However, it can still provide a bit of security for the initial verification via the
+                    attestation root. Ideally, you should also do this before connecting the device to the
+                    network, so an attacker can't proxy to another device (which stops being possible
+                    after the initial verification). Further protection against proxying the initial
+                    pairing will be provided in the future via optional support for ID attestation to
+                    include the serial number in the hardware verified information to allow checking
+                    against the one on the box / displayed in the bootloader. See the
+                    <a href="https://attestation.app/tutorial">Auditor tutorial</a> for a guide.</p>
+
+                    <p>After the initial verification, which results in pairing, performing verification
+                    against between the same Auditor and Auditee (as long as the app data hasn't been
+                    cleared) will provide strong validation of the identity and integrity of the
+                    device. That makes it best to get the pairing done right after installation. You can
+                    also consider setting up the optional remote attestation service.</p>
+                </section>
+
+                <section id="further-information">
+                    <h3><a href="#further-information">Further information</a></h3>
+
+                    <p>Please look through the <a href="/usage">usage guide</a> and
+                    <a href="/faq">FAQ</a> for more information. If you have further questions not
+                    covered by the site, join the <a href="/contact#community">official GrapheneOS
+                    chat channels</a> and ask the questions in the appropriate channel.</p>
+                </section>
+            </section>
         </main>
         <footer>
             <a href="/"><img src="/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
