@@ -478,7 +478,9 @@ git submodule update --init --recursive
                     that the official builds match the sources, since it has signature verification (which
                     is an important part of the verified boot and attestation security model).</p>
 
-                    <p>Extract the vendor files corresponding to the matching release:</p>
+                    <p>Extract the vendor files corresponding to the matching release with
+                    <code>DEVICE</code> and <code>BUILD_ID</code> replaced with the appropriate
+                    values:</p>
 
                     <pre>vendor/android-prepare-vendor/execute-all.sh -d DEVICE -b BUILD_ID -o vendor/android-prepare-vendor
 mkdir -p vendor/google_devices
