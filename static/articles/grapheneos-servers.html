@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8"/>
+        <title>GrapheneOS servers | Articles | GrapheneOS</title>
+        <meta name="description" content="Documentation on GrapheneOS servers."/>
+        <meta name="theme-color" content="#212121"/>
+        <meta name="msapplication-TileColor" content="#ffffff"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="twitter:site" content="@GrapheneOS"/>
+        <meta name="twitter:creator" content="@GrapheneOS"/>
+        <meta property="og:title" content="GrapheneOS servers"/>
+        <meta property="og:description" content="Documentation on GrapheneOS servers."/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
+        <meta property="og:image:width" content="512"/>
+        <meta property="og:image:height" content="512"/>
+        <meta property="og:image:alt" content="GrapheneOS logo"/>
+        <meta property="og:site_name" content="GrapheneOS"/>
+        <meta property="og:url" content="https://grapheneos.org/articles/grapheneos-servers"/>
+        <link rel="canonical" href="https://grapheneos.org/articles/grapheneos-servers"/>
+        <link rel="icon" sizes="16x16 24x24 32x32 48x48 64x64" type="image/vnd.microsoft.icon" href="/favicon.ico"/>
+        <link rel="icon" sizes="any" type="image/svg+xml" href="/mask-icon.svg"/>
+        <link rel="mask-icon" href="/mask-icon.svg" color="#1a1a1a"/>
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+        <link rel="stylesheet" href="/grapheneos.css?29"/>
+        <link rel="manifest" href="/manifest.webmanifest"/>
+        <link rel="license" href="/LICENSE.txt"/>
+    </head>
+    <body>
+        <header>
+            <nav id="site-menu">
+                <ul>
+                    <li><a href="/">GrapheneOS</a></li>
+                    <li><a href="/features">Features</a></li>
+                    <li><a href="/install">Install</a></li>
+                    <li><a href="/build">Build</a></li>
+                    <li><a href="/usage">Usage</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                    <li><a href="/releases">Releases</a></li>
+                    <li><a href="/source">Source</a></li>
+                    <li><a href="/articles/">Articles</a></li>
+                    <li><a href="/donate">Donate</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main id="grapheneos-servers">
+            <h1><a href="#grapheneos-servers">GrapheneOS servers</a></h1>
+
+            <section id="grapheneos.org">
+                <h2><a href="#grapheneos.org">GrapheneOS website</a></h2>
+
+		<p><a href="https://github.com/GrapheneOS/grapheneos.org/issues">Issue tracker</a></p>
+
+                <p>Specs:</p>
+
+                <ul>
+                    <li>OVH VPS vps2020-value-1-2-40</li>
+                    <li>1 core</li>
+                    <li>2 GB memory</li>
+                    <li>40 GB storage</li>
+                    <li>250 Mbit/s bandwidth</li>
+                </ul>
+
+                <p>Domains:</p>
+
+                <ul>
+                    <li>grapheneos.org</li>
+                    <li>www.grapheneos.org</li>
+                    <li>grapheneos.app</li>
+                    <li>www.grapheneos.app</li>
+                    <li>grapheneos.info</li>
+                    <li>www.grapheneos.info</li>
+                    <li>grapheneos.page</li>
+                    <li>www.grapheneos.page</li>
+                    <li>vanadium.app</li>
+                    <li>www.vanadium.app</li>
+                    <li>mta-sts.grapheneos.org</li>
+                    <li>mta-sts.mail.grapheneos.org</li>
+                    <li>mta-sts.grapheneos.app</li>
+                    <li>mta-sts.grapheneos.info</li>
+                    <li>mta-sts.grapheneos.page</li>
+                    <li>mta-sts.vanadium.app</li>
+                </ul>
+
+                <p>IPs:</p>
+
+                <ul>
+                    <li>192.99.43.50</li>
+                    <li>2607:5300:201:3100::1aae</li>
+                </ul>
+
+                <p>Ports:</p>
+
+                <ul>
+                    <li>22 ssh - no passwords, SSHFP</li>
+                    <li>80 http - HTTPS redirect only</li>
+                    <li>443 https - static, DANE TLSA</li>
+                </ul>
+            </section>
+
+            <section id="releases.grapheneos.org">
+                <h2>GrapheneOS release server</h2>
+
+		<p><a href="https://github.com/GrapheneOS/releases.grapheneos.org/issues">Issue tracker</a></p>
+
+                <p>Specs:</p>
+
+                <ul>
+                    <li>OVH VPS vps2020-elite-8-8-160</li>
+                    <li>8 core</li>
+                    <li>8 GB memory</li>
+                    <li>160 GB storage</li>
+                    <li>2000 Mbit/s bandwidth</li>
+                </ul>
+
+                <p>Domains:</p>
+
+                <ul>
+                    <li>releases.grapheneos.org</li>
+                    <li>seamlessupdate.app</li>
+                    <li>www.seamlessupdate.app</li>
+                    <li>mta-sts.seamlessupdate.app</li>
+                </ul>
+
+                <p>IPs:</p>
+
+                <ul>
+                    <li>167.114.114.114</li>
+                    <li>2607:5300:201:3100::6210</li>
+                </ul>
+
+                <p>Ports:</p>
+
+                <ul>
+                    <li>22 ssh - no passwords, SSHFP</li>
+                    <li>80 http - HTTPS redirect only</li>
+                    <li>443 https - static, DANE TLSA</li>
+                </ul>
+            </section>
+
+            <section id="time.grapheneos.org">
+                <h2>GrapheneOS time server</h2>
+
+		<p><a href="https://github.com/GrapheneOS/time.grapheneos.org/issues">Issue tracker</a></p>
+
+                <p>Specs:</p>
+
+                <ul>
+                    <li>OVH VPS vps2020-starter-1-2-20</li>
+                    <li>1 core</li>
+                    <li>2 GB memory</li>
+                    <li>20 GB storage</li>
+                    <li>100 Mbit/s bandwidth</li>
+                </ul>
+
+                <p>Domains:</p>
+
+                <ul>
+                    <li>time.grapheneos.org</li>
+                </ul>
+
+                <p>IPs:</p>
+
+                <ul>
+                    <li>51.222.141.59</li>
+                    <li>2607:5300:205:200::3afd</li>
+                </ul>
+
+                <p>Ports:</p>
+
+                <ul>
+                    <li>22 ssh - no passwords, SSHFP</li>
+                    <li>443 https - no content, returns 204 response code for /, DANE TLSA</li>
+                </ul>
+            </section>
+
+            <section id="grapheneos.network">
+                <h2>GrapheneOS connectivity check server</h2>
+
+		<p><a href="https://github.com/GrapheneOS/grapheneos.network/issues">Issue tracker</a></p>
+
+                <p>Specs:</p>
+
+                <ul>
+                    <li>OVH VPS vps2020-starter-1-2-20</li>
+                    <li>1 core</li>
+                    <li>2 GB memory</li>
+                    <li>20 GB storage</li>
+                    <li>100 Mbit/s bandwidth</li>
+                </ul>
+
+                <p>Domains:</p>
+
+                <ul>
+                    <li>grapheneos.network</li>
+                    <li>connectivitycheck.grapheneos.network</li>
+                    <li>connectivitycheck.grapheneos.org (legacy)</li>
+                    <li>connectivity.grapheneos.org (legacy)</li>
+                </ul>
+
+                <p>IPs:</p>
+
+                <ul>
+                    <li>51.79.54.68</li>
+                    <li>2607:5300:205:200::b44</li>
+                </ul>
+
+                <p>Ports:</p>
+
+                <ul>
+                    <li>22 ssh - no passwords, SSHFP</li>
+                    <li>80 http - no content, returns 204 response code for /generate_204 and /gen_204, HTTPS redirect for other URLs</li>
+                    <li>443 https - no content, returns 204 response code for /generate_204 and /gen_204, DANE TLSA</li>
+                </ul>
+            </section>
+
+            <section id="mail.grapheneos.org">
+                <h2>GrapheneOS mail server</h2>
+
+		<p><a href="https://github.com/GrapheneOS/mail.grapheneos.org/issues">Issue tracker</a></p>
+
+                <p>Specs:</p>
+
+                <ul>
+                    <li>OVH VPS vps2020-starter-1-2-20</li>
+                    <li>1 core</li>
+                    <li>2 GB memory</li>
+                    <li>20 GB storage</li>
+                    <li>100 Mbit/s bandwidth</li>
+                </ul>
+
+                <p>Domains:</p>
+
+                <ul>
+                    <li>mail.grapheneos.org</li>
+                </ul>
+
+                <p>IPs:</p>
+
+                <ul>
+                    <li>51.222.140.199</li>
+                    <li>2607:5300:205:200::39fe</li>
+                </ul>
+
+                <p>Ports:</p>
+
+                <ul>
+                    <li>22 ssh - no passwords, SSHFP</li>
+                    <li>25 smtp - DANE TLSA</li>
+                    <li>465 submissions - AUTH only, DANE TLSA</li>
+                    <li>993 imaps - DANE TLSA</li>
+                </ul>
+            </section>
+
+            <section id="attestation.app">
+                <h2>Attestation website and service</h2>
+
+		<p><a href="https://github.com/GrapheneOS/AttestationServer/issues">Issue tracker</a></p>
+
+                <p>Specs:</p>
+
+                <ul>
+                    <li>OVH VPS vps2020-essential-2-4-80</li>
+                    <li>2 core</li>
+                    <li>4 GB memory</li>
+                    <li>80 GB storage</li>
+                    <li>500 Mbit/s bandwidth</li>
+                </ul>
+
+                <p>Domains:</p>
+
+                <ul>
+                    <li>attestation.app</li>
+                    <li>www.attestation.app</li>
+                    <li>attestation.grapheneos.org</li>
+                    <li>mta-sts.attestation.app</li>
+                </ul>
+
+                <p>IPs:</p>
+
+                <ul>
+                    <li>51.79.50.249</li>
+                    <li>2607:5300:205:200::86a</li>
+                </ul>
+
+                <p>Ports:</p>
+
+                <ul>
+                    <li>22 ssh - no passwords, SSHFP</li>
+                    <li>80 http - HTTPS redirect only</li>
+                    <li>443 https - static + reverse proxy to attestation service, DANE TLSA</li>
+                </ul>
+            </section>
+
+            <section id="staging.attestation.app">
+                <h2>Staging attestation website and service</h2>
+
+		<p><a href="https://github.com/GrapheneOS/AttestationServer/issues">Issue tracker</a></p>
+
+                <p>Specs:</p>
+
+                <ul>
+                    <li>OVH VPS 2018 SSD 1</li>
+                    <li>1 core</li>
+                    <li>2 GB memory</li>
+                    <li>20 GB storage</li>
+                    <li>100 Mbit/s bandwidth</li>
+                </ul>
+
+                <p>Domains:</p>
+
+                <ul>
+                    <li>staging.attestation.app</li>
+                </ul>
+
+                <p>IPs:</p>
+
+                <ul>
+                    <li>54.39.97.128</li>
+                    <li>2607:5300:201:3100::6dfc</li>
+                </ul>
+
+                <p>Ports:</p>
+
+                <ul>
+                    <li>22 ssh - no passwords, SSHFP</li>
+                    <li>80 http - HTTPS redirect only</li>
+                    <li>443 https - static + reverse proxy to attestation service, DANE TLSA</li>
+                </ul>
+            </section>
+        </main>
+        <footer>
+            <a href="/"><img src="/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
+            <ul id="social">
+                <li><a href="https://twitter.com/GrapheneOS">Twitter</a></li>
+                <li><a href="https://github.com/GrapheneOS">GitHub</a></li>
+                <li><a href="https://reddit.com/r/GrapheneOS">Reddit</a></li>
+                <li><a href="https://www.linkedin.com/company/grapheneos/">LinkedIn</a></li>
+            </ul>
+        </footer>
+    </body>
+</html>
