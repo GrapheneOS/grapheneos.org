@@ -736,11 +736,34 @@
                 <article id="default-dns">
                     <h3><a href="#default-dns">Which DNS servers are used by default?</a></h3>
 
-                    <p>By default, the OS uses the network-provided DNS servers, whether those come from
-                    DHCP or static network configuration. VPNs provide their own DNS servers. If no DNS
-                    servers are provided, GrapheneOS uses <a href="https://developers.cloudflare.com/1.1.1.1/what-is-1.1.1.1/">Cloudflare DNS</a>
-                    as the fallback rather than Google Public DNS. In practice, the fallback is rarely used
-                    and has little real world impact.</p>
+                    <p>The OS uses the network-provided DNS servers by default. Typically, dynamic
+                    IP configuration is used to auto-configure the client on the network. IPv4 DNS
+                    servers are obtained via DHCP and IPv6 DNS servers are obtained via RDNSS. For
+                    a static IP configuration, the DNS servers are manually configured as part of
+                    the static configuration.</p>
+
+                    <p>A VPN provides a network layered on top of the underlying networks and the
+                    OS uses the VPN-provided DNS servers for everything beyond resolving the IP
+                    address of the VPN and performing network connectivity checks on each of the
+                    underlying networks in addition to the VPN itself.</p>
+
+                    <p>Using the network-provided DNS servers is the best way to blend in with
+                    other users. The network and web sites can fingerprint and track users based
+                    on a non-default DNS configuration. Our recommendation for general purpose
+                    usage is to use the network-provided DNS servers.</p>
+
+                    <p>In some broken or unusual network environments, the network could fail to
+                    provide DNS servers as part of dynamic IP configuration. The OS has high
+                    availability fallback DNS servers to handle this case. A network can fail to
+                    provide DNS servers in order to fingerprint clients based on what they use as
+                    the fallback so it's important for it to be consistent across each install.
+                    GrapheneOS replaces Google Public DNS with
+                    <a href="https://developers.cloudflare.com/1.1.1.1/what-is-1.1.1.1/">Cloudflare
+                    DNS</a> for the fallback DNS servers due to the superior privacy policy and
+                    widespread usage including as the fallback DNS servers in other Android-based
+                    operating systems. We're considering hosting our own servers and offering a
+                    toggle for using the standard (Google) servers to blend in with other devices
+                    similarly to how we handle the internet connectivity checks.</p>
                 </article>
 
                 <article id="custom-dns">
