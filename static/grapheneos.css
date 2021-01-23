@@ -150,6 +150,11 @@ footer a, footer a:visited {
     list-style-type: none;
 }
 
+.error-text {
+    /* Baseline Material error color */
+    color: #b00020;
+}
+
 /* latin */
 @font-face {
     font-family: 'Roboto';
