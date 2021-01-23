@@ -5,11 +5,14 @@ shopt -s dotglob extglob globstar
 
 export PATH="$PWD/node_modules/.bin:$PATH"
 
-for file in static/**/*.@(json|webmanifest); do
+rm -rf static_tmp
+cp -a static static_tmp
+
+for file in static_tmp/**/*.@(json|webmanifest); do
     json_verify < "$file" >/dev/null
 done
 
-xmllint --noout static/**/*.@(html|svg|xml)
-eslint static/**/!(zip.min|z-worker).js
-stylelint static/**/*.css
-validatornu --Werror --also-check-css --also-check-svg static/**/*.@(css|html|svg)
+xmllint --noout static_tmp/**/*.@(html|svg|xml)
+eslint static_tmp/**/!(zip.min|z-worker).js
+stylelint static_tmp/**/*.css
+validatornu --Werror --also-check-css --also-check-svg static_tmp/**/*.@(css|html|svg)
