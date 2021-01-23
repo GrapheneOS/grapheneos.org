@@ -26,8 +26,12 @@
         <link rel="stylesheet" href="/grapheneos.css?29"/>
         <link rel="manifest" href="/manifest.webmanifest"/>
         <link rel="license" href="/LICENSE.txt"/>
-        <script defer="defer" src="/js/webadb.js?0"></script>
-        <script defer="defer" src="/js/web-install.js?1"></script>
+        <script defer="defer" src="/js/fastboot/libs/zip.min.js?0"></script>
+        <script type="module" src="/js/fastboot/common.js?0"></script>
+        <script type="module" src="/js/fastboot/factory.js?0"></script>
+        <script type="module" src="/js/fastboot/sparse.js?0"></script>
+        <script type="module" src="/js/fastboot/fastboot.js?0"></script>
+        <script type="module" src="/js/web-install.js?2"></script>
     </head>
     <body>
         <header>
@@ -129,11 +133,13 @@
 
                 <p>Unlock the bootloader to allow flashing the OS and firmware:</p>
 
-                <button id="unlock-bootloader" disabled="disabled">Unlock bootloader</button>
+                <button id="unlock-bootloader-button" disabled="disabled">Unlock bootloader</button>
 
                 <p>The command needs to be confirmed on the device and will wipe all data. Use one
                 of the volume keys to switch the selection to accepting it and the power button to
                 confirm.</p>
+
+                <p><strong id="unlock-bootloader-status"></strong></p>
             </section>
 
             <section id="obtaining-factory-images">
@@ -144,9 +150,9 @@
 
                 <p>Press the button below to start the download:</p>
 
-                <button id="download-release" disabled="disabled">Download release</button>
+                <button id="download-release-button" disabled="disabled">Download release</button>
 
-                <p><strong>Download not implemented yet.</strong></p>
+                <p><strong id="download-release-status"></strong></p>
             </section>
 
             <section id="flashing-factory-images">
@@ -155,14 +161,13 @@
                 <p>The initial install will be performed by flashing the factory images. This will
                 replace the existing OS installation and wipe all the existing data.</p>
 
-                <p><strong>Needs to be implemented based on extracting and flashing images from
-                the downloaded zip (or a split approach to downloading files).</strong></p>
-
-                <button id="flash-release" disabled="disabled">Flash release</button>
+                <button id="flash-release-button" disabled="disabled">Flash release</button>
 
                 <p>Wait for the flashing process to complete and proceed to
                 <a href="#locking-the-bootloader">locking the bootloader</a> before using the
                 device as locking wipes the data again.</p>
+
+                <p><strong id="flash-release-status"></strong></p>
             </section>
 
             <section id="locking-the-bootloader">
@@ -177,11 +182,13 @@
 
                 <p>In the bootloader interface, set it to locked:</p>
 
-                <button id="lock-bootloader" disabled="disabled">Lock bootloader</button>
+                <button id="lock-bootloader-button" disabled="disabled">Lock bootloader</button>
 
                 <p>The command needs to be confirmed on the device and will wipe all data. Use one
                 of the volume buttons to switch the selection to accepting it and the power button
                 to confirm.</p>
+
+                <p><strong id="lock-bootloader-status"></strong></p>
             </section>
 
             <section id="post-installation">
