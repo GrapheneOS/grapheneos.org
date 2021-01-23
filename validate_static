@@ -7,6 +7,7 @@ export PATH="$PWD/node_modules/.bin:$PATH"
 
 rm -rf static_tmp
 cp -a static static_tmp
+rm -rf static_tmp/js/fastboot/{.git,demo,README.md}
 
 for file in static_tmp/**/*.@(json|webmanifest); do
     json_verify < "$file" >/dev/null
