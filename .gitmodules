@@ -1,0 +1,3 @@
+[submodule "static/js/fastboot"]
+	path = static/js/fastboot
+	url = https://github.com/kdrag0n/fastboot.js
