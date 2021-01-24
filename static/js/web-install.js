@@ -1,7 +1,6 @@
 // @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt MIT
 
-import { FastbootDevice } from "./fastboot/fastboot.js";
-import * as Factory from "./fastboot/factory.js";
+import { FastbootDevice, FactoryImages } from "./fastboot/dist/fastboot.min.js?0";
 
 const RELEASES_URL = "https://releases.grapheneos.org";
 
@@ -37,7 +36,7 @@ async function downloadRelease(setProgress) {
     // Download and cache the zip as a blob
     setProgress(`Downloading ${releaseId} release for ${product}...`);
     lastReleaseZip = `${product}-factory-${releaseId}.zip`;
-    await Factory.downloadZip(`${RELEASES_URL}/${lastReleaseZip}`);
+    await FactoryImages.downloadZip(`${RELEASES_URL}/${lastReleaseZip}`);
     return `Downloaded ${releaseId} release for ${product}.`;
 }
 
@@ -45,7 +44,7 @@ async function flashRelease(setProgress) {
     await ensureConnected(setProgress);
 
     setProgress("Flashing release...");
-    await Factory.flashZip(device, lastReleaseZip, (action, partition) => {
+    await FactoryImages.flashZip(device, lastReleaseZip, (action, partition) => {
         let userPartition = partition == "avb_custom_key" ? "verified boot key" : partition;
         if (action == "unpack") {
             setProgress(`Unpacking image: ${userPartition}`);
@@ -84,11 +83,9 @@ function addButtonHook(id, callback) {
     };
 }
 
-// zip.js is loaded separately.
-// eslint-disable-next-line no-undef
-zip.configure({
+FactoryImages.configureZip({
     workerScripts: {
-        inflate: ["/js/fastboot/libs/z-worker-pako.js", "pako_inflate.min.js"],
+        inflate: ["/js/fastboot/dist/libs/z-worker-pako.js", "pako_inflate.min.js"],
     },
 });
 
