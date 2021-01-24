@@ -11,12 +11,16 @@
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://grapheneos.org/install</loc>
+        <loc>https://grapheneos.org/install/</loc>
+        <priority>0.1</priority>
+    </url>
+    <url>
+        <loc>https://grapheneos.org/install/cli</loc>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://grapheneos.org/web-install</loc>
-        <priority>0.1</priority>
+        <loc>https://grapheneos.org/install/web</loc>
+        <priority>0.5</priority>
     </url>
     <url>
         <loc>https://grapheneos.org/build</loc>

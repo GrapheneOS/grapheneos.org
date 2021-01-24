@@ -2,23 +2,23 @@
 <html lang="en" prefix="og: https://ogp.me/ns#">
     <head>
         <meta charset="utf-8"/>
-        <title>Articles | GrapheneOS</title>
-        <meta name="description" content="Articles on assorted topics related to GrapheneOS."/>
+        <title>Install | GrapheneOS</title>
+        <meta name="description" content="Installation instructions for GrapheneOS, a security and privacy focused mobile OS with Android app compatibility."/>
         <meta name="theme-color" content="#212121"/>
         <meta name="msapplication-TileColor" content="#ffffff"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <meta name="twitter:site" content="@GrapheneOS"/>
         <meta name="twitter:creator" content="@GrapheneOS"/>
-        <meta property="og:title" content="Articles | GrapheneOS"/>
-        <meta property="og:description" content="Articles on assorted topics related to GrapheneOS."/>
+        <meta property="og:title" content="GrapheneOS install documentation"/>
+        <meta property="og:description" content="Installation instructions for GrapheneOS, a security and privacy focused mobile OS with Android app compatibility."/>
         <meta property="og:type" content="website"/>
         <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
         <meta property="og:image:width" content="512"/>
         <meta property="og:image:height" content="512"/>
         <meta property="og:image:alt" content="GrapheneOS logo"/>
         <meta property="og:site_name" content="GrapheneOS"/>
-        <meta property="og:url" content="https://grapheneos.org/articles/"/>
-        <link rel="canonical" href="https://grapheneos.org/articles/"/>
+        <meta property="og:url" content="https://grapheneos.org/install/"/>
+        <link rel="canonical" href="https://grapheneos.org/install/"/>
         <link rel="icon" sizes="16x16 24x24 32x32 48x48 64x64" type="image/vnd.microsoft.icon" href="/favicon.ico"/>
         <link rel="icon" sizes="any" type="image/svg+xml" href="/mask-icon.svg"/>
         <link rel="mask-icon" href="/mask-icon.svg" color="#1a1a1a"/>
@@ -33,42 +33,30 @@
                 <ul>
                     <li><a href="/">GrapheneOS</a></li>
                     <li><a href="/features">Features</a></li>
-                    <li><a href="/install/">Install</a></li>
+                    <li aria-current="page"><a href="/install/">Install</a></li>
                     <li><a href="/build">Build</a></li>
                     <li><a href="/usage">Usage</a></li>
                     <li><a href="/faq">FAQ</a></li>
                     <li><a href="/releases">Releases</a></li>
                     <li><a href="/source">Source</a></li>
-                    <li aria-current="page"><a href="/articles/">Articles</a></li>
+                    <li><a href="/articles/">Articles</a></li>
                     <li><a href="/donate">Donate</a></li>
                     <li><a href="/contact">Contact</a></li>
                 </ul>
             </nav>
         </header>
-        <main id="articles">
-            <h1><a href="#articles">Articles</a></h1>
+        <main id="install">
+            <h1><a href="#install">Install</a></h1>
 
-            <p>The main documentation for GrapheneOS is at the top-level of the site:</p>
+            <p>GrapheneOS has two officially supported installation methods. You can either use
+            the <a href="/install/cli">command-line installation guide</a> or the experimental
+            <a href="/install/web">WebUSB-based installer</a>.</p>
 
-            <ul>
-                <li><a href="/features">Features</a></li>
-                <li><a href="/install/">Install</a></li>
-                <li><a href="/build">Build</a></li>
-                <li><a href="/usage">Usage</a></li>
-                <li><a href="/faq">FAQ</a></li>
-                <li><a href="/releases#changelog">Releases changelog</a></li>
-            </ul>
-
-            <p>Our attestation service has <a href="https://attestation.app/about">a page
-            explaining how the Auditor app and attestation service work</a>.</p>
-
-            <p>Other articles on assorted topics related to GrapheneOS:</p>
-
-            <ul>
-                <li><a href="/articles/grapheneos-servers">GrapheneOS servers</a></li>
-                <li><a href="/articles/server-traffic-shaping">Server traffic shaping</a></li>
-                <li><a href="/articles/sitewide-advertising-industry-opt-out">Sitewide advertising industry opt-out</a></li>
-            </ul>
+            <p>The command-line approach offers a way to install GrapheneOS without trusting our
+            server infrastructure. This requires being on an OS with proper fastboot and signify
+            packages along with understanding the process enough to avoid blindly trusting the
+            instructions from our site. For most users, the web-based installation approach is no
+            less secure and avoids needing any software beyond a browser with WebUSB support.</p>
         </main>
         <footer>
             <a href="/"><img src="/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
