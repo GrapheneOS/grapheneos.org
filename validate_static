@@ -14,6 +14,6 @@ for file in static_tmp/**/*.@(json|webmanifest); do
 done
 
 xmllint --noout static_tmp/**/*.@(html|svg|xml)
-eslint static_tmp/**/!(zip-inflate.min|z-worker-pako|pako_inflate.min).js
+eslint static_tmp/**/!(fastboot.min|z-worker-pako|pako_inflate.min).js
 stylelint static_tmp/**/*.css
 validatornu --Werror --also-check-css --also-check-svg static_tmp/**/*.@(css|html|svg)
