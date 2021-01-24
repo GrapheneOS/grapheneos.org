@@ -87,7 +87,9 @@ function addButtonHook(id, callback) {
 // zip.js is loaded separately.
 // eslint-disable-next-line no-undef
 zip.configure({
-    workerScriptsPath: "/js/fastboot/libs/",
+    workerScripts: {
+        inflate: ["/js/fastboot/libs/z-worker-pako.js", "pako_inflate.min.js"],
+    },
 });
 
 if ("usb" in navigator) {
