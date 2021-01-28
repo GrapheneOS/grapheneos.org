@@ -7,13 +7,13 @@ export PATH="$PWD/node_modules/.bin:$PATH"
 
 rm -rf static_tmp
 cp -a static static_tmp
-rm -rf static_tmp/js/fastboot/{!(dist),dist/!(fastboot.min.js|libs)}
+rm -rf static_tmp/js/fastboot/{!(dist),dist/!(fastboot.min.mjs|libs)}
 
 for file in static_tmp/**/*.@(json|webmanifest); do
     json_verify < "$file" >/dev/null
 done
 
 xmllint --noout static_tmp/**/*.@(html|svg|xml)
-eslint static_tmp/**/!(fastboot.min|z-worker-pako|pako_inflate.min).js
+eslint static_tmp/**/!(fastboot.min.m|z-worker-pako.|pako_inflate.min.)js
 stylelint static_tmp/**/*.css
 validatornu --Werror --also-check-css --also-check-svg static_tmp/**/*.@(css|html|svg)

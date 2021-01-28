@@ -1,11 +1,98 @@
 // @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt MIT
 
-import { FastbootDevice, FactoryImages } from "./fastboot/dist/fastboot.min.js?0";
+import * as fastboot from "./fastboot/dist/fastboot.min.mjs?0";
 
 const RELEASES_URL = "https://releases.grapheneos.org";
 
-let device = new FastbootDevice();
-let lastReleaseZip = null;
+const CACHE_DB_NAME = "BlobStore";
+const CACHE_DB_VERSION = 1;
+
+class BlobStore {
+    constructor() {
+        this.db = null;
+    }
+
+    async _wrapReq(request, onUpgrade = null) {
+        return new Promise((resolve, reject) => {
+            request.onsuccess = () => {
+                resolve(request.result);
+            };
+            request.oncomplete = () => {
+                resolve(request.result);
+            };
+            request.onerror = (event) => {
+                reject(event);
+            };
+
+            if (onUpgrade !== null) {
+                request.onupgradeneeded = onUpgrade;
+            }
+        });
+    }
+
+    async init() {
+        if (this.db === null) {
+            this.db = await this._wrapReq(
+                indexedDB.open(CACHE_DB_NAME, CACHE_DB_VERSION),
+                (event) => {
+                    let db = event.target.result;
+                    db.createObjectStore("files", { keyPath: "name" });
+                    /* no index needed for such a small database */
+                }
+            );
+        }
+    }
+
+    async saveFile(name, blob) {
+        this.db.transaction(["files"], "readwrite").objectStore("files").add({
+            name: name,
+            blob: blob,
+        });
+    }
+
+    async loadFile(name) {
+        try {
+            let obj = await this._wrapReq(
+                this.db.transaction("files").objectStore("files").get(name)
+            );
+            return obj.blob;
+        } catch (error) {
+            return null;
+        }
+    }
+
+    async close() {
+        this.db.close();
+    }
+
+    /**
+     * Downloads the file from the given URL and saves it to this BlobStore.
+     *
+     * @param {string} url - URL of the file to download.
+     * @returns {blob} Blob containing the downloaded data.
+     */
+    async download(url) {
+        let filename = url.split("/").pop();
+        let blob = await this.loadFile(filename);
+        if (blob === null) {
+            console.log(`Downloading ${url}`);
+            let resp = await fetch(new Request(url));
+            blob = await resp.blob();
+            console.log("File downloaded, saving...");
+            await this.saveFile(filename, blob);
+            console.log("File saved");
+        } else {
+            console.log(
+                `Loaded ${filename} from blob store, skipping download`
+            );
+        }
+
+        return blob;
+    }
+}
+
+let device = new fastboot.FastbootDevice();
+let blobStore = new BlobStore();
 
 async function ensureConnected(setProgress) {
     console.log(device.device);
@@ -23,36 +110,50 @@ async function unlockBootloader(setProgress) {
     return "Bootloader unlocked.";
 }
 
-async function downloadRelease(setProgress) {
-    await ensureConnected(setProgress);
-
-    setProgress("Getting device model...");
+async function getLatestRelease() {
     let product = await device.getVariable("product");
-    setProgress("Finding latest release...");
+
     let metadataResp = await fetch(`${RELEASES_URL}/${product}-stable`);
     let metadata = await metadataResp.text();
     let releaseId = metadata.split(" ")[0];
 
+    return `${product}-factory-${releaseId}.zip`;
+}
+
+async function downloadRelease(setProgress) {
+    await ensureConnected(setProgress);
+
+    setProgress("Finding latest release...");
+    let latestZip = await getLatestRelease();
+
     // Download and cache the zip as a blob
-    setProgress(`Downloading ${releaseId} release for ${product}...`);
-    lastReleaseZip = `${product}-factory-${releaseId}.zip`;
-    await FactoryImages.downloadZip(`${RELEASES_URL}/${lastReleaseZip}`);
-    return `Downloaded ${releaseId} release for ${product}.`;
+    setProgress(`Downloading ${latestZip}...`);
+    await blobStore.init();
+    await blobStore.download(`${RELEASES_URL}/${latestZip}`);
+    return `Downloaded ${latestZip} release.`;
 }
 
 async function flashRelease(setProgress) {
     await ensureConnected(setProgress);
 
+    // Need to do this again because the user may not have clicked download if
+    // it was cached
+    setProgress("Finding latest release...");
+    let latestZip = await getLatestRelease();
+    await blobStore.init();
+    let blob = await blobStore.loadFile(latestZip);
+    if (blob === null) {
+        throw new Error("You need to download a release first!");
+    }
+
     setProgress("Flashing release...");
-    await FactoryImages.flashZip(device, lastReleaseZip, (action, partition) => {
-        let userPartition = partition == "avb_custom_key" ? "verified boot key" : partition;
-        if (action == "unpack") {
-            setProgress(`Unpacking image: ${userPartition}`);
-        } else {
-            setProgress(`Flashing image: ${userPartition}`);
-        }
+    await fastboot.FactoryImages.flashZip(device, blob, true, (action, item) => {
+        let userAction = fastboot.FactoryImages.USER_ACTION_MAP[action];
+        let userItem = item === "avb_custom_key" ? "verified boot key" : item;
+        setProgress(`${userAction} ${userItem}...`);
     });
-    return `Flashed ${lastReleaseZip} to device.`;
+
+    return `Flashed ${latestZip} to device.`;
 }
 
 async function lockBootloader(setProgress) {
@@ -83,9 +184,13 @@ function addButtonHook(id, callback) {
     };
 }
 
-FactoryImages.configureZip({
+// This doesn't really hurt, and because this page is exclusively for web install,
+// we can tolerate extra logging in the console in case something goes wrong.
+fastboot.setDebugMode(true);
+
+fastboot.FactoryImages.configureZip({
     workerScripts: {
-        inflate: ["/js/fastboot/dist/libs/z-worker-pako.js", "pako_inflate.min.js"],
+        inflate: ["/js/fastboot/dist/vendor/z-worker-pako.js", "pako_inflate.min.js"],
     },
 });
 
