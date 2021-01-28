@@ -19,6 +19,7 @@ const redirects = new Map([
     ["/releases#sailfish-beta", "/faq#legacy-devices"],
     ["/faq#dns", "/faq#custom-dns"],
     ["/build#upgrading-to-android-10", "/build#generating-release-signing-keys"],
+    ["/install/web#fastboot-as-non-root", "/install/web#preparing-the-host"],
 ]);
 
 function handle_hash() {

@@ -116,14 +116,24 @@
                 Play services as part of Factory Reset Protection (FRP) for anti-theft protection.</p>
             </section>
 
-            <section id="fastboot-as-non-root">
-                <h2><a href="#fastboot-as-non-root">Fastboot as non-root</a></h2>
+            <section id="preparing-the-host">
+                <h2><a href="#preparing-the-host">Preparing the host</a></h2>
 
-                <p>On Linux, in order for to connect to a device as non-root, the appropriate udev
-                rules need to be set up. This is not an issue on either macOS or Windows.</p>
+                <p>Depending on your operating system, your computer may need to be prepared for flashing
+                if you have never used it to flash devices before.</p>
 
-                <p>On Arch Linux, install the <code>android-udev</code> package. On Debian and
-                Ubuntu, install the <code>android-sdk-platform-tools-common</code> package.</p>
+                <p>On Windows, USB drivers for your specific device need to be installed.
+                The drivers for Google devices can be obtained
+                <a href="https://developer.android.com/studio/run/win-usb">from Android Developers</a>.
+                Google also provides instructions for
+                <a href="https://developer.android.com/studio/run/oem-usb#InstallingDriver">installing the drivers</a>.</p>
+
+                <p>On Linux, in order for to connect to a device as a non-root user, the appropriate
+                udev rules need to be set up. On Arch Linux, install the <code>android-udev</code>
+                package. On Debian and Ubuntu, install the <code>android-sdk-platform-tools-common</code>
+                package.</p>
+
+                <p>macOS and Android do not need any special preparation.</p>
             </section>
 
             <section id="connecting-phone">
