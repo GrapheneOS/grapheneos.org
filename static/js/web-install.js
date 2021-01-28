@@ -180,6 +180,8 @@ function addButtonHook(id, callback) {
         } catch (error) {
             statusCallback(`Error: ${error.message}`);
             statusField.className = "error-text";
+            // Rethrow the error so it shows up in the console
+            throw error;
         }
     };
 }
