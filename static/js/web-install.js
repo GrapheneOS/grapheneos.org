@@ -95,7 +95,6 @@ let device = new fastboot.FastbootDevice();
 let blobStore = new BlobStore();
 
 async function ensureConnected(setProgress) {
-    console.log(device.device);
     if (!device.isConnected) {
         setProgress("Connecting to device...");
         await device.connect();
