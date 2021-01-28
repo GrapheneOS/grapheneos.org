@@ -105,8 +105,24 @@ async function ensureConnected(setProgress) {
 async function unlockBootloader(setProgress) {
     await ensureConnected(setProgress);
 
+    // Trying to unlock when the bootloader is already unlocked results in a FAIL,
+    // so don't try to do it.
+    if (await device.getVariable("unlocked") === "yes") {
+        return "Bootloader is already unlocked.";
+    }
+
     setProgress("Unlocking bootloader...");
-    await device.runCommand("flashing unlock");
+    try {
+        await device.runCommand("flashing unlock");
+    } catch (error) {
+        // FAIL = user rejected unlock
+        if (error instanceof fastboot.FastbootError && error.status === "FAIL") {
+            throw new Error("Bootloader was not unlocked, please try again!");
+        } else {
+            throw error;
+        }
+    }
+
     return "Bootloader unlocked.";
 }
 
@@ -160,7 +176,20 @@ async function lockBootloader(setProgress) {
     await ensureConnected(setProgress);
 
     setProgress("Locking bootloader...");
-    await device.runCommand("flashing lock");
+    try {
+        await device.runCommand("flashing lock");
+    } catch (error) {
+        // FAIL = user rejected lock
+        if (error instanceof fastboot.FastbootError && error.status === "FAIL") {
+            throw new Error("Bootloader was not locked, please try again!");
+        } else {
+            throw error;
+        }
+    }
+
+    // We can't explicitly validate the bootloader lock state because it reboots
+    // to recovery after locking. Assume that the device would've replied with
+    // FAIL if if it wasn't locked.
     return "Bootloader locked.";
 }
 
