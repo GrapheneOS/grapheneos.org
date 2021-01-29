@@ -473,16 +473,19 @@ curl -O https://releases.grapheneos.org/sunfish-factory-2021.01.23.03.zip.sig</p
                     OS was compromised, leading to flashing a malicious verified boot public key and
                     images. To detect this kind of attack, you can use the Auditor app included in
                     GrapheneOS in the Auditee mode and verify it with another Android device in the
-                    Auditor mode. The Auditor app works best once it's already paired with a device and
-                    has pinned a persistent hardware-backed key and the attestation certificate chain.
-                    However, it can still provide a bit of security for the initial verification via the
-                    attestation root. Ideally, you should also do this before connecting the device to the
-                    network, so an attacker can't proxy to another device (which stops being possible
-                    after the initial verification). Further protection against proxying the initial
-                    pairing will be provided in the future via optional support for ID attestation to
-                    include the serial number in the hardware verified information to allow checking
-                    against the one on the box / displayed in the bootloader. See the
-                    <a href="https://attestation.app/tutorial">Auditor tutorial</a> for a guide.</p>
+                    Auditor mode.</p>
+
+                    <p>The Auditor app works best once it's already paired with a device and has
+                    pinned a persistent hardware-backed key and the attestation certificate chain.
+                    However, it can still provide a bit of security for the initial verification
+                    via the attestation root. Ideally, you should also do this before connecting
+                    the device to the network, so an attacker can't proxy to another device (which
+                    stops being possible after the initial verification). Further protection
+                    against proxying the initial pairing will be provided in the future via
+                    optional support for ID attestation to include the serial number in the
+                    hardware verified information to allow checking against the one on the box /
+                    displayed in the bootloader. See the <a href="https://attestation.app/tutorial">Auditor tutorial</a>
+                    for a guide.</p>
 
                     <p>After the initial verification, which results in pairing, performing verification
                     against between the same Auditor and Auditee (as long as the app data hasn't been
