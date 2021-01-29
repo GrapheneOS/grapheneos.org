@@ -400,9 +400,13 @@ curl -O https://releases.grapheneos.org/sunfish-factory-2021.01.23.03.zip.sig</p
 
                 <pre>./flash-all.bat</pre>
 
-                <p>Wait for the flashing process to complete and proceed to
-                <a href="#locking-the-bootloader">locking the bootloader</a> before using the
-                device as locking wipes the data again.</p>
+                <p>Wait for the flashing process to complete. It will automatically handle
+                flashing the firmware, rebooting into the bootloader interface, flashing the core
+                OS, rebooting into the userspace fastboot mode, flashing the rest of the OS and
+                finally rebooting back into the bootloader interface. Avoid interacting with the
+                device until the flashing script is finished and the device is back at the
+                bootloader menu. Then, proceed to <a href="#locking-the-bootloader">locking the
+                bootloader</a> before using the device as locking wipes the data again.</p>
 
                 <section id="troubleshooting">
                     <h3><a href="#troubleshooting">Troubleshooting</a></h3>
