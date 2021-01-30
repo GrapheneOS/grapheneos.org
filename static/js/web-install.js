@@ -148,6 +148,19 @@ async function downloadRelease(setProgress) {
     return `Downloaded ${latestZip} release.`;
 }
 
+async function reconnectCallback() {
+    let statusField = document.getElementById("flash-release-status");
+    statusField.textContent =
+        "In order to continue flashing, you need to reconnect the device by tapping here:";
+
+    let reconnectButton = document.getElementById("flash-reconnect-button");
+    reconnectButton.style.display = "inline-block";
+    reconnectButton.onclick = async () => {
+        await device.connect();
+        reconnectButton.style.display = "none";
+    };
+}
+
 async function flashRelease(setProgress) {
     await ensureConnected(setProgress);
 
@@ -162,11 +175,14 @@ async function flashRelease(setProgress) {
     }
 
     setProgress("Flashing release...");
-    await fastboot.FactoryImages.flashZip(device, blob, true, (action, item) => {
-        let userAction = fastboot.FactoryImages.USER_ACTION_MAP[action];
-        let userItem = item === "avb_custom_key" ? "verified boot key" : item;
-        setProgress(`${userAction} ${userItem}...`);
-    });
+    await fastboot.FactoryImages.flashZip(
+        device, blob, true, reconnectCallback,
+        (action, item) => {
+            let userAction = fastboot.FactoryImages.USER_ACTION_MAP[action];
+            let userItem = item === "avb_custom_key" ? "verified boot key" : item;
+            setProgress(`${userAction} ${userItem}...`);
+        }
+    );
 
     return `Flashed ${latestZip} to device.`;
 }
