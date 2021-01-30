@@ -1,6 +1,6 @@
 // @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt MIT
 
-import * as fastboot from "./fastboot/dist/fastboot.min.mjs?1";
+import * as fastboot from "./fastboot/dist/fastboot.min.mjs?2";
 
 const RELEASES_URL = "https://releases.grapheneos.org";
 
