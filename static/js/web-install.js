@@ -154,10 +154,10 @@ async function reconnectCallback() {
         "In order to continue flashing, you need to reconnect the device by tapping here:";
 
     let reconnectButton = document.getElementById("flash-reconnect-button");
-    reconnectButton.style.display = "inline-block";
+    reconnectButton.hidden = false;
     reconnectButton.onclick = async () => {
         await device.connect();
-        reconnectButton.style.display = "none";
+        reconnectButton.hidden = true;
     };
 }
 
