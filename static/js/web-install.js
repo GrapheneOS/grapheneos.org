@@ -7,6 +7,26 @@ const RELEASES_URL = "https://releases.grapheneos.org";
 const CACHE_DB_NAME = "BlobStore";
 const CACHE_DB_VERSION = 1;
 
+// This wraps XHR because getting progress updates with fetch() is overly complicated.
+function fetchBlobWithProgress(url, onProgress) {
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", url);
+    xhr.responseType = "blob";
+    xhr.send();
+
+    return new Promise((resolve, reject) => {
+        xhr.onload = () => {
+            resolve(xhr.response);
+        };
+        xhr.onprogress = (event) => {
+            onProgress(event.loaded / event.total);
+        };
+        xhr.onerror = () => {
+            reject(`${xhr.status} ${xhr.statusText}`);
+        };
+    });
+}
+
 class BlobStore {
     constructor() {
         this.db = null;
@@ -65,19 +85,12 @@ class BlobStore {
         this.db.close();
     }
 
-    /**
-     * Downloads the file from the given URL and saves it to this BlobStore.
-     *
-     * @param {string} url - URL of the file to download.
-     * @returns {blob} Blob containing the downloaded data.
-     */
-    async download(url) {
+    async download(url, onProgress = () => {}) {
         let filename = url.split("/").pop();
         let blob = await this.loadFile(filename);
         if (blob === null) {
             console.log(`Downloading ${url}`);
-            let resp = await fetch(new Request(url));
-            blob = await resp.blob();
+            let blob = await fetchBlobWithProgress(url, onProgress);
             console.log("File downloaded, saving...");
             await this.saveFile(filename, blob);
             console.log("File saved");
@@ -144,8 +157,10 @@ async function downloadRelease(setProgress) {
     // Download and cache the zip as a blob
     setProgress(`Downloading ${latestZip}...`);
     await blobStore.init();
-    await blobStore.download(`${RELEASES_URL}/${latestZip}`);
-    return `Downloaded ${latestZip} release.`;
+    await blobStore.download(`${RELEASES_URL}/${latestZip}`, (progress) => {
+        setProgress(`Downloading ${latestZip}...`, progress);
+    });
+    setProgress(`Downloaded ${latestZip} release.`, 1.0);
 }
 
 async function reconnectCallback() {
@@ -238,7 +253,9 @@ function addButtonHook(id, callback) {
     button.onclick = async () => {
         try {
             let finalStatus = await callback(statusCallback);
-            statusCallback(finalStatus);
+            if (finalStatus !== undefined) {
+                statusCallback(finalStatus);
+            }
         } catch (error) {
             statusCallback(`Error: ${error.message}`);
             statusField.className = "error-text";
