@@ -163,7 +163,11 @@
 
                 <button id="download-release-button" disabled="disabled">Download release</button>
 
-                <p><strong id="download-release-status"></strong></p>
+                <p id="download-release-status-container" hidden="hidden">
+                    <strong id="download-release-status"></strong>
+                    <br/>
+                    <progress id="download-release-progress" hidden="hidden" max="1" value="0"></progress>
+                </p>
             </section>
 
             <section id="flashing-factory-images">
