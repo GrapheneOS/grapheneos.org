@@ -182,9 +182,12 @@
                 Then, proceed to <a href="#locking-the-bootloader">locking the bootloader</a>
                 before using the device as locking wipes the data again.</p>
 
-                <p>
+                <p id="flash-release-status-container" hidden="hidden">
                     <strong id="flash-release-status"></strong>
-                    <!-- This appears as part of the status -->
+                    <br/>
+
+                    <!-- These appear as part of the status, one at a time -->
+                    <progress id="flash-release-progress" hidden="hidden" max="1" value="0"></progress>
                     <button id="flash-reconnect-button" hidden="hidden"><strong>Reconnect device</strong></button>
                 </p>
             </section>

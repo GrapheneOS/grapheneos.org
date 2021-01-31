@@ -151,13 +151,19 @@ async function downloadRelease(setProgress) {
 async function reconnectCallback() {
     let statusField = document.getElementById("flash-release-status");
     statusField.textContent =
-        "In order to continue flashing, you need to reconnect the device by tapping here:";
+        "To continue flashing, reconnect the device by tapping here:";
 
     let reconnectButton = document.getElementById("flash-reconnect-button");
+    let progressBar = document.getElementById("flash-release-progress");
+
+    // Hide progress bar while waiting for reconnection
+    progressBar.hidden = true;
     reconnectButton.hidden = false;
+
     reconnectButton.onclick = async () => {
         await device.connect();
         reconnectButton.hidden = true;
+        progressBar.hidden = false;
     };
 }
 
@@ -177,10 +183,10 @@ async function flashRelease(setProgress) {
     setProgress("Flashing release...");
     await fastboot.FactoryImages.flashZip(
         device, blob, true, reconnectCallback,
-        (action, item) => {
+        (action, item, progress) => {
             let userAction = fastboot.FactoryImages.USER_ACTION_MAP[action];
             let userItem = item === "avb_custom_key" ? "verified boot key" : item;
-            setProgress(`${userAction} ${userItem}...`);
+            setProgress(`${userAction} ${userItem}...`, progress);
         }
     );
 
@@ -209,10 +215,22 @@ async function lockBootloader(setProgress) {
 }
 
 function addButtonHook(id, callback) {
+    let statusContainer = document.getElementById(`${id}-status-container`);
     let statusField = document.getElementById(`${id}-status`);
-    let statusCallback = (status) => {
-        statusField.textContent = status;
+    let progressBar = document.getElementById(`${id}-progress`);
+
+    let statusCallback = (status, progress) => {
+        if (statusContainer !== null) {
+            statusContainer.hidden = false;
+        }
+
         statusField.className = "";
+        statusField.textContent = status;
+
+        if (progress !== undefined) {
+            progressBar.hidden = false;
+            progressBar.value = progress;
+        }
     };
 
     let button = document.getElementById(`${id}-button`);
