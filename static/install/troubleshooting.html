@@ -51,6 +51,7 @@
                 <ul>
                     <li><a href="#asking-for-help">Asking for help</li>
                     <li><a href="#flashing-fails-tmp">Flashing fails due to tmp being full</li>
+                    <li><a href="#fastboot-too-old">./flash-all yields "fastboot too old."</a></li>
                 </ul>
                     <section id="asking-for-help">
                         <h3><a href="#asking-for-help">Asking for help</a></h3>
@@ -70,6 +71,24 @@
                         temporary directory if your <code>/tmp</code> doesn't have enough space available:</p>
 
                         <pre>mkdir tmp &amp;&amp; TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
+                    </section>
+
+                    <section id="fastboot-too-old">
+                        <h3><a href="#fastboot-too-old">./flash-all yields "fastboot too old."</a></h3>
+                        <p><strong>Problem:</strong> When typing in <code>./flash-all</code> into the commandline
+                        install, some traceback is printed that includes the words "fastboot too old."</p>
+
+                        <p><strong>Cause:</strong> Your version of fastboot is either a third-party unofficial
+                        version of fastboot, you have multiple versions of fastboot installed and your system path
+                        includes a bad version, or you are not using powershell. This is generally caused by
+                        following unofficial, obsolete third-party guides which encourage the use of unofficial
+                        adb packages, rather than the official platform tools release from Google.</p>
+
+                        <p><strong>Solution:</strong> Delete or uninstall any third-party versions of fastboot
+                        from your computer, including versions of fastboot or platform-tools that were installed
+                        via your operating system repositories if you are running any Linux distributions. Undo
+                        any changes you have made to your system variables. If you are using Windows, you must
+                        use Powershell, rather than cmd.</p>
                     </section>
         </main>
         <footer>
