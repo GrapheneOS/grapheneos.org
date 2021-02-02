@@ -53,6 +53,7 @@
                     <li><a href="#flashing-fails-tmp">Flashing fails due to tmp being full</li>
                     <li><a href="#fastboot-too-old">./flash-all yields "fastboot too old."</a></li>
                     <li><a href="#flashing-hangs">Flashing hangs once started</a></li>
+                    <li><a href="#device-bootloops">Device bootloops after installation</a></li>
                 </ul>
                     <section id="asking-for-help">
                         <h3><a href="#asking-for-help">Asking for help</a></h3>
@@ -108,6 +109,27 @@
                         <p><strong>Solution:</strong> Try another cable, utilizing a high-quality USB-A to USB-C
                         cable plugged into a rear USB3 port of your computer, try switching ports, or try using
                         a different computer altogether.</p>
+                    </section>
+
+                    <section id="device-bootloops">
+                        <h3><a href="#device-bootloops">Device bootloops after installation</a></h3>
+                        <p><strong>Problem:</strong> The device bootloops after installation. Fastboot displays
+                        "no valid slot" error even after being instructed to "start" via the command keys.</p>
+
+                        <p><strong>Cause:</strong> Unofficial versions of platform-tools such as minimal-adb,
+                        following unofficial guides which encourage the use of third-party packages, or
+                        an outdated platform-tools and fastboot were used. The safety check in the flash-all
+                        script to prevent this from happening was erased. This is a typical outcome of unofficial
+                        instructions, but note that old or unofficial versions of fastboot have the potential
+                        to brick devices permanently.</p>
+
+                        <p>Other ways this can be caused include interrupting the phone during flashing before
+                        the installer script or the graphical installer has the chance to run to completion.</p>
+
+                        <p><strong>Solution:</strong> Follow the official instructions or use the web installer.
+                        Start from the beginning. Ensure you do not disturb the phone until it has rebooted to
+                        fastboot; while it is in <strong>fastbootd</strong>, data is still being transferred
+                        and written to the device.</p>
                     </section>
         </main>
         <footer>
