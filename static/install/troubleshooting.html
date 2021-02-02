@@ -48,7 +48,29 @@
         <main id="troubleshooting">
             <h1><a href="#troubleshooting">Troubleshooting</a></h1>
                 <h2><a href="#table-of-contents">Table of contents</a></h2>
+                <ul>
+                    <li><a href="#asking-for-help">Asking for help</li>
+                    <li><a href="#flashing-fails-tmp">Flashing fails due to tmp being full</li>
+                </ul>
+                    <section id="asking-for-help">
+                        <h3><a href="#asking-for-help">Asking for help</a></h3>
+                        <p>The text output from a failed attempt at flashing will contain valuable
+                        diagnostic information which is essential in knowing where and how the process
+                        went wrong. Please provide this information when asking for help on the
+                        GrapheneOS IRC / Matrix channel.</p>
+                    </section>
 
+                    <section id="flashing-fails-tmp">
+                        <h3><a href="#flashing-fails-tmp">Flashing fails due to tmp being full</a></h3>
+                        <p>A common issue on Linux distributions is that they mount the default temporary file
+                        directory <code>/tmp</code> as tmpfs which results in it being backed by memory and
+                        swap rather than persistent storage. By default, the size is 50% of the available
+                        virtual memory. This is often not enough for the flashing process, especially since
+                        <code>/tmp</code> is shared between applications and users. To use a different
+                        temporary directory if your <code>/tmp</code> doesn't have enough space available:</p>
+
+                        <pre>mkdir tmp &amp;&amp; TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
+                    </section>
         </main>
         <footer>
             <a href="/"><img src="/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
