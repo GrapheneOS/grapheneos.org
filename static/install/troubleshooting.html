@@ -52,6 +52,7 @@
                     <li><a href="#asking-for-help">Asking for help</li>
                     <li><a href="#flashing-fails-tmp">Flashing fails due to tmp being full</li>
                     <li><a href="#fastboot-too-old">./flash-all yields "fastboot too old."</a></li>
+                    <li><a href="#flashing-hangs">Flashing hangs once started</a></li>
                 </ul>
                     <section id="asking-for-help">
                         <h3><a href="#asking-for-help">Asking for help</a></h3>
@@ -89,6 +90,24 @@
                         via your operating system repositories if you are running any Linux distributions. Undo
                         any changes you have made to your system variables. If you are using Windows, you must
                         use Powershell, rather than cmd.</p>
+                    </section>
+
+                    <section id="flashing-hangs">
+                        <h3><a href="#flashing-fails-tmp">Flashing hangs once started</a></h3>
+                        <p><strong>Problem:</strong> Once flashing is started, either via the commandline, or
+                        via the graphical install, it simply hangs. No text is printed to the screen or appears
+                        in scrollback. The phone appears inactive.</p>
+
+                        <p><strong>Cause:</strong> This is typically caused by broken USB cables, or your USB
+                        slot on your computer's motherboard being faulty and not properly implementing all
+                        the features that the USB protocol has that fastboot needs. If the command
+                        <code>fastboot devices</code> lists your device properly, but <code>./flash-all</code>
+                        hangs once started, it's likely that your motherboard's implementation of USB is broken
+                        or incomplete, or your cable is faulty.</p>
+
+                        <p><strong>Solution:</strong> Try another cable, utilizing a high-quality USB-A to USB-C
+                        cable plugged into a rear USB3 port of your computer, try switching ports, or try using
+                        a different computer altogether.</p>
                     </section>
         </main>
         <footer>
