@@ -54,6 +54,7 @@
                     <li><a href="#fastboot-too-old">./flash-all yields "fastboot too old."</a></li>
                     <li><a href="#flashing-hangs">Flashing hangs once started</a></li>
                     <li><a href="#device-bootloops">Device bootloops after installation</a></li>
+                    <li><a href="#fastboot-waiting">Fastboot gets stuck waiting for device</a></li>
                 </ul>
                     <section id="asking-for-help">
                         <h3><a href="#asking-for-help">Asking for help</a></h3>
@@ -130,6 +131,29 @@
                         Start from the beginning. Ensure you do not disturb the phone until it has rebooted to
                         fastboot; while it is in <strong>fastbootd</strong>, data is still being transferred
                         and written to the device.</p>
+                    </section>
+
+                    <section id="fastboot-waiting">
+                        <h3><a href="#flashing-waiting">Fastboot gets stuck waiting for device</a></h3>
+                        <p><strong>Problem:</strong> When trying to unlock the bootloader, or do anything else
+                        to the phone, fastboot stalls with <code>waiting for device</code> printed to screen.</p>
+                        Running the <code>fastboot devices</code> command returns no output.
+
+                        <p><strong>Cause:</strong> The phone must be switched on, plugged in, and on the fastboot
+                        screen in order for fastboot to communicate with it. If it is, then on Linux, if the
+                        <code>fastboot devices</code> returns the correct answer as root, but does not work as
+                        a non-root user, udev is not permitting fastboot to communicate with the handset. On
+                        Windows, the fastboot driver from Microsoft via Windows Update is missing.</p>
+
+                        <p><strong>Solution:</strong> Plug in your phone while it is switched on to fastboot via
+                        the combo keys (hold down Volume Down and Power for ten seconds and release both
+                        simultaneously). On Linux, ensure you have the
+                        <a href="/install/cli#flashing-as-non-root">udev rules</a> installed. On Windows,
+                        ensure you have Optional Updates enabled in Windows update. Plug the phone in, search
+                        for it in <em>Device Manager</em>, and click install driver. <strong>Do not
+                        install third-party drivers downloaded outside of Windows Update. Doing
+                        so may result in a security compromise to your system and/or physical damage to
+                        your phone.</strong></p>
                     </section>
         </main>
         <footer>
