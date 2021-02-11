@@ -84,44 +84,51 @@
             <section id="never-google-services">
                 <h2><a href="#never-google-services">No Google apps or services</a></h2>
 
-                <p>GrapheneOS will never include either Google Play services or another implementation
-                of Google services like microG. Those are not part of the Android Open Source Project
-                and are not required for baseline Android compatibility. Apps designed to run on
-                Android rather than only Android with bundled Google apps and services already work on
-                GrapheneOS, so a huge number of both open and closed source apps are already available
-                for it.</p>
+                <p>GrapheneOS will never include either Google Play services or another
+                implementation of Google services like microG. Those are not included in the
+                Android Open Source Project and are not required for baseline Android
+                compatibility. Apps designed to run on Android rather than only Android with
+                bundled Google apps and services already work on GrapheneOS, so a huge number of
+                both open and closed source apps are already available for it.</p>
 
-                <p>AOSP APIs not tied to Google but that are typically provided via Play services will
-                continue to be implemented using open source providers like the Seedvault backup app.
-                Text-to-speech, speech-to-text, non-GPS-based location services, geocoding,
-                accessibility services, etc. are examples of other open Android APIs where we need to
-                develop/bundle an implementation based on existing open source projects. GrapheneOS is
-                not going to be implementing these via a Google service compatibility layer because
-                these APIs are in no way inherently tied to Google services.</p>
+                <p>AOSP APIs not tied to Google but that are typically provided via Play services
+                will continue to be implemented using open source providers like the Seedvault
+                backup app. Text-to-speech, speech-to-text, non-GPS-based location services,
+                geocoding, accessibility services, etc. are examples of other open Android APIs
+                where we need to develop/bundle an implementation based on existing open source
+                projects. GrapheneOS is not going to be implementing these via a Google service
+                compatibility layer because these APIs are in no way inherently tied to Google
+                services.</p>
 
-                <p>We're developing support for installing microG as a regular app without any special
-                privileges. This will allow users to choose to use a partial reimplementation of Play
-                services in a specific profile. We won't be supporting arbitrary signature spoofing by
-                microG or any other app since it seriously compromises the OS security model. Guarding
-                it by a permission isn't enough, both because users don't understand the substantial
-                impact on the security model and it weakens security for the verified boot threat
-                model where persistent state such as granted permissions is controlled by an attacker.
-                Instead, the OS will specifically make microG signed with our microG signing key
-                appear to other apps as signed with the Google Play services key. It won't bypass any
-                other signature checks, only a check for Play services, and other apps also won't be
-                able to pretend to be Play services to intercept FCM messages, obtain Google
-                credentials, etc. It will not be granted any privileged permissions or other special
-                capabilities unavailable to a regular untrusted app.</p>
+                <p>We're developing a minimal Play services compatibility layer as a regular app
+                without any special privileges. The app will provide a stub implementation of the
+                entire Play services API pretending the servers are down and the functionality is
+                unavailable. It will always be disabled by default since apps will detect Play
+                services is available and will try to use it rather than alternatives. As an
+                example, Signal would try to use a non-functional FCM implementation rather than
+                their own server push implementation. The intention is that users will only enable
+                this in profiles dedicated to running apps with an unnecessary hard dependency on
+                Play services. We'll likely prevent enabling it in the owner profile to help users
+                avoid those kinds of pitfalls.</p>
 
-                <p>In the longer term, we also plan to offer a more minimal compatibility layer which
-                pretends that Google services are offline rather than implementing them. Users will
-                have the choice between no implementation of Play services, microG and this minimal
-                implementation not implementing Google services. This choice will be available because
-                we won't be bundling any of this into the OS. Ideally, Google themselves would support
-                installing the official Play services as a regular Android app, rather than taking the
-                monopolistic approach of forcing it to be bundled into the OS in a deeply integrated
-                way with special privileged permissions and capabilities unavailable to other cloud
-                service providers competing with them.</p>
+                <p>Our Play services app won't have any special privileges or whitelisting in the
+                OS like Play services or microG. There will be no support for bypassing arbitrary
+                signature checks like the microG signature spoofing patch since it substantially
+                compromises the OS security model and breaks other security features like verified
+                boot. Instead, our app will be signed with a GrapheneOS Play services key and the
+                only OS support for the app will be presenting the GrapheneOS Play services key as
+                the Google Play services key.</p>
+
+                <p>Ideally, Google themselves would support installing the official Play services
+                as a regular Android app, rather than taking the monopolistic approach of forcing
+                it to be bundled into the OS in a deeply integrated way with special privileged
+                permissions and capabilities unavailable to other service providers competing with
+                them. Even though we would never include it in GrapheneOS, it would be great if
+                users did have the option to install Play services as a regular app in specific
+                profiles. It's unfortunate that the approach taken to it is so deeply integrated
+                and anti-competitive. GrapheneOS users can still choose to use Google services if
+                they choose, but largely only via a browser. A few of their apps like Google Maps
+                do work with reduced functionality without Play services but most won't.</p>
             </section>
 
             <section id="history">
