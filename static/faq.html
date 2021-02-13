@@ -108,6 +108,8 @@
                             <li><a href="#updates">How do I keep the OS updated?</a></li>
                             <li><a href="#updates-sideloading">How do I update without connecting the
                             device to the internet?</a></li>
+                            <li><a href="#installing-apps-other-profiles">How do I install apps in
+                            other profiles?</a></li>
                         </ul>
                     </li>
                     <li><a href="#features">What features does GrapheneOS implement?</a></li>
@@ -992,6 +994,31 @@
 
                     <p>Updates can be <a href="/usage#updates-sideloading">sideloaded via
                     recovery</a>.</p>
+                </article>
+
+                <article id="installing-apps-other-profiles">
+                    <h3><a href="#installing-apps-other-profiles">How do I install apps in other
+                    profiles?</a> </h3>
+
+                    <p>Apps can be installed in other profiles the same way they are installed to
+                    the owner profile. Each app in each profile will have its own per-app storage
+                    specific to it which is not shared with any other app. However, only one version
+                    of an app is installed at any one point in time globally across all the
+                    profiles on the phone.</p>
+
+                    <p>After an app has been installed to one profile, installing it into another
+                    one instructs the phone to allow the subsequent profile to use the app, with its
+                    own storage. Once an app is installed into two profiles, either profile can
+                    update the app as long as the app was signed by the same certificate that
+                    installed or validated the previous update, but both profiles will use the same
+                    version of the app.</p>
+
+                    <p>To prevent version downgrade attacks, Android does not permit older versions
+                    of an app to be installed overtop a more recent one. If an app is installed into
+                    a profile, to install it into another profile <strong>requires the second profile
+                    install either the same or a newer version.</strong> If the app in the first
+                    profile has been upgraded since it was installed, using the outdated .apk file
+                    to attempt to install it in another profile will produce an error.</p>
                 </article>
             </section>
 
