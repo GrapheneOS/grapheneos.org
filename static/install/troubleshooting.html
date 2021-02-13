@@ -56,6 +56,7 @@
                     <li><a href="#device-bootloops">Device bootloops after installation</a></li>
                     <li><a href="#fastboot-waiting">Fastboot gets stuck waiting for device</a></li>
                     <li><a href="#4a-on-4a5g">4a5G shows no signs of life after installation</a></li>
+                    <li><a href="#error-undefined">Web Installer displays 'Error: undefined'</a></li>
                 </ul>
                     <section id="asking-for-help">
                         <h3><a href="#asking-for-help">Asking for help</a></h3>
@@ -167,6 +168,18 @@
                         <p><strong>Solution:</strong> The device is permanently bricked. You will need to buy
                         a new one.</p>
                     </section>
+
+                    <section id="error-undefined">
+                        <h3><a href="#error-undefined">Web Installer displays 'Error: undefined'</a></h3>
+                        <p><strong>Problem:</strong> While installing using the web installer, the browser
+                        displays an error message of <code>Error: undefined</code>.</p>
+
+                        <p><strong>Cause:</strong> The browser is clearing the downloaded files prematurely,
+                        before the installer has had the chance to finish working. This may happen if there
+                        is not enough space to download all the files or while using Private mode.</p>
+
+                        <p><strong>Solution:</strong> Use the web installer without Private mode.</p>
+                   </section>
         </main>
         <footer>
             <a href="/"><img src="/logo.png" width="512" height="512" alt=""/>GrapheneOS</a>
