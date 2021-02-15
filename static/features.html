@@ -198,9 +198,10 @@
                     when sending mail including alert messages from the attestation service</li>
                     <li>SSHFP across all domains for pinning SSH keys</li>
                     <li>Static key pinning for our services in apps like Auditor</li>
-                    <li>No cookies or similar client-side state for anything other than login sessions,
-                    which are set up via SameSite=strict cookies and have server-side session tracking
-                    with the ability to log out of other sessions</li>
+                    <li>No persistent cookies or similar client-side state for anything other than
+                    login sessions, which are set up via SameSite=strict cookies and have
+                    server-side session tracking with the ability to log out of other
+                    sessions</li>
                     <li>scrypt-based password hashing (likely Argon2 when the available implementations
                     are more mature)</li>
                 </ul>
