@@ -1,6 +1,6 @@
 // @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt MIT
 
-import * as fastboot from "./fastboot/dist/fastboot.min.mjs?6";
+import * as fastboot from "./fastboot/dist/fastboot.min.mjs?7";
 
 const RELEASES_URL = "https://releases.grapheneos.org";
 
@@ -196,10 +196,9 @@ async function flashRelease(setProgress) {
     }
 
     setProgress("Flashing release...");
-    await fastboot.FactoryImages.flashZip(
-        device, blob, true, reconnectCallback,
+    await device.flashFactoryZip(blob, true, reconnectCallback,
         (action, item, progress) => {
-            let userAction = fastboot.FactoryImages.USER_ACTION_MAP[action];
+            let userAction = fastboot.USER_ACTION_MAP[action];
             let userItem = item === "avb_custom_key" ? "verified boot key" : item;
             setProgress(`${userAction} ${userItem}...`, progress);
         }
@@ -267,9 +266,9 @@ function addButtonHook(id, callback) {
 
 // This doesn't really hurt, and because this page is exclusively for web install,
 // we can tolerate extra logging in the console in case something goes wrong.
-fastboot.setDebugMode(true);
+fastboot.setDebugLevel(2);
 
-fastboot.FactoryImages.configureZip({
+fastboot.configureZip({
     workerScripts: {
         inflate: ["/js/fastboot/dist/vendor/z-worker-pako.js", "pako_inflate.min.js"],
     },
