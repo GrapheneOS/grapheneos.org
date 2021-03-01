@@ -207,6 +207,19 @@ async function flashRelease(setProgress) {
     return `Flashed ${latestZip} to device.`;
 }
 
+async function eraseNonStockKey(setProgress) {
+    await ensureConnected(setProgress);
+
+    setProgress("Erasing key...");
+    try {
+        await device.runCommand("erase:avb_custom_key");
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+    return "Key erased.";
+}
+
 async function lockBootloader(setProgress) {
     await ensureConnected(setProgress);
 
@@ -281,6 +294,7 @@ if ("usb" in navigator) {
     addButtonHook("download-release", downloadRelease);
     addButtonHook("flash-release", flashRelease);
     addButtonHook("lock-bootloader", lockBootloader);
+    addButtonHook("remove-custom-key", eraseNonStockKey);
 } else {
     console.log("WebUSB unavailable");
 }
