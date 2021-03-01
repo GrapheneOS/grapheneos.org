@@ -80,6 +80,7 @@
                             <li><a href="#booting">Booting</a></li>
                             <li><a href="#disabling-oem-unlocking">Disabling OEM unlocking</a></li>
                             <li><a href="#verifying-installation">Verifying installation</a></li>
+                            <li><a href="#replacing-grapheneos-with-the-stock-os">Replacing GrapheneOS with the stock OS</a></li>
                             <li><a href="#further-information">Further information</a></li>
                         </ul>
                     </li>
@@ -331,6 +332,23 @@
                     cleared) will provide strong validation of the identity and integrity of the
                     device. That makes it best to get the pairing done right after installation. You can
                     also consider setting up the optional remote attestation service.</p>
+                </section>
+
+                <section id="replacing-grapheneos-with-the-stock-os">
+                    <h3><a href="#replacing-grapheneos-with-the-stock-os">Replacing GrapheneOS with the stock OS</a></h3>
+
+                    <p>Installation of the stock OS via the stock factory images is the same process
+                    described above. However, before locking, there's an additional step to fully revert
+                    the device to a clean factory state.</p>
+
+                    <p>The GrapheneOS factory images flash a non-stock Android Verified Boot key which
+                    needs to be erased to fully revert back to a stock device state. After flashing the
+                    stock factory images and before locking the bootloader, you should erase the custom
+                    Android Verified Boot key to untrust it:</p>
+
+                    <button id="remove-custom-key-button" disabled="disabled">Remove non-stock key</button>
+                
+                    <p><strong id="remove-custom-key-status"></strong></p>
                 </section>
 
                 <section id="further-information">
