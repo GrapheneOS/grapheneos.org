@@ -93,12 +93,11 @@
 
                 <p>AOSP APIs not tied to Google but that are typically provided via Play services
                 will continue to be implemented using open source providers like the Seedvault
-                backup app. Text-to-speech, speech-to-text, non-GPS-based location services,
-                geocoding, accessibility services, etc. are examples of other open Android APIs
-                where we need to develop/bundle an implementation based on existing open source
-                projects. GrapheneOS is not going to be implementing these via a Google service
-                compatibility layer because these APIs are in no way inherently tied to Google
-                services.</p>
+                backup app. Text-to-speech, speech-to-text, geocoding, accessibility services,
+                etc. are examples of other open Android APIs where we need to develop/bundle an
+                implementation based on existing open source projects. GrapheneOS is not going to
+                be implementing these via a Google service compatibility layer because these APIs
+                are in no way inherently tied to Google services.</p>
 
                 <p>We're developing a minimal Play services compatibility layer as a regular app
                 without any special privileges. The app will provide a stub implementation of the
