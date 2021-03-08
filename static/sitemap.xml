@@ -43,6 +43,10 @@
         <priority>0.5</priority>
     </url>
     <url>
+        <loc>https://grapheneos.org/history</loc>
+        <priority>0.5</priority>
+    </url>
+    <url>
         <loc>https://grapheneos.org/articles/</loc>
         <priority>0.5</priority>
     </url>
