@@ -7,7 +7,7 @@ on:
 
 jobs:
   static:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     env:
       VALIDATOR_VERSION: 20.6.30
