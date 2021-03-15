@@ -525,6 +525,16 @@
                     details, so you can stop reading here if you only want an overview and actionable
                     advice (i.e. use profiles as identities not inherently tied to each other).</p>
 
+                    <p>Examples of the global OS configuration available to apps are configured
+                    locale, time zone, network country code, whether the dark theme is enabled and
+                    other similar global settings. Similar to extension and browser configuration
+                    / state being fingerprinted by web sites, an app could use a combination of
+                    these things in an attempt to identify the installation. All of these things
+                    vary at runtime and can be changed, but some are fairly unlikely to change in
+                    practice after the initial setup of the device such as the ones listed above.
+                    GrapheneOS will likely add further restrictions in this area and a couple
+                    toggles for certain cases like time zones to use a standard value instead.</p>
+
                     <p>Apps can generate their own 128-bit or larger random value and use that as an
                     identifier for the app installation. Apps can create data in their app-specific
                     external storage directory by default without needing permission, and in the legacy
