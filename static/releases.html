@@ -441,6 +441,8 @@
                         <li>Vanadium: update Chromium base to 89.0.4389.90</li>
                         <li>Vanadium: enable partitioning connections by default</li>
                         <li>integrate the latest open source release of TalkBack and Switch Access again (a text-to-speech service like RHVoice needs to be installed, configured and enabled to be able to use TalkBack)</li>
+                        <li>SELinux policy: remove tmpfs execute for all base system app domains again</li>
+                        <li>SELinux policy: expand exception from ashmem execute restriction to legacy non-base system app domains (was more strict than currently intended since we don't want to break app compatibility)</li>
                     </ul>
                 </article>
                 -->
