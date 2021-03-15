@@ -34,6 +34,7 @@ jobs:
         key: ${{ runner.os }}-validator-${{ env.VALIDATOR_VERSION }}
 
     - run: sudo apt-get update
+      continue-on-error: true
     - run: sudo apt-get -y install libxml2-utils yajl-tools python3-lxml python3-cssselect moreutils brotli zopfli
     - run: npm install
 
