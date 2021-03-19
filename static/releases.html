@@ -445,7 +445,7 @@
                         <li>SELinux policy: expand exception from ashmem execute restriction to legacy non-base system app domains (was more strict than currently intended since we don't want to break app compatibility)</li>
                         <li>add Bluetooth timeout feature with a security fix applied to the original implementation</li>
                         <li>Updater: rename title of the management activity launched via Settings</li>
-                        <li>set GrapheneOS launcher as a default notification listener so that the default enabled notification integration works as intended by default like the stock OS</li>
+                        <li>set GrapheneOS launcher as a default notification listener on fresh installs so that the default enabled notification integration is permitted by default like the stock OS (existing users still need to manually enable the permission for the built-in launcher)</li>
                         <li>add back removing DUN requirement for tethering</li>
                         <li>add back ignoring tethering provisioning requirement</li>
                         <li>enable app compaction by default</li>
