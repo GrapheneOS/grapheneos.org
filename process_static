@@ -13,6 +13,8 @@ for file in static_tmp/**/*.@(json|webmanifest); do
     json_reformat -m < "$file" | sponge "$file"
 done
 
+find static_tmp -name '*.css' -exec csso {} -o {} \;
+find static_tmp -name '*.js' -exec terser --module -cmo {} {} \;
 find static_tmp -name '*.html' -exec html-minifier --collapse-whitespace \
     --process-scripts "application/ld+json" --collapse-boolean-attributes \
     --remove-attribute-quotes --remove-comments --remove-empty-attributes \
@@ -25,8 +27,6 @@ for file in static_tmp/**/*.@(atom|xml); do
     xmllint --noblanks "$file" --output "$file"
 done
 
-find static_tmp -name '*.css' -exec csso {} -o {} \;
-find static_tmp -name '*.js' -exec terser --module -cmo {} {} \;
 find static_tmp -regex '.+\.\(atom\|css\|html\|ico\|js\|json\|mjs\|pdf\|svg\|txt\|webmanifest\|xml\)' \
     -exec zopfli {} \; -exec touch -r {} {}.gz \; \
     -exec brotli -k {} \;
