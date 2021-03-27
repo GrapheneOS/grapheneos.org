@@ -15,6 +15,18 @@ done
 
 find static_tmp -name '*.css' -exec csso {} -o {} \;
 find static_tmp -name '*.js' -exec terser --module -cmo {} {} \;
+
+replace=""
+for file in static_tmp/**/*.css static_tmp/js/*.js; do
+    hash=$(sha256sum "$file" | head -c 8)
+    dest="$(dirname $file)/$hash.$(basename $file)"
+    mv "$file" "$dest"
+    replace+=";s/\\/$(basename $file)/\\/$(basename $dest)/g"
+done
+
+cp nginx/nginx.conf nginx.conf.tmp
+sed -i "$replace" static_tmp/**/*.html nginx.conf.tmp
+
 find static_tmp -name '*.html' -exec html-minifier --collapse-whitespace \
     --process-scripts "application/ld+json" --collapse-boolean-attributes \
     --remove-attribute-quotes --remove-comments --remove-empty-attributes \

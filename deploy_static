@@ -25,5 +25,9 @@ ssh $remote sync -f $target
 ssh $remote ln -snf $target /var/www/html
 ssh $remote sync .
 
+rsync -rpcv --chmod=D755,F644 --delete nginx.conf.tmp $remote:/etc/nginx/nginx.conf
+ssh $remote sync -f /etc/nginx/nginx.conf
+ssh $remote systemctl reload nginx
+
 echo
 echo active is now $target
