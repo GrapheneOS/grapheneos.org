@@ -212,7 +212,6 @@
                     <li>Authenticated encryption for all of our services</li>
                     <li>Strong cipher configurations for all of our services (SSH, TLS, etc.) with
                     only modern AEAD ciphers providing forward secrecy</li>
-                    <li>Our web services use robust OCSP stapling with Must-Staple</li>
                     <li>Our web sites do not include any third party content and entirely forbid
                     it via strict Content Security Policy rules</li>
                     <li>Our web sites disable referrer headers to maximize privacy</li>
@@ -229,6 +228,7 @@
                     when sending mail including alert messages from the attestation service</li>
                     <li>SSHFP across all domains for pinning SSH keys</li>
                     <li>Static key pinning for our services in apps like Auditor</li>
+                    <li>Our web services use robust OCSP stapling with Must-Staple</li>
                     <li>No persistent cookies or similar client-side state for anything other than
                     login sessions, which are set up via SameSite=strict cookies and have
                     server-side session tracking with the ability to log out of other
