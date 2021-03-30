@@ -6,12 +6,12 @@ set -o errexit -o nounset -o pipefail
 ./process_static
 
 remote=root@grapheneos.org
-active=$(ssh $remote readlink /var/www/html)
+active=$(ssh $remote readlink /srv/grapheneos.org)
 
-if [[ $active = /var/www/html_a ]]; then
-    target=/var/www/html_b
+if [[ $active = /srv/grapheneos.org_a ]]; then
+    target=/srv/grapheneos.org_b
 else
-    target=/var/www/html_a
+    target=/srv/grapheneos.org_a
 fi
 
 echo active is $active
@@ -22,7 +22,7 @@ ssh $remote rm -rf $target
 ssh $remote cp -a $active $target
 rsync -rpcv --chmod=D755,F644 --delete static_tmp/ $remote:$target
 ssh $remote sync -f $target
-ssh $remote ln -snf $target /var/www/html
+ssh $remote ln -snf $target /srv/grapheneos.org
 ssh $remote sync .
 
 rsync -rpcv --chmod=D755,F644 --delete nginx.conf.tmp $remote:/etc/nginx/nginx.conf
