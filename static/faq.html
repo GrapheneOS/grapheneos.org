@@ -396,15 +396,13 @@
                     owner profile without rebooting due to it encrypting the sensitive system-wide
                     operating system data.</p>
 
-                    <p>Our recommendation for a high security setup is to use the owner profile
-                    only for managing other profiles. Using a secondary profile for regular usage
-                    allows you to make use of the device without decrypting the data in your
-                    regular usage profile. It also allows putting it at rest without rebooting the
-                    device. Even if you use the same passphrase for multiple profiles, each of
-                    those profiles still ends up with a unique key encryption key and a compromise
-                    of the OS while one of them is active won't leak the passphrase. The advantage
-                    to using separate passphrases is in case an attacker records you entering
-                    it.</p>
+                    <p>Using a secondary profile for regular usage allows you to make use of the
+                    device without decrypting the data in your regular usage profile. It also
+                    allows putting it at rest without rebooting the device. Even if you use the
+                    same passphrase for multiple profiles, each of those profiles still ends up
+                    with a unique key encryption key and a compromise of the OS while one of them
+                    is active won't leak the passphrase. The advantage to using separate
+                    passphrases is in case an attacker records you entering it.</p>
 
                     <p>File data is encrypted with AES-256-XTS and file names with AES-256-CTS. A
                     unique key is derived using HKDF-SHA512 for each regular file, directory and
