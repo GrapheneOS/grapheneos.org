@@ -2,8 +2,8 @@
 
 // Client-side redirects for fragments (anchors)
 //
-// It should be possible to do this with server-side redirects, but it was never implemented or
-// standardized. For reference:
+// It should be possible to do this with either HTML or server-side redirects, but it was never
+// implemented or standardized. For reference:
 //
 // https://www.w3.org/People/Bos/redirect
 // https://www.w3.org/Protocols/HTTP/Fragment/draft-bos-http-redirect-00.txt
