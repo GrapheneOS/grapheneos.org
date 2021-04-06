@@ -7,6 +7,8 @@ const RELEASES_URL = "https://releases.grapheneos.org";
 const CACHE_DB_NAME = "BlobStore";
 const CACHE_DB_VERSION = 1;
 
+let safeToLeave = true;
+
 // This wraps XHR because getting progress updates with fetch() is overly complicated.
 function fetchBlobWithProgress(url, onProgress) {
     let xhr = new XMLHttpRequest();
@@ -155,11 +157,16 @@ async function downloadRelease(setProgress) {
     let latestZip = await getLatestRelease();
 
     // Download and cache the zip as a blob
+    safeToLeave = false;
     setProgress(`Downloading ${latestZip}...`);
     await blobStore.init();
-    await blobStore.download(`${RELEASES_URL}/${latestZip}`, (progress) => {
-        setProgress(`Downloading ${latestZip}...`, progress);
-    });
+    try {
+        await blobStore.download(`${RELEASES_URL}/${latestZip}`, (progress) => {
+            setProgress(`Downloading ${latestZip}...`, progress);
+        });
+    } finally {
+        safeToLeave = true;
+    }
     setProgress(`Downloaded ${latestZip} release.`, 1.0);
 }
 
@@ -196,13 +203,18 @@ async function flashRelease(setProgress) {
     }
 
     setProgress("Flashing release...");
-    await device.flashFactoryZip(blob, true, reconnectCallback,
-        (action, item, progress) => {
-            let userAction = fastboot.USER_ACTION_MAP[action];
-            let userItem = item === "avb_custom_key" ? "verified boot key" : item;
-            setProgress(`${userAction} ${userItem}...`, progress);
-        }
-    );
+    safeToLeave = false;
+    try {
+        await device.flashFactoryZip(blob, true, reconnectCallback,
+            (action, item, progress) => {
+                let userAction = fastboot.USER_ACTION_MAP[action];
+                let userItem = item === "avb_custom_key" ? "verified boot key" : item;
+                setProgress(`${userAction} ${userItem}...`, progress);
+            }
+        );
+    } finally {
+        safeToLeave = true;
+    }
 
     return `Flashed ${latestZip} to device.`;
 }
@@ -298,5 +310,13 @@ if ("usb" in navigator) {
 } else {
     console.log("WebUSB unavailable");
 }
+
+// This will create an alert box to stop the user from leaving the page during actions
+window.addEventListener("beforeunload", event => {
+    if (!safeToLeave) {
+        console.log("User tried to leave the page whilst unsafe to leave!");
+        event.returnValue = "";
+    }
+});
 
 // @license-end
