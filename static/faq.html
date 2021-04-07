@@ -1083,11 +1083,12 @@
                     <p>Polling is the traditional pull-based approach of checking for new events
                     at an interval. This is badly suited to mobile devices for anything more than
                     very infrequent checks. Apps using infrequent polling are supposed to use the
-                    JobScheduler service. A minority of apps may only be able to use Firebase
-                    WorkManager or the legacy Firebase JobDispatcher. Most apps doing this should
-                    work fine on GrapheneOS. An example of an app needing to use this approach is
-                    a feed reader for RSS/Atom feeds or an email client dealing with legacy email
-                    servers without IMAP IDLE push support.</p>
+                    JobScheduler service. A minority of apps may only know how to use Firebase
+                    WorkManager or the legacy Firebase JobDispatcher. Most apps know how to use
+                    JobScheduler rather than depending on Google Play services for the Firebase
+                    services. Typical examples of apps using this approach are a feed reader for
+                    RSS/Atom feeds or an email client providing notifications of new emails for a
+                    server without IMAP IMAP push support.</p>
 
                     <p>Push messaging is the modern push-based model of receiving events from the
                     server as they occur by keeping open a connection to it. Push messaging still
