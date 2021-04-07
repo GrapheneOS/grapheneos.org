@@ -110,6 +110,7 @@
                             <li><a href="#updates">How do I keep the OS updated?</a></li>
                             <li><a href="#updates-sideloading">How do I update without connecting the
                             device to the internet?</a></li>
+                            <li><a href="#notifications">Do notifications properly work on GrapheneOS?</a></li>
                         </ul>
                     </li>
                     <li><a href="#features">What features does GrapheneOS implement?</a></li>
@@ -1061,6 +1062,60 @@
 
                     <p>Updates can be <a href="/usage#updates-sideloading">sideloaded via
                     recovery</a>.</p>
+                </article>
+
+                <article id="notifications">
+                    <h2><a href="#notifications">Do notifications work properly on GrapheneOS?</a></h2>
+
+                    <p>Yes, notifications work properly on GrapheneOS. Portable apps avoiding a
+                    hard dependency on Google Play services for their functionality have fully
+                    working notifications on GrapheneOS. Apps that are not fully portable across
+                    Android implementations often lack support for background notifications due to
+                    only bothering to implement support for it via Google Play services.</p>
+
+                    <p>Most apps that able to run without Google Play services will have working
+                    notifications when they're in the foreground. Unfortunately, many apps don't
+                    implement a service to continue receiving events from their server in the
+                    background. On the stock OS, they rely on receiving events through Google
+                    servers via Firebase Cloud Messaging (FCM) in the background, and sometimes
+                    also in the foreground.</p>
+
+                    <p>Polling is the traditional pull-based approach of checking for new events
+                    at an interval. This is badly suited to mobile devices for anything more than
+                    very infrequent checks. Apps using infrequent polling are supposed to use the
+                    JobScheduler service. A minority of apps may only be able to use Firebase
+                    WorkManager or the legacy Firebase JobDispatcher. Most apps doing this should
+                    work fine on GrapheneOS. An example of an app needing to use this approach is
+                    a feed reader for RSS/Atom feeds or an email client dealing with legacy email
+                    servers without IMAP IDLE push support.</p>
+
+                    <p>Push messaging is the modern push-based model of receiving events from the
+                    server as they occur by keeping open a connection to it. Push messaging still
+                    uses occasional polling to keep the connection from being killed by a network
+                    using a stateful firewall or some form of NAT. IPv4 mobile networks use large
+                    scale NAT (CGNAT) to work around IPv4 addresses running out. The occasional
+                    polling will also detect a silently dropped connection. An efficient push
+                    implementation will figure out that it's on a reliable network and throttle
+                    the polling to be very infrequent.</p>
+
+                    <p>In order to properly implement either push messaging or frequent polling
+                    themselves, an app needs to run a foreground service. This is displayed as a
+                    persistent notification. It will normally be marked as a silent notification
+                    with the lowest possible priority, so it will be collapsed as the bottom and
+                    won't show up as an icon in the status bar or on the lockscreen. A battery
+                    optimization exception is also needed for the app to bypass device idle states
+                    and run while the device is idle. If you can tolerate delays while the device
+                    is idle, then the battery optimization exception isn't mandatory.</p>
+
+                    <p>FairEmail and Signal are examples of apps using the proper approach of a
+                    foreground service combined with an optional battery optimization exception.
+                    Signal doesn't have an optimized implementation throttling the polling used to
+                    keep the connection alive, but it does work well. Signal always uses their own
+                    push implementation in the foreground, but switches to FCM in the background
+                    when it's available. FairEmail uses the IMAP IDLE push feature provided by
+                    email servers. Most email servers don't provide FCM-based push in the first
+                    place, and the only way for an email app to provide push via FCM would be to
+                    give the user's credentials to their own server to act as a middleman.</p>
                 </article>
             </section>
 
