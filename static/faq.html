@@ -1077,8 +1077,8 @@
                     notifications when they're in the foreground. Unfortunately, many apps don't
                     implement a service to continue receiving events from their server in the
                     background. On the stock OS, they rely on receiving events through Google
-                    servers via Firebase Cloud Messaging (FCM) in the background, and sometimes
-                    also in the foreground.</p>
+                    servers via Firebase Cloud Messaging (FCM) in the background and sometimes
+                    even in the foreground, although it doesn't have good reliability/latency.</p>
 
                     <p>Polling is the traditional pull-based approach of checking for new events
                     at an interval. This is badly suited to mobile devices for anything more than
