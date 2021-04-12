@@ -111,6 +111,7 @@
                             <li><a href="#updates-sideloading">How do I update without connecting the
                             device to the internet?</a></li>
                             <li><a href="#notifications">Do notifications properly work on GrapheneOS?</a></li>
+                            <li><a href="#file-transfer">How do I transfer files to another device?</a></li>
                         </ul>
                     </li>
                     <li><a href="#features">What features does GrapheneOS implement?</a></li>
@@ -1117,6 +1118,30 @@
                     email servers. Most email servers don't provide FCM-based push in the first
                     place, and the only way for an email app to provide push via FCM would be to
                     give the user's credentials to their own server to act as a middleman.</p>
+                </article>
+
+                <article id="file-transfer">
+                    <h3><a href="#file-transfer">How do I transfer files to another device?</a></h3>
+
+                    <p>Files can be transferred to another device using an external drive, USB
+                    file transfer via MTP / PTP or an app-based mechanism.</p>
+
+                    <p>To use an external drive, plug it into the phone and use the system file
+                    manager to copy files to and from it. The only difference on GrapheneOS is USB
+                    peripherals such as USB flash drives will be ignored unless they're plugged in
+                    at boot or when the device is unlocked. You can configure this in Settings ➔
+                    Security.</p>
+
+                    <p>Transferring files to an attached computer is done with MTP / PTP. After
+                    plugging in the phone to the computer, there will be a notification showing
+                    the current USB mode with charging as the default. Pressing the notification
+                    acts as a shortcut to Settings ➔ Connected devices ➔ USB. You can enable file
+                    transfer (MTP) or PTP with this menu. It will provide read/write access to the
+                    entire profile home directory, i.e. the top-level directory named after the
+                    device in the system file manager. Due to needing to trust the computer with
+                    coarse-grained access, we recommend transferring files with a flash drive or
+                    an app with end-to-end encryption such sending the files to yourself via an
+                    end-to-end encrypted messaging app like Element (Matrix).</p>
                 </article>
             </section>
 
