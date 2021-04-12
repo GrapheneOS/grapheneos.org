@@ -8,6 +8,7 @@ export PATH="$PWD/node_modules/.bin:$PATH"
 rm -rf static_tmp
 cp -a static static_tmp
 rm -rf static_tmp/js/fastboot/{!(dist),dist/!(fastboot.min.mjs|fastboot.min.mjs.map|vendor)}
+mv static_tmp/js/fastboot/dist static_tmp/js/fastboot/v1.0.9
 
 for file in static_tmp/**/*.@(json|webmanifest); do
     json_reformat -m < "$file" | sponge "$file"
