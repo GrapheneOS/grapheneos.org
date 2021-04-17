@@ -102,6 +102,7 @@
                             <li><a href="#ad-blocking">How can I set up system-wide ad-blocking?</a></li>
                             <li><a href="#ad-blocking-apps">Are ad-blocking apps supported?</a></li>
                             <li><a href="#baseband-isolation">Is the baseband isolated?</a></li>
+                            <li><a href="#invasive-apps">Are invasive apps contained in some way?</a></li>
                         </ul>
                     </li>
                     <li>
@@ -1045,6 +1046,33 @@
                     Linux kernel is monolithic and has no internal security boundaries, the attack surface
                     is problematic and a HardMAC implementation with most complexity in the isolated
                     firmware could be better than the status quo. An isolated driver would be ideal.</p>
+                </article>
+
+                <article id="invasive-apps">
+                    <h3><a href="#invasive-apps">Are invasive apps contained in some way?</a></h3>
+
+                    <p>On Android, apps are always sandboxed, at all times, to the fullest extent
+                    possible. Apps are strictly prohibited from seeing into other apps' private
+                    data. Whether an app is closed source or open source makes no difference
+                    to the Android security model. GrapheneOS spawns each process
+                    <a href="/usage#exec-spawning">individually as its own process</a> and runs it
+                    inside its own sandbox. Apps are prevented from interacting with anything
+                    outside the sandbox by default unless an exception is made by granting it to
+                    them. This way, each app is confined to its own secure environment, and is
+                    dependent on the operating system to perform actions outside its sandbox on its
+                    behalf, such as using the cameras, giving it access to files, or to the network.
+                    At no time are any apps ever given the means to view another app's data, or what
+                    another app is doing in a separate sandbox; this is prevented by the Android
+                    security model.</p>
+
+                    <p>Inter-process communication is allowed on GrapheneOS as it is vital to the
+                    user experience, but an app can only communicate with other apps in the same
+                    profile if those other apps' developers have whitelisted it specifically when
+                    they wrote it. Thus, it requires both apps to mutually consent, in order for two
+                    apps within the same profile to exchange information. Apps are permitted to
+                    enumerate other apps within the same profile, but may otherwise access only what
+                    they are permitted to or what they are given by the user. Android prevents
+                    inter-process communication across profiles.</p>
                 </article>
             </section>
 
