@@ -22,7 +22,7 @@ for file in static_tmp/**/*.css static_tmp/js/*.js; do
     hash=$(sha256sum "$file" | head -c 8)
     dest="$(dirname $file)/$hash.$(basename $file)"
     mv "$file" "$dest"
-    replace+=";s/\\/$(basename $file)/\\/$(basename $dest)/g"
+    replace+=";s|/${file#*/}|/${dest#*/}|g"
 done
 
 cp nginx/nginx.conf nginx.conf.tmp
