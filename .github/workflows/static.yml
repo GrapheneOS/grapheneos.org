@@ -3,7 +3,7 @@ name: Validate and process static files
 on:
   pull_request:
   push:
-    branches: [master]
+    branches: [main]
 
 jobs:
   static:
