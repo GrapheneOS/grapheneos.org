@@ -167,10 +167,16 @@
                     app</li>
                     <li><a href="/usage#exec-spawning">Secure application spawning system</a> avoiding
                     sharing address space layout and other secrets across applications</li>
-                    <li>Network permission toggle disallowing both direct and indirect network access,
-                    superior to a purely firewall-based implementation only disallowing direct
-                    access to the network without covering inter-process communication (enabled by
-                    default for compatibility)</li>
+                    <li>Network permission toggle for disallowing both direct and indirect access
+                    to any of the available networks. The device-local network (localhost) is also
+                    guarded by this permission, which is important for preventing apps from using
+                    it to communicate between profiles. Unlike a firewall-based implementation,
+                    the Network permission toggle prevents apps from using the network via APIs
+                    provided by the OS or other apps in the same profile as long as they're marked
+                    appropriately.</li>
+                    <li>The standard INTERNET permission used as the basis for the Network
+                    permission toggle is enhanced with a second layer of enforcement and proper
+                    support for granting/revoking it on a per-profile basis.</li>
                     <li>Sensors permission toggle: disallow access to all other sensors not covered by
                     existing Android permissions (enabled by default for compatibility)</li>
                     <li>Authenticated encryption for network time updates via a first party server to
