@@ -3,7 +3,7 @@
     "csso-cli": "^3.0.0",
     "eslint": "^7.25.0",
     "html-minifier": "^4.0.0",
-    "stylelint": "^13.13.0",
+    "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
     "terser": "^5.7.0"
   }
