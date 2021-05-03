@@ -61,10 +61,12 @@ code {
 #site-menu {
     background-color: #212121; /* grey900 */
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
 }
 
 #site-menu ul li {
     list-style-type: none;
+    display: flex;
 }
 
 #site-menu ul li:hover {
@@ -73,9 +75,10 @@ code {
 
 #site-menu ul li a {
     color: #fff; /* 100% white */
-    display: block;
+    display: flex;
     text-decoration: none;
     padding: 1em;
+    align-items: center;
 }
 
 #site-menu ul li a:visited {
@@ -84,6 +87,17 @@ code {
 
 #site-menu ul li[aria-current] a {
     color: #64b5f6; /* blue300 */
+}
+
+#site-menu img {
+    height: 1.8rem;
+    filter: invert(100);
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
+
+#site-menu ul li[aria-current] img {
+    filter: invert(67%) sepia(13%) saturate(3136%) hue-rotate(180deg) brightness(102%) contrast(93%);
 }
 
 main {
