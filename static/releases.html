@@ -459,6 +459,7 @@
                         <li>hardened_malloc: increase class region size on x86_64 to 32GiB</li>
                         <li>hardened_malloc: increase class region size on arm64 to 2GiB (should be 32GiB on devices where we've enabled 4-level page tables but that requires setting up build configuration infrastructure)</li>
                         <li>raise vm.max_map_count further to have even more leeway before VMA exhaustion occurs from fine-grained guard regions</li>
+                        <li>kernel (Pixel 4a (5G), Pixel 5): fix build reproducibility issue by backporting upstream fix</li>
                     </ul>
                 </article>
                 -->
