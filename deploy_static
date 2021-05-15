@@ -28,7 +28,7 @@ ssh $remote sync .
 sed -i "s|/srv/grapheneos.org|$target|" nginx.conf.tmp
 rsync -rpcv --chmod=D755,F644 --delete nginx.conf.tmp $remote:/etc/nginx/nginx.conf
 ssh $remote sync -f /etc/nginx/nginx.conf
-ssh $remote systemctl reload nginx
+ssh $remote nginx -s reload
 
 echo
 echo active is now $target
