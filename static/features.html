@@ -113,10 +113,40 @@
                     musl malloc implementation</a> which offers substantially better security than musl's
                     previous malloc while still having minimal memory usage and code size.</li>
                     <li>Hardened compiler toolchain</li>
-                    <li>Hardened kernel</li>
-                    <li>4-level page tables are enabled on arm64 to provide a substantially larger
-                    address space with significantly higher entropy Address Space Layout
-                    Randomization (ASLR)</li>
+                    <li>
+                        Hardened kernel
+                        <ul>
+                            <li>Support for dynamically loaded kernel modules is disabled and a
+                            the minimal set of modules for the device model are built into the
+                            kernel to substantially improve the granularity of Control Flow
+                            Integrity (CFI) and reduce attack surface.</li>
+                            <li>4-level page tables are enabled on arm64 to provide a much larger
+                            address space (48-bit instead of 39-bit) with significantly higher
+                            entropy Address Space Layout Randomization (33-bit instead of
+                            24-bit).</li>
+                            <li>Random canaries with a leading zero are added to the kernel heap
+                            (slub) to block C string overflows, absorb small overflows and detect
+                            linear overflows or other heap corruption when the canary value is
+                            checked (on free, copies to/from userspace, etc.).</li>
+                            <li>Memory is wiped (zeroed) as soon as it's released in both the
+                            low-level kernel page allocator and higher level kernel heap allocator
+                            (slub). This substantially reduces the lifetime of sensitive data in
+                            memory, mitigates use-after-free vulnerabilities and makes most
+                            uninitialized data usage vulnerabilities harmless. Without our
+                            changes, memory that's released retains data indefinitely until the
+                            memory is handed out for other uses and gets partially or fully
+                            overwritten by new data.</li>
+                            <li>Kernel stack allocations are zeroed to make most uninitialized
+                            data usage vulnerabilities harmless.</li>
+                            <li>Assorted attack surface reduction through disabling features or
+                            setting up infrastructure to dynamically enable/disable them only as
+                            needed (perf, ptrace).</li>
+                            <li>Assorted upstream hardening features are enabled, including many
+                            which we played a part in developing and landing upstream as part of
+                            our linux-hardened project (which we intend to revive as a more active
+                            project again).</li>
+                        </ul>
+                    </li>
                     <li>Prevention of dynamic native code execution in-memory or via the filesystem
                     for the base OS without going via the package manager, etc.</li>
                     <li>Filesystem access hardening</li>
