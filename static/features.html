@@ -114,6 +114,9 @@
                     previous malloc while still having minimal memory usage and code size.</li>
                     <li>Hardened compiler toolchain</li>
                     <li>Hardened kernel</li>
+                    <li>4-level page tables are enabled on arm64 to provide a substantially larger
+                    address space with significantly higher entropy Address Space Layout
+                    Randomization (ASLR)</li>
                     <li>Prevention of dynamic native code execution in-memory or via the filesystem
                     for the base OS without going via the package manager, etc.</li>
                     <li>Filesystem access hardening</li>
