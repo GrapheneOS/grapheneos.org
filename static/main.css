@@ -98,7 +98,7 @@ code {
 }
 
 #site-menu ul li[aria-current] img {
-    filter: invert(67%) sepia(13%) saturate(3136%) hue-rotate(180deg) brightness(102%) contrast(93%);
+    filter: invert(60%) sepia(24%) saturate(997%) hue-rotate(168deg) brightness(107%) contrast(93%);
 }
 
 main {
