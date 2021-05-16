@@ -463,6 +463,7 @@
                         <li>kernel (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5): make CONFIG_LOCALVERSION_AUTO ignore Git tags so adding tags doesn't change the result of a build</li>
                         <li>kernel (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5): apply fixes for Qualcomm audio driver vulnerabilities from CAF missed in the upstream May security update for Pixels</li>
                         <li>switch HTTPS network time URL from / to /generate_204 to allow for a future / redirect</li>
+                        <li>Settings: remove field referencing the mainline module (APEX) version (also as as the Google Play system update version) since we ship these changes as part of the OS and have out-of-band module updates disabled since we have no use for them/li>
                     </ul>
                 </article>
                 -->
