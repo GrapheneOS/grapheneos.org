@@ -101,17 +101,45 @@
                     <li><a href="https://github.com/GrapheneOS/platform_bionic">Hardened libc</a>
                     providing defenses against the most common classes of vulnerabilities (memory
                     corruption)</li>
-                    <li>Our own <a href="https://github.com/GrapheneOS/hardened_malloc">hardened malloc (memory allocator)</a>
-                    leveraging modern hardware capabilities to provide substantial defenses against
-                    the most common classes of vulnerabilities (heap memory corruption) along with
-                    reducing the lifetime of sensitive data in memory. The
-                    <a href="https://github.com/GrapheneOS/hardened_malloc/blob/main/README.md">hardened_malloc
-                    README</a> has extensive documentation on it. The hardened_malloc project is
-                    portable to other Linux-based operating systems and is being adopted by other
-                    security-focused operating systems like Whonix.  Our allocator also heavily influenced the
-                    design of the <a href="https://www.openwall.com/lists/musl/2020/05/13/1">next-generation
-                    musl malloc implementation</a> which offers substantially better security than musl's
-                    previous malloc while still having minimal memory usage and code size.</li>
+                    <li>
+                        Our own <a href="https://github.com/GrapheneOS/hardened_malloc">hardened
+                        malloc (memory allocator)</a> leveraging modern hardware capabilities
+                        to provide substantial defenses against the most common classes of
+                        vulnerabilities (heap memory corruption) along with reducing the lifetime
+                        of sensitive data in memory. The <a
+                        href="https://github.com/GrapheneOS/hardened_malloc/blob/main/README.md">hardened_malloc
+                        README</a> has extensive documentation on it. The hardened_malloc
+                        project is portable to other Linux-based operating systems and is being
+                        adopted by other security-focused operating systems like Whonix.  Our
+                        allocator also heavily influenced the design of the <a
+                        href="https://www.openwall.com/lists/musl/2020/05/13/1">next-generation
+                        musl malloc implementation</a> which offers substantially better security than
+                        musl's previous malloc while still having minimal memory usage and code size.
+                        <ul>
+                            <li>Fully out-of-line metadata with protection from corruption, ruling
+                            out traditional allocator exploitation</li>
+                            <li>Separate memory regions for metadata, large allocations and each
+                            slab allocation size class with high entropy random bases and no
+                            address space reuse between the different regions</li>
+                            <li>Determistic detection of any invalid free</li>
+                            <li>Zero-on-free with detection of write-after-free via checking that
+                            memory is still zeroed before handing it out again</li>
+                            <li>Delayed reuse of address space and memory allocations through the
+                            combination of deterministic and randomized quarantines to mitigate
+                            use-after-free vulnerabilities</li>
+                            <li>Fine-grained randomization</li>
+                            <li>Aggressive consistency checks</li>
+                            <li>Memory protected guard regions around allocations larger than 16k
+                            with randomization of guard region sizes for 128k and above</li>
+                            <li>Allocations smaller than 16k have guard regions around each of the
+                            slabs containing allocations (for example, 16 byte allocations are in
+                            4096 byte slabs with 4096 byte guard regions before and after)</li>
+                            <li>Random canaries with a leading zero are added to these smaller
+                            allocations to block C string overflows, absorb small overflows
+                            and detect linear overflows or other heap corruption when the
+                            canary value is checked (primarily on free)</li>
+                        </ul>
+                    </li>
                     <li>Hardened compiler toolchain</li>
                     <li>
                         Hardened kernel
