@@ -18,7 +18,7 @@ find static_tmp -name '*.css' -exec csso {} -o {} \;
 find static_tmp -name '*.js' -exec terser --module -cmo {} {} \;
 
 replace=""
-for file in static_tmp/**/*.css static_tmp/js/*.js; do
+for file in static_tmp/**/*.css static_tmp/js/*.js static_tmp/mask-icon.svg; do
     hash=$(sha256sum "$file" | head -c 8)
     dest="$(dirname $file)/$hash.$(basename $file)"
     mv "$file" "$dest"
