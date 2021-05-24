@@ -61,6 +61,7 @@
                     <li><a href="#time.grapheneos.org">GrapheneOS time server</a></li>
                     <li><a href="#grapheneos.network">GrapheneOS connectivity check server</a></li>
                     <li><a href="#mail.grapheneos.org">GrapheneOS mail server</a></li>
+                    <li><a href="#matrix.grapheneos.org">GrapheneOS Matrix server</a></li>
                     <li><a href="#attestation.app">Attestation website and service</a></li>
                     <li><a href="#staging.attestation.app">Staging attestation website and service</a></li>
                 </ul>
@@ -338,6 +339,46 @@
                     <li>25 smtp - DANE TLSA</li>
                     <li>465 submissions - AUTH only, DANE TLSA</li>
                     <li>993 imaps - DANE TLSA</li>
+                </ul>
+            </section>
+
+            <section id="matrix.grapheneos.org">
+                <h2><a href="#matrix.grapheneos.org">GrapheneOS Matrix server</a></h2>
+
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/matrix.grapheneos.org">Repository</a></li>
+                    <li><a href="https://github.com/GrapheneOS/matrix.grapheneos.org/issues">Issue tracker</a></li>
+                </ul>
+
+                <p>Specs:</p>
+
+                <ul>
+                    <li>OVH VPS vps2020-essential-1-2-80</li>
+                    <li>2 core</li>
+                    <li>4 GB memory</li>
+                    <li>80 GB NVMe SSD storage</li>
+                    <li>500 Mbit/s bandwidth</li>
+                </ul>
+
+                <p>Domains:</p>
+
+                <ul>
+                    <li>matrix.grapheneos.org</li>
+                </ul>
+
+                <p>IPs:</p>
+
+                <ul>
+                    <li>51.79.51.42 — os-bhs6</li>
+                    <li>2607:5300:205:200::26e1 — os-bhs6</li>
+                </ul>
+
+                <p>Ports:</p>
+
+                <ul>
+                    <li>22 ssh - no passwords, SSHFP</li>
+                    <li>80 http - HTTPS redirect only</li>
+                    <li>443 https - reverse proxy to Synapse</li>
                 </ul>
             </section>
 
