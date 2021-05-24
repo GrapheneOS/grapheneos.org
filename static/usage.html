@@ -508,9 +508,6 @@
                 <section id="wifi-privacy-associated">
                     <h3><a href="#wifi-privacy-associated">Associated with an Access Point (AP)</a></h3>
 
-                    <p>The DHCP client uses the anonymity profile rather than sending a hostname so it
-                    doesn't compromise the privacy offered by MAC randomization.</p>
-
                     <p>Associated MAC randomization is performed by default. This can be controlled
                     per-network with Settings ➔ Network &amp; Internet ➔ Wi-Fi ➔ &lt;network&gt; ➔
                     Advanced  ➔ Privacy.</p>
@@ -520,6 +517,12 @@
                     device MAC". In GrapheneOS, the default is generating a new random MAC address when
                     connecting to a network. It has 3 options available: "Use fully randomized MAC
                     (default)", "Use per-network randomized MAC" and "Use device MAC".</p>
+
+                    <p>The DHCP client uses the anonymity profile rather than sending a hostname
+                    so it doesn't compromise the privacy offered by MAC randomization. When the
+                    per-connection MAC randomization added by GrapheneOS is being used, DHCP
+                    client state is flushed before reconnecting to a network to avoid revealing
+                    that it's likely the same device as before.</p>
 
                     <p>GrapheneOS also disables support for stable link-local IPv6 addresses, since these
                     have the potential to be used as identifiers. It's more sensible to use typical

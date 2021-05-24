@@ -204,10 +204,12 @@
                     <li>PIN scrambling option</li>
                     <li><a href="/usage#lte-only-mode">LTE-only mode</a> to reduce cellular radio
                     attack surface by disabling enormous amounts of legacy code</li>
-                    <li><a href="/usage#wifi-privacy-associated">Default enabled per-connection MAC randomization</a>
-                    as an improvement over Android's default per-network MAC randomization reusing
-                    the same MAC address until the DHCP lease with that network expires (can still
-                    use the standard implementation or fully disable it)</li>
+                    <li><a href="/usage#wifi-privacy-associated">Per-connection MAC randomization
+                    option (enabled by default)</a> as a more private option than the standard
+                    persistent per-network random MAC.</li>
+                    <li>When the per-connection MAC randomization added by GrapheneOS is being
+                    used, DHCP client state is flushed before reconnecting to a network to avoid
+                    revealing that it's likely the same device as before.</li>
                     <li>Vanadium: hardened WebView and default browser — the WebView is what most
                     other apps use to handle web content, so you benefit from Vanadium in many apps
                     even if you choose another browser</li>
