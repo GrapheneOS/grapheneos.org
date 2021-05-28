@@ -55,6 +55,14 @@
             <nav id="table-of-contents">
                 <h2><a href="#table-of-contents">Table of contents</a></h2>
                 <ul>
+                    <li>
+                        <a href="#system-navigation">System navigation</a>
+                        <ul>
+                            <li><a href="#gesture-navigation">Gesture navigation</a></li>
+                            <li><a href="#2-button-navigation">2-button navigation</a></li>
+                            <li><a href="#3-button-navigation">3-button navigation</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#accessibility">Accessibility</a></li>
                     <li><a href="#auditor">Auditor</a></li>
                     <li>
@@ -114,6 +122,112 @@
                 strongly recommend against using third party implementations if you can get by
                 well without them. We plan to add safeguards in this area while still keeping them
                 working without problematic barriers.</p>
+            </section>
+
+            <section id="system-navigation">
+                <h2><a href="#system-navigation">System navigation</a></h2>
+
+                <p>By default, GrapheneOS uses gesture-based navigation. We recommend reading our
+                guide on gesture navigation and giving it a chance even if you think you won't
+                like it. Our experience is that when armed with the appropriate knowledge, the
+                vast majority of users prefer the newer gesture navigation approach.</p>
+
+                <p>The system navigation mode can be configured in Settings → System → Gestures →
+                System navigation. The same menu is also available in Settings → Accessibility →
+                System navigation.</p>
+
+                <section id="gesture-navigation">
+                    <h3><a href="#system-navigation">System navigation</a></h3>
+
+                    <p>The bottom of the screen is a reserved touch zone for system navigation. A
+                    line is displayed in the center to show that the navigation bar is present
+                    across the entire bottom of the screen. In most apps, this area will display
+                    padding. Modern apps are able to tell the OS that they can handle not having
+                    the padding to display app content there while still not being able to receive
+                    touches from it. Open up the Settings app for an example.</p>
+
+                    <p>Swiping up from the navigation bar while removing your finger from the
+                    screen is the <strong>Home</strong> gesture.</p>
+
+                    <p>Swiping up from the navigation bar while holding your finger on the screen
+                    before releasing is the <strong>Recent Apps</strong> gesture. The most
+                    recently opened activity is always on the furthest right. Each step left goes
+                    one step back through the history of recently opened apps. Opening an app with
+                    the recent apps activity will place it on the furthest right in the recent
+                    apps order just like a new app being opened.</p>
+
+                    <p>The recent apps activity has a screenshot button as an alternative to
+                    holding power and volume down while using an app.</p>
+
+                    <p>Rather than opening the recent apps activity, you can swipe left on the
+                    navigation bar for the <strong>Previous</strong> app and swipe right for the
+                    <strong>Next</strong> app. This will not change the recent apps order. This is
+                    usually the best way to navigation through recent apps.</p>
+
+                    <p>Swiping from either the left or the right of the screen within the app (not
+                    the navigation bar) is the <strong>Back</strong> gesture. Apps are supposed to
+                    avoid implementing conflicting gestures, but have the option to override this
+                    gesture if they truly need to get rid of it. However, many apps without active
+                    development of their UI design still haven't addressed this despite gestures
+                    being the default for 2 years on Google Android. You can avoid triggering the
+                    back gesture in one of 2 easy ways: avoid swiping from right near the edge or
+                    hold your finger on the side of the screen for a period of time before
+                    swiping. The more advanced option is using a diagonal swipe pointing sharply
+                    to the bottom of the screen since this will bypass the back gesture but will
+                    still trigger most app gestures. The advanced option is the most convenient
+                    approach once you get used to doing it.</p>
+
+                    <p>The launcher uses a swipe up gesture starting anywhere on the screen to
+                    open the app drawer from the home screen. You need to start that gesture above
+                    the system navigation bar since any gesture starting on the navigation bar is
+                    handled by the OS as a system navigation gesture.</p>
+                </section>
+
+                <section id="2-button-navigation">
+                    <h3><a href="#2-button-navigation">2-button navigation</a></h3>
+
+                    <p>2-button navigation is a legacy mode not supported anymore by Google
+                    Android on the Pixel 4 and later. It will likely be removed in a future
+                    release of GrapheneOS. You should use the 3-button mode if you want the
+                    traditional button-based navigation.</p>
+
+                    <p>A large row across the bottom of the screen is reserved for navigation
+                    buttons. The <strong>Back</strong> button is on the left and the
+                    <strong>Home</strong> button is in the center.</p>
+
+                    <p>Swiping up from the navigation bar while removing your finger from the
+                    screen is the <strong>Recent apps</strong> gesture. The most recently opened
+                    activity is always on the furthest right. Each step left goes one step back
+                    through the history of recently opened apps. Opening an app with the recent
+                    apps activity will place it on the furthest right in the recent apps
+                    order just like a new app being opened.</p>
+
+                    <p>2-button navigation provides the recent apps activity with the launcher. It
+                    shows the recent apps above the bottom row of the home screen and the search
+                    integration not used in GrapheneOS. The usual launcher features work including
+                    swiping up anywhere on the screen to open the app drawer. Due to the launcher
+                    integration, the screenshot button available in the other modes isn't present.
+                    Instead, a screenshot button is added to the global action menu accessed by
+                    holding the power button.</p>
+                </section>
+
+                <section id="3-button-navigation">
+                    <h3><a href="#3-button-navigation">3-button navigation</a></h3>
+
+                    <p>A large row across the bottom of the screen is reserved for navigation
+                    buttons. The <strong>Back</strong> button is on the left, the
+                    <strong>Home</strong> button is in the center and the <strong>Recent
+                    Apps</strong> button is on the left.</p>
+
+                    <p>In the recent apps activity, the most recently opened activity is always on
+                    the furthest right. Each step left goes one step back through the history of
+                    recently opened apps. Opening an app with the recent apps activity will place
+                    it on the furthest right in the recent apps order just like a new app being
+                    opened.</p>
+
+                    <p>The recent apps activity has a screenshot button as an alternative to
+                    holding power and volume down while using an app.</p>
+                </section>
             </section>
 
             <section id="auditor">
