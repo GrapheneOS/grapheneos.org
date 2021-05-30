@@ -474,6 +474,31 @@
                         <li>Vanadium: disable mobile identity consistency by default</li>
                         <li>revert our change adding the screenshot button to the power menu for 3-button navigation since it's provided by the recent apps activity for both gesture and 3-button navigation (we originally added it back for both 2-button and 3-button navigation even though it was only needed for 2-button navigation, and then the stock OS implemented the same fix only for 2-button navigation, which makes more sense)</li>
                     </ul>
+
+                    <p><strong>Important news about the official GrapheneOS chat
+                    rooms:</strong></p>
+
+                    <p>Our official chat channels are migrating away from freenode IRC due to
+                    <a href="https://www.vice.com/en/article/m7ev8y/freenode-open-source-korea-crown-prince-takeover">a
+                    hostile takeover of the network</a>. As part of this, we're migrating to new
+                    Matrix rooms with an upgraded room version which are not bridged to the
+                    freenode channels. The main addresses for the new rooms are
+                    #grapheneos:grapheneos.org and #offtopic:grapheneos.org. The
+                    #grapheneos:matrix.org and #grapheneos-offtopic:matrix.org addresses now point
+                    at the new rooms but some clients / home servers appear to have broken caching
+                    of the addresses. You can also join the new #community:grapheneos.org space in
+                    a client like Element supporting the Spaces Beta. Web client links:</p>
+
+                    <ul>
+                        <li><a href="https://app.element.io/#/room/%23grapheneos:grapheneos.org">Join the #grapheneos:grapheneos.org room with the Element web client</a></li>
+                        <li><a href="https://app.element.io/#/room/%23offtopic:grapheneos.org">Join the #offtopic:grapheneos.org room with the Element web client</a></li>
+                        <li><a href="https://app.element.io/#/room/%23community:grapheneos.org">Join the #community:grapheneos.org room with the Element web client</a></li>
+                    </ul>
+
+                    <p>Matrix rooms are decentralized and these rooms aren't inherently tied to
+                    grapheneos.org or another server. We plan to add tombstones redirecting users
+                    from the legacy rooms, but the half-baked automatic room upgrade feature
+                    wasn't appropriate for this migration.</p>
                 </article>
 
                 <article id="2021.05.19.06">
@@ -493,29 +518,6 @@
                         <li>add toggle for disabling fingerprint unlock while having fingerprints registered for usage in apps (authentication and protecting hardware keystore keys)</li>
                         <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/27">version 27</a></li>
                     </ul>
-
-                    <p><strong>Important news about the official GrapheneOS chat
-                    rooms:</strong></p>
-
-                    <p>Our official chat channels are migrating away from freenode IRC due to
-                    <a href="https://www.vice.com/en/article/m7ev8y/freenode-open-source-korea-crown-prince-takeover">a
-                    hostile takeover of the network</a>. As part of this, we're migrating to new
-                    Matrix rooms with an upgraded room version which are not bridged to the
-                    freenode channels. The main addresses for the new rooms are
-                    #grapheneos:grapheneos.org and #offtopic:grapheneos.org. The
-                    #grapheneos:matrix.org and #grapheneos-offtopic:matrix.org addresses now point
-                    at the new rooms but some clients / home servers appear to have broken caching
-                    of the addresses. Web client links:</p>
-
-                    <ul>
-                        <li><a href="https://app.element.io/#/room/%23grapheneos:grapheneos.org">Join the #grapheneos:grapheneos.org room with the Element web client</a></li>
-                        <li><a href="https://app.element.io/#/room/%23offtopic:grapheneos.org">Join the #offtopic:grapheneos.org room with the Element web client</a></li>
-                    </ul>
-
-                    <p>Matrix rooms are decentralized and these rooms aren't inherently tied to
-                    grapheneos.org or another server. We plan to add tombstones redirecting users
-                    from the legacy rooms, but the half-baked automatic room upgrade feature
-                    wasn't appropriate for this migration.</p>
                 </article>
 
                 <article id="2021.05.16.04">
