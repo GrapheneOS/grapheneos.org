@@ -170,6 +170,16 @@ footer a, footer a:visited {
     color: #b00020;
 }
 
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td {
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+}
+
 /* latin */
 @font-face {
     font-family: 'Roboto';
@@ -253,5 +263,9 @@ footer a, footer a:visited {
     .error-text {
         /* Baseline Material dark error color */
         color: #cf6679;
+    }
+
+    td {
+        border-color: #222;
     }
 }
