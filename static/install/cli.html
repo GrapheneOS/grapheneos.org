@@ -385,16 +385,17 @@ RWQZW9NItOuQYJ86EooQBxScfclrWiieJtAO9GpnfEjKbCO/3FriLGX3</pre>
                 When the current signing key is replaced, the new key will be signed with it.</p>
 
                 <p>Download the factory images for the device from <a href="/releases">the releases
-                page</a>. For example, to download the 2021.04.05.20 release for the Pixel 5 (redfin):</p>
+                page</a>. For example, to download the 2021.04.05.20 release for a device with the
+                codename <code>DEVICE_NAME</code>:</p>
 
-                <pre>curl -O https://releases.grapheneos.org/redfin-factory-2021.04.05.20.zip
-curl -O https://releases.grapheneos.org/redfin-factory-2021.04.05.20.zip.sig</pre>
+                <pre>curl -O https://releases.grapheneos.org/DEVICE_NAME-factory-2021.04.05.20.zip
+curl -O https://releases.grapheneos.org/DEVICE_NAME-factory-2021.04.05.20.zip.sig</pre>
 
                 <p>Verify the factory images using the signature if you were able to obtain
                 <code>signify</code> from trusted package repositories (see above), otherwise
                 continue on to the next section without this:</p>
 
-                <pre>signify -Cqp factory.pub -x redfin-factory-2021.04.05.20.zip.sig &amp;&amp; echo verified</pre>
+                <pre>signify -Cqp factory.pub -x DEVICE_NAME-factory-2021.04.05.20.zip.sig &amp;&amp; echo verified</pre>
 
                 <p>This will output <code>verified</code> if verification is successful. If something
                 goes wrong, it will output an error message rather than <code>verified</code>.</p>
@@ -410,15 +411,15 @@ curl -O https://releases.grapheneos.org/redfin-factory-2021.04.05.20.zip.sig</pr
 
                 <p>On Linux:</p>
 
-                <pre>bsdtar xvf redfin-factory-2021.04.05.20.zip</pre>
+                <pre>bsdtar xvf DEVICE_NAME-factory-2021.04.05.20.zip</pre>
 
                 <p>On macOS and Windows:</p>
 
-                <pre>tar xvf redfin-factory-2021.04.05.20.zip</pre>
+                <pre>tar xvf DEVICE_NAME-factory-2021.04.05.20.zip</pre>
 
                 <p>Move into the directory:</p>
 
-                <pre>cd redfin-factory-2021.04.05.20</pre>
+                <pre>cd DEVICE_NAME-factory-2021.04.05.20</pre>
 
                 <p>Flash the images with the flash-all script in the directory.</p>
 
