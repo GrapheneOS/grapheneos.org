@@ -472,6 +472,7 @@
                         <li>Updater: add support for custom accent color</li>
                         <li>re-enable current camera/microphone privacy indicator implementation</li>
                         <li>kernel (Pixel 4a (5G), Pixel 5): use new GNU assembler (gas) prebuilts and drop all other usage of the GNU toolchain since LLVM provides everything else (LLVM assembler is used for userspace, but can't yet handle the Linux kernel)</li>
+                        <li>kernel (Pixel 4a (5G), Pixel 5): temporarily move to building and using dynamic kernel modules (same list as AOSP) to work around new issues with monolithic builds until we have time to resolve it to improve CFI granularity again</li>
                     </ul>
 
                     <p><strong>Important news about the official GrapheneOS chat
@@ -509,7 +510,6 @@
                         <li>rebased onto RQ3A.210605.005 release, initial release of Android 11 QPR3 (Quarterly Platform Release 3)</li>
                         <li>experimental new feature for configuring auto-reboot after N hours of the device being locked to put all logged in user profiles back at rest (i.e. data inaccessible to the OS until logged in again) when the device isn't in your possession</li>
                         <li>kernel (Pixel 4a (5G), Pixel 5): apply fixes for 2 Qualcomm Wi-Fi driver vulnerabilities from CAF missed in the upstream December 2020 security update for Pixels</li>
-                        <li>kernel (Pixel 4a (5G), Pixel 5): temporarily move to building and using dynamic kernel modules (same list as AOSP) to work around new issues with monolithic builds until we have time to resolve it to improve CFI granularity again</li>
                         <li>Vanadium: update Chromium base to 91.0.4472.88</li>
                         <li>android-prepare-vendor: fix resuming image downloads due to broken HTTP/2 server semantics</li>
                         <li>Settings: fix hardcoded black text in storage summary</li>
