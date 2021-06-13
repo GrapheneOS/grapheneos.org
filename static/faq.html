@@ -967,22 +967,20 @@
                 <article id="ad-blocking">
                     <h3><a href="#ad-blocking">How can I set up system-wide ad-blocking?</a></h3>
 
-                    <p>The recommended approach to system-wide ad-blocking is setting up domain-based
-                    ad-blocking as part of DNS resolution. You can do this by
-                    <a href="#custom-dns">choosing a Private DNS (DNS-over-TLS) server</a> with support
-                    for blocking ad domains. As an example, AdGuard DNS can be used by setting
-                    <code>dns.adguard.com</code> as the Private DNS domain. In the future, GrapheneOS
-                    plans on adding back <a
-                    href="https://github.com/GrapheneOS/os_issue_tracker/issues/184">an efficient
-                    user-defined blacklist for the local DNS resolver</a>. This feature used to be
-                    included by the project many years ago, but it needs to be reimplemented, and it's a
-                    low priority feature depending on contributors stepping up to work on it.</p>
+                    <p>The recommended approach to system-wide ad-blocking is setting up
+                    domain-based ad-blocking as part of DNS resolution. You can do this by
+                    <a href="#custom-dns">choosing a Private DNS (DNS-over-TLS) server</a> with
+                    support for blocking ad domains. As an example, AdGuard DNS can be used by
+                    setting <code>dns.adguard.com</code> as the Private DNS domain. This feature
+                    used to be included by the project many years ago, but it needs to be
+                    reimplemented, and it's a low priority feature depending on contributors
+                    stepping up to work on it.</p>
 
-                    <p>Apps and web sites can detect that ad-blocking is being used and can determine
-                    what's being blocked. This can be used as part of fingerprinting users. Using a widely
-                    used service like AdGuard with a standard block list is much less of an issue than a
-                    custom set of subscriptions / rules, but it still stands out compared to the default
-                    of not doing it.</p>
+                    <p>Apps and web sites can detect that ad-blocking is being used and can
+                    determine what's being blocked. This can be used as part of fingerprinting
+                    users. Using a widely used service like AdGuard with a standard block list is
+                    much less of an issue than a custom set of subscriptions / rules, but it still
+                    stands out compared to the default of not doing it.</p>
                 </article>
 
                 <article id="ad-blocking-apps">
