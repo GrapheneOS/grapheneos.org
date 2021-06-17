@@ -243,7 +243,11 @@
                     permission toggle is enhanced with a second layer of enforcement and proper
                     support for granting/revoking it on a per-profile basis.</li>
                     <li>Sensors permission toggle: disallow access to all other sensors not covered by
-                    existing Android permissions (enabled by default for compatibility)</li>
+                    existing Android permissions (Camera, Microphone, Body Sensors, Activity
+                    Recognition) including an accelerometer, gyroscope, compass, barometer,
+                    thermometer and any other sensors present on a given device. To avoid breaking
+                    compatibility with Android apps, the added permission is enabled by
+                    default.</li>
                     <li>Authenticated encryption for network time updates via a first party server to
                     prevent attackers from changing the time and enabling attacks based on bypassing
                     certificate / key expiry, etc.</li>
