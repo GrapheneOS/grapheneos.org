@@ -458,6 +458,7 @@
                         <li>Vanadium: add toggle to Privacy and security settings for disabling JIT and using fully interpreted JavaScript via fast interpreter</li>
                         <li>kernel (Pixel 4a (5G), Pixel 5): fix upstream module load order issues when modules are built into the kernel</li>
                         <li>kernel (Pixel 4a (5G), Pixel 5): build in every module and disable dynamic kernel module support again to restore finer-grained Control Flow Integrity (CFI) and attack surface reduction</li>
+                        <li>kernel (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5): generate a new privacy address when connecting to a network as a temporary partial workaround for the broken upstream privacy address implementation before Linux 5.8 (the privacy address standard itself was flawed and Linux 5.8+ has an implementation of the fixed standard, which we've suggested that Android backport in our upstream report)</li>
                         <li>Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5: mark devices as Nexus/Pixel phones as used to be done for older devices, so apps with Nexus/Pixel-specific features available without Play services can use them</li>
                     </ul>
                 </article>
