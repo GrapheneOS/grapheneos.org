@@ -112,6 +112,27 @@ main {
     overflow-wrap: break-word;
 }
 
+button {
+    color: white;
+    font-size: 0.9em;
+    font-weight: bold;
+    letter-spacing: 0.0892857143em;
+    background-color: #1976d2; /* blue700 */
+    border-radius: 4px;
+    border: none;
+    padding: 0.5rem 1rem;
+}
+
+button:hover {
+    background-color: #3486d8;
+    cursor: pointer;
+}
+
+button:focus {
+    background-color: #5097dd;
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
 .coin-address {
     display: block;
     margin-left: auto;
@@ -246,6 +267,19 @@ td {
 
     h1 a, h1 a:visited, h2 a, h2 a:visited, h3 a, h3 a:visited, h4 a, h4 a:visited, h5 a, h5 a:visited, h6 a, h6 a:visited {
         color: rgba(255, 255, 255, 0.87); /* 87% white */
+    }
+
+    button {
+        color: black;
+        background-color: #82b1ff; /* blueA100 */
+    }
+
+    button:hover {
+        background-color: #729ce0;
+    }
+
+    button:focus {
+        background-color: #6387c2;
     }
 
     code, pre {
