@@ -15,7 +15,7 @@ for file in static_tmp/**/*.@(json|webmanifest); do
 done
 
 find static_tmp -name '*.css' -exec csso {} -o {} \;
-find static_tmp -name '*.js' -exec terser --module -cmo {} {} \;
+find static_tmp -name '*.js' -exec terser --ecma 2021 --module -cmo {} {} \;
 
 replace=""
 for file in static_tmp/**/*.css static_tmp/js/*.js static_tmp/mask-icon.svg; do
