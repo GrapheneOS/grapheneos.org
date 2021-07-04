@@ -21,7 +21,6 @@ const redirects = new Map([
     ["/releases#marlin-beta", "/faq#legacy-devices"],
     ["/releases#sailfish-beta", "/faq#legacy-devices"],
     ["/faq#dns", "/faq#custom-dns"],
-    ["/build#upgrading-to-android-10", "/build#generating-release-signing-keys"],
     ["/install/cli#fastboot-as-non-root", "/install/cli#flashing-as-non-root"],
     ["/install/web#fastboot-as-non-root", "/install/web#flashing-as-non-root"],
 
