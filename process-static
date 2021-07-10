@@ -34,7 +34,7 @@ find static_tmp -name '*.html' -exec html-minifier --collapse-whitespace \
     --remove-redundant-attributes --remove-script-type-attributes \
     --remove-style-link-type-attributes --sort-attributes --sort-class-name {} -o {} \;
 
-./generate_feed.py
+./generate-feed.py
 
 for file in static_tmp/**/*.@(atom|xml); do
     xmllint --noblanks "$file" --output "$file"
