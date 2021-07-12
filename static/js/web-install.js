@@ -142,8 +142,9 @@ async function unlockBootloader(setProgress) {
 
 async function getLatestRelease() {
     let product = await device.getVariable("product");
-
-    let metadataResp = await fetch(`${RELEASES_URL}/${product}-stable`);
+    let channel = document.getElementById("channel");
+    
+    let metadataResp = await fetch(`${RELEASES_URL}/${product}-${channel.value}`);
     let metadata = await metadataResp.text();
     let releaseId = metadata.split(" ")[0];
 
