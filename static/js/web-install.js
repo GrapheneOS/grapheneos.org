@@ -212,6 +212,9 @@ async function flashRelease(setProgress) {
                 setProgress(`${userAction} ${userItem}...`, progress);
             }
         );
+        setProgress("Disabling debug policy...");
+        await device.runCommand("erase:apdp_a");
+        await device.runCommand("erase:apdp_b");
     } finally {
         safeToLeave = true;
     }
