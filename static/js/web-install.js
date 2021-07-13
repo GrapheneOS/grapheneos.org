@@ -212,6 +212,10 @@ async function flashRelease(setProgress) {
                 setProgress(`${userAction} ${userItem}...`, progress);
             }
         );
+        setProgress("Disabling UART...");
+        // See https://android.googlesource.com/platform/system/core/+/eclair-release/fastboot/fastboot.c#532
+        // for context as to why the trailing space is needed.
+        await device.runCommand("oem uart disable ");
     } finally {
         safeToLeave = true;
     }
