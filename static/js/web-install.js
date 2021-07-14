@@ -140,8 +140,13 @@ async function unlockBootloader(setProgress) {
     return "Bootloader unlocked.";
 }
 
+const supportedDevices = ["redfin", "bramble", "sunfish", "coral", "flame", "bonito", "sargo", "crosshatch", "blueline"];
+
 async function getLatestRelease() {
     let product = await device.getVariable("product");
+    if (!supportedDevices.includes(product)) {
+        throw new Error(`device model (${product}) is not supported by the GrapheneOS web installer`);
+    }
 
     let metadataResp = await fetch(`${RELEASES_URL}/${product}-stable`);
     let metadata = await metadataResp.text();
