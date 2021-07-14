@@ -2,7 +2,7 @@
 
 const baseUrl = "https://releases.grapheneos.org/";
 const versionBaseUrl = "https://github.com/GrapheneOS/platform_manifest/releases/tag/";
-const devices = ["redfin", "bramble", "sunfish", "coral", "flame", "bonito", "sargo", "crosshatch", "blueline", "taimen", "walleye"];
+const devices = ["redfin", "bramble", "sunfish", "coral", "flame", "bonito", "sargo", "crosshatch", "blueline"];
 const channels = ["stable", "beta"];
 const delayMs = 1000 * 60 * 5;
 
