@@ -689,7 +689,10 @@
                 services offered by the OS. They run as unprivileged, sandboxed apps like any
                 others and GrapheneOS implements shims to make them work without the many
                 privileged permissions and SELinux policy extensions these apps usually
-                require.</p>
+                require. Only apps within the same profile can use it. Even within the same
+                profile, apps not explicitly choosing to use Google services won't use them
+                because the OS doesn't integrate support for it or use it as the backend for APIs
+                in the OS like the stock OS.</p>
 
                 <p>You should install all 3 apps including the Play Store rather than only Play
                 services or there will be missing functionality. Play Store is not simply a user
