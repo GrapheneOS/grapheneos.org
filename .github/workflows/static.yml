@@ -1,9 +1,6 @@
 name: Validate and process static files
 
-on:
-  pull_request:
-  push:
-    branches: [main]
+on: [pull_request, push]
 
 jobs:
   static:
