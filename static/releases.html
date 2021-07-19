@@ -418,7 +418,7 @@
 
                     <ul>
                         <li>Settings: fix displaying setting for GrapheneOS USB accessory policy (deny new usb)</li>
-                        <li>Settings: hide insecure pattern lock option (either use a randomly generated 6-8 digit PIN for secure encryption based on secure element throttling or a strong passphrase, not this misguided pattern option with ridiculously low entropy)
+                        <li>Settings: hide insecure pattern lock option (either use a randomly generated 6-8 digit PIN for secure encryption based on secure element throttling or a strong randomly generated passphrase to avoid depending on the secure element, not this misguided pattern option with ridiculously low entropy)
                         <li>Sandboxed Google Play compatibility layer: return false for SIM card lock check rather than throwing a SecurityException</li>
                         <li>Sandboxed Google Play compatibility layer: avoid throwing an exception in certain edge cases for secondary users when checking whether the compatibility shims should be enabled for a process (i.e. when checking if the process is one of the 3 core Play apps)</li>
                     </ul>
