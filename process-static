@@ -40,6 +40,5 @@ for file in static_tmp/**/*.@(atom|xml); do
     xmllint --noblanks "$file" --output "$file"
 done
 
-find static_tmp -regex '.+\.\(atom\|css\|html\|ico\|js\|json\|mjs\|pdf\|svg\|txt\|webmanifest\|xml\)' \
-    -exec zopfli {} \; -exec touch -r {} {}.gz \; \
-    -exec brotli -k {} \;
+find static_tmp -regex '.+\.\(atom\|css\|html\|ico\|js\|json\|mjs\|pdf\|svg\|txt\|webmanifest\|xml\)' |
+    parallel "brotli -k {}; zopfli {} && touch -r {} {}.gz"
