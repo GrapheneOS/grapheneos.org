@@ -41,4 +41,4 @@ for file in static_tmp/**/*.@(atom|xml); do
 done
 
 find static_tmp -regex '.+\.\(atom\|css\|html\|ico\|js\|json\|mjs\|pdf\|svg\|txt\|webmanifest\|xml\)' |
-    parallel "brotli -k {}; zopfli {} && touch -r {} {}.gz"
+    parallel "brotli -k {}; zopfli {}"
