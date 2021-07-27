@@ -60,7 +60,7 @@
                     <li><a href="#staging.grapheneos.org">Staging GrapheneOS website</a></li>
                     <li><a href="#releases.grapheneos.org">GrapheneOS release servers</a></li>
                     <li><a href="#time.grapheneos.org">GrapheneOS time server</a></li>
-                    <li><a href="#grapheneos.network">GrapheneOS connectivity check server</a></li>
+                    <li><a href="#grapheneos.network">GrapheneOS connectivity check servers</a></li>
                     <li><a href="#mail.grapheneos.org">GrapheneOS mail server</a></li>
                     <li><a href="#matrix.grapheneos.org">GrapheneOS Matrix server</a></li>
                     <li><a href="#apps.grapheneos.org">GrapheneOS application repository</a></li>
@@ -262,7 +262,7 @@
             </section>
 
             <section id="grapheneos.network">
-                <h2><a href="#grapheneos.network">GrapheneOS connectivity check server</a></h2>
+                <h2><a href="#grapheneos.network">GrapheneOS connectivity check servers</a></h2>
 
                 <ul>
                     <li><a href="https://github.com/GrapheneOS/grapheneos.network">Repository</a></li>
@@ -272,7 +272,7 @@
                 <p>Specs:</p>
 
                 <ul>
-                    <li>OVH VPS vps2020-value-1-2-40</li>
+                    <li>2x OVH VPS vps2020-value-1-2-40</li>
                     <li>1 core</li>
                     <li>2 GB memory</li>
                     <li>40 GB NVMe SSD storage</li>
@@ -297,8 +297,10 @@
                 <p>IPs:</p>
 
                 <ul>
-                    <li>51.79.54.68 — os-bhs6</li>
-                    <li>2607:5300:205:200::b44 — os-bhs6</li>
+                    <li>51.79.54.68 (primary) — os-bhs6</li>
+                    <li>2607:5300:205:200::b44 (primary) — os-bhs6</li>
+                    <li>51.222.159.48 (replica1) — os-bhs6</li>
+                    <li>2607:5300:205:200::3f46 (replica1) — os-bhs6</li>
                 </ul>
 
                 <p>Ports:</p>
