@@ -23,7 +23,7 @@ ssh $remote cp -a $active $target
 rsync -rpcv --chmod=D755,F644 --delete static_tmp/ $remote:$target
 ssh $remote sync -f $target
 ssh $remote ln -snf $target /srv/grapheneos.org
-ssh $remote sync .
+ssh $remote sync /srv/grapheneos.org
 
 sed -i "s|/srv/grapheneos.org|$target|" nginx.conf.tmp
 rsync -rpcv --chmod=D755,F644 --delete nginx.conf.tmp $remote:/etc/nginx/nginx.conf
