@@ -41,4 +41,5 @@ for server in ${servers[@]}; do
 
     echo
     echo active is now $target
+    echo
 done
