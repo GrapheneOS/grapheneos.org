@@ -27,6 +27,7 @@
         <link rel="stylesheet" href="/main.css"/>
         <link rel="manifest" href="/manifest.webmanifest"/>
         <link rel="license" href="/LICENSE.txt"/>
+        <script type="module" src="/js/redirect.js"></script>
     </head>
     <body>
         <header>
@@ -63,7 +64,6 @@
                     <li><a href="#grapheneos.network">GrapheneOS connectivity check servers</a></li>
                     <li><a href="#mail.grapheneos.org">GrapheneOS mail server</a></li>
                     <li><a href="#matrix.grapheneos.org">GrapheneOS Matrix server</a></li>
-                    <li><a href="#apps.grapheneos.org">GrapheneOS application repository</a></li>
                     <li><a href="#ns1.grapheneos.org">GrapheneOS DNS servers</a></li>
                     <li><a href="#attestation.app">Attestation website and service</a></li>
                     <li><a href="#staging.attestation.app">Staging attestation website and service</a></li>
@@ -204,6 +204,7 @@
                     <li>seamlessupdate.app</li>
                     <li>www.seamlessupdate.app</li>
                     <li>mta-sts.seamlessupdate.app</li>
+                    <li>apps.grapheneos.org</li>
                 </ul>
 
                 <p>IPs:</p>
@@ -398,46 +399,6 @@
                     <li>22 ssh - no passwords, SSHFP</li>
                     <li>80 http - HTTPS redirect only</li>
                     <li>443 https - reverse proxy to Synapse for matrix.grapheneos.org and static site providing Element for element.grapheneos.org, DANE TLSA</li>
-                </ul>
-            </section>
-
-            <section id="apps.grapheneos.org">
-                <h2><a href="#apps.grapheneos.org">GrapheneOS application repository</a></h2>
-
-                <ul>
-                    <li><a href="https://github.com/GrapheneOS/apps.grapheneos.org">Repository</a></li>
-                    <li><a href="https://github.com/GrapheneOS/apps.grapheneos.org/issues">Issue tracker</a></li>
-                </ul>
-
-                <p>Specs:</p>
-
-                <ul>
-                    <li>OVH VPS vps2020-value-1-2-40</li>
-                    <li>1 core</li>
-                    <li>2 GB memory</li>
-                    <li>40 GB NVMe SSD storage</li>
-                    <li>250 Mbit/s bandwidth</li>
-                </ul>
-
-                <p>Domains:</p>
-
-                <ul>
-                    <li>apps.grapheneos.org</li>
-                </ul>
-
-                <p>IPs:</p>
-
-                <ul>
-                    <li>51.222.140.199 — os-bhs6</li>
-                    <li>2607:5300:205:200::39fe — os-bhs6</li>
-                </ul>
-
-                <p>Ports:</p>
-
-                <ul>
-                    <li>22 ssh - no passwords, SSHFP</li>
-                    <li>80 http - HTTPS redirect only</li>
-                    <li>443 https - static, DANE TLSA</li>
                 </ul>
             </section>
 
