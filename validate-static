@@ -16,4 +16,4 @@ done
 xmllint --noout static_tmp/**/*.@(html|svg|xml)
 eslint static_tmp/**/!(fastboot.min.m|z-worker-pako.|pako_inflate.min.|)js
 stylelint static_tmp/**/*.css
-validatornu --Werror --also-check-css --also-check-svg static_tmp/**/*.@(css|html|svg)
+validatornu --Werror --also-check-css --also-check-svg static_tmp/**/!(bimi).@(css|html|svg)
