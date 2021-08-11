@@ -87,7 +87,12 @@
                         </ul>
                     </li>
                     <li><a href="#lte-only-mode">LTE-only mode</a></li>
-                    <li><a href="#sandboxed-play-services">Sandboxed Play services (experimental)</a></li>
+                    <li>
+                        <a href="#sandboxed-play-services">Sandboxed Play services (experimental)</a>
+                        <ul>
+                            <li><a href="#sandboxed-play-services-limitations">Limitations</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
 
@@ -691,6 +696,12 @@
                 services won't use them because the OS doesn't integrate support for it or use it
                 as the backend for APIs in the OS like the stock OS.</p>
 
+                <p>The core functionality and APIs are almost entirely supported already since
+                GrapheneOS largely only has to coerce these apps into continuing to run without
+                being able to use any of the usual invasive OS integration. A compatibility layer
+                is also provided to support dynamically downloaded/loaded modules (dynamite
+                modules).</p>
+
                 <p>You should install all 3 apps including the Play Store rather than only Play
                 services or there will be missing functionality. Play Store is not simply a user
                 facing app.</p>
@@ -719,29 +730,34 @@
                 You don't actually need to sign in, but triggering the process will initialize the
                 apps similarly to going through Google's setup wizard process.</p>
 
-                <p>The Play Store app cannot install and update apps as it normally would since it
-                depends entirely on privileged permissions for unattended app installation,
-                updates and removal. GrapheneOS includes a partial implementation of fallback code
-                to get this working. It currently isn't fully wired up and leads to the Play Store
-                stalling and needing to be force stopped. For the time being, it's easier to use
-                the alternative Aurora Store frontend to the Play Store.</p>
+                <section id="sandboxed-play-services-limitations">
+                    <h3><a href="#sandboxed-play-services-limitations">Limitations</a></h3>
 
-                <p>Play Store feature delivery isn't currently supported, but this isn't broadly
-                used by current generation apps, at least aside from large games.</p>
+                    <p>There's currently a known issue with apps not being able to see that Play
+                    services is installed in the profile in some cases. This is being worked on
+                    and it should be resolved soon.</p>
 
-                <p>The core functionality and APIs are almost entirely supported already since
-                GrapheneOS largely only has to coerce these apps into continuing to run without
-                being able to use any of the usual invasive OS integration. A compatibility layer
-                is also provided to support dynamically downloaded/loaded modules (dynamite
-                modules).</p>
+                    <p>The Play Store app cannot install and update apps as it normally would
+                    since it depends entirely on privileged permissions for unattended app
+                    installation, updates and removal. GrapheneOS includes a partial
+                    implementation of fallback code to get this working. It currently isn't fully
+                    wired up and leads to the Play Store stalling and needing to be force stopped.
+                    For the time being, it's easier to use the alternative Aurora Store frontend
+                    to the Play Store.</p>
 
-                <p>There's currently a known issue with apps not being able to see that Play
-                services is installed in the profile in some cases. This is being worked on and
-                should be resolved soon.</p>
+                    <p>Play Store feature delivery isn't currently supported, but this isn't
+                    broadly used by current generation apps aside from large games.</p>
 
-                <p>Since there's no OS integration beyond fallback code to make it function
-                without any special privileges, there isn't a way to launch the settings activity.
-                We'll need to make a tiny app providing a way to launch it.</p>
+                    <p>Since there's no OS integration beyond fallback code to make it function
+                    without any special privileges, there isn't a way to launch the settings
+                    activity. We'll need to make a tiny app providing a way to launch it.</p>
+
+                    <p>Functionality depending on privileged access such as special access to
+                    hardware isn't available. We would need to implement compatibility layers
+                    teaching it how to function as a regular app. This currently isn't within the
+                    scope of the project beyond the existing support for dynamite modules and
+                    partially implemented support for Play Store app installation/updates.</p>
+                </section>
             </section>
         </main>
         <footer>
