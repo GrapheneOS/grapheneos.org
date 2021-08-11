@@ -726,14 +726,14 @@
                 stalling and needing to be force stopped. For the time being, it's easier to use
                 the alternative Aurora Store frontend to the Play Store.</p>
 
+                <p>Play Store feature delivery isn't currently supported, but this isn't broadly
+                used by current generation apps, at least aside from large games.</p>
+
                 <p>The core functionality and APIs are almost entirely supported already since
                 GrapheneOS largely only has to coerce these apps into continuing to run without
-                being able to use any of the usual invasive OS integration. Certain functionality
-                is not yet supported. Play Store feature delivery and Play services functionality
-                delivered via dynamite modules are not supported yet. Fallback code will be
-                required to make this work without depending on weakening SELinux MAC and MLS
-                policies to permit it like the stock OS. The current generation Maps API is a
-                common example of functionality depending on a dynamite module.</p>
+                being able to use any of the usual invasive OS integration. A compatibility layer
+                is also provided to support dynamically downloaded/loaded modules (dynamite
+                modules).</p>
 
                 <p>Since there's no OS integration beyond fallback code to make it function
                 without any special privileges, there isn't a way to launch the settings activity.
