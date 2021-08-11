@@ -737,6 +737,12 @@
                     services is installed in the profile in some cases. This is being worked on
                     and it should be resolved soon.</p>
 
+                    <p>Functionality depending on privileged access such as special access to
+                    hardware isn't available. We would need to implement compatibility layers
+                    teaching it how to function as a regular app. This currently isn't within the
+                    scope of the project beyond the existing support for dynamite modules and
+                    partially implemented support for Play Store app installation/updates.</p>
+
                     <p>The Play Store app cannot install and update apps as it normally would
                     since it depends entirely on privileged permissions for unattended app
                     installation, updates and removal. GrapheneOS includes a partial
@@ -751,12 +757,6 @@
                     <p>Since there's no OS integration beyond fallback code to make it function
                     without any special privileges, there isn't a way to launch the settings
                     activity. We'll need to make a tiny app providing a way to launch it.</p>
-
-                    <p>Functionality depending on privileged access such as special access to
-                    hardware isn't available. We would need to implement compatibility layers
-                    teaching it how to function as a regular app. This currently isn't within the
-                    scope of the project beyond the existing support for dynamite modules and
-                    partially implemented support for Play Store app installation/updates.</p>
                 </section>
             </section>
         </main>
