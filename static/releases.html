@@ -421,6 +421,7 @@
                     <p>Changes since the 2021.08.09.02 release:</p>
 
                     <ul>
+                        <li>remove periods from the build number portion of the version to improve compatibility with apps wrongly assuming they can parse it as an integer such as Google Camera (also helps to avoid hitting the build fingerprint length limit with debug build variants)</li>
                         <li>Settings: add 3rd option to connectivity check setting for disabling it (will prevent falling back to other networks from a broken one and handling captive portals)</li>
                         <li>further fixes for the upstream code implementing the eBPF-based INTERNET permission (fixes cases where it was overly restrictive for secondary users, but we already prevented it from being overly permissive by adding back the simpler pre-eBPF approach as a 2nd layer of enforcement)</li>
                     </ul>
