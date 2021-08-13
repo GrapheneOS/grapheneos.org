@@ -425,6 +425,7 @@
                         <li>Settings: add 3rd option to connectivity check setting for disabling it (will prevent falling back to other networks from a broken one and handling captive portals)</li>
                         <li>Settings: ignore carrier asking the OS not to show the preferred network setting, similar to how we already ignore being instructed to disallow tethering</li>
                         <li>further fixes for the upstream code implementing the eBPF-based INTERNET permission (fixes cases where it was overly restrictive for secondary users, but we already prevented it from being overly permissive by adding back the simpler pre-eBPF approach as a 2nd layer of enforcement)</li>
+                        <li>Sandboxed Google Play compatibility layer: disable shared user id check since it isn't relevant to GrapheneOS and it appears that it may be causing issues</li>
                     </ul>
                 </article>
                 -->
