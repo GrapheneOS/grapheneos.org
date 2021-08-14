@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Attestation compatibility guide | Articles | GrapheneOS</title>
+        <meta name="description" content="Guide on using remote attestation in a way that's compatible with GrapheneOS."/>
+        <meta name="theme-color" content="#212121"/>
+        <meta name="color-scheme" content="dark light"/>
+        <meta name="msapplication-TileColor" content="#ffffff"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="twitter:site" content="@GrapheneOS"/>
+        <meta name="twitter:creator" content="@GrapheneOS"/>
+        <meta property="og:title" content="GrapheneOS attestation compatibility guide"/>
+        <meta property="og:description" content="Guide on using remote attestation in a way that's compatible with GrapheneOS."/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
+        <meta property="og:image:width" content="512"/>
+        <meta property="og:image:height" content="512"/>
+        <meta property="og:image:alt" content="GrapheneOS logo"/>
+        <meta property="og:site_name" content="GrapheneOS"/>
+        <meta property="og:url" content="https://grapheneos.org/articles/server-traffic-shaping"/>
+        <link rel="canonical" href="https://grapheneos.org/articles/server-traffic-shaping"/>
+        <link rel="icon" href="/favicon.ico"/>
+        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
+        <link rel="mask-icon" href="/mask-icon.svg" color="#1a1a1a"/>
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+        <link rel="stylesheet" href="/main.css"/>
+        <link rel="manifest" href="/manifest.webmanifest"/>
+        <link rel="license" href="/LICENSE.txt"/>
+    </head>
+    <body>
+        <header>
+            <nav id="site-menu">
+                <ul>
+                    <li><a href="/"><img src="/mask-icon.svg" alt=""/>GrapheneOS</a></li>
+                    <li><a href="/features">Features</a></li>
+                    <li><a href="/install/">Install</a></li>
+                    <li><a href="/build">Build</a></li>
+                    <li><a href="/usage">Usage</a></li>
+                    <li><a href="/faq">FAQ</a></li>
+                    <li><a href="/releases">Releases</a></li>
+                    <li><a href="/source">Source</a></li>
+                    <li><a href="/history/">History</a></li>
+                    <li><a href="/articles/">Articles</a></li>
+                    <li><a href="/donate">Donate</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main id="server-traffic-shaping">
+            <h1><a href="#attestation-compatibility-guide">Attestation compatibility guide</a></h1>
+
+            <p>Apps using SafetyNet attestation to check the authenticity/integrity of the OS can
+            support GrapheneOS by using the standard Android hardware attestation API and
+            permitting our official release signing keys. Android's
+            <a href="https://developer.android.com/training/articles/security-key-attestation">hardware
+            attestation API</a> provides a much stronger form of attestation than SafetyNet with
+            the ability to whitelist the keys of alternate operating systems. It also avoids an
+            unnecessary dependency on Google Play services and Google's SafetyNet servers.</p>
+
+            <p>Devices have been required to ship with hardware attestation support since Android
+            8. You can use hardware attestation on devices running Android 8 or later when the
+            <code>ro.product.first_api_level</code> system property isn't set to 25 or below,
+            which indicates they launched with Android 8 or later with hardware attestation
+            support as a mandatory feature. On older devices, you can continue using SafetyNet
+            attestation. Some low quality devices shipped broken implementations of hardware
+            attestation despite the requirement to have it working for CDD/CTS certification and
+            SafetyNet currently still passes on those devices wrongly claiming them to be CTS
+            certified. If you don't want to fail on those devices, then you can start with
+            hardware attestation and fall back to SafetyNet attestation or do both and accept
+            either passing as success.</p>
+
+            <p>After verifying the signature of the attestation certificate chain and extracting
+            the attestation metadata, you can enforce that <code>verifiedBootState</code> is
+            either <code>Verified</code> or <code>SelfSigned</code>. For the
+            <code>SelfSigned</code> case, you can check that <code>verifiedBootKey</code> matches
+            one of the official GrapheneOS verified boot keys. These are the base16-encoded
+            verified boot fingerprints for the official GrapheneOS releases:</p>
+
+            <ul>
+                <li><code>36a99eab7907e4fb12a70e3c41c456bcbe46c13413fbfe2436adee2b2b61120f</code>: Pixel 5</li>
+                <li><code>dcec2d053d3ec4f1c9be414aa07e4d7d7cbd12040ad2f8831c994a83a0536866</code>: Pixel 4a (5G)</li>
+                <li><code>3f15fdcb82847fed97427ce00563b8f9ff34627070de5fdb17aca7849ab98cc8</code>: Pixel 4 XL</li>
+                <li><code>80ef268700ee42686f779a47b4a155fe1ffc2eedf836b4803caab8fa61439746</code>: Pixel 4</li>
+                <li><code>9f2454a1657b1b5ad7f2336b39a2611f7a40b2e0ddfd0d6553a359605928df29</code>: Pixel 4a</li>
+                <li><code>3f36e3482e1ff82986576552cb4fd08af09f8b09d3832314341e04c42d2919a4</code>: Pixel 3a XL</li>
+                <li><code>73d6c63a07610404fe16a4e07dd24e41a70d331e9d3ef7bba2d087e4761eb63a</code>: Pixel 3a</li>
+                <li><code>06dd526ee9b1cb92aa19d9835b68b4ff1a48a3ad31d813f27c9a7d6c271e9451</code>: Pixel 3 XL</li>
+                <li><code>0f9a9cc8ade73064a54a35c5509e77994e3aa37b6fb889dd53af82c3c570c5cf</code>: Pixel 3</li>
+            </ul>
+
+            <p>The <code>verifiedBootKey</code> field is binary data so you either need to encode
+            it as base16 to compare with these or convert these to binary. An easy approach is
+            storing the permitted key fingerprints in a set and enforcing that the verified boot
+            key is in the permitted set when <code>verifiedBootState</code> is
+            <code>SelfSigned</code>.</p>
+
+            <p>The hardware attestation API also provides other useful information signed by the
+            hardware including the OS patch level, in a way that even an attacker exploiting the
+            OS after boot to gain root cannot trivially bypass. It's a better feature than the
+            SafetyNet API designed for the lowest common denominator.</p>
+
+            <p>GrapheneOS users are strongly encouraged to share this documentation with app
+            developers enforcing only being able to use the stock OS. Send an email to the
+            developers and leave a review of the app with a link to this information. Share it
+            with other users and create pressure to support GrapheneOS rather than locking users
+            into the stock OS without a valid security reason. GrapheneOS not only uploads the
+            app security model but substantially reinforces it, so it cannot be justified with
+            reasoning based on security, anti-fraud, etc.</p>
+        </main>
+        <footer>
+            <a href="/"><img src="/mask-icon.svg" width="512" height="512" alt=""/>GrapheneOS</a>
+            <ul id="social">
+                <li><a href="https://twitter.com/GrapheneOS">Twitter</a></li>
+                <li><a href="https://github.com/GrapheneOS">GitHub</a></li>
+                <li><a href="https://reddit.com/r/GrapheneOS">Reddit</a></li>
+                <li><a href="https://www.linkedin.com/company/grapheneos/">LinkedIn</a></li>
+            </ul>
+        </footer>
+    </body>
+</html>

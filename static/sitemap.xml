@@ -59,6 +59,10 @@
         <priority>0.5</priority>
     </url>
     <url>
+        <loc>https://grapheneos.org/articles/attestation-compatibility-guide</loc>
+        <priority>0.5</priority>
+    </url>
+    <url>
         <loc>https://grapheneos.org/articles/grapheneos-servers</loc>
         <priority>0.1</priority>
     </url>
