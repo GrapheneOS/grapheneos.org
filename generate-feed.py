@@ -13,7 +13,10 @@ entries = []
 
 for release in releases:
     title = release.attrib["id"]
-    time = datetime.strptime(title, "%Y.%m.%d.%H").isoformat() + "Z"
+    try:
+        time = datetime.strptime(title, "%Y%m%d%H").isoformat() + "Z"
+    except ValueError:
+        time = datetime.strptime(title, "%Y.%m.%d.%H").isoformat() + "Z"
     if updated is None:
         updated = time
     content = [etree.tostring(e).decode() for e in release.getchildren()[1:]]
