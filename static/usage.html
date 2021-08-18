@@ -499,34 +499,30 @@
                 it's going to be replaced. In the short term, there are other apps available providing
                 more capabilities and better support for taking advantage of the hardware.</p>
 
+                <p>Open Camera is somewhat more advanced and much more configurable. You should
+                make sure to configure it to use the Camera2 API since it uses the legacy camera
+                APIs by default for broader compatibility with devices. It isn't currently able to
+                make use of special purpose cameras and doesn't have any advanced image capturing
+                or processing technology. It has a traditional software-based HDR mode which
+                captures 3 images and merges them in a way that isn't at all intelligent and
+                causes a lot of blur and distortion. You probably don't want to use this unless
+                you have a way to mount the phone in a stable position and aren't taking a picture
+                of anything that's not almost entirely still.</p>
+
                 <p>Google Camera can be used with the <a href="#sandboxed-play-services">sandboxed
-                Play services compatibility layer</a>.</p>
+                Play services compatibility layer</a> and can take full advantage of the available
+                cameras and image processing hardware as it can on the stock OS. Other camera apps
+                could provide the same image quality and features but there aren't any comparable
+                alternatives in practice. HDR+ is enabled by default and is a much more advanced
+                replacement for HDR taking bursts of pictures and intelligently combining those
+                which is what makes the image quality so much higher, especially for low light.
+                The Night Sight feature is essentially the same thing, but with the light of the
+                picture unnaturally increased through combining the data.</p>
 
-                <p>The Pixel 3 (but not the Pixel 3a) and Pixel 4 (but not the Pixel 4a) have a
-                Pixel Visual Core / Pixel Neural Core providing a hardware-based implementation of
-                HDR+. HDR+ captures many images and intelligently merges data across them, taking
-                into account motion, etc. It substantially improves the quality of images,
-                especially in low light. This is used transparently for third party apps that are
-                compatible with it, and there isn't an explicit switch to turn it on or off for
-                most of them. An example of a compatible app is Open Camera's default
-                configuration, or Open Camera with the Camera 2 API and other settings (including
-                the the various knobs / toggles outside of the settings menu) left alone. In
-                general, HDR+ will work transparently in most apps as long as they keep things
-                simple and use a good minimalist approach to taking pictures. It should work
-                transparently in most messaging apps, etc. with internal support for taking
-                pictures.</p>
-
-                <p>In addition to supporting HDR+ via the Pixel Visual Core, or similar features on
-                other devices with the same constraints, Open Camera offers advanced configuration and
-                various advanced features. Make sure to enable the Camera 2 API in the settings, which
-                should be the default, but the app doesn't have a great user interface / user
-                experience. You probably don't want to use the traditional HDR feature in the app.
-                That's not HDR+, but rather captures 3 images and merges them in a way that isn't at
-                all intelligent and causes a lot of blur and distortion. The HDR+ implementation can
-                actually benefit from the camera not being completely steady as it's smart enough to
-                match up the picture and it provides it with more data vs. a traditional HDR
-                implementation where it essentially doesn't work without a tripod and is not really at
-                all useful on a phone unless you actually have that for it.</p>
+                <p>Since there isn't a project making a serious, high quality open source camera
+                app able to even compete with Google Camera without HDR+ and the fancy features,
+                GrapheneOS is considering funding the creation of a new app as a replacement for
+                the AOSP Camera app.</p>
             </section>
 
             <section id="exec-spawning">
