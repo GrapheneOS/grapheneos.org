@@ -22,6 +22,7 @@ const redirects = new Map([
     ["/releases#sailfish-beta", "/faq#legacy-devices"],
     ["/faq#dns", "/faq#custom-dns"],
     ["/articles/grapheneos-servers#apps.grapheneos.org", "/articles/grapheneos-servers#releases.grapheneos.org"],
+    ["/articles/grapheneos-servers#time.grapheneos.org", "/articles/grapheneos-servers#grapheneos.network"],
     ["/install/cli#fastboot-as-non-root", "/install/cli#flashing-as-non-root"],
     ["/install/web#fastboot-as-non-root", "/install/web#flashing-as-non-root"],
 

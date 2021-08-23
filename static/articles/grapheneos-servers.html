@@ -60,7 +60,6 @@
                     <li><a href="#grapheneos.org">GrapheneOS website</a></li>
                     <li><a href="#staging.grapheneos.org">Staging GrapheneOS website</a></li>
                     <li><a href="#releases.grapheneos.org">GrapheneOS release servers</a></li>
-                    <li><a href="#time.grapheneos.org">GrapheneOS time server</a></li>
                     <li><a href="#grapheneos.network">GrapheneOS connectivity check servers</a></li>
                     <li><a href="#mail.grapheneos.org">GrapheneOS mail server</a></li>
                     <li><a href="#matrix.grapheneos.org">GrapheneOS Matrix server</a></li>
@@ -229,46 +228,6 @@
                 </ul>
             </section>
 
-            <section id="time.grapheneos.org">
-                <h2><a href="#time.grapheneos.org">GrapheneOS time server</a></h2>
-
-                <ul>
-                    <li><a href="https://github.com/GrapheneOS/time.grapheneos.org">Repository</a></li>
-                    <li><a href="https://github.com/GrapheneOS/time.grapheneos.org/issues">Issue tracker</a></li>
-                </ul>
-
-                <p>Specs:</p>
-
-                <ul>
-                    <li>OVH VPS vps2020-starter-1-2-20</li>
-                    <li>1 core</li>
-                    <li>2 GB memory</li>
-                    <li>20 GB SATA SSD storage</li>
-                    <li>100 Mbit/s bandwidth</li>
-                </ul>
-
-                <p>Domains:</p>
-
-                <ul>
-                    <li>time.grapheneos.org</li>
-                </ul>
-
-                <p>IPs:</p>
-
-                <ul>
-                    <li>51.222.141.59 — os-bhs6</li>
-                    <li>2607:5300:205:200::3afd - os-bhs6</li>
-                </ul>
-
-                <p>Ports:</p>
-
-                <ul>
-                    <li>22 ssh - no passwords, SSHFP</li>
-                    <li>80 http - HTTPS redirect only</li>
-                    <li>443 https - no content, returns 204 response code for /generate_204, DANE TLSA</li>
-                </ul>
-            </section>
-
             <section id="grapheneos.network">
                 <h2><a href="#grapheneos.network">GrapheneOS connectivity check servers</a></h2>
 
@@ -300,6 +259,7 @@
                     <li>connectivity.grapheneos.org (legacy)</li>
                     <li>mta-sts.grapheneos.network</li>
                     <li>mta-sts.grapheneos.online</li>
+                    <li>time.grapheneos.org</li>
                 </ul>
 
                 <p>IPs:</p>
