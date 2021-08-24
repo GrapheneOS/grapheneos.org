@@ -429,6 +429,7 @@
                         <li>Vanadium: move search suggestions toggle to privacy menu</li>
                         <li>Vanadium: remove empty account category and Services menu from the main menu</li>
                         <li>Sandboxed Play services compatibility layer: add shim to make Play services use the regular cellular geolocation API instead of attempting and failing to use a special API requiring MODIFY_PHONE_STATE to attribute power consumption to the app responsible for the request to Play services</li>
+                        <li>Sandboxed Play services compatibility layer: add shims making Play services use the unprivileged AppOps proxy API instead of attempting and failing to use the privileged APIs for blaming other apps (it can still blame other apps via the proxy API, but the OS treats it as an untrusted claim)</li>
                     </ul>
                 </article>
                 -->
