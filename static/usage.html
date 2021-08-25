@@ -701,17 +701,14 @@
                 is also provided to support dynamically downloaded/loaded modules (dynamite
                 modules).</p>
 
-                <p>You can obtain the apps from the apps.grapheneos.org repository. We don't yet
-                have a client app for our repository so you'll need to install the APKs manually.
-                The Play Store APK has multiple split APKs which need to be installed together
-                rather than separately, so you'll need to use an app providing split APK
-                installation support. Once we have a client app for our repository, you'll be able
-                to install these and receive automatic updates through the app.</p>
+                <p>Install com.google.android.gsf, then com.google.android.gms and finally use a
+                split APK installer to install all 5 of the APKs for com.android.vending together.
+                Make sure to install all 3 in the correct order and don't skip installing the Play
+                Store since it provides services used by apps depending on Play.</p>
 
-                <p>Install com.google.android.gsf, then com.google.android.gms and finally
-                com.android.vending via a split APK installer. Make sure to install all 3 in the
-                correct order and don't skip installing the Play Store since it provides services
-                used by apps depending on Play.</p>
+                <p>In the future, we'll have a client app for our repository so you'll be able to
+                install and update the official Play services apps through that app and you won't
+                need to deal with split APK installation manually.</p>
 
                 <ul>
                     <li><a href="https://apps.grapheneos.org/packages/com.google.android.gsf/">com.google.android.gsf</a></li>
