@@ -8,6 +8,7 @@ set -o errexit -o nounset -o pipefail
 servers=(
     0.grapheneos.org
     1.grapheneos.org
+    2.grapheneos.org
 )
 
 for server in ${servers[@]}; do

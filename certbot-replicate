@@ -4,6 +4,7 @@ set -o errexit -o nounset -o pipefail
 
 replicas=(
     1.grapheneos.org
+    2.grapheneos.org
 )
 
 for replica in ${replicas[@]}; do
