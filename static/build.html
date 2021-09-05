@@ -136,7 +136,7 @@
                     <p>Smartphone targets:</p>
 
                     <ul>
-                        <li>barbet (Pixel 5a) — incomplete</li>
+                        <li>barbet (Pixel 5a) — experimental</li>
                         <li>redfin (Pixel 5)</li>
                         <li>bramble (Pixel 4a (5G))</li>
                         <li>sunfish (Pixel 4a)</li>
@@ -305,13 +305,17 @@
                     <section id="development-branch">
                         <h4><a href="#development-branch">Development branch</a></h4>
 
-                        <p>The <code>11</code> branch is the only active development branch for
-                        GrapheneOS development. Older branches are no longer maintained. It is
-                        currently used for all officially supported devices and should be used for
-                        the basis of ports to other devices. Occasionally, some devices may be
-                        supported through device support branches to avoid impacting other devices
-                        with changes needed to support them. The Pixel 5a will initially be
-                        supported via the 11-barbet branch.</p>
+                        <p>The <code>11</code> branch is the active developed branch of
+                        GrapheneOS. It follows along with the latest stable releases of the
+                        Android Open Source Project which currently means the latest monthly
+                        release of the <code>android11-qpr3-release</code> (Android 11 Quarterly
+                        Platform Release 3) branch. The <code>11</code> branch of GrapheneOS
+                        should be used for everything other than the Pixel 5a including porting to
+                        other devices.</p>
+
+                        <p>The temporary <code>11-barbet</code> branch is used for Pixel 5a
+                        (barbet) support and will go away after barbet support is provided by the
+                        mainline AOSP stable releases, likely with Android 12.</p>
 
                         <pre>mkdir grapheneos-11
 cd grapheneos-11
