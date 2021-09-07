@@ -9,12 +9,7 @@
 // https://www.w3.org/Protocols/HTTP/Fragment/draft-bos-http-redirect-00.txt
 
 const redirects = new Map([
-    ["/#never-google-services", "/faq#google-services"],
-    ["/#device-support", "/faq#device-support"],
-    ["/#roadmap", "/faq#roadmap"],
-    ["/#upstream", "/faq#upstream"],
     ["/#copyright-and-licensing", "/faq#copyright-and-licensing"],
-    ["/#history", "/history/#history"],
     ["/usage#default-connections", "/faq#default-connections"],
     ["/releases#marlin-stable", "/faq#legacy-devices"],
     ["/releases#sailfish-stable", "/faq#legacy-devices"],
