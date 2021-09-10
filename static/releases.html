@@ -447,7 +447,8 @@
                     <p>Changes since the 2021090819 release:</p>
 
                     <ul>
-                        <li>Sandboxed Play services compatibility layer: stub out DeviceConfig APIs</li>
+                        <li>Sandboxed Play services compatibility layer: stub out DeviceConfig APIs by ignoring device configuration writes instead of throwing a SecurityException</li>
+                        <li>Sandboxed Play services compatibility layer: stub out DropBoxManager API by pretending no crash dumps, logs, etc. are available instead of throwing a SecurityException</li>
                     </ul>
                 </article>
                 -->
