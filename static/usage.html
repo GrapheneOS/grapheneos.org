@@ -749,13 +749,15 @@
                     depending on having highly invasive privileged access far beyond what would be
                     realistic to get working with an expanded compatibility layer.</p>
 
-                    <p>The Play Store app cannot install and update apps as it normally would
-                    since it depends entirely on privileged permissions for unattended app
-                    installation, updates and removal. GrapheneOS includes a partial
-                    implementation of fallback code to get this working. It currently isn't fully
-                    wired up and leads to the Play Store stalling and needing to be force stopped.
-                    For the time being, it's easier to use the alternative Aurora Store frontend
-                    to the Play Store.</p>
+                    <p>The Play Store app is designed to use privileged permissions for unattended
+                    app installation, updates and removal which isn't possible on GrapheneOS since
+                    it's not a privileged app. GrapheneOS provides a dedicated compatibility layer
+                    for Play Store app installation teaching it to use the standard unprivileged
+                    approach. It prompts the user to permit it as an app source and then prompts
+                    for each app install/update. The Play Store currently doesn't get the result
+                    for the install succeeding or failing so it will think the installation is
+                    still in progress. You can work around this by force stopping the Play Store
+                    after installing an app and then opening it again to install other apps.</p>
 
                     <p>Play Store feature delivery isn't currently supported, but this isn't
                     broadly used by current generation apps aside from large games.</p>
