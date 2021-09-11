@@ -772,18 +772,42 @@
             <section id="banking-apps">
                 <h2><a href="#banking-apps">Banking apps</a></h2>
 
-                <p>Some banking apps on GrapheneOS will work fine in any configuration of the operating
-                system, however due to apps requiring the usage of the Google SafetyNet API, which is only
-                present if the sandboxed Google Play Services are installed, they may fail to launch. Apps 
-                can mandate that they require the "CTS Profile" check to pass, or the weaker, 
-                "basicIntegrity" check, both of which are provided by the SafetyNet API. The latter
-                will pass on GrapheneOS but the former will not. App developers could instead use the standard 
-                Android hardware attestation API which provides far stronger assurance on GrapheneOS to verify the
-                integrity of the operating system by following our guide <a href="https://grapheneos.org/articles/attestation-compatibility-guide">here</a>. Some banking apps
-                will attempt to use ptrace as a crude form of debug prevention which fails when the user 
-                disables the "Enable Native Debugging" toggle in Settings, in the Security menu. It is 
-                suggested to try with this toggle enabled and then with the sandboxed Google Play Services
-                installed if your app does not work.</p>
+                <p>Banking apps are a particularly problematic class of apps for compatibility
+                with alternate operating systems. Some of these work fine with any GrapheneOS
+                configuration but most of them have extensive dependencies on Play services. For
+                many of these apps, it's enough to set up the GrapheneOS sandboxed Play services
+                feature in the same profile. Unfortunately, there are further complications not
+                generally encountered with non-financial apps.</p>
+
+                <p>Many of these apps have their own crude anti-tampering mechanisms trying to
+                prevent inspecting or modifying the app in a weak attempt to hide their code and
+                API from security researchers. GrapheneOS allows users to disable native code
+                debugging via a toggle in Settings ➔ Security and this can interfere with apps
+                debugging their own code to add a barrier to analyzing the app. You should try
+                enabling this again if you've disabled it and are encountering compatibility
+                issues with these kinds of apps.</p>
+
+                <p>Banking apps are increasingly using Google's SafetyNet attestation service to
+                check the integrity and certification status of the operating system. GrapheneOS
+                passes the <code>basicIntegrity</code> check but isn't certified by Google so it
+                fails the <code>ctsProfileMatch</code> check. Most apps currently only enforce
+                weak software-based attestation which can be bypassed by spoofing what it checks.
+                GrapheneOS doesn't attempt to bypass the checks since it would be very fragile and
+                would repeatedly break as the checks are improved. Devices launched with Android 8
+                or later have hardware attestation support which cannot be bypassed without leaked
+                keys or serious vulnerabilities so the era of being able to bypass these checks by
+                spoofing results is coming to an end regardless.</p>
+
+                <p>The hardware attestation feature is part of the Android Open Source Project and
+                is fully supported by GrapheneOS. SafetyNet attestation chooses to use it to
+                enforce using Google certified operating systems. However, app developers can use
+                it directly and permit other properly signed operating systems upholding the
+                security model. GrapheneOS has a
+                <a href="https://grapheneos.org/articles/attestation-compatibility-guide">a
+                detailed guide</a> for app developers on how to support GrapheneOS with the
+                hardware attestation API. Direct use of the hardware attestation API provides much
+                higher assurance than using SafetyNet so these apps have nothing to lose by using a
+                more meaningful API and supporting a more secure OS.</p>
             </section>
         </main>
         <footer>
