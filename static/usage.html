@@ -93,6 +93,7 @@
                             <li><a href="#sandboxed-play-services-limitations">Limitations</a></li>
                         </ul>
                     </li>
+                    <li><a href="#using-banking-apps">Using banking apps</a></li>
                 </ul>
             </nav>
 
@@ -766,6 +767,23 @@
                     without any special privileges, there isn't a way to launch the settings
                     activity. We'll need to make a tiny app providing a way to launch it.</p>
                 </section>
+            </section>
+
+            <section id="using-banking-apps">
+                <h2><a href="#using-banking-apps">Using banking apps</a></h2>
+
+                <p>Some banking apps on GrapheneOS will work fine in any configuration of the operating
+                system, however due to apps requiring the usage of the Google SafetyNet API, which is only
+                present if the sandboxed Google Play Services are installed, they may fail to launch. Apps 
+                can mandate that they require the "CTS Profile" check to pass, or the weaker, 
+                "basicIntegrity" check, both of which are provided by the SafetyNet API. The latter
+                will pass on GrapheneOS but the former will not. App developers could instead use the standard 
+                Android hardware attestation API which provides far stronger assurance on GrapheneOS to verify the
+                integrity of the operating system by following our guide <a href="https://grapheneos.org/articles/attestation-compatibility-guide">here</a>. Some banking apps
+                will attempt to use ptrace as a crude form of debug prevention which fails when the user 
+                disables the "Enable Native Debugging" toggle in Settings, in the Security menu. It is 
+                suggested to try with this toggle enabled and then with the sandboxed Google Play Services
+                installed if your app does not work.</p>
             </section>
         </main>
         <footer>
