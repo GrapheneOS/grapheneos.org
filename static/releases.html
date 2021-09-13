@@ -449,6 +449,7 @@
                     <ul>
                         <li>Sandboxed Play services compatibility layer: stub out DeviceConfig APIs by ignoring device configuration writes instead of throwing a SecurityException</li>
                         <li>Sandboxed Play services compatibility layer: stub out DropBoxManager API by pretending no crash dumps, logs, etc. are available instead of throwing a SecurityException</li>
+                        <li>Sandboxed Play services compatibility layer: stub out getImei API by pretending IMEI cannot be retrieved instead of throwing a SecurityException</li>
                         <li>Seedvault: add missing permission needed for UserManager restriction security fix in the last release</li>
                         <li>TalkBack (screen reader): update base version to 370044210 and port our changes (Switch Access service has been dropped upstream)</li>
                     </ul>
