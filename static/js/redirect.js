@@ -11,19 +11,23 @@
 const redirects = new Map([
     ["/#copyright-and-licensing", "/faq#copyright-and-licensing"],
     ["/usage#default-connections", "/faq#default-connections"],
-    ["/releases#marlin-stable", "/faq#legacy-devices"],
-    ["/releases#sailfish-stable", "/faq#legacy-devices"],
-    ["/releases#marlin-beta", "/faq#legacy-devices"],
-    ["/releases#sailfish-beta", "/faq#legacy-devices"],
-    ["/releases#taimen-stable", "/faq#legacy-devices"],
-    ["/releases#walleye-stable", "/faq#legacy-devices"],
-    ["/releases#taimen-beta", "/faq#legacy-devices"],
-    ["/releases#walleye-beta", "/faq#legacy-devices"],
     ["/faq#dns", "/faq#custom-dns"],
-    ["/articles/grapheneos-servers#apps.grapheneos.org", "/articles/grapheneos-servers#releases.grapheneos.org"],
-    ["/articles/grapheneos-servers#time.grapheneos.org", "/articles/grapheneos-servers#grapheneos.network"],
     ["/install/cli#fastboot-as-non-root", "/install/cli#flashing-as-non-root"],
     ["/install/web#fastboot-as-non-root", "/install/web#flashing-as-non-root"],
+
+    // legacy devices
+    ["/releases#marlin-stable", "/faq#legacy-devices"],
+    ["/releases#marlin-beta", "/faq#legacy-devices"],
+    ["/releases#sailfish-stable", "/faq#legacy-devices"],
+    ["/releases#sailfish-beta", "/faq#legacy-devices"],
+    ["/releases#taimen-stable", "/faq#legacy-devices"],
+    ["/releases#taimen-beta", "/faq#legacy-devices"],
+    ["/releases#walleye-stable", "/faq#legacy-devices"],
+    ["/releases#walleye-beta", "/faq#legacy-devices"],
+
+    // legacy servers
+    ["/articles/grapheneos-servers#apps.grapheneos.org", "/articles/grapheneos-servers#releases.grapheneos.org"],
+    ["/articles/grapheneos-servers#time.grapheneos.org", "/articles/grapheneos-servers#grapheneos.network"],
 
     // preserve links to CLI install guide from when it was /install
     ["/install/#prerequisites", "/install/cli#prerequisites"],
