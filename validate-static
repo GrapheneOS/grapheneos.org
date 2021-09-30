@@ -5,15 +5,15 @@ shopt -s dotglob extglob globstar
 
 export PATH="$PWD/node_modules/.bin:$PATH"
 
-rm -rf static_tmp
-cp -a static static_tmp
-rm -rf static_tmp/js/fastboot/{!(dist),dist/!(fastboot.min.mjs|fastboot.min.mjs.map|vendor)}
+rm -rf static-tmp
+cp -a static static-tmp
+rm -rf static-tmp/js/fastboot/{!(dist),dist/!(fastboot.min.mjs|fastboot.min.mjs.map|vendor)}
 
-for file in static_tmp/**/*.@(json|webmanifest); do
+for file in static-tmp/**/*.@(json|webmanifest); do
     json_verify < "$file" >/dev/null
 done
 
-xmllint --noout static_tmp/**/*.@(html|svg|xml)
-eslint static_tmp/**/!(fastboot.min.m|z-worker-pako.|pako_inflate.min.|)js
-stylelint static_tmp/**/*.css
-validatornu --Werror --also-check-css --also-check-svg static_tmp/**/!(bimi).@(css|html|svg)
+xmllint --noout static-tmp/**/*.@(html|svg|xml)
+eslint static-tmp/**/!(fastboot.min.m|z-worker-pako.|pako_inflate.min.|)js
+stylelint static-tmp/**/*.css
+validatornu --Werror --also-check-css --also-check-svg static-tmp/**/!(bimi).@(css|html|svg)

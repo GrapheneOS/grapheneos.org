@@ -5,20 +5,20 @@ shopt -s dotglob extglob globstar
 
 export PATH="$PWD/node_modules/.bin:$PATH"
 
-rm -rf static_tmp
-cp -a static static_tmp
-rm -rf static_tmp/js/fastboot/{!(dist),dist/!(fastboot.min.mjs|fastboot.min.mjs.map|vendor)}
-mv static_tmp/js/fastboot/dist static_tmp/js/fastboot/v1.0.9
+rm -rf static-tmp
+cp -a static static-tmp
+rm -rf static-tmp/js/fastboot/{!(dist),dist/!(fastboot.min.mjs|fastboot.min.mjs.map|vendor)}
+mv static-tmp/js/fastboot/dist static-tmp/js/fastboot/v1.0.9
 
-for file in static_tmp/**/*.@(json|webmanifest); do
+for file in static-tmp/**/*.@(json|webmanifest); do
     json_reformat -m < "$file" | sponge "$file"
 done
 
-find static_tmp -name '*.css' -exec csso {} -o {} \;
-find static_tmp -name '*.js' -exec terser --ecma 2021 --module -cmo {} {} \;
+find static-tmp -name '*.css' -exec csso {} -o {} \;
+find static-tmp -name '*.js' -exec terser --ecma 2021 --module -cmo {} {} \;
 
 replace=""
-for file in static_tmp/**/*.css static_tmp/js/*.js static_tmp/mask-icon.svg; do
+for file in static-tmp/**/*.css static-tmp/js/*.js static-tmp/mask-icon.svg; do
     hash=$(sha256sum "$file" | head -c 8)
     dest="$(dirname $file)/$hash.$(basename $file)"
     mv "$file" "$dest"
@@ -26,9 +26,9 @@ for file in static_tmp/**/*.css static_tmp/js/*.js static_tmp/mask-icon.svg; do
 done
 
 cp nginx/nginx.conf nginx.conf.tmp
-sed -i "$replace" static_tmp/**/*.html nginx.conf.tmp
+sed -i "$replace" static-tmp/**/*.html nginx.conf.tmp
 
-find static_tmp -name '*.html' -exec html-minifier --collapse-whitespace \
+find static-tmp -name '*.html' -exec html-minifier --collapse-whitespace \
     --process-scripts "application/ld+json" --collapse-boolean-attributes \
     --remove-attribute-quotes --remove-comments --remove-empty-attributes \
     --remove-redundant-attributes --remove-script-type-attributes \
@@ -36,7 +36,7 @@ find static_tmp -name '*.html' -exec html-minifier --collapse-whitespace \
 
 ./generate-feed.py
 
-for file in static_tmp/**/*.@(atom|xml); do
+for file in static-tmp/**/*.@(atom|xml); do
     xmllint --noblanks "$file" --output "$file"
 done
 
@@ -51,5 +51,5 @@ zopfli_preserve_time() {
 }
 export -f zopfli_preserve_time
 
-find static_tmp -regex '.+\.\(atom\|css\|html\|ico\|js\|json\|mjs\|pdf\|svg\|txt\|webmanifest\|xml\)' |
+find static-tmp -regex '.+\.\(atom\|css\|html\|ico\|js\|json\|mjs\|pdf\|svg\|txt\|webmanifest\|xml\)' |
     parallel -q ::: brotli_k zopfli_preserve_time :::: -

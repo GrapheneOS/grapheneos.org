@@ -5,7 +5,7 @@ from datetime import datetime
 import lxml.html
 from lxml import etree
 
-document = lxml.html.parse("static_tmp/releases.html").getroot()
+document = lxml.html.parse("static-tmp/releases.html").getroot()
 releases = document.body.cssselect("#changelog article")
 
 updated = None
@@ -51,5 +51,5 @@ feed = f"""<?xml version="1.0" encoding="utf-8"?>
 </feed>
 """
 
-with open("static_tmp/releases.atom", "w") as f:
+with open("static-tmp/releases.atom", "w") as f:
     f.write(feed)
