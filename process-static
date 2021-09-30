@@ -45,5 +45,11 @@ brotli_k() {
 }
 export -f brotli_k
 
+zopfli_preserve_time() {
+    zopfli "$1"
+    touch -r "$1" "$1.gz"
+}
+export -f zopfli_preserve_time
+
 find static_tmp -regex '.+\.\(atom\|css\|html\|ico\|js\|json\|mjs\|pdf\|svg\|txt\|webmanifest\|xml\)' |
-    parallel -q ::: brotli_k zopfli :::: -
+    parallel -q ::: brotli_k zopfli_preserve_time :::: -
