@@ -29,14 +29,14 @@ for server in ${servers[@]}; do
 
     ssh $remote rm -rf $target
     ssh $remote cp -a $active $target
-    rsync -rpcv --chmod=D755,F644 --delete static_tmp/ $remote:$target
+    rsync -rptcv --chmod=D755,F644 --delete static_tmp/ $remote:$target
     ssh $remote sync -f $target
     ssh $remote ln -snf $target /srv/grapheneos.org
     ssh $remote sync /srv/grapheneos.org
 
     cp nginx.conf.tmp nginx.conf.root.tmp
     sed -i "s|/srv/grapheneos.org|$target|" nginx.conf.root.tmp
-    rsync -rpcv --chmod=D755,F644 --delete nginx.conf.root.tmp $remote:/etc/nginx/nginx.conf
+    rsync -rptcv --chmod=D755,F644 --delete nginx.conf.root.tmp $remote:/etc/nginx/nginx.conf
     ssh $remote sync -f /etc/nginx/nginx.conf
     ssh $remote nginx -s reload
 
