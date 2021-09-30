@@ -16,7 +16,7 @@ jobs:
     - uses: actions/setup-node@v1
 
     - name: Cache node modules
-      uses: actions/cache@v1
+      uses: actions/cache@v2.1.6
       env:
         cache-name: cache-node-modules
       with:
@@ -25,7 +25,7 @@ jobs:
 
     - name: Cache validator
       id: validator-cache
-      uses: actions/cache@v1
+      uses: actions/cache@v2.1.6
       with:
         path: vnu-runtime-image
         key: ${{ runner.os }}-validator-${{ env.VALIDATOR_VERSION }}
