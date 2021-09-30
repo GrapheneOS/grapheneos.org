@@ -14,14 +14,8 @@ jobs:
       with:
         submodules: true
     - uses: actions/setup-node@v2.4.1
-
-    - name: Cache node modules
-      uses: actions/cache@v2.1.6
-      env:
-        cache-name: cache-node-modules
       with:
-        path: ~/.npm
-        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        cache: 'npm'
 
     - name: Cache validator
       id: validator-cache
