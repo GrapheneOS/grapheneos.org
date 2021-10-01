@@ -499,7 +499,8 @@ git submodule update --init --recursive
                     <code>DEVICE</code> and <code>BUILD_ID</code> replaced with the appropriate
                     values:</p>
 
-                    <pre>vendor/android-prepare-vendor/execute-all.sh -d DEVICE -b BUILD_ID -o vendor/android-prepare-vendor
+                    <pre>m simg2img
+vendor/android-prepare-vendor/execute-all.sh -d DEVICE -b BUILD_ID -o vendor/android-prepare-vendor
 mkdir -p vendor/google_devices
 rm -rf vendor/google_devices/DEVICE
 mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/google_devices/</pre>
