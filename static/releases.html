@@ -471,7 +471,7 @@
                     <p>Changes since the 2021100502 release:</p>
 
                     <ul>
-                        <li>backport of the Android 12 GrapheneOS Pixel kernels to Android 11 GrapheneOS including the full 2021-10-05 kernel patch level</li>
+                        <li>backport of the Android 12 GrapheneOS Pixel kernels to Android 11 GrapheneOS including the full 2021-10-05 kernel patch level (full set of fixes for firmware and userspace will be provided by the upcoming release of Android 12 for Pixels)</li>
                         <li>kernel (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 5, Pixel 5a): rebase onto Android 12 SP1A.210812.016 kernel releases</li>
                         <li>kernel (Pixel 4, Pixel 4 XL, Pixel 5, Pixel 5a): temporarily disable unnecessary DEBUG_NOTIFIERS feature (type-based CFI obsoletes it as a security feature) due to an incompatibility with the updated Android 12 kernel LLVM toolchain (discovered issue is benign but we'll be fixing it in a future release)</li>
                         <li>kernel (Pixel 4, Pixel 4 XL, Pixel 4a): use zero-based filling for stack initialization like the other devices</li>
@@ -491,7 +491,7 @@
 
                     <ul>
                         <li>full 2021-10-01 security patch level</li>
-                        <li>partial 2021-10-05 security patch level (full set of fixes will be provided by the upcoming release of Android 12 release for Pixels)</li>
+                        <li>partial 2021-10-05 security patch level (full set of fixes will be provided by the upcoming release of Android 12 for Pixels)</li>
                         <li>rebased onto RQ3A.211001.001 and RD2A.211001.002 releases</li>
                         <li>drop our downstream workaround for use-after-free vulnerability in init now that the issue we reported is fixed upstream</li>
                     </ul>
