@@ -91,6 +91,7 @@
                     <li>
                         <a href="#changelog">Changelog</a>
                         <ul>
+                            <li><a href="#2021100606">2021100606</a></li>
                             <li><a href="#2021100502">2021100502</a></li>
                             <li><a href="#2021100103">2021100103</a></li>
                             <li><a href="#2021092612">2021092612</a></li>
@@ -457,6 +458,25 @@
                     </ul>
                 </article>
                 -->
+
+                <article id="2021100606">
+                    <h3><a href="#2021100606">2021100606</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RQ3A.211001.001.2021100606">RQ3A.211001.001.2021100606</a> (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, emulator, generic, other targets)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/RD2A.211001.002.2021100606">RD2A.211001.002.2021100606</a> (Pixel 5a)</li>
+                    </ul>
+
+                    <p>Changes since the 2021100502 release:</p>
+
+                    <ul>
+                        <li>backport of the Android 12 GrapheneOS Pixel kernels to Android 11 GrapheneOS including the full 2021-10-05 kernel patch level</li>
+                        <li>kernel (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 5, Pixel 5a): rebase onto Android 12 SP1A.210812.016 kernel releases</li>
+                        <li>kernel (Pixel 4, Pixel 4 XL, Pixel 5, Pixel 5a): temporarily disable unnecessary DEBUG_NOTIFIERS feature (type-based CFI obsoletes it as a security feature) due to an incompatibility with the updated Android 12 kernel LLVM toolchain (discovered issue is benign but we'll be fixing it in a future release)</li>
+                        <li>kernel (Pixel 4, Pixel 4 XL, Pixel 4a): use zero-based filling for stack initialization like the other devices</li>
+                    </ul>
+                </article>
 
                 <article id="2021100502">
                     <h3><a href="#2021100502">2021100502</a></h3>
