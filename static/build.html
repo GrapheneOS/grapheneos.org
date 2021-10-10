@@ -306,21 +306,16 @@
                     <section id="development-branch">
                         <h4><a href="#development-branch">Development branch</a></h4>
 
-                        <p>The <code>11</code> branch is the active developed branch of
+                        <p>The <code>12</code> branch is the active developed branch of
                         GrapheneOS. It follows along with the latest stable releases of the
                         Android Open Source Project which currently means the latest monthly
-                        release of the <code>android11-qpr3-release</code> (Android 11 Quarterly
-                        Platform Release 3) branch. The <code>11</code> branch of GrapheneOS
-                        should be used for everything other than the Pixel 5a including porting to
-                        other devices.</p>
+                        release of the <code>android12-release</code> (Android 12) branch. The
+                        <code>12</code> branch of GrapheneOS should be used for all officially
+                        supported devices and porting to other devices.</p>
 
-                        <p>The temporary <code>11-barbet</code> branch is used for Pixel 5a
-                        (barbet) support and will go away after barbet support is provided by the
-                        mainline AOSP stable releases, likely with Android 12.</p>
-
-                        <pre>mkdir grapheneos-11
-cd grapheneos-11
-repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 11
+                        <pre>mkdir grapheneos-12
+cd grapheneos-12
+repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 12
 repo sync -j32</pre>
 
                         <p>If your network is unreliable and <code>repo sync</code> fails, you can run the
@@ -1002,25 +997,25 @@ mv android-studio studio</pre>
                         <p>Official releases of the CTS can be downloaded from
                         <a href="https://source.android.com/compatibility/cts/downloads">the Compatibility
                         Suite Downloads page</a>. You should download the CTS for the relevant release
-                        (Android 11) and architecture (ARM). There's a separate zip for the main CTS, the
+                        (Android 12) and architecture (ARM). There's a separate zip for the main CTS, the
                         manual portion (CTS Verifier) and the CTS for Instant Apps. The latest release of the
                         CTS Media Files also needs to be downloaded from that section.</p>
 
                         <pre>mkdir -p ~/android/cts/{arm,x86}
 cd ~/android/cts/arm
-curl -O https://dl.google.com/dl/android/cts/android-cts-11_r4-linux_x86-arm.zip
-unzip android-cts-11_r4-linux_x86-arm.zip
-rm android-cts-11_r4-linux_x86-arm.zip
-curl -O https://dl.google.com/dl/android/cts/android-cts-verifier-11_r4-linux_x86-arm.zip
-unzip android-cts-verifier-11_r4-linux_x86-arm.zip
-rm android-cts-verifier-11_r4-linux_x86-arm.zip
+curl -O https://dl.google.com/dl/android/cts/android-cts-12_r1-linux_x86-arm.zip
+unzip android-cts-12_r1-linux_x86-arm.zip
+rm android-cts-12_r1-linux_x86-arm.zip
+curl -O https://dl.google.com/dl/android/cts/android-cts-verifier-12_r1-linux_x86-arm.zip
+unzip android-cts-verifier-12_r1-linux_x86-arm.zip
+rm android-cts-verifier-12_r1-linux_x86-arm.zip
 cd ~/android/cts/x86
-curl -O https://dl.google.com/dl/android/cts/android-cts-verifier-11_r4-linux_x86-x86.zip
-unzip android-cts-verifier-11_r4-linux_x86-x86.zip
-rm android-cts-verifier-11_r4-linux_x86-x86.zip
-curl -O https://dl.google.com/dl/android/cts/android-cts-11_r4-linux_x86-x86.zip
-unzip android-cts-11_r4-linux_x86-x86.zip
-rm android-cts-11_r4-linux_x86-x86.zip
+curl -O https://dl.google.com/dl/android/cts/android-cts-verifier-12_r1-linux_x86-x86.zip
+unzip android-cts-verifier-12_r1-linux_x86-x86.zip
+rm android-cts-verifier-12_r1-linux_x86-x86.zip
+curl -O https://dl.google.com/dl/android/cts/android-cts-12_r1-linux_x86-x86.zip
+unzip android-cts-12_r1-linux_x86-x86.zip
+rm android-cts-12_r1-linux_x86-x86.zip
 cd ~/android/cts
 curl -O https://dl.google.com/dl/android/cts/android-cts-media-1.5.zip
 unzip android-cts-media-1.5.zip
