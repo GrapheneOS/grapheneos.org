@@ -458,6 +458,8 @@
                         <li>make release signing otacerts.zip generation reproducible</li>
                         <li>Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a: target ARMv8.2 and the CPU generation for ART and native code instead of producing generic ARMv8 code</li>
                         <li>disable dexpreopt profiles</li>
+                        <li>hard-wire dexpreopt compiler filter to speed to force ahead-of-time compilation for bytecode in the product image</li>
+                        <li>mark APEX modules as not updatable and classify all the APEX jars as non-updatable so they can be fully pre-compiled</li>
                         <li>use new privacy indicators for location</li>
                         <li>raise permission usage history from 1 day to 7 days</li>
                         <li>enable permission history for all permission groups</li>
