@@ -504,14 +504,6 @@ mkdir -p vendor/google_devices
 rm -rf vendor/google_devices/DEVICE
 mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/google_devices/</pre>
 
-                    <p><strong>Since there aren't yet official Android 12 releases, you need to
-                    download the Android 12 Beta 5
-                    <a href="https://developer.android.com/about/versions/12/download">factory
-                    images zip</a> and pass that to android-prepare-vendor with the
-                    <code>--img</code> switch along with downloading the
-                    <a href="https://developer.android.com/about/versions/12/download-ota">over-the-air
-                    update zip</a> and passing that with the <code>--ota</code> switch.</strong></p>
-
                     <p>Note that android-prepare-vendor is non-deterministic unless a timestamp parameter is
                     passed with <code>--timestamp</code> (seconds since Epoch).</p>
                 </section>
