@@ -471,6 +471,7 @@
                         <li>raise permission usage history from 1 day to 7 days</li>
                         <li>enable permission history for all permission groups</li>
                         <li>use speed compiler filter for dexpreopt by default (converted from build configuration to build system to cover product/vendor/system_ext)</li>
+                        <li>temporarily disable user-facing crash reporting for com.android.statementservice (Intent Filter Verification Service) due to an upstream AOSP 12 bug causing an uncaught exception when it tries to send too much data in the intents for jobs it runs via WorkManager</li>
                         <li>Launcher: backport multiple fixes from AOSP master</li>
                         <li>Launcher: enable new app open/close animations</li>
                         <li>Launcher: enable crossfade when changing theme</li>
