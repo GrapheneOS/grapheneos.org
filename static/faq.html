@@ -480,8 +480,10 @@
                     managers need to be implemented by the keyboard chosen as the default by the user.</p>
 
                     <p>Android 12 further builds on this by displaying a toaster notification whenever an
-                    app in the foreground accesses the clipboard. This notification is on by default and can
-                    be toggled under Settings ➔ Privacy ➔ Show clipboard access.</p>
+                    app accesses clipboard data that was copied from a different app. This notification is
+                    on by default and can be toggled under Settings ➔ Privacy ➔ Show clipboard access. When
+                    on, it is not shown when an app copies and pastes content it put there itself to avoid
+                    annoying the user.</p>
 
                     <p>GrapheneOS previously restricted background clipboard access as a much earlier and
                     slightly less strict implementation of this feature. It provided a toggle for users to
