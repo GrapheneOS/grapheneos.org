@@ -683,18 +683,18 @@
             </section>
 
             <section id="sandboxed-play-services">
-                <h2><a href="#sandboxed-play-services">Sandboxed Play services</a></h2>
+                <h2><a href="#sandboxed-play-services">Play services Compatibility Layer</a></h2>
 
                 <p>GrapheneOS has support for installing the official releases of
                 com.android.vending (Google Play Store), com.google.android.gms (Google Play
                 services), com.google.android.gsf (Google Services Framework) as regular sandboxed
                 apps in a specific profile. These receive no special privileges and the OS itself
                 doesn't use them for anything. They run as unprivileged, sandboxed apps like any
-                others. GrapheneOS simply provides fallback code teaching them how to run without
-                any of the special privileged permissions and SELinux policy they depend on
-                having. You can choose which apps will use them by using a dedicated user profile
+                other app. GrapheneOS simply provides fallback code teaching them how to run without
+                any of the special privileged permissions and SELinux policy they usually receive. 
+                You can choose which apps will use them by using a dedicated user profile
                 since apps can't share data or communicate across users. A work profile also
-                works, although without as much isolation. Even within the same profile, apps not
+                works, although without providing as much isolation. Even within the same profile, apps not
                 explicitly choosing to use Google services won't use them because the OS doesn't
                 integrate support for it or use it as the backend for APIs in the OS like the
                 stock OS.</p>
