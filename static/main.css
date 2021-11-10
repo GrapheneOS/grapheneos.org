@@ -117,19 +117,20 @@ button {
     font-size: 0.9em;
     font-weight: bold;
     letter-spacing: 0.0892857143em;
-    background-color: #1976d2; /* blue700 */
-    border-radius: 4px;
+    background-color: #0053a3; /* accent_device_default_light => system_accent1_600 */
+    border-radius: 20px;
     border: none;
-    padding: 0.5rem 1rem;
+    height: 40px;
+    padding: 0.5rem 1.5rem;
 }
 
 button:hover {
-    background-color: #3486d8;
+    background-color: #1863ad; /* color between default and pressed */
     cursor: pointer;
 }
 
 button:focus {
-    background-color: #5097dd;
+    background-color: #2f73b4; /* button pressed on Android */
     box-shadow: 0 2px 4px -1px rgba(0 0 0 / 20%), 0 4px 5px 0 rgba(0 0 0 / 14%), 0 1px 10px 0 rgba(0 0 0 / 12%);
 }
 
@@ -271,15 +272,15 @@ td {
 
     button {
         color: black;
-        background-color: #82b1ff; /* blueA100 */
+        background-color: #95c4ff; /* system_accent1_200, because accent_device_default_dark => system_accent1_100 was too light */
     }
 
     button:hover {
-        background-color: #729ce0;
+        background-color: #89b4ea; /* color between default and pressed */
     }
 
     button:focus {
-        background-color: #6387c2;
+        background-color: #7ca3d4; /* button pressed on Android */
     }
 
     code, pre {
