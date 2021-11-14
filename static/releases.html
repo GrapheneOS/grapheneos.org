@@ -463,6 +463,7 @@
                     <p>Changes since the 2021110617 release:</p>
 
                     <ul>
+                        <li>Sandboxed Play services compatibility layer: improve AppOps compatibility layer for long-lived operations via the new startProxyOp/finishProxyOp API which previously had to be mimicked via the existing APIs</li>
                         <li>Updater: only allow privileged apps including Settings to open the settings activity since other apps like the launcher have no reason to open it</li>
                         <li>android-prepare-vendor carriersettings-extractor: strip out carrier provisioning configuration (OMA device management is not included in GrapheneOS so this references an app that's not present)</li>
                         <li>android-prepare-vendor carriersettings-extractor: always enable the ability to disable 2G</li>
