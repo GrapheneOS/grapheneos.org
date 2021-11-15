@@ -5,6 +5,6 @@
     "html-minifier": "^4.0.0",
     "stylelint": "^14.1.0",
     "stylelint-config-standard": "^24.0.0",
-    "terser": "^5.9.0"
+    "terser": "^5.10.0"
   }
 }
