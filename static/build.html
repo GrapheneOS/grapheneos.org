@@ -101,6 +101,7 @@
                     <li><a href="#stable-release-manifest">Stable release manifest</a></li>
                     <li><a href="#standalone-sdk">Standalone SDK</a></li>
                     <li><a href="#android-studio">Android Studio</a></li>
+                    <li><a href="#updating-gradle-and-gradle-wrapper-for-standalone-apps">Updating Gradle and Gradle wrapper for standalone apps</a></li>
                     <li><a href="#obtaining-upstream-manifests">Obtaining upstream manifests</a></li>
                     <li>
                         <a href="#testing">Testing</a>
@@ -977,6 +978,18 @@ mv android-studio studio</pre>
                 <pre>export PATH="$PATH:$HOME/android/studio/bin"</pre>
 
                 <p>You can start it with <code>studio.sh</code>.</p>
+            </article>
+
+            <article id="updating-gradle-and-gradle-wrapper-for-standalone-apps">
+                <h2><a href="#updating-gradle-and-gradle-wrapper-for-standalone-apps">Updating Gradle and Gradle wrapper for standalone apps</a></h2>
+
+                <p>Obtain the latest Gradle version and binary-only zip checksum from
+                <a href="https://gradle.org/release-checksums/">the Gradle releases page</a>.</p>
+
+                <p>Use the gradle wrapper script to update Gradle to the latest version. You should run this twice rather than only once to upgrade the Gradle wrapper with the new Gradle version. For example, with Gradle 7.3:</p>
+
+                <pre>./gradlew wrapper --gradle-version=7.3 --gradle-distribution-sha256-sum=de8f52ad49bdc759164f72439a3bf56ddb1589c4cde802d3cec7d6ad0e0ee410
+./gradlew wrapper --gradle-version=7.3 --gradle-distribution-sha256-sum=de8f52ad49bdc759164f72439a3bf56ddb1589c4cde802d3cec7d6ad0e0ee410</pre>
             </article>
 
             <article id="testing">
