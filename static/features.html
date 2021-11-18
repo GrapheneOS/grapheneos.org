@@ -178,7 +178,13 @@
                     </li>
                     <li>Prevention of dynamic native code execution in-memory or via the filesystem
                     for the base OS without going via the package manager, etc.</li>
-                    <li>Filesystem access hardening</li>
+                    <li>
+                        Filesystem access hardening:
+                        <ul>
+                            <li>Hardened mount permissions</li>
+                            <li>Link race mitigations enabled</li>
+                            <li>File spoofing mitigations enabled</li>
+                    </li>
                     <li>Enhanced <a href="https://source.android.com/security/verifiedboot">verified boot</a>
                     with better security properties and reduced attack surface</li>
                     <li>Enhanced hardware-based attestation with more precise version information</li>
