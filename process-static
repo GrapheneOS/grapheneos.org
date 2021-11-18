@@ -11,10 +11,14 @@ rm -rf static-tmp/js/fastboot/{!(dist),dist/!(fastboot.min.mjs|fastboot.min.mjs.
 mv static-tmp/js/fastboot/dist static-tmp/js/fastboot/v1.0.9
 
 for file in static-tmp/**/*.@(json|webmanifest); do
+    json_verify < "$file" >/dev/null
     json_reformat -m < "$file" | sponge "$file"
 done
 
+stylelint static-tmp/**/*.css
 find static-tmp -name '*.css' -exec csso {} -o {} \;
+
+eslint static-tmp/**/!(fastboot.min.m|z-worker-pako.|pako_inflate.min.|)js
 find static-tmp -name '*.js' -exec terser --ecma 2021 --module -cmo {} {} \;
 
 replace=""
@@ -28,6 +32,8 @@ done
 cp nginx/nginx.conf nginx.conf.tmp
 sed -i "$replace" static-tmp/**/*.html nginx.conf.tmp
 
+xmllint --noout static-tmp/**/*.html
+validatornu --Werror --also-check-css --also-check-svg static-tmp/**/!(bimi).@(css|html|svg)
 find static-tmp -name '*.html' -exec html-minifier --collapse-whitespace \
     --process-scripts "application/ld+json" --collapse-boolean-attributes \
     --remove-attribute-quotes --remove-comments --remove-empty-attributes \

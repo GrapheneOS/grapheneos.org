@@ -2,7 +2,6 @@
 
 set -o errexit -o nounset -o pipefail
 
-./validate-static
 ./process-static
 
 servers=(
