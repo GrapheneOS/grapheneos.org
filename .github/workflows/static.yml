@@ -30,14 +30,11 @@ jobs:
 
     - name: Download validatornu
       # There isn't a package with a `validatornu` command in Ubuntu, so download the validator
-      # from the GitHub releases and change the validate-static script later to use it.
+      # from the GitHub releases and change the process-static script later to use it.
       run: curl -OL https://github.com/validator/validator/releases/download/${{ env.VALIDATOR_VERSION }}/vnu.linux.zip && unzip vnu.linux.zip
       if: steps.validator-cache.outputs.cache-hit != 'true'
 
-    - run: sed -i 's+validatornu+vnu-runtime-image/bin/vnu+g' validate-static
-
-    - name: validate static
-      run: ./validate-static
+    - run: sed -i 's+validatornu+vnu-runtime-image/bin/vnu+g' process-static
 
     - name: process static
       run: ./process-static
