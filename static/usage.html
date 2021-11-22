@@ -808,13 +808,11 @@
                 modules). The compatibility layer will be gradually expanded and improved in order
                 to get more of the Play services functionality working.</p>
 
-                <p>The Play Store app is designed to use privileged permissions for unattended app
-                installation, updates and removal which isn't possible on GrapheneOS since it's
-                not a privileged app. GrapheneOS provides a dedicated compatibility layer for Play
-                Store app installation/updates/removal teaching it to use the standard
-                unprivileged approach. It prompts the user to permit it as an app source and then
-                prompts for the initial app install/update or removal. It will use Android 12's
-                support for unattended updates when possible which means it can do unattended
+                <p>GrapheneOS provides a dedicated compatibility layer for Play Store app
+                installation/updates/removal teaching it to use the standard unprivileged approach
+                available to sandboxed apps. It prompts the user to permit it as an app source and
+                then prompts for the initial app install/update or removal. It will use Android
+                12's support for unattended updates when possible which means it can do unattended
                 updates of modern (API 29+) apps where it was the installer for the currently
                 installed version already.</p>
 
