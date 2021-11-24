@@ -36,7 +36,8 @@ for server in ${servers[@]}; do
     cp nginx.conf.tmp nginx.conf.root.tmp
     sed -i "s|/srv/grapheneos.org|$target|" nginx.conf.root.tmp
     rsync -rptcv --chmod=D755,F644 --delete nginx.conf.root.tmp $remote:/etc/nginx/nginx.conf
-    ssh $remote sync -f /etc/nginx/nginx.conf
+    rsync -rptcv --chmod=D755,F644 --delete nginx/snippets/ $remote:/etc/nginx/snippets
+    ssh $remote 'sync /etc/nginx/nginx.conf /etc/nginx/snippets/*'
     ssh $remote nginx -s reload
 
     echo
