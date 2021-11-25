@@ -43,6 +43,11 @@ done
 
 sed -i "$replace" static-tmp/**/*.html nginx-tmp/nginx.conf
 
+# temporarily disabled for GitHub Actions due to unresolved compatibility issue
+if [[ ${GITHUB_ACTIONS:-false} != true ]]; then
+    gixy nginx-tmp/nginx.conf
+fi
+
 xmllint --noout static-tmp/**/*.html
 validatornu --Werror --also-check-css --also-check-svg static-tmp/**/!(bimi).@(css|html|svg)
 find static-tmp -name '*.html' -exec html-minifier --collapse-whitespace \
