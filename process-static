@@ -5,6 +5,9 @@ shopt -s dotglob extglob globstar
 
 export PATH="$PWD/node_modules/.bin:$PATH"
 
+rm -rf nginx-tmp
+cp -a nginx nginx-tmp
+
 rm -rf static-tmp
 cp -a static static-tmp
 rm -rf static-tmp/js/fastboot/{!(dist),dist/!(fastboot.min.mjs|fastboot.min.mjs.map|vendor)}
@@ -38,8 +41,7 @@ for file in static-tmp/**/*.css static-tmp/js/*.js static-tmp/mask-icon.svg; do
     replace+=";s@{{path|/${file#*/}}}@/${dest#*/}@g"
 done
 
-cp nginx/nginx.conf nginx.conf.tmp
-sed -i "$replace" static-tmp/**/*.html nginx.conf.tmp
+sed -i "$replace" static-tmp/**/*.html nginx-tmp/nginx.conf
 
 xmllint --noout static-tmp/**/*.html
 validatornu --Werror --also-check-css --also-check-svg static-tmp/**/!(bimi).@(css|html|svg)
