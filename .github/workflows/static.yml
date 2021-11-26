@@ -16,6 +16,10 @@ jobs:
     - uses: actions/setup-node@v2.4.1
       with:
         cache: 'npm'
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'
+        cache: 'pip'
 
     - name: Cache validator
       id: validator-cache
@@ -25,8 +29,9 @@ jobs:
         key: ${{ runner.os }}-validator-${{ env.VALIDATOR_VERSION }}
 
     - run: sudo apt-get update
-    - run: sudo apt-get -y install libxml2-utils yajl-tools python3-lxml python3-cssselect moreutils brotli zopfli
+    - run: sudo apt-get -y install libxml2-utils yajl-tools moreutils brotli zopfli
     - run: npm install
+    - run: pip install -r requirements.txt
 
     - name: Download validatornu
       # There isn't a package with a `validatornu` command in Ubuntu, so download the validator
