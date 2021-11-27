@@ -29,7 +29,7 @@ jobs:
         key: ${{ runner.os }}-validator-${{ env.VALIDATOR_VERSION }}
 
     - run: sudo apt-get update
-    - run: sudo apt-get -y install libxml2-utils yajl-tools moreutils brotli zopfli
+    - run: sudo apt-get -y install libxml2-utils yajl-tools moreutils zopfli
     - run: npm install
     - run: pip install -r requirements.txt
 
