@@ -27,17 +27,17 @@ find static-tmp -name '*.js' -exec terser --ecma 2021 --module -cmo {} {} \;
 replace=""
 for file in static-tmp/**/*.css static-tmp/js/*.js static-tmp/mask-icon.svg; do
     hash=$(sha256sum "$file" | head -c 8)
+    sri_hash=sha256-$(openssl dgst -sha256 -binary "$file" | openssl base64 -A)
     dest="$(dirname $file)/$hash.$(basename $file)"
 
     if [[ $file == *.css ]]; then
-        sri_hash=sha256-$(openssl dgst -sha256 -binary "$file" | openssl base64 -A)
         replace+=";s@{{css|/${file#*/}}}@<link rel=\"stylesheet\" href=\"/${dest#*/}\" integrity=\"$sri_hash\"/>@g"
     elif [[ $file == *.js ]]; then
-        sri_hash=sha256-$(openssl dgst -sha256 -binary "$file" | openssl base64 -A)
         replace+=";s@{{js|/${file#*/}}}@<script type=\"module\" src=\"/${dest#*/}\" integrity=\"$sri_hash\"></script>@g"
     fi
 
     mv "$file" "$dest"
+    replace+=";s@{{integrity|/${file#*/}}}@${sri_hash}@g"
     replace+=";s@{{path|/${file#*/}}}@/${dest#*/}@g"
 done
 
