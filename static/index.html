@@ -48,82 +48,106 @@
                 </ul>
             </nav>
         </header>
-        <main id="grapheneos">
-            <h1><a href="#grapheneos">GrapheneOS</a></h1>
+        <main class="normalize" id="grapheneos">
+            <div class="content hero">
 
-            <p>GrapheneOS is a privacy and security focused mobile OS with Android app
-            compatibility developed as a non-profit <a href="/source">open source</a> project.
-            It's focused on the research and development of privacy and security technology
-            including substantial improvements to sandboxing, exploit mitigations and the
-            permission model.</p>
+                <div class="text">
+                    <h1>GrapheneOS</h1>
+                    <p>The private and secure mobile operating system with Android app compatibility.
+                        Developed as a non-profit open source project.</p>
+                    <a class="button" href="/install/">Install GrapheneOS</a>
+                </div>
 
-            <p>GrapheneOS improves the privacy and security of the OS from the bottom up. It
-            deploys technologies to mitigate whole classes of vulnerabilities and make exploiting
-            the most common sources of vulnerabilities substantially more difficult. It improves
-            the security of both the OS and the apps running on it. The app sandbox and other
-            security boundaries are fortified. GrapheneOS tries to avoid impacting the user
-            experience with the privacy and security features. Ideally, the features can be
-            designed so that they're always enabled with no impact on the user experience and no
-            additional complexity like configuration options. It's not always feasible, and
-            GrapheneOS does add various toggles for features like the Network permission, Sensors
-            permission, restrictions when the device is locked (USB peripherals, camera, quick
-            tiles), etc. along with more complex user-facing privacy and security features with
-            their own UX.</p>
+                <figure class="device-img">
+                    <img alt="" class="phone-img" height="580" src="/phone.png"/>
+                    <img alt="" class="phone-logo-img" height="200" src="{{path|/mask-icon.svg}}" width="200"/>
+                </figure>
 
-            <p>The <a href="/features">features page</a> provides an overview of the substantial
-            privacy and security improvements added by GrapheneOS to the Android Open Source
-            Project.</p>
+            </div>
 
-            <p>Official releases are available on the <a href="/releases">releases page</a> and
-            installation instructions are on the <a href="/install/">install page</a>.</p>
+            <div class="surface">
+                <div class="content break">
+                    <p>Get to know GrapheneOS</p>
+                </div>
+            </div>
 
-            <p>GrapheneOS also develops various apps and services with a focus on privacy and
-            security. Vanadium is a hardened variant of the Chromium browser and WebView
-            specifically built for GrapheneOS. GrapheneOS also includes our minimal
-            security-focused PDF Viewer, our hardware-based Auditor app / attestation service
-            providing local and remote verification of devices, and the externally developed
-            Seedvault encrypted backup which was initially developed for inclusion in
-            GrapheneOS.</p>
+            <div class="content">
+                <section id="about">
+                    <h2 class="start"><a href="#about">About</a></h2>
 
-            <section id="never-google-services">
-                <h2><a href="#never-google-services">No Google apps or services</a></h2>
+                    <p>GrapheneOS is focused on the research and development of privacy and security technology
+                    including substantial improvements to sandboxing, exploit mitigations and the
+                    permission model.</p>
 
-                <p>GrapheneOS will never include either Google Play services or another
-                implementation of Google services like microG. It's possible to install Play
-                services as a set of fully sandboxed apps without special privileges via our
-                <a href="/usage#sandboxed-play-services">sandboxed Play services compatibility
-                layer</a>. See <a href="/faq#google-services">the FAQ section</a> for more details
-                on our plans for filling in the gaps from not shipping Play services and Google
-                apps.</p>
-            </section>
+                    <p>The privacy and security of the OS is improved from the bottom up. It
+                    deploys technologies to mitigate whole classes of vulnerabilities and make exploiting
+                    the most common sources of vulnerabilities substantially more difficult. It improves
+                    the security of both the OS and the apps running on it. The app sandbox and other
+                    security boundaries are fortified. GrapheneOS tries to avoid impacting the user
+                    experience with the privacy and security features. Ideally, the features can be
+                    designed so that they're always enabled with no impact on the user experience and no
+                    additional complexity like configuration options. It's not always feasible, and
+                    GrapheneOS does add various toggles for features like the Network permission, Sensors
+                    permission, restrictions when the device is locked (USB peripherals, camera, quick
+                    tiles), etc. along with more complex user-facing privacy and security features with
+                    their own UX.</p>
 
-            <section id="history">
-                <h2><a href="#history">History</a></h2>
+                    <p>The <a href="/features">features page</a> provides an overview of the substantial
+                    privacy and security improvements added by GrapheneOS to the Android Open Source
+                    Project.</p>
 
-                <p>GrapheneOS was founded as an open source project in late 2014. It was formerly
-                known as CopperheadOS. For more details, see the <a href="/history/">history
-                page</a>.</p>
-            </section>
+                    <p>Official releases are available on the <a href="/releases">releases page</a> and
+                    installation instructions are on the <a href="/install/">install page</a>.</p>
 
-            <section id="upstream">
-                <h2><a href="#upstream">Upstream contributions</a></h2>
+                    <p>GrapheneOS also develops various apps and services with a focus on privacy and
+                    security. Vanadium is a hardened variant of the Chromium browser and WebView
+                    specifically built for GrapheneOS. GrapheneOS also includes our minimal
+                    security-focused PDF Viewer, our hardware-based Auditor app / attestation service
+                    providing local and remote verification of devices, and the externally developed
+                    Seedvault encrypted backup which was initially developed for inclusion in
+                    GrapheneOS.</p>
+                </section>
 
-                <p>See <a href="/faq#upstream">the FAQ section on our upstream work</a> improving
-                privacy and security for billions of users by getting a subset of our changes into
-                core infrastructure projects.</p>
-            </section>
+                <section id="never-google-services">
+                    <h3><a href="#never-google-services">No Google apps or services</a></h3>
 
-            <section id="roadmap">
-                <h2><a href="#roadmap">Roadmap</a></h2>
+                    <p>GrapheneOS will never include either Google Play services or another
+                    implementation of Google services like microG. It's possible to install Play
+                    services as a set of fully sandboxed apps without special privileges via our
+                    <a href="/usage#sandboxed-play-services">sandboxed Play services compatibility
+                    layer</a>. See <a href="/faq#google-services">the FAQ section</a> for more details
+                    on our plans for filling in the gaps from not shipping Play services and Google
+                    apps.</p>
+                </section>
 
-                <p>See <a href="/faq#roadmap">the FAQ section on the roadmap</a>.</p>
-            </section>
+                <section id="history">
+                    <h2><a href="#history">History</a></h2>
 
-            <section id="device-support">
-                <h2><a href="/faq#device-support">Device support</a></h2>
+                    <p>GrapheneOS was founded as an open source project in late 2014. It was formerly
+                    known as CopperheadOS. For more details, see the <a href="/history/">history
+                    page</a>.</p>
+                </section>
 
-                <p>See <a href="/faq#device-support">the FAQ section on device support</a>.</p>
-            </section>
+                <section id="upstream">
+                    <h2><a href="#upstream">Upstream contributions</a></h2>
+
+                    <p>See <a href="/faq#upstream">the FAQ section on our upstream work</a> improving
+                    privacy and security for billions of users by getting a subset of our changes into
+                    core infrastructure projects.</p>
+                </section>
+
+                <section id="roadmap">
+                    <h2><a href="#roadmap">Roadmap</a></h2>
+
+                    <p>See <a href="/faq#roadmap">the FAQ section on the roadmap</a>.</p>
+                </section>
+
+                <section id="device-support">
+                    <h2><a href="/faq#device-support">Device support</a></h2>
+
+                    <p class="end">See <a href="/faq#device-support">the FAQ section on device support</a>.</p>
+                </section>
+            </div>
         </main>
         <footer>
             <a href="/"><img src="{{path|/mask-icon.svg}}" width="512" height="512" alt=""/>GrapheneOS</a>
