@@ -72,7 +72,13 @@
                             <li><a href="#kernel">Kernel</a></li>
                             <li><a href="#setting-up-the-os-build-environment">Setting up the OS build environment</a></li>
                             <li><a href="#reproducible-builds">Reproducible builds</a></li>
-                            <li><a href="#extracting-vendor-files-for-pixel-devices">Extracting vendor files for Pixel devices</a></li>
+                            <li>
+                                <a href="#extracting-vendor-files-for-pixel-devices">Extracting vendor files for Pixel devices</a>
+                                <ul>
+                                    <li><a href="#extracting-vendor-files-for-pixel-5-and-earlier">Pixel 5 and earlier</a></li>
+                                    <li><a href="#extracting-vendor-files-for-pixel-6-and-later">Pixel 6 and later</a></li>
+                                </ul>
+                            </li>
                             <li><a href="#building">Building</a></li>
                             <li><a href="#faster-builds-for-development-use-only">Faster builds for development use only</a></li>
                             <li>
@@ -505,14 +511,27 @@ git submodule update --init --recursive
                     that the official builds match the sources, since it has signature verification (which
                     is an important part of the verified boot and attestation security model).</p>
 
-                    <p>Extract the vendor files corresponding to the matching release with
-                    <code>DEVICE</code> and <code>BUILD_ID</code> replaced with the appropriate
-                    values:</p>
+                    <section id="extracting-vendor-files-for-pixel-5-and-earlier">
+                        <h4><a href="#extracting-vendor-files-for-pixel-5-and-earlier">Pixel 5 and earlier</a></h4>
 
-                    <pre>vendor/android-prepare-vendor/execute-all.sh -d DEVICE -b BUILD_ID -o vendor/android-prepare-vendor
+                        <p>Extract the vendor files corresponding to the matching release with
+                        <code>DEVICE</code> and <code>BUILD_ID</code> replaced with the
+                        appropriate values:</p>
+
+                        <pre>vendor/android-prepare-vendor/execute-all.sh -d DEVICE -b BUILD_ID -o vendor/android-prepare-vendor
 mkdir -p vendor/google_devices
 rm -rf vendor/google_devices/DEVICE
 mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/google_devices/</pre>
+                    </section>
+
+                    <section id="extracting-vendor-files-for-pixel-6-and-later">
+                        <h4><a href="#extracting-vendor-files-for-pixel-6-and-later">Pixel 6 and later</a></h4>
+
+                        <p>This is not yet fully published and documented since it uses a new
+                        system replacing android-prepare-vendor and is in flux with a lot of
+                        usability improvements needed. It will be published before the devices
+                        have a stable release.</p>
+                    </section>
                 </section>
 
                 <section id="building">
