@@ -318,10 +318,19 @@ Installed as /home/username/platform-tools/fastboot</pre>
                 <p>Connect the phone to the computer. On Linux, you'll need to do this again if
                 you didn't have the udev rules set up when you connected it.</p>
 
-                <p>On Windows, you may need to install a driver for fastboot now: In Windows Update,
-                click Check for updates. After that there might be a link "View optional updates."
-                Download and install any driver updates. If there are no optional updates, simply
-                continue with the installation instructions.</p>
+                <p>On Windows, you need to install a driver for fastboot if you don't already have
+                it. No driver is needed on other operating systems. You can obtain the driver from
+                Windows Update which will detect it as an optional update when the device is
+                booted into the bootloader interface and connected to the computer. Open Windows
+                Update, run a check for updates and then open the "View optional updates"
+                interface. Install the driver for the Android bootloader interface as an optional
+                update.</p>
+
+                <p>An alternative approach to obtaining the Windows fastboot driver is to obtain
+                the <a href="https://developer.android.com/studio/run/win-usb">latest driver for
+                Pixels</a> from Google and then
+                <a href="https://developer.android.com/studio/run/oem-usb#InstallingDriver">manually
+                install it with the Windows Device Manager</a>.</p>
             </section>
 
             <section id="unlocking-the-bootloader">
