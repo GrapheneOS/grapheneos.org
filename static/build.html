@@ -652,26 +652,28 @@ cd ../..</pre>
                     <section id="enabling-updatable-apex-components">
                         <h4><a href="#enabling-updatable-apex-components">Enabling updatable APEX components</a></h4>
 
-                        <p>GrapheneOS disables updatable APEX components for the officially supported devices
-                        and targets inheriting from the mainline target, so APEX signing keys are not needed
-                        and this section can be ignored for unmodified builds.</p>
+                        <p>GrapheneOS uses the <code>TARGET_FLATTEN_APEX := true</code> format to
+                        include APEX components as part of the base OS and disables support for
+                        out-of-band APEX component updates. This reduces complexity and attack
+                        surface along with simplifying key management since there aren't a bunch
+                        of additional components to sign. GrapheneOS has no use for out-of-band
+                        updates to APEX components since we update the OS for each device and
+                        don't need partial out-of-band updates for portable components.</p>
 
-                        <p>GrapheneOS uses the <code>TARGET_FLATTEN_APEX := true</code> format to include APEX
-                        components as part of the base OS without supporting out-of-band updates.</p>
+                        <p>APEX components that aren't flattened are a signed APK (used to verify
+                        updates) with an embedded filesystem image signed with an AVB key (for
+                        verified boot). Our release signing scripts has support for signing
+                        non-flattened APEX components with the releasekey and AVB key for the
+                        device. This secures it but wouldn't be usable for shipping out-of-band
+                        updates to APEX components across multiple devices. You could switch to
+                        using a single shared APEX APK signing key and AVB signing key. You'll
+                        also need to add parameters for additional device-specific APEX components
+                        not included in our release signing script which was set up based on the
+                        Pixel 6 and Pixel 6 Pro.</p>
 
-                        <p><strong>If you don't disable updatable APEX packages, you need to generate an APK and
-                        AVB key for each APEX component and extend the GrapheneOS release.sh script to pass
-                        the appropriate parameters to replace the APK and AVB keys for each APEX
-                        component.</strong></p>
-
-                        <p>APEX components that are not flattened are a signed APK (used to verify updates)
-                        with an embedded filesystem image signed with an AVB key (for verified boot). Each
-                        APEX package must have a unique set of keys. GrapheneOS has no use for these
-                        out-of-band updates at this time and flattening APEX components avoids needing a bunch
-                        of extra keys and complexity.</p>
-
-                        <p>For now, consult the upstream documentation on generating these keys. It will be
-                        covered here in the future.</p>
+                        <p>Consult the upstream documentation on generating these keys. It will
+                        likely be covered here in the future, especially if non-flattened APEX
+                        components become unavoidable.</p>
                     </section>
                 </section>
 
