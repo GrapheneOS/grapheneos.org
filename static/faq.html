@@ -166,13 +166,17 @@
                         <li>Pixel 6 (oriole)</li>
                     </ul>
 
-                    <p>The current releases don't have full support for all of the hardware and
-                    not all of the GrapheneOS features are ported to them. The under display
-                    fingerprint reader is not supported in the current public builds because the
-                    implementation of the feature hasn't been made public yet. Our kernel
-                    hardening and features aren't yet applied which also means that various
-                    user-facing GrapheneOS features such as disallowing new USB peripherals when
-                    locked (or always) are not yet supported.</p>
+                    <p>The experimental releases for the Pixel 6 and Pixel 6 Pro have certain
+                    known limitations. The under display fingerprint reader isn't supported yet
+                    and it will be a week or two until we add support for it. The GrapheneOS APN
+                    and CarrierConfig databases aren't included yet and the AOSP databases that
+                    are being used lack proper configuration for a lot of carriers. It's usually
+                    possible to manually add new APNs to work around this. The GrapheneOS APN and
+                    CarrierConfig databases should be included within a few days. The GrapheneOS
+                    kernel hardening isn't ported yet so there are a bunch of missing under the
+                    hood privacy and security features along with a few missing user-facing
+                    features such as disallowing new USB peripherals or disabling native code
+                    debugging support.</p>
 
                     <!--
 
