@@ -6,6 +6,11 @@ const devices = ["raven", "oriole", "barbet", "redfin", "bramble", "sunfish", "c
 const channels = ["stable", "beta"];
 const delayMs = 1000 * 60 * 5;
 
+function updateLink(link, text, url) {
+    link.innerText = text;
+    link.setAttribute("href", url);
+}
+
 async function updateReleases() {
     const requests = [];
 
@@ -30,17 +35,10 @@ async function updateReleases() {
                 const release = document.getElementById(device + "-" + channel);
                 const links = release.getElementsByTagName("a");
 
-                links[1].innerText = tag;
-                links[1].setAttribute("href", versionBaseUrl + tag);
-
-                links[2].innerText = factoryFilename;
-                links[2].setAttribute("href", factoryUrl);
-
-                links[3].innerText = factoryFilename + ".sig";
-                links[3].setAttribute("href", factoryUrl + ".sig");
-
-                links[4].innerText = updateFilename;
-                links[4].setAttribute("href", updateUrl);
+                updateLink(links[1], tag, versionBaseUrl + tag);
+                updateLink(links[2], factoryFilename, factoryUrl);
+                updateLink(links[3], factoryFilename + ".sig", factoryUrl + ".sig");
+                updateLink(links[4], updateFilename, updateUrl);
             }));
         }
     }
