@@ -351,7 +351,7 @@ main.normalize {
         background-color: #89b4ea; /* color between default and pressed */
     }
 
-    button:focus {
+    button:focus, .button:focus {
         background-color: #7ca3d4; /* button pressed on Android */
     }
 
