@@ -112,7 +112,7 @@ main {
     overflow-wrap: break-word;
 }
 
-button {
+button, .button, .button:visited {
     color: white;
     font-size: 0.9em;
     font-weight: bold;
@@ -124,14 +124,21 @@ button {
     padding: 0.5rem 1.5rem;
 }
 
-button:hover {
+button:hover, .button:hover {
     background-color: #1863ad; /* color between default and pressed */
     cursor: pointer;
 }
 
-button:focus {
+button:focus, .button:focus {
     background-color: #2f73b4; /* button pressed on Android */
     box-shadow: 0 2px 4px -1px rgba(0 0 0 / 20%), 0 4px 5px 0 rgba(0 0 0 / 14%), 0 1px 10px 0 rgba(0 0 0 / 12%);
+}
+
+.button, .button:visited, .button:hover, .button:active {
+    text-decoration: none;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    line-height: 2.5rem;
 }
 
 .coin-address {
@@ -202,6 +209,60 @@ td {
     padding: 0.5rem;
 }
 
+main.normalize {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    max-width: 832px;
+    margin: auto;
+    padding: 3.5rem 1rem;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.hero h1 {
+    margin: 0;
+}
+
+.device-img {
+    margin: 0 0 0 2rem;
+    position: relative;
+}
+
+.phone-logo-img {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.surface {
+    background-color: #e6e6e6;
+    width: 100%;
+}
+
+.start {
+    margin-top: 0;
+}
+
+.end {
+    margin-bottom: 0;
+}
+
+.break p {
+    text-align: center;
+    line-height: 1rem;
+    margin: 0;
+}
+
 /* latin */
 @font-face {
     font-family: Roboto;
@@ -252,6 +313,17 @@ td {
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+@media only screen and (max-width: 735px) {
+    .hero {
+        flex-flow: column nowrap;
+        text-align: center;
+    }
+
+    .device-img {
+        margin: 3.5rem 0 0;
+    }
+}
+
 @media (prefers-color-scheme: dark) {
     body {
         background: #121212;
@@ -270,12 +342,12 @@ td {
         color: rgba(255 255 255 / 87%); /* 87% white */
     }
 
-    button {
+    button, .button, .button:visited {
         color: black;
         background-color: #95c4ff; /* system_accent1_200, because accent_device_default_dark => system_accent1_100 was too light */
     }
 
-    button:hover {
+    button:hover, .button:hover {
         background-color: #89b4ea; /* color between default and pressed */
     }
 
@@ -302,5 +374,17 @@ td {
 
     td {
         border-color: #222;
+    }
+
+    .phone-img {
+        filter: brightness(0.87);
+    }
+
+    .phone-logo-img {
+        filter: invert(87%);
+    }
+
+    .surface {
+        background-color: #212121;
     }
 }
