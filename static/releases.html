@@ -509,6 +509,7 @@
                     <ul>
                         <li>Vanadium: update Chromium base to 96.0.4664.104</li>
                         <li>skip reporting network connectivity to the OS from apps with the Network (INTERNET) permission revoked to avoid triggering a SecurityException</li>
+                        <li>remove special case of throwing SecurityException for socket errors caused by EACCES/EPERM as a debugging aid since it causes compatibility issues when the Network (INTERNET) permission is revoked</li>
                     </ul>
                 </article>
                 -->
