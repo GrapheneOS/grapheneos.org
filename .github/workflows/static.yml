@@ -15,11 +15,11 @@ jobs:
         submodules: true
     - uses: actions/setup-node@v2
       with:
-        cache: 'npm'
+        cache: npm
     - uses: actions/setup-python@v2
       with:
-        python-version: '3.9'
-        cache: 'pip'
+        python-version: '3.10'
+        cache: pip
 
     - name: Cache validator
       id: validator-cache
