@@ -1,4 +1,3 @@
-nginx.conf.tmp
-nginx.conf.root.tmp
+nginx-tmp
 node_modules
 static-tmp

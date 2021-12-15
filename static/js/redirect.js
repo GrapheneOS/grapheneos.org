@@ -51,7 +51,7 @@ const redirects = new Map([
     ["/install/#further-information", "/install/cli#further-information"],
 ]);
 
-function handle_hash() {
+function handleHash() {
     if (window.location.hash) {
         const redirect = redirects.get(window.location.pathname + window.location.hash);
         if (redirect) {
@@ -60,7 +60,7 @@ function handle_hash() {
     }
 }
 
-handle_hash();
-addEventListener("hashchange", handle_hash, false);
+handleHash();
+addEventListener("hashchange", handleHash, false);
 
 // @license-end

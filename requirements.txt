@@ -1,0 +1,4 @@
+lxml
+cssselect
+gixy==0.1.20
+pyparsing==2.4.7

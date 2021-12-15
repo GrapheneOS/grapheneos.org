@@ -22,18 +22,18 @@
         <link rel="canonical" href="https://grapheneos.org/faq"/>
         <link rel="icon" href="/favicon.ico"/>
         <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
-        <link rel="mask-icon" href="/mask-icon.svg" color="#1a1a1a"/>
+        <link rel="mask-icon" href="{{path|/mask-icon.svg}}" color="#1a1a1a"/>
         <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-        <link rel="stylesheet" href="/main.css"/>
+        {{css|/main.css}}
         <link rel="manifest" href="/manifest.webmanifest"/>
         <link rel="license" href="/LICENSE.txt"/>
-        <script type="module" src="/js/redirect.js"></script>
+        {{js|/js/redirect.js}}
     </head>
     <body>
         <header>
             <nav id="site-menu">
                 <ul>
-                    <li><a href="/"><img src="/mask-icon.svg" alt=""/>GrapheneOS</a></li>
+                    <li><a href="/"><img src="{{path|/mask-icon.svg}}" alt=""/>GrapheneOS</a></li>
                     <li><a href="/features">Features</a></li>
                     <li><a href="/install/">Install</a></li>
                     <li><a href="/build">Build</a></li>
@@ -160,6 +160,19 @@
                         <li>Pixel 3 (blueline)</li>
                     </ul>
 
+                    <p>GrapheneOS has experimental support for the following devices:</p>
+
+                    <ul>
+                        <li>Pixel 6 Pro (raven)</li>
+                        <li>Pixel 6 (oriole)</li>
+                    </ul>
+
+                    <p>The experimental releases for the Pixel 6 and Pixel 6 Pro are temporarily
+                    missing GrapheneOS kernel hardening so there are a bunch of missing under the
+                    hood privacy and security features along with a few missing user-facing
+                    features such as disallowing new USB peripherals or disabling native code
+                    debugging support.</p>
+
                     <!--
 
                     <p>We provide extended support releases as a stopgap for users to transition
@@ -207,15 +220,22 @@
                 <article id="recommended-devices">
                     <h3><a href="#recommended-devices">Which devices are recommended?</a></h3>
 
-                    <p>GrapheneOS is actively developing support for the Pixel 6 and Pixel 6 Pro.
-                    These are much nicer hardware than the previous generation devices and the
-                    Pixel 6 is a great deal. The minimum guarantee of 5 years of security updates
-                    from launch instead of 3 years also means they'll last much longer as fully
-                    supported devices.</p>
+                    <p>The Pixel 6 and Pixel 6 Pro are flagship phones with much nicer hardware
+                    than previous generation devices (cameras, CPU, GPU, display, battery), 5
+                    years of guaranteed full security updates / support and substantial security
+                    improvements. GrapheneOS currently has experimental support for these devices
+                    without all of the hardening features ported yet. We strongly recommend buying
+                    one of these latest generation devices.</p>
 
-                    <p>The following devices offer the best hardware, firmware and software
-                    security along with the longest future support time and are strongly
-                    recommended:</p>
+                    <p>The cheaper Pixel 6 has extremely competitive pricing for the flagship
+                    level hardware especially with the guaranteed long term support. Pixel 6 Pro
+                    has 50% more memory (12GB instead of 8GB), a higher end screen, a 3rd rear
+                    camera with 4x optical zoom and a higher end front camera. Both devices have
+                    the same SoC (CPU, GPU, etc.) and the same main + ultrawide rear cameras. The
+                    Pixel 6 is quite large and the Pixel 6 Pro is larger.</p>
+
+                    <p>The following devices are reasonable choices if for some reason you can't
+                    obtain a Pixel 6 or Pixel 6 Pro:</p>
 
                     <ul>
                         <li>Pixel 5a (barbet)</li>
@@ -224,9 +244,11 @@
                         <li>Pixel 4a (sunfish)</li>
                     </ul>
 
-                    <p>The Pixel 5a, Pixel 5 and Pixel 4a (5G) will likely be supported longer
-                    than the Pixel 4a. We strongly recommend against purchasing devices older than
-                    the Pixel 4a.</p>
+                    <p>The Pixel 5a, Pixel 5 and Pixel 4a (5G) are 5th generation devices will
+                    likely be supported longer than the 4th generation Pixel 4a. Pixel 4a (5G) is
+                    not a variant of the Pixel 4a but rather is nearly identical to the Pixel 5a
+                    and quite similar to the Pixel 5. We strongly recommend against purchasing
+                    devices older than the Pixel 4a.</p>
 
                     <p>The Pixel 4a is a budget device meeting the same security standards as the more
                     expensive flagship devices. You can read more on the differences between the hardware
@@ -1454,7 +1476,7 @@
             </article>
         </main>
         <footer>
-            <a href="/"><img src="/mask-icon.svg" width="512" height="512" alt=""/>GrapheneOS</a>
+            <a href="/"><img src="{{path|/mask-icon.svg}}" width="512" height="512" alt=""/>GrapheneOS</a>
             <ul id="social">
                 <li><a href="https://twitter.com/GrapheneOS">Twitter</a></li>
                 <li><a href="https://github.com/GrapheneOS">GitHub</a></li>

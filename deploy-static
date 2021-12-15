@@ -2,13 +2,10 @@
 
 set -o errexit -o nounset -o pipefail
 
-./validate-static
 ./process-static
 
 servers=(
-    0.grapheneos.org
-    1.grapheneos.org
-    2.grapheneos.org
+    {0,1,2}.grapheneos.org
 )
 
 for server in ${servers[@]}; do
@@ -34,10 +31,10 @@ for server in ${servers[@]}; do
     ssh $remote ln -snf $target /srv/grapheneos.org
     ssh $remote sync /srv/grapheneos.org
 
-    cp nginx.conf.tmp nginx.conf.root.tmp
-    sed -i "s|/srv/grapheneos.org|$target|" nginx.conf.root.tmp
-    rsync -rptcv --chmod=D755,F644 --delete nginx.conf.root.tmp $remote:/etc/nginx/nginx.conf
-    ssh $remote sync -f /etc/nginx/nginx.conf
+    sed "s|/srv/grapheneos.org|$target|" nginx-tmp/nginx.conf > nginx-tmp/nginx.conf.root
+    rsync -rptcv --chmod=D755,F644 --delete nginx-tmp/nginx.conf.root $remote:/etc/nginx/nginx.conf
+    rsync -rptcv --chmod=D755,F644 --delete nginx-tmp/snippets/ $remote:/etc/nginx/snippets
+    ssh $remote 'sync /etc/nginx/nginx.conf /etc/nginx/snippets/*'
     ssh $remote nginx -s reload
 
     echo

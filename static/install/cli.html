@@ -22,18 +22,18 @@
         <link rel="canonical" href="https://grapheneos.org/install/cli"/>
         <link rel="icon" href="/favicon.ico"/>
         <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
-        <link rel="mask-icon" href="/mask-icon.svg" color="#1a1a1a"/>
+        <link rel="mask-icon" href="{{path|/mask-icon.svg}}" color="#1a1a1a"/>
         <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-        <link rel="stylesheet" href="/main.css"/>
+        {{css|/main.css}}
         <link rel="manifest" href="/manifest.webmanifest"/>
         <link rel="license" href="/LICENSE.txt"/>
-        <script type="module" src="/js/redirect.js"></script>
+        {{js|/js/redirect.js}}
     </head>
     <body>
         <header>
             <nav id="site-menu">
                 <ul>
-                    <li><a href="/"><img src="/mask-icon.svg" alt=""/>GrapheneOS</a></li>
+                    <li><a href="/"><img src="{{path|/mask-icon.svg}}" alt=""/>GrapheneOS</a></li>
                     <li><a href="/features">Features</a></li>
                     <li><a href="/install/">Install</a></li>
                     <li><a href="/build">Build</a></li>
@@ -205,7 +205,7 @@
                 <p>You need an updated copy of the <code>fastboot</code> tool and the
                 directory containing it needs to be included in the <code>PATH</code>
                 environment variable. You can run <code>fastboot --version</code> to determine
-                the current version. It must be at least <code>29.0.6</code>. You can use a
+                the current version. It must be at least <code>31.0.3</code>. You can use a
                 distribution package for this, but most of them mistakenly package development
                 snapshots of fastboot, clobber the standard version scheme for platform-tools
                 (adb, fastboot, etc.) with their own scheme and don't keep it up-to-date
@@ -318,10 +318,19 @@ Installed as /home/username/platform-tools/fastboot</pre>
                 <p>Connect the phone to the computer. On Linux, you'll need to do this again if
                 you didn't have the udev rules set up when you connected it.</p>
 
-                <p>On Windows, you may need to install a driver for fastboot now: In Windows Update,
-                click Check for updates. After that there might be a link "View optional updates."
-                Download and install any driver updates. If there are no optional updates, simply
-                continue with the installation instructions.</p>
+                <p>On Windows, you need to install a driver for fastboot if you don't already have
+                it. No driver is needed on other operating systems. You can obtain the driver from
+                Windows Update which will detect it as an optional update when the device is
+                booted into the bootloader interface and connected to the computer. Open Windows
+                Update, run a check for updates and then open the "View optional updates"
+                interface. Install the driver for the Android bootloader interface as an optional
+                update.</p>
+
+                <p>An alternative approach to obtaining the Windows fastboot driver is to obtain
+                the <a href="https://developer.android.com/studio/run/win-usb">latest driver for
+                Pixels</a> from Google and then
+                <a href="https://developer.android.com/studio/run/oem-usb#InstallingDriver">manually
+                install it with the Windows Device Manager</a>.</p>
             </section>
 
             <section id="unlocking-the-bootloader">
@@ -558,7 +567,7 @@ curl -O https://releases.grapheneos.org/DEVICE_NAME-factory-2021110122.zip.sig</
             </section>
         </main>
         <footer>
-            <a href="/"><img src="/mask-icon.svg" width="512" height="512" alt=""/>GrapheneOS</a>
+            <a href="/"><img src="{{path|/mask-icon.svg}}" width="512" height="512" alt=""/>GrapheneOS</a>
             <ul id="social">
                 <li><a href="https://twitter.com/GrapheneOS">Twitter</a></li>
                 <li><a href="https://github.com/GrapheneOS">GitHub</a></li>

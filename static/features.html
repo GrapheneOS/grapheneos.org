@@ -22,9 +22,9 @@
         <link rel="canonical" href="https://grapheneos.org/features"/>
         <link rel="icon" href="/favicon.ico"/>
         <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
-        <link rel="mask-icon" href="/mask-icon.svg" color="#1a1a1a"/>
+        <link rel="mask-icon" href="{{path|/mask-icon.svg}}" color="#1a1a1a"/>
         <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-        <link rel="stylesheet" href="/main.css"/>
+        {{css|/main.css}}
         <link rel="manifest" href="/manifest.webmanifest"/>
         <link rel="license" href="/LICENSE.txt"/>
     </head>
@@ -32,7 +32,7 @@
         <header>
             <nav id="site-menu">
                 <ul>
-                    <li><a href="/"><img src="/mask-icon.svg" alt=""/>GrapheneOS</a></li>
+                    <li><a href="/"><img src="{{path|/mask-icon.svg}}" alt=""/>GrapheneOS</a></li>
                     <li aria-current="page"><a href="/features">Features</a></li>
                     <li><a href="/install/">Install</a></li>
                     <li><a href="/build">Build</a></li>
@@ -192,6 +192,8 @@
                     (still enabled by default for compatibility)</li>
                     <li>Low-level improvements to the <a href="/faq#encryption">filesystem-based
                     full disk encryption</a> used on modern Android</li>
+                    <li>Support creating up to 16 secondary user profiles (15 + guest) instead of
+                    only 4 (3 + guest).</li>
                     <li>Support for logging out of user profiles without needing a device manager:
                     makes them inactive so that they can't continue running code while using
                     another profile and purges the disk encryption keys (which are per-profile)
@@ -203,7 +205,8 @@
                     <li>Improved user visibility into persistent firmware security through version
                     and configuration verification with reporting of inconsistencies and debug
                     features being enabled.</li>
-                    <li>Support longer passwords by default (64 characters) without a device manager</li>
+                    <li>Support for longer passwords by default (64 characters instead of 16)
+                    without requiring a device manager</li>
                     <li>Stricter implementation of the optional fingerprint unlock feature permitting
                     only 5 attempts rather than 20 before permanent lockout (our recommendation is
                     still keeping sensitive data in user profiles without fingerprint unlock)</li>
@@ -366,7 +369,7 @@
             </section>
         </main>
         <footer>
-            <a href="/"><img src="/mask-icon.svg" width="512" height="512" alt=""/>GrapheneOS</a>
+            <a href="/"><img src="{{path|/mask-icon.svg}}" width="512" height="512" alt=""/>GrapheneOS</a>
             <ul id="social">
                 <li><a href="https://twitter.com/GrapheneOS">Twitter</a></li>
                 <li><a href="https://github.com/GrapheneOS">GitHub</a></li>

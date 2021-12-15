@@ -22,9 +22,9 @@
         <link rel="canonical" href="https://grapheneos.org/source"/>
         <link rel="icon" href="/favicon.ico"/>
         <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
-        <link rel="mask-icon" href="/mask-icon.svg" color="#1a1a1a"/>
+        <link rel="mask-icon" href="{{path|/mask-icon.svg}}" color="#1a1a1a"/>
         <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-        <link rel="stylesheet" href="/main.css"/>
+        {{css|/main.css}}
         <link rel="manifest" href="/manifest.webmanifest"/>
         <link rel="license" href="/LICENSE.txt"/>
     </head>
@@ -32,7 +32,7 @@
         <header>
             <nav id="site-menu">
                 <ul>
-                    <li><a href="/"><img src="/mask-icon.svg" alt=""/>GrapheneOS</a></li>
+                    <li><a href="/"><img src="{{path|/mask-icon.svg}}" alt=""/>GrapheneOS</a></li>
                     <li><a href="/features">Features</a></li>
                     <li><a href="/install/">Install</a></li>
                     <li><a href="/build">Build</a></li>
@@ -90,7 +90,7 @@
                 be expanded to cover all of this in the future.</p>
 
                 <p>For a full list of the repositories in the OS source tree, look at the
-                <a href="https://github.com/GrapheneOS/platform_manifest/blob/11/default.xml">default.xml
+                <a href="https://github.com/GrapheneOS/platform_manifest/blob/12/default.xml">default.xml
                 list in the manifest repository</a>.</p>
 
                 <p>GrapheneOS forks of AOSP repositories:</p>
@@ -121,13 +121,14 @@
                     <li><a href="https://github.com/GrapheneOS/platform_external_conscrypt">platform_external_conscrypt</a></li>
                     <li><a href="https://github.com/GrapheneOS/platform_frameworks_base">platform_frameworks_base</a></li>
                     <li><a href="https://github.com/GrapheneOS/platform_frameworks_ex">platform_frameworks_ex</a></li>
+                    <li><a href="https://github.com/GrapheneOS/platform_frameworks_libs_systemui">platform_frameworks_libs_systemui</a></li>
                     <li><a href="https://github.com/GrapheneOS/platform_frameworks_native">platform_frameworks_native</a></li>
                     <li><a href="https://github.com/GrapheneOS/platform_frameworks_opt_net_wifi">platform_frameworks_opt_net_wifi</a></li>
+                    <li><a href="https://github.com/GrapheneOS/platform_hardware_google_pixel-sepolicy">platform_hardware_google_pixel-sepolicy</a></li>
                     <li><a href="https://github.com/GrapheneOS/platform_libcore">platform_libcore</a></li>
                     <li><a href="https://github.com/GrapheneOS/platform_manifest">Manifest for OS repositories</a></li>
                     <li><a href="https://github.com/GrapheneOS/platform_packages_apps_Bluetooth">platform_packages_apps_Bluetooth</a></li>
                     <li><a href="https://github.com/GrapheneOS/platform_packages_apps_Calendar">platform_packages_apps_Calendar</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_apps_Camera2">platform_packages_apps_Camera2</a></li>
                     <li><a href="https://github.com/GrapheneOS/platform_packages_apps_Contacts">platform_packages_apps_Contacts</a></li>
                     <li><a href="https://github.com/GrapheneOS/platform_packages_apps_DeskClock">platform_packages_apps_DeskClock</a></li>
                     <li><a href="https://github.com/GrapheneOS/platform_packages_apps_Dialer">platform_packages_apps_Dialer</a></li>
@@ -145,7 +146,6 @@
                     <li><a href="https://github.com/GrapheneOS/platform_packages_modules_Permission">platform_packages_modules_Permission</a></li>
                     <li><a href="https://github.com/GrapheneOS/platform_packages_modules_Wifi">platform_packages_modules_Wifi</a></li>
                     <li><a href="https://github.com/GrapheneOS/platform_packages_providers_DownloadProvider">platform_packages_providers_DownloadProvider</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_system_core">platform_system_core</a></li>
                     <li><a href="https://github.com/GrapheneOS/platform_system_bt">platform_system_bt</a></li>
                     <li><a href="https://github.com/GrapheneOS/platform_system_core">platform_system_core</a></li>
                     <li><a href="https://github.com/GrapheneOS/platform_system_extras">platform_system_extras</a></li>
@@ -169,7 +169,6 @@
                     <li><a href="https://github.com/GrapheneOS/hardened_malloc">hardened_malloc</a></li>
                     <li><a href="https://github.com/GrapheneOS/kernel_google_barbet">kernel_google_barbet</a></li>
                     <li><a href="https://github.com/GrapheneOS/kernel_google_barbet_arch_arm64_boot_dts_vendor">kernel_google_barbet_arch_arm64_boot_dts_vendor</a></li>
-                    <li><a href="https://github.com/GrapheneOS/kernel_google_barbet_drivers_staging_qca-wifi-host-cmn">kernel_google_barbet_drivers_staging_qca-wifi-host-cmn</a></li>
                     <li><a href="https://github.com/GrapheneOS/kernel_google_barbet_drivers_staging_qcacld-3.0">kernel_google_barbet_drivers_staging_qcacld-3.0</a></li>
                     <li><a href="https://github.com/GrapheneOS/kernel_google_barbet_techpack_audio">kernel_google_barbet_teckpack_audio</a></li>
                     <li><a href="https://github.com/GrapheneOS/kernel_google_coral">kernel_google_coral</a></li>
@@ -181,12 +180,10 @@
                     <li><a href="https://github.com/GrapheneOS/kernel_google_crosshatch_techpack_audio">kernel_google_crosshatch_teckpack_audio</a></li>
                     <li><a href="https://github.com/GrapheneOS/kernel_google_redbull">kernel_google_redbull</a></li>
                     <li><a href="https://github.com/GrapheneOS/kernel_google_redbull_arch_arm64_boot_dts_vendor">kernel_google_redbull_arch_arm64_boot_dts_vendor</a></li>
-                    <li><a href="https://github.com/GrapheneOS/kernel_google_redbull_drivers_staging_qca-wifi-host-cmn">kernel_google_redbull_drivers_staging_qca-wifi-host-cmn</a></li>
                     <li><a href="https://github.com/GrapheneOS/kernel_google_redbull_drivers_staging_qcacld-3.0">kernel_google_redbull_drivers_staging_qcacld-3.0</a></li>
                     <li><a href="https://github.com/GrapheneOS/kernel_google_redbull_techpack_audio">kernel_google_redbull_teckpack_audio</a></li>
-                    <li><a href="https://github.com/GrapheneOS/kernel_prebuilts_build-tools">kernel_prebuilts_build-tools</a></li>
                     <li><a href="https://github.com/GrapheneOS/platform_external_Auditor">Auditor prebuilt (platform_external_Auditor)</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_external_Camera">Experimental Camera app (platform_external_Camera)</a></li>
+                    <li><a href="https://github.com/GrapheneOS/platform_external_Camera">GrapheneOS Camera app (platform_external_Camera)</a></li>
                     <li><a href="https://github.com/GrapheneOS/platform_external_PdfViewer">PDF Viewer prebuilt (platform_external_PdfViewer)</a></li>
                     <li><a href="https://github.com/GrapheneOS/platform_external_talkback">GrapheneOS fork of the open source Talkback and Switch Access accessibility services</a></li>
                     <li><a href="https://github.com/GrapheneOS/platform_external_seedvault">platform_external_seedvault</a></li>
@@ -249,7 +246,7 @@
             </section>
         </main>
         <footer>
-            <a href="/"><img src="/mask-icon.svg" width="512" height="512" alt=""/>GrapheneOS</a>
+            <a href="/"><img src="{{path|/mask-icon.svg}}" width="512" height="512" alt=""/>GrapheneOS</a>
             <ul id="social">
                 <li><a href="https://twitter.com/GrapheneOS">Twitter</a></li>
                 <li><a href="https://github.com/GrapheneOS">GitHub</a></li>

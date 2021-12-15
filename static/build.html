@@ -22,9 +22,9 @@
         <link rel="canonical" href="https://grapheneos.org/build"/>
         <link rel="icon" href="/favicon.ico"/>
         <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
-        <link rel="mask-icon" href="/mask-icon.svg" color="#1a1a1a"/>
+        <link rel="mask-icon" href="{{path|/mask-icon.svg}}" color="#1a1a1a"/>
         <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-        <link rel="stylesheet" href="/main.css"/>
+        {{css|/main.css}}
         <link rel="manifest" href="/manifest.webmanifest"/>
         <link rel="license" href="/LICENSE.txt"/>
     </head>
@@ -32,7 +32,7 @@
         <header>
             <nav id="site-menu">
                 <ul>
-                    <li><a href="/"><img src="/mask-icon.svg" alt=""/>GrapheneOS</a></li>
+                    <li><a href="/"><img src="{{path|/mask-icon.svg}}" alt=""/>GrapheneOS</a></li>
                     <li><a href="/features">Features</a></li>
                     <li><a href="/install/">Install</a></li>
                     <li aria-current="page"><a href="/build">Build</a></li>
@@ -72,7 +72,13 @@
                             <li><a href="#kernel">Kernel</a></li>
                             <li><a href="#setting-up-the-os-build-environment">Setting up the OS build environment</a></li>
                             <li><a href="#reproducible-builds">Reproducible builds</a></li>
-                            <li><a href="#extracting-vendor-files-for-pixel-devices">Extracting vendor files for Pixel devices</a></li>
+                            <li>
+                                <a href="#extracting-vendor-files-for-pixel-devices">Extracting vendor files for Pixel devices</a>
+                                <ul>
+                                    <li><a href="#extracting-vendor-files-for-pixel-5-and-earlier">Pixel 5 and earlier</a></li>
+                                    <li><a href="#extracting-vendor-files-for-pixel-6-and-later">Pixel 6 and later</a></li>
+                                </ul>
+                            </li>
                             <li><a href="#building">Building</a></li>
                             <li><a href="#faster-builds-for-development-use-only">Faster builds for development use only</a></li>
                             <li>
@@ -137,8 +143,8 @@
                     <p>Smartphone targets:</p>
 
                     <ul>
-                        <li>raven (Pixel 6 Pro) — not yet supported but ready to be worked on</li>
-                        <li>oriole (Pixel 6) — not yet supported but ready to be worked on</li>
+                        <li>raven (Pixel 6 Pro) — experimental</li>
+                        <li>oriole (Pixel 6) — experimental</li>
                         <li>barbet (Pixel 5a)</li>
                         <li>redfin (Pixel 5)</li>
                         <li>bramble (Pixel 4a (5G))</li>
@@ -277,13 +283,19 @@
                         <li>zip</li>
                     </ul>
 
-                    <p>Additional android-prepare-vendor (for Pixel phones) dependencies:</p>
+                    <p>Additional dependencies for Pixel phones before the 6th generation:</p>
 
                     <ul>
                         <li>e2fsprogs (for debugfs)</li>
                         <li>OpenJDK (for the jar command)</li>
                         <li>protobuf library for Python 3</li>
                         <li>jq</li>
+                    </ul>
+
+                    <p>Additional dependencies for 6th generation Pixel phones:</p>
+
+                    <ul>
+                        <li>yarn</li>
                     </ul>
 
                     <p>Additional Vanadium (Chromium) build dependencies not provided by the source tree:</p>
@@ -499,17 +511,27 @@ git submodule update --init --recursive
                     that the official builds match the sources, since it has signature verification (which
                     is an important part of the verified boot and attestation security model).</p>
 
-                    <p>Extract the vendor files corresponding to the matching release with
-                    <code>DEVICE</code> and <code>BUILD_ID</code> replaced with the appropriate
-                    values:</p>
+                    <section id="extracting-vendor-files-for-pixel-5-and-earlier">
+                        <h4><a href="#extracting-vendor-files-for-pixel-5-and-earlier">Pixel 5 and earlier</a></h4>
 
-                    <pre>vendor/android-prepare-vendor/execute-all.sh -d DEVICE -b BUILD_ID -o vendor/android-prepare-vendor
+                        <p>Extract the vendor files corresponding to the matching release with
+                        <code>DEVICE</code> and <code>BUILD_ID</code> replaced with the
+                        appropriate values:</p>
+
+                        <pre>vendor/android-prepare-vendor/execute-all.sh -d DEVICE -b BUILD_ID -o vendor/android-prepare-vendor
 mkdir -p vendor/google_devices
 rm -rf vendor/google_devices/DEVICE
 mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/google_devices/</pre>
+                    </section>
 
-                    <p>Note that android-prepare-vendor is non-deterministic unless a timestamp parameter is
-                    passed with <code>--timestamp</code> (seconds since Epoch).</p>
+                    <section id="extracting-vendor-files-for-pixel-6-and-later">
+                        <h4><a href="#extracting-vendor-files-for-pixel-6-and-later">Pixel 6 and later</a></h4>
+
+                        <p>This is not yet fully published and documented since it uses a new
+                        system replacing android-prepare-vendor and is in flux with a lot of
+                        usability improvements needed. It will be published before the devices
+                        have a stable release.</p>
+                    </section>
                 </section>
 
                 <section id="building">
@@ -526,6 +548,9 @@ mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/
                     <p>Next, start the build process with the <code>m</code> command:</p>
 
                     <pre>m target-files-package</pre>
+
+                    <p>For the Pixel 6 and Pixel 6 Pro, you currently need <code>m vendorbootimage
+                    target-files-package</code> instead of <code>target-files-package</code>.</p>
 
                     <p>The <code>-j</code> parameter can be passed to <code>m</code> to set a specific
                     number of jobs such as <code>-j4</code> to use 4 jobs. By default, the build system
@@ -627,26 +652,28 @@ cd ../..</pre>
                     <section id="enabling-updatable-apex-components">
                         <h4><a href="#enabling-updatable-apex-components">Enabling updatable APEX components</a></h4>
 
-                        <p>GrapheneOS disables updatable APEX components for the officially supported devices
-                        and targets inheriting from the mainline target, so APEX signing keys are not needed
-                        and this section can be ignored for unmodified builds.</p>
+                        <p>GrapheneOS uses the <code>TARGET_FLATTEN_APEX := true</code> format to
+                        include APEX components as part of the base OS and disables support for
+                        out-of-band APEX component updates. This reduces complexity and attack
+                        surface along with simplifying key management since there aren't a bunch
+                        of additional components to sign. GrapheneOS has no use for out-of-band
+                        updates to APEX components since we update the OS for each device and
+                        don't need partial out-of-band updates for portable components.</p>
 
-                        <p>GrapheneOS uses the <code>TARGET_FLATTEN_APEX := true</code> format to include APEX
-                        components as part of the base OS without supporting out-of-band updates.</p>
+                        <p>APEX components that aren't flattened are a signed APK (used to verify
+                        updates) with an embedded filesystem image signed with an AVB key (for
+                        verified boot). Our release signing scripts has support for signing
+                        non-flattened APEX components with the releasekey and AVB key for the
+                        device. This secures it but wouldn't be usable for shipping out-of-band
+                        updates to APEX components across multiple devices. You could switch to
+                        using a single shared APEX APK signing key and AVB signing key. You'll
+                        also need to add parameters for additional device-specific APEX components
+                        not included in our release signing script which was set up based on the
+                        Pixel 6 and Pixel 6 Pro.</p>
 
-                        <p><strong>If you don't disable updatable APEX packages, you need to generate an APK and
-                        AVB key for each APEX component and extend the GrapheneOS release.sh script to pass
-                        the appropriate parameters to replace the APK and AVB keys for each APEX
-                        component.</strong></p>
-
-                        <p>APEX components that are not flattened are a signed APK (used to verify updates)
-                        with an embedded filesystem image signed with an AVB key (for verified boot). Each
-                        APEX package must have a unique set of keys. GrapheneOS has no use for these
-                        out-of-band updates at this time and flattening APEX components avoids needing a bunch
-                        of extra keys and complexity.</p>
-
-                        <p>For now, consult the upstream documentation on generating these keys. It will be
-                        covered here in the future.</p>
+                        <p>Consult the upstream documentation on generating these keys. It will
+                        likely be covered here in the future, especially if non-flattened APEX
+                        components become unavoidable.</p>
                     </section>
                 </section>
 
@@ -1320,7 +1347,7 @@ rm android-cts-media-1.5.zip</pre>
             </article>
         </main>
         <footer>
-            <a href="/"><img src="/mask-icon.svg" width="512" height="512" alt=""/>GrapheneOS</a>
+            <a href="/"><img src="{{path|/mask-icon.svg}}" width="512" height="512" alt=""/>GrapheneOS</a>
             <ul id="social">
                 <li><a href="https://twitter.com/GrapheneOS">Twitter</a></li>
                 <li><a href="https://github.com/GrapheneOS">GitHub</a></li>

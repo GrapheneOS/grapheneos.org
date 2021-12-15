@@ -22,18 +22,18 @@
         <link rel="canonical" href="https://grapheneos.org/usage"/>
         <link rel="icon" href="/favicon.ico"/>
         <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
-        <link rel="mask-icon" href="/mask-icon.svg" color="#1a1a1a"/>
+        <link rel="mask-icon" href="{{path|/mask-icon.svg}}" color="#1a1a1a"/>
         <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-        <link rel="stylesheet" href="/main.css"/>
+        {{css|/main.css}}
         <link rel="manifest" href="/manifest.webmanifest"/>
         <link rel="license" href="/LICENSE.txt"/>
-        <script type="module" src="/js/redirect.js"></script>
+        {{js|/js/redirect.js}}
     </head>
     <body>
         <header>
             <nav id="site-menu">
                 <ul>
-                    <li><a href="/"><img src="/mask-icon.svg" alt=""/>GrapheneOS</a></li>
+                    <li><a href="/"><img src="{{path|/mask-icon.svg}}" alt=""/>GrapheneOS</a></li>
                     <li><a href="/features">Features</a></li>
                     <li><a href="/install/">Install</a></li>
                     <li><a href="/build">Build</a></li>
@@ -619,9 +619,9 @@
                     be implemented via our own post-processing of the video output. Panorama,
                     Photo Sphere, Astrophotography, Motion Photos, Frequent Faces, Dual Exposure
                     Controls, Google Lens, etc. aren't on the roadmap for GrapheneOS Camera. Video
-                    refresh rate configuration and H.265 support should be available for
-                    GrapheneOS Camera in the near future via CameraX improvements along with DNG
-                    (RAW) support in the further future.</p>
+                    frame rate configuration and H.265 support should be available for GrapheneOS
+                    Camera in the near future via CameraX improvements along with DNG (RAW)
+                    support in the further future.</p>
                 </section>
             </section>
 
@@ -808,6 +808,14 @@
                 modules). The compatibility layer will be gradually expanded and improved in order
                 to get more of the Play services functionality working.</p>
 
+                <p>GrapheneOS provides a dedicated compatibility layer for Play Store app
+                installation/updates/removal teaching it to use the standard unprivileged approach
+                available to sandboxed apps. It prompts the user to permit it as an app source and
+                then prompts for the initial app install/update or removal. It will use Android
+                12's support for unattended updates when possible which means it can do unattended
+                updates of modern (API 29+) apps where it was the installer for the currently
+                installed version already.</p>
+
                 <section id="sandboxed-play-services-installation">
                     <h3><a href="#sandboxed-play-services-installation">Installation</a></h3>
 
@@ -855,11 +863,9 @@
 
                     <p>You can obtain updates to these apps from our repository which will be easy
                     once we have a client app. The Play Store app can also be used to update
-                    Google Play services. Updates to the Google Services Framework
+                    Google Play services and itself. Updates to the Google Services Framework
                     (com.google.android.gsf) app are normally only distributed through OS updates
-                    so you need to get those from our repository. The Play Store app isn't able to
-                    update itself through the compatibility layer yet but it may be supported in
-                    the future.</p>
+                    so you need to get those from our repository.</p>
                 </section>
 
                 <section id="sandboxed-play-services-limitations">
@@ -874,15 +880,9 @@
                     depending on having highly invasive privileged access beyond what would be
                     realistic to get working with an expanded compatibility layer.</p>
 
-                    <p>The Play Store app is designed to use privileged permissions for unattended
-                    app installation, updates and removal which isn't possible on GrapheneOS since
-                    it's not a privileged app. GrapheneOS provides a dedicated compatibility layer
-                    for Play Store app installation teaching it to use the standard unprivileged
-                    approach. It prompts the user to permit it as an app source and then prompts
-                    for each app install/update. The Play Store currently doesn't get the result
-                    for the install succeeding or failing so it will think the installation is
-                    still in progress. You can work around this by force stopping the Play Store
-                    after installing an app and then opening it again to install other apps.</p>
+                    <p>Play Store assumes that uninstallation always succeeds so it will stall if
+                    it tries to uninstall an app and you reject it. You can work around this by
+                    force stopping and then reopening it.</p>
 
                     <p>Play Store feature delivery isn't currently supported, but this isn't
                     broadly used by current generation apps aside from large games.</p>
@@ -936,7 +936,7 @@
             </section>
         </main>
         <footer>
-            <a href="/"><img src="/mask-icon.svg" width="512" height="512" alt=""/>GrapheneOS</a>
+            <a href="/"><img src="{{path|/mask-icon.svg}}" width="512" height="512" alt=""/>GrapheneOS</a>
             <ul id="social">
                 <li><a href="https://twitter.com/GrapheneOS">Twitter</a></li>
                 <li><a href="https://github.com/GrapheneOS">GitHub</a></li>
