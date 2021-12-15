@@ -10,6 +10,7 @@
 
 const redirects = new Map([
     ["/#copyright-and-licensing", "/faq#copyright-and-licensing"],
+    ["/#roadmap", "/faq#roadmap"],
     ["/usage#default-connections", "/faq#default-connections"],
     ["/faq#dns", "/faq#custom-dns"],
     ["/install/cli#fastboot-as-non-root", "/install/cli#flashing-as-non-root"],
