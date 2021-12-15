@@ -13,6 +13,7 @@ const redirects = new Map([
     ["/#copyright-and-licensing", "/faq#copyright-and-licensing"],
     ["/#history", "/history"],
     ["/#roadmap", "/faq#roadmap"],
+    ["/#upstream", "/faq#upstream"],
 
     ["/usage#default-connections", "/faq#default-connections"],
     ["/faq#dns", "/faq#custom-dns"],
