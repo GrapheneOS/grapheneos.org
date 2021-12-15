@@ -9,8 +9,11 @@
 // https://www.w3.org/Protocols/HTTP/Fragment/draft-bos-http-redirect-00.txt
 
 const redirects = new Map([
+    // removed main page sections
     ["/#copyright-and-licensing", "/faq#copyright-and-licensing"],
+    ["/#history", "/history"],
     ["/#roadmap", "/faq#roadmap"],
+
     ["/usage#default-connections", "/faq#default-connections"],
     ["/faq#dns", "/faq#custom-dns"],
     ["/install/cli#fastboot-as-non-root", "/install/cli#flashing-as-non-root"],
