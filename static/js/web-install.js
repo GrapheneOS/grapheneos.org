@@ -154,14 +154,14 @@ async function getLatestRelease() {
     let metadata = await metadataResp.text();
     let releaseId = metadata.split(" ")[0];
 
-    return `${product}-factory-${releaseId}.zip`;
+    return [`${product}-factory-${releaseId}.zip`, product];
 }
 
 async function downloadRelease(setProgress) {
     await ensureConnected(setProgress);
 
     setProgress("Finding latest release...");
-    let latestZip = await getLatestRelease();
+    let [latestZip,] = await getLatestRelease();
 
     // Download and cache the zip as a blob
     safeToLeave = false;
@@ -199,12 +199,10 @@ async function reconnectCallback() {
 async function flashRelease(setProgress) {
     await ensureConnected(setProgress);
 
-    let product = await device.getVariable("product");
-
     // Need to do this again because the user may not have clicked download if
     // it was cached
     setProgress("Finding latest release...");
-    let latestZip = await getLatestRelease();
+    let [latestZip, product] = await getLatestRelease();
     await blobStore.init();
     let blob = await blobStore.loadFile(latestZip);
     if (blob === null) {
