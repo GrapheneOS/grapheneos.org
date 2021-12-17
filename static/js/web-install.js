@@ -144,6 +144,8 @@ const supportedDevices = ["raven", "oriole", "barbet", "redfin", "bramble", "sun
 
 const qualcommDevices = ["barbet", "redfin", "bramble", "sunfish", "coral", "flame", "bonito", "sargo", "crosshatch", "blueline"];
 
+const gs101Devices = ["raven", "oriole"];
+
 async function getLatestRelease() {
     let product = await device.getVariable("product");
     if (!supportedDevices.includes(product)) {
@@ -228,6 +230,10 @@ async function flashRelease(setProgress) {
             // Both slots are wiped as even apdp on an inactive slot will modify /proc/cmdline
             await device.runCommand("erase:apdp_a");
             await device.runCommand("erase:apdp_b");
+        }
+        if (gs101Devices.includes(product)) {
+            setProgress("Disabling FIPS...");
+            await device.runCommand("erase:fips");
         }
     } finally {
         safeToLeave = true;
