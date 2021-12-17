@@ -142,6 +142,8 @@ async function unlockBootloader(setProgress) {
 
 const supportedDevices = ["raven", "oriole", "barbet", "redfin", "bramble", "sunfish", "coral", "flame", "bonito", "sargo", "crosshatch", "blueline"];
 
+const qualcommDevices = ["barbet", "redfin", "bramble", "sunfish", "coral", "flame", "bonito", "sargo", "crosshatch", "blueline"];
+
 async function getLatestRelease() {
     let product = await device.getVariable("product");
     if (!supportedDevices.includes(product)) {
@@ -221,6 +223,12 @@ async function flashRelease(setProgress) {
         // See https://android.googlesource.com/platform/system/core/+/eclair-release/fastboot/fastboot.c#532
         // for context as to why the trailing space is needed.
         await device.runCommand("oem uart disable ");
+        if (qualcommDevices.includes(product)) {
+            setProgress("Erasing apdp...");
+            // Both slots are wiped as even apdp on an inactive slot will modify /proc/cmdline
+            await device.runCommand("erase:apdp_a");
+            await device.runCommand("erase:apdp_b");
+        }
     } finally {
         safeToLeave = true;
     }
