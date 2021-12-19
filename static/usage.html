@@ -252,7 +252,15 @@
 
             <section id="auditor">
                 <h2><a href="#auditor">Auditor</a></h2>
-                <p>See the <a href="https://attestation.app/tutorial">tutorial page on the site for the attestation sub-project</a>.</p>
+                <p>The Auditor app generates a persistent hardware-backed key with attestation enabled 
+                on Auditee. It signs each attestation response with that persistent key.
+                The initial response contains certificate chain of the persistent key and Auditor side 
+                pins the certificate chain and enforces it. On each subsequent verification,
+                Auditee generates a fresh key with the new attestation challenge and sends the certificate 
+                chain for the fresh key. Auditor side enforces that the batch key and beyond are the same 
+                for the fresh keys. For more information, see the 
+                Auditor <a href="https://attestation.app/about">About</a> 
+                and <a href="https://attestation.app/tutorial">Tutorial</a> pages.</p>
             </section>
 
             <section id="updates">
