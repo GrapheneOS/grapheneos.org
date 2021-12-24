@@ -339,7 +339,7 @@
                         <pre>mkdir grapheneos-12
 cd grapheneos-12
 repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 12
-repo sync -j32</pre>
+repo sync -j16</pre>
 
                         <p>If your network is unreliable and <code>repo sync</code> fails, you can run the
                         <code>repo sync</code> command again to continue from where it was interrupted. It
@@ -368,7 +368,7 @@ cd ../..</pre>
 
                         <p>Complete the source tree download:</p>
 
-                        <pre>repo sync -j32</pre>
+                        <pre>repo sync -j16</pre>
 
                         <p>The manifest for the latest stable release refers to the revisions in other
                         repositories via commit hashes rather than tag names. This avoids the need to use a
@@ -384,7 +384,7 @@ cd ../..</pre>
                     <h3><a href="#updating-and-switching-branches-or-tags">Updating and switching branches or tags</a></h3>
 
                     <p>To update the source tree, run the <code>repo init</code> command again to select
-                    the branch or tag and then run <code>repo sync -j32</code> again. You may need to add
+                    the branch or tag and then run <code>repo sync -j16</code> again. You may need to add
                     <code>--force-sync</code> if a repository switched from one source to another,
                     such as when GrapheneOS forks an additional Android Open Source Project repository.
                     You don't need to start over to switch between different branches or tags. You may
