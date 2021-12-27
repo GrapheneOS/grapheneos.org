@@ -448,6 +448,22 @@ cd ../..</pre>
 git submodule sync
 git submodule update --init --recursive
 ./build.sh redfin</pre>
+
+                    <p>For the Pixel 6 and Pixel 6 Pro, you need a separate repo source tree for
+                    building the kernel:</p>
+
+                    <pre>mkdir kernel-raviole
+cd kernel-raviole
+repo init -u https://github.com/GrapheneOS/kernel-manifest-raviole.git -b 12
+repo sync -j16</pre>
+
+                    <p>To build the Pixel 6 and Pixel 6 Pro kernel:</p>
+
+                    <pre>LTO=full BUILD_KERNEL=1 ./build_slider.sh</pre>
+
+                    <p>You need to replace the files in the GrapheneOS source tree at
+                    <code>device/google/raviole-kernel</code> with the output from your kernel
+                    build at <code>out/mixed/dist</code> in the kernel-raviole source tree.</p>
                 </section>
 
                 <section id="setting-up-the-os-build-environment">
