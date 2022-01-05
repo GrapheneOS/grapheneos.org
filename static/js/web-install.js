@@ -330,8 +330,6 @@ fastboot.configureZip({
 });
 
 if ("usb" in navigator) {
-    console.log("WebUSB available");
-
     addButtonHook("unlock-bootloader", unlockBootloader);
     addButtonHook("download-release", downloadRelease);
     addButtonHook("flash-release", flashRelease);
