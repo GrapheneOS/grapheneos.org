@@ -94,10 +94,10 @@
                     </li>
                     <li><a href="#lte-only-mode">LTE-only mode</a></li>
                     <li>
-                        <a href="#sandboxed-play-services">Sandboxed Play services</a>
+                        <a href="#sandboxed-google-play">Sandboxed Google Play</a>
                         <ul>
-                            <li><a href="#sandboxed-play-services-installation">Installation</a></li>
-                            <li><a href="#sandboxed-play-services-limitations">Limitations</a></li>
+                            <li><a href="#sandboxed-google-play-installation">Installation</a></li>
+                            <li><a href="#sandboxed-google-play-limitations">Limitations</a></li>
                         </ul>
                     </li>
                     <li><a href="#banking-apps">Banking apps</a></li>
@@ -605,8 +605,8 @@
                 <section id="google-camera">
                     <h3><a href="#google-camera">Google Camera</a></h3>
 
-                    <p>Google Camera can be used with the <a href="#sandboxed-play-services">sandboxed
-                    Play services compatibility layer</a> and can take full advantage of the
+                    <p>Google Camera can be used with the <a href="#sandboxed-google-play">sandboxed
+                    Google Play compatibility layer</a> and can take full advantage of the
                     available cameras and image processing hardware as it can on the stock OS. It
                     currently only depends on GSF and can be used without Play services (GMS) or
                     the Play Store.</p>
@@ -783,32 +783,32 @@
                 exploitation by disabling an enormous amount of legacy code.</p>
             </section>
 
-            <section id="sandboxed-play-services">
-                <h2><a href="#sandboxed-play-services">Sandboxed Play services</a></h2>
+            <section id="sandboxed-google-play">
+                <h2><a href="#sandboxed-google-play">Sandboxed Google Play</a></h2>
 
                 <p>GrapheneOS has a compatibility layer providing the option to install and use
-                the official releases of Play services in the standard app sandbox. Play services
+                the official releases of Google Play in the standard app sandbox. Google Play
                 receives absolutely no special access or privileges on GrapheneOS as opposed to
                 bypassing the app sandbox and receiving a massive amount of highly privileged
                 access. Instead, the compatibility layer teaches it how to work within the full
                 app sandbox. It also isn't used as a backend for the OS services as it would be
-                elsewhere since GrapheneOS doesn't use Play services even when it's installed.</p>
+                elsewhere since GrapheneOS doesn't use Google Play even when it's installed.</p>
 
-                <p>Since the Play services apps are simply regular apps on GrapheneOS, you install
+                <p>Since the Google Play apps are simply regular apps on GrapheneOS, you install
                 them within a specific user or work profile and they're only available within that
                 profile. Only apps within the same profile can use it and they need to explicitly
                 choose to use it. It works the same way as any other app and has no special
                 capabilities. As with any other app, it can't access data of other apps and
                 requires explicit user consent to gain access to profile data or the standard
                 permissions. Apps within the same profile can communicate with mutual consent and
-                it's no different for sandboxed Play services.</p>
+                it's no different for sandboxed Google Play.</p>
 
                 <p>The core functionality and APIs are almost entirely supported already since
                 GrapheneOS largely only has to coerce these apps into continuing to run without
                 being able to use any of the usual invasive OS integration. A compatibility layer
                 is also provided to support dynamically downloaded/loaded modules (dynamite
                 modules). The compatibility layer will be gradually expanded and improved in order
-                to get more of the Play services functionality working.</p>
+                to get more of the Google Play functionality working.</p>
 
                 <p>GrapheneOS provides a dedicated compatibility layer for Play Store app
                 installation/updates/removal teaching it to use the standard unprivileged approach
@@ -818,22 +818,22 @@
                 updates of modern (API 29+) apps where it was the installer for the currently
                 installed version already.</p>
 
-                <section id="sandboxed-play-services-installation">
-                    <h3><a href="#sandboxed-play-services-installation">Installation</a></h3>
+                <section id="sandboxed-google-play-installation">
+                    <h3><a href="#sandboxed-google-play-installation">Installation</a></h3>
 
-                    <p>Play services is divided up into 3 separate apps: Google Services Framework
+                    <p>Google Play is divided up into 3 separate apps: Google Services Framework
                     (com.google.android.gsf), Google Play services (com.google.android.gms) and
-                    Google Play Store (com.android.vending). To use sandboxed Play services, you
+                    Google Play Store (com.android.vending). To use sandboxed Google Play, you
                     simply need to install the official releases of these 3 apps in the user and
                     work profiles where you want to use it.</p>
 
                     <p>The simplest approach is to only use the Owner user profile. Apps installed
                     in the Owner profile are sandboxed the same way as everywhere else and don't
-                    receive any special access. If you want to choose which apps use Play services
+                    receive any special access. If you want to choose which apps use Google Play
                     rather than making it available to all of them, install it in a separate user
-                    or work profile for apps depending on Play services. You could also do it the
+                    or work profile for apps depending on Google Play. You could also do it the
                     other way around, but it makes more sense to try to use as much as possible
-                    without Play services rather than treating not using it as the exceptional
+                    without Google Play rather than treating not using it as the exceptional
                     case.</p>
 
                     <p>Install com.google.android.gsf, then com.google.android.gms and finally use
@@ -844,7 +844,7 @@
                     F-Droid or the developers of the app via their GitHub releases, etc.</p>
 
                     <p>In the future, we'll have a client app for our repository so you'll be able
-                    to install and update the official Play services apps through that app and you
+                    to install and update the official Google Play apps through that app and you
                     won't need to deal with split APK installation manually.</p>
 
                     <ul>
@@ -870,8 +870,8 @@
                     so you need to get those from our repository.</p>
                 </section>
 
-                <section id="sandboxed-play-services-limitations">
-                    <h3><a href="#sandboxed-play-services-limitations">Limitations</a></h3>
+                <section id="sandboxed-google-play-limitations">
+                    <h3><a href="#sandboxed-google-play-limitations">Limitations</a></h3>
 
                     <p>Functionality depending on privileged access such as special access to
                     hardware isn't available. We would need to implement compatibility layers
@@ -902,7 +902,7 @@
                 <p>Banking apps are a particularly problematic class of apps for compatibility
                 with alternate operating systems. Some of these work fine with any GrapheneOS
                 configuration but most of them have extensive dependencies on Play services. For
-                many of these apps, it's enough to set up the GrapheneOS sandboxed Play services
+                many of these apps, it's enough to set up the GrapheneOS sandboxed Google Play
                 feature in the same profile. Unfortunately, there are further complications not
                 generally encountered with non-financial apps.</p>
 

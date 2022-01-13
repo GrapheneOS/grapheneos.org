@@ -16,6 +16,10 @@ const redirects = new Map([
     ["/#upstream", "/faq#upstream"],
 
     ["/usage#default-connections", "/faq#default-connections"],
+    ["/usage#sandboxed-play-services", "/usage#sandboxed-google-play"],
+    ["/usage#sandboxed-play-services-installation", "/usage#sandboxed-google-play-installation"],
+    ["/usage#sandboxed-play-services-limitations", "/usage#sandboxed-google-play-limitations"],
+
     ["/faq#dns", "/faq#custom-dns"],
     ["/install/cli#fastboot-as-non-root", "/install/cli#flashing-as-non-root"],
     ["/install/web#fastboot-as-non-root", "/install/web#flashing-as-non-root"],
