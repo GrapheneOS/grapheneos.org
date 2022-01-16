@@ -838,10 +838,9 @@
 
                     <p>Install com.google.android.gsf, then com.google.android.gms and finally use
                     a split APK installer to install all 5 of the APKs for com.android.vending
-                    together. Make sure to install all 3 in the correct order and don't skip
-                    installing the Play Store since it provides services used by apps depending on
-                    Play. You can obtain a split APK installer app from either Aurora Store,
-                    F-Droid or the developers of the app via their GitHub releases, etc.</p>
+                    together. Make sure to install all 3 in the correct order. You can obtain a
+                    split APK installer app from either Aurora Store, F-Droid or the developers of
+                    the app via their GitHub releases, etc.</p>
 
                     <p>In the future, we'll have a client app for our repository so you'll be able
                     to install and update the official Google Play apps through that app and you
@@ -856,6 +855,14 @@
                     <p>You should give a battery optimization exception to Google Play services
                     for features like push notifications to work properly in the background. It
                     isn't needed for the other 2 apps.</p>
+
+                    <p>The Play Store provides many services used by apps including Play Asset
+                    Delivery, Play Feature Delivery, in-app purchases and license checks for paid
+                    apps. You can use sandboxed Google Play without the Play Store but many apps
+                    won't work correctly without it. The Play Store app is also the most secure
+                    way to install and update apps from the Play Store. Installing it is highly
+                    recommended for general purpose usage but you can install only GSF or only
+                    GSF/GMS if you know it's all you need for what you want to use.</p>
 
                     <p>After installing the apps, you should open the Play Store and press sign in
                     to trigger initialization. Signing into an account is optional and it will
@@ -889,10 +896,6 @@
                     <p>Play Store assumes that uninstallation always succeeds so it will stall if
                     it tries to uninstall an app and you reject it. You can work around this by
                     force stopping and then reopening it.</p>
-
-                    <p>Play Asset Delivery and Play Feature Delivery aren't currently supported
-                    but the compatibility layer has been extended to them in the development
-                    branch of GrapheneOS and it will be part of the next GrapheneOS release.</p>
 
                     <p>Since there's no OS integration beyond fallback code to make it function
                     without any special privileges, there isn't a way to launch the Play services
