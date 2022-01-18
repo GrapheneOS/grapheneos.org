@@ -75,6 +75,7 @@
                             <li><a href="#updates-sideloading">Sideloading</a></li>
                         </ul>
                     </li>
+                    <li><a href="#usb-peripherals">USB peripherals</a></li>
                     <li><a href="#web-browsing">Web browsing</a></li>
                     <li>
                         <a href="#camera">Camera</a>
@@ -286,7 +287,7 @@
                 <section id="updates-settings">
                     <h3><a href="#updates-settings">Settings</a></h3>
 
-                    <p>The settings are available in the Settings app in System ➔ Advanced ➔ Update
+                    <p>The Updater settings are available in the Settings app in System ➔ System Update
                     settings.</p>
 
                     <p>The "Check for updates" option will manually trigger an update check as soon as
@@ -312,6 +313,10 @@
                     device after an update once it has been idle for a long time. When this setting is
                     enabled, a device can take care of any number of updates completely automatically even
                     if it's left completely idle.</p>
+
+                    <p>The "Notification settings" option takes you to the System Updater notification
+                    settings which allows you to control the types of notifications you want to see from
+                    the Updater app. By default all notifications are enabled.</p>
                 </section>
 
                 <section id="updates-security">
@@ -684,8 +689,9 @@
                 reproducing the issue and then capture a bug report via the 'Take bug report'
                 feature in Developer options. Report an issue to <a
                 href="https://github.com/GrapheneOS/os-issue-tracker/issues">the GrapheneOS OS
-                issue tracker</a> and email the bug report capture zip to contact@grapheneos.org
-                with the issue tracker number in the subject like "Bug report capture for issue
+                issue tracker</a> and email the bug report capture zip to <a
+                href="mailto:contact@grapheneos.org">contact@grapheneos.org</a> with the
+                issue tracker number in the subject like "Bug report capture for issue
                 #104". The bug report capture includes plain text 'tombstones' with logs,
                 tracebacks, address space layout, register content and a tiny bit of context
                 from memory from areas that are interesting for debugging.  This may contain
@@ -701,8 +707,8 @@
                 <p>Wi-Fi on GrapheneOS is very privacy-friendly and is essentially anonymous as long
                 as apps do not leak uniquely identifying information to the network. GrapheneOS avoids
                 allowing itself to be fingerprinted as GrapheneOS, other than connections which are
-                documented (see the FAQ) and can be easily disabled or forced through a VPN
-                service.</p>
+                documented (see the <a href="/faq#default-connections">default connections FAQ</a>)
+                and can be easily disabled or forced through a VPN service.</p>
 
                 <section id="wifi-privacy-scanning">
                     <h3><a href="#wifi-privacy-scanning">Scanning</a></h3>
@@ -740,7 +746,7 @@
 
                     <p>Associated MAC randomization is performed by default. This can be controlled
                     per-network with Settings ➔ Network &amp; Internet ➔ Internet ➔ &lt;network&gt; ➔
-                    Advanced  ➔ Privacy.</p>
+                    Advanced (cog icon) ➔ Privacy.</p>
 
                     <p>In the stock OS, the default is to use a unique persistent random MAC address for
                     each network. It has 2 options available: "Use randomized MAC (default)" and "Use
