@@ -101,6 +101,7 @@
                         </ul>
                     </li>
                     <li><a href="#banking-apps">Banking apps</a></li>
+                    <li><a href="#app-link-verification">App link verification</a></li>
                 </ul>
             </nav>
 
@@ -943,6 +944,49 @@
                 hardware attestation API. Direct use of the hardware attestation API provides much
                 higher assurance than using SafetyNet so these apps have nothing to lose by using a
                 more meaningful API and supporting a more secure OS.</p>
+            </section>
+
+            <section id="app-link-verification">
+                <h2><a href="#app-link-verification">App link verification</a></h2>
+
+                <p>Android apps can declare associations with domains in order to handle those
+                URLs in the app automatically. For security reasons, app links are disabled by
+                default to prevent apps intercepting arbitrarily URLs. First party apps associated
+                with a domain are expected to be authorized by the domain. Apps can ask for their
+                app links to be verified by the OS by marking them with <code>autoVerify</code> in
+                their manifest. The OS will securely confirm that the domain authorizes the app to
+                handle the domain's URLs. Users can also manually enable an app's link
+                associations via Settings ➔ Apps ➔ App name ➔ Open by default ➔ Add link. Apps can
+                ask users to enable the associations and send them to this page in the Settings
+                app.</p>
+
+                <p>As an example, the first party YouTube app will have the app links verified by
+                the OS automatically while the NewPipe app requires manually enabling handling
+                links for YouTube and other sites.</p>
+
+                <p>Verification of app links by the OS is done by the Intent Filter Verification
+                Service system app. It will use an HTTPS GET request to fetch
+                <code>https://example.com/.well-known/assetlinks.json</code> in order to process a
+                request to verify that an app can handle <code>example.com</code> links. The app
+                needs to have the app id and signing keys authorized by the domain in order for
+                the verification to succeed.</p>
+
+                <p>These network requests by the Intent Filter Verification Service to verify app
+                associations with domains are commonly confused for network requests made by the
+                apps. It's simply an HTTPS GET request without identifying information and doesn't
+                offer a communication channel with the app. Redirects won't be followed so there
+                will be a single request for each attempt to verify a domain.</p>
+
+                <p>If you don't want automatic app link verification, you can disable the Network
+                permission added by GrapheneOS for the Intent Filter Verification Service system
+                app. In the future, we may provide a way to disable verification directly instead
+                of stopping it from working. It will make heavily throttled attempts to verify a
+                domain after the check failed which won't negatively impact battery life due to
+                the conservative JobScheduler-based implementation.</p>
+
+                <p>For more details, see the
+                <a href="https://developer.android.com/training/app-links/verify-site-associations">developer
+                documentation on app link verification</a>.</p>
             </section>
         </main>
         <footer>
