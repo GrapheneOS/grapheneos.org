@@ -519,6 +519,11 @@
                     around for compatibility. It used to need more extensive changes such as disallowing
                     access to the serial number but those restrictions are now standard.</p>
 
+                    <p>As of Android 8, the MediaDRM identifier a device produces is unique to each package
+                    name. GrapheneOS plans to implement additional privacy measures by making this identifier
+                    unique per profile, per app, by using the ANDROID_ID in addition to the package name to
+                    derive the identifier.</p>
+
                     <p>Apps can determine the model of the device (such as it being a Pixel 5) either
                     directly or indirectly through the properties of the hardware and software. There
                     isn't a way to avoid this short of the OS supporting running apps in a virtual machine
