@@ -726,16 +726,17 @@
                     privacy rather than increasing it. If you need to use a hidden AP, make sure
                     to delete the saved network afterwards.</p>
 
-                    <p>Wi-Fi and Bluetooth scanning for improving location detection are disabled by
-                    default, unlike the stock OS. These can be toggled in Settings ➔ Location ➔ Location
-                    Services ➔ Wi-Fi and Bluetooth scanning. These features enable scanning even when Wi-Fi or
-                    Bluetooth is disabled, so these need to be kept disabled to fully disable the radios when
-                    Wi-Fi and Bluetooth are disabled. GrapheneOS doesn't yet have an implementation of a coarse
-                    location service to supplement GPS location, so enabling these options doesn't
-                    actually do anything at the moment. Implementing a supplementary location service is
-                    planned but we need a robust, secure and private implementation via a local database.
-                    The initial focus will likely be a cell phone tower database, so these features still
-                    wouldn't be relevant.</p>
+                    <p>Wi-Fi and Bluetooth scanning for improving location detection are disabled
+                    by default, unlike the stock OS. These can be toggled in Settings ➔ Location ➔
+                    Location Services ➔ Wi-Fi and Bluetooth scanning. These features enable
+                    scanning even when Wi-Fi or Bluetooth is disabled, so these need to be kept
+                    disabled to fully disable the radios when Wi-Fi and Bluetooth are disabled.
+                    GrapheneOS itself doesn't currently include a supplementary location service
+                    based on Wi-Fi and Bluetooth scanning. These options impact whether apps such
+                    as sandboxed Google Play are able to use the functionality if you grant them
+                    the Location permission. GrapheneOS plans to eventually include an OS service
+                    based on local databases rather than a network-based service giving the user's
+                    location to a server whenever location is being used.</p>
                 </section>
 
                 <section id="wifi-privacy-associated">
