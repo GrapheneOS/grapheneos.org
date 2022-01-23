@@ -306,9 +306,18 @@
                 <section id="booting">
                     <h3><a href="#booting">Booting</a></h3>
 
-                    <p>You've now successfully installed GrapheneOS and can boot it. Pressing the
-                    power button with the default Start option selected in the bootloader
-                    interface will boot the OS.</p>
+                    <p>You've now successfully installed GrapheneOS and can boot it. 
+                    Pressing the power button with the default Start option selected 
+                    in the bootloader interface will boot the OS. On every boot the 
+                    device will show a text "Your device is loading a different 
+                    operating system." and a yellow warning sign. This is because a 
+                    custom root of trust has been set, and the images were signed with 
+                    this custom root of trust. The yellow warning sign is dismissed 
+                    after ten seconds and the device continues booting. After that 
+                    the bootloader shows a boot splash with the OEM logo 
+                    (Google logo on Pixel devices) that is part of the firmware and 
+                    cannot be changed. After that the device will show GrapheneOS 
+                    logo and is now booted.</p>
                 </section>
 
                 <section id="disabling-oem-unlocking">
