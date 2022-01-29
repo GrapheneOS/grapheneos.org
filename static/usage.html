@@ -590,11 +590,15 @@
                     supported. It's a very quick and high quality QR scanner able to easily scan
                     very high density QR codes from Pixels. Every 2 seconds, it will refresh auto
                     focus, auto exposure and auto white balance on the scanning square. It has
-                    full support for zooming in and out. Support for other kinds of barcodes will
-                    be added in the future, but adding them transparently would result in getting
-                    false positives and would substantially harm the QR scanning capability. It
-                    will need to be done in a way offering more control without having an overly
-                    complex user interface.</p>
+                    full support for zooming in and out. The torch can be toggled with the button
+                    at the bottom center. The auto toggle at the bottom left can be used to toggle
+                    scanning for all supported barcode types. Alternatively, you can select which
+                    barcode types it should scan via the menu at the top. It only scans QR codes
+                    by default since that provides quick and reliable scanning. Most other types
+                    of barcodes can result in false positives. Each enabled type will slow down
+                    the scanning and will make it more prone to false positives. This is generally
+                    fine for simple codes but it would be quite difficult to scan a dense QR code
+                    with all types enabled.</p>
 
                     <p>Camera permission is the only one that's required. Images and videos are
                     stored via the Media Store API so media/storage permissions aren't required.
