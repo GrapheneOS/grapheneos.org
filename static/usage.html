@@ -606,11 +606,14 @@
                     when including audio is disabled. Location permission is only needed if you
                     explicitly enabling location tagging, which is an experimental feature.</p>
 
-                    <p>Captured images currently include an EXIF timestamp, the phone model and an
-                    abstraction of the exposure configuration. This will become fully optional in
-                    the future and will likely be opt-in rather than opt-out. EXIF orientation
-                    data is crucial for setting the proper orientation of the image. Videos have
-                    their own similar metadata.</p>
+                    <p>By default, captured images currently include an EXIF timestamp, the phone
+                    model and an abstraction of the exposure configuration. You can toggle on
+                    stripping EXIF metadata in the More Settings menu opened from the settings
+                    dialog. Stripping EXIF metadata will become the default in the future.
+                    Orientation metadata isn't stripped since it's fully visible from how the
+                    image is displayed so it doesn't count as hidden metadata and is needed for
+                    proper display. Location tagging is disabled by default and the EXIF stripping
+                    option respects the toggle for it rather than stripping it.</p>
                 </section>
 
                 <section id="google-camera">
