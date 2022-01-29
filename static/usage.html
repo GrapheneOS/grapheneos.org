@@ -537,10 +537,12 @@
                     These intents can only be provided by a system app since Android 11, so the
                     quality of the system camera is quite important.</p>
 
-                    <p>The in-app gallery / video player doesn't yet support zooming and depends
-                    on opening an external image/video editor. This will be improved in the
-                    future. We'll eventually be making our own gallery/editor app sharing a lot of
-                    the code with the in-app gallery in the camera.</p>
+                    <p>The app has an in-app gallery and video player for images taken with it. It
+                    currently opens an external editor activity for the edit action. GrapheneOS
+                    comes with AOSP Gallery which provides an editor activity. You can install a
+                    nicer photo editor and the Camera app will be able to use it. We plan to
+                    replace AOSP Gallery with a standalone variant of the gallery we're developing
+                    for the Camera app in the future.</p>
 
                     <p>Using the default 4:3 aspect ratio for image capture is recommended since
                     16:9 is simply cropped output on all supported devices. A device oriented
