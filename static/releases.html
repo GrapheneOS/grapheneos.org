@@ -514,20 +514,20 @@
 
                     <ul>
                         <li>make DownloadManager friendlier to apps with the Network permission revoked instead of triggering SecurityException</li>
-                        <li>hardened_malloc: code cleanup and micro-optimizations</li>
+                        <li>Sandboxed Google Play compatibility layer: revert marking location service as a foreground location service (not necessary)</li>
+                        <li>Sandboxed Google Play compatibility layer: add compatibility shims enabling full support for using Play services geolocation</li>
+                        <li>Sandboxed Google Play compatibility layer: add GmsCompat app providing infrastructure for the compatibility layer and shortcuts to Google Play configuration activities (will toggle for redirecting the Google Play geolocation API in a future release)</li>
+                        <li>Sandboxed Google Play compatibility layer: replace converting Google Play services to foreground services with keeping them alive using the GmsCompat app</li>
+                        <li>Dialer: update visual voicemail configuration based on Google Phone 73.0.414822266</li>
+                        <li>Messaging: replace obsolete AOSP MMS configuration database with one generated from the stock OS app</li>
                         <li>Vanadium: update Chromium base to 97.0.4692.98</li>
                         <li>Vanadium: use Google Chrome branding for client hints to help with blending in</li>
                         <li>Vanadium: enable HTTPS-only mode by default (can connect via HTTP through the warning screen if HTTPS upgrade fails)</li>
                         <li>Vanadium: enable strict origin isolation by default</li>
                         <li>Vanadium: disable appending variations header</li>
-                        <li>Dialer: update visual voicemail configuration based on Google Phone 73.0.414822266</li>
                         <li>Camera: update to <a href="https://github.com/GrapheneOS/Camera/releases/tag/10">version 10</a></li>
                         <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/41">version 41</a></li>
-                        <li>Messaging: replace obsolete AOSP MMS configuration database with one generated from the stock OS app</li>
-                        <li>Sandboxed Google Play compatibility layer: revert marking location service as a foreground location service (not necessary)</li>
-                        <li>Sandboxed Google Play compatibility layer: add compatibility shims enabling full support for using Play services geolocation</li>
-                        <li>Sandboxed Google Play compatibility layer: add GmsCompat app providing infrastructure for the compatibility layer and shortcuts to Google Play configuration activities (will toggle for redirecting the Google Play geolocation API in a future release)</li>
-                        <li>Sandboxed Google Play compatibility layer: replace converting Google Play services to foreground services with keeping them alive using the GmsCompat app</li>
+                        <li>hardened_malloc: code cleanup and micro-optimizations</li>
                     </ul>
                 </article>
                 -->
