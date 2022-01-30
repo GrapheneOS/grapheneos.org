@@ -557,10 +557,8 @@ mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/
                         </p>
 
                         <pre>cd vendor/adevtool/ &amp;&amp; yarn install &amp;&amp; cd ../..
-mkdir -p vendor/adevtool/dl/
-vendor/android-prepare-vendor/scripts/download-nexus-image.sh -y -d DEVICE -b BUILD_ID -o vendor/adevtool/dl
-vendor/adevtool/mountimages.bash
-sudo vendor/adevtool/bin/run generate-all vendor/adevtool/config/pixel/DEVICE-grapheneos.yml -c vendor/state/oriole.json -f vendor/adevtool/dl/"Factory zip" -s vendor/extraction/mount/</pre>
+vendor/adevtool/mountimages.bash DEVICE BUILD_ID
+sudo vendor/adevtool/bin/run generate-all vendor/adevtool/config/DEVICE.yml -c vendor/state/DEVICE.json -f vendor/adevtool/dl/DEVICE-BUILDID-*.zip -s vendor/adevtool/dl/DEVICE-BUILDID/mount/</pre>
                     </section>
                 </section>
 
