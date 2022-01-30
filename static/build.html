@@ -558,7 +558,13 @@ mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/
 
                         <pre>cd vendor/adevtool/ &amp;&amp; yarn install &amp;&amp; cd ../..
 vendor/adevtool/mountimages.bash DEVICE BUILD_ID
-sudo vendor/adevtool/bin/run generate-all vendor/adevtool/config/DEVICE.yml -c vendor/state/DEVICE.json -f vendor/adevtool/dl/DEVICE-BUILDID-*.zip -s vendor/adevtool/dl/DEVICE-BUILDID/mount/</pre>
+sudo vendor/adevtool/bin/run generate-all vendor/adevtool/config/DEVICE.yml -c vendor/state/DEVICE.json -f vendor/adevtool/dl/DEVICE-BUILD_ID-*.zip -s vendor/adevtool/dl/DEVICE-BUILD_ID/mount/</pre>
+
+                        <p>OTA firmware extraction is currently a work-in-progress on adevtool.
+                        android-prepare-vendor is being temporarily used to make the process easier.</p>
+
+                        <pre>vendor/android-prepare-vendor/execute-all.sh -d DEVICE -b BUILD_ID -o vendor/android-prepare-vendor
+cp -r vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/DEVICE/radio/* vendor/google_devices/DEVICE/firmware/</pre>
                     </section>
                 </section>
 
