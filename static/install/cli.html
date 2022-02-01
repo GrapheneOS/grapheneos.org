@@ -410,8 +410,9 @@ curl -O https://releases.grapheneos.org/DEVICE_NAME-factory-2021110122.zip.sig</
 
                 <pre>signify -Cqp factory.pub -x DEVICE_NAME-factory-2021110122.zip.sig &amp;&amp; echo verified</pre>
 
-                <p>This will output <code>verified</code> if verification is successful. If something
-                goes wrong, it will output an error message rather than <code>verified</code>.</p>
+                <p>Depending on your signify version, this will output <code>verified</code> or
+                nothing if verification is successful. If something goes wrong, it will output an
+                error message.</p>
             </section>
 
             <section id="flashing-factory-images">
