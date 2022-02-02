@@ -98,6 +98,7 @@
                         <a href="#sandboxed-google-play">Sandboxed Google Play</a>
                         <ul>
                             <li><a href="#sandboxed-google-play-installation">Installation</a></li>
+                            <li><a href="#sandboxed-google-play-configuration">Configuration</a></li>
                             <li><a href="#sandboxed-google-play-limitations">Limitations</a></li>
                         </ul>
                     </li>
@@ -888,6 +889,35 @@
                     <p>Our compatibility layer has support for Play Games Services which you can
                     obtain by installing Google Play Games from the Play Store. Many games on the
                     Play Store depend on having Google Play Games installed.</p>
+                </section>
+
+                <section id="sandboxed-google-play-configuration">
+                    <h3><a href="#sandboxed-google-play-configuration">Configuration</a></h3>
+
+                    <p>The compatibility layer has a configuration menu available at Settings ➔
+                    Apps ➔ Sandboxed Google Play. It provides links to this usage guide, Play
+                    services system settings, Google Location Accuracy setting, Play Store system
+                    settings and Google settings. The Play services and Play Store system settings
+                    are only included for convenience since they can be accessed the same way as
+                    any other app via Settings ➔ Apps. The Google Location Accuracy and Google
+                    settings activities would normally be integrated into the OS but we don't
+                    include any of the standard Google Play integration so there needs to be an
+                    app providing a way to access them.</p>
+
+                    <p>The Google Location Accuracy toggle is an internal Google Play toggle for
+                    whether it will use their network-based location service. By default, it will
+                    only use the GNSS-based location provided by the OS. Some apps using the Play
+                    services geolocation service will only work if network-based geolocation is
+                    enabled if they lack a fallback to requesting the higher power usage
+                    GNSS-based geolocation when it's disabled.</p>
+
+                    <p>In the future, the Sandboxed Google Play app will provide a toggle for
+                    geolocation redirection. By default, apps using the Play services geolocation
+                    service will be redirected to an implementation based on the OS geolocation
+                    service without all the advanced features. This will enable apps using it to
+                    work out-of-the-box without needing to grant the Location permission to Play
+                    services. This has been largely developed but still needs substantial work
+                    before we can include it in the OS.</p>
                 </section>
 
                 <section id="sandboxed-google-play-limitations">
