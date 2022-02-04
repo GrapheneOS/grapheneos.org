@@ -522,6 +522,7 @@
                         <li>only grant the special GrapheneOS runtime permissions (Network, Sensors) for compatibility on installation for user installed apps (only relevant to Network in practice)</li>
                         <li>add GmsCompat to list of essential system components in Settings</li>
                         <li>do not mark dun APN types as read-only (allows editing more carrier APNs)</li>
+                        <li>add workaround for Microsoft apps detecting that Network is revoked and crashing the app with a runtime exception due to them adding this to a library as a debugging check for development to detect the INTERNET permission not being declared</li>
                     </ul>
                 </article>
                 -->
