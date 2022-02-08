@@ -456,7 +456,7 @@ git submodule update --init --recursive
 
                     <pre>mkdir kernel-raviole
 cd kernel-raviole
-repo init -u https://github.com/GrapheneOS/kernel-manifest-raviole.git -b 12
+repo init -u https://github.com/GrapheneOS/raviole_kernel_manifest.git -b 12
 repo sync -j16</pre>
 
                     <p>To build the Pixel 6 and Pixel 6 Pro kernel:</p>
@@ -557,10 +557,14 @@ mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/
                         </p>
 
                         <pre>cd vendor/adevtool/ &amp;&amp; yarn install &amp;&amp; cd ../..
-mkdir -p vendor/adevtool/dl/
-vendor/android-prepare-vendor/scripts/download-nexus-image.sh -y -d DEVICE -b BUILD_ID -o vendor/adevtool/dl
-vendor/adevtool/mountimages.bash
-sudo vendor/adevtool/bin/run generate-all vendor/adevtool/config/pixel/DEVICE-grapheneos.yml -c vendor/state/oriole.json -f vendor/adevtool/dl/"Factory zip" -s vendor/extraction/mount/</pre>
+vendor/adevtool/mountimages.bash DEVICE BUILD_ID
+sudo vendor/adevtool/bin/run generate-all vendor/adevtool/config/DEVICE.yml -c vendor/state/DEVICE.json -f vendor/adevtool/dl/DEVICE-BUILD_ID-*.zip -s vendor/adevtool/dl/DEVICE-BUILD_ID/mount/</pre>
+
+                        <p>OTA firmware extraction is currently a work-in-progress on adevtool.
+                        android-prepare-vendor is being temporarily used to make the process easier.</p>
+
+                        <pre>vendor/android-prepare-vendor/execute-all.sh -d DEVICE -b BUILD_ID -o vendor/android-prepare-vendor
+cp -r vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/DEVICE/radio/* vendor/google_devices/DEVICE/firmware/</pre>
                     </section>
                 </section>
 

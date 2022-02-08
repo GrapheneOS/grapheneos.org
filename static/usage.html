@@ -98,6 +98,7 @@
                         <a href="#sandboxed-google-play">Sandboxed Google Play</a>
                         <ul>
                             <li><a href="#sandboxed-google-play-installation">Installation</a></li>
+                            <li><a href="#sandboxed-google-play-configuration">Configuration</a></li>
                             <li><a href="#sandboxed-google-play-limitations">Limitations</a></li>
                         </ul>
                     </li>
@@ -537,10 +538,12 @@
                     These intents can only be provided by a system app since Android 11, so the
                     quality of the system camera is quite important.</p>
 
-                    <p>The in-app gallery / video player doesn't yet support zooming and depends
-                    on opening an external image/video editor. This will be improved in the
-                    future. We'll eventually be making our own gallery/editor app sharing a lot of
-                    the code with the in-app gallery in the camera.</p>
+                    <p>The app has an in-app gallery and video player for images/videos taken with
+                    it. It currently opens an external editor activity for the edit action.
+                    GrapheneOS comes with AOSP Gallery which provides an editor activity. You can
+                    install a nicer photo editor and the Camera app will be able to use it. We
+                    plan to replace AOSP Gallery with a standalone variant of the gallery we're
+                    developing for the Camera app in the future.</p>
 
                     <p>Using the default 4:3 aspect ratio for image capture is recommended since
                     16:9 is simply cropped output on all supported devices. A device oriented
@@ -574,15 +577,8 @@
                     setting determines the timeout before it switches back the default mode. The
                     exposure compensation slider on the left allows manually tuning exposure and
                     will automatically adjust shutter speed, aperture and ISO without disrupting
-                    lightweight HDR+ support. Further configuration / tuning over the algorithms
-                    will be provided in the future. Direct manual control doesn't make much sense
-                    with the modern camera stack and isn't planned.</p>
-
-                    <p>CameraX only recently gained official support for video recording in
-                    October 2021 and there are still some quirks. The preview can sometimes end up
-                    misaligned but the recorded videos won't be impacted. 16:9 is currently the
-                    only supported video aspect ratio. 1080p (FHD) is the default but 2160p (UHD)
-                    is supported. CameraX UHD support may be buggy on some devices.</p>
+                    lightweight HDR+ support. Further configuration / tuning will be provided in
+                    the future.</p>
 
                     <p>The QR scanning mode only scans within the scanning square marked on the
                     screen. The QR code should be aligned with the edges of the square but can
@@ -590,11 +586,14 @@
                     supported. It's a very quick and high quality QR scanner able to easily scan
                     very high density QR codes from Pixels. Every 2 seconds, it will refresh auto
                     focus, auto exposure and auto white balance on the scanning square. It has
-                    full support for zooming in and out. Support for other kinds of barcodes will
-                    be added in the future, but adding them transparently would result in getting
-                    false positives and would substantially harm the QR scanning capability. It
-                    will need to be done in a way offering more control without having an overly
-                    complex user interface.</p>
+                    full support for zooming in and out. The torch can be toggled with the button
+                    at the bottom center. The auto toggle at the bottom left can be used to toggle
+                    scanning for all supported barcode types. Alternatively, you can select which
+                    barcode types it should scan via the menu at the top. It only scans QR codes
+                    by default since that provides quick and reliable scanning. Most other types
+                    of barcodes can result in false positives. Each enabled type will slow down
+                    the scanning and will make it more prone to false positives especially with
+                    difficult to scan barcodes such as a dense QR code.</p>
 
                     <p>Camera permission is the only one that's required. Images and videos are
                     stored via the Media Store API so media/storage permissions aren't required.
@@ -602,11 +601,14 @@
                     when including audio is disabled. Location permission is only needed if you
                     explicitly enabling location tagging, which is an experimental feature.</p>
 
-                    <p>Captured images currently include an EXIF timestamp, the phone model and an
-                    abstraction of the exposure configuration. This will become fully optional in
-                    the future and will likely be opt-in rather than opt-out. EXIF orientation
-                    data is crucial for setting the proper orientation of the image. Videos have
-                    their own similar metadata.</p>
+                    <p>By default, captured images currently include an EXIF timestamp, the phone
+                    model and an abstraction of the exposure configuration. You can toggle on
+                    stripping EXIF metadata in the More Settings menu opened from the settings
+                    dialog. Stripping EXIF metadata will become the default in the future.
+                    Orientation metadata isn't stripped since it's fully visible from how the
+                    image is displayed so it doesn't count as hidden metadata and is needed for
+                    proper display. Location tagging is disabled by default and the EXIF stripping
+                    option respects the toggle for it rather than stripping it.</p>
                 </section>
 
                 <section id="google-camera">
@@ -889,6 +891,35 @@
                     Play Store depend on having Google Play Games installed.</p>
                 </section>
 
+                <section id="sandboxed-google-play-configuration">
+                    <h3><a href="#sandboxed-google-play-configuration">Configuration</a></h3>
+
+                    <p>The compatibility layer has a configuration menu available at Settings ➔
+                    Apps ➔ Sandboxed Google Play. It provides links to this usage guide, Play
+                    services system settings, Google Location Accuracy setting, Play Store system
+                    settings and Google settings. The Play services and Play Store system settings
+                    are only included for convenience since they can be accessed the same way as
+                    any other app via Settings ➔ Apps. The Google Location Accuracy and Google
+                    settings activities would normally be integrated into the OS but we don't
+                    include any of the standard Google Play integration so there needs to be an
+                    app providing a way to access them.</p>
+
+                    <p>The Google Location Accuracy toggle is an internal Google Play toggle for
+                    whether it will use their network-based location service. By default, it will
+                    only use the GNSS-based location provided by the OS. Some apps using the Play
+                    services geolocation service will only work if network-based geolocation is
+                    enabled if they lack a fallback to requesting the higher power usage
+                    GNSS-based geolocation when it's disabled.</p>
+
+                    <p>In the future, the Sandboxed Google Play app will provide a toggle for
+                    geolocation redirection. By default, apps using the Play services geolocation
+                    service will be redirected to an implementation based on the OS geolocation
+                    service without all the advanced features. This will enable apps using it to
+                    work out-of-the-box without needing to grant the Location permission to Play
+                    services. This has been largely developed but still needs substantial work
+                    before we can include it in the OS.</p>
+                </section>
+
                 <section id="sandboxed-google-play-limitations">
                     <h3><a href="#sandboxed-google-play-limitations">Limitations</a></h3>
 
@@ -904,11 +935,6 @@
                     <p>Play Store assumes that uninstallation always succeeds so it will stall if
                     it tries to uninstall an app and you reject it. You can work around this by
                     force stopping and then reopening it.</p>
-
-                    <p>Since there's no OS integration beyond fallback code to make it function
-                    without any special privileges, there isn't a way to launch the Play services
-                    settings activity. We'll need to make a tiny app providing a way to launch
-                    it.</p>
                 </section>
             </section>
 
@@ -958,7 +984,7 @@
 
                 <p>Android apps can declare associations with domains in order to handle those
                 URLs in the app automatically. For security reasons, app links are disabled by
-                default to prevent apps intercepting arbitrarily URLs. First party apps associated
+                default to prevent apps intercepting arbitrary URLs. First party apps associated
                 with a domain are expected to be authorized by the domain. Apps can ask for their
                 app links to be verified by the OS by marking them with <code>autoVerify</code> in
                 their manifest. The OS will securely confirm that the domain authorizes the app to
