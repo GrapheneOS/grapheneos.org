@@ -542,7 +542,7 @@
                         <li>change GmsCompat app label from "Sandboxed Google Play" to "GmsCompat" and the activity name to "Sandboxed Google Play settings"</li>
                         <li>add GmsCompat to list of essential system components in Settings</li>
                         <li>Camera: update to <a href="https://github.com/GrapheneOS/Camera/releases/tag/11">version 11</a></li>
-                        <li>only grant the special GrapheneOS runtime permissions (Network, Sensors) for compatibility on installation for user installed apps (only relevant to Network in practice)</li>
+                        <li>restrict granting the special added GrapheneOS runtime permissions (Network, Sensors) on upgrades to system apps (only relevant to Network in practice)</li>
                         <li>add workaround for Microsoft apps detecting that Network is revoked and crashing the app with a runtime exception due to them adding this to a library as a debugging check for development to detect the INTERNET permission not being declared (we've <a href="https://github.com/AzureAD/azure-activedirectory-library-for-android/issues/1675">asked them to fix the compatibility issue</a>)</li>
                         <li>do not mark dun APN types as read-only (allows editing more carrier APNs)</li>
                         <li>temporarily suppress SystemUI ANRs due to AOSP 12 screenshot service bug which triggers an ANR in SystemUI by not handling an event some time after taking a screenshot (also occurs on the stock OS and elsewhere, and the main issue is the error message since it's otherwise harmless)</li>
