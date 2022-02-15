@@ -216,6 +216,10 @@ async function flashRelease(setProgress) {
     setProgress("Flashing release...");
     safeToLeave = false;
     try {
+        // Sometimes users will try to install GrapheneOS midway through the prior OS
+        // doing an OTA update, 
+        setProgress("Wiping OTA state...");
+        await device.runCommand("snapshot-update cancel");
         await device.flashFactoryZip(blob, true, reconnectCallback,
             (action, item, progress) => {
                 let userAction = fastboot.USER_ACTION_MAP[action];
