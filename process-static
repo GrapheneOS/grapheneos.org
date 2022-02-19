@@ -5,6 +5,10 @@ shopt -s dotglob extglob globstar
 
 export PATH="$PWD/node_modules/.bin:$PATH"
 
+# can use file:// to avoid network requests
+[[ -f releases-base ]] && RELEASES_BASE=$(cat releases-base)
+RELEASES_BASE=${RELEASES_BASE:-https://releases.grapheneos.org}
+
 rm -rf nginx-tmp
 cp -a nginx nginx-tmp
 
@@ -24,7 +28,7 @@ find static-tmp -name '*.css' -exec csso {} -o {} \;
 eslint static-tmp/**/!(fastboot.min.m|z-worker-pako.|pako_inflate.min.|)js
 find static-tmp -name '*.js' -exec terser --ecma 2021 --module -cmo {} {} \;
 
-replace=""
+replace=
 for file in static-tmp/**/*.css static-tmp/js/*.js static-tmp/mask-icon.svg; do
     hash=$(sha256sum "$file" | head -c 8)
     sri_hash=sha256-$(openssl dgst -sha256 -binary "$file" | openssl base64 -A)
@@ -40,8 +44,21 @@ for file in static-tmp/**/*.css static-tmp/js/*.js static-tmp/mask-icon.svg; do
     replace+=";s@{{integrity|/${file#*/}}}@${sri_hash}@g"
     replace+=";s@{{path|/${file#*/}}}@/${dest#*/}@g"
 done
-
 sed -i "$replace" static-tmp/**/*.html nginx-tmp/nginx.conf nginx-tmp/snippets/preload.conf
+
+replace=
+devices=(raven oriole barbet redfin bramble sunfish coral flame bonito sargo crosshatch blueline)
+channels=(stable beta)
+for device in ${devices[@]}; do
+    for channel in ${channels[@]}; do
+        metadata=$(curl -s $RELEASES_BASE/$device-$channel)
+        build_id=$(echo -n $metadata | cut -d ' ' -f 3)
+        build_number=$(echo -n $metadata | cut -d ' ' -f 1)
+        replace+=";s@{{$device-$channel-BUILD_ID}}@$build_id@g"
+        replace+=";s@{{$device-$channel-BUILD_NUMBER}}@$build_number@g"
+    done
+done
+sed -i "$replace" static-tmp/releases.html
 
 gixy nginx-tmp/nginx.conf
 
