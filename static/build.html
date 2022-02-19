@@ -70,8 +70,6 @@
                             </li>
                             <li><a href="#updating-and-switching-branches-or-tags">Updating and switching branches or tags</a></li>
                             <li><a href="#kernel">Kernel</a></li>
-                            <li><a href="#setting-up-the-os-build-environment">Setting up the OS build environment</a></li>
-                            <li><a href="#reproducible-builds">Reproducible builds</a></li>
                             <li>
                                 <a href="#extracting-vendor-files-for-pixel-devices">Extracting vendor files for Pixel devices</a>
                                 <ul>
@@ -79,6 +77,8 @@
                                     <li><a href="#extracting-vendor-files-for-pixel-6-and-later">Pixel 6 and later</a></li>
                                 </ul>
                             </li>
+                            <li><a href="#setting-up-the-os-build-environment">Setting up the OS build environment</a></li>
+                            <li><a href="#reproducible-builds">Reproducible builds</a></li>
                             <li><a href="#building">Building</a></li>
                             <li><a href="#faster-builds-for-development-use-only">Faster builds for development use only</a></li>
                             <li>
@@ -468,6 +468,52 @@ repo sync -j16</pre>
                     build at <code>out/mixed/dist</code> in the kernel-raviole source tree.</p>
                 </section>
 
+                <section id="extracting-vendor-files-for-pixel-devices">
+                    <h3><a href="#extracting-vendor-files-for-pixel-devices">Extracting vendor files for Pixel devices</a></h3>
+
+                    <p>This section is specific to Pixel devices. The emulator and generic targets don't
+                    require extra vendor files.</p>
+
+                    <p>Many of these components are already open source, but not everything is set up to
+                    be built by the Android Open Source Project build system. Switching to building these
+                    components from source will be an incremental effort. In many cases, the vendor files
+                    simply need to be ignored and AOSP will already provide them instead. Firmware cannot
+                    generally be built from source even when sources are available, other than to verify
+                    that the official builds match the sources, since it has signature verification (which
+                    is an important part of the verified boot and attestation security model).</p>
+
+                    <section id="extracting-vendor-files-for-pixel-5-and-earlier">
+                        <h4><a href="#extracting-vendor-files-for-pixel-5-and-earlier">Pixel 5 and earlier</a></h4>
+
+                        <p>Extract the vendor files corresponding to the matching release with
+                        <code>DEVICE</code> and <code>BUILD_ID</code> replaced with the
+                        appropriate values:</p>
+
+                        <pre>vendor/android-prepare-vendor/execute-all.sh -d DEVICE -b BUILD_ID -o vendor/android-prepare-vendor
+mkdir -p vendor/google_devices
+rm -rf vendor/google_devices/DEVICE
+mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/google_devices/</pre>
+                    </section>
+
+                    <section id="extracting-vendor-files-for-pixel-6-and-later">
+                        <h4><a href="#extracting-vendor-files-for-pixel-6-and-later">Pixel 6 and later</a></h4>
+
+                        <p>Starting with the Pixel 6, newer generation devices use the adevtool project to
+                        extract files from the stock operating system.
+                        </p>
+
+                        <pre>cd vendor/adevtool/ &amp;&amp; yarn install &amp;&amp; cd ../..
+vendor/adevtool/mountimages.bash DEVICE BUILD_ID
+sudo vendor/adevtool/bin/run generate-all vendor/adevtool/config/DEVICE.yml -c vendor/state/DEVICE.json -f vendor/adevtool/dl/DEVICE-BUILD_ID-*.zip -s vendor/adevtool/dl/DEVICE-BUILD_ID/mount/</pre>
+
+                        <p>OTA firmware extraction is currently a work-in-progress on adevtool.
+                        android-prepare-vendor is being temporarily used to make the process easier.</p>
+
+                        <pre>vendor/android-prepare-vendor/execute-all.sh -d DEVICE -b BUILD_ID -o vendor/android-prepare-vendor
+cp -r vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/DEVICE/radio/* vendor/google_devices/DEVICE/firmware/</pre>
+                    </section>
+                </section>
+
                 <section id="setting-up-the-os-build-environment">
                     <h3><a href="#setting-up-the-os-build-environment">Setting up the OS build environment</a></h3>
 
@@ -520,52 +566,6 @@ repo sync -j16</pre>
                     domain, you <strong>must</strong> disable the Updater app before connecting the device
                     to the internet, or you will be performing a denial of service attack on our official
                     update server.</p>
-                </section>
-
-                <section id="extracting-vendor-files-for-pixel-devices">
-                    <h3><a href="#extracting-vendor-files-for-pixel-devices">Extracting vendor files for Pixel devices</a></h3>
-
-                    <p>This section is specific to Pixel devices. The emulator and generic targets don't
-                    require extra vendor files.</p>
-
-                    <p>Many of these components are already open source, but not everything is set up to
-                    be built by the Android Open Source Project build system. Switching to building these
-                    components from source will be an incremental effort. In many cases, the vendor files
-                    simply need to be ignored and AOSP will already provide them instead. Firmware cannot
-                    generally be built from source even when sources are available, other than to verify
-                    that the official builds match the sources, since it has signature verification (which
-                    is an important part of the verified boot and attestation security model).</p>
-
-                    <section id="extracting-vendor-files-for-pixel-5-and-earlier">
-                        <h4><a href="#extracting-vendor-files-for-pixel-5-and-earlier">Pixel 5 and earlier</a></h4>
-
-                        <p>Extract the vendor files corresponding to the matching release with
-                        <code>DEVICE</code> and <code>BUILD_ID</code> replaced with the
-                        appropriate values:</p>
-
-                        <pre>vendor/android-prepare-vendor/execute-all.sh -d DEVICE -b BUILD_ID -o vendor/android-prepare-vendor
-mkdir -p vendor/google_devices
-rm -rf vendor/google_devices/DEVICE
-mv vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/* vendor/google_devices/</pre>
-                    </section>
-
-                    <section id="extracting-vendor-files-for-pixel-6-and-later">
-                        <h4><a href="#extracting-vendor-files-for-pixel-6-and-later">Pixel 6 and later</a></h4>
-
-                        <p>Starting with the Pixel 6, newer generation devices use the adevtool project to
-                        extract files from the stock operating system.
-                        </p>
-
-                        <pre>cd vendor/adevtool/ &amp;&amp; yarn install &amp;&amp; cd ../..
-vendor/adevtool/mountimages.bash DEVICE BUILD_ID
-sudo vendor/adevtool/bin/run generate-all vendor/adevtool/config/DEVICE.yml -c vendor/state/DEVICE.json -f vendor/adevtool/dl/DEVICE-BUILD_ID-*.zip -s vendor/adevtool/dl/DEVICE-BUILD_ID/mount/</pre>
-
-                        <p>OTA firmware extraction is currently a work-in-progress on adevtool.
-                        android-prepare-vendor is being temporarily used to make the process easier.</p>
-
-                        <pre>vendor/android-prepare-vendor/execute-all.sh -d DEVICE -b BUILD_ID -o vendor/android-prepare-vendor
-cp -r vendor/android-prepare-vendor/DEVICE/BUILD_ID/vendor/google_devices/DEVICE/radio/* vendor/google_devices/DEVICE/firmware/</pre>
-                    </section>
                 </section>
 
                 <section id="building">
