@@ -60,7 +60,7 @@ for device in ${devices[@]}; do
 done
 sed -i "$replace" static-tmp/releases.html
 
-gixy nginx-tmp/nginx.conf
+#gixy nginx-tmp/nginx.conf
 
 xmllint --noout static-tmp/**/*.html
 validatornu --Werror --also-check-css --also-check-svg static-tmp/**/!(bimi).@(css|html|svg)
