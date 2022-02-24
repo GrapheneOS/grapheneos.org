@@ -846,21 +846,13 @@
                     without Google Play rather than treating not using it as the exceptional
                     case.</p>
 
-                    <p>Install com.google.android.gsf, then com.google.android.gms and finally use
-                    a split APK installer to install all 5 of the APKs for com.android.vending
-                    together. Make sure to install all 3 in the correct order. You can obtain a
-                    split APK installer app from either Aurora Store, F-Droid or the developers of
-                    the app via their GitHub releases, etc.</p>
-
-                    <p>In the future, we'll have a client app for our repository so you'll be able
-                    to install and update the official Google Play apps through that app and you
-                    won't need to deal with split APK installation manually.</p>
-
-                    <ul>
-                        <li><a href="https://apps.grapheneos.org/packages/com.google.android.gsf/">com.google.android.gsf</a></li>
-                        <li><a href="https://apps.grapheneos.org/packages/com.google.android.gms/">com.google.android.gms</a></li>
-                        <li><a href="https://apps.grapheneos.org/packages/com.android.vending/">com.android.vending</a></li>
-                    </ul>
+                    <p>You can install the <a href="https://github.com/GrapheneOS/platform_external_Apps/blob/12/prebuilt/Apps.apk">alpha
+                    release of our app repository client</a> and then install the 3 core Google
+                    Play apps mirrored in our repository. Our app repository client has support
+                    for dependency installation so you can simply directly install the Play Store
+                    and it will install GSF and then GMS as dependencies. In the near future, our
+                    app repository client will be included in GrapheneOS as one of the bundled
+                    apps.</p>
 
                     <p>You should give a battery optimization exception to Google Play services
                     for features like push notifications to work properly in the background. It
@@ -880,11 +872,11 @@
                     currently the best way to mimic the initialization done by the stock OS setup
                     wizard.</p>
 
-                    <p>You can obtain updates to these apps from our repository which will be easy
-                    once we have a client app. The Play Store app can also be used to update
-                    Google Play services and itself. Updates to the Google Services Framework
-                    (com.google.android.gsf) app are normally only distributed through OS updates
-                    so you need to get those from our repository.</p>
+                    <p>You can obtain updates to these apps from our repository. The Play Store
+                    app can also be used to update Google Play services and itself. Updates to the
+                    Google Services Framework (com.google.android.gsf) app are normally only
+                    distributed through OS updates so you need to get those from our
+                    repository.</p>
 
                     <p>Our compatibility layer has support for Play Games Services which you can
                     obtain by installing Google Play Games from the Play Store. Many games on the
