@@ -104,6 +104,7 @@
                     </li>
                     <li><a href="#banking-apps">Banking apps</a></li>
                     <li><a href="#app-link-verification">App link verification</a></li>
+                    <li><a href="#carrier-functionality">Carrier functionality</a></li>
                 </ul>
             </nav>
 
@@ -1044,6 +1045,53 @@
                 <p>For more details, see the
                 <a href="https://developer.android.com/training/app-links/verify-site-associations">developer
                 documentation on app link verification</a>.</p>
+            </section>
+
+            <section id="carrier-functionality">
+                <h2><a href="#carrier-functionality">Carrier functionality</a></h2>
+
+                <p>GrapheneOS aims to work with all carriers that are officially supported by Google
+                on the stock operating system on Pixel devices. Wi-Fi Calling, VoLTE, Visual Voicemail,
+                MMS, SMS, Calling and 5G (SA and NSA) all are supported, however some functionality may
+                not be usable due to Google not supporting carriers on the stock OS officially or
+                due to GrapheneOS not shipping proprietary apps required in order for this
+                functionality to work on some carriers. GrapheneOS extracts CarrierConfigs, APNs,
+                modem configurations, Visual Voicemail configurations and MMS configurations from the
+                stock operating system to ensure users get easy carrier support that "just works".</p>
+
+                <p>Please note that in some regions, LTE is referred to as 4G.</p>
+
+                <p>Generally Visual Voicemail, SMS, MMS, Calls and VoLTE will work fine on GrapheneOS
+                with officially supported carriers by Google. Wi-Fi calling may vary due to a reliance
+                on proprietary Google apps which GrapheneOS does not ship.</p>
+
+                <p>If you are having problems sending or receiving SMS/MMS messages, we suggest that 
+                you perform the following steps:</p>
+
+                <ul>
+                    <li>Deregister your phone number from <a href="https://selfsolve.apple.com/deregister-imessage">Apple iMessage</a></li>
+                    <li>Deregister your phone number from <a href="https://messages.google.com/disable-chat">Google Chat Features</a></li>
+                    <li>Deregister your phone number from your carrier's RCS service</li>
+                </ul>
+
+                <p>If you continue to have problems despite following the instructions above or you 
+                have another carrier related issue, we suggest that you perform the following steps:</p>
+
+                <ul>
+                    <li>Some carriers require you to explicitly opt in to use services such as Wi-Fi calling.
+                        Consult your carrier's documentation on the process for this or contact them.</li>
+                    <li>Reset Mobile Network settings in Settings ➔ System ➔ Reset options ➔ Reset Wi-Fi,
+                        mobile &amp; Bluetooth and then reboot the device.</li>
+                    <li>USA users only: You may need to request your carrier to enable CDMA-less mode if
+                        you have issues.</li>
+                    <li>Follow your carrier's instructions for setting up APNs, this can be found in
+                        Settings ➔ Network &amp; Internet ➔ SIMs ➔ Access Point Names</li>
+                    <li>As a last resort you may need to ask your carrier for a replacement SIM card.</li>
+                </ul>
+
+                <p>GrapheneOS includes bypasses for carrier restrictions on APN editing, tethering via
+                USB, Ethernet, Bluetooth and Wi-Fi and the ability to disable 2G, actions which would not
+                have been possible on the stock operating system.</p>
             </section>
         </main>
         <footer>
