@@ -918,14 +918,28 @@
                 <section id="sandboxed-google-play-limitations">
                     <h3><a href="#sandboxed-google-play-limitations">Limitations</a></h3>
 
-                    <p>Functionality depending on privileged access such as special access to
-                    hardware isn't available. We would need to implement compatibility layers
-                    teaching it how to function as a regular app. This currently isn't within the
-                    scope of the project beyond the existing support for dynamite modules and
-                    partially implemented support for Play Store app installation/updates. The
-                    official Android Auto interface is a good example of functionality heavily
-                    depending on having highly invasive privileged access beyond what would be
-                    realistic to get working with an expanded compatibility layer.</p>
+                    <p>Our compatibility layer has to be expanded on a case-by-case basis to teach
+                    Play services to work as a regular app without any of the invasive the access
+                    and integration it expects. In many cases, it doesn't truly need the access or
+                    we can teach it to use the regular approach available to a normal app. In some
+                    cases, the functionality it offers fundamentally requiresy requires privileged
+                    access and cannot be support. For example, it's unlikely Android Auto will be
+                    supported. The same applies to other highly invasive OS integration / control
+                    or privileged access to hardware. There are also a lot of features such as the
+                    FIDO2 security key support which could be made to fully work despite reliance
+                    on a lot of privileged APIs (their FIDO2 service is partially working
+                    already). In the case of FIDO2, we could also eventually support redirecting
+                    to our own implementation similarly to how we do that by default for
+                    geolocation. Our compatibility layer is a very actively developed work in
+                    progress and most of the remaining unavailable functionality is quickly
+                    becoming supported.</p>
+
+                    <p>Functionality depending on the OS integrating Play services and using it as
+                    a backend is unavailable. An OS integrating Play uses it as the backend for OS
+                    services such as geolocation. GrapheneOS never uses it as the backend/provider
+                    for OS services. In cases such as text-to-speech (TTS) where the OS allows the
+                    user to choose the provider, Play services can often be used. It's on a level
+                    playing field with other apps on GrapheneOS.</p>
 
                     <p>Play Store assumes that uninstallation always succeeds so it will stall if
                     it tries to uninstall an app and you reject it. You can work around this by
