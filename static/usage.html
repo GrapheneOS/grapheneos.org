@@ -519,19 +519,24 @@
                 <section id="grapheneos-camera-app">
                     <h3><a href="#grapheneos-camera-app">GrapheneOS Camera app</a></h3>
 
-                    <p>GrapheneOS includes our own modern Camera app based on the bleeding edge
-                    release channel of Android's CameraX library. It provides modes for QR
-                    scanning, image capture and video recording as tabs at the bottom of the
-                    screen. You can either use the tab interface or swipe left and right anywhere
-                    on the screen above it to switch between them. The arrow button at the top of
-                    the screen opens the settings panel and you can close it by pressing anywhere
-                    outside the settings panel. You can also swipe down to open the settings and
-                    swipe up to close it. Outside of the QR scanning mode, there's a row of large
-                    buttons above the tab bar for switching between the cameras (left), capturing
-                    images and starting/stopping video recording (middle) and opening the gallery
-                    (right). The volume keys can also be used as an equivalent to pressing the
-                    capture button. While recording a video, the gallery button becomes an image
-                    capture button for capturing images.</p>
+                    <p>GrapheneOS includes our own modern camera app focused on privacy and
+                    security. It includes modes for capturing images, videos and QR / barcode
+                    scanning along with additional modes based on CameraX vendor extensions
+                    (Portrait, HDR, Night Sight, Face Retouch and Auto) on <a
+                    href="https://developer.android.com/training/camerax/devices">devices where
+                    they're available</a> (not available on Pixels yet).</p>
+
+                    <p>Modes are displayed as tabs at the bottom of the screen. You can switch
+                    between modes using the tab interface or by swiping left/right anywhere on the
+                    screen. The arrow button at the top of the screen opens the settings panel and
+                    you can close it by pressing anywhere outside the settings panel. You can also
+                    swipe down to open the settings and swipe up to close it. Outside of the QR
+                    scanning mode, there's a row of large buttons above the tab bar for switching
+                    between the cameras (left), capturing images and starting/stopping video
+                    recording (middle) and opening the gallery (right). The volume keys can also
+                    be used as an equivalent to pressing the capture button. While recording a
+                    video, the gallery button becomes an image capture button for capturing
+                    images.</p>
 
                     <p>Our Camera app provides the system media intents used by other apps to
                     capture images / record videos via the OS provided camera implementation.
@@ -606,10 +611,10 @@
                     yet. Orientation metadata isn't stripped since it's fully visible from how the
                     image is displayed so it doesn't count as hidden metadata and is needed for
                     proper display. You can toggle off stripping EXIF metadata in the More
-                    Settings menu opened from the settings dialog. Disabling EXIF metadata
-                    stripping will include an EXIF timestamp, the phone model and an abstraction
-                    of the exposure configuration. Location tagging is disabled by default and the
-                    EXIF stripping option respects the toggle for it rather than stripping it.</p>
+                    Settings menu opened from the settings dialog. Disabling metadata stripping
+                    will leave the timestamp, phone model, exposure configuration and other
+                    metadata. Location tagging is disabled by default and won't be stripped if you
+                    enable it.</p>
                 </section>
 
                 <section id="google-camera">
