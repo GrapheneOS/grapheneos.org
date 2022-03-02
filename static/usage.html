@@ -906,6 +906,14 @@
                     Settings ➔ Location ➔ Location services which are disabled by default rather
                     than enabled by default like the stock OS.</p>
 
+                    <p>Re-routing location to the OS geolocation service will use more power than
+                    using the Google Play geolocation service since we do not provide a
+                    network-based location service and implement it via GNSS / A-GPS only. In the
+                    future, we plan on providing a pseudo-network geolocation service for the OS
+                    by using a local database of cell towers, and the location redirection feature
+                    can also make use of this future OS implementation for network location
+                    requests once it's available.</p>
+
                     <p>The Google Location Accuracy and Google settings activities would normally
                     be integrated into the OS but we don't include any of the standard Google Play
                     integration so there needs to be an app providing a way to access them.</p>
