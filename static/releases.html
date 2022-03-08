@@ -518,6 +518,7 @@
                         <li>full 2022-03-01 security patch level</li>
                         <li>full 2022-03-05 security patch level</li>
                         <li>rebased onto SP2A.220305.012 release, the initial release of Android 12.1 (Android 12L) which is the second quarterly maintenance/feature release for Android 12</li>
+                        <li>disable Monet (color scheme based on wallpaper) by default since AOSP 12.1 has no way to opt-out of the feature or to manually choose colors instead (we'll add a toggle for enabling it later this month and we could also include a color picker before AOSP 13 but likely not this month)</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro): apply downstream fix for CVE-2022-0847</li>
                         <li>kernel (Pixel 5a): re-apply January audio driver security patch which was accidentally dropped upstream for 12L due to it being branched earlier than January and this patch not being applied again as it was for other 5th generation devices (consequence of AOSP having the Pixel 5a kernel unnecessarily separate from the other 5th generation devices instead of merging them a year ago)</li>
                         <li>Sandboxed Google Play compatibility layer: extend, optimize and improve the robustness of the compatiblity shims to improve the compatibility layer in general</li>
