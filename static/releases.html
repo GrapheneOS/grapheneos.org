@@ -551,7 +551,7 @@
                         <li>Sandboxed Google Play compatibility layer: extend, optimize and improve the robustness of the compatiblity shims to improve the compatibility layer in general</li>
                         <li>Sandboxed Google Play compatibility layer: fix regressions in compatibility with the Google Play geolocation service for users choosing to disable redirection to the OS geolocation service in order to use their network location and other features</li>
                         <li>Sandboxed Google Play compatibility layer: prevent Play services from trying to update OS fonts since it requires a privileged permission and the service will crash from the SecurityException</li>
-                        <li>further improve friendliness of DownloadManager with the Network permission revoked</li>
+                        <li>make DownloadManager friendlier to apps with the Network permission revoked by avoiding SecurityExceptions in more cases and giving them errors they know how to handle instead</li>
                         <li>Camera: update to <a href="https://github.com/GrapheneOS/Camera/releases/tag/14">version 14</a></li>
                         <li>Camera: update to <a href="https://github.com/GrapheneOS/Camera/releases/tag/15">version 15</a></li>
                         <li>Camera: update to <a href="https://github.com/GrapheneOS/Camera/releases/tag/16">version 16</a></li>
