@@ -321,23 +321,23 @@
                     <section id="development-branch">
                         <h4><a href="#development-branch">Development branch</a></h4>
 
-                        <p>The <code>12</code> branch is the main development branch of
+                        <p>The <code>12.1</code> branch is the main development branch of
                         GrapheneOS. It follows along with the latest stable releases of the
                         Android Open Source Project which currently means the latest monthly
-                        release of the <code>android12-release</code> (Android 12) branch. The
-                        <code>12</code> branch of GrapheneOS should be used for generic builds
+                        release of the <code>android12L-release</code> (Android 12L) branch. The
+                        <code>12.1</code> branch of GrapheneOS should be used for generic builds
                         including the emulator, porting to other devices and for non-legacy
                         officially supported devices other than the Pixel 6 / Pixel 6 Pro. Pixel 6
-                        / Pixel 6 Pro currently use the <code>12-raviole</code> development branch
+                        / Pixel 6 Pro currently use the <code>12.1-raviole</code> development branch
                         since AOSP uses a separate device branch for newly added devices and it
                         hasn't been merged into the main branch as part of a quarterly or major
-                        release yet. Pixel 3 / Pixel 3 XL use the <code>12-crosshatch</code>
+                        release yet. Pixel 3 / Pixel 3 XL use the <code>12.1-crosshatch</code>
                         branch setting an appropriate <code>BUILD_ID</code> and security patch
                         level field.</p>
 
-                        <pre>mkdir grapheneos-12
-cd grapheneos-12
-repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 12
+                        <pre>mkdir grapheneos-12.1
+cd grapheneos-12.1
+repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 12.1
 repo sync -j16</pre>
 
                         <p>If your network is unreliable and <code>repo sync</code> fails, you can run the
@@ -455,7 +455,7 @@ git submodule update --init --recursive
 
                     <pre>mkdir kernel-raviole
 cd kernel-raviole
-repo init -u https://github.com/GrapheneOS/raviole_kernel_manifest.git -b 12
+repo init -u https://github.com/GrapheneOS/raviole_kernel_manifest.git -b 12.1
 repo sync -j16</pre>
 
                     <p>To build the Pixel 6 and Pixel 6 Pro kernel:</p>
