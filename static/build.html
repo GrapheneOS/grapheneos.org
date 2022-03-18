@@ -835,7 +835,7 @@ git checkout $CORRECT_BRANCH_OR_TAG</pre>
                     <pre>keytool -genkey -v -keystore vanadium.keystore -storetype pkcs12 -alias vanadium -keyalg RSA -keysize 4096 -sigalg SHA512withRSA -validity 10000 -dname "cn=GrapheneOS"</pre>
 
                     <p>You will be prompted to enter a password which will be requested by the
-                    <code>generate_release.sh</code> script for signing releases. You should back up
+                    <code>generate-release.sh</code> script for signing releases. You should back up
                     the generated keystore with your other keys.</p>
 
                     <p>Fetch the Chromium sources:</p>
