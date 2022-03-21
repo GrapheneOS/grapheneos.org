@@ -23,7 +23,7 @@ jobs:
 
     - name: Cache validator
       id: validator-cache
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: vnu-runtime-image
         key: ${{ runner.os }}-validator-${{ env.VALIDATOR_VERSION }}
