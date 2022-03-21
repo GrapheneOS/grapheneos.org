@@ -517,6 +517,9 @@
                     <p>Changes since the 2022031103 release:</p>
 
                     <ul>
+                        <li>add eSIM activation support as an optional toggle available when using sandboxed Google Play in the Owner profile (note: regular apps including sandboxed Google Play do not have additional access in the Owner profile)</li>
+                        <li>Sandboxed Google Play compatibility layer: expand PhenoTypeFlags workaround to all Play services clients</li>
+                        <li>GmsCompat: call startForegroundService from the main thread to avoid potential issues</li>
                         <li>Vanadium: restore new tab page behavior by working around regressions in Chromium 99</li>
                         <li>Vanadium: update certain Chromium dependencies to avoid crashes caused by incompatibilities with Android 12 (will allow for multiple kinds of FIDO2 support via sandboxed Google Play once we extend the sandboxed Google Play compatibility layer to support it or once Play services whitelists Vanadium as a browser allowed to use FIDO2)</li>
                         <li>Vanadium: update Chromium base to 99.0.4844.73</li>
@@ -530,7 +533,6 @@
                         <li>Apps: update to <a href="https://github.com/GrapheneOS/Apps/releases/tag/5">version 5</a></li>
                         <li>PDF Viewer: update to <a href="https://github.com/GrapheneOS/PdfViewer/releases/tag/13">version 13</a></li>
                         <li>improve Android 12 PendingIntent security check compatibility due to buggy apps including Chromium targeting API 31+ with outdated Play services client libraries lacking Android 12 support (triggered much more frequently on GrapheneOS due to PendingIntent being used to request runtime permissions on behalf of Play services)</li>
-                        <li>Sandboxed Google Play compatibility layer: expand PhenoTypeFlags workaround to all Play services clients</li>
                         <li>fix compatibility of PIN scrambling with physical keyboards</li>
                         <li>Settings: convert PIN scrambling toggle into a switch preference from a list preference</li>
                         <li>improve USB connection icon</li>
