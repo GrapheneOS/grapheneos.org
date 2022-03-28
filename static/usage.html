@@ -651,7 +651,7 @@
                 using the traditional Zygote spawning model. This improves privacy and security at the
                 expense of higher cold start app spawning time and higher initial memory usage. It
                 doesn't impact runtime performance beyond the initial spawning time. It adds somewhere
-                in the ballpark of 100ms to app spawning time on the flagship devices and is only very
+                in the ballpark of 200ms to app spawning time on the flagship devices and is only very
                 noticeable on lower-end devices with a weaker CPU and slower storage. The spawning
                 time impact only applies when the app doesn't already have an app process and the OS
                 will try to keep app processes cached in the background until memory pressure forces
