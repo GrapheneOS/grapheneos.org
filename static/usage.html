@@ -672,6 +672,13 @@
                 with privileges reserved for OS components. The Zygote template is reused across user
                 profiles, so it also provides a temporary set of device identifiers across profiles
                 for each boot via the shared randomized values.</p>
+
+                <p>This feature can be disabled via Settings ➔ Security ➔ Enable secure app
+                spawning if you prefer to have faster cold start app spawning time and lower app
+                process memory usage instead of the substantial security benefits and the removal
+                of the only known remaining direct device identifiers across profiles (i.e. not
+                depending on fingerprinting global configuration, available storage space, etc. or
+                using side channels).</p>
             </section>
 
             <section id="bugs-uncovered-by-security-features">
