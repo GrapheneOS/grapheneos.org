@@ -786,6 +786,19 @@
                             on internet access until it becomes available.</p>
                         </li>
                         <li>
+                            <p>Connections are made to a server to provision attestation
+                            certificates for hardware-based attestation. GrapheneOS uses
+                            https://remoteprovisioning.grapheneos.org/ by default which is a
+                            reverse proxy to the https://remoteprovisioning.googleapis.com/
+                            service. Their service splits up the implementation of provisioning to
+                            preserve privacy, and our reverse proxy adds to that since it's unable
+                            to decrypt the provisioned keys.</p>
+
+                            <p>A setting is added at Settings ➔ Network &amp; Internet ➔
+                            Attestation key provisioning for switching to directly using the
+                            Google service if you prefer.</p>
+                        </li>
+                        <li>
                             <p>DNS connectivity and functionality tests</p>
                         </li>
                         <li>
