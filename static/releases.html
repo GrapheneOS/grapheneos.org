@@ -520,6 +520,11 @@
                     <p>Changes since the 2022033013 release:</p>
 
                     <ul>
+                        <li>Sandboxed Google Play compatibility layer: add additional compatibility shims to improve compatibility with recent Play services</li>
+                        <li>Sandboxed Google Play compatibility layer (GmsCompat): improve code quality and robustness</li>
+                        <li>Sandboxed Google Play compatibility layer (GmsCompat): stop listing having always-on scanning enabled as a potential issue especially since it can be used by other apps</li>
+                        <li>Sandboxed Google Play compatibility layer (GmsCompat): prevent infinite loop in location service, which would break location services and result in battery drain</li>
+                        <li>Sandboxed Google Play compatibility layer (GmsCompat): fix Google Location Accuracy state check</li>
                         <li>Pixel 3, Pixel 3 XL: remove leftover upstream iorapd testing prop</li>
                         <li>TalkBack: dependency updates and crash fix</li>
                         <li>adevtool: fix hang when there are existing files to overwrite</li>
