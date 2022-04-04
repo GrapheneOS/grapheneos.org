@@ -75,6 +75,10 @@
         <priority>0.5</priority>
     </url>
     <url>
+        <loc>https://grapheneos.org/articles/upstream-contributions</loc>
+        <priority>0.5</priority>
+    </url>
+    <url>
         <loc>https://grapheneos.org/donate</loc>
         <priority>0.5</priority>
     </url>
