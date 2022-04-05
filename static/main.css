@@ -165,6 +165,7 @@ button:focus, .button:focus {
 }
 
 footer img {
+    filter: invert(87%);
     width: 60px;
     height: auto;
     display: block;
@@ -173,6 +174,15 @@ footer img {
 }
 
 footer {
+    background-color: #43424e;
+    padding-top: 10px;
+}
+
+footer a, footer a:visited {
+    color: rgba(255 255 255 / 87%);  /* 87% white */
+}
+
+.footer-content {
     margin-top: auto;
     margin-left: auto;
     margin-right: auto;
@@ -182,10 +192,6 @@ footer {
     text-align: center;
 }
 
-footer a, footer a:visited {
-    color: #616161; /* grey500 */
-}
-
 #social {
     margin-top: 2em;
     padding: 0;
@@ -193,7 +199,6 @@ footer a, footer a:visited {
 }
 
 #social li {
-    display: inline;
     padding: 0 0.5em;
 }
 
@@ -391,8 +396,12 @@ main.normalize {
         background-color: #424242; /* grey800 */
     }
 
+    footer {
+        background-color: #121212;
+    }
+
     footer a, footer a:visited {
-        color: #9f9f9f;
+        color: rgba(255 255 255 / 87%);
     }
 
     footer img {
