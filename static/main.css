@@ -122,24 +122,27 @@ main {
 }
 
 button, .button, .button:visited {
+    display: flex;
     color: white;
     font-size: 0.9em;
     font-weight: bold;
+    flex: auto;
+    justify-content: center;
     letter-spacing: 0.0892857143em;
-    background-color: #0053a3; /* accent_device_default_light => system_accent1_600 */
-    border-radius: 20px;
+    background-color: #3a56f0;
+    border-radius: 8px;
     border: none;
     height: 40px;
     padding: 0.5rem 1.5rem;
 }
 
 button:hover, .button:hover {
-    background-color: #1863ad; /* color between default and pressed */
+    /* background-color: #1863ad; /* color between default and pressed */
     cursor: pointer;
 }
 
 button:focus, .button:focus {
-    background-color: #2f73b4; /* button pressed on Android */
+    /* background-color: #2f73b4; /* button pressed on Android */
     box-shadow: 0 2px 4px -1px rgba(0 0 0 / 20%), 0 4px 5px 0 rgba(0 0 0 / 14%), 0 1px 10px 0 rgba(0 0 0 / 12%);
 }
 
