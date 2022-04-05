@@ -11,7 +11,7 @@ body {
     min-height: 100vh;
     min-height: -webkit-fill-available; /* replace with stretch when standardized */
     font-family: Poppins, sans-serif;
-    background-color: #fafafa; /* grey50 */
+    background-color: #fff; /* 100% white */
     color: rgba(0 0 0 / 87%); /* 87% black */
     margin: 0;
     padding: 0;
@@ -19,7 +19,7 @@ body {
 }
 
 header {
-    background-color: #fafafa;
+    background-color: #fff;
     padding: 25px 0;
     position: sticky;
     top: 0;
