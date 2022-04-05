@@ -106,7 +106,7 @@ code {
 
 .gs-head-nav {
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-evenly;
     text-align: right;
 }
 
