@@ -237,7 +237,7 @@ main.normalize {
 }
 
 .content {
-    max-width: 832px;
+    max-width: 750px;
     margin: auto;
     padding: 3.5rem 1rem;
 }
@@ -247,7 +247,6 @@ main.normalize {
     align-items: center;
     flex-flow: row nowrap;
     justify-content: space-between;
-    max-width: 750px;
 }
 
 .hero h1 {
@@ -276,11 +275,6 @@ main.normalize {
     top: 26%;
     left: -40%;
     z-index: -2;
-}
-
-.surface {
-    background-color: #e6e6e6;
-    width: 100%;
 }
 
 .start {
@@ -454,9 +448,5 @@ main.normalize {
 
     .phone-logo-img {
         filter: invert(87%);
-    }
-
-    .surface {
-        background-color: #212121;
     }
 }
