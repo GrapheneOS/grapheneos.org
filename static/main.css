@@ -259,11 +259,11 @@ main.normalize {
     z-index: -1;
 }
 
-.phone-logo-img {
+.blob-img {
     position: absolute;
-    top: 48%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 26%;
+    left: -40%;
+    z-index: -2;
 }
 
 .surface {
