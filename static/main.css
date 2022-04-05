@@ -240,10 +240,17 @@ main.normalize {
     align-items: center;
     flex-flow: row nowrap;
     justify-content: space-between;
+    max-width: 750px;
 }
 
 .hero h1 {
     margin: 0;
+    font-size: 3.5vw;
+}
+
+.hero-text {
+    margin-left: 1rem;
+    margin-right: 6rem;
 }
 
 .device-img {
