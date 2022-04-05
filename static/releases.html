@@ -543,6 +543,7 @@
                         <li>rebased onto SP2A.220405.004 release</li>
                         <li>Pixel 6, Pixel 6 Pro: update GKI base to android12-5.10-2022-03_r1 from android12-5.10-2021-12_r8 for a bunch of upstream and downstream improvements (stock OS still uses android12-5.10-2021-12_r6 and is missing a bunch of important security fixes)</li>
                         <li>Sandboxed Google Play compatibility layer: add additional compatibility shims to improve compatibility with recent Play services</li>
+                        <li>Sandboxed Google Play compatibility layer: drop org.grapheneos.pdfviewer from blocked updates list since that app id is no longer being used</li>
                         <li>Sandboxed Google Play compatibility layer (GmsCompat): improve code quality and robustness</li>
                         <li>Sandboxed Google Play compatibility layer (GmsCompat): stop listing having always-on scanning enabled as a potential issue especially since it can be used by other apps</li>
                         <li>Sandboxed Google Play compatibility layer (GmsCompat): prevent infinite loop in location service, which would break location services and result in battery drain</li>
@@ -555,7 +556,6 @@
                         <li>backport fix for crash in telephony service with null subscription display name</li>
                         <li>backport Wi-Fi APEX module fix to improve robustness when chip reconfiguration fails</li>
                         <li>Settings: improve title/summary for attestation key provisioning server</li>
-                        <li>Sandboxed Google Play compatibility layer: substantially improve dynamite module support</li>
                         <li>Pixel 3, Pixel 3 XL: fix hardware-based attestation by rolling back an Android 12.1 change for these devices depending on updates to the firmware / device support code since these are end-of-life devices and don't receive those updates so it broke attestation support</li>
                         <li>Camera: update to <a href="https://github.com/GrapheneOS/Camera/releases/tag/18">version 18</a></li>
                         <li>Settings: allow sorting applications by size</li>
