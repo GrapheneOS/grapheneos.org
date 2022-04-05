@@ -18,6 +18,14 @@ body {
     overflow-y: scroll;
 }
 
+header {
+    background-color: #fafafa;
+    padding: 25px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+
 a {
     color: #1565c0; /* blue800 */
     text-decoration: none;
@@ -50,7 +58,7 @@ code {
     border-radius: 2.5px;
 }
 
-#site-menu ul {
+.gs-head-logo, #site-menu ul {
     display: flex;
     flex-wrap: nowrap;
     overflow-x: auto;
@@ -59,8 +67,11 @@ code {
 }
 
 #site-menu {
-    background-color: #212121; /* grey900 */
-    box-shadow: 0 2px 2px 0 rgba(0 0 0 / 14%), 0 1px 5px 0 rgba(0 0 0 / 12%), 0 3px 1px -2px rgba(0 0 0 / 20%);
+    display: grid;
+    grid-auto-flow: row dense;
+    grid-template-columns: auto auto;
+    margin: 0 auto;
+    max-width: 1024px;
     white-space: nowrap;
 }
 
@@ -69,36 +80,29 @@ code {
     display: flex;
 }
 
-#site-menu ul li:hover {
-    background-color: #424242; /* grey800 */
-}
-
-#site-menu ul li a {
-    color: #fff; /* 100% white */
+.gs-head-logo a, #site-menu ul li a {
+    color: #000; /* 100% black */
     display: flex;
     text-decoration: none;
     padding: 1em;
     align-items: center;
 }
 
-#site-menu ul li a:visited {
-    color: #fff; /* 100% white */
-}
-
-#site-menu ul li[aria-current] a {
-    color: #64b5f6; /* blue300 */
-}
-
 #site-menu img {
     height: 1.8rem;
     width: 1.8rem;
-    filter: invert(100);
     vertical-align: middle;
     margin-right: 0.5rem;
 }
 
 #site-menu ul li[aria-current] img {
     filter: invert(60%) sepia(24%) saturate(997%) hue-rotate(168deg) brightness(107%) contrast(93%);
+}
+
+.gs-head-nav {
+    align-items: center;
+    justify-content: flex-end;
+    text-align: right;
 }
 
 main {
@@ -235,6 +239,7 @@ main.normalize {
 .device-img {
     margin: 0 0 0 2rem;
     position: relative;
+    z-index: -1;
 }
 
 .phone-logo-img {
@@ -330,12 +335,24 @@ main.normalize {
         color: rgba(255 255 255 / 87%); /* 87% white */
     }
 
+    header {
+        background-color: #121212;
+    }
+
     a {
         color: #90caf9; /* blue200 */
     }
 
     a:visited {
         color: #ce93d8; /* purple200 */
+    }
+
+    .gs-head-logo img {
+        filter: invert(87%);
+    }
+
+    .gs-head-logo a, #site-menu ul li a  {
+        color: rgba(255 255 255 / 87%); /* 87% white */
     }
 
     h1 a, h1 a:visited, h2 a, h2 a:visited, h3 a, h3 a:visited, h4 a, h4 a:visited, h5 a, h5 a:visited, h6 a, h6 a:visited {
