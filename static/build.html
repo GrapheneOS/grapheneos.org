@@ -844,7 +844,8 @@ git checkout $CORRECT_BRANCH_OR_TAG</pre>
                     <pre>cd src
 git fetch --tags
 git checkout $VERSION
-gclient sync -D --with_branch_heads --with_tags --jobs 32</pre>
+gclient sync -D --with_branch_heads --with_tags --jobs 32
+third_party/android_deps/fetch_all.py --ignore-vulnerabilities</pre>
 
                     <p>Apply the GrapheneOS patches on top of the tagged release:</p>
 
