@@ -66,7 +66,6 @@ code {
 .gs-head-logo, #site-menu ul {
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: auto;
     margin: 0;
     padding: 0;
 }
@@ -77,6 +76,7 @@ code {
     grid-template-columns: auto auto;
     margin: 0 auto;
     max-width: 1024px;
+    overflow-x: auto;
     white-space: nowrap;
 }
 
