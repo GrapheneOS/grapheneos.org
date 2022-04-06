@@ -93,6 +93,10 @@ code {
     align-items: center;
 }
 
+#site-menu ul li[aria-current] a {
+    color: #3a56f0;
+}
+
 #site-menu img {
     height: 1.8rem;
     width: 1.8rem;
@@ -375,6 +379,10 @@ main.normalize {
 
     a:visited {
         color: #ce93d8; /* purple200 */
+    }
+
+    #site-menu ul li[aria-current] a {
+        color: #90caf9; /* blue200 */
     }
 
     .gs-head-logo img {
