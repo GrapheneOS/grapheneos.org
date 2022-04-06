@@ -260,6 +260,11 @@ main.normalize {
     margin-right: 6rem;
 }
 
+.hero-little {
+    font-weight: 300;
+    font-size: 12px;
+}
+
 .device-img {
     margin: 0 0 0 2rem;
     position: relative;
