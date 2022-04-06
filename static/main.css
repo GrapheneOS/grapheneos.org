@@ -20,7 +20,7 @@ body {
 
 header {
     background-color: #fff;
-    padding: 25px 0;
+    padding: 15px 0;
     position: sticky;
     top: 0;
     width: 100%;
@@ -233,6 +233,7 @@ td {
 main.normalize {
     max-width: 100%;
     margin: 0;
+    margin-top: 15px;
     padding: 0;
 }
 
