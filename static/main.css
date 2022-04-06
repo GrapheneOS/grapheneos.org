@@ -449,4 +449,8 @@ main.normalize {
     .phone-logo-img {
         filter: invert(87%);
     }
+
+    .blob-img {
+        filter: invert(20%);
+    }
 }
