@@ -152,8 +152,8 @@ button:focus, .button:focus {
 
 .button, .button:visited, .button:hover, .button:active {
     text-decoration: none;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
+    padding-top: 0.55rem;
+    padding-bottom: 0.55rem;
     line-height: 2.5rem;
 }
 
