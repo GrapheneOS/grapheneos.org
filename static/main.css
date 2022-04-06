@@ -69,6 +69,12 @@ code {
     padding: 0;
 }
 
+#site-menu ul {
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: right;
+}
+
 #site-menu {
     display: grid;
     grid-auto-flow: row dense;
@@ -105,12 +111,6 @@ code {
 
 #site-menu ul li[aria-current] img {
     filter: invert(60%) sepia(24%) saturate(997%) hue-rotate(168deg) brightness(107%) contrast(93%);
-}
-
-.gs-head-nav {
-    align-items: center;
-    justify-content: space-evenly;
-    text-align: right;
 }
 
 main {
