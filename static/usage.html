@@ -1090,17 +1090,22 @@
 
                 <p>Please note that in some regions, LTE is referred to as 4G.</p>
 
-                <p>Generally Visual Voicemail, SMS, MMS, Calls and VoLTE will work fine on GrapheneOS
+                <p>Generally 5G, SMS, MMS, Calls and VoLTE will work fine on GrapheneOS
                 with officially supported carriers by Google. Wi-Fi calling may vary due to a reliance
                 on proprietary Google apps which GrapheneOS does not ship.</p>
 
+                <p>If you are having issues with Visual Voicemail, please be aware that AT&amp;T USA 
+                users are unable to use this feature currently due to a lack of AOSP support. Other 
+                carriers are done on a best effort basis. We would suggest using <a href="https://play.google.com/store/apps/details?id=com.google.android.dialer">Google Dialer</a> 
+                with sandboxed Google Play if you are unable to get this feature working.</p>
+                
                 <p>If you are having problems sending or receiving SMS/MMS messages, we suggest that 
                 you perform the following steps:</p>
 
                 <ul>
                     <li>Deregister your phone number from <a href="https://selfsolve.apple.com/deregister-imessage">Apple iMessage</a></li>
                     <li>Deregister your phone number from <a href="https://messages.google.com/disable-chat">Google Chat Features</a></li>
-                    <li>Deregister your phone number from your carrier's RCS service</li>
+                    <li>Deregister your phone number from your carrier's RCS service (Not all carriers have this)</li>
                 </ul>
 
                 <p>If you continue to have problems despite following the instructions above or you 
@@ -1119,10 +1124,17 @@
                         try toggling it off. Your carrier may not properly support VoLTE.</li>
                     <li>As a last resort you may need to ask your carrier for a replacement SIM card.</li>
                 </ul>
-
+                
+                <p>Some carriers may restrict functionality, such as VoLTE, on imported Pixel devices as they only 
+                whitelist the IMEI ranges of Pixel device SKUs which were sold locally. You can check your 
+                SKU on GrapheneOS by going to Settings ➔ About phone ➔ Model ➔ Hardware SKU and using the
+                <a href="https://support.google.com/pixelphone/answer/7158570">official Google documentation</a>. You should check if such functionality works on the stock OS to troubleshoot.
+                It is not possible to change the IMEI on a production device and GrapheneOS will never add
+                support for this.</p>
+                
                 <p>GrapheneOS includes bypasses for carrier restrictions on APN editing, tethering via
                 USB, Ethernet, Bluetooth and Wi-Fi and the ability to disable 2G, actions which would not
-                have been possible on the stock operating system.</p>
+                necessarily have been possible on the stock operating system.</p>
             </section>
         </main>
         <footer>
