@@ -264,7 +264,7 @@ main.normalize {
 
 .hero-little {
     font-weight: 300;
-    font-size: 12px;
+    font-size: 0.75rem;
 }
 
 .device-img {
@@ -361,7 +361,7 @@ main.normalize {
     }
 
     .hero h1 {
-        font-size: 30px;
+        font-size: 1.875rem;
     }
 
     .hero-text {
