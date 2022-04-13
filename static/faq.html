@@ -576,8 +576,9 @@
                     collisions, although a device messing with apps could set it to the same value used in
                     another profile. The advertising ID is exposed via the Settings app and can be reset
                     to a new random value, unlike <code>ANDROID_ID</code> which remains the same for the
-                    lifetime of the profile, but apps can tie it the previous ID since they can detect
-                    that it changed via their own ID in their app data.</p>
+                    lifetime of the profile, but apps can tie it to the previous ID since they can detect
+                    that it changed via their own ID in their app data. The advertising ID can
+                    also now be disabled (zeroed).</p>
 
                     <p>Apps do not have access to user data by default and cannot ever access the data of
                     other apps without those apps going out of the way to share it with them. If apps are
