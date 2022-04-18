@@ -524,6 +524,12 @@
                     <p>Changes since the 2022041300 release:</p>
 
                     <ul>
+                        <li>Sandboxed Google Play compatibility layer: improve Play Store uninstallation hook to avoid stalling if the user rejects the request</li>
+                        <li>Sandboxed Google Play compatibility layer: improve work profile support via new compatibility shims</li>
+                        <li>Sandboxed Google Play compatibility layer: fix regression resulting in the FIDO2 service not working without Nearby Devices permission being granted by improving Bluetooth compatibility shims</li>
+                        <li>Sandboxed Google Play compatibility layer: fix early initialization issue occurring in some cases for Play services</li>
+                        <li>Sandboxed Google Play compatibility layer: overall compatibility improvements via the added compatibility shims</li>
+                        <li>Sandboxed Google Play compatibility layer: simplify initialization</li>
                         <li>fix com.android.bluetooth privacy indicator exemption (Bluetooth scanning is considered Location access but the Bluetooth implementation itself shouldn't be listed)</li>
                         <li>Pixel 6, Pixel 6 Pro: cleaner approach for the com.shannon.imsservice privacy indicator exemption by defining a new telephony exemption role (this service locally caches location for E911 with Wi-Fi calling)</li>
                         <li>Pixel 6, Pixel 6 Pro: use GrapheneOS Predicted Satellite Data Service (PSDS) server by default with a toggle added to Settings to choose the server similar to connectivity checks and attestation key provisioning (can be made into generic code for other Broadcom GPS devices and extended ot Qualcomm GPS devices in the future)</li>
