@@ -1378,7 +1378,7 @@
 
                     <ul>
                         <li>Sandboxed Google Play compatibility layer: improve AppOps compatibility layer for long-lived operations via the new startProxyOp/finishProxyOp API which previously had to be mimicked via the existing APIs</li>
-                        <li>Updater: only allow privileged apps including Settings to open the settings activity since other apps like the launcher have no reason to open it</li>
+                        <li>System Updater: only allow privileged apps including Settings to open the settings activity since other apps like the launcher have no reason to open it</li>
                         <li>android-prepare-vendor carriersettings-extractor: strip out carrier provisioning configuration (OMA device management is not included in GrapheneOS so this references an app that's not present)</li>
                         <li>android-prepare-vendor carriersettings-extractor: always enable the ability to disable 2G</li>
                         <li>android-prepare-vendor carriersettings-extractor: remove unused Google Dialer configuration for Wi-Fi calling</li>
@@ -1426,7 +1426,7 @@
                         <li>set GrapheneOS Camera app as the hard-wired handler for camera gesture, similar to Android 11+ hard-wiring it as the camera media intent handler (should work around AOSP 12 lockscreen camera bugs) — note: this will be undone in a follow-up release before this reaches the Stable channel</li>
                         <li>invalidate icon cache between OS releases instead of only between major Android versions so that system theme/icon changes take effect immediately</li>
                         <li>system theme: switch to a more unique blue Material You color palette based around #1565C0</li>
-                        <li>Updater: adjust colors to match Settings app</li>
+                        <li>System Updater: adjust colors to match Settings app</li>
                         <li>Vanadium: update Chromium base to 95.0.4638.74</li>
                     </ul>
                 </article>
@@ -1450,10 +1450,10 @@
                         <li>full 2021-11-06 security patch level</li>
                         <li>rebased onto SP1A.211105.004 release</li>
                         <li>system theme: switch to pure blue Material You color palette as a starting point for a GrapheneOS theme</li>
-                        <li>Updater: drop unused androidx legacy support library</li>
-                        <li>Updater: raise minSdkVersion to 31 (Android 12)</li>
-                        <li>Updater: stop marking settings activity as direct boot aware since it's never used before unlocking</li>
-                        <li>Updater: remove obsolete receiver from manifest</li>
+                        <li>System Updater: drop unused androidx legacy support library</li>
+                        <li>System Updater: raise minSdkVersion to 31 (Android 12)</li>
+                        <li>System Updater: stop marking settings activity as direct boot aware since it's never used before unlocking</li>
+                        <li>System Updater: remove obsolete receiver from manifest</li>
                         <li>android-prepare-vendor: overhaul Pixel 4, Pixel 4 XL and Pixel 4a support including building more AOSP modules</li>
                     </ul>
                 </article>
@@ -1469,7 +1469,7 @@
                     <p>Changes since the 2021102503 release:</p>
 
                     <ul>
-                        <li>Updater: split up install progress notification into stages</li>
+                        <li>System Updater: split up install progress notification into stages</li>
                         <li>include standard display cutout overlays across all devices</li>
                         <li>temporarily disable broken 'Render apps below cutout area' display cutout developer option to avoid it breaking loading SystemUI on boot</li>
                         <li>temporarily disable user-facing crash reporting for com.android.systemui due to an upstream AOSP 12 bug causing false positive reports of it being frozen (this change didn't end up successfully silencing the false positives so a different approach will be needed)</li>
@@ -1586,8 +1586,8 @@
                         <li>Settings: add dark mode support for app installation restriction icon</li>
                         <li>SetupWizard: update to latest upstream code</li>
                         <li>SetupWizard: remove mention of pattern unlock in strings</li>
-                        <li>Updater: update to target API level 31 (Android 12)</li>
-                        <li>Updater: use Android 12 foreground service setup</li>
+                        <li>System Updater: update to target API level 31 (Android 12)</li>
+                        <li>System Updater: use Android 12 foreground service setup</li>
                         <li>Vanadium: update Chromium base to 94.0.4606.80</li>
                         <li>Vanadium: update Chromium base to 94.0.4606.85</li>
                         <li>Vanadium: update Chromium base to 95.0.4638.50</li>
@@ -1778,8 +1778,8 @@
                     <p>Changes since the 2021081822 release:</p>
 
                     <ul>
-                        <li>Updater: move settings into a preference category</li>
-                        <li>Updater: add detailed information to the error messages</li>
+                        <li>System Updater: move settings into a preference category</li>
+                        <li>System Updater: add detailed information to the error messages</li>
                         <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/28">version 28</a></li>
                         <li>Vanadium: move search suggestions toggle to privacy menu</li>
                         <li>Vanadium: remove empty account category and Services menu from the main menu</li>
@@ -1802,7 +1802,7 @@
                     <ul>
                         <li>Vanadium: update Chromium base to 92.0.4515.159</li>
                         <li>Vanadium: improved implementation of not giving the default search engine permissions now that Chromium has support for it</li>
-                        <li>Updater: avoid error messages being truncated by using expandable notifications for them</li>
+                        <li>System Updater: avoid error messages being truncated by using expandable notifications for them</li>
                         <li>Settings: fix upstream bug preventing setting pictures for user profiles</li>
                         <li>Settings: backport upstream fix for user edit dialog breaking from rotation</li>
                         <li>Settings: add LTE only mode entry when carrier enables world mode too</li>
@@ -1865,9 +1865,9 @@
                         <li>full 2021-08-05 security patch level</li>
                         <li>rebased onto RQ3A.210805.001.A1 release</li>
                         <li>kernel (Pixel 4a (5G), Pixel 5): backport implementation of <a href="https://datatracker.ietf.org/doc/html/rfc8981">IPv6 temporary addresses (RFC4941)</a> as a replacement for the legacy privacy address implementation, removing the need for our work on mitigating the issues with them (still used for older generation devices)</li>
-                        <li>Updater: use <em>System Updater</em> as the app name</li>
-                        <li>Updater: show when status notifications occurred</li>
-                        <li>Updater: add notification settings shortcut to update settings</li>
+                        <li>System Updater: use <em>System Updater</em> as the app name</li>
+                        <li>System Updater: show when status notifications occurred</li>
+                        <li>System Updater: add notification settings shortcut to update settings</li>
                         <li>Sandboxed Google Play compatibility layer: add compatibility shims for secondary user support</li>
                         <li>Sandboxed Google Play compatibility layer: use unified GmsCompat/ prefix for log tags</li>
                         <li>Sandboxed Google Play compatibility layer: add shim for AppOpsManager#startOpNoThrow</li>
@@ -1888,7 +1888,7 @@
                     <p>Changes since the 2021.07.19.18 release:</p>
 
                     <ul>
-                        <li>Updater: add detailed failure / success notifications. The next release will enable the timestamp to show when it happened. You can turn off the 'Already Updated' notification channel if you don't want those minimum priority notifications with no status icon collapsed at the bottom.</li>
+                        <li>System Updater: add detailed failure / success notifications. The next release will enable the timestamp to show when it happened. You can turn off the 'Already Updated' notification channel if you don't want those minimum priority notifications with no status icon collapsed at the bottom.</li>
                         <li>Vanadium: update Chromium base to 92.0.4515.105</li>
                         <li>Vanadium: update Chromium base to 92.0.4515.115</li>
                         <li>Vanadium: drop removal of speculative service worker start for search</li>
@@ -1959,10 +1959,10 @@
                         <li>rebased onto RQ3A.210705.001 release</li>
                         <li>reimplement Bluetooth auto-turn-off feature to avoid using the Settings app for the implementation (fixes reliability issues)</li>
                         <li>add experimental Wi-Fi auto-turn-off feature based on reimplementation of Bluetooth auto-turn-off (will not kick in when Wi-Fi is turned on without connecting to a network until the next release)</li>
-                        <li>Updater: display progress for the short phase of verifying the update</li>
-                        <li>Updater: reuse the same progress notification for downloading, verifying and installing the update</li>
-                        <li>Updater: only alert once for progress notifications if the user raises the notification importance level</li>
-                        <li>Updater: use foreground service via progress notification</li>
+                        <li>System Updater: display progress for the short phase of verifying the update</li>
+                        <li>System Updater: reuse the same progress notification for downloading, verifying and installing the update</li>
+                        <li>System Updater: only alert once for progress notifications if the user raises the notification importance level</li>
+                        <li>System Updater: use foreground service via progress notification</li>
                         <li>Vanadium: update Chromium base to 91.0.4472.120</li>
                         <li>Vanadium: update Chromium base to 91.0.4472.134</li>
                         <li>Seedvault: update to latest revision</li>
@@ -2005,7 +2005,7 @@
                         <li>kernel (Pixel 4a (5G), Pixel 5): use new GNU assembler (gas) prebuilts and drop all other usage of the GNU toolchain since LLVM provides everything else (LLVM assembler is used for userspace, but can't yet handle the Linux kernel)</li>
                         <li>kernel (Pixel 4a (5G), Pixel 5): temporarily move to building and using dynamic kernel modules (same list as AOSP) to work around new issues with monolithic builds until we have time to resolve it to improve CFI granularity again</li>
                         <li>android-prepare-vendor (Pixel 4a (5G), Pixel 5): remove previously unused stock OS kernel modules now that we're temporarily enabling dynamic kernel module support so that only our builds of kernel modules are being used</li>
-                        <li>Updater: add support for custom accent color</li>
+                        <li>System Updater: add support for custom accent color</li>
                     </ul>
                 </article>
 
@@ -2085,7 +2085,7 @@
 
                     <ul>
                         <li>enable gesture navigation by default (see <a href="/usage#system-navigation">our guide on system navigation</a> for details on using gesture navigation and switching to a button-based navigation)</li>
-                        <li>Updater: fix minor theme issue for light theme when pressing preferences</li>
+                        <li>System Updater: fix minor theme issue for light theme when pressing preferences</li>
                         <li>replace our workaround for an upstream user profile crash issue with a proper upstream fix from Sony</li>
                         <li>replace our workaround for another upstream user profile crash issue with a proper fix based on the approach of the fix from Sony</li>
                         <li>Vanadium: update Chromium base to 90.0.4430.210</li>
@@ -2126,7 +2126,7 @@
                         <li>use system theme accent color for fingerprint dialog instead of teal</li>
                         <li>integrate modern Android theme and wallpaper configuration</li>
                         <li>remove legacy WallpaperPicker app</li>
-                        <li>Updater: modernize update settings via androidx preference library (new theme has minor quirks we'll be fixing in the next release)</li>
+                        <li>System Updater: modernize update settings via androidx preference library (new theme has minor quirks we'll be fixing in the next release)</li>
                         <li>use alternate grapheneos.online domain for connectivity check / captive portal fallback URLs to improve handling of future issues comparable to Quad9 temporarily blocking grapheneos.network due to some kind of false positive</li>
                         <li>Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5: update APNs</li>
                         <li>Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5: update CarrierConfig vendor.xml</li>
@@ -2228,7 +2228,7 @@
                         <li>SELinux policy: add back removing tmpfs execute for all base system app domains</li>
                         <li>SELinux policy: expand exception from ashmem execute restriction to legacy non-base system app domains (was more strict than currently intended since we don't want to break app compatibility)</li>
                         <li>add Bluetooth timeout feature with a security fix applied to the original implementation</li>
-                        <li>Updater: rename title of the management activity launched via Settings</li>
+                        <li>System Updater: rename title of the management activity launched via Settings</li>
                         <li>set GrapheneOS launcher as a default notification listener on fresh installs so that the default enabled notification integration is permitted by default like the stock OS (existing users still need to manually enable the permission for the built-in launcher)</li>
                         <li>add back removing DUN requirement for tethering</li>
                         <li>add back ignoring tethering provisioning requirement</li>
@@ -2460,7 +2460,7 @@
                         <li>update round icon mask</li>
                         <li>Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a: always use dark theme for boot chain firmware</li>
                         <li>Pixel 3a, Pixel 3a XL: disable unused dynamic kernel module support to match other devices</li>
-                        <li>Updater: disconnect keepalive connection when service is done</li>
+                        <li>System Updater: disconnect keepalive connection when service is done</li>
                     </ul>
                 </article>
 
@@ -2560,7 +2560,7 @@
                         <li>NetworkStack: remove change to connectivity check handling that's no longer required with Android 11</li>
                         <li>use GrapheneOS connectivity check server by default for connectivity checks in the OS</li>
                         <li>Settings: add setting to toggle between GrapheneOS connectivity check server and the standard Android connectivity check URLs to continue supporting blending in with other Android devices without a VPN</li>
-                        <li>Updater: remove unused READ_PHONE_STATE permission</li>
+                        <li>System Updater: remove unused READ_PHONE_STATE permission</li>
                     </ul>
                 </article>
 
@@ -2667,7 +2667,7 @@
                         <li>add back screenshot action to global action list as an alternative to the key chord (power button + volume down) and screenshot button in the gesture navigation recent apps list</li>
                         <li>reject received unix timestamps before build unix time for HTTPS-based network time implementation</li>
                         <li>Clock: apply fixes for various upstream issues</li>
-                        <li>Updater: harden PendingIntent usage</li>
+                        <li>System Updater: harden PendingIntent usage</li>
                     </ul>
                 </article>
 
@@ -2761,7 +2761,7 @@
                         <li>update to a new version of Seedvault for Android 11</li>
                         <li>build and use otatools.zip for signing releases instead of an ad-hoc approach</li>
                         <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/19">version 19</a></li>
-                        <li>Updater: update targetSdkVersion to 30</li>
+                        <li>System Updater: update targetSdkVersion to 30</li>
                         <li>disable Scudo on 64-bit since we use the substantially more secure hardened_malloc</li>
                         <li>fully replace jemalloc with Scudo on 32-bit</li>
                         <li>hardened_malloc: improve stats implementation</li>
@@ -2934,10 +2934,10 @@
                         <li>Vanadium: update Chromium base to 83.0.4103.101</li>
                         <li>Vanadium: update Chromium base to 83.0.4103.106</li>
                         <li>script/generate_metadata.py: add channel name to update channel metadata</li>
-                        <li>Updater: sanity check channel name in update channel metadata</li>
-                        <li>Updater: raise minSdkVersion to 29</li>
-                        <li>Updater: extract care_map.pb rather than care_map.txt</li>
-                        <li>Updater: use a different zip for streaming updates (still an experimental / hidden feature)</li>
+                        <li>System Updater: sanity check channel name in update channel metadata</li>
+                        <li>System Updater: raise minSdkVersion to 29</li>
+                        <li>System Updater: extract care_map.pb rather than care_map.txt</li>
+                        <li>System Updater: use a different zip for streaming updates (still an experimental / hidden feature)</li>
                         <li>disable RFC 7217 support (stable link-local IPv6 privacy addresses) and stick to link-local IP addresses based on the (random) MAC addresses</li>
                         <li>SetupWizard: update to latest upstream code</li>
                         <li>SetupWizard: use system captive portal URL, rather than a custom Google URL</li>
@@ -3493,7 +3493,7 @@
                         <li>temporarily add back standalone WebView (77.0.3865.73) until Vanadium supports it for Android 10</li>
                         <li>Vanadium: update Chromium base to 76.0.3809.132</li>
                         <li>Vanadium: update Chromium base to 77.0.3865.73</li>
-                        <li>Updater: update targetSdkVersion to 29</li>
+                        <li>System Updater: update targetSdkVersion to 29</li>
                         <li>retrofit dynamic partitions for Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL</li>
                         <li>disable GSI keys</li>
                         <li>kernel (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL): temporarily disable slab canary implementation until an issue is narrowed down and addressed</li>
@@ -3526,8 +3526,8 @@
                         <li>PDF Viewer: update to <a href="https://github.com/GrapheneOS/PdfViewer/releases/tag/2">version 2</a></li>
                         <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/16">version 16</a></li>
                         <li>add Vanadium to the apps that cannot be disabled via Settings (can still be disabled) since the warning isn't enough to deter people from unknowingly breaking apps using the WebView</li>
-                        <li>Updater: add settings entry to manually trigger check for updates</li>
-                        <li>Updater: reschedule update check job on channel change</li>
+                        <li>System Updater: add settings entry to manually trigger check for updates</li>
+                        <li>System Updater: reschedule update check job on channel change</li>
                         <li>arm, x86 and x86_64 are now supported / tested architectures</li>
                         <li>generic and emulator build targets are now supported / tested for development usage (not suitable for secure production releases)</li>
                     </ul>
@@ -3716,7 +3716,7 @@
                         <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/13">version 13</a></li>
                         <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/14">version 14</a></li>
                         <li>Music: backport bug fix for passing CTS</li>
-                        <li>Updater: replace seamlessupdate.app with releases.grapheneos.org alias</li>
+                        <li>System Updater: replace seamlessupdate.app with releases.grapheneos.org alias</li>
                         <li>add initial experimental support for the Pixel 3a and Pixel 3a XL</li>
                         <li>Pixel 2, Pixel 2 XL: set AVB rollback index to security patch timestamp (backport of the implementation for the Pixel 3)</li>
                     </ul>
