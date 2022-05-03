@@ -277,15 +277,22 @@
                             for OpenJDK despite it being a headless variant without GUI support</li>
                         <li>ncurses5 (provided by the source tree for some tools but not others)</li>
                         <li>openssl</li>
-                        <li>protobuf library for Python 3</li>
                         <li>rsync</li>
                         <li>unzip</li>
-                        <li>yarn</li>
-                        <li>node 17 or later</li>
                         <li>zip</li>
                     </ul>
 
-                    <p>Additional dependencies for Pixel phones before the 4th generation:</p>
+                    <p>Additional dependencies for extracting vendor files with adevtool for all
+                    devices other than legacy 3rd generation Pixels:</p>
+
+                    <ul>
+                        <li>protobuf library for Python 3</li>
+                        <li>node 17 or later</li>
+                        <li>yarn</li>
+                    </ul>
+
+                    <p>Additional dependencies for extracting vendor files with
+                    android-prepare-vendor for legacy 3rd generation Pixels:</p>
 
                     <ul>
                         <li>e2fsprogs (for debugfs image mounting)</li>
