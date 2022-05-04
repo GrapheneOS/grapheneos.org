@@ -1075,28 +1075,31 @@
             <section id="carrier-functionality">
                 <h2><a href="#carrier-functionality">Carrier functionality</a></h2>
 
-                <p>GrapheneOS aims to work with all carriers that are officially supported by Google
-                on the stock operating system on Pixel devices. Wi-Fi Calling, VoLTE, Visual Voicemail,
-                MMS, SMS, Calling and 5G (SA and NSA) all are supported, however some functionality may
-                not be usable due to Google not supporting carriers on the stock OS officially or
-                due to GrapheneOS not shipping proprietary apps required in order for this
-                functionality to work on some carriers. GrapheneOS extracts CarrierConfigs, APNs,
-                modem configurations, Visual Voicemail configurations and MMS configurations from the
-                stock operating system to ensure users get easy carrier support that "just works".</p>
+                <p>GrapheneOS aims to work with all carriers that are officially supported by
+                Google on the stock operating system on Pixel devices. Wi-Fi Calling, VoLTE,
+                Visual Voicemail, MMS, SMS, Calling and 5G (SA and NSA) all are supported, however
+                some functionality may not be usable due to Google not supporting carriers on the
+                stock OS officially or due to GrapheneOS not shipping proprietary apps required in
+                order for this functionality to work on some carriers. GrapheneOS extracts
+                CarrierConfigs, APNs, modem configurations, Visual Voicemail configurations and
+                MMS configurations from the stock operating system to ensure users get easy
+                carrier support that "just works".</p>
 
                 <p>Please note that in some regions, LTE is referred to as 4G.</p>
 
-                <p>Generally 5G, SMS, MMS, Calls and VoLTE will work fine on GrapheneOS
-                with officially supported carriers by Google. Wi-Fi calling may vary due to a reliance
+                <p>Generally 5G, SMS, MMS, Calls and VoLTE will work fine on GrapheneOS with
+                officially supported carriers by Google. Wi-Fi calling may vary due to a reliance
                 on proprietary Google apps which GrapheneOS does not ship.</p>
 
-                <p>If you are having issues with Visual Voicemail, please be aware that AT&amp;T USA 
-                users are unable to use this feature currently due to a lack of AOSP support. Other 
-                carriers are done on a best effort basis. We would suggest using <a href="https://play.google.com/store/apps/details?id=com.google.android.dialer">Google Dialer</a> 
-                with sandboxed Google Play if you are unable to get this feature working.</p>
-                
-                <p>If you are having problems sending or receiving SMS/MMS messages, we suggest that 
-                you perform the following steps:</p>
+                <p>If you are having issues with Visual Voicemail, please be aware that AT&amp;T
+                USA users are unable to use this feature currently due to a lack of AOSP support.
+                Other carriers are done on a best effort basis. We would suggest using <a
+                href="https://play.google.com/store/apps/details?id=com.google.android.dialer">Google
+                Dialer</a> with sandboxed Google Play if you are unable to get this feature
+                working.</p>
+
+                <p>If you are having problems sending or receiving SMS/MMS messages, we suggest
+                that you perform the following steps:</p>
 
                 <ul>
                     <li>Deregister your phone number from <a href="https://selfsolve.apple.com/deregister-imessage">Apple iMessage</a></li>
@@ -1104,8 +1107,9 @@
                     <li>Deregister your phone number from your carrier's RCS service (Not all carriers have this)</li>
                 </ul>
 
-                <p>If you continue to have problems despite following the instructions above or you 
-                have another carrier related issue, we suggest that you perform the following steps:</p>
+                <p>If you continue to have problems despite following the instructions above or
+                you have another carrier related issue, we suggest that you perform the following
+                steps:</p>
 
                 <ul>
                     <li>Some carriers require you to explicitly opt in to use services such as Wi-Fi calling.
@@ -1120,20 +1124,25 @@
                         try toggling it off. Your carrier may not properly support VoLTE.</li>
                     <li>As a last resort you may need to ask your carrier for a replacement SIM card.</li>
                 </ul>
-                
-                <p>Some carriers may restrict functionality, such as VoLTE, on imported Pixel devices as they only 
-                whitelist the IMEI ranges of Pixel device SKUs which were sold locally. You can check your 
-                SKU on GrapheneOS by going to Settings ➔ About phone ➔ Model ➔ Hardware SKU and using the
-                <a href="https://support.google.com/pixelphone/answer/7158570">official Google documentation</a>. You should check if such functionality works on the stock OS to troubleshoot.
-                It is not possible to change the IMEI on a production device and GrapheneOS will never add
-                support for this.</p>
-                
-                <p>Android 12 introduced support for the <a href="https://www.gsma.com/newsroom/wp-content/uploads//TS.43-v8.0-2.pdf">GSMA TS.43</a> standard, where provisioning for VoLTE,
-                VoNR, Wi-Fi calling may be handled by Google Firebase. Currently it is very rare for 
-                carriers to be using Firebase to handle this. It is unlikely, but technically possible, that 
-                with such carriers, you may be required to install sandboxed Google Play in order to obtain the
-                former mentioned functionality where the carrier has not implemented fallback provisioning via SMS. 
-                Currently only US Cellular, Orange France, Cspire US, Cellcom US are using this standard.</p>
+
+                <p>Some carriers may restrict functionality, such as VoLTE, on imported Pixel
+                devices as they only whitelist the IMEI ranges of Pixel device SKUs which were
+                sold locally. You can check your SKU on GrapheneOS by going to Settings ➔ About
+                phone ➔ Model ➔ Hardware SKU and using the
+                <a href="https://support.google.com/pixelphone/answer/7158570">official Google
+                documentation</a>. You should check if such functionality works on the stock OS to
+                troubleshoot. It is not possible to change the IMEI on a production device and
+                GrapheneOS will never add support for this.</p>
+
+                <p>Android 12 introduced support for the
+                <a href="https://www.gsma.com/newsroom/wp-content/uploads//TS.43-v8.0-2.pdf">GSMA
+                TS.43</a> standard, where provisioning for VoLTE, VoNR, Wi-Fi calling may be
+                handled by Google Firebase. Currently it is very rare for carriers to be using
+                Firebase to handle this. It is unlikely, but technically possible, that with such
+                carriers, you may be required to install sandboxed Google Play in order to obtain
+                the former mentioned functionality where the carrier has not implemented fallback
+                provisioning via SMS. Currently only US Cellular, Orange France, Cspire US,
+                Cellcom US are using this standard.</p>
 
                 <p>GrapheneOS includes bypasses for carrier restrictions on APN editing, tethering via
                 USB, Ethernet, Bluetooth and Wi-Fi and the ability to disable 2G, actions which would not
