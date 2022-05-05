@@ -2,3 +2,4 @@ nginx-tmp
 node_modules
 static-tmp
 releases-base
+lock

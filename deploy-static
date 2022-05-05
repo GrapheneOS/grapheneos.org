@@ -2,7 +2,14 @@
 
 set -o errexit -o nounset -o pipefail
 
-./process-static
+touch lock
+exec {fd}< lock
+if ! flock -n $fd; then
+    echo deploy_static already locked >&2
+    exit 1
+fi
+
+./process-static $fd
 
 servers=({0..2}.grapheneos.org)
 

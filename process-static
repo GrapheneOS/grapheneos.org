@@ -3,6 +3,18 @@
 set -o errexit -o nounset -o pipefail
 shopt -s dotglob extglob globstar
 
+if [[ $# -eq 1 ]]; then
+    fd=$1
+else
+    touch lock
+    exec {fd}< lock
+fi
+
+if ! flock -n $fd; then
+    echo deploy_static already locked >&2
+    exit 1
+fi
+
 export PATH="$PWD/node_modules/.bin:$PATH"
 
 # can use file:// to avoid network requests
