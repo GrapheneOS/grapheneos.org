@@ -9,7 +9,7 @@ for replica in ${replicas[@]}; do
     echo Deploying to $replica
     echo
 
-    rsync -rptvl --progress --delete /etc/letsencrypt/ $replica:/etc/letsencrypt
-    rsync -rptvl --progress --delete /etc/nginx/ocsp-cache/ $replica:/etc/nginx/ocsp-cache
+    rsync -rptvl --fsync --progress --delete /etc/letsencrypt/ $replica:/etc/letsencrypt
+    rsync -rptvl --fsync --progress --delete /etc/nginx/ocsp-cache/ $replica:/etc/nginx/ocsp-cache
     ssh root@$replica nginx -s reload
 done

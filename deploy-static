@@ -30,13 +30,13 @@ for server in ${servers[@]}; do
     echo
 
     ssh $remote "rm -rf $target && cp -a $active $target"
-    rsync -rptcv --chmod=D755,F644 --delete static-tmp/ $remote:$target
-    ssh $remote "sync -f $target && ln -snf $target /srv/grapheneos.org && sync /srv/grapheneos.org"
+    rsync -rptcv --fsync --chmod=D755,F644 --delete static-tmp/ $remote:$target
+    ssh $remote "ln -snf $target /srv/grapheneos.org && sync /srv/grapheneos.org"
 
     sed "s|/srv/grapheneos.org|$target|" nginx-tmp/nginx.conf > nginx-tmp/nginx.conf.root
-    rsync -rptcv --chmod=D755,F644 --delete nginx-tmp/nginx.conf.root $remote:/etc/nginx/nginx.conf
-    rsync -rptcv --chmod=D755,F644 --delete nginx-tmp/snippets/ $remote:/etc/nginx/snippets
-    ssh $remote "sync /etc/nginx/nginx.conf /etc/nginx/snippets/* && nginx -s reload"
+    rsync -rptcv --fsync --chmod=D755,F644 --delete nginx-tmp/nginx.conf.root $remote:/etc/nginx/nginx.conf
+    rsync -rptcv --fsync --chmod=D755,F644 --delete nginx-tmp/snippets/ $remote:/etc/nginx/snippets
+    ssh $remote nginx -s reload
 
     echo
     echo active is now $target
