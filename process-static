@@ -11,7 +11,7 @@ else
 fi
 
 if ! flock -n $fd; then
-    echo deploy_static already locked >&2
+    echo already processing/deploying static files >&2
     exit 1
 fi
 

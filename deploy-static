@@ -5,7 +5,7 @@ set -o errexit -o nounset -o pipefail
 touch lock
 exec {fd}< lock
 if ! flock -n $fd; then
-    echo deploy_static already locked >&2
+    echo already processing/deploying static files >&2
     exit 1
 fi
 
