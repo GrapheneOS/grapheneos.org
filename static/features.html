@@ -88,6 +88,7 @@
                     <li>
                         <a href="#grapheneos">GrapheneOS</a>
                         <ul>
+                            <li><a href="#more-complete-patching">More complete patching</a></li>
                             <li><a href="#disabling-secondary-user-app-installation">Disabling secondary
                             user app installation</a></li>
                             <li><a href="#user-installed-apps-can-be-disabled">User installed apps
@@ -312,9 +313,26 @@
                     <li><a href="/usage#sandboxed-play-services">Compatibility layer for coercing
                     user installed Google Play services into running as sandboxed apps without any
                     special privileges.</a></li>
-                    <li>Fixes for multiple serious vulnerabilities not yet fixed upstream due to a
-                    flexible release cycle / process prioritizing security.</li>
                 </ul>
+
+                <section id="more-complete-patching">
+                    <h3><a href="#more-complete-patching">More complete patching</a></h3>
+
+                    <p>GrapheneOS includes fixes for many vulnerabilities not yet fixed in
+                    Android. On modern devices with Generic Kernel Image (GKI) support, we the
+                    kernel to the latest stable GKI release many months before the stock OS gets
+                    the update. This means we're shipping hundreds of fixes not included in the
+                    stock OS including many security fixes. We also backport more fixes on top of
+                    this for the kernel and for other components too.</p>
+
+                    <p>We often new vulnerabilities ourselves and report them upstream. We've
+                    reported dozens of vulnerabilities for both the generic Android codebase and
+                    also for Pixels specifically.</p>
+
+                    <p>Our overall approach is to focus on systemic privacy and security
+                    improvements but fixing individual vulnerabilities is still very
+                    important.</p>
+                </section>
 
                 <section id="disabling-secondary-user-app-install">
                     <h3><a href="#disabling-secondary-user-app-installation">Disabling secondary
