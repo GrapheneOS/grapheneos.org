@@ -429,6 +429,10 @@
                     firewall-based implementation, the Network permission toggle prevents apps
                     from using the network via APIs provided by the OS or other apps in the same
                     profile as long as they're marked appropriately.</p>
+
+                    <p>The standard INTERNET permission used as the basis for the Network
+                    permission toggle is enhanced with a second layer of enforcement and proper
+                    support for granting/revoking it on a per-profile basis.</p>
                 </section>
 
                 <section id="sensors-permission-toggle">
@@ -594,9 +598,6 @@
                         app</li>
                         <li><a href="/usage#exec-spawning">Secure application spawning system</a> avoiding
                         sharing address space layout and other secrets across applications</li>
-                        <li>The standard INTERNET permission used as the basis for the Network
-                        permission toggle is enhanced with a second layer of enforcement and proper
-                        support for granting/revoking it on a per-profile basis.</li>
                         <li>Authenticated encryption for network time updates via a first party server to
                         prevent attackers from changing the time and enabling attacks based on bypassing
                         certificate / key expiry, etc.</li>
