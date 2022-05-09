@@ -118,6 +118,8 @@
                             <li><a href="#pin-scrambling">PIN scrambling</a></li>
                             <li><a href="#supports-longer-passwords">Supports longer
                             passwords</a></li>
+                            <li><a href="#more-secure-fingerprint-unlock">More secure fingerprint
+                            unlock</a></li>
                             <li>
                                 <a href="#improved-user-profiles">Improved user profiles</a>
                                 <ul>
@@ -600,6 +602,21 @@
                     digit PIN.</p>
                 </section>
 
+                <section id="more-secure-fingerprint-unlock">
+                    <h4><a href="#more-secure-fingerprint-unlock">More secure fingerprint unlock</a></h4>
+
+                    <p>GrapheneOS improves the security of the fingerprint unlock feature by only
+                    permitting 5 total attempts rather than implementing a 30 second delay between
+                    every 5 failed attempts with a total of 20 attempts. This doesn't just reduce
+                    the number of potential attempts but also makes it easy to disable fingerprint
+                    unlock by intentionally failing to unlock 5 times with a different finger.</p>
+
+                    <p>GrapheneOS also adds support for using the fingerprint scanner only for
+                    authentication in apps and unlocking hardware keystore keys by toggling off
+                    support for unlocking. This feature already existed for the standard Android
+                    face unlock feature.</p>
+                </section>
+
                 <section id="improved-user-profiles">
                     <h3><a href="#improved-user-profiles">Improved user profiles</a></h3>
 
@@ -658,11 +675,6 @@
                         <li>Improved user visibility into persistent firmware security through version
                         and configuration verification with reporting of inconsistencies and debug
                         features being enabled.</li>
-                        <li>Stricter implementation of the optional fingerprint unlock feature permitting
-                        only 5 attempts rather than 20 before permanent lockout (our recommendation is
-                        still keeping sensitive data in user profiles without fingerprint unlock)</li>
-                        <li>Support for using the fingerprint scanner only for authentication in apps
-                        and unlocking hardware keystore keys by toggling off support for unlocking.</li>
                         <li>Vanadium: hardened WebView and default browser — the WebView is what most
                         other apps use to handle web content, so you benefit from Vanadium in many apps
                         even if you choose another browser</li>
