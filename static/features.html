@@ -110,6 +110,7 @@
                             can be disabled</a></li>
                             <li><a href="#broad-carrier-support">Broad carrier support without invasive carrier access</a></li>
                             <li><a href="#private-screenshots">Private screenshots</a></li>
+                            <li><a href="#improved-user-profiles">Improved user profiles</a></li>
                             <li><a href="#other-features">Many other features</a></li>
                         </ul>
                     </li>
@@ -471,6 +472,29 @@
                     it to be useful.</p>
                 </section>
 
+                <section id="improved-user-profiles">
+                    <h3><a href="#improved-user-profiles">Improved user profiles</a></h3>
+
+                    <p>Android's user profiles are isolated workspaces with their own instances of
+                    apps, app data and profile data (contacts, media store, home directory, etc.).
+                    Apps can't see the apps in other user profiles and can only communicate with
+                    apps within the same user profile (with mutual consent with the other app).
+                    Each user profile has their own encryption keys based on their lock
+                    method.</p>
+
+                    <p>GrapheneOS raises the limit on the number of secondary user profiles to 16
+                    (15 + guest) instead of only 4 (3 + guest) to make this feature much more
+                    flexible.</p>
+
+                    <p>GrapheneOS also enables support for logging out of user profiles without
+                    needing a device manager controlling the device to use this feature. Logging
+                    out makes profiles inactive so none of the apps installed in them can run. It
+                    also purges the disk encryption keys from memory and hardware registers,
+                    putting the user profile back at rest.</p>
+
+                    <p>Further UX improvements are in active development and testing.</p>
+                </section>
+
                 <section id="other-features">
                     <h3><a href="#other-features">Many other features</a></h3>
 
@@ -480,12 +504,6 @@
                         <li>Eliminates remaining holes for apps to access hardware-based identifiers</li>
                         <li>Low-level improvements to the <a href="/faq#encryption">filesystem-based
                         full disk encryption</a> used on modern Android</li>
-                        <li>Support creating up to 16 secondary user profiles (15 + guest) instead of
-                        only 4 (3 + guest).</li>
-                        <li>Support for logging out of user profiles without needing a device manager:
-                        makes them inactive so that they can't continue running code while using
-                        another profile and purges the disk encryption keys (which are per-profile)
-                        from memory and hardware registers</li>
                         <li>Option to enable automatically rebooting the device when no profile has
                         been unlocked for the configured time period to put the device fully at rest
                         again.</li>
