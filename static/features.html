@@ -112,6 +112,7 @@
                             can be disabled</a></li>
                             <li><a href="#broad-carrier-support">Broad carrier support without invasive carrier access</a></li>
                             <li><a href="#lte-only-mode">LTE-only mode</a></li>
+                            <li><a href="#wifi-privacy">Wi-Fi privacy</a></li>
                             <li><a href="#private-screenshots">Private screenshots</a></li>
                             <li><a href="#closed-device-identifier-leaks">Closed device identifier leaks</a></li>
                             <li><a href="#pin-scrambling">PIN scrambling</a></li>
@@ -510,6 +511,29 @@
                     bleeding edge code (5G).</p>
                 </section>
 
+                <section id="wifi-privacy">
+                    <h3><a href="#wifi-privacy">Wi-Fi privacy</a></h3>
+
+                    <p>GrapheneOS supports per-connection MAC randomization and enables it by
+                    default. This is a more private approach than the standard persistent
+                    per-network random MAC used by modern Android.</p>
+
+                    <p>When the per-connection MAC randomization added by GrapheneOS is being
+                    used, DHCP client state is flushed before reconnecting to a network to avoid
+                    revealing that it's likely the same device as before.</p>
+
+                    <p>GrapheneOS also applies fixes for serious flaws with the Linux kernel IPv6
+                    privacy address implementation which allow using it as an identifier not just
+                    for connections to the same network but also across different networks. We
+                    don't need to apply these changes for the Pixel 6 and later since this was
+                    fixed in the Linux kernel upstream, but hasn't been backported to earlier
+                    kernel LTS branches so we still need to take care of it there.</p>
+
+                    <p>See our <a href="/usage#wifi-privacy">usage guide section on Wi-Fi privacy
+                    for more general information</a> rather than only our improvements to the
+                    standard Wi-Fi privacy approach.</p>
+                </section>
+
                 <section id="private-screenshots">
                     <h3><a href="#private-screenshots">Private screenshots</a></h3>
 
@@ -639,13 +663,6 @@
                         still keeping sensitive data in user profiles without fingerprint unlock)</li>
                         <li>Support for using the fingerprint scanner only for authentication in apps
                         and unlocking hardware keystore keys by toggling off support for unlocking.</li>
-                        <li><a href="/usage#wifi-privacy-associated">Per-connection MAC randomization
-                        option (enabled by default)</a> as a more private option than the standard
-                        persistent per-network random MAC.</li>
-                        <li>When the per-connection MAC randomization added by GrapheneOS is being
-                        used, DHCP client state is flushed before reconnecting to a network to avoid
-                        revealing that it's likely the same device as before.</li>
-                        <li>Improved IPv6 privacy addresses to prevent tracking across networks</li>
                         <li>Vanadium: hardened WebView and default browser — the WebView is what most
                         other apps use to handle web content, so you benefit from Vanadium in many apps
                         even if you choose another browser</li>
