@@ -116,6 +116,7 @@
                             <li><a href="#private-screenshots">Private screenshots</a></li>
                             <li><a href="#closed-device-identifier-leaks">Closed device identifier leaks</a></li>
                             <li><a href="#pin-scrambling">PIN scrambling</a></li>
+                            <li><a href="#privacy-by-default">Privacy by default</a></li>
                             <li><a href="#supports-longer-passwords">Supports longer
                             passwords</a></li>
                             <li><a href="#more-secure-fingerprint-unlock">More secure fingerprint
@@ -589,6 +590,49 @@
                     physical proximity or a side channel.</p>
                 </section>
 
+                <section id="privacy-by-default">
+                    <h3><a href="#privacy-by-default">Privacy by default</a></h3>
+
+                    <p>GrapheneOS doesn't include or use Google apps and services by default and
+                    avoids including any other apps/services not aligned with our privacy and
+                    security focus. Google apps and services can be used on GrapheneOS as regular
+                    sandboxed apps without any special access or privileges through our <a
+                    href="#sandboxed-google-play">sandboxed Google Play</a> feature, but we don't
+                    include those apps by default to give users an explicit choice on whether they
+                    want to use those apps and which profiles they want to use it in.</p>
+
+                    <p>We change the default settings to prefer privacy over small conveniences:
+                    personalized keyboard suggestions based on gathering input history are
+                    disabled by default, sensitive notifications are hidden on the lockscreen by
+                    default and passwords are hidden during entry by default.</p>
+
+                    <p>Some of our changes for <a href="#attack-surface-reduction">attack surface
+                    reduction</a> can also improve privacy by default by not exposing unnecessary
+                    radios, etc. by default and avoiding the impact of potential privacy bugs with
+                    the hardware.</p>
+
+                    <p>By default, we also use GrapheneOS servers for the following services
+                    instead of Google servers:</p>
+
+                    <ul>
+                        <li>Connectivity checks</li>
+                        <li>Attestation key provisioning</li>
+                        <li>GNSS almanac downloads (PSDS) on 6th generation Pixels</li>
+                        <li>Network time</li>
+                    </ul>
+
+                    <p>We provide a toggle to switch back to Google's servers for connectivity
+                    checks, attestation key provisioning and GNSS almanac downloads along with
+                    adding proper support for disabling network time connections. This combines
+                    with other toggles to allow making a GrapheneOS device appear to be an AOSP
+                    device. This is only particularly important for connectivity checks since the
+                    other connections get routed through a VPN which is needed to blend in on a
+                    local network in practice.</p>
+
+                    <p>See our <a href="/faq#default-connections">default connections FAQ entry
+                    for much more detailed information</a>.</p>
+                </section>
+
                 <section id="supports-longer-passwords">
                     <h3><a href="#supports-longer-passwords">Supports longer passwords</a></h3>
 
@@ -698,31 +742,17 @@
                         certificate / key expiry, etc.</li>
                         <li>Proper support for disabling network time updates rather than just not using
                         the results</li>
-                        <li>Connectivity checks via a first party server with the option to revert to the
-                        standard checks (to blend in) or to fully disable them</li>
-                        <li>Attestation key provisioning via a first party server with the option to
-                        revert to the standard server</li>
-                        <li>GNSS almanac downloads (PSDS) via a first party server with the option to
-                        revert to the standard server (not available for all GPS vendors yet)</li>
                         <li>Hardened local build / signing infrastructure</li>
                         <li><a href="/usage#updates">Seamless automatic OS update system</a> that just
                         works and stays out of the way in the background without disrupting device
                         usage, with full support for the standard automatic rollback if the first boot
                         of the updated OS fails</li>
                         <li>Require unlocking to access sensitive functionality via quick tiles</li>
-                        <li>Minor changes to default settings to prefer privacy over small conveniences:
-                        personalized keyboard suggestions based on gathering input history are disabled by
-                        default, sensitive notifications are hidden on the lockscreen by default and
-                        passwords are hidden during entry by default</li>
                         <li><a href="/faq#bundled-apps">Minimal bundled apps and services</a>. Only
                         essential apps are integrated into the OS. We don't make partnerships with
                         apps and services to bundle them into the OS. An app may be the best choice
                         today and poor choice in the future. Our approach will be recommending certain
                         apps during the initial setup, not hard-wiring them into the OS.</li>
-                        <li>No Google apps and services. These can be used on GrapheneOS but only if
-                        they avoid requiring invasive OS integration. Building privileged support for
-                        Google services into the OS isn't something we're going to be doing, even if
-                        that's partially open source like microG.</li>
                     </ul>
                 </section>
             </section>
