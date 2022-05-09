@@ -88,6 +88,8 @@
                     <li>
                         <a href="#grapheneos">GrapheneOS</a>
                         <ul>
+                            <li><a href="#exploit-protection">Defending against exploitation of unknown
+                            vulnerabilities</a></li>
                             <li><a href="#sandboxed-google-play">Sandboxed Google Play</a></li>
                             <li><a href="#more-complete-patching">More complete patching</a></li>
                             <li><a href="#disabling-secondary-user-app-installation">Disabling secondary
@@ -117,88 +119,6 @@
                 here despite being a substantial portion of our overall historical work.</p>
 
                 <ul>
-                    <li>Hardened app runtime</li>
-                    <li>Stronger app sandbox</li>
-                    <li><a href="https://github.com/GrapheneOS/platform_bionic">Hardened libc</a>
-                    providing defenses against the most common classes of vulnerabilities (memory
-                    corruption)</li>
-                    <li>
-                        Our own <a href="https://github.com/GrapheneOS/hardened_malloc">hardened
-                        malloc (memory allocator)</a> leveraging modern hardware capabilities
-                        to provide substantial defenses against the most common classes of
-                        vulnerabilities (heap memory corruption) along with reducing the lifetime
-                        of sensitive data in memory. The <a
-                        href="https://github.com/GrapheneOS/hardened_malloc/blob/main/README.md">hardened_malloc
-                        README</a> has extensive documentation on it. The hardened_malloc
-                        project is portable to other Linux-based operating systems and is being
-                        adopted by other security-focused operating systems like Whonix.  Our
-                        allocator also heavily influenced the design of the <a
-                        href="https://www.openwall.com/lists/musl/2020/05/13/1">next-generation
-                        musl malloc implementation</a> which offers substantially better security than
-                        musl's previous malloc while still having minimal memory usage and code size.
-                        <ul>
-                            <li>Fully out-of-line metadata with protection from corruption, ruling
-                            out traditional allocator exploitation</li>
-                            <li>Separate memory regions for metadata, large allocations and each
-                            slab allocation size class with high entropy random bases and no
-                            address space reuse between the different regions</li>
-                            <li>Deterministic detection of any invalid free</li>
-                            <li>Zero-on-free with detection of write-after-free via checking that
-                            memory is still zeroed before handing it out again</li>
-                            <li>Delayed reuse of address space and memory allocations through the
-                            combination of deterministic and randomized quarantines to mitigate
-                            use-after-free vulnerabilities</li>
-                            <li>Fine-grained randomization</li>
-                            <li>Aggressive consistency checks</li>
-                            <li>Memory protected guard regions around allocations larger than 16k
-                            with randomization of guard region sizes for 128k and above</li>
-                            <li>Allocations smaller than 16k have guard regions around each of the
-                            slabs containing allocations (for example, 16 byte allocations are in
-                            4096 byte slabs with 4096 byte guard regions before and after)</li>
-                            <li>Random canaries with a leading zero are added to these smaller
-                            allocations to block C string overflows, absorb small overflows
-                            and detect linear overflows or other heap corruption when the
-                            canary value is checked (primarily on free)</li>
-                        </ul>
-                    </li>
-                    <li>Hardened compiler toolchain</li>
-                    <li>
-                        Hardened kernel
-                        <ul>
-                            <li>Support for dynamically loaded kernel modules is disabled and
-                            the minimal set of modules for the device model are built into the
-                            kernel to substantially improve the granularity of Control Flow
-                            Integrity (CFI) and reduce attack surface.</li>
-                            <li>4-level page tables are enabled on arm64 to provide a much larger
-                            address space (48-bit instead of 39-bit) with significantly higher
-                            entropy Address Space Layout Randomization (33-bit instead of
-                            24-bit).</li>
-                            <li>Random canaries with a leading zero are added to the kernel heap
-                            (slub) to block C string overflows, absorb small overflows and detect
-                            linear overflows or other heap corruption when the canary value is
-                            checked (on free, copies to/from userspace, etc.).</li>
-                            <li>Memory is wiped (zeroed) as soon as it's released in both the
-                            low-level kernel page allocator and higher level kernel heap allocator
-                            (slub). This substantially reduces the lifetime of sensitive data in
-                            memory, mitigates use-after-free vulnerabilities and makes most
-                            uninitialized data usage vulnerabilities harmless. Without our
-                            changes, memory that's released retains data indefinitely until the
-                            memory is handed out for other uses and gets partially or fully
-                            overwritten by new data.</li>
-                            <li>Kernel stack allocations are zeroed to make most uninitialized
-                            data usage vulnerabilities harmless.</li>
-                            <li>Assorted attack surface reduction through disabling features or
-                            setting up infrastructure to dynamically enable/disable them only as
-                            needed (perf, ptrace).</li>
-                            <li>Assorted upstream hardening features are enabled, including many
-                            which we played a part in developing and landing upstream as part of
-                            our linux-hardened project (which we intend to revive as a more active
-                            project again).</li>
-                        </ul>
-                    </li>
-                    <li>Prevention of dynamic native code execution in-memory or via the filesystem
-                    for the base OS without going via the package manager, etc.</li>
-                    <li>Filesystem access hardening</li>
                     <li>Enhanced <a href="https://source.android.com/security/verifiedboot">verified boot</a>
                     with better security properties and reduced attack surface</li>
                     <li>Enhanced hardware-based attestation with more precise version information</li>
@@ -320,6 +240,147 @@
                     Google services into the OS isn't something we're going to be doing, even if
                     that's partially open source like microG.</li>
                 </ul>
+
+                <section id="exploit-protection">
+                    <h3><a href="#exploit-protection">Defending against exploitation of unknown
+                    vulnerabilities</a></h3>
+
+                    <p>GrapheneOS is heavily focused on protecting users against attackers
+                    exploiting unknown (0 day) vulnerabilities. Patching vulnerabilities doesn't
+                    protect users before the vulnerability is known to the vendor and has a patch
+                    developed and shipped.</p>
+
+                    <p>The vast majority of vulnerabilities are well understood classes of bugs
+                    and exploitation can be prevented by avoiding the bugs via languages/tooling
+                    or preventing exploitation with strong exploit mitigations. In many cases,
+                    vulnerability classes can be completely wiped out while in many others they
+                    can at least be made meaningfully harder to exploit. Android does a lot of
+                    work in this area and GrapheneOS has helped to advance this in Android and the
+                    Linux kernel. It takes an enormous amount of resources to develop fundamental
+                    fixes for these problems and there's often a high performance, memory or
+                    compatibility cost to deploying them. Mainstream operating systems usually
+                    don't prioritize security over other areas. GrapheneOS is willing to go
+                    further and we offer toggles for users to choose the compromises they prefer
+                    instead of forcing it on them. In the meantime, weaker less complete exploit
+                    mitigations can still provide meaningful barriers against attacks as long as
+                    they're developed with a clear threat model. GrapheneOS is heavily invested in
+                    many areas of developing these protections: developing/deploying memory safe
+                    languages / libraries, static/dynamic analysis tooling and many kinds of
+                    mitigations.</p>
+
+                    <p>Unknown (0 day) vulnerabilities are much more widely used than most realize
+                    to exploit users not just in targeted attacks but in broad deployments.
+                    Project Zero maintains
+                    <a href="https://docs.google.com/spreadsheets/d/1lkNJ0uQwbeC1ZTRrxdtuPLCIl7mlUreoKfSIgajnSyY/view#gid=0">a
+                    spreadsheet</a> tracking zero day exploitation detected in the wild. This is
+                    only a peek into what's happening since it only documents cases where the
+                    attackers were caught exploiting users, often because the attacks are not
+                    targeted but rather deployed on public websites, etc.</p>
+
+                    <p>Remote code execution vulnerabilities are the most serious and allow an
+                    attacker to gain a foothold on device or even substantial control over it
+                    remotely. Local code execution vulnerabilities allow breaking out of a sandbox
+                    including the app sandbox or browser renderer sandbox after either
+                    compromising an app / browser renderer remotely, compromising an app's supply
+                    chain or getting the user to install a malicious app. Many other kinds of
+                    vulnerabilities exist but most of what we're protecting against falls into
+                    these 2 broad categories.</p>
+
+                    <p>The vast majority of local and remote code execution vulnerabilities are
+                    memory corruption bugs caused by memory unsafe languages or rare low-level
+                    unsafe code in an otherwise memory safe language. Most of the remaining issues
+                    are caused by dynamic code execution/loading features. Our main focus is on
+                    preventing or raising the difficult of exploiting memory corruption bugs
+                    followed by restricting dynamic code execution both to make escalation from a
+                    memory corruption bug harder and to directly mitigate bugs caused by dynamic
+                    code loading/generation/execution such as a JIT compiler bug or a plugin
+                    loading vulnerability.</p>
+
+                    <ul>
+                        <li>Hardened app runtime</li>
+                        <li>Stronger app sandbox</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_bionic">Hardened libc</a>
+                        providing defenses against the most common classes of vulnerabilities (memory
+                        corruption)</li>
+                        <li>
+                            Our own <a href="https://github.com/GrapheneOS/hardened_malloc">hardened
+                            malloc (memory allocator)</a> leveraging modern hardware capabilities
+                            to provide substantial defenses against the most common classes of
+                            vulnerabilities (heap memory corruption) along with reducing the lifetime
+                            of sensitive data in memory. The <a
+                            href="https://github.com/GrapheneOS/hardened_malloc/blob/main/README.md">hardened_malloc
+                            README</a> has extensive documentation on it. The hardened_malloc
+                            project is portable to other Linux-based operating systems and is being
+                            adopted by other security-focused operating systems like Whonix.  Our
+                            allocator also heavily influenced the design of the <a
+                            href="https://www.openwall.com/lists/musl/2020/05/13/1">next-generation
+                            musl malloc implementation</a> which offers substantially better security than
+                            musl's previous malloc while still having minimal memory usage and code size.
+                            <ul>
+                                <li>Fully out-of-line metadata with protection from corruption, ruling
+                                out traditional allocator exploitation</li>
+                                <li>Separate memory regions for metadata, large allocations and each
+                                slab allocation size class with high entropy random bases and no
+                                address space reuse between the different regions</li>
+                                <li>Deterministic detection of any invalid free</li>
+                                <li>Zero-on-free with detection of write-after-free via checking that
+                                memory is still zeroed before handing it out again</li>
+                                <li>Delayed reuse of address space and memory allocations through the
+                                combination of deterministic and randomized quarantines to mitigate
+                                use-after-free vulnerabilities</li>
+                                <li>Fine-grained randomization</li>
+                                <li>Aggressive consistency checks</li>
+                                <li>Memory protected guard regions around allocations larger than 16k
+                                with randomization of guard region sizes for 128k and above</li>
+                                <li>Allocations smaller than 16k have guard regions around each of the
+                                slabs containing allocations (for example, 16 byte allocations are in
+                                4096 byte slabs with 4096 byte guard regions before and after)</li>
+                                <li>Random canaries with a leading zero are added to these smaller
+                                allocations to block C string overflows, absorb small overflows
+                                and detect linear overflows or other heap corruption when the
+                                canary value is checked (primarily on free)</li>
+                            </ul>
+                        </li>
+                        <li>Hardened compiler toolchain</li>
+                        <li>
+                            Hardened kernel
+                            <ul>
+                                <li>Support for dynamically loaded kernel modules is disabled and
+                                the minimal set of modules for the device model are built into the
+                                kernel to substantially improve the granularity of Control Flow
+                                Integrity (CFI) and reduce attack surface.</li>
+                                <li>4-level page tables are enabled on arm64 to provide a much larger
+                                address space (48-bit instead of 39-bit) with significantly higher
+                                entropy Address Space Layout Randomization (33-bit instead of
+                                24-bit).</li>
+                                <li>Random canaries with a leading zero are added to the kernel heap
+                                (slub) to block C string overflows, absorb small overflows and detect
+                                linear overflows or other heap corruption when the canary value is
+                                checked (on free, copies to/from userspace, etc.).</li>
+                                <li>Memory is wiped (zeroed) as soon as it's released in both the
+                                low-level kernel page allocator and higher level kernel heap allocator
+                                (slub). This substantially reduces the lifetime of sensitive data in
+                                memory, mitigates use-after-free vulnerabilities and makes most
+                                uninitialized data usage vulnerabilities harmless. Without our
+                                changes, memory that's released retains data indefinitely until the
+                                memory is handed out for other uses and gets partially or fully
+                                overwritten by new data.</li>
+                                <li>Kernel stack allocations are zeroed to make most uninitialized
+                                data usage vulnerabilities harmless.</li>
+                                <li>Assorted attack surface reduction through disabling features or
+                                setting up infrastructure to dynamically enable/disable them only as
+                                needed (perf, ptrace).</li>
+                                <li>Assorted upstream hardening features are enabled, including many
+                                which we played a part in developing and landing upstream as part of
+                                our linux-hardened project (which we intend to revive as a more active
+                                project again).</li>
+                            </ul>
+                        </li>
+                        <li>Prevention of dynamic native code execution in-memory or via the filesystem
+                        for the base OS without going via the package manager, etc.</li>
+                        <li>Filesystem access hardening</li>
+                    </ul>
+                </section>
 
                 <section id="sandboxed-google-play">
                     <h3><a href="#sandboxed-google-play">Sandboxed Google Play</a></h3>
