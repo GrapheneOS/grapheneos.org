@@ -104,6 +104,8 @@
                             </li>
                             <li><a href="#more-complete-patching">More complete patching</a></li>
                             <li><a href="#sandboxed-google-play">Sandboxed Google Play</a></li>
+                            <li><a href="#network-permission-toggle">Network permission toggle</a></li>
+                            <li><a href="#sensors-permission-toggle">Sensors permission toggle</a></li>
                             <li><a href="#user-installed-apps-can-be-disabled">User installed apps
                             can be disabled</a></li>
                             <li><a href="#broad-carrier-support">Broad carrier support without invasive carrier access</a></li>
@@ -416,6 +418,29 @@
                     section on sandboxed Google Play</a> for instructions.</p>
                 </section>
 
+                <section id="network-permission-toggle">
+                    <h3><a href="#network-permission-toggle">Network permission toggle</a></h3>
+
+                    <p>GrapheneOS adds a Network permission toggle for disallowing both direct and
+                    indirect access to any of the available networks. The device-local network
+                    (localhost) is also guarded by this permission, which is important for
+                    preventing apps from using it to communicate between profiles. Unlike a
+                    firewall-based implementation, the Network permission toggle prevents apps
+                    from using the network via APIs provided by the OS or other apps in the same
+                    profile as long as they're marked appropriately.</p>
+                </section>
+
+                <section id="sensors-permission-toggle">
+                    <h3><a href="#sensors-permission-toggle">Sensors permission toggle</a></h3>
+
+                    <p>Sensors permission toggle: disallow access to all other sensors not covered
+                    by existing Android permissions (Camera, Microphone, Body Sensors, Activity
+                    Recognition) including an accelerometer, gyroscope, compass, barometer,
+                    thermometer and any other sensors present on a given device. To avoid breaking
+                    compatibility with Android apps, the added permission is enabled by
+                    default.</p>
+                </section>
+
                 <section id="user-installed-apps-can-be-disabled">
                     <h3><a href="#user-installed-apps-can-be-disabled">User installed apps can be disabled</a></h3>
 
@@ -563,22 +588,9 @@
                         app</li>
                         <li><a href="/usage#exec-spawning">Secure application spawning system</a> avoiding
                         sharing address space layout and other secrets across applications</li>
-                        <li>Network permission toggle for disallowing both direct and indirect access
-                        to any of the available networks. The device-local network (localhost) is also
-                        guarded by this permission, which is important for preventing apps from using
-                        it to communicate between profiles. Unlike a firewall-based implementation,
-                        the Network permission toggle prevents apps from using the network via APIs
-                        provided by the OS or other apps in the same profile as long as they're marked
-                        appropriately.</li>
                         <li>The standard INTERNET permission used as the basis for the Network
                         permission toggle is enhanced with a second layer of enforcement and proper
                         support for granting/revoking it on a per-profile basis.</li>
-                        <li>Sensors permission toggle: disallow access to all other sensors not covered by
-                        existing Android permissions (Camera, Microphone, Body Sensors, Activity
-                        Recognition) including an accelerometer, gyroscope, compass, barometer,
-                        thermometer and any other sensors present on a given device. To avoid breaking
-                        compatibility with Android apps, the added permission is enabled by
-                        default.</li>
                         <li>Authenticated encryption for network time updates via a first party server to
                         prevent attackers from changing the time and enabling attacks based on bypassing
                         certificate / key expiry, etc.</li>
