@@ -111,6 +111,9 @@
                             <li><a href="#broad-carrier-support">Broad carrier support without invasive carrier access</a></li>
                             <li><a href="#lte-only-mode">LTE-only mode</a></li>
                             <li><a href="#private-screenshots">Private screenshots</a></li>
+                            <li><a href="#pin-scrambling">PIN scrambling</a></li>
+                            <li><a href="#supports-longer-passwords">Supports longer
+                            passwords</a></li>
                             <li>
                                 <a href="#improved-user-profiles">Improved user profiles</a>
                                 <ul>
@@ -503,6 +506,27 @@
                     it to be useful.</p>
                 </section>
 
+                <section id="pin-scrambling">
+                    <h3><a href="#pin-scrambling">PIN scrambling</a></h3>
+
+                    <p>GrapheneOS adds a toggle for enabling PIN scrambling to raise the
+                    difficulty of figuring out the PIN being entered by a user either due to
+                    physical proximity or a side channel.</p>
+                </section>
+
+                <section id="supports-longer-passwords">
+                    <h3><a href="#supports-longer-passwords">Supports longer passwords</a></h3>
+
+                    <p>GrapheneOS supports setting longer passwords by default: 64 characters
+                    instead of 16 characters. This avoids the need to use a device manager to
+                    enable this functionality.</p>
+
+                    <p>This feature allows users to make use of diceware passwords if they don't
+                    want to depend on the security of the secure element which provides very
+                    aggressive throttling and offers a high level of security even for a random 6
+                    digit PIN.</p>
+                </section>
+
                 <section id="improved-user-profiles">
                     <h3><a href="#improved-user-profiles">Improved user profiles</a></h3>
 
@@ -563,14 +587,11 @@
                         <li>Improved user visibility into persistent firmware security through version
                         and configuration verification with reporting of inconsistencies and debug
                         features being enabled.</li>
-                        <li>Support for longer passwords by default (64 characters instead of 16)
-                        without requiring a device manager</li>
                         <li>Stricter implementation of the optional fingerprint unlock feature permitting
                         only 5 attempts rather than 20 before permanent lockout (our recommendation is
                         still keeping sensitive data in user profiles without fingerprint unlock)</li>
                         <li>Support for using the fingerprint scanner only for authentication in apps
                         and unlocking hardware keystore keys by toggling off support for unlocking.</li>
-                        <li>PIN scrambling option</li>
                         <li><a href="/usage#wifi-privacy-associated">Per-connection MAC randomization
                         option (enabled by default)</a> as a more private option than the standard
                         persistent per-network random MAC.</li>
