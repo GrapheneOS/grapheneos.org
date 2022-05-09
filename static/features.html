@@ -129,7 +129,15 @@
                                     <li><a href="#disabling-app-installation">Disabling app installation</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#other-features">Many other features</a></li>
+                            <li><a href="#grapheneos-app-repository">GrapheneOS app
+                            repository</a></li>
+                            <li><a href="#vanadium">Vanadium: hardened WebView and default
+                            browser</a></li>
+                            <li><a href="#auditor">Auditor app and attestation service</a></li>
+                            <li><a href="#grapheneos-camera">GrapheneOS Camera</a></li>
+                            <li><a href="#grapheneos-pdf-viewer">GrapheneOS PDF Viewer</a></li>
+                            <li><a href="#encrypted-backups">Encrypted backups</a></li>
+                            <li><a href="#other-features">Other features</a></li>
                         </ul>
                     </li>
                     <li><a href="#services">Services</a></li>
@@ -357,16 +365,8 @@
                             <li>Enhanced <a href="https://source.android.com/security/verifiedboot">verified boot</a>
                             with better security properties and reduced attack surface</li>
                             <li>Enhanced hardware-based attestation with more precise version information</li>
-                            <li>Hardware-based security verification and monitoring: the
-                            <a href="https://github.com/GrapheneOS/Auditor/releases">Auditor app</a> app and
-                            <a href="https://attestation.app/">attestation service</a> provide strong
-                            hardware-based verification of the authenticity and integrity of the
-                            firmware/software on the device. A strong pairing-based approach is used which
-                            also provides verification of the device's identity based on the hardware backed
-                            key generated for each pairing. Software-based checks are layered on top with
-                            trust securely chained from the hardware. For more details, see the
-                            <a href="https://attestation.app/about">about page</a>
-                            and <a href="https://attestation.app/tutorial">tutorial</a>.</li>
+                            <li>Hardware-based security verification and monitoring via our
+                            <a href="#auditor">Auditor app and attestation service</a></li>
                         </ul>
                     </section>
                 </section>
@@ -705,8 +705,79 @@
                     </section>
                 </section>
 
+                <section id="grapheneos-app-repository">
+                    <h3><a href="#grapheneos-app-repository">GrapheneOS app repository</a></h3>
+
+                    <p>GrapheneOS include our own security, minimalism and usability focused app
+                    repository client for using our first party app repository. Our app repository
+                    is currently used to distribute our own apps and a mirror of Google Play for
+                    the sandboxed Google Play feature. In the future, it will be used to
+                    distribute first-party GrapheneOS builds of externally developed open source
+                    apps with hardening applied.</p>
+                </section>
+
+                <section id="vanadium">
+                    <h3><a href="#vanadium">Vanadium: hardened WebView and default browser</a></h3>
+
+                    <p>GrapheneOS includes our Vanadium browser as WebView implementation provided
+                    by the OS and our default browser. Vanadium is a hardened variant of Chromium
+                    providing enhanced privacy and security, similar to how GrapheneOS compares to
+                    AOSP. The Vanadium browser currently doesn't add many features but there are a
+                    lot of enhancements planned in the long term.</p>
+
+                    <p>More details are available in the <a href="/usage#web-browsing">web
+                    browsing section of our usage guide</a>.</p>
+                </section>
+
+                <section id="auditor">
+                    <h3><a href="#auditor">Auditor app and attestation service</a></h3>
+
+                    <p>Our <a href="https://github.com/GrapheneOS/Auditor/releases">Auditor
+                    app</a> app and <a href="https://attestation.app/">attestation service</a>
+                    provide strong hardware-based verification of the authenticity and integrity
+                    of the firmware/software on the device. A strong pairing-based approach is
+                    used which also provides verification of the device's identity based on the
+                    hardware backed key generated for each pairing. Software-based checks are
+                    layered on top with trust securely chained from the hardware. For more
+                    details, see the <a href="https://attestation.app/about">about page</a> and
+                    <a href="https://attestation.app/tutorial">tutorial</a>.</p>
+                </section>
+
+                <section id="grapheneos-camera">
+                    <h3><a href="#grapheneos-camera">GrapheneOS Camera</a></h3>
+
+                    <p><a href="/usage#grapheneos-camera-app">GrapheneOS Camera</a> is a modern
+                    camera app with a great user interface and a focus on privacy and
+                    security. More details are available the <a href="/usage#camera">camera
+                    section of our usage guide</a>.</p>
+                </section>
+
+                <section id="grapheneos-pdf-viewer">
+                    <h3><a href="#grapheneos-pdf-viewer">GrapheneOS PDF Viewer</a></h3>
+
+                    <p><a href="https://github.com/GrapheneOS/PdfViewer">GrapheneOS PDF Viewer</a>
+                    is sandboxed, hardened PDF viewer using HiDPI rendering with pinch to zoom,
+                    text selection, etc.</p>
+                </section>
+
+                <section id="encrypted-backups">
+                    <h3><a href="#encrypted-backups">Encrypted backups</a></h3>
+
+                    <p>Encrypted backups via integration of the
+                    <a href="https://github.com/seedvault-app/seedvault">Seedvault app</a> with
+                    support for local backups and any cloud storage provider with a storage
+                    provider app.</p>
+
+                    <p>Seedvault was created by a GrapheneOS community member for inclusion in our
+                    operating system. We plan on replacing it with a new implementation since the
+                    project has been taken over by another group of people not sharing our goals
+                    or approach. For now, this is the best available option so we're including it
+                    to give people encrypted backup support. We've made several security fixes to
+                    work around upstream issues with the project.</p>
+                </section>
+
                 <section id="other-features">
-                    <h3><a href="#other-features">Many other features</a></h3>
+                    <h3><a href="#other-features">Other features</a></h3>
 
                     <p>This is an incomplete list of other GrapheneOS features.</p>
 
@@ -719,24 +790,6 @@
                         <li>Improved user visibility into persistent firmware security through version
                         and configuration verification with reporting of inconsistencies and debug
                         features being enabled.</li>
-                        <li>Vanadium: hardened WebView and default browser — the WebView is what most
-                        other apps use to handle web content, so you benefit from Vanadium in many apps
-                        even if you choose another browser</li>
-                        <li>Apps: first-party GrapheneOS app repository focused on security, which is
-                        currently used to distribute our own apps and a mirror of Google Play for the
-                        sandboxed Google Play feature. In the future, it will be used to distribute
-                        first-party GrapheneOS builds of externally developed open source apps with
-                        hardening applied.</li>
-                        <li><a href="https://github.com/GrapheneOS/PdfViewer">PDF Viewer</a>: sandboxed,
-                        hardened PDF viewer using HiDPI rendering with pinch to zoom, text selection,
-                        etc.</li>
-                        <li><a href="/usage#grapheneos-camera-app">GrapheneOS Camera</a>: modern
-                        camera app with a great user interface and a focus on privacy and
-                        security.</li>
-                        <li>Encrypted backups via integration of the
-                        <a href="https://github.com/seedvault-app/seedvault">Seedvault app</a> with
-                        support for local backups and any cloud storage provider with a storage provider
-                        app</li>
                         <li>Authenticated encryption for network time updates via a first party server to
                         prevent attackers from changing the time and enabling attacks based on bypassing
                         certificate / key expiry, etc.</li>
