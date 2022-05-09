@@ -90,8 +90,8 @@
                         <ul>
                             <li><a href="#exploit-protection">Defending against exploitation of unknown
                             vulnerabilities</a></li>
-                            <li><a href="#sandboxed-google-play">Sandboxed Google Play</a></li>
                             <li><a href="#more-complete-patching">More complete patching</a></li>
+                            <li><a href="#sandboxed-google-play">Sandboxed Google Play</a></li>
                             <li><a href="#disabling-secondary-user-app-installation">Disabling secondary
                             user app installation</a></li>
                             <li><a href="#user-installed-apps-can-be-disabled">User installed apps
@@ -382,6 +382,28 @@
                     </ul>
                 </section>
 
+                <section id="more-complete-patching">
+                    <h3><a href="#more-complete-patching">More complete patching</a></h3>
+
+                    <p>GrapheneOS includes fixes for many vulnerabilities not yet fixed in
+                    Android. On modern devices with Generic Kernel Image (GKI) support, we the
+                    update kernel to the latest stable GKI release many months before the stock OS
+                    gets the update. This means we're shipping hundreds of fixes not included in
+                    the stock OS including many security fixes. We also backport more fixes on top
+                    of this for the kernel and for other components too.</p>
+
+                    <p>We often find new vulnerabilities ourselves and report them upstream. We've
+                    reported dozens of vulnerabilities for both the generic Android codebase and
+                    also for Pixels specifically. We also often find missed patches which were
+                    supposed to be included but were missed, especially when there are device
+                    specific components with partially shared but separate codebases for different
+                    devices.</p>
+
+                    <p>Our overall approach is to focus on systemic privacy and security
+                    improvements but fixing individual vulnerabilities is still very
+                    important.</p>
+                </section>
+
                 <section id="sandboxed-google-play">
                     <h3><a href="#sandboxed-google-play">Sandboxed Google Play</a></h3>
 
@@ -419,28 +441,6 @@
 
                     <p>See the <a href="/usage#sandboxed-google-play-installation">usage guide
                     section on sandboxed Google Play</a> for instructions.</p>
-                </section>
-
-                <section id="more-complete-patching">
-                    <h3><a href="#more-complete-patching">More complete patching</a></h3>
-
-                    <p>GrapheneOS includes fixes for many vulnerabilities not yet fixed in
-                    Android. On modern devices with Generic Kernel Image (GKI) support, we the
-                    update kernel to the latest stable GKI release many months before the stock OS
-                    gets the update. This means we're shipping hundreds of fixes not included in
-                    the stock OS including many security fixes. We also backport more fixes on top
-                    of this for the kernel and for other components too.</p>
-
-                    <p>We often find new vulnerabilities ourselves and report them upstream. We've
-                    reported dozens of vulnerabilities for both the generic Android codebase and
-                    also for Pixels specifically. We also often find missed patches which were
-                    supposed to be included but were missed, especially when there are device
-                    specific components with partially shared but separate codebases for different
-                    devices.</p>
-
-                    <p>Our overall approach is to focus on systemic privacy and security
-                    improvements but fixing individual vulnerabilities is still very
-                    important.</p>
                 </section>
 
                 <section id="disabling-secondary-user-app-install">
