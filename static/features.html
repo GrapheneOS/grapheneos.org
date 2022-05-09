@@ -88,6 +88,7 @@
                     <li>
                         <a href="#grapheneos">GrapheneOS</a>
                         <ul>
+                            <li><a href="#sandboxed-google-play">Sandboxed Google Play</a></li>
                             <li><a href="#more-complete-patching">More complete patching</a></li>
                             <li><a href="#disabling-secondary-user-app-installation">Disabling secondary
                             user app installation</a></li>
@@ -310,10 +311,46 @@
                     they avoid requiring invasive OS integration. Building privileged support for
                     Google services into the OS isn't something we're going to be doing, even if
                     that's partially open source like microG.</li>
-                    <li><a href="/usage#sandboxed-google-play">Compatibility layer for coercing
-                    user installed Google Play services into running as sandboxed apps without any
-                    special privileges.</a></li>
                 </ul>
+
+                <section id="sandboxed-google-play">
+                    <h3><a href="#sandboxed-google-play">Sandboxed Google Play</a></h3>
+
+                    <p>GrapheneOS has a compatibility layer providing the option to install and use
+                    the official releases of Google Play in the standard app sandbox. Google Play
+                    receives absolutely no special access or privileges on GrapheneOS as opposed to
+                    bypassing the app sandbox and receiving a massive amount of highly privileged
+                    access. Instead, the compatibility layer teaches it how to work within the full
+                    app sandbox. It also isn't used as a backend for the OS services as it would be
+                    elsewhere since GrapheneOS doesn't use Google Play even when it's installed.</p>
+
+                    <p>Since the Google Play apps are simply regular apps on GrapheneOS, you install
+                    them within a specific user or work profile and they're only available within that
+                    profile. Only apps within the same profile can use it and they need to explicitly
+                    choose to use it. It works the same way as any other app and has no special
+                    capabilities. As with any other app, it can't access data of other apps and
+                    requires explicit user consent to gain access to profile data or the standard
+                    permissions. Apps within the same profile can communicate with mutual consent and
+                    it's no different for sandboxed Google Play.</p>
+
+                    <p>The core functionality and APIs are almost entirely supported already since
+                    GrapheneOS largely only has to coerce these apps into continuing to run without
+                    being able to use any of the usual invasive OS integration. A compatibility layer
+                    is also provided to support dynamically downloaded/loaded modules (dynamite
+                    modules). The compatibility layer will be gradually expanded and improved in order
+                    to get more of the Google Play functionality working.</p>
+
+                    <p>GrapheneOS provides a dedicated compatibility layer for Play Store app
+                    installation/updates/removal teaching it to use the standard unprivileged approach
+                    available to sandboxed apps. It prompts the user to permit it as an app source and
+                    then prompts for the initial app install/update or removal. It will use Android
+                    12's support for unattended updates when possible which means it can do unattended
+                    updates of modern (API 29+) apps where it was the installer for the currently
+                    installed version already.</p>
+
+                    <p>See the <a href="/usage#sandboxed-google-play-installation">usage guide
+                    section on sandboxed Google Play</a> for instructions.</p>
+                </section>
 
                 <section id="more-complete-patching">
                     <h3><a href="#more-complete-patching">More complete patching</a></h3>
