@@ -85,7 +85,12 @@
                 <h2><a href="#table-of-contents">Table of contents</a></h2>
 
                 <ul>
-                    <li><a href="#grapheneos">GrapheneOS</a></li>
+                    <li>
+                        <a href="#grapheneos">GrapheneOS</a>
+                        <ul>
+                            <li><a href="#private-screenshots">Private screenshots</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#project">Project</a></li>
                 </ul>
@@ -316,11 +321,28 @@
                     compatible with an OS not including any carrier bloatware apps and disabling
                     various misfeatures such as disallowed tethering, disallowed 2G toggle,
                     etc.</li>
-                    <li>Screenshot EXIF metadata is reduced by not including information on the OS
-                    and OS version so that it's only clear it's an OS including this feature. The
-                    inclusion of timestamps is also disabled by default with an opt-in toggle for
-                    the user to enable it.</li>
                 </ul>
+
+                <section id="private-screenshots">
+                    <h3><a href="#private-screenshots">Private screenshots</a></h3>
+
+                    <p>GrapheneOS disables the inclusion of sensitive metadata in screenshots.</p>
+
+                    <p>On Android, each screenshot includes an EXIF Software tag with detailed OS
+                    build/version information (<code>android.os.Build.DISPLAY</code>). It's the
+                    same value shown at Settings ➔ About device ➔ Build number. This leaks the OS,
+                    OS version and also usually the device family/model since builds are usually
+                    specific to a family of devices. GrapheneOS completely disables this tag.</p>
+
+                    <p>On Android, each screenshot also includes EXIF tags with the local date,
+                    time and timezone offset. GrapheneOS disables this by default in order to
+                    avoid leaking the time and quasi-location information through metadata that
+                    isn't visible to the user. The date and time are already included in the file
+                    name of the screenshot which is fully visible to the user and can be easily
+                    modified by them without a third party tool. GrapheneOS includes a toggle for
+                    turning this metadata back on in Settings ➔ Privacy since some users may find
+                    it to be useful.</p>
+                </section>
             </section>
 
             <section id="services">
