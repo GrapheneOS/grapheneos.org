@@ -96,6 +96,8 @@
                                     reduction</a></li>
                                     <li><a href="#exploit-mitigations">Exploit
                                     mitigations</a></li>
+                                    <li><a href="#improved-sandboxing">Improved
+                                    sandboxing</a></li>
                                     <li><a href="#anti-persistence">Anti-persistence /
                                     detection</a></li>
                                 </ul>
@@ -229,7 +231,6 @@
 
                         <ul>
                             <li>Hardened app runtime</li>
-                            <li>Stronger app sandbox</li>
                             <li><a href="https://github.com/GrapheneOS/platform_bionic">Hardened libc</a>
                             providing defenses against the most common classes of vulnerabilities (memory
                             corruption)</li>
@@ -311,6 +312,20 @@
                             for the base OS without going via the package manager, etc.</li>
                             <li>Filesystem access hardening</li>
                         </ul>
+                    </section>
+
+                    <section id="improved-sandboxing">
+                        <h4><a href="#improved-sandboxing">Improved sandboxing</a></h4>
+
+                        <p>GrapheneOS improves the app sandbox through hardening SELinux policy
+                        and seccomp-bpf policy along with all the hardening to components like
+                        kernel implementing the app sandbox and providing a path for the attacker
+                        to escape it if they can exploit those components. We primarily focus on
+                        the app sandbox, but we also improve the other sandboxes including making
+                        direct improvements to the web browser renderer sandbox used for both the
+                        default browser and WebView rendering engine provided by the OS and used
+                        by a huge number of other apps from dedicated browsers to messaging
+                        apps.</p>
                     </section>
 
                     <section id="anti-persistence">
