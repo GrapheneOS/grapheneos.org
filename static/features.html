@@ -98,6 +98,7 @@
                             can be disabled</a></li>
                             <li><a href="#broad-carrier-support">Broad carrier support without invasive carrier access</a></li>
                             <li><a href="#private-screenshots">Private screenshots</a></li>
+                            <li><a href="#other-features">Other features</a></li>
                         </ul>
                     </li>
                     <li><a href="#services">Services</a></li>
@@ -117,129 +118,6 @@
                 our improvements to modern Android. We plan on providing a separate page listing
                 the improvements we've contributed to Android since those features aren't listed
                 here despite being a substantial portion of our overall historical work.</p>
-
-                <ul>
-                    <li>Enhanced <a href="https://source.android.com/security/verifiedboot">verified boot</a>
-                    with better security properties and reduced attack surface</li>
-                    <li>Enhanced hardware-based attestation with more precise version information</li>
-                    <li>Eliminates remaining holes for apps to access hardware-based identifiers</li>
-                    <li>Greatly reduced remote, local and proximity-based attack surface by
-                    stripping out unnecessary code, making more features optional and disabling
-                    optional features by default (NFC, Bluetooth, etc.), when the screen is
-                    locked (connecting new USB peripherals, camera access) and optionally after a
-                    timeout (Bluetooth, Wi-Fi)</li>
-                    <li>Option to disable native debugging (ptrace) to reduce local attack surface
-                    (still enabled by default for compatibility)</li>
-                    <li>Low-level improvements to the <a href="/faq#encryption">filesystem-based
-                    full disk encryption</a> used on modern Android</li>
-                    <li>Support creating up to 16 secondary user profiles (15 + guest) instead of
-                    only 4 (3 + guest).</li>
-                    <li>Support for logging out of user profiles without needing a device manager:
-                    makes them inactive so that they can't continue running code while using
-                    another profile and purges the disk encryption keys (which are per-profile)
-                    from memory and hardware registers</li>
-                    <li>Option to enable automatically rebooting the device when no profile has
-                    been unlocked for the configured time period to put the device fully at rest
-                    again.</li>
-                    <li>Modern Microphone/Camera usage indicator UX is also used for Location.</li>
-                    <li>Improved user visibility into persistent firmware security through version
-                    and configuration verification with reporting of inconsistencies and debug
-                    features being enabled.</li>
-                    <li>Support for longer passwords by default (64 characters instead of 16)
-                    without requiring a device manager</li>
-                    <li>Stricter implementation of the optional fingerprint unlock feature permitting
-                    only 5 attempts rather than 20 before permanent lockout (our recommendation is
-                    still keeping sensitive data in user profiles without fingerprint unlock)</li>
-                    <li>Support for using the fingerprint scanner only for authentication in apps
-                    and unlocking hardware keystore keys by toggling off support for unlocking.</li>
-                    <li>PIN scrambling option</li>
-                    <li><a href="/usage#lte-only-mode">LTE-only mode</a> to reduce cellular radio
-                    attack surface by disabling enormous amounts of both legacy code (2G, 3G) and
-                    bleeding edge code (5G)</li>
-                    <li><a href="/usage#wifi-privacy-associated">Per-connection MAC randomization
-                    option (enabled by default)</a> as a more private option than the standard
-                    persistent per-network random MAC.</li>
-                    <li>When the per-connection MAC randomization added by GrapheneOS is being
-                    used, DHCP client state is flushed before reconnecting to a network to avoid
-                    revealing that it's likely the same device as before.</li>
-                    <li>Improved IPv6 privacy addresses to prevent tracking across networks</li>
-                    <li>Vanadium: hardened WebView and default browser — the WebView is what most
-                    other apps use to handle web content, so you benefit from Vanadium in many apps
-                    even if you choose another browser</li>
-                    <li>Apps: first-party GrapheneOS app repository focused on security, which is
-                    currently used to distribute our own apps and a mirror of Google Play for the
-                    sandboxed Google Play feature. In the future, it will be used to distribute
-                    first-party GrapheneOS builds of externally developed open source apps with
-                    hardening applied.</li>
-                    <li>Hardware-based security verification and monitoring: the
-                    <a href="https://github.com/GrapheneOS/Auditor/releases">Auditor app</a> app and
-                    <a href="https://attestation.app/">attestation service</a> provide strong
-                    hardware-based verification of the authenticity and integrity of the
-                    firmware/software on the device. A strong pairing-based approach is used which
-                    also provides verification of the device's identity based on the hardware backed
-                    key generated for each pairing. Software-based checks are layered on top with
-                    trust securely chained from the hardware. For more details, see the
-                    <a href="https://attestation.app/about">about page</a>
-                    and <a href="https://attestation.app/tutorial">tutorial</a>.</li>
-                    <li><a href="https://github.com/GrapheneOS/PdfViewer">PDF Viewer</a>: sandboxed,
-                    hardened PDF viewer using HiDPI rendering with pinch to zoom, text selection,
-                    etc.</li>
-                    <li><a href="/usage#grapheneos-camera-app">GrapheneOS Camera</a>: modern
-                    camera app with a great user interface and a focus on privacy and
-                    security.</li>
-                    <li>Encrypted backups via integration of the
-                    <a href="https://github.com/seedvault-app/seedvault">Seedvault app</a> with
-                    support for local backups and any cloud storage provider with a storage provider
-                    app</li>
-                    <li><a href="/usage#exec-spawning">Secure application spawning system</a> avoiding
-                    sharing address space layout and other secrets across applications</li>
-                    <li>Network permission toggle for disallowing both direct and indirect access
-                    to any of the available networks. The device-local network (localhost) is also
-                    guarded by this permission, which is important for preventing apps from using
-                    it to communicate between profiles. Unlike a firewall-based implementation,
-                    the Network permission toggle prevents apps from using the network via APIs
-                    provided by the OS or other apps in the same profile as long as they're marked
-                    appropriately.</li>
-                    <li>The standard INTERNET permission used as the basis for the Network
-                    permission toggle is enhanced with a second layer of enforcement and proper
-                    support for granting/revoking it on a per-profile basis.</li>
-                    <li>Sensors permission toggle: disallow access to all other sensors not covered by
-                    existing Android permissions (Camera, Microphone, Body Sensors, Activity
-                    Recognition) including an accelerometer, gyroscope, compass, barometer,
-                    thermometer and any other sensors present on a given device. To avoid breaking
-                    compatibility with Android apps, the added permission is enabled by
-                    default.</li>
-                    <li>Authenticated encryption for network time updates via a first party server to
-                    prevent attackers from changing the time and enabling attacks based on bypassing
-                    certificate / key expiry, etc.</li>
-                    <li>Proper support for disabling network time updates rather than just not using
-                    the results</li>
-                    <li>Connectivity checks via a first party server with the option to revert to the
-                    standard checks (to blend in) or to fully disable them</li>
-                    <li>Attestation key provisioning via a first party server with the option to
-                    revert to the standard server</li>
-                    <li>GNSS almanac downloads (PSDS) via a first party server with the option to
-                    revert to the standard server (not available for all GPS vendors yet)</li>
-                    <li>Hardened local build / signing infrastructure</li>
-                    <li><a href="/usage#updates">Seamless automatic OS update system</a> that just
-                    works and stays out of the way in the background without disrupting device
-                    usage, with full support for the standard automatic rollback if the first boot
-                    of the updated OS fails</li>
-                    <li>Require unlocking to access sensitive functionality via quick tiles</li>
-                    <li>Minor changes to default settings to prefer privacy over small conveniences:
-                    personalized keyboard suggestions based on gathering input history are disabled by
-                    default, sensitive notifications are hidden on the lockscreen by default and
-                    passwords are hidden during entry by default</li>
-                    <li><a href="/faq#bundled-apps">Minimal bundled apps and services</a>. Only
-                    essential apps are integrated into the OS. We don't make partnerships with
-                    apps and services to bundle them into the OS. An app may be the best choice
-                    today and poor choice in the future. Our approach will be recommending certain
-                    apps during the initial setup, not hard-wiring them into the OS.</li>
-                    <li>No Google apps and services. These can be used on GrapheneOS but only if
-                    they avoid requiring invasive OS integration. Building privileged support for
-                    Google services into the OS isn't something we're going to be doing, even if
-                    that's partially open source like microG.</li>
-                </ul>
 
                 <section id="exploit-protection">
                     <h3><a href="#exploit-protection">Defending against exploitation of unknown
@@ -502,6 +380,135 @@
                     modified by them without a third party tool. GrapheneOS includes a toggle for
                     turning this metadata back on in Settings ➔ Privacy since some users may find
                     it to be useful.</p>
+                </section>
+
+                <section id="other-features">
+                    <h3><a href="#other-features">Other features</a></h3>
+
+                    <p>This is an incomplete list of other GrapheneOS features.</p>
+
+                    <ul>
+                        <li>Enhanced <a href="https://source.android.com/security/verifiedboot">verified boot</a>
+                        with better security properties and reduced attack surface</li>
+                        <li>Enhanced hardware-based attestation with more precise version information</li>
+                        <li>Eliminates remaining holes for apps to access hardware-based identifiers</li>
+                        <li>Greatly reduced remote, local and proximity-based attack surface by
+                        stripping out unnecessary code, making more features optional and disabling
+                        optional features by default (NFC, Bluetooth, etc.), when the screen is
+                        locked (connecting new USB peripherals, camera access) and optionally after a
+                        timeout (Bluetooth, Wi-Fi)</li>
+                        <li>Option to disable native debugging (ptrace) to reduce local attack surface
+                        (still enabled by default for compatibility)</li>
+                        <li>Low-level improvements to the <a href="/faq#encryption">filesystem-based
+                        full disk encryption</a> used on modern Android</li>
+                        <li>Support creating up to 16 secondary user profiles (15 + guest) instead of
+                        only 4 (3 + guest).</li>
+                        <li>Support for logging out of user profiles without needing a device manager:
+                        makes them inactive so that they can't continue running code while using
+                        another profile and purges the disk encryption keys (which are per-profile)
+                        from memory and hardware registers</li>
+                        <li>Option to enable automatically rebooting the device when no profile has
+                        been unlocked for the configured time period to put the device fully at rest
+                        again.</li>
+                        <li>Modern Microphone/Camera usage indicator UX is also used for Location.</li>
+                        <li>Improved user visibility into persistent firmware security through version
+                        and configuration verification with reporting of inconsistencies and debug
+                        features being enabled.</li>
+                        <li>Support for longer passwords by default (64 characters instead of 16)
+                        without requiring a device manager</li>
+                        <li>Stricter implementation of the optional fingerprint unlock feature permitting
+                        only 5 attempts rather than 20 before permanent lockout (our recommendation is
+                        still keeping sensitive data in user profiles without fingerprint unlock)</li>
+                        <li>Support for using the fingerprint scanner only for authentication in apps
+                        and unlocking hardware keystore keys by toggling off support for unlocking.</li>
+                        <li>PIN scrambling option</li>
+                        <li><a href="/usage#lte-only-mode">LTE-only mode</a> to reduce cellular radio
+                        attack surface by disabling enormous amounts of both legacy code (2G, 3G) and
+                        bleeding edge code (5G)</li>
+                        <li><a href="/usage#wifi-privacy-associated">Per-connection MAC randomization
+                        option (enabled by default)</a> as a more private option than the standard
+                        persistent per-network random MAC.</li>
+                        <li>When the per-connection MAC randomization added by GrapheneOS is being
+                        used, DHCP client state is flushed before reconnecting to a network to avoid
+                        revealing that it's likely the same device as before.</li>
+                        <li>Improved IPv6 privacy addresses to prevent tracking across networks</li>
+                        <li>Vanadium: hardened WebView and default browser — the WebView is what most
+                        other apps use to handle web content, so you benefit from Vanadium in many apps
+                        even if you choose another browser</li>
+                        <li>Apps: first-party GrapheneOS app repository focused on security, which is
+                        currently used to distribute our own apps and a mirror of Google Play for the
+                        sandboxed Google Play feature. In the future, it will be used to distribute
+                        first-party GrapheneOS builds of externally developed open source apps with
+                        hardening applied.</li>
+                        <li>Hardware-based security verification and monitoring: the
+                        <a href="https://github.com/GrapheneOS/Auditor/releases">Auditor app</a> app and
+                        <a href="https://attestation.app/">attestation service</a> provide strong
+                        hardware-based verification of the authenticity and integrity of the
+                        firmware/software on the device. A strong pairing-based approach is used which
+                        also provides verification of the device's identity based on the hardware backed
+                        key generated for each pairing. Software-based checks are layered on top with
+                        trust securely chained from the hardware. For more details, see the
+                        <a href="https://attestation.app/about">about page</a>
+                        and <a href="https://attestation.app/tutorial">tutorial</a>.</li>
+                        <li><a href="https://github.com/GrapheneOS/PdfViewer">PDF Viewer</a>: sandboxed,
+                        hardened PDF viewer using HiDPI rendering with pinch to zoom, text selection,
+                        etc.</li>
+                        <li><a href="/usage#grapheneos-camera-app">GrapheneOS Camera</a>: modern
+                        camera app with a great user interface and a focus on privacy and
+                        security.</li>
+                        <li>Encrypted backups via integration of the
+                        <a href="https://github.com/seedvault-app/seedvault">Seedvault app</a> with
+                        support for local backups and any cloud storage provider with a storage provider
+                        app</li>
+                        <li><a href="/usage#exec-spawning">Secure application spawning system</a> avoiding
+                        sharing address space layout and other secrets across applications</li>
+                        <li>Network permission toggle for disallowing both direct and indirect access
+                        to any of the available networks. The device-local network (localhost) is also
+                        guarded by this permission, which is important for preventing apps from using
+                        it to communicate between profiles. Unlike a firewall-based implementation,
+                        the Network permission toggle prevents apps from using the network via APIs
+                        provided by the OS or other apps in the same profile as long as they're marked
+                        appropriately.</li>
+                        <li>The standard INTERNET permission used as the basis for the Network
+                        permission toggle is enhanced with a second layer of enforcement and proper
+                        support for granting/revoking it on a per-profile basis.</li>
+                        <li>Sensors permission toggle: disallow access to all other sensors not covered by
+                        existing Android permissions (Camera, Microphone, Body Sensors, Activity
+                        Recognition) including an accelerometer, gyroscope, compass, barometer,
+                        thermometer and any other sensors present on a given device. To avoid breaking
+                        compatibility with Android apps, the added permission is enabled by
+                        default.</li>
+                        <li>Authenticated encryption for network time updates via a first party server to
+                        prevent attackers from changing the time and enabling attacks based on bypassing
+                        certificate / key expiry, etc.</li>
+                        <li>Proper support for disabling network time updates rather than just not using
+                        the results</li>
+                        <li>Connectivity checks via a first party server with the option to revert to the
+                        standard checks (to blend in) or to fully disable them</li>
+                        <li>Attestation key provisioning via a first party server with the option to
+                        revert to the standard server</li>
+                        <li>GNSS almanac downloads (PSDS) via a first party server with the option to
+                        revert to the standard server (not available for all GPS vendors yet)</li>
+                        <li>Hardened local build / signing infrastructure</li>
+                        <li><a href="/usage#updates">Seamless automatic OS update system</a> that just
+                        works and stays out of the way in the background without disrupting device
+                        usage, with full support for the standard automatic rollback if the first boot
+                        of the updated OS fails</li>
+                        <li>Require unlocking to access sensitive functionality via quick tiles</li>
+                        <li>Minor changes to default settings to prefer privacy over small conveniences:
+                        personalized keyboard suggestions based on gathering input history are disabled by
+                        default, sensitive notifications are hidden on the lockscreen by default and
+                        passwords are hidden during entry by default</li>
+                        <li><a href="/faq#bundled-apps">Minimal bundled apps and services</a>. Only
+                        essential apps are integrated into the OS. We don't make partnerships with
+                        apps and services to bundle them into the OS. An app may be the best choice
+                        today and poor choice in the future. Our approach will be recommending certain
+                        apps during the initial setup, not hard-wiring them into the OS.</li>
+                        <li>No Google apps and services. These can be used on GrapheneOS but only if
+                        they avoid requiring invasive OS integration. Building privileged support for
+                        Google services into the OS isn't something we're going to be doing, even if
+                        that's partially open source like microG.</li>
+                    </ul>
                 </section>
             </section>
 
