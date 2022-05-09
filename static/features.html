@@ -88,6 +88,7 @@
                     <li>
                         <a href="#grapheneos">GrapheneOS</a>
                         <ul>
+                            <li><a href="#broad-carrier-support">Broad carrier support without invasive carrier access</a></li>
                             <li><a href="#private-screenshots">Private screenshots</a></li>
                         </ul>
                     </li>
@@ -316,12 +317,23 @@
                     inconvenience of needing to uninstall and reinstall them. An app that's force
                     stopped can't start itself but can be started by other apps while a disabled
                     app is completely disabled.</li>
-                    <li>Modern APN, carrier configuration, MMS and visual voicemail databases
-                    based on extracting the databases from Google's Pixel apps, making them
-                    compatible with an OS not including any carrier bloatware apps and disabling
-                    various misfeatures such as disallowed tethering, disallowed 2G toggle,
-                    etc.</li>
                 </ul>
+
+                <section id="broad-carrier-support">
+                    <h3><a href="#broad-carrier-support">Broad carrier support without invasive carrier access</a></h3>
+
+                    <p>GrapheneOS has much broader carrier support than AOSP and mostly matches
+                    the stock OS on Pixels without making the same sacrifices. We convert their
+                    APN, carrier configuration, MMS and visual voicemail databases to the formats
+                    used by AOSP with our carriersettings project and other scripts. We strip out
+                    anti-user configuration requiring provisioning for tethering, forbidding
+                    disabling 2G, etc. We don't include the invasive carrier specific apps and
+                    support for Open Mobile Alliance Device Management (OMA DM) so we also strip
+                    out configuration depending on those.</p>
+
+                    <p>See our <a href="/usage#carrier-functionality">usage guide section on
+                    carrier functionality</a> for more details.</p>
+                </section>
 
                 <section id="private-screenshots">
                     <h3><a href="#private-screenshots">Private screenshots</a></h3>
