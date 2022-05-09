@@ -111,6 +111,7 @@
                             <li><a href="#broad-carrier-support">Broad carrier support without invasive carrier access</a></li>
                             <li><a href="#lte-only-mode">LTE-only mode</a></li>
                             <li><a href="#private-screenshots">Private screenshots</a></li>
+                            <li><a href="#closed-device-identifier-leaks">Closed device identifier leaks</a></li>
                             <li><a href="#pin-scrambling">PIN scrambling</a></li>
                             <li><a href="#supports-longer-passwords">Supports longer
                             passwords</a></li>
@@ -509,6 +510,30 @@
                     it to be useful.</p>
                 </section>
 
+                <section id="closed-device-identifier-leaks">
+                    <h3><a href="#closed-device-identifier-leaks">Closed device identifier leaks</a></h3>
+
+                    <p>GrapheneOS fixes several prominent device identifier leaks bypassing
+                    Android's intention of apps not being able to uniquely identify a device. See
+                    our FAQ sections on <a href="/faq#hardware-identifiers">hardware
+                    identifiers</a> and <a href="/faq#non-hardware-identifiers">non-hardware
+                    identifiers</a> for more general information.</p>
+
+                    <p>Our <a href="/usage#exec-spawning">secure application spawning system</a>
+                    primarily exists to significantly improve protection against exploitation.
+                    However, it also improves privacy. On a device without our secure application
+                    spawning system, the secrets used for probabilistic exploit mitigations such
+                    as ASLR are usable as device identifiers persisting until reboot. This is an
+                    easy way to identify the device from apps in different profiles. It's a minor
+                    bonus of the feature and there are still plenty of side channels to identify
+                    devices across apps, but it fixes most of the known direct identifier
+                    leaks.</p>
+
+                    <p>We also eliminate several holes in preventing apps from accessing hardware
+                    identifiers including tightening up the restrictions for apps targeting legacy
+                    Android platform versions.</p>
+                </section>
+
                 <section id="pin-scrambling">
                     <h3><a href="#pin-scrambling">PIN scrambling</a></h3>
 
@@ -580,7 +605,6 @@
                     <p>This is an incomplete list of other GrapheneOS features.</p>
 
                     <ul>
-                        <li>Eliminates remaining holes for apps to access hardware-based identifiers</li>
                         <li>Low-level improvements to the <a href="/faq#encryption">filesystem-based
                         full disk encryption</a> used on modern Android</li>
                         <li>Option to enable automatically rebooting the device when no profile has
