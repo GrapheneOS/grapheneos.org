@@ -106,10 +106,6 @@
                             <li><a href="#sandboxed-google-play">Sandboxed Google Play</a></li>
                             <li><a href="#network-permission-toggle">Network permission toggle</a></li>
                             <li><a href="#sensors-permission-toggle">Sensors permission toggle</a></li>
-                            <li><a href="#location-data-access-indicator">Location data access
-                            indicator</a></li>
-                            <li><a href="#user-installed-apps-can-be-disabled">User installed apps
-                            can be disabled</a></li>
                             <li><a href="#broad-carrier-support">Broad carrier support without invasive carrier access</a></li>
                             <li><a href="#lte-only-mode">LTE-only mode</a></li>
                             <li><a href="#wifi-privacy">Wi-Fi privacy</a></li>
@@ -138,6 +134,10 @@
                             <li><a href="#grapheneos-camera">GrapheneOS Camera</a></li>
                             <li><a href="#grapheneos-pdf-viewer">GrapheneOS PDF Viewer</a></li>
                             <li><a href="#encrypted-backups">Encrypted backups</a></li>
+                            <li><a href="#location-data-access-indicator">Location data access
+                            indicator</a></li>
+                            <li><a href="#user-installed-apps-can-be-disabled">User installed apps
+                            can be disabled</a></li>
                             <li><a href="#other-features">Other features</a></li>
                         </ul>
                     </li>
@@ -460,37 +460,6 @@
                     default.</p>
                 </section>
 
-                <section id="location-data-access-indicator">
-                    <h3><a href="#location-data-access-indicator">Location data access indicator</a></h3>
-
-                    <p>GrapheneOS enables the privacy indicator for location data access in
-                    addition to the standard Android camera and microphone indicators. This shows
-                    an indicator when an app the user has granted permission to access location
-                    requests location data. We also resolve various UX issues with this feature as
-                    it currently exists in AOSP to get it into a highly usable state.</p>
-
-                    <p>The indicator works the same way as the Camera and Microphone ones, showing
-                    a bright green icon when location access occurs which then gets minimized to a
-                    small bright green dot when the quick settings tray isn't currently opened.
-                    Android 12 already includes Location with the other standard runtime
-                    permissions in the privacy dashboard for viewing the history.</p>
-
-                    <p>This will likely become a standard feature in Android 13 at which point it
-                    will be removed from this page.</p>
-                </section>
-
-                <section id="user-installed-apps-can-be-disabled">
-                    <h3><a href="#user-installed-apps-can-be-disabled">User installed apps can be disabled</a></h3>
-
-                    <p>GrapheneOS adds support for disabling user installed apps instead of only
-                    being able to disable system apps. This allows users to completely prevent one
-                    of the apps they've installed from being able to run without being forced to
-                    uninstall it and lose their app data. This is much stricter than the standard
-                    force stop feature which only prevents an app from starting itself and the app
-                    will start running again as soon as another app tries to open an activity or
-                    service it provides.</p>
-                </section>
-
                 <section id="broad-carrier-support">
                     <h3><a href="#broad-carrier-support">Broad carrier support without invasive carrier access</a></h3>
 
@@ -783,6 +752,37 @@
                     or approach. For now, this is the best available option so we're including it
                     to give people encrypted backup support. We've made several security fixes to
                     work around upstream issues with the project.</p>
+                </section>
+
+                <section id="location-data-access-indicator">
+                    <h3><a href="#location-data-access-indicator">Location data access indicator</a></h3>
+
+                    <p>GrapheneOS enables the privacy indicator for location data access in
+                    addition to the standard Android camera and microphone indicators. This shows
+                    an indicator when an app the user has granted permission to access location
+                    requests location data. We also resolve various UX issues with this feature as
+                    it currently exists in AOSP to get it into a highly usable state.</p>
+
+                    <p>The indicator works the same way as the Camera and Microphone ones, showing
+                    a bright green icon when location access occurs which then gets minimized to a
+                    small bright green dot when the quick settings tray isn't currently opened.
+                    Android 12 already includes Location with the other standard runtime
+                    permissions in the privacy dashboard for viewing the history.</p>
+
+                    <p>This will likely become a standard feature in Android 13 at which point it
+                    will be removed from this page.</p>
+                </section>
+
+                <section id="user-installed-apps-can-be-disabled">
+                    <h3><a href="#user-installed-apps-can-be-disabled">User installed apps can be disabled</a></h3>
+
+                    <p>GrapheneOS adds support for disabling user installed apps instead of only
+                    being able to disable system apps. This allows users to completely prevent one
+                    of the apps they've installed from being able to run without being forced to
+                    uninstall it and lose their app data. This is much stricter than the standard
+                    force stop feature which only prevents an app from starting itself and the app
+                    will start running again as soon as another app tries to open an activity or
+                    service it provides.</p>
                 </section>
 
                 <section id="other-features">
