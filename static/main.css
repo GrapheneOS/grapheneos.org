@@ -11,6 +11,8 @@ body {
     min-height: 100vh;
     min-height: -webkit-fill-available; /* replace with stretch when standardized */
     font-family: Roboto, sans-serif;
+    line-height: 1.5;
+    letter-spacing: 0.009375rem;
     background-color: #fafafa; /* grey50 */
     color: rgba(0 0 0 / 87%); /* 87% black */
     margin: 0;
@@ -230,6 +232,7 @@ main.normalize {
 
 .hero h1 {
     margin: 0;
+    line-height: 1;
 }
 
 .device-img {

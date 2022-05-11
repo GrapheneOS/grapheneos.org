@@ -60,7 +60,7 @@
                     <li><a href="#grapheneos.org">GrapheneOS website</a></li>
                     <li><a href="#staging.grapheneos.org">Staging GrapheneOS website</a></li>
                     <li><a href="#releases.grapheneos.org">GrapheneOS release servers</a></li>
-                    <li><a href="#grapheneos.network">GrapheneOS connectivity check / time servers</a></li>
+                    <li><a href="#grapheneos.network">GrapheneOS network servers</a></li>
                     <li><a href="#mail.grapheneos.org">GrapheneOS mail server</a></li>
                     <li><a href="#matrix.grapheneos.org">GrapheneOS Matrix server</a></li>
                     <li><a href="#ns1.grapheneos.org">GrapheneOS DNS servers</a></li>
@@ -187,6 +187,10 @@
             <section id="releases.grapheneos.org">
                 <h2><a href="#releases.grapheneos.org">GrapheneOS release servers</a></h2>
 
+                <p>These are the static file servers for GrapheneOS releases and our app
+                repository. These are used by the releases page and web installer along with the
+                System Updater and Apps (app repository client) within the OS.</p>
+
                 <ul>
                     <li><a href="https://github.com/GrapheneOS/releases.grapheneos.org">Repository</a></li>
                     <li><a href="https://github.com/GrapheneOS/releases.grapheneos.org/issues">Issue tracker</a></li>
@@ -243,7 +247,12 @@
             </section>
 
             <section id="grapheneos.network">
-                <h2><a href="#grapheneos.network">GrapheneOS connectivity check / time servers</a></h2>
+                <h2><a href="#grapheneos.network">GrapheneOS network servers</a></h2>
+
+                <p>These are the default servers used by GrapheneOS for connectivity checks,
+                secure network time, attestation key provisioning and Predicted Satellite Data
+                Service (PSDS). These either serve empty responses or provide reverse proxies to
+                other services.</p>
 
                 <ul>
                     <li><a href="https://github.com/GrapheneOS/grapheneos.network">Repository</a></li>
@@ -273,6 +282,8 @@
                     <li>connectivity.grapheneos.org (legacy)</li>
                     <li>mta-sts.grapheneos.network</li>
                     <li>mta-sts.grapheneos.online</li>
+                    <li>google.psds.grapheneos.org</li>
+                    <li>remoteprovisioning.grapheneos.org</li>
                     <li>time.grapheneos.org</li>
                 </ul>
 

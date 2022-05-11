@@ -135,6 +135,7 @@
                 <ul>
                     <li>Windows 10</li>
                     <li>Windows 11</li>
+                    <li>macOS Catalina</li>
                     <li>macOS Big Sur</li>
                     <li>macOS Monterey</li>
                     <li>Arch Linux</li>
@@ -234,21 +235,21 @@
                     Ubuntu:</p>
 
                     <pre>sudo apt install libarchive-tools
-curl -O https://dl.google.com/android/repository/platform-tools_r31.0.3-linux.zip
-echo 'e6cb61b92b5669ed6fd9645fad836d8f888321cd3098b75588a54679c204b7dc  platform-tools_r31.0.3-linux.zip' | sha256sum -c
-bsdtar xvf platform-tools_r31.0.3-linux.zip</pre>
+curl -O https://dl.google.com/android/repository/platform-tools_r33.0.1-linux.zip
+echo 'a339548918c3ab31c4d88416c21cee753bd942040540216c06e640f4b6db3ae2  platform-tools_r33.0.1-linux.zip' | sha256sum -c
+bsdtar xvf platform-tools_r33.0.1-linux.zip</pre>
 
                     <p>To download, verify and extract the standalone platform-tools on macOS:</p>
 
-                    <pre>curl -O https://dl.google.com/android/repository/e8b2b4cbe47c728c1e54c5f524440b52d4e1a33c.platform-tools_r31.0.3-darwin.zip
-echo 'SHA256 (e8b2b4cbe47c728c1e54c5f524440b52d4e1a33c.platform-tools_r31.0.3-darwin.zip) = 773c08cfa31cec1bb4568ce5b374366e6310a5ffc21875024604a0f65bc831b1' | shasum -c
-tar xvf e8b2b4cbe47c728c1e54c5f524440b52d4e1a33c.platform-tools_r31.0.3-darwin.zip</pre>
+                    <pre>curl -O https://dl.google.com/android/repository/platform-tools_r33.0.1-darwin.zip
+echo 'SHA256 (platform-tools_r33.0.1-darwin.zip) = 7b2acfb3ae02aff2cd679d9df9c125d46543d0db2e95b6b249c25ec6160fddf0' | shasum -c
+tar xvf platform-tools_r33.0.1-darwin.zip</pre>
 
                     <p>To download, verify and extract the standalone platform-tools on Windows:</p>
 
-                    <pre>curl -O https://dl.google.com/android/repository/platform-tools_r31.0.3-windows.zip
-(Get-FileHash platform-tools_r31.0.3-windows.zip).hash -eq "0f4b8fdd26af2c3733539d6eebb3c2ed499ea1d4bb1f4e0ecc2d6016961a6e24"
-tar xvf platform-tools_r31.0.3-windows.zip</pre>
+                    <pre>curl -O https://dl.google.com/android/repository/platform-tools_r33.0.1-windows.zip
+(Get-FileHash platform-tools_r33.0.1-windows.zip).hash -eq "c1f02d42ea24ef4ff2a405ae7370e764ef4546f9b3e4520f5571a00ed5012c42"
+tar xvf platform-tools_r33.0.1-windows.zip</pre>
 
                     <p>Next, add the tools to your <code>PATH</code> in the current shell so they can be
                     used without referencing them by file path, enabling usage by the flashing script.</p>
@@ -274,7 +275,7 @@ tar xvf platform-tools_r31.0.3-windows.zip</pre>
                 <p>Example of the output after following the instructions above for the
                 standalone platform-tools:</p>
 
-                <pre>fastboot version 31.0.3-7562133
+                <pre>fastboot version 33.0.1-8253317
 Installed as /home/username/platform-tools/fastboot</pre>
             </section>
 

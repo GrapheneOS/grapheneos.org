@@ -209,6 +209,10 @@
                     improvements. We strongly recommend buying one of these latest generation
                     devices.</p>
 
+                    <p>The Pixel 6a will be available in the near future and will be supported by
+                    GrapheneOS shortly after release. If you want a cheaper device instead of a
+                    flagship, consider waiting for the Pixel 6a.</p>
+
                     <p>The cheaper Pixel 6 has extremely competitive pricing for the flagship
                     level hardware especially with the guaranteed long term support. Pixel 6 Pro
                     has 50% more memory (12GB instead of 8GB), a higher end screen, a 3rd rear
@@ -218,7 +222,7 @@
 
                     <p>The Pixel 5a, Pixel 5 and Pixel 4a (5G) are 5th generation Pixels sharing
                     the same mid-range 2020 SoC. These are reasonable choices if for some reason
-                    you can't obtain a Pixel 6 or Pixel 6 Pro. These devices have around 2-3 years
+                    you can't obtain a Pixel 6 or Pixel 6 Pro. These devices have around 2 years
                     before their end-of-life date after they receive Android 14. It's likely but
                     not guaranteed that the Pixel 5 and 4a (5G) will have their full security
                     support extended to match the Pixel 5a since they use the same platform.</p>
@@ -535,10 +539,10 @@
                     details, so you can stop reading here if you only want an overview and actionable
                     advice (i.e. use profiles as identities not inherently tied to each other).</p>
 
-                    <p>Examples of the global OS configuration available to apps are configured
-                    locale, time zone, network country code, whether the dark theme is enabled and
-                    other similar global settings. Similar to extension and browser configuration
-                    / state being fingerprinted by web sites, an app could use a combination of
+                    <p>Examples of the global OS configuration available to apps are time zone,
+                    network country code and other similar global settings. Per-profile examples
+                    are dark mode and language. Similar to extension and browser configuration /
+                    state being fingerprinted by web sites, an app could use a combination of
                     these things in an attempt to identify the installation. All of these things
                     vary at runtime and can be changed, but some are fairly unlikely to change in
                     practice after the initial setup of the device such as the ones listed above.
@@ -576,8 +580,9 @@
                     collisions, although a device messing with apps could set it to the same value used in
                     another profile. The advertising ID is exposed via the Settings app and can be reset
                     to a new random value, unlike <code>ANDROID_ID</code> which remains the same for the
-                    lifetime of the profile, but apps can tie it the previous ID since they can detect
-                    that it changed via their own ID in their app data.</p>
+                    lifetime of the profile, but apps can tie it to the previous ID since they can detect
+                    that it changed via their own ID in their app data. The advertising ID can
+                    also now be disabled (zeroed).</p>
 
                     <p>Apps do not have access to user data by default and cannot ever access the data of
                     other apps without those apps going out of the way to share it with them. If apps are
@@ -714,19 +719,33 @@
                             time zone automatically" toggle.</p>
                         </li>
                         <li>
-                            <p>On devices with a Qualcomm baseband (which provides GPS), when location
-                            functionality is enabled and being used,
-                            <a href="https://en.wikipedia.org/wiki/GPS_signals#Almanac">GPS almanacs</a>
-                            are downloaded from https://xtrapath1.izatcloud.net/xtra3grc.bin,
-                            https://xtrapath2.izatcloud.net/xtra3grc.bin or
-                            https://xtrapath3.izatcloud.net/xtra3grc.bin which are currently (as of
-                            September 2020) hosted via Amazon Web Services. GrapheneOS has modified all
-                            references to these servers to use HTTPS rather than a mix of HTTP and HTTPS.
-                            No query / data is sent to the server.</p>
+                            <p>HTTPS connections are made to fetch
+                            <a href="https://en.wikipedia.org/wiki/GPS_signals#Almanac">PSDS
+                            information</a> to assist with satellite based location. These are
+                            static files and are downloaded automatically to improve location
+                            resolution speed and accuracy. No query or data is sent to these
+                            servers. These contain orbits and statuses of satellites, Earth
+                            environmental data and time adjustment information.</p>
 
-                            <p>We plan to offer the option to download these files from the GrapheneOS
-                            servers, but we'll retain the option to use the standard servers to blend in
-                            with other devices.</p>
+                            <p>On prior generation Pixels with a Qualcomm baseband (which provides
+                            GNSS), almanacs are downloaded from https://path1.xtracloud.net/xtra3grcej.bin
+                            https://path2.xtracloud.net/xtra3grcej.bin, https://path3.xtracloud.net/xtra3grcej.bin,
+                            https://path1.xtracloud.net/xtra3Mgrbeji.bin, https://path2.xtracloud.net/xtra3Mgrbeji.bin and
+                            https://path3.xtracloud.net/xtra3Mgrbeji.bin which currently (as of
+                            May 2022) are hosted via Amazon Web Services. We plan to offer the option to
+                            download these files from the GrapheneOS servers, but we'll retain the
+                            option to use the standard servers to blend in with other devices.</p>
+
+                            <p>On 6th generation Pixels with a Broadcom GNSS chip, by default
+                            almanacs are downloaded from
+                            https://google.psds.grapheneos.org/lto2.dat,
+                            https://google.psds.grapheneos.org/rto.dat and
+                            https://google.psds.grapheneos.org/rtistatus.dat which are the
+                            GrapheneOS proxy servers for the standard servers. Alternatively, the
+                            standard servers can be used which are https://agnss.goog/lto2.dat,
+                            https://agnss.goog/rto.dat and https://agnss.goog/rtistatus.dat which
+                            currently (as of May 2022) are hosted via Google Cloud Platform.</p>
+
                         </li>
                         <li>
                             <p>Connectivity checks designed to mimic a web browser user agent are performed
@@ -784,6 +803,19 @@
                             itself, not falling back to other networks when some don't have
                             internet access and not being able to delay scheduled jobs depending
                             on internet access until it becomes available.</p>
+                        </li>
+                        <li>
+                            <p>Connections are made to a server to provision attestation
+                            certificates for hardware-based attestation. GrapheneOS uses
+                            https://remoteprovisioning.grapheneos.org/ by default which is a
+                            reverse proxy to the https://remoteprovisioning.googleapis.com/
+                            service. Their service splits up the implementation of provisioning to
+                            preserve privacy, and our reverse proxy adds to that since it's unable
+                            to decrypt the provisioned keys.</p>
+
+                            <p>A setting is added at Settings ➔ Network &amp; Internet ➔
+                            Attestation key provisioning server for switching to directly using
+                            the Google service if you prefer.</p>
                         </li>
                         <li>
                             <p>DNS connectivity and functionality tests</p>
@@ -1155,16 +1187,19 @@
                     at boot or when the device is unlocked. You can configure this in Settings ➔
                     Security.</p>
 
-                    <p>Transferring files to an attached computer is done with MTP / PTP. After
-                    plugging in the phone to the computer, there will be a notification showing
-                    the current USB mode with charging as the default. Pressing the notification
-                    acts as a shortcut to Settings ➔ Connected devices ➔ USB. You can enable file
-                    transfer (MTP) or PTP with this menu. It will provide read/write access to the
-                    entire profile home directory, i.e. the top-level directory named after the
-                    device in the system file manager. Due to needing to trust the computer with
-                    coarse-grained access, we recommend transferring files with a flash drive or
-                    an app with end-to-end encryption such sending the files to yourself via an
-                    end-to-end encrypted messaging app like Element (Matrix).</p>
+                    <p>Transferring files to an attached computer is done with MTP / PTP. Users on
+                    a Mac computer will need to install
+                    <a href="https://www.android.com/filetransfer/">Android File Transfer</a> to be
+                    able to transfer files between macOS and Android. After plugging in the phone
+                    to the computer, there will be a notification showing the current USB mode with
+                    charging as the default. Pressing the notification acts as a shortcut to
+                    Settings ➔ Connected devices ➔ USB. You can enable file transfer (MTP) or PTP
+                    with this menu. It will provide read/write access to the entire profile home
+                    directory, i.e. the top-level directory named after the device in the system
+                    file manager which does not include internal app data. Due to needing to trust
+                    the computer with coarse-grained access, we recommend transferring files with a
+                    flash drive or by sending the files to yourself via an end-to-end encrypted
+                    messaging app like Element (Matrix).</p>
                 </article>
             </section>
 
@@ -1175,11 +1210,10 @@
                 and services. They won't ever be bundled with the OS. GrapheneOS includes
                 compatibility layer for sandboxed Play services to make user installed Play
                 services apps able to run as fully sandboxed, unprivileged apps. This is <a
-                href="https://grapheneos.org/usage#sandboxed-play-services">documented as
-                part of the usage guide</a>. Many apps work perfectly without Play services and
-                many others only depend on it for a subset of their functionality. Users can
-                choose to install Play services in specific profile(s) to control which apps can
-                use it.</p>
+                href="/usage#sandboxed-google-play">documented as part of the usage guide</a>.
+                Many apps work perfectly without Play services and many others only depend on it
+                for a subset of their functionality. Users can choose to install Play services in
+                specific profile(s) to control which apps can use it.</p>
 
                 <p>AOSP APIs not tied to Google but that are typically provided via Play services
                 will continue to be implemented using open source providers like the Seedvault
@@ -1234,13 +1268,13 @@
 
                 <p>There are drawbacks to bundling apps into the OS and few advantages in most cases.
                 Rather than GrapheneOS bundling a bunch of apps, it makes far more sense for users to
-                install their preferred apps via F-Droid, Aurora Store or other sources. GrapheneOS is
-                also working on designing and implementing a first party app update system for a first
-                party repository with higher robustness and security than the existing options. Rather
-                than bundling apps, it could just offer recommendations as part of an initial setup
-                wizard. Users have unique needs and preferences and there has to be a very compelling
-                reason to bundle additional apps with the OS. For example, it's useful to have the
-                Auditor app available before connecting to the internet (see the
+                install their preferred apps via F-Droid, Aurora Store or other sources. GrapheneOS
+                also has a first party app update system for a first party repository with higher
+                robustness and security than the existing options. Rather than bundling apps, it could
+                just offer recommendations as part of an initial setup wizard. Users have unique needs
+                and preferences and there has to be a very compelling reason to bundle additional apps
+                with the OS. For example, it's useful to have the Auditor app available before
+                connecting to the internet (see the
                 <a href="/install/web#verifying-installation">installation guide documentation on
                 this</a>).</p>
 
