@@ -35,6 +35,7 @@ for server in ${servers[@]}; do
 
     sed "s|/srv/grapheneos.org|$target|" nginx-tmp/nginx.conf > nginx-tmp/nginx.conf.root
     rsync -rptcv --fsync --chmod=D755,F644 --delete nginx-tmp/nginx.conf.root $remote:/etc/nginx/nginx.conf
+    rsync -rptcv --fsync --chmod=D755,F644 --delete nginx-tmp/mime.types $remote:/etc/nginx/mime.types
     rsync -rptcv --fsync --chmod=D755,F644 --delete nginx-tmp/snippets/ $remote:/etc/nginx/snippets
     ssh $remote nginx -s reload
 
