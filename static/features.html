@@ -414,20 +414,30 @@
                     permissions. Apps within the same profile can communicate with mutual consent and
                     it's no different for sandboxed Google Play.</p>
 
-                    <p>The core functionality and APIs are almost entirely supported already since
-                    GrapheneOS largely only has to coerce these apps into continuing to run without
-                    being able to use any of the usual invasive OS integration. A compatibility layer
-                    is also provided to support dynamically downloaded/loaded modules (dynamite
-                    modules). The compatibility layer will be gradually expanded and improved in order
-                    to get more of the Google Play functionality working.</p>
+                    <p>Sandboxed Google Play is close to being fully functional and provides near
+                    complete compatibility with the app ecosystem depending on Google Play. Only a
+                    small subset of privileged functionality which we haven't yet ported to
+                    different approaches with our compatibility layer is unavailable. Some
+                    functionality is inherently privileged and can't be provided as part of the
+                    compatibility layer.</p>
 
-                    <p>GrapheneOS provides a dedicated compatibility layer for Play Store app
-                    installation/updates/removal teaching it to use the standard unprivileged approach
-                    available to sandboxed apps. It prompts the user to permit it as an app source and
-                    then prompts for the initial app install/update or removal. It will use Android
-                    12's support for unattended updates when possible which means it can do unattended
-                    updates of modern (API 29+) apps where it was the installer for the currently
-                    installed version already.</p>
+                    <p>The vast majority of Play services functionality works perfectly including
+                    dynamically downloaded / updated modules (dynamite modules) and functionality
+                    provided by modular app components such as Google Play Games. By default,
+                    location requests are rerouted to a partial implementation of the Play
+                    geolocation service provided by GrapheneOS. You can disable rerouting and use
+                    the full Play services geolocation service instead.</p>
+
+                    <p>Our compatibility layer includes full support for the Play Store. Play
+                    Store services are fully available including in-app purchases, Play Asset
+                    Delivery, Play Feature Delivery and app / content license checks. It can
+                    install, update and uninstall apps with the standard approach requiring that
+                    the user authorizes it as an app source and consents to each action. It will
+                    use the standard Android 12+ unattended update feature to do automatic updates
+                    for apps where it was the last installer. Unattended updates by sandboxed apps
+                    are throttled and it can hit the limit when installing batches of updates and
+                    request consent. We plan to improve this in the future by teaching it to try
+                    an unattended update again after a short wait.</p>
 
                     <p>See the <a href="/usage#sandboxed-google-play-installation">usage guide
                     section on sandboxed Google Play</a> for instructions.</p>
