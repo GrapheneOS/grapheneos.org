@@ -532,6 +532,11 @@
                     <p>Changes since the 2022051100 release:</p>
 
                     <ul>
+                        <li>Sandboxed Google Play compatibility layer: improve compatibility with the Nearby Share feature</li>
+                        <li>Sandboxed Google Play compatibility layer: add non-privileged approach for bringing apps out of standby to avoid delays for FCM and other features</li>
+                        <li>Sandboxed Google Play compatibility layer: extend compatibility layer to support making the Google Search app work as a regular sandboxed app</li>
+                        <li>Sandboxed Google Play compatibility layer: generic telephony compatibility improvement</li>
+                        <li>Sandboxed Google Play compatibility layer: add support for Play Store in Direct Boot mode</li>
                         <li>add indicator exemption for Default Print Service since the nearby device access is considered location access but it doesn't make sense to show this for a core OS component only using the access internally</li>
                         <li>add toggle for disallowing a user from installing apps from unknown sources which will become increasingly useful as we flesh out our app repository</li>
                         <li>Messaging: fix notification sounds in secondary users (upstream AOSP bug)</li>
