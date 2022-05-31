@@ -534,6 +534,7 @@
 
                     <ul>
                         <li>extend Network/Sensors permission handling for legacy apps not targeting Android 6 or above (API 23) to resolve a UI issue where the user choosing to grant the Network/Sensors permissions via the legacy permission review interface doesn't appear in the Settings app info page</li>
+                        <li>Gallery: use date added as a fallback for sort order when date taken is unset which is particularly important on GrapheneOS due to GrapheneOS Camera and GrapheneOS screenshots not including EXIF timestamps or other sensitive metadata by default</li>
                         <li>Sandboxed Google Play compatibility layer: stub out reads of privileged settings values to avoid security exceptions</li>
                         <li>Sandboxed Google Play compatibility layer: stub out privileged media session management functionality to avoid security exceptions</li>
                         <li>Sandboxed Google Play compatibility layer: simplify implementation of many shims and remove obsolete shims
