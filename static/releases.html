@@ -533,13 +533,21 @@
                     <p>Changes since the 2022052500 release:</p>
 
                     <ul>
+                        <li>Sandboxed Google Play compatibility layer: stub out reads of privileged settings values to avoid security exceptions</li>
+                        <li>Sandboxed Google Play compatibility layer: stub out privileged media session management functionality to avoid security exceptions</li>
+                        <li>Sandboxed Google Play compatibility layer: simplify implementation of many shims and remove obsolete shims
+                        <li>Sandboxed Google Play compatibility layer: simplify implementation of adding the standard unprivileged package permissions as requested permissions for the Play Store</li>
+                        <li>Sandboxed Google Play compatibility layer: improve compatibility with Google Search app</li>
                         <li>Contacts: don't prompt to add account when creating a contact</li>
                         <li>Contacts: use common intent for getting directions instead of opening a Google Maps URL</li>
                         <li>Messaging: backport change to allow selecting text inside the selected message</li>
+                        <li>Vanadium: update Chromium base to 102.0.5005.78</li>
+                        <li>fix upstream SMS/MMS database upgrade issue (meant to be shipped in a previous GrapheneOS release)</li>
+                        <li>backport fix for unnecessary wake lock in telephony service (meant to be shipped in a previous GrapheneOS release)</li>
+                        <li>backport fix for crash in telephony service with null subscription display name (meant to be shipped in a previous GrapheneOS release)</li>
                         <li>Camera: update to <a href="https://github.com/GrapheneOS/Camera/releases/tag/41">version 41</a></li>
                         <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/48">version 48</a></li>
                         <li>Apps: update to <a href="https://github.com/GrapheneOS/Apps/releases/tag/7">version 7</a></li>
-                        <li>Vanadium: update Chromium base to 102.0.5005.78</li>
                     </ul>
                 </article>
                 -->
@@ -881,7 +889,7 @@
                         <li>Sandboxed Google Play compatibility layer (GmsCompat): fix Google Location Accuracy state check</li>
                         <li>Pixel 3, Pixel 3 XL: remove leftover upstream iorapd testing prop</li>
                         <li>adevtool: fix hang when there are existing files to overwrite</li>
-                        <li>fix SMS/MMS database upgrade issue</li>
+                        <li>fix upstream SMS/MMS database upgrade issue</li>
                         <li>backport fix for unnecessary wake lock in telephony service</li>
                         <li>backport fix for crash in telephony service with null subscription display name</li>
                         <li>backport Wi-Fi APEX module fix to improve robustness when chip reconfiguration fails</li>
