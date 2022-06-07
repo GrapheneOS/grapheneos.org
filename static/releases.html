@@ -548,6 +548,7 @@
                         <li>add indicator exemption for Fused Location Provider which is part of the OS location implementation wrapping the GNSS and Network location provides into a Fused provider using the best available data (GrapheneOS does not have an OS Network Location provider so it just wraps GNSS)</li>
                         <li>remove unused android-prepare-vendor repository from the main branch (kept in legacy device branches)</li>
                         <li>hardened_malloc: remove workarounds for camera service bugs for the Qualcomm SoC generation used by 3rd generation Pixels (kept in legacy device branches)</li>
+                        <li>kernel (Pixel 4, Pixel 4 XL, Pixel 4a): drop IPv6 privacy address fix now that upstream has backported IPv6 temporary address (RFC4941) support as a replacement which we already did for 5th generation Pixels (implemented in the baseline kernel.org LTS for 6th generation)</li>
                     </ul>
                 </article>
                 -->
