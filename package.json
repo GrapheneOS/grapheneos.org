@@ -4,7 +4,7 @@
     "eslint": "^8.17.0",
     "html-minifier": "^4.0.0",
     "stylelint": "^14.9.0",
-    "stylelint-config-standard": "^25.0.0",
+    "stylelint-config-standard": "^26.0.0",
     "terser": "^5.14.0"
   }
 }
