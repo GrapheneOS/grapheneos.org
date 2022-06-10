@@ -62,6 +62,7 @@
                     <li><a href="#releases.grapheneos.org">GrapheneOS release servers</a></li>
                     <li><a href="#grapheneos.network">GrapheneOS network servers</a></li>
                     <li><a href="#mail.grapheneos.org">GrapheneOS mail server</a></li>
+                    <li><a href="#discuss.grapheneos.org">GrapheneOS discussion forum server</a></li>
                     <li><a href="#matrix.grapheneos.org">GrapheneOS Matrix server</a></li>
                     <li><a href="#ns1.grapheneos.org">GrapheneOS DNS servers</a></li>
                     <li><a href="#staging.ns1.grapheneos.org">Staging GrapheneOS DNS server</a></li>
@@ -345,6 +346,46 @@
                     <li>25 smtp - DANE TLSA</li>
                     <li>465 submissions - AUTH only, DANE TLSA</li>
                     <li>993 imaps - DANE TLSA</li>
+                </ul>
+            </section>
+
+            <section id="discuss.grapheneos.org">
+                <h2><a href="#discuss.grapheneos.org">GrapheneOS discussion forum server</a></h2>
+
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/discuss.grapheneos.org">Repository</a></li>
+                    <li><a href="https://github.com/GrapheneOS/discuss.grapheneos.org/issues">Issue tracker</a></li>
+                </ul>
+
+                <p>Specs:</p>
+
+                <ul>
+                    <li>OVH VPS vps2020-value-1-2-40</li>
+                    <li>1 core</li>
+                    <li>2 GB memory</li>
+                    <li>40 GB NVMe SSD storage</li>
+                    <li>250 Mbit/s bandwidth</li>
+                </ul>
+
+                <p>Domains:</p>
+
+                <ul>
+                    <li>discuss.grapheneos.org</li>
+                </ul>
+
+                <p>IPs:</p>
+
+                <ul>
+                    <li>51.161.11.34 — os-bhs6</li>
+                    <li>2607:5300:205:200::3df — os-bhs6</li>
+                </ul>
+
+                <p>Ports:</p>
+
+                <ul>
+                    <li>22 ssh - no passwords, SSHFP</li>
+                    <li>80 http - HTTPS redirect only</li>
+                    <li>443 https - static file server and reverse proxy to Flarum</li>
                 </ul>
             </section>
 
