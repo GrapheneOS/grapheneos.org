@@ -409,75 +409,68 @@
             <section id="web-browsing">
                 <h2><a href="#web-browsing">Web browsing</a></h2>
 
-                <p>GrapheneOS includes a Vanadium subproject providing privacy and security enhanced
-                releases of Chromium. Vanadium is both the user-facing browser included in the OS and
-                the provider of the WebView used by other apps to render web content. The WebView is
-                the browser engine used by the vast majority of web browsers and nearly all other apps
-                embedding web content or using web technologies for other uses.</p>
+                <p>GrapheneOS includes our Vanadium subproject providing privacy and security
+                enhanced releases of Chromium. Vanadium is both the user-facing browser included
+                in the OS and the provider of the WebView used by other apps to render web
+                content. The WebView is the browser engine used by nearly all other apps embedding
+                web content or using web technologies for other uses. It's also used by many minor
+                web browsers not forking Chromium as a whole. These apps using the WebView benefit
+                from a subset of the Vanadium hardening.</p>
 
-                <p>Using Vanadium is highly recommended. Bromite is a solid alternative and is the
-                only other browser we recommend. Bromite provides integrated ad-blocking and more
-                advanced anti-fingerprinting. For now, Vanadium is more focused on security hardening
-                and Bromite is more focused on anti-fingerprinting. The projects are collaborating
-                together and will likely converge to providing more of the same features. Vanadium
-                will be providing content filtering and anti-fingerprinting, but it needs to be done
-                in a way that meets the standards of the project, which takes time.</p>
+                <p>Vanadium was previously primarily focused on security hardening but we plan on
+                adding assorted privacy and usability features. In the near future, we plan to add
+                support for always incognito mode, content filtering (ad blocking, etc.), improved
+                state partitioning, backup/restore, native autofill and many other features.</p>
 
-                <p>Vanadium is designed for use on GrapheneOS and does not duplicate the OS privacy
-                and security features such as the hardened malloc implementation. This leads to some
-                of the differences from Bromite, such as relying on OS support for encrypted DNS
-                rather than enabling Chromium's DNS-over-HTTPS support.</p>
+                <p>Chromium-based browsers like Vanadium provide the strongest sandbox
+                implementation, leagues ahead of the alternatives. It is much harder to escape
+                from the sandbox and it provides much more than acting as a barrier to
+                compromising the rest of the OS. Site isolation enforces security boundaries
+                around each site using the sandbox by placing each site into an isolated sandbox.
+                It required a huge overhaul of the browser since it has to enforce these rules on
+                all the IPC APIs. Site isolation is important even without a compromise, due to
+                side channels. Browsers without site isolation are very vulnerable to attacks like
+                Spectre. On mobile, due to the lack of memory available to apps, there are
+                different modes for site isolation. Vanadium turns on strict site isolation,
+                matching Chromium on the desktop, along with strict origin isolation.</p>
 
-                <p>Chromium-based browsers like Vanadium and Bromite provide the strongest sandbox
-                implementation, leagues ahead of the alternatives. It is much harder to escape from
-                the sandbox and it provides much more than acting as a barrier to compromising the
-                rest of the OS. Site isolation enforces security boundaries around each site using the
-                sandbox by placing each site into an isolated sandbox. It required a huge overhaul of
-                the browser since it has to enforce these rules on all the IPC APIs. Site isolation is
-                important even without a compromise, due to side channels. Browsers without site
-                isolation are very vulnerable to attacks like Spectre. On mobile, due to the lack of
-                memory available to apps, there are different modes for site isolation. Vanadium turns
-                on strict site isolation, matching Chromium on the desktop. Bromite enables strict
-                site isolation on high memory devices, including all the devices that are officially
-                supported by GrapheneOS.</p>
+                <p>Chromium has decent exploit mitigations, unlike the available alternatives.
+                This is improved upon in Vanadium by enabling further mitigations, including those
+                developed upstream but not yet fully enabled due to code size, memory usage or
+                performance. For example, it enables type-based CFI like Chromium on the desktop,
+                uses a stronger SSP configuration, zero initializes variables by default, etc.
+                Some of the mitigations are inherited from the OS itself, which also applies to
+                other browsers, at least if they don't do things to break them.</p>
 
-                <p>Chromium has decent exploit mitigations, unlike the available alternatives. This is
-                improved upon in Vanadium by enabling further mitigations, including those developed
-                upstream but not yet fully enabled due to code size, memory usage or performance. For
-                example, it enables type-based CFI like Chromium on the desktop, uses a stronger SSP
-                configuration, zero initializes variables by default, etc. Some of the mitigations are
-                inherited from the OS itself, which also applies to other browsers, at least if they
-                don't do things to break them.</p>
-
-                <p>We recommend against trying to achieve browser privacy and security through piling
-                on browser extensions and modifications. Most privacy features for browsers are
-                privacy theater without a clear threat model and these features often reduce privacy
-                by aiding fingerprinting and adding more state shared between sites. Every change you
-                make results in you standing out from the crowd and generally provides more ways to
-                track you. Enumerating badness via content filtering is not a viable approach to
-                achieving decent privacy, just as AntiVirus isn't a viable way to achieving decent
-                security. These are losing battles, and are at best a stopgap reducing exposure while
-                waiting for real privacy and security features.</p>
+                <p>We recommend against trying to achieve browser privacy and security through
+                piling on browser extensions and modifications. Most privacy features for browsers
+                are privacy theater without a clear threat model and these features often reduce
+                privacy by aiding fingerprinting and adding more state shared between sites. Every
+                change you make results in you standing out from the crowd and generally provides
+                more ways to track you. Enumerating badness via content filtering is not a viable
+                approach to achieving decent privacy, just as AntiVirus isn't a viable way to
+                achieving decent security. These are losing battles, and are at best a stopgap
+                reducing exposure while waiting for real privacy and security features.</p>
 
                 <p>Vanadium will be following the school of thought where hiding the IP address
-                through Tor or a trusted VPN shared between many users is the essential baseline, with
-                the browser partitioning state based on site and mitigating fingerprinting to avoid
-                that being trivially bypassed. The Tor Browser's approach is the only one with any
-                real potential, however flawed the current implementation may be. This work is
-                currently in a very early stage and it is largely being implemented upstream with the
-                strongest available implementation of state partitioning. Chromium is using Network
-                Isolation Keys to divide up connection pools, caches and other state based on site and
-                this will be the foundation for privacy. Chromium itself aims to prevent tracking
-                through mechanisms other than cookies, greatly narrowing the scope downstream work
-                needs to cover. Bromite is doing a lot of work in these areas and Vanadium will be
-                benefiting from that along with this upstream work. The focus is currently on research
-                since we don't see much benefit in deploying bits and pieces of this before everything
-                is ready to come together. At the moment, the only browser with any semblance of
-                privacy is the Tor Browser but there are many ways to bypass the anti-fingerprinting
-                and state partitioning. The Tor Browser's security is weak which makes the privacy
-                protection weak. The need to avoid diversity (fingerprinting) creates a monoculture
-                for the most interesting targets. This needs to change, especially since Tor itself
-                makes people into much more of a target (both locally and by the exit nodes).</p>
+                through Tor or a trusted VPN shared between many users is the essential baseline,
+                with the browser partitioning state based on site and mitigating fingerprinting to
+                avoid that being trivially bypassed. The Tor Browser's approach is the only one
+                with any real potential, however flawed the current implementation may be. This
+                work is currently in a very early stage and it is largely being implemented
+                upstream with the strongest available implementation of state partitioning.
+                Chromium is using Network Isolation Keys to divide up connection pools, caches and
+                other state based on site and this will be the foundation for privacy. Chromium
+                itself aims to prevent tracking through mechanisms other than cookies, greatly
+                narrowing the scope downstream work needs to cover. The focus is currently on
+                research since we don't see much benefit in deploying bits and pieces of this
+                before everything is ready to come together. At the moment, the only browser with
+                any semblance of privacy is the Tor Browser but there are many ways to bypass the
+                anti-fingerprinting and state partitioning. The Tor Browser's security is weak
+                which makes the privacy protection weak. The need to avoid diversity
+                (fingerprinting) creates a monoculture for the most interesting targets. This
+                needs to change, especially since Tor itself makes people into much more of a
+                target (both locally and by the exit nodes).</p>
 
                 <p>WebView-based browsers use the hardened Vanadium rendering engine, but they can't
                 offer as much privacy and control due to being limited to the capabilities supported
@@ -495,15 +488,16 @@
                 used alongside the Chromium-based WebView rather than instead of Chromium, which means
                 having the remote attack surface of two separate browser engines instead of only one.
                 Firefox / Gecko also bypass or cripple a fair bit of the upstream and GrapheneOS
-                hardening work for apps. Worst of all, Firefox runs as a single process on mobile and
-                has no sandbox beyond the OS sandbox. This is despite the fact that Chromium semantic
-                sandbox layer on Android is implemented via the OS <code>isolatedProcess</code>
-                feature, which is a very easy to use boolean property for app service processes to
-                provide strong isolation with only the ability to communicate with the app running
-                them via the standard service API. Even in the desktop version, Firefox's sandbox is
-                still substantially weaker (especially on Linux, where it can hardly be considered a
-                sandbox at all) and lacks support for isolating sites from each other rather than only
-                containing content as a whole.</p>
+                hardening work for apps. Worst of all, Firefox does not have internal sandboxing
+                on Android. This is despite the fact that Chromium semantic sandbox layer on
+                Android is implemented via the OS <code>isolatedProcess</code> feature, which is a
+                very easy to use boolean property for app service processes to provide strong
+                isolation with only the ability to communicate with the app running them via the
+                standard service API. Even in the desktop version, Firefox's sandbox is still
+                substantially weaker (especially on Linux) and lacks full support for isolating
+                sites from each other rather than only containing content as a whole. The sandbox
+                has been gradually improving on the desktop but it isn't happening for their
+                Android browser yet.</p>
             </section>
 
             <section id="camera">
