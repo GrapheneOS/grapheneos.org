@@ -24,6 +24,8 @@ RELEASES_BASE=${RELEASES_BASE:-https://releases.grapheneos.org}
 rm -rf nginx-tmp
 cp -a nginx nginx-tmp
 
+gixy nginx-tmp/nginx.conf
+
 rm -rf static-tmp
 cp -a static static-tmp
 rm -rf static-tmp/js/fastboot/{!(dist),dist/!(fastboot.min.mjs|fastboot.min.mjs.map|vendor)}
@@ -71,8 +73,6 @@ for device in ${devices[@]}; do
     done
 done
 sed -i "$replace" static-tmp/releases.html
-
-gixy nginx-tmp/nginx.conf
 
 xmllint --noout static-tmp/**/*.html
 validatornu --Werror --also-check-css --also-check-svg static-tmp/**/!(bimi).@(css|html|svg)
