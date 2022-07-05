@@ -699,7 +699,7 @@
                     the network is not currently occurring, the network is still untrustworthy and
                     information should not be sent unencrypted.</p>
 
-                    <p> Authenticated transport encryption such as HTTPS for web sites avoids trusting the
+                    <p>Authenticated transport encryption such as HTTPS for web sites avoids trusting the
                     cellular network. End-to-end encrypted protocols such as the Signal messaging protocol
                     also avoid trusting the servers. GrapheneOS uses authenticated encryption with modern
                     protocols, forward secrecy and strong cipher configurations for our services. We only
@@ -710,6 +710,14 @@
                     detect some forms of interception rather than dealing with the root of the problem
                     (unencrypted communications / data transfer) would be foolish and doomed to
                     failure.</p>
+
+                    <p>GrapheneOS does not add gimmicks without a proper threat model and
+                    rationale. We won't include flawed heuristics to guess when the cellular
+                    network should be trusted. These kinds of features provide a false sense of
+                    security and encourage unwarranted trust in cellular protocols and carrier
+                    networks as the default. These also trigger false positives causing
+                    unnecessary concern and panic. The correct approach is avoiding trusting the
+                    network as explained above.</p>
 
                     <p>Connecting to your carrier's network inherently depends on you identifying yourself to
                     it and anyone able to obtain administrative access. Activating airplane mode will
@@ -726,13 +734,6 @@
                     intended for attack surface reduction</a>. It should not be mistaken as a way to make
                     the cellular network into something that can be trusted.</p>
 
-                    <p>GrapheneOS does not add gimmicks without a proper threat model and rationale. We
-                    won't include flawed heuristics to guess when the cellular network should be trusted.
-                    These kinds of features provide a false sense of security and encourage unwarranted
-                    trust in cellular protocols and carrier networks as the default. These also trigger
-                    false positives causing unnecessary concern and panic. Make good use of authenticated
-                    encryption and airplane mode to avoid needing to depend on an insecure network.</p>
-
                     <p>Receiving a silent SMS is not a good indicator of being targeted by your cell
                     carrier, police or government because <em>anyone on the cell network can send
                     them</em> including yourself. Cellular triangulation will happen regardless of whether
@@ -742,6 +743,9 @@
                     alerts for silent SMS but rather would be ignored with the rest of the spam. Regardless,
                     sending texts or other data is not required or particularly useful to track devices
                     connected to a network for an adversary with the appropriate access.</p>
+
+                    <p>Airplane mode is the only way to avoid the cellular network tracking your
+                    device and works correctly on the devices we support.</p>
                 </article>
 
                 <article id="wifi-privacy">
