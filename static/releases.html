@@ -545,7 +545,7 @@
 
                     <ul>
                         <li>fix upstream Android bug in DeviceIdleJobsController which was preventing battery optimization exceptions from fully working for system apps and resulting in delays in some cases for the Messaging app and other system apps</li>
-                        <li>Pixel 6, Pixel 6 Pro: update GKI base to ASB-2022-07-05_12-5.10</li>
+                        <li>kernel (Pixel 6, Pixel 6 Pro): update GKI base to ASB-2022-07-05_12-5.10</li>
                         <li>respect user switchability for forwarded notification UI</li>
                         <li>kernel (Pixel 4, Pixel 4 XL, Pixel 4a): drop unnecessary NETLABEL feature</li>
                     </ul>
@@ -683,7 +683,7 @@
                         <li>full 2022-06-01 security patch level</li>
                         <li>full 2022-06-05 security patch level</li>
                         <li>rebased onto SQ3A.220605.009.B1 release, which is the third quarterly maintenance/feature release for Android 12</li>
-                        <li>Pixel 6, Pixel 6 Pro: update GKI base to ASB-2022-06-05_12-5.10</li>
+                        <li>kernel (Pixel 6, Pixel 6 Pro): update GKI base to ASB-2022-06-05_12-5.10</li>
                         <li>Sandboxed Google Play compatibility layer: remove obsolete shims and infrastructure</li>
                         <li>Camera: update to <a href="https://github.com/GrapheneOS/Camera/releases/tag/42">version 42</a></li>
                         <li>Camera: update to <a href="https://github.com/GrapheneOS/Camera/releases/tag/43">version 43</a></li>
@@ -819,7 +819,7 @@
                         <li>Sandboxed Google Play compatibility layer (GmsCompat): significantly improve compatibility of the default enabled geolocation API rerouting feature</li>
                         <li>remove timestamp from screenshot EXIF metadata by default and add a toggle to Settings ➔ Privacy for enabling it</li>
                         <li>work around slow unlock animation</li>
-                        <li>Pixel 6, Pixel 6 Pro: update GKI base to ASB-2022-05-05_12-5.10</li>
+                        <li>kernel (Pixel 6, Pixel 6 Pro): update GKI base to ASB-2022-05-05_12-5.10</li>
                         <li>Dialer: add fixes for Bluetooth audio call redirection and BLE devices</li>
                         <li>Settings: fix Wi-Fi timeout string issue in Settings search</li>
                         <li>Settings: add missing face unlock strings (used by the Pixel 4 and Pixel 4 XL but the fix is generic)</li>
@@ -1033,7 +1033,7 @@
                     <p>Changes since the 2022040400 release:</p>
 
                     <ul>
-                        <li>Pixel 6, Pixel 6 Pro: update GKI base to ASB-2022-04-05_12-5.10 to start using the latest Android 12 GKI as a base</li>
+                        <li>kernel (Pixel 6, Pixel 6 Pro): update GKI base to ASB-2022-04-05_12-5.10 to start using the latest Android 12 GKI as a base</li>
                         <li>Sandboxed Google Play compatibility layer: add additional compatibility shims to restore compatibility with the latest Google Play Games and to fix other issues</li>
                         <li>Sandboxed Google Play compatibility layer: restart GMS processes when permission gets granted since it has bad handling of being given permissions dynamically</li>
                         <li>Sandboxed Google Play compatibility layer: notify user when GMS needs an extra permission or a companion app</li>
@@ -1060,7 +1060,7 @@
                         <li>full 2022-04-01 security patch level</li>
                         <li>full 2022-04-05 security patch level</li>
                         <li>rebased onto SP2A.220405.004 release</li>
-                        <li>Pixel 6, Pixel 6 Pro: update GKI base to android12-5.10-2022-03_r1 from android12-5.10-2021-12_r8 for a bunch of upstream and downstream improvements (stock OS still uses android12-5.10-2021-12_r6 and is missing a bunch of important security fixes)</li>
+                        <li>kernel (Pixel 6, Pixel 6 Pro): update GKI base to android12-5.10-2022-03_r1 from android12-5.10-2021-12_r8 for a bunch of upstream and downstream improvements (stock OS still uses android12-5.10-2021-12_r6 and is missing a bunch of important security fixes)</li>
                         <li>Sandboxed Google Play compatibility layer: add additional compatibility shims to improve compatibility with recent Play services</li>
                         <li>Sandboxed Google Play compatibility layer: drop org.grapheneos.pdfviewer from blocked updates list since that app id is no longer being used</li>
                         <li>Sandboxed Google Play compatibility layer (GmsCompat): improve code quality and robustness</li>
@@ -1152,7 +1152,7 @@
                     <ul>
                         <li>Pixel 6, Pixel 6 Pro: full Pixel 2022-03-05 security patch level (Android 2022-03-05 security patch level was already provided early by GrapheneOS)</li>
                         <li>Pixel 6, Pixel 6 Pro: rebased onto SP2A.220305.013.A3 release</li>
-                        <li>Pixel 6, Pixel 6 Pro: update GKI base to android12-5.10-2021-12_r8 from the android12-5.10-2021-12_r6 version still used by the AOSP / stock Pixel OS March release for a few additional security fixes beyond the ones already backported early by GrapheneOS along with latency improvements under certain heavy real-time loads</li>
+                        <li>kernel (Pixel 6, Pixel 6 Pro): update GKI base to android12-5.10-2021-12_r8 from the android12-5.10-2021-12_r6 version still used by the AOSP / stock Pixel OS March release for a few additional security fixes beyond the ones already backported early by GrapheneOS along with latency improvements under certain heavy real-time loads</li>
                         <li>add eSIM activation support as an optional toggle available when using sandboxed Google Play in the Owner profile (note: regular apps including sandboxed Google Play do not have additional access in the Owner profile)</li>
                         <li>Sandboxed Google Play compatibility layer: expand PhenoTypeFlags workaround to all Play services clients</li>
                         <li>GmsCompat: call startForegroundService from the main thread to avoid potential issues</li>
