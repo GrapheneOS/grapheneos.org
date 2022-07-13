@@ -251,11 +251,14 @@
                 Media for legacy apps and Media for modern apps. For legacy apps, it gives access
                 to most of the user's home directory other than certain special areas. For modern
                 apps, it only gives access to files created by the app and indexed media. Media is
-                indexed if it's in a directory scope without a file called <code>.nomedia</code>.
-                You can see the indexed media collections via the categories for Photos, etc. in
-                the system file manager. These aren't directories themselves but rather all of the
-                indexed media from all directories in the user's home directory. These are not the
-                same thing as the standard top-level directories for Pictures, etc.</p>
+                indexed and placed into the standard media collections if it's in one of the
+                standard media directories without a file called <code>.nomedia</code> in the
+                directory hierarchy. Apps can also add their files to the media store index
+                themselves. You can see the indexed media collections via the categories for
+                Photos, etc. in the system file manager. These aren't directories themselves but
+                rather all of the indexed media from all directories in the user's home directory.
+                These are not the same thing as the standard top-level directories for Pictures,
+                etc.</p>
 
                 <p>Since the Storage permission became a limited Media permission for apps built
                 for modern Android, a separate "All files access" special access permission was
