@@ -106,6 +106,7 @@
                             <li><a href="#sandboxed-google-play">Sandboxed Google Play</a></li>
                             <li><a href="#network-permission-toggle">Network permission toggle</a></li>
                             <li><a href="#sensors-permission-toggle">Sensors permission toggle</a></li>
+                            <li><a href="#storage-scopes">Storage Scopes</a></li>
                             <li><a href="#broad-carrier-support">Broad carrier support without invasive carrier access</a></li>
                             <li><a href="#lte-only-mode">LTE-only mode</a></li>
                             <li><a href="#wifi-privacy">Wi-Fi privacy</a></li>
@@ -469,6 +470,21 @@
                     thermometer and any other sensors present on a given device. To avoid breaking
                     compatibility with Android apps, the added permission is enabled by
                     default.</p>
+                </section>
+
+                <section id="storage-scopes">
+                    <h3><a href="#storage-scopes">Storage Scopes</a></h3>
+
+                    <p>GrapheneOS provides Storage Scopes as a fully compatible alternative to the
+                    standard Android storage permissions. Instead of granting storage permissions,
+                    users can enable Storage Scopes to grant the requested permissions in a highly
+                    restricted mode where the app can create files/directories in the user's home
+                    directory but can only access the files it has created itself. Users can then
+                    optionally add files and directories as storage scopes to permit the app to
+                    access files created by other apps.</p>
+
+                    <p>For more details, see the <a href="/usage#storage-access">usage guide
+                    section on storage access</a>.</p>
                 </section>
 
                 <section id="broad-carrier-support">
