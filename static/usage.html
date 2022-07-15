@@ -226,58 +226,127 @@
 
                 <p>GrapheneOS inherits the same baseline approach to storage access as modern
                 Android and extends it with our Storage Scopes feature as a fully compatible
-                alternative to the standard Android storage permissions. This section provides a
-                brief high level overview of the standard approach to storage access primarily to
-                provide context for explaining Storage Scopes.</p>
+                alternative to standard Android storage permissions. This section provides an
+                overview of the standard approach to storage access primarily to provide context
+                for explaining Storage Scopes.</p>
 
-                <p>By default, Android apps can only access their own sandboxed storage (internal
-                storage) and their own scoped directory within the <code>Android/data</code>
-                directory in the user's home directory (external storage).</p>
+                <p>There are two types of app-accessible storage:</p>
 
-                <p>Android apps can open the system file picker interface to have the user store
-                or load one or more files/directories on their behalf. Using this approach gives
-                the user control over where files are stored in their home directory and which
-                files/directories can be used by the app. This is based on the Storage Access
-                Framework (SAF) introduced in Android 4.4. SAF allows the user to grant access to
-                the files/directories in their home directory, external drives and also app-based
-                storage providers such as network shares, cloud storage, an encrypted volume, an
-                external drive with a filesystem the OS doesn't support for external drives, etc.
+                <ul>
+                    <li>app-private ("internal") storage:
+                        <ul>
+                            <li>inaccessible to other apps</li>
+                            <li>doesn't require any permission for full access</li>
+                            <li>cleared when the app is uninstalled</li>
+                        </ul>
+                    </li>
+                    <li>shared ("external") storage:
+                        <ul>
+                            <li>shared with other apps</li>
+                            <li>access is regulated with permissions</li>
+                            <li>files persist after uninstallation</li>
+                        </ul>
+                        Android/data/ and Android/obb/ directories aren't considered to be parts
+                        of shared storage.
+                    </li>
+                </ul>
+
+                <p>For modern apps, access to the shared storage is controlled in the following way:</p>
+
+                <ul>
+                    <li>Without any storage permission, an app is allowed to:
+                        <ul>
+                            <li>create media files in standard directories (audio in Music/,
+                                Ringtones/, etc, images in Pictures/ and DCIM/, videos in DCIM/
+                                and Movies/)</li>
+                            <li>create files of any type (both media and non-media) in Documents/
+                                and Download/</li>
+                            <li>create new directories inside standard directories</li>
+                            <li>rename/delete files that were created by the app itself</li>
+                            <li>rename/delete directories if it can rename/delete all files within
+                                those directories</li>
+                        </ul>
+                    </li>
+                    <li>Media access permission ("Allow access to media only",
+                        <code>READ_EXTERNAL_STORAGE</code>) allows the app to read media files
+                        that were created by other apps. Non-media files remain invisible to it.</li>
+                    <li>Media management special access permission ("Allow app to manage media",
+                        <code>MANAGE_MEDIA</code>) allows the app to delete and to rename media
+                        files created by other apps.</li>
+                    <li>"All files access" special access permission (<code>MANAGE_EXTERNAL_STORAGE</code>)
+                        allows the app to read, create, rename and delete files and directories
+                        of any type in any directory of the shared storage (including the root
+                        directory).</li>
+                </ul>
+
+                <p>For legacy apps (those that target Android 9 or lower and those that target
+                Android 10 and request legacy storage mode), storage access permissions have
+                a different meaning:</p>
+                <ul>
+                    <li>Without a storage permission, app is not allowed any type of access to
+                        any files or directories inside the shared storage.</li>
+                    <li><code>READ_EXTERNAL_STORAGE</code> permission allows the app to read both
+                    media and non-media files in any directory.</li>
+                    <li><code>WRITE_EXTERNAL_STORAGE</code> permission allows the app to create,
+                    rename and delete files (of any type) and directories in any directory of
+                    shared storage (including the root directory).</li>
+                </ul>
+
+                <p>Additionally, both modern and legacy Android apps can open the system file
+                picker interface to have the user store or load one or more files/directories on
+                their behalf. This type of access doesn't require any of the permissions listed
+                above.
+                Using this approach gives the user control over where files are stored in their 
+                home directory and which files/directories can be used by the app. This is based on
+                the Storage Access Framework (SAF) introduced in Android 4.4. SAF allows the user 
+                to grant access to files/directories in their home directory, external drives
+                and also app-based storage providers such as network shares, cloud storage, an 
+                encrypted volume, an external drive with a filesystem the OS doesn't support for
+                external drives, etc.
                 This is the only way to use those app-based storage providers and modern Android
                 has removed the legacy approach for accessing external drives.</p>
 
-                <p>The more traditional approach to accessing files outside of the app's storage
-                directories is requesting storage permissions to obtain broad access to the user's
-                home directory. The traditional Storage permission toggle was renamed to Files and
-                Media for legacy apps and Media for modern apps. For legacy apps, it gives access
-                to most of the user's home directory other than certain special areas. For modern
-                apps, it only gives access to files created by the app and indexed media. Media is
-                indexed and placed into the standard media collections if it's in one of the
-                standard media directories without a file called <code>.nomedia</code> in the
-                directory hierarchy. Apps can also add their files to the media store index
-                themselves. You can see the indexed media collections via the categories for
-                Photos, etc. in the system file manager. These aren't directories themselves but
-                rather all of the indexed media from all directories in the user's home directory.
-                These are not the same thing as the standard top-level directories for Pictures,
-                etc.</p>
+                <h3>Storage Scopes</h3>
 
-                <p>Since the Storage permission became a limited Media permission for apps built
-                for modern Android, a separate "All files access" special access permission was
-                added for file management. As a special access permission, it can't be directly
-                requested via a dialog and is listed in a dedicated section rather than a toggle
-                with the other permissions. This gives full management access to nearly all of the
-                user's home directory.</p>
+                <p>GrapheneOS provides the Storage Scopes feature as a fully compatible alternative
+                to the standard Android storage permissions.
+                Storage Scopes can be enabled only if the app doesn't have any storage permission.
+                Enabling Storage Scopes makes the app assume that is has all of storage permissions
+                that were requested by it, despite not actually having any of them.</p>
 
-                <p>The media management special access permission can be granted to apps with the
-                Files and Media / Media permission or All files access in order to grant further
-                access beyond the home directory to media on connected storage devices.</p>
+                <p>This means that the app can't see any of the files that were created by other apps.
+                The app is still allowed to create files and directories, same as any other modern
+                app that doesn't have any storage access permission.</p>
 
-                <p>GrapheneOS provides Storage Scopes as a fully compatible alternative to the
-                standard Android storage permissions. Instead of granting storage permissions,
-                users can enable Storage Scopes to grant the requested permissions in a highly
-                restricted mode where the app can create files/directories in the user's home
-                directory but can only access the files it has created itself. Users can then
-                optionally add files and directories as storage scopes to permit the app to access
-                files created by other apps.</p>
+                <p>Apps that would normally use the legacy storage mode are switched to the
+                modern storage mode when Storage Scopes is enabled.</p>
+
+                <p>If the app requests the "All files access" permission (or is a legacy app
+                that requests <code>WRITE_EXTERNAL_STORAGE</code> permission), then the write
+                restrictions that are normally applied to apps that don't have a storage access
+                permission are relaxed to provide the same write access that the app would have if
+                it was granted the "All files access" permission.
+                This is done to ensure compatibility with apps that, for example, create a new
+                directory in the root of shared storage, or write a text file (eg lyrics.txt) to
+                the Music/ directory (normally, only audio files can be placed there).
+                No additional read access is granted to such apps, they still can see only their
+                own files.
+                </p>
+
+                <p>For all other apps, enabling Storage Scopes doesn't grant any additional
+                storage access beyond what a modern app that doesn't have any storage permission
+                already has.</p>
+
+                <p>Optionally, users can specify which of the files created by other apps the app
+                can access. Access can be granted to a specific file or to all files in
+                a directory. The standard SAF picker is used for this purpose in a special mode
+                where it shows only shared storage files/directories.</p>
+
+                <p>The most significant limitation of Storage Scopes is the fact that the app
+                will lose access to files that it created if it's uninstalled and then installed
+                again, same as any other app that doesn't have a storage access permission.
+                As a workaround, users can manually grant access to these files/directories via
+                SAF picker.</p>
             </section>
 
             <section id="accessibility">
