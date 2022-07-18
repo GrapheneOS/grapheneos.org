@@ -3,6 +3,10 @@
 set -o errexit -o nounset -o pipefail
 shopt -s dotglob extglob globstar
 
+if [[ ${GITHUB_ACTIONS:-false} != true ]]; then
+    source venv/bin/activate
+fi
+
 if [[ $# -eq 1 ]]; then
     fd=$1
 else
