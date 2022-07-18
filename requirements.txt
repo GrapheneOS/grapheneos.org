@@ -1,4 +1,9 @@
-lxml
-cssselect
+cached-property==1.5.2
+ConfigArgParse==1.5.3
+cssselect==1.1.0
 gixy==0.1.20
+Jinja2==3.1.2
+lxml==4.9.1
+MarkupSafe==2.1.1
 pyparsing==2.4.7
+six==1.16.0
