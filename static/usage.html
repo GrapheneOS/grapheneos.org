@@ -1027,11 +1027,17 @@
                     recommended for general purpose usage but you can install only GSF or only
                     GSF/GMS if you know it's all you need for what you want to use.</p>
 
-                    <p>After installing the apps, you should open the Play Store and press sign in
-                    to trigger initialization. Signing into an account is optional and it will
-                    work fine without it, but you do need to get it initialized and this is
-                    currently the best way to mimic the initialization done by the stock OS setup
-                    wizard.</p>
+                    <p>After installing Google Play, Play services needs to be initialized. Our
+                    recommended approach is to open the Play Store, press the sign in button and
+                    wait for the sign in page to load. Once the sign in page is loaded, it means
+                    Play services is finished initializing. You can leave the app without signing
+                    into an account. Signing into a Google account is only required if you want to
+                    use features depending on being signed into an account. For example, some apps
+                    use Google account authentication instead of their accounts having a username
+                    and password. The Play Store requires being signed into an account in order to
+                    install apps or use in-app purchases. This is still true even for an alternate
+                    frontend to the Play Store. Aurora Store still requires an account but fetches
+                    shared account credentials from Aurora Store's service by default.</p>
 
                     <p>You can obtain updates to these apps from our app repository client. Our
                     compatibility layer supports the Play Store updating itself and also Play
