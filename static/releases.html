@@ -549,6 +549,10 @@
                     <p>Changes since the 2022072000 release:</p>
 
                     <ul>
+                        <li>improve compatibility with apps when the Network toggle is disabled by pretending INTERNET is still granted as a permission for self checks of the permission</li>
+                        <li>Sandboxed Google Play compatibility layer: avoid crash in TelephonyManager#getCallState()</li>
+                        <li>Sandboxed Google Play compatibility layer: handle updating power allowlist in broadcast PendingIntents</li>
+                        <li>reorganize Storage Scopes implementation</li>
                         <li>do not forward notifications from foreground user</li>
                     </ul>
                 </article>
