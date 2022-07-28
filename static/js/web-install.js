@@ -146,7 +146,7 @@ const qualcommDevices = ["barbet", "redfin", "bramble", "sunfish", "coral", "fla
 
 const legacyQualcommDevices = ["sunfish", "coral", "flame", "bonito", "sargo", "crosshatch", "blueline"];
 
-const gs101Devices = ["raven", "oriole"];
+const gs101Devices = ["bluejay", "raven", "oriole"];
 
 async function getLatestRelease() {
     let product = await device.getVariable("product");
