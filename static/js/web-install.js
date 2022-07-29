@@ -140,7 +140,7 @@ async function unlockBootloader(setProgress) {
     return "Bootloader unlocked.";
 }
 
-const supportedDevices = ["raven", "oriole", "barbet", "redfin", "bramble", "sunfish", "coral", "flame", "bonito", "sargo", "crosshatch", "blueline"];
+const supportedDevices = ["bluejay", "raven", "oriole", "barbet", "redfin", "bramble", "sunfish", "coral", "flame", "bonito", "sargo", "crosshatch", "blueline"];
 
 const qualcommDevices = ["barbet", "redfin", "bramble", "sunfish", "coral", "flame", "bonito", "sargo", "crosshatch", "blueline"];
 
