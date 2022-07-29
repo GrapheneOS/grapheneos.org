@@ -428,6 +428,7 @@ cd ../..</pre>
                         </li>
                         <li>Pixel 5a: barbet</li>
                         <li>Pixel 6, Pixel 6 Pro: raviole</li>
+                        <li>Pixel 6a: raviole 12.1-bluejay branch</li>
                     </ul>
 
                     <p>As part of the hardening in GrapheneOS, it uses fully monolithic kernel builds with
@@ -463,6 +464,10 @@ repo sync -j16</pre>
                     <p>To build the Pixel 6 and Pixel 6 Pro kernel:</p>
 
                     <pre>LTO=full BUILD_KERNEL=1 ./build_slider.sh</pre>
+
+                    <p>To build the Pixel 6a kernel:</p>
+
+                    <pre>LTO=full BUILD_KERNEL=1 ./build_bluejay.sh</pre>
 
                     <p>You need to replace the files in the GrapheneOS source tree at
                     <code>device/google/raviole-kernel</code> with the output from your kernel
