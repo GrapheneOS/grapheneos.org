@@ -193,6 +193,14 @@
                 The backlog shouldn't be draining to near zero under full bandwidth usage as that
                 indicates the bottleneck is the server application itself or a different network
                 bottleneck.</p>
+
+                <p>If you use systemd-network, you can add a CAKE configuration section to the
+                network configuration file instead of manually running the <code>tc</code> command
+                with a <code>Type=oneshot</code> service on boot:</p>
+
+                <pre>[CAKE]
+Bandwidth=1995M
+PriorityQueueingPreset=besteffort</pre>
             </section>
 
             <section id="quicker-backpressure-propagation">
