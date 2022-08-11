@@ -1251,10 +1251,11 @@
                     (IMPORTANCE_LOW). It can be reduced to the lowest importance (IMPORTANCE_MIN)
                     by the user if they set the notification channel to be collapsed which will
                     collapse it in the notification tray and it won't show up as an icon in the
-                    status bar or on the lockscreen anymore. A battery optimization exception is
-                    also needed for the app to bypass device idle states and run while the device
-                    is idle. If you can tolerate delays while the device is idle, then the battery
-                    optimization exception isn't mandatory.</p>
+                    status bar or on the lockscreen anymore. Users can also disable the
+                    notification and the foreground service will continue working. A battery
+                    optimization exception is also needed for the app to bypass device idle states
+                    and run while the device is idle. If you can tolerate delays while the device
+                    is idle, then the battery optimization exception isn't mandatory.</p>
 
                     <p>FairEmail and Signal are examples of apps using the proper approach of a
                     foreground service combined with an optional battery optimization exception.
