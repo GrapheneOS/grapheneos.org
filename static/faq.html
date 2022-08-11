@@ -1247,11 +1247,14 @@
                     <p>In order to properly implement either push messaging or frequent polling
                     themselves, an app needs to run a foreground service. This is displayed as a
                     persistent notification. It will normally be marked as a silent notification
-                    with the lowest possible priority, so it will be collapsed at the bottom and
-                    won't show up as an icon in the status bar or on the lockscreen. A battery
-                    optimization exception is also needed for the app to bypass device idle states
-                    and run while the device is idle. If you can tolerate delays while the device
-                    is idle, then the battery optimization exception isn't mandatory.</p>
+                    with the lowest possible default importance for a foreground service
+                    (IMPORTANCE_LOW). It can be reduced to the lowest importance (IMPORTANCE_MIN)
+                    by the user if they set the notification channel to be collapsed which will
+                    collapse it in the notification tray and it won't show up as an icon in the
+                    status bar or on the lockscreen anymore. A battery optimization exception is
+                    also needed for the app to bypass device idle states and run while the device
+                    is idle. If you can tolerate delays while the device is idle, then the battery
+                    optimization exception isn't mandatory.</p>
 
                     <p>FairEmail and Signal are examples of apps using the proper approach of a
                     foreground service combined with an optional battery optimization exception.
