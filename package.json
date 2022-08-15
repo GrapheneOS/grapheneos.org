@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "csso-cli": "^4.0.1",
-    "eslint": "^8.21.0",
+    "eslint": "^8.22.0",
     "html-minifier": "^4.0.0",
     "stylelint": "^14.10.0",
     "stylelint-config-standard": "^27.0.0",
