@@ -844,12 +844,15 @@ git checkout $CORRECT_BRANCH_OR_TAG</pre>
 
                     <pre>cd src
 git fetch --tags
-git checkout $VERSION
-gclient sync -D --with_branch_heads --with_tags --jobs 32</pre>
+git checkout $VERSION</pre>
 
                     <p>Apply the GrapheneOS patches on top of the tagged release:</p>
 
                     <pre>git am --whitespace=nowarn --keep-non-patch ../patches/*.patch</pre>
+
+                    <p>Sync submodules and obtain build dependencies:</p>
+
+                    <pre>gclient sync -D --with_branch_heads --with_tags --jobs 32</pre>
 
                     <p>Then, configure the build in the <code>src</code> directory:</p>
 
