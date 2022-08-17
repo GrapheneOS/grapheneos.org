@@ -575,9 +575,13 @@
                     <p>Changes since the 2022081600 release:</p>
 
                     <ul>
-                        <li>initial port to Android 13</li>
                         <li>rebased onto TP1A.220624.021.A1 release</li>
+                        <li>full port of <a href="/features">all existing GrapheneOS features</a> to Android 13</li>
                         <li>full 2022-08-05 security patch level</li>
+                        <li>enable Android 13 location indicator feature by default as a replacement for the earlier location indicators we had enabled (on the stock OS this is an opt-in developer option only shown if a feature flag is enabled)</li>
+                        <li>change new location indicators to show all location accesses instead of only showing high power (GNSS) accesses (preserves existing GrapheneOS behavior)</li>
+                        <li>change new location indicators to show for all apps instead of only user installed apps (preserves existing GrapheneOS behavior)</li>
+                        <li>show system app location access history by default rather than requiring opt-in (preserves existing GrapheneOS behavior)</li>
                     </ul>
                 </article>
                 -->
