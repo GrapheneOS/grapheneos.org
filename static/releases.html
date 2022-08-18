@@ -592,6 +592,7 @@
                 </article>
                 -->
 
+                <!--
                 <article id="2022081600">
                     <h3><a href="#2022081600">2022081600</a></h3>
 
@@ -606,6 +607,26 @@
                     GrapheneOS to Android 13, we may continue extended support releases for legacy
                     3rd generation Pixels based on Android 12.1 in a more limited capacity, but we
                     haven't determined how we'll handle it going forward.</p>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SP1A.210812.016.C2.2022081600">SP1A.210812.016.C2.2022081600</a> (Pixel 3, Pixel 3 XL) — extended support release for legacy devices with frozen 2021-11-01 patch level</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SP2A.220505.006.2022081600">SP2A.220505.006.2022081600</a> (Pixel 3a, Pixel 3a XL) — extended support release for legacy devices with frozen 2022-06-01 patch level</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SD2A.220601.004.B2.2022081600">SD2A.220601.004.B2.2022081600</a> (Pixel 6a) — early release for Pixel 6a with 2022-06-01 patch level which is the latest available until there's a normal AOSP / stock OS release for it on the latest patch level</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SQ3A.220705.003.A1.2022081600">SQ3A.220705.003.A1.2022081600</a> (Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SQ3A.220705.004.2022081600">SQ3A.220705.004.2022081600</a> (Pixel 6, Pixel 6 Pro, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2022080900 release:</p>
+
+                    <ul>
+                        <li>Sandboxed Google Play compatibility layer: conditionally stub out LocationManager#requestLocationUpdates() to avoid crashes from not having the Location permission granted (cannot be revoked on stock OS due to stock OS using Play services as a backend) which started happening with the deployment of a Play services change via a feature flag to a subset of users and will likely ramp up soon</li>
+                    </ul>
+                </article>
+                -->
+
+                <article id="2022081600">
+                    <h3><a href="#2022081600">2022081600</a></h3>
 
                     <p>Tags:</p>
                     <ul>
