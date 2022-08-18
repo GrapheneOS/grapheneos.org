@@ -408,39 +408,39 @@ cd ../..</pre>
                     <p>Instructions for 4th and 5th generation Pixels need to be rewritten for
                     Android 13.</p>
 
-                    <!--
-                    <p>List of kernels corresponding to officially supported devices:</p>
+                    <h4>4th generation Pixels</h4>
 
-                    <ul>
-                        <li>
-                            Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL: crosshatch
-                            <ul>
-                                <li>Pixel 3: blueline</li>
-                                <li>Pixel 3 XL: crosshatch</li>
-                                <li>Pixel 3a, Pixel 3a XL: bonito</li>
-                            </ul>
-                        </li>
-                        <li>
-                            Pixel 4, Pixel 4 XL, Pixel 4a: coral
-                            <ul>
-                                <li>Pixel 4, Pixel 4 XL: coral</li>
-                                <li>Pixel 4a: sunfish</li>
-                            </ul>
-                        </li>
-                        <li>
-                            Pixel 4a (5G), Pixel 5: redbull
-                            <ul>
-                                <li>Pixel 4a (5G): bramble</li>
-                                <li>Pixel 5: redfin</li>
-                            </ul>
-                        </li>
-                        <li>Pixel 5a: barbet</li>
-                        <li>Pixel 6, Pixel 6 Pro: raviole</li>
-                        <li>Pixel 6a: raviole 12.1-bluejay branch</li>
-                    </ul>
-                    -->
+                    <pre>mkdir android/kernel/coral
+cd android/kernel/coral
+repo init -u https://github.com/GrapheneOS/kernel_coral-manifest.git -b 13
+repo sync -j16</pre>
 
-                    <p>For example, for 6th generation Pixels:</p>
+                    <p>To build the Pixel 4 and Pixel 4 XL kernel (coral):</p>
+
+                    <pre>KBUILD_BUILD_VERSION=1 KBUILD_BUILD_USER=grapheneos KBUILD_BUILD_HOST=grapheneos KBUILD_BUILD_TIMESTAMP="Thu 01 Jan 1970 12:00:00 AM UTC" BUILD_CONFIG=private/msm-google/build.config.floral build/build.sh</pre>
+
+                    <p>To build the Pixel 4a kernel (sunfish):</p>
+
+                    <pre>KBUILD_BUILD_VERSION=1 KBUILD_BUILD_USER=grapheneos KBUILD_BUILD_HOST=grapheneos KBUILD_BUILD_TIMESTAMP="Thu 01 Jan 1970 12:00:00 AM UTC" BUILD_CONFIG=private/msm-google/build.config.sunfish build/build.sh</pre>
+
+                    <h4>5th generation Pixels</h4>
+
+                    <p>For 5th generation Pixels:</p>
+
+                    <pre>mkdir android/kernel/redbull
+cd android/kernel/redbull
+repo init -u https://github.com/GrapheneOS/kernel_redbull-manifest.git -b 13
+repo sync -j16</pre>
+
+                    <p>To build the Pixel 4a (5G), Pixel 5 and Pixel 5a kernel (redbull):</p>
+
+                    <pre>KBUILD_BUILD_VERSION=1 KBUILD_BUILD_USER=grapheneos KBUILD_BUILD_HOST=grapheneos KBUILD_BUILD_TIMESTAMP="Thu 01 Jan 1970 12:00:00 AM UTC" BUILD_CONFIG=private/msm-google/build.config.redbull.vintf build/build.sh</pre>
+
+                    <p>Replace files in the GrapheneOS source tree at
+                    <code>device/google/raviole-kernel</code> with the output from your kernel
+                    build at <code>out/mixed/dist</code>.</p>
+
+                    <h4>6th generation Pixels</h4>
 
                     <pre>mkdir android/kernel/raviole
 cd android/kernel/raviole
@@ -455,9 +455,9 @@ repo sync -j16</pre>
 
                     <pre>KBUILD_BUILD_VERSION=1 KBUILD_BUILD_USER=grapheneos KBUILD_BUILD_HOST=grapheneos KBUILD_BUILD_TIMESTAMP="Thu 01 Jan 1970 12:00:00 AM UTC" LTO=full BUILD_KERNEL=1 ./build_bluejay.sh</pre>
 
-                    <p>You need to replace the files in the GrapheneOS source tree at
+                    <p>Replace files in the GrapheneOS source tree at
                     <code>device/google/raviole-kernel</code> with the output from your kernel
-                    build at <code>out/mixed/dist</code> in the kernel-raviole source tree.</p>
+                    build at <code>out/mixed/dist</code>.</p>
                 </section>
 
                 <section id="extracting-vendor-files-for-pixel-devices">
