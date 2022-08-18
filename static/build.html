@@ -326,23 +326,24 @@
                     <section id="development-branch">
                         <h4><a href="#development-branch">Development branch</a></h4>
 
-                        <p>The <code>12.1</code> branch is the main development branch of
+                        <p>The <code>13</code> branch is the main development branch of
                         GrapheneOS. It follows along with the latest stable releases of the
                         Android Open Source Project which currently means the latest monthly
-                        release of the <code>android12L-release</code> (Android 12L) branch. The
-                        <code>12.1</code> branch of GrapheneOS should be used for generic builds
+                        release of the <code>android13-release</code> (Android 13) branch. The
+                        <code>13</code> branch of GrapheneOS should be used for generic builds
                         including the emulator, porting to other devices and for non-legacy
-                        officially supported devices. Pixel 6a is a new device using the
-                        <code>12.1-bluejay</code> development branch. Pixel 3 / Pixel 3 XL / Pixel
-                        3a / Pixel 3a XL use the <code>12.1-crosshatch</code> branch setting an
-                        appropriate <code>BUILD_ID</code> and security patch level field.</p>
+                        officially supported devices.</p>
+
+                        <p>Pixel 3 / Pixel 3 XL / Pixel 3a / Pixel 3a XL use the
+                        <code>12.1-crosshatch</code> branch setting an appropriate
+                        <code>BUILD_ID</code> and security patch level field.</p>
 
                         <p>The <code>13</code> branch is in early development and will be the
                         branch used for all non-legacy devices.</p>
 
-                        <pre>mkdir grapheneos-12.1
-cd grapheneos-12.1
-repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 12.1
+                        <pre>mkdir grapheneos-13
+cd grapheneos-13
+repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 13
 repo sync -j16</pre>
 
                         <p>If your network is unreliable and <code>repo sync</code> fails, you can run the
@@ -404,7 +405,8 @@ cd ../..</pre>
                     <p>Prebuilts are provided for all the officially supported devices, so this step
                     is optional.</p>
 
-                    <p>Instructions for 4th and 5th generation Pixels need to be rewritten for Android 13</p>
+                    <p>Instructions for 4th and 5th generation Pixels need to be rewritten for
+                    Android 13.</p>
 
                     <!--
                     <p>List of kernels corresponding to officially supported devices:</p>
