@@ -404,6 +404,9 @@ cd ../..</pre>
                     <p>Prebuilts are provided for all the officially supported devices, so this step
                     is optional.</p>
 
+                    <p>Instructions for 4th and 5th generation Pixels need to be rewritten for Android 13</p>
+
+                    <!--
                     <p>List of kernels corresponding to officially supported devices:</p>
 
                     <ul>
@@ -433,44 +436,22 @@ cd ../..</pre>
                         <li>Pixel 6, Pixel 6 Pro: raviole</li>
                         <li>Pixel 6a: raviole 12.1-bluejay branch</li>
                     </ul>
+                    -->
 
-                    <p>As part of the hardening in GrapheneOS, it uses fully monolithic kernel builds with
-                    dynamic kernel modules disabled. This improves the effectiveness of mitigations like
-                    Control Flow Integrity benefiting from whole program analysis. It also reduces attack
-                    surface and complexity including making the build system simpler. The kernel trees
-                    marked as using a separate build above need to have the device variant passed to the
-                    GrapheneOS kernel build script to select the device. Due to the added level of
-                    complexity added by GKI kernels, we currently do not produce monolithic builds for
-                    6th generation Pixel devices.</p>
+                    <p>For example, for 6th generation Pixels:</p>
 
-                    <p>The kernel repositories use submodules for building in out-of-tree modules.
-                    You need to make sure the submodule sources are updated before building. In
-                    the future, this should end up being handled automatically by
-                    <code>repo</code>. There's no harm in running the submodule commands for other
-                    devices as they will simply not do anything.</p>
-
-                    <p>For example, to build the kernel for redfin:</p>
-
-                    <pre>cd kernel/google/redbull
-git submodule sync
-git submodule update --init --recursive
-./build.sh redfin</pre>
-
-                    <p>For the Pixel 6 and Pixel 6 Pro, you need a separate repo source tree for
-                    building the kernel:</p>
-
-                    <pre>mkdir kernel-raviole
-cd kernel-raviole
-repo init -u https://github.com/GrapheneOS/kernel_raviole-manifest.git -b 12.1
+                    <pre>mkdir android/kernel/raviole
+cd android/kernel/raviole
+repo init -u https://github.com/GrapheneOS/kernel_raviole-manifest.git -b 13
 repo sync -j16</pre>
 
                     <p>To build the Pixel 6 and Pixel 6 Pro kernel:</p>
 
-                    <pre>LTO=full BUILD_KERNEL=1 ./build_slider.sh</pre>
+                    <pre>KBUILD_BUILD_VERSION=1 KBUILD_BUILD_USER=grapheneos KBUILD_BUILD_HOST=grapheneos KBUILD_BUILD_TIMESTAMP="Thu 01 Jan 1970 12:00:00 AM UTC" LTO=full BUILD_KERNEL=1 ./build_slider.sh</pre>
 
                     <p>To build the Pixel 6a kernel:</p>
 
-                    <pre>LTO=full BUILD_KERNEL=1 ./build_bluejay.sh</pre>
+                    <pre>KBUILD_BUILD_VERSION=1 KBUILD_BUILD_USER=grapheneos KBUILD_BUILD_HOST=grapheneos KBUILD_BUILD_TIMESTAMP="Thu 01 Jan 1970 12:00:00 AM UTC" LTO=full BUILD_KERNEL=1 ./build_bluejay.sh</pre>
 
                     <p>You need to replace the files in the GrapheneOS source tree at
                     <code>device/google/raviole-kernel</code> with the output from your kernel
