@@ -78,6 +78,7 @@
                             <li>
                                 <a href="#generating-release-signing-keys">Generating release signing keys</a>
                                 <ul>
+                                    <li><a href="#migration-to-android-13">Migration to Android 13</a></li>
                                     <li><a href="#encrypting-keys">Encrypting keys</a></li>
                                     <li><a href="#enabling-updatable-apex-components">Enabling updatable APEX components</a></li>
                                 </ul>
@@ -638,6 +639,13 @@ cd ../..</pre>
                     a separate prompt for the passphrase. In the future, expect this to be handled by the
                     same scripts along with the expectation of it using the same passphrase as the other
                     keys.</p>
+
+                    <section id="migration-to-android-13">
+                        <h4><a href="#migration-to-android-13">Migration to Android 13</a></h4>
+
+                        <p>You need to generate a key for <code>sdk_sandbox</code> if you
+                        generated your keys for a previous release.</p>
+                    </section>
 
                     <section id="encrypting-keys">
                         <h4><a href="#encrypting-keys">Encrypting keys</a></h4>
