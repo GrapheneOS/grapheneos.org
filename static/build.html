@@ -620,6 +620,7 @@ cd keys/raven
 ../../development/tools/make_key shared '/CN=GrapheneOS/'
 ../../development/tools/make_key media '/CN=GrapheneOS/'
 ../../development/tools/make_key networkstack '/CN=GrapheneOS/'
+../../development/tools/make_key sdk_sandbox '/CN=GrapheneOS/'
 openssl genrsa 4096 | openssl pkcs8 -topk8 -scrypt -out avb.pem
 ../../external/avb/avbtool extract_public_key --key avb.pem --output avb_pkmd.bin
 cd ../..</pre>
