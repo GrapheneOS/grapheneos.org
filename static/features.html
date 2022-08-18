@@ -310,10 +310,9 @@
                             <li>
                                 Hardened kernel
                                 <ul>
-                                    <li>Support for dynamically loaded kernel modules is disabled and
-                                    the minimal set of modules for the device model are built into the
-                                    kernel to substantially improve the granularity of Control Flow
-                                    Integrity (CFI) and reduce attack surface.</li>
+                                    <li>Full LTO (Link Time Optimization) is used instead of
+                                    ThinLTO to provide improved Control Flow Integrity (CFI)
+                                    granularity.</li>
                                     <li>4-level page tables are enabled on arm64 to provide a much larger
                                     address space (48-bit instead of 39-bit) with significantly higher
                                     entropy Address Space Layout Randomization (33-bit instead of
