@@ -426,7 +426,7 @@ repo sync -j16</pre>
 
                     <p>To build the redbull kernel for the Pixel 4a (5G), Pixel 5 and Pixel 5a kernel:</p>
 
-                    <pre>KBUILD_BUILD_VERSION=1 KBUILD_BUILD_USER=grapheneos KBUILD_BUILD_HOST=grapheneos KBUILD_BUILD_TIMESTAMP="Thu 01 Jan 1970 12:00:00 AM UTC" BUILD_CONFIG=private/msm-google/build.config.redbull.vintf build/build.sh</pre>
+                    <pre>BUILD_CONFIG=private/msm-google/build.config.redbull.vintf build/build.sh</pre>
 
                     <p>Replace the files in the OS source tree at
                     <code>device/google/redbull-kernel/</code> with your build in
@@ -441,11 +441,11 @@ repo sync -j16</pre>
 
                     <p>To build the raviole kernel for the Pixel 6 and Pixel 6 Pro:</p>
 
-                    <pre>KBUILD_BUILD_VERSION=1 KBUILD_BUILD_USER=grapheneos KBUILD_BUILD_HOST=grapheneos KBUILD_BUILD_TIMESTAMP="Thu 01 Jan 1970 12:00:00 AM UTC" LTO=full BUILD_KERNEL=1 ./build_slider.sh</pre>
+                    <pre>LTO=full BUILD_KERNEL=1 ./build_slider.sh</pre>
 
                     <p>To build the bluejay kernel for the Pixel 6a:</p>
 
-                    <pre>KBUILD_BUILD_VERSION=1 KBUILD_BUILD_USER=grapheneos KBUILD_BUILD_HOST=grapheneos KBUILD_BUILD_TIMESTAMP="Thu 01 Jan 1970 12:00:00 AM UTC" LTO=full BUILD_KERNEL=1 ./build_bluejay.sh</pre>
+                    <pre>LTO=full BUILD_KERNEL=1 ./build_bluejay.sh</pre>
 
                     <p>Replace the files in the OS source tree at
                     <code>device/google/raviole-kernel/</code> or
