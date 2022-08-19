@@ -412,11 +412,11 @@ repo sync -j16</pre>
 
                         <p>To build the coral kernel for the Pixel 4 and Pixel 4 XL:</p>
 
-                        <pre>KBUILD_BUILD_VERSION=1 KBUILD_BUILD_USER=grapheneos KBUILD_BUILD_HOST=grapheneos KBUILD_BUILD_TIMESTAMP="Thu 01 Jan 1970 12:00:00 AM UTC" BUILD_CONFIG=private/msm-google/build.config.floral build/build.sh</pre>
+                        <pre>KBUILD_BUILD_VERSION=1 KBUILD_BUILD_USER=build-user KBUILD_BUILD_HOST=build-host KBUILD_BUILD_TIMESTAMP="Thu 01 Jan 1970 12:00:00 AM UTC" BUILD_CONFIG=private/msm-google/build.config.floral build/build.sh</pre>
 
                         <p>To build the sunfish kernel for the Pixel 4a:</p>
 
-                        <pre>KBUILD_BUILD_VERSION=1 KBUILD_BUILD_USER=grapheneos KBUILD_BUILD_HOST=grapheneos KBUILD_BUILD_TIMESTAMP="Thu 01 Jan 1970 12:00:00 AM UTC" BUILD_CONFIG=private/msm-google/build.config.sunfish build/build.sh</pre>
+                        <pre>KBUILD_BUILD_VERSION=1 KBUILD_BUILD_USER=build-user KBUILD_BUILD_HOST=build-host KBUILD_BUILD_TIMESTAMP="Thu 01 Jan 1970 12:00:00 AM UTC" BUILD_CONFIG=private/msm-google/build.config.sunfish build/build.sh</pre>
 
                         <p>Replace the files in the OS source tree at
                         <code>device/google/coral-kernel/</code> or
