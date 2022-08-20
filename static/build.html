@@ -633,6 +633,7 @@ cd keys/raven
 ../../development/tools/make_key media '/CN=GrapheneOS/'
 ../../development/tools/make_key networkstack '/CN=GrapheneOS/'
 ../../development/tools/make_key sdk_sandbox '/CN=GrapheneOS/'
+../../development/tools/make_key bluetooth '/CN=GrapheneOS/'
 openssl genrsa 4096 | openssl pkcs8 -topk8 -scrypt -out avb.pem
 ../../external/avb/avbtool extract_public_key --key avb.pem --output avb_pkmd.bin
 cd ../..</pre>
@@ -654,7 +655,7 @@ cd ../..</pre>
                     <section id="migration-to-android-13">
                         <h4><a href="#migration-to-android-13">Migration to Android 13</a></h4>
 
-                        <p>You need to generate a key for <code>sdk_sandbox</code> if you
+                        <p>You need to generate a key for <code>sdk_sandbox</code> and <code>bluetooth</code> if you
                         generated your keys for a previous release.</p>
                     </section>
 
