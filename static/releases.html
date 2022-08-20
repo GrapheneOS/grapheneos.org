@@ -588,6 +588,7 @@
                         <li>fix upstream Android 13 user logout bug causing end session to be broken</li>
                         <li>drop workaround for slow lockscreen animation which is fixed in Android 13</li>
                         <li>drop workaround for SystemUI ANR (App Not Responding) false positives caused by screenshot service in Android 12</li>
+                        <li>Vanadium: revert removal of mremap system call from the sandbox allowlist for now since libc is using it internally</li>
                         <li>kernel (Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a): switch to kernel manifests instead of including the kernel source trees in the OS source tree with submodules for the module repositories</li>
                         <li>kernel (Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a): switch to AOSP kernel build system</li>
                         <li>kernel (Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a): use dynamic kernel modules matching AOSP / stock OS instead of using monolithic kernel builds to avoid further issues from driver bugs with monolithic kernel builds (this was a useful feature but maintenance has become too difficult and the advantages of Generic Kernel Images for 6th generation Pixels and beyond outweigh the benefits so this was already phased out for 6th generation devices)</li>
