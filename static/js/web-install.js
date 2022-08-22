@@ -241,6 +241,9 @@ async function flashRelease(setProgress) {
         if (gs101Devices.includes(product)) {
             setProgress("Disabling FIPS...");
             await device.runCommand("erase:fips");
+            setProgress("Erasing DPM...");
+            await device.runCommand("erase:dpm_a");
+            await device.runCommand("erase:dpm_b");
         }
     } finally {
         safeToLeave = true;
