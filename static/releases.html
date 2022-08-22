@@ -584,6 +584,7 @@
                         <li>Clock: protect broadcast receivers including not allowing other apps to snooze or dismiss alarms (upstream problem)</li>
                         <li>Contacts: fix VCF import due by removing obsolete READ_EXTERNAL_STORAGE permission usage</li>
                         <li>Theme Picker: fix our added wallpaper color scheme toggle not showing updated status</li>
+                        <li>Sandboxed Google Play compatibility layer: disable Play services promotion of exposure notification feature unless the user grants Location access since this crashes with the default/normal state of Location not being granted to Play services (normal privileged Play services cannot have Location revoked so it doesn't handle this properly across multiple areas and we have multiple compatibility shims for it)</li>
                     </ul>
                 </article>
                 -->
