@@ -451,11 +451,15 @@ repo sync -j16</pre>
 
                         <p>To build the raviole kernel for the Pixel 6 and Pixel 6 Pro:</p>
 
-                        <pre>LTO=full BUILD_KERNEL=1 ./build_slider.sh</pre>
+                        <pre>LTO=thin BUILD_KERNEL=1 ./build_slider.sh</pre>
 
                         <p>To build the bluejay kernel for the Pixel 6a:</p>
 
-                        <pre>LTO=full BUILD_KERNEL=1 ./build_bluejay.sh</pre>
+                        <pre>LTO=thin BUILD_KERNEL=1 ./build_bluejay.sh</pre>
+
+                        <p><strong>ThinLTO is being used temporarily for 6th generation Pixel
+                        kernels to work around an upstream bug in the kernel or toolchain. Using
+                        <code>LTO=full</code> is currently broken.</strong></p>
 
                         <p>Replace the files in the OS source tree at
                         <code>device/google/raviole-kernel/</code> or
