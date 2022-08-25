@@ -643,7 +643,7 @@
                     enabled, and it has the option to automatically restore app data when an app is
                     reinstalled, so it wouldn't lose track of it being the same profile.</p>
 
-                    <p>The <code>ANDROID_ID</code> string is a 64-bit random number, unique to each
+                    <p>The <var>ANDROID_ID</var> string is a 64-bit random number, unique to each
                     combination of profile and app signing key. The 64-bit limitation means it isn't
                     particularly useful due to the possibility of collisions. It's tied to the lifetime of
                     profiles and does not persist through profile deletion or a factory reset. This is
@@ -655,13 +655,13 @@
 
                     <p>The advertising ID is a Google Play services feature not included in the baseline
                     Android API, so it isn't an API included in GrapheneOS. The advertising ID is unique
-                    to each profile. It isn't unique to each app signing key like <code>ANDROID_ID</code>,
+                    to each profile. It isn't unique to each app signing key like <var>ANDROID_ID</var>,
                     but that makes little difference since apps within the same profile can communicate
-                    with each other with mutual consent. It's comparable to <code>ANDROID_ID</code> but
+                    with each other with mutual consent. It's comparable to <var>ANDROID_ID</var> but
                     provides an 128-bit value so it provides a strong cryptographic guarantee against
                     collisions, although a device messing with apps could set it to the same value used in
                     another profile. The advertising ID is exposed via the Settings app and can be reset
-                    to a new random value, unlike <code>ANDROID_ID</code> which remains the same for the
+                    to a new random value, unlike <var>ANDROID_ID</var> which remains the same for the
                     lifetime of the profile, but apps can tie it to the previous ID since they can detect
                     that it changed via their own ID in their app data. The advertising ID can
                     also now be disabled (zeroed).</p>
@@ -673,7 +673,7 @@
                     track of the profile. Apps previously had little reason to do things like this because
                     they were able to persist data through an uninstall and reinstallation by default. The
                     modern storage model means they need to request access to user data to do this. The
-                    existence of <code>ANDROID_ID</code> means they don't yet need to bother with that but
+                    existence of <var>ANDROID_ID</var> means they don't yet need to bother with that but
                     that will change on GrapheneOS and will likely change for baseline Android too.
                     However, profiles are the only way to provide a strong assurance of separate
                     identities since the application model of the OS is designed to support communication

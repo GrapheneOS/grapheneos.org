@@ -410,16 +410,16 @@ RWQZW9NItOuQYJ86EooQBxScfclrWiieJtAO9GpnfEjKbCO/3FriLGX3</pre>
 
                 <p>Download the factory images for the device from <a href="/releases">the releases
                 page</a>. For example, to download the 2021110122 release for a device with the
-                codename <code>DEVICE_NAME</code>:</p>
+                codename <code><var>DEVICE_NAME</var></code>:</p>
 
-                <pre>curl -O https://releases.grapheneos.org/DEVICE_NAME-factory-2021110122.zip
-curl -O https://releases.grapheneos.org/DEVICE_NAME-factory-2021110122.zip.sig</pre>
+                <pre>curl -O https://releases.grapheneos.org/<var>DEVICE_NAME</var>-factory-2021110122.zip
+curl -O https://releases.grapheneos.org/<var>DEVICE_NAME</var>-factory-2021110122.zip.sig</pre>
 
                 <p>Verify the factory images using the signature if you were able to obtain
                 <code>signify</code> from trusted package repositories (see above), otherwise
                 continue on to the next section without this:</p>
 
-                <pre>signify -Cqp factory.pub -x DEVICE_NAME-factory-2021110122.zip.sig &amp;&amp; echo verified</pre>
+                <pre>signify -Cqp factory.pub -x <var>DEVICE_NAME</var>-factory-2021110122.zip.sig &amp;&amp; echo verified</pre>
 
                 <p>This will output <code>verified</code> if verification is successful. If something
                 goes wrong, it will output an error message rather than <code>verified</code>.</p>
@@ -435,15 +435,15 @@ curl -O https://releases.grapheneos.org/DEVICE_NAME-factory-2021110122.zip.sig</
 
                 <p>On Linux:</p>
 
-                <pre>bsdtar xvf DEVICE_NAME-factory-2021110122.zip</pre>
+                <pre>bsdtar xvf <var>DEVICE_NAME</var>-factory-2021110122.zip</pre>
 
                 <p>On macOS and Windows:</p>
 
-                <pre>tar xvf DEVICE_NAME-factory-2021110122.zip</pre>
+                <pre>tar xvf <var>DEVICE_NAME</var>-factory-2021110122.zip</pre>
 
                 <p>Move into the directory:</p>
 
-                <pre>cd DEVICE_NAME-factory-2021110122</pre>
+                <pre>cd <var>DEVICE_NAME</var>-factory-2021110122</pre>
 
                 <p>Flash the images with the flash-all script in the directory.</p>
 
