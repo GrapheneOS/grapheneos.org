@@ -154,8 +154,7 @@ async function getLatestRelease() {
         throw new Error(`device model (${product}) is not supported by the GrapheneOS web installer`);
     }
 
-    let channel = gs101Devices.includes(product) ? "beta" : "stable";
-    let metadataResp = await fetch(`${RELEASES_URL}/${product}-${channel}`);
+    let metadataResp = await fetch(`${RELEASES_URL}/${product}-stable`);
     let metadata = await metadataResp.text();
     let releaseId = metadata.split(" ")[0];
 
