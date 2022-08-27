@@ -30,8 +30,6 @@ cp -a nginx nginx-tmp
 
 rm -rf static-tmp
 cp -a static static-tmp
-rm -rf static-tmp/js/fastboot/{!(dist),dist/!(fastboot.min.mjs|fastboot.min.mjs.map|vendor)}
-mv static-tmp/js/fastboot/dist static-tmp/js/fastboot/v1.1.1
 
 for file in static-tmp/**/*.@(json|webmanifest); do
     json_verify < "$file" >/dev/null
