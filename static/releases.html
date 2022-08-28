@@ -582,6 +582,7 @@
 
                     <ul>
                         <li>improve safety of factory images flashing scripts by flashing the SoC firmware to the inactive slot, switching to it and then flashing it to the previously active slot before proceeding with flashing the OS (this provides a high level of safety for devices like 6th generation Pixels doing boot chain anti-rollback despite the fact that they neglected to provide firmware handling flashing safely)</li>
+                        <li>Pixel 6, Pixel 6 Pro, Pixel 6a: erase DPM partitions in factory images flashing scripts</li>
                         <li>System Updater: catch ServiceSpecificException thrown by UpdateEngine.applyPayload(...) in some cases to properly report the error via a notification</li>
                         <li>carriersettings-extractor: fix handling currently mostly unused field (not going to make any difference to users in practice, but may become more relevant in the future)</li>
                     </ul>
