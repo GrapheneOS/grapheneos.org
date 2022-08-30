@@ -581,6 +581,7 @@
                     <p>Changes since the 2022082400 release:</p>
 
                     <ul>
+                        <li>add per-app toggle to relax memory corruption exploit protections for an app to allow users to work around buggy apps with latent bugs including many games like Diablo Immortal (uses 39-bit address space and Scudo instead of 48-bit address space and hardened_malloc, and forces exec-based spawning for the app even if it's globally disabled since the Zygote process always has a 48-bit address space and hardened_malloc)</li>
                         <li>improve safety of factory images flashing scripts by flashing the SoC firmware to the inactive slot, switching to it and then flashing it to the previously active slot before proceeding with flashing the OS (this provides a high level of safety for devices like 6th generation Pixels doing boot chain anti-rollback despite the fact that they neglected to provide firmware handling flashing safely)</li>
                         <li>Pixel 6, Pixel 6 Pro, Pixel 6a: erase DPM partitions in factory images flashing scripts</li>
                         <li>drop unused flash-base.sh from factory images to reduce maintenance burden for our safer flashing procedure</li>
