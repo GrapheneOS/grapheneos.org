@@ -599,7 +599,7 @@
                     <p>Changes since the 2022082400 release:</p>
 
                     <ul>
-                        <li>add per-app toggle to relax memory corruption exploit protections for an app to allow users to work around buggy apps with latent bugs including many games like Diablo Immortal (uses 39-bit address space and Scudo instead of 48-bit address space and hardened_malloc along with forcing exec spawning with the app since the Zygote is always fully hardened)</li>
+                        <li>add per-app toggle to relax memory corruption exploit protections for an app to allow users to work around buggy apps with latent bugs including many games like Diablo Immortal (uses 39-bit address space and Scudo instead of 48-bit address space and hardened_malloc along with forcing exec spawning for the app since the Zygote is always fully hardened)</li>
                         <li>Sandboxed Google Play compatibility layer: expand existing shims to further improve compatibility</li>
                         <li>improve infrastructure for GrapheneOS package state</li>
                         <li>improve safety of factory images flashing scripts by flashing the SoC firmware to the inactive slot, switching to it and then flashing it to the previously active slot before proceeding with flashing the OS (this provides a high level of safety for devices like 6th generation Pixels doing boot chain anti-rollback despite the fact that they neglected to provide firmware handling flashing safely)</li>
