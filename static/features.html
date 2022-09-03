@@ -797,14 +797,18 @@
                     requests location data. We also resolve various UX issues with this feature as
                     it currently exists in AOSP to get it into a highly usable state.</p>
 
+                    <p>Android 13 has the location privacy indicator as a developer option but it
+                    doesn't work the same way as it does in GrapheneOS. GrapheneOS shows it for
+                    all location data accesses through any APIs. Normally, the stock OS only shows
+                    it for GNSS location requests, also known as high power location requests, and
+                    doesn't normally show it for network location and other APIs gated by the
+                    Location permission / global block toggle.</p>
+
                     <p>The indicator works the same way as the Camera and Microphone ones, showing
                     a bright green icon when location access occurs which then gets minimized to a
                     small bright green dot when the quick settings tray isn't currently opened.
                     Android 12 already includes Location with the other standard runtime
                     permissions in the privacy dashboard for viewing the history.</p>
-
-                    <p>This will likely become a standard feature in Android 13 at which point it
-                    will be removed from this page.</p>
                 </section>
 
                 <section id="user-installed-apps-can-be-disabled">
