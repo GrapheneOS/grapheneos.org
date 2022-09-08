@@ -103,7 +103,13 @@
                         <ul>
                             <li><a href="#booting">Booting</a></li>
                             <li><a href="#disabling-oem-unlocking">Disabling OEM unlocking</a></li>
-                            <li><a href="#verifying-installation">Verifying installation</a></li>
+                            <li>
+                                <a href="#verifying-installation">Verifying installation</a>
+                                <ul>
+                                    <li><a href="#verified-boot-key-hash">Verified boot key hash</a></li>
+                                    <li><a href="#hardware-based-attestation">Hardware-based attestation</a></li>
+                                </ul>
+                            </li>
                             <li><a href="#replacing-grapheneos-with-the-stock-os">Replacing GrapheneOS with the stock OS</a></li>
                             <li><a href="#further-information">Further information</a></li>
                         </ul>
@@ -522,31 +528,81 @@ curl -O https://releases.grapheneos.org/<var>DEVICE_NAME</var>-factory-202111012
                 <section id="verifying-installation">
                     <h3><a href="#verifying-installation">Verifying installation</a></h3>
 
-                    <p>Verified boot authenticates and validates the firmware images and OS from the
-                    hardware root of trust. Since GrapheneOS supports full verified boot, the OS images
-                    are entirely verified. However, it's possible that the computer you used to flash the
-                    OS was compromised, leading to flashing a malicious verified boot public key and
-                    images. To detect this kind of attack, you can use the Auditor app included in
-                    GrapheneOS in the Auditee mode and verify it with another Android device in the
-                    Auditor mode.</p>
+                    <p>The verified boot and attestation features provided by the supported
+                    devices can be used to verify that the hardware, firmware and GrapheneOS
+                    installation are genuine. Even if the computer you used to flash GrapheneOS
+                    was compromised and an attacker replaced GrapheneOS with their own malicious
+                    OS, it can be detected with these features.</p>
 
-                    <p>The Auditor app works best once it's already paired with a device and has
-                    pinned a persistent hardware-backed key and the attestation certificate chain.
-                    However, it can still provide a bit of security for the initial verification
-                    via the attestation root. Ideally, you should also do this before connecting
-                    the device to the network, so an attacker can't proxy to another device (which
-                    stops being possible after the initial verification). Further protection
-                    against proxying the initial pairing will be provided in the future via
-                    optional support for ID attestation to include the serial number in the
-                    hardware verified information to allow checking against the one on the box /
-                    displayed in the bootloader. See the <a href="https://attestation.app/tutorial">Auditor tutorial</a>
-                    for a guide.</p>
+                    <p>Verified boot verifies the entirety of the firmware and OS images on every
+                    boot. The public key for the firmware images is burned into fuses in the SoC
+                    at the factory. Firmware security updates can also update the rollback index
+                    burned into fuses to provide rollback protection.</p>
 
-                    <p>After the initial verification, which results in pairing, performing verification
-                    again between the same Auditor and Auditee (as long as the app data hasn't been
-                    cleared) will provide strong validation of the identity and integrity of the
-                    device. That makes it best to get the pairing done right after installation. You can
-                    also consider setting up the optional remote attestation service.</p>
+                    <p>The final firmware boot stage before the OS is responsible for verifying
+                    it. For the stock OS, it uses a hard-wired public key. Installing GrapheneOS
+                    flashes the GrapheneOS verified boot public key to the secure element. Each
+                    boot, this key is loaded and used to verify the OS. For both the stock OS and
+                    GrapheneOS, a rollback index based on the security patch level is loaded from
+                    the secure element to provide rollback protection.</p>
+
+                    <section id="verified-boot-key-hash">
+                        <h3><a href="#verified-boot-key-hash">Verified boot key hash</a></h3>
+
+                        <p>When loading an alternate OS, the device shows a yellow notice on boot
+                        with the ID of the alternate OS based on the sha256 of the verified boot
+                        public key. 4th and 5th generation Pixels only show the first 32 bits of
+                        the hash so you can't use this approach. 6th generation Pixels shown the
+                        full hash and you can compare it against the official GrapheneOS verified
+                        boot hashes below:</p>
+
+                        <ul>
+                            <li>Pixel 6a: <code>08c860350a9600692d10c8512f7b8e80707757468e8fbfeea2a870c0a83d6031</code></li>
+                            <li>Pixel 6 Pro: <code>439b76524d94c40652ce1bf0d8243773c634d2f99ba3160d8d02aa5e29ff925c</code></li>
+                            <li>Pixel 6: <code>f0a890375d1405e62ebfd87e8d3f475f948ef031bbf9ddd516d5f600a23677e8</code></li>
+                        </ul>
+
+                        <p>Checking this is useful after installation, but you don't need to check
+                        it manually for verified boot to work. The verified boot public key
+                        flashed to the secure element can only be changed when the device is
+                        unlocked. Unlocking the device performs the same wiping of the secure
+                        element as a factory reset and prevents data from being recovered even if
+                        the SSD was cloned and your passphrase(s) are obtained because the
+                        encryption keys can no longer be derived anymore. The verified boot key is
+                        also one of the inputs for deriving the encryption keys in addition to the
+                        user's lock method(s) and random token(s) on the secure element.</p>
+                    </section>
+
+                    <section id="hardware-based-attestation">
+                        <h3><a href="#hardware-based-attestation">Hardware-based attestation</a></h3>
+
+                        <p>GrapheneOS provides our Auditor app for using a combination of the
+                        verified boot and attestation features to verify that the hardware,
+                        firmware and operating system are genuine along with providing other
+                        useful data from the hardware and operating system.</p>
+
+                        <p>Since the purpose of Auditor is to obtain information about the device
+                        without trusting it to be honest, results aren't shown on the device being
+                        verified. You need a 2nd Android device running Auditor for local QR code
+                        based verification. You can also use our optional device integrity
+                        monitoring service for automatic scheduled verifications with support for
+                        email alerts.</p>
+
+                        <p>See the <a href="https://attestation.app/tutorial">Auditor tutorial</a>
+                        for a guide.</p>
+
+                        <p>Auditor is primarily based on a pairing model where it generates a
+                        hardware backed signing key and hardware backed attestation signing key
+                        and pins them as part of the initial verification. The first verification
+                        is bootstrapped based on chaining trust to one of the Android attestation
+                        roots. After the first verification, it provides a highly secure system
+                        for obtaining information about the device going forward. An attacker
+                        could bypass the initial verification with a leaked attestation key or by
+                        proxying to another device with the device model, OS and patch level that
+                        the user is expecting. Proxying to another device will be addressed in the
+                        future with optional support for the hardware serial number attestation
+                        feature.</p>
+                    </section>
                 </section>
 
                 <section id="replacing-grapheneos-with-the-stock-os">
