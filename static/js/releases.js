@@ -47,6 +47,6 @@ async function updateReleases() {
     setTimeout(updateReleases, delayMs);
 }
 
-updateReleases();
+setTimeout(updateReleases, delayMs);
 
 // @license-end
