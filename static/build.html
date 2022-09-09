@@ -400,7 +400,7 @@ cd ../..</pre>
 
                         <pre>mkdir android/kernel/coral
 cd android/kernel/coral
-repo init -u https://github.com/GrapheneOS/kernel_coral-manifest.git -b 13
+repo init -u https://github.com/GrapheneOS/kernel_manifest-coral.git -b 13
 repo sync -j16</pre>
 
                         <p>To build the coral kernel for the Pixel 4 and Pixel 4 XL:</p>
@@ -424,7 +424,7 @@ repo sync -j16</pre>
 
                         <pre>mkdir android/kernel/redbull
 cd android/kernel/redbull
-repo init -u https://github.com/GrapheneOS/kernel_redbull-manifest.git -b 13
+repo init -u https://github.com/GrapheneOS/kernel_manifest-redbull.git -b 13
 repo sync -j16</pre>
 
                         <p>To build the redbull kernel for the Pixel 4a (5G), Pixel 5 and Pixel 5a
@@ -440,9 +440,18 @@ repo sync -j16</pre>
                     <section id="kernel-6th-generation-pixels">
                         <h4><a href="#kernel-6th-generation-pixels">6th generation Pixels</a></h4>
 
+                        <p>To sync the raviole kernel for the Pixel 6 and Pixel 6 Pro:</p>
+
                         <pre>mkdir android/kernel/raviole
 cd android/kernel/raviole
-repo init -u https://github.com/GrapheneOS/kernel_raviole-manifest.git -b 13
+repo init -u https://github.com/GrapheneOS/kernel_manifest-raviole.git -b 13
+repo sync -j16</pre>
+
+                        <p>To sync the bluejay kernel for the Pixel 6a:</p>
+
+                        <pre>mkdir android/kernel/bluejay
+cd android/kernel/bluejay
+repo init -u https://github.com/GrapheneOS/kernel_manifest-bluejay.git -b 13
 repo sync -j16</pre>
 
                         <p>To build the raviole kernel for the Pixel 6 and Pixel 6 Pro:</p>
