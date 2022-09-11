@@ -833,6 +833,13 @@
                 designed to be friendly to apps and fully compatible rather than killing the
                 application when it violates the rules.</p>
 
+                <p>You can enable our exploit protection compatibility mode via Settings ➔ Apps ➔
+                App ➔ Advanced. The exploit protection compatibility mode toggle will switch from
+                hardened_malloc to Android's standard allocator (Scudo) and will reduce address
+                space size from 48 bit to Android's standard 39 bit. There are also separate
+                toggles for these features in the Configure hardening menu if you want to narrow
+                down the cause to a specific feature.</p>
+
                 <p>If you run into an application aborting, try to come up with a process for
                 reproducing the issue and then capture a bug report via the 'Take bug report'
                 feature in Developer options. Report an issue to <a
