@@ -502,7 +502,7 @@ m aapt2</pre>
 
 <pre>vendor/adevtool/bin/run download vendor/adevtool/dl/ -d <var>DEVICE</var> -b <var>BUILD_ID</var> -t factory ota
 sudo vendor/adevtool/bin/run generate-all vendor/adevtool/config/<var>DEVICE</var>.yml -c vendor/state/<var>DEVICE</var>.json -s vendor/adevtool/dl/<var>DEVICE</var>-<var>BUILD_ID</var>-*.zip
-sudo chown -R $(logname):$(logname) vendor/google_devices
+sudo chown -R $(logname):$(logname) vendor/{google_devices,adevtool}
 vendor/adevtool/bin/run ota-firmware vendor/adevtool/config/<var>DEVICE</var>.yml -f vendor/adevtool/dl/<var>DEVICE</var>-ota-<var>BUILD_ID</var>-*.zip</pre>
                 </section>
 
