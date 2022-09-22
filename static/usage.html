@@ -755,7 +755,7 @@
                     <p>Google Camera can be used with the <a href="#sandboxed-google-play">sandboxed
                     Google Play compatibility layer</a> and can take full advantage of the
                     available cameras and image processing hardware as it can on the stock OS. It
-                    currently only depends on GSF and can be used without Play services (GMS) or
+                    currently only depends on GSF and can be used without Play services or
                     the Play Store.</p>
 
                     <p>We aim to reduce the benefits of Google Camera compared to GrapheneOS
@@ -989,10 +989,7 @@
                 uninstall apps with the standard approach requiring that the user authorizes it as
                 an app source and consents to each action. It will use the standard Android 12+
                 unattended update feature to do automatic updates for apps where it was the last
-                installer. Unattended updates by sandboxed apps are throttled and it can hit the
-                limit when installing batches of updates and request consent. We plan to improve
-                this in the future by teaching it to try an unattended update again after a short
-                wait.</p>
+                installer.</p>
 
                 <section id="sandboxed-google-play-installation">
                     <h3><a href="#sandboxed-google-play-installation">Installation</a></h3>
@@ -1017,34 +1014,30 @@
                     without Google Play rather than treating not using it as the exceptional
                     case.</p>
 
-                    <p>You can open our app repository client (Apps) and install the 3 core Google
-                    Play apps mirrored in our repository. Our app repository client has support
-                    for dependency installation so you can simply directly install the Play Store
-                    and it will install GSF and then GMS as dependencies.</p>
+                    <p>You can open our app repository client (look for Apps in the app drawer)
+                    and install the 3 core Google Play apps mirrored in our repository. Our app repository
+                    client has support for dependency installation so you can simply directly install
+                    the Play Store and it will install GSF and then Play services as dependencies.</p>
+
+                    <p>Play services and the Play Store depend on each other, one will not work properly
+                    without the other.</p>
 
                     <p>You should give a battery optimization exception to Google Play services
                     for features like push notifications to work properly in the background. It
                     isn't needed for the other 2 apps.</p>
 
-                    <p>The Play Store provides many services used by apps including Play Asset
-                    Delivery, Play Feature Delivery, in-app purchases and license checks for paid
-                    apps. You can use sandboxed Google Play without the Play Store but many apps
-                    won't work correctly without it. The Play Store app is also the most secure
-                    way to install and update apps from the Play Store. Installing it is highly
-                    recommended for general purpose usage but you can install only GSF or only
-                    GSF/GMS if you know it's all you need for what you want to use.</p>
-
-                    <p>After installing Google Play, Play services needs to be initialized. Our
-                    recommended approach is to open the Play Store, press the sign in button and
-                    wait for the sign in page to load. Once the sign in page is loaded, it means
-                    Play services is finished initializing. You can leave the app without signing
-                    into an account. Signing into a Google account is only required if you want to
+                    <p>Signing in into a Google account is optional, unless you want to
                     use features depending on being signed into an account. For example, some apps
                     use Google account authentication instead of their accounts having a username
                     and password. The Play Store requires being signed into an account in order to
                     install apps or use in-app purchases. This is still true even for an alternate
                     frontend to the Play Store. Aurora Store still requires an account but fetches
                     shared account credentials from Aurora Store's service by default.</p>
+
+                    <p>The Play Store provides many services used by apps including Play Asset
+                    Delivery, Play Feature Delivery, in-app purchases and license checks for paid
+                    apps. The Play Store app is also the most secure way to install and update apps
+                    from the Play Store.</p>
 
                     <p>You can obtain updates to these apps from our app repository client. Our
                     compatibility layer supports the Play Store updating itself and also Play
@@ -1057,6 +1050,9 @@
                     <p>Our compatibility layer has support for Play Games Services which you can
                     obtain by installing Google Play Games from the Play Store. Many games on the
                     Play Store depend on having Google Play Games installed.</p>
+
+                    <p>Some apps (for example, Google Camera) can work with only GSF installed,
+                    without Play services and the Play Store.</p>
                 </section>
 
                 <section id="sandboxed-google-play-configuration">
