@@ -590,7 +590,7 @@
 
                     <ul>
                         <li>GmsCompatConfig: disable com.google.android.westworld to avoid Play services crashes</li>
-                        <li>backport fix for clat on restricted networks (may fix Android 13 VPN lockdown compatibility issue impacting certain IPv6-only carrier APNs)</li>
+                        <li>backport fix for clat on restricted networks (note: does not fix Android 13 compatibility issue between VPN lockdown and certain IPv6 only carrier configurations, which can be worked around by switching to an IPv4/IPv6 APN from a pure IPv6 APN)</li>
                         <li>Sandboxed Google Play compatibility layer: hide Stats Manager service</li>
                         <li>Sandboxed Google Play compatibility layer: don't report CannotDeliverBroadcastException to the user</li>
                         <li>Gallery: hide obsolete menu items</li>
