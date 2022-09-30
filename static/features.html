@@ -337,8 +337,18 @@
                                     project again).</li>
                                 </ul>
                             </li>
-                            <li>Prevention of dynamic native code execution in-memory or via the filesystem
-                            for the base OS without going via the package manager, etc.</li>
+                            <li>Android Runtime Just-In-Time (JIT) compilation/profiling is fully
+                            disabled and replaced with full ahead-of-time (AOT) compilation. The
+                            only JIT compilation in the base OS is the v8 JavaScript JIT which is
+                            disabled by default for the Vanadium browser with per-site exception
+                            support.</li>
+                            <li>Prevention of dynamic native code execution via either memory or
+                            storage for the base OS including nearly all the base OS apps. For the
+                            OS itself, only the processes involved in the OS package management
+                            system can write data to storage that can be executed and only the
+                            media DRM sandbox can do in-memory dynamic native code execution. The
+                            Vanadium browser and WebView are excluded in order to support the JS
+                            JIT compiler.</li>
                             <li>Filesystem access hardening</li>
                         </ul>
                     </section>
