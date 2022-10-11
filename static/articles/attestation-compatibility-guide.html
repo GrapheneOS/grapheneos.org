@@ -50,10 +50,10 @@
         <main id="attestation-compatibility-guide">
             <h1><a href="#attestation-compatibility-guide">Attestation compatibility guide</a></h1>
 
-            <p>Apps using SafetyNet attestation to check the authenticity/integrity of the OS can
-            support GrapheneOS by using the standard Android hardware attestation API and
-            permitting our official release signing keys. Android's
-            <a href="https://developer.android.com/training/articles/security-key-attestation">hardware
+            <p>Apps using the Play Integrity API or legacy Safetynet attestation API to check the
+            authenticity/integrity of the OS can support GrapheneOS by using the standard Android
+            hardware attestation API and permitting our official release signing keys.
+            Android's <a href="https://developer.android.com/training/articles/security-key-attestation">hardware
             attestation API</a> provides a much stronger form of attestation than SafetyNet with
             the ability to whitelist the keys of alternate operating systems. It also avoids an
             unnecessary dependency on Google Play services and Google's SafetyNet servers.</p>
