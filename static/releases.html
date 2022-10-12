@@ -590,6 +590,11 @@
                     <p>Changes since the 2022100300 release:</p>
 
                     <ul>
+                        <li>notify the user when sensors access is denied by disabled Sensors permission</li>
+                        <li>Settings: add a toggle for auto grants of Sensors permission</li>
+                        <li>avoid restarting process when Sensors permission is granted since it fully supports runtime toggling</li>
+                        <li>add a toggle for turning off auto grant of Network permission to package installation UI</li>
+                        <li>don't auto-grant denied special runtime permissions (Sensors, Network) after app data reset</li>
                         <li>Dialer: update visual voicemail (VVM) configuration database based on Google Phone 90.0.477356402</li>
                         <li>Messaging: update MMS configuration database based on Google Messages 20220926_01_RC01</li>
                         <li>Pixel 4a: raise maximum number of users to 32 to match other devices (was being overridden by device overlay)</li>
