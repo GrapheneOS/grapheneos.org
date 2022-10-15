@@ -145,6 +145,8 @@
                     <p>Smartphone targets:</p>
 
                     <ul>
+                        <li>cheetah (Pixel 7 Pro) — incomplete and experimental</li>
+                        <li>panther (Pixel 7) — incomplete and experimental</li>
                         <li>bluejay (Pixel 6a)</li>
                         <li>raven (Pixel 6 Pro)</li>
                         <li>oriole (Pixel 6)</li>
@@ -332,11 +334,19 @@
                         officially supported devices.</p>
 
                         <p>The <code>13</code> branch is in early development and will be the
-                        branch used for all non-legacy devices.</p>
+                        branch used for all non-legacy and non-experimental devices:</p>
 
                         <pre>mkdir grapheneos-13
 cd grapheneos-13
 repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 13
+repo sync -j16</pre>
+
+                        <p>The <code>13-pantah</code> branch is an experimental device support
+                        branch for the Pixel 7 and Pixel 7 Pro:</p>
+
+                        <pre>mkdir grapheneos-13-pantah
+cd grapheneos-13-pantah
+repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 13-pantah
 repo sync -j16</pre>
 
                         <p>If your network is unreliable and <code>repo sync</code> fails, you can run the
@@ -469,6 +479,25 @@ repo sync -j16</pre>
                         <p>Replace the files in the OS source tree at
                         <code>device/google/raviole-kernel/</code> or
                         <code>device/google/bluejay-kernel/</code> with your build in
+                        <code>out/mixed/dist/</code>.</p>
+                    </section>
+
+                    <section id="kernel-7th-generation-pixels">
+                        <h4><a href="#kernel-7th-generation-pixels">7th generation Pixels</a></h4>
+
+                        <p>To sync the pantah kernel for the Pixel 7 and Pixel 7 Pro:</p>
+
+                        <pre>mkdir android/kernel/pantah
+cd android/kernel/pantah
+repo init -u https://github.com/GrapheneOS/kernel_manifest-pantah.git -b 13-pantah
+repo sync -j16</pre>
+
+                        <p>To build the pantah kernel for the Pixel 7 and Pixel 7 Pro:</p>
+
+                        <pre>LTO=full BUILD_KERNEL=1 ./build_cloudripper.sh</pre>
+
+                        <p>Replace the files in the OS source tree at
+                        <code>device/google/pantah-kernel/</code> with your build in
                         <code>out/mixed/dist/</code>.</p>
                     </section>
                 </section>
