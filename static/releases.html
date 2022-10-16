@@ -633,6 +633,7 @@
                     <p>Changes since the 2022101500 release:</p>
 
                     <ul>
+                        <li>Vanadium: add back 32-bit WebView support since there are non-Play-Store app repositories distributing 32-bit-only APKs due to save storage space based on their incorrect assumption that they'll work on 64-bit devices and their lack of support for split APKs able to provide support for each architecture with minimal storage use (we still plan to add 64-bit Vanadium builds for use on the Pixel 7 and Pixel 7 Pro where 32-bit app support has been dropped)</li>
                         <li>don't auto-revoke Sensors/Network permissions from hidden apps</li>
                         <li>GmsCompatConfig: disable WearableDataListenerService</li>
                     </ul>
