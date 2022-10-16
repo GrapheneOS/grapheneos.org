@@ -146,7 +146,7 @@ const qualcommDevices = ["barbet", "redfin", "bramble", "sunfish", "coral", "fla
 
 const legacyQualcommDevices = ["sunfish", "coral", "flame", "bonito", "sargo", "crosshatch", "blueline"];
 
-const gs101Devices = ["bluejay", "raven", "oriole"];
+const tensorDevices = ["cheetah", "panther", "bluejay", "raven", "oriole"];
 
 async function getLatestRelease() {
     let product = await device.getVariable("product");
@@ -238,7 +238,7 @@ async function flashRelease(setProgress) {
             await device.runCommand("erase:msadp_a");
             await device.runCommand("erase:msadp_b");
         }
-        if (gs101Devices.includes(product)) {
+        if (tensorDevices.includes(product)) {
             setProgress("Disabling FIPS...");
             await device.runCommand("erase:fips");
             setProgress("Erasing DPM...");
