@@ -601,8 +601,12 @@ vendor/adevtool/bin/run ota-firmware vendor/adevtool/config/<var>DEVICE</var>.ym
 
                     <pre>m target-files-package</pre>
 
-                    <p>For the Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7 and Pixel 7 Pro you
-                    currently need <code>m vendorbootimage target-files-package</code> instead of
+                    <p>For the Pixel 6, Pixel 6 Pro and Pixel 6a you currently need <code>m
+                    vendorbootimage target-files-package</code> instead of
+                    <code>target-files-package</code>.</p>
+
+                    <p>For the Pixel 7 and Pixel 7 Pro you currently need <code>m vendorbootimage
+                    vendorkernelbootimage target-files-package</code> instead of
                     <code>target-files-package</code>.</p>
 
                     <p>The <code>-j</code> parameter can be passed to <code>m</code> to set a specific
