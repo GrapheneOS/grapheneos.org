@@ -651,7 +651,7 @@
 
                     <ul>
                         <li>Vanadium: add back 32-bit WebView support since there are non-Play-Store app repositories distributing 32-bit-only APKs due to save storage space based on their incorrect assumption that they'll work on 64-bit devices and their lack of support for split APKs able to provide support for each architecture with minimal storage use (we still plan to add 64-bit Vanadium builds for use on the Pixel 7 and Pixel 7 Pro where 32-bit app support has been dropped)</li>
-                        <li>don't auto-revoke Sensors/Network permissions from hidden apps</li>
+                        <li>don't auto-revoke Sensors/Network permissions when 'freezing' apps with device managers</li>
                         <li>GmsCompatConfig: disable WearableDataListenerService</li>
                         <li>raise minimum supported fastboot version for the factory images flashing scripts to 33.0.3</li>
                         <li>adevtool: exclude additional prebuilt files</li>
