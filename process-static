@@ -43,7 +43,7 @@ eslint static-tmp/**/!(fastboot.min.m|z-worker-pako.|pako_inflate.min.|)js
 find static-tmp -name '*.js' -exec terser --ecma 2021 --module -cmo {} {} \;
 
 replace=
-for file in static-tmp/**/*.css static-tmp/js/*.js static-tmp/mask-icon.svg; do
+for file in static-tmp/**/*.css static-tmp/js/*.js static-tmp/**/!(bimi|favicon).svg; do
     hash=$(sha256sum "$file" | head -c 8)
     sri_hash=sha256-$(openssl dgst -sha256 -binary "$file" | openssl base64 -A)
     dest="$(dirname $file)/$hash.$(basename $file)"
