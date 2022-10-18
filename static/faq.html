@@ -812,25 +812,30 @@
                             servers. These contain orbits and statuses of satellites, Earth
                             environmental data and time adjustment information.</p>
 
-                            <p>On prior generation Pixels with a Qualcomm baseband (which provides
-                            GNSS), almanacs are downloaded from https://path1.xtracloud.net/xtra3grcej.bin
-                            https://path2.xtracloud.net/xtra3grcej.bin, https://path3.xtracloud.net/xtra3grcej.bin,
-                            https://path1.xtracloud.net/xtra3Mgrbeji.bin, https://path2.xtracloud.net/xtra3Mgrbeji.bin and
+                            <p>On 4th and 5th generation Pixels (which use a Qualcomm baseband
+                            providing cellular, Wi-Fi, Bluetooth and GNSS in separate sandboxes),
+                            almanacs are downloaded from
+                            https://path1.xtracloud.net/xtra3grcej.bin
+                            https://path2.xtracloud.net/xtra3grcej.bin,
+                            https://path3.xtracloud.net/xtra3grcej.bin,
+                            https://path1.xtracloud.net/xtra3Mgrbeji.bin,
+                            https://path2.xtracloud.net/xtra3Mgrbeji.bin and
                             https://path3.xtracloud.net/xtra3Mgrbeji.bin which currently (as of
-                            October 2022) are hosted via Amazon Web Services. We plan to offer the option to
-                            download these files from the GrapheneOS servers, but we'll retain the
-                            option to use the standard servers to blend in with other devices.</p>
+                            October 2022) are hosted via Amazon Web Services. We plan to offer the
+                            option to download these files from the GrapheneOS servers, but we'll
+                            retain the option to use the standard servers to blend in with other
+                            devices.</p>
 
-                            <p>On 6th generation and newer Pixels which use a Broadcom GNSS chip, 
-                            by default almanacs are downloaded from
+                            <p>On 6th and 7th generation Pixels (which use a Broadcom GNSS chip),
+                            almanacs are downloaded from
                             https://google.psds.grapheneos.org/lto2.dat,
                             https://google.psds.grapheneos.org/rto.dat and
                             https://google.psds.grapheneos.org/rtistatus.dat which are the
                             GrapheneOS proxy servers for the standard servers. Alternatively, the
-                            standard servers can be used which are https://agnss.goog/lto2.dat,
-                            https://agnss.goog/rto.dat and https://agnss.goog/rtistatus.dat which
-                            currently (as of October 2022) are hosted via Google Cloud Platform.</p>
-
+                            standard servers can be enabled in the Settings app which are
+                            https://agnss.goog/lto2.dat, https://agnss.goog/rto.dat and
+                            https://agnss.goog/rtistatus.dat which are currently (as of October 2022)
+                            hosted via Google Cloud Platform.</p>
                         </li>
                         <li>
                             <p>Connectivity checks designed to mimic a web browser user agent are performed
