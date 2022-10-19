@@ -269,7 +269,10 @@
                     </li>
                     <li>Media access permission ("Allow access to media only",
                         <code>READ_EXTERNAL_STORAGE</code>) allows the app to read media files
-                        that were created by other apps. Non-media files remain invisible to it.</li>
+                        that were created by other apps. Non-media files remain invisible to it.
+                        For apps targeting Android 13, the media access permission is split into
+                        <code>READ_MEDIA_IMAGES</code>, <code>READ_MEDIA_VIDEO</code> and
+                        <code>READ_MEDIA_AUDIO</code>.</li>
                     <li>Media management special access permission ("Allow app to manage media",
                         <code>MANAGE_MEDIA</code>) allows the app to delete and to rename media
                         files created by other apps.</li>
