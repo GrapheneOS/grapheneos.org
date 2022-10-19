@@ -44,11 +44,11 @@
     </url>
     <url>
         <loc>https://grapheneos.org/history/</loc>
-        <priority>0.5</priority>
+        <priority>0.3</priority>
     </url>
     <url>
         <loc>https://grapheneos.org/history/copperheados</loc>
-        <priority>0.5</priority>
+        <priority>0.1</priority>
     </url>
     <url>
         <loc>https://grapheneos.org/history/legacy-changelog</loc>
