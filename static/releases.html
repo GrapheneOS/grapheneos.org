@@ -641,6 +641,7 @@
                         <li>GmsCompatConfig: disable CAST_CONNECTION_NOTIFY popup dialogs</li>
                         <li>GmsCompatConfig: fix crash in FastPair service</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro): update GKI to Linux 5.10.149</li>
+                        <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro): replace upstream default of sha1 with sha256 for module signing (GKI devices rely on verified boot for vendor modules and only use module signing for GKI modules of which there are currently 0, but it should be using a secure hash in case there are ever GKI modules and for when we extend it to vendor modules as a lower level 2nd layer of security not depending on userspace)
                         <li>kernel (Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a): enable forced kernel module signing with a per-build signing key (RSA 4096 / sha256) as an additional lower level layer of security beyond the verification already provided by dm-verity and SELinux</li>
                         <li>kernel (Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a): disable IP_SCTP</li>
                         <li>kernel (Pixel 4a): enable REFCOUNT_FULL</li>
