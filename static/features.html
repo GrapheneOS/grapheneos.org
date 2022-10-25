@@ -383,12 +383,20 @@
                 <section id="more-complete-patching">
                     <h3><a href="#more-complete-patching">More complete patching</a></h3>
 
-                    <p>GrapheneOS includes fixes for many vulnerabilities not yet fixed in
-                    Android. On modern devices with Generic Kernel Image (GKI) support, we
-                    update the kernel to the latest stable GKI release many months before the stock OS
-                    gets the update. This means we're shipping hundreds of fixes not included in
-                    the stock OS including many security fixes. We also backport more fixes on top
-                    of this for the kernel and for other components too.</p>
+                    <p>GrapheneOS includes fixes for a large number of vulnerabilities not yet
+                    fixed in Android.</p>
+
+                    <p>We're able to quickly and safely ship the latest Linux kernel LTS point
+                    releases on devices with GKI (Generic Kernel Image) support including the 6th
+                    and 7th generation Pixel phones. At the time of writing on 2022-10-25,
+                    GrapheneOS is using the latest Linux 5.10 LTS release (5.10.149) from
+                    2022-10-17 for 6th and 7th generation Pixel phones. The stock Pixel OS is on
+                    Linux 5.10.107 from 2022-03-19 with a small number of patches from between the
+                    2022-03-19 and 2022-08-01 backported. This means GrapheneOS provides hundreds
+                    of relevant kernel patches including many security patches not yet included in
+                    the stock OS. It's possible for us to stay several months ahead due to their
+                    approach of moving to new LTS releases only in quarterly releases after a long
+                    freeze and testing process.</p>
 
                     <p>We often find new vulnerabilities ourselves and report them upstream. We've
                     reported dozens of vulnerabilities for both the generic Android codebase and
