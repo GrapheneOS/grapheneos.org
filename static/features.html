@@ -337,8 +337,18 @@
                                     project again).</li>
                                 </ul>
                             </li>
-                            <li>Prevention of dynamic native code execution in-memory or via the filesystem
-                            for the base OS without going via the package manager, etc.</li>
+                            <li>Android Runtime Just-In-Time (JIT) compilation/profiling is fully
+                            disabled and replaced with full ahead-of-time (AOT) compilation. The
+                            only JIT compilation in the base OS is the v8 JavaScript JIT which is
+                            disabled by default for the Vanadium browser with per-site exception
+                            support.</li>
+                            <li>Prevention of dynamic native code execution via either memory or
+                            storage for the base OS including nearly all the base OS apps. For the
+                            OS itself, only the processes involved in the OS package management
+                            system can write data to storage that can be executed and only the
+                            media DRM sandbox can do in-memory dynamic native code execution. The
+                            Vanadium browser and WebView are excluded in order to support the JS
+                            JIT compiler.</li>
                             <li>Filesystem access hardening</li>
                         </ul>
                     </section>
@@ -373,12 +383,20 @@
                 <section id="more-complete-patching">
                     <h3><a href="#more-complete-patching">More complete patching</a></h3>
 
-                    <p>GrapheneOS includes fixes for many vulnerabilities not yet fixed in
-                    Android. On modern devices with Generic Kernel Image (GKI) support, we
-                    update the kernel to the latest stable GKI release many months before the stock OS
-                    gets the update. This means we're shipping hundreds of fixes not included in
-                    the stock OS including many security fixes. We also backport more fixes on top
-                    of this for the kernel and for other components too.</p>
+                    <p>GrapheneOS includes fixes for a large number of vulnerabilities not yet
+                    fixed in Android.</p>
+
+                    <p>We're able to quickly and safely ship the latest Linux kernel LTS point
+                    releases on devices with GKI (Generic Kernel Image) support including the 6th
+                    and 7th generation Pixel phones. At the time of writing on 2022-10-25,
+                    GrapheneOS is using the latest Linux 5.10 LTS release (5.10.149) from
+                    2022-10-17 for 6th and 7th generation Pixel phones. The stock Pixel OS is on
+                    Linux 5.10.107 from 2022-03-19 with a small number of patches from between the
+                    2022-03-19 and 2022-08-01 backported. This means GrapheneOS provides hundreds
+                    of relevant kernel patches including many security patches not yet included in
+                    the stock OS. It's possible for us to stay several months ahead due to their
+                    approach of moving to new LTS releases only in quarterly releases after a long
+                    freeze and testing process.</p>
 
                     <p>We often find new vulnerabilities ourselves and report them upstream. We've
                     reported dozens of vulnerabilities for both the generic Android codebase and
@@ -432,10 +450,7 @@
                     install, update and uninstall apps with the standard approach requiring that
                     the user authorizes it as an app source and consents to each action. It will
                     use the standard Android 12+ unattended update feature to do automatic updates
-                    for apps where it was the last installer. Unattended updates by sandboxed apps
-                    are throttled and it can hit the limit when installing batches of updates and
-                    request consent. We plan to improve this in the future by teaching it to try
-                    an unattended update again after a short wait.</p>
+                    for apps where it was the last installer.</p>
 
                     <p>See the <a href="/usage#sandboxed-google-play-installation">usage guide
                     section on sandboxed Google Play</a> for instructions.</p>
@@ -927,6 +942,7 @@
         <footer>
             <a href="/"><img src="{{path|/mask-icon.svg}}" width="512" height="512" alt=""/>GrapheneOS</a>
             <ul id="social">
+                <li><a href="https://discuss.grapheneos.org/">Forum</a></li>
                 <li><a href="https://twitter.com/GrapheneOS">Twitter</a></li>
                 <li><a href="https://github.com/GrapheneOS">GitHub</a></li>
                 <li><a href="https://reddit.com/r/GrapheneOS">Reddit</a></li>

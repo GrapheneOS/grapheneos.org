@@ -1,6 +1,6 @@
 // @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt MIT
 
-import * as fastboot from "./fastboot/ce2370da/fastboot.min.mjs";
+import * as fastboot from "./fastboot/6dde62d4/fastboot.min.mjs";
 
 const RELEASES_URL = "https://releases.grapheneos.org";
 
@@ -140,13 +140,13 @@ async function unlockBootloader(setProgress) {
     return "Bootloader unlocked.";
 }
 
-const supportedDevices = ["bluejay", "raven", "oriole", "barbet", "redfin", "bramble", "sunfish", "coral", "flame", "bonito", "sargo", "crosshatch", "blueline"];
+const supportedDevices = ["cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble", "sunfish", "coral", "flame", "bonito", "sargo", "crosshatch", "blueline"];
 
 const qualcommDevices = ["barbet", "redfin", "bramble", "sunfish", "coral", "flame", "bonito", "sargo", "crosshatch", "blueline"];
 
 const legacyQualcommDevices = ["sunfish", "coral", "flame", "bonito", "sargo", "crosshatch", "blueline"];
 
-const gs101Devices = ["bluejay", "raven", "oriole"];
+const tensorDevices = ["cheetah", "panther", "bluejay", "raven", "oriole"];
 
 async function getLatestRelease() {
     let product = await device.getVariable("product");
@@ -238,7 +238,7 @@ async function flashRelease(setProgress) {
             await device.runCommand("erase:msadp_a");
             await device.runCommand("erase:msadp_b");
         }
-        if (gs101Devices.includes(product)) {
+        if (tensorDevices.includes(product)) {
             setProgress("Disabling FIPS...");
             await device.runCommand("erase:fips");
             setProgress("Erasing DPM...");
@@ -328,7 +328,7 @@ fastboot.setDebugLevel(2);
 
 fastboot.configureZip({
     workerScripts: {
-        inflate: ["/js/fastboot/ce2370da/vendor/z-worker-pako.js", "pako_inflate.min.js"],
+        inflate: ["/js/fastboot/6dde62d4/vendor/z-worker-pako.js", "pako_inflate.min.js"],
     },
 });
 

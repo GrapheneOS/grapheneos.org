@@ -145,6 +145,8 @@
                     <p>Smartphone targets:</p>
 
                     <ul>
+                        <li>cheetah (Pixel 7 Pro) — experimental</li>
+                        <li>panther (Pixel 7) — experimental</li>
                         <li>bluejay (Pixel 6a)</li>
                         <li>raven (Pixel 6 Pro)</li>
                         <li>oriole (Pixel 6)</li>
@@ -331,12 +333,20 @@
                         including the emulator, porting to other devices and for non-legacy
                         officially supported devices.</p>
 
-                        <p>The <code>13</code> branch is in early development and will be the
-                        branch used for all non-legacy devices.</p>
+                        <p>The <code>13</code> branch is used for 4th, 5th and 6th generation
+                        Pixels, generic / emulator targets and non-Pixel devices:</p>
 
                         <pre>mkdir grapheneos-13
 cd grapheneos-13
 repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 13
+repo sync -j16</pre>
+
+                        <p>The <code>13-pantah</code> branch is an experimental device support
+                        branch for the Pixel 7 and Pixel 7 Pro:</p>
+
+                        <pre>mkdir grapheneos-13-pantah
+cd grapheneos-13-pantah
+repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 13-pantah
 repo sync -j16</pre>
 
                         <p>If your network is unreliable and <code>repo sync</code> fails, you can run the
@@ -436,7 +446,8 @@ repo sync -j16</pre>
                         <pre>BUILD_CONFIG=private/msm-google/build.config.redbull.vintf build/build.sh</pre>
 
                         <p>Replace the files in the OS source tree at
-                        <code>device/google/redbull-kernel/</code> with your build in
+                        <code>device/google/redbull-kernel/</code> (userdebug/eng) and
+                        <code>device/google/redbull-kernel/vintf/</code> (user) with your build in
                         <code>out/android-msm-pixel-4.19/dist/</code>.</p>
                     </section>
 
@@ -459,19 +470,34 @@ repo sync -j16</pre>
 
                         <p>To build the raviole kernel for the Pixel 6 and Pixel 6 Pro:</p>
 
-                        <pre>LTO=thin BUILD_KERNEL=1 ./build_slider.sh</pre>
+                        <pre>LTO=full BUILD_KERNEL=1 ./build_slider.sh</pre>
 
                         <p>To build the bluejay kernel for the Pixel 6a:</p>
 
-                        <pre>LTO=thin BUILD_KERNEL=1 ./build_bluejay.sh</pre>
-
-                        <p><strong>ThinLTO is being used temporarily for 6th generation Pixel
-                        kernels to work around an upstream bug in the kernel or toolchain. Using
-                        <code>LTO=full</code> is currently broken.</strong></p>
+                        <pre>LTO=full BUILD_KERNEL=1 ./build_bluejay.sh</pre>
 
                         <p>Replace the files in the OS source tree at
                         <code>device/google/raviole-kernel/</code> or
                         <code>device/google/bluejay-kernel/</code> with your build in
+                        <code>out/mixed/dist/</code>.</p>
+                    </section>
+
+                    <section id="kernel-7th-generation-pixels">
+                        <h4><a href="#kernel-7th-generation-pixels">7th generation Pixels</a></h4>
+
+                        <p>To sync the pantah kernel for the Pixel 7 and Pixel 7 Pro:</p>
+
+                        <pre>mkdir android/kernel/pantah
+cd android/kernel/pantah
+repo init -u https://github.com/GrapheneOS/kernel_manifest-pantah.git -b 13-pantah
+repo sync -j16</pre>
+
+                        <p>To build the pantah kernel for the Pixel 7 and Pixel 7 Pro:</p>
+
+                        <pre>LTO=full BUILD_KERNEL=1 ./build_cloudripper.sh</pre>
+
+                        <p>Replace the files in the OS source tree at
+                        <code>device/google/pantah-kernel/</code> with your build in
                         <code>out/mixed/dist/</code>.</p>
                     </section>
                 </section>
@@ -575,8 +601,13 @@ vendor/adevtool/bin/run ota-firmware vendor/adevtool/config/<var>DEVICE</var>.ym
 
                     <pre>m target-files-package</pre>
 
-                    <p>For the Pixel 6 and Pixel 6 Pro, you currently need <code>m vendorbootimage
-                    target-files-package</code> instead of <code>target-files-package</code>.</p>
+                    <p>For the Pixel 6, Pixel 6 Pro and Pixel 6a you currently need <code>m
+                    vendorbootimage target-files-package</code> instead of
+                    <code>target-files-package</code>.</p>
+
+                    <p>For the Pixel 7 and Pixel 7 Pro you currently need <code>m vendorbootimage
+                    vendorkernelbootimage target-files-package</code> instead of
+                    <code>target-files-package</code>.</p>
 
                     <p>The <code>-j</code> parameter can be passed to <code>m</code> to set a specific
                     number of jobs such as <code>-j4</code> to use 4 jobs. By default, the build system
@@ -989,11 +1020,11 @@ export PATH="$HOME/android/sdk/cmdline-tools/latest/bin:$PATH"</pre>
                 <p>For running the Compatibility Test Suite you'll also need the build-tools for
                 aapt:</p>
 
-                <pre>sdkmanager 'build-tools;31.0.0'</pre>
+                <pre>sdkmanager 'build-tools;33.0.0'</pre>
 
                 <p>Add the <code>build-tools</code> executables to your <code>PATH</code>:</p>
 
-                <pre>export PATH="$HOME/android/sdk/build-tools/31.0.0:$PATH"</pre>
+                <pre>export PATH="$HOME/android/sdk/build-tools/33.0.0:$PATH"</pre>
 
                 <p>For working with native code, you need the NDK:</p>
 
@@ -1016,10 +1047,10 @@ export PATH="$HOME/android/sdk/cmdline-tools/latest/bin:$PATH"</pre>
                 copy of it. For example:</p>
 
                 <pre>cd ~/android
-curl -O https://dl.google.com/dl/android/studio/ide-zips/4.0.1.0/android-studio-ide-193.6626763-linux.tar.gz
-echo 'f2f82744e735eae43fa018a77254c398a3bab5371f09973a37483014b73b7597  android-studio-ide-193.6626763-linux.tar.gz' | sha256sum -c
-tar xvf android-studio-ide-193.6626763-linux.tar.gz
-rm android-studio-ide-193.6626763-linux.tar.gz
+curl -O https://dl.google.com/dl/android/studio/ide-zips/2021.3.1.17/android-studio-2021.3.1.17-linux.tar.gz
+echo '89adb0ce0ffa46b7894e7bfedb142b1f5d52c43c171e6a6cb9a95a49f77756ca  android-studio-2021.3.1.17-linux.tar.gz' | sha256sum -c
+tar xvf android-studio-2021.3.1.17-linux.tar.gz
+rm android-studio-2021.3.1.17-linux.tar.gz
 mv android-studio studio</pre>
 
                 <p>Add the Android Studio executables to your <code>PATH</code>:</p>
@@ -1371,6 +1402,7 @@ rm android-cts-media-1.5.zip</pre>
         <footer>
             <a href="/"><img src="{{path|/mask-icon.svg}}" width="512" height="512" alt=""/>GrapheneOS</a>
             <ul id="social">
+                <li><a href="https://discuss.grapheneos.org/">Forum</a></li>
                 <li><a href="https://twitter.com/GrapheneOS">Twitter</a></li>
                 <li><a href="https://github.com/GrapheneOS">GitHub</a></li>
                 <li><a href="https://reddit.com/r/GrapheneOS">Reddit</a></li>

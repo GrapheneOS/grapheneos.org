@@ -142,6 +142,8 @@
                     <p>GrapheneOS has official production support for the following devices:</p>
 
                     <ul>
+                        <li>Pixel 7 Pro (cheetah) — experimental</li>
+                        <li>Pixel 7 (panther) — experimental</li>
                         <li>Pixel 6a (bluejay)</li>
                         <li>Pixel 6 Pro (raven)</li>
                         <li>Pixel 6 (oriole)</li>
@@ -153,14 +155,12 @@
                         <li>Pixel 4 (flame)</li>
                     </ul>
 
+                    <!--
                     <p>The following devices are end-of-life, no longer receive full security
                     updates and are supported via extended support releases of GrapheneOS:</p>
+                    -->
 
                     <ul>
-                        <li>Pixel 3a XL (bonito)</li>
-                        <li>Pixel 3a (sargo)</li>
-                        <li>Pixel 3 XL (crosshatch)</li>
-                        <li>Pixel 3 (blueline)</li>
                     </ul>
 
                     <p>We provide extended support releases as a stopgap for users to transition
@@ -204,6 +204,10 @@
 
                 <article id="recommended-devices">
                     <h3><a href="#recommended-devices">Which devices are recommended?</a></h3>
+
+                    <p>The Pixel 7 and Pixel 7 Pro are incremental all around improvements over
+                    the Pixel 6 and Pixel 6 Pro. GrapheneOS already has experimental support for
+                    these devices which will soon be considered stable.</p>
 
                     <p>The Pixel 6 and Pixel 6 Pro are flagship phones with much nicer hardware
                     than previous generation devices (cameras, CPU, GPU, display, battery), 5
@@ -328,6 +332,10 @@
                     <p>The following devices are no longer supported:</p>
 
                     <ul>
+                        <li>Pixel 3a XL (bonito)</li>
+                        <li>Pixel 3a (sargo)</li>
+                        <li>Pixel 3 XL (crosshatch)</li>
+                        <li>Pixel 3 (blueline)</li>
                         <li>Pixel 2 XL (taimen)</li>
                         <li>Pixel 2 (walleye)</li>
                         <li>Pixel XL (marlin)</li>
@@ -368,6 +376,16 @@
                             <th>Device</th>
                             <th>OEM minimum support end</th>
                             <th>OEM minimum support length</th>
+                        </tr>
+                        <tr>
+                            <td>Google Pixel 7 Pro</td>
+                            <td>October 2027</td>
+                            <td>5 years</td>
+                        </tr>
+                        <tr>
+                            <td>Google Pixel 7</td>
+                            <td>October 2027</td>
+                            <td>5 years</td>
                         </tr>
                         <tr>
                             <td>Google Pixel 6a</td>
@@ -412,26 +430,6 @@
                         <tr>
                             <td>Google Pixel 4 XL</td>
                             <td>October 2022</td>
-                            <td>3 years</td>
-                        </tr>
-                        <tr>
-                            <td>Google Pixel 3a XL</td>
-                            <td>May 2022</td>
-                            <td>3 years</td>
-                        </tr>
-                        <tr>
-                            <td>Google Pixel 3a</td>
-                            <td>May 2022</td>
-                            <td>3 years</td>
-                        </tr>
-                        <tr>
-                            <td>Google Pixel 3 XL</td>
-                            <td>October 2021</td>
-                            <td>3 years</td>
-                        </tr>
-                        <tr>
-                            <td>Google Pixel 3</td>
-                            <td>October 2021</td>
                             <td>3 years</td>
                         </tr>
                     </table>
@@ -814,25 +812,30 @@
                             servers. These contain orbits and statuses of satellites, Earth
                             environmental data and time adjustment information.</p>
 
-                            <p>On prior generation Pixels with a Qualcomm baseband (which provides
-                            GNSS), almanacs are downloaded from https://path1.xtracloud.net/xtra3grcej.bin
-                            https://path2.xtracloud.net/xtra3grcej.bin, https://path3.xtracloud.net/xtra3grcej.bin,
-                            https://path1.xtracloud.net/xtra3Mgrbeji.bin, https://path2.xtracloud.net/xtra3Mgrbeji.bin and
+                            <p>On 4th and 5th generation Pixels (which use a Qualcomm baseband
+                            providing cellular, Wi-Fi, Bluetooth and GNSS in separate sandboxes),
+                            almanacs are downloaded from
+                            https://path1.xtracloud.net/xtra3grcej.bin
+                            https://path2.xtracloud.net/xtra3grcej.bin,
+                            https://path3.xtracloud.net/xtra3grcej.bin,
+                            https://path1.xtracloud.net/xtra3Mgrbeji.bin,
+                            https://path2.xtracloud.net/xtra3Mgrbeji.bin and
                             https://path3.xtracloud.net/xtra3Mgrbeji.bin which currently (as of
-                            May 2022) are hosted via Amazon Web Services. We plan to offer the option to
-                            download these files from the GrapheneOS servers, but we'll retain the
-                            option to use the standard servers to blend in with other devices.</p>
+                            October 2022) are hosted via Amazon Web Services. We plan to offer the
+                            option to download these files from the GrapheneOS servers, but we'll
+                            retain the option to use the standard servers to blend in with other
+                            devices.</p>
 
-                            <p>On 6th generation Pixels with a Broadcom GNSS chip, by default
+                            <p>On 6th and 7th generation Pixels (which use a Broadcom GNSS chip),
                             almanacs are downloaded from
                             https://google.psds.grapheneos.org/lto2.dat,
                             https://google.psds.grapheneos.org/rto.dat and
                             https://google.psds.grapheneos.org/rtistatus.dat which are the
                             GrapheneOS proxy servers for the standard servers. Alternatively, the
-                            standard servers can be used which are https://agnss.goog/lto2.dat,
-                            https://agnss.goog/rto.dat and https://agnss.goog/rtistatus.dat which
-                            currently (as of May 2022) are hosted via Google Cloud Platform.</p>
-
+                            standard servers can be enabled in the Settings app which are
+                            https://agnss.goog/lto2.dat, https://agnss.goog/rto.dat and
+                            https://agnss.goog/rtistatus.dat which are currently (as of October 2022)
+                            hosted via Google Cloud Platform.</p>
                         </li>
                         <li>
                             <p>Connectivity checks designed to mimic a web browser user agent are performed
@@ -942,7 +945,7 @@
                     </ul>
 
                     <p>Our implementation of the policy primarily consists of making sure our servers only
-                    retain logs for 10 days. In practice, we follow much stricter privacy guidelines than
+                    retain logs for 10 days. In practice, we follow much stricter privacy guidelines 
                     than the rules laid out in the EFF policy. However, we don't want to define our own
                     complex, ad-hoc privacy policy rather than reusing a sensible one with serious thought
                     put into it by experts.</p>
@@ -1116,7 +1119,7 @@
                     domain-based ad-blocking as part of DNS resolution. You can do this by
                     <a href="#custom-dns">choosing a Private DNS (DNS-over-TLS) server</a> with
                     support for blocking ad domains. As an example, AdGuard DNS can be used by
-                    setting <code>dns.adguard.com</code> as the Private DNS domain. This feature
+                    setting <code>dns.adguard-dns.com</code> as the Private DNS domain. This feature
                     used to be included by the project many years ago, but it needs to be
                     reimplemented, and it's a low priority feature depending on contributors
                     stepping up to work on it.</p>
@@ -1152,9 +1155,9 @@
 
                     <p>Using the VPN service to provide something other than a VPN also means that these
                     apps need to provide an actual VPN implementation or a way to forward to apps
-                    providing one, and very few have bothered to implement this. NetGuard is an one
-                    example implementing SOCKS5 forwarding, which can be used to forward to apps like
-                    Orbot (Tor).</p>
+                    providing one, and very few have bothered to implement this. NetGuard is an
+                    example of an app implementing SOCKS5 forwarding, which can be used to forward to apps
+                    like Orbot (Tor).</p>
                 </article>
 
                 <article id="baseband-isolation">
@@ -1575,6 +1578,7 @@
         <footer>
             <a href="/"><img src="{{path|/mask-icon.svg}}" width="512" height="512" alt=""/>GrapheneOS</a>
             <ul id="social">
+                <li><a href="https://discuss.grapheneos.org/">Forum</a></li>
                 <li><a href="https://twitter.com/GrapheneOS">Twitter</a></li>
                 <li><a href="https://github.com/GrapheneOS">GitHub</a></li>
                 <li><a href="https://reddit.com/r/GrapheneOS">Reddit</a></li>

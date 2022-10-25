@@ -28,7 +28,7 @@
         <link rel="manifest" href="/manifest.webmanifest"/>
         <link rel="license" href="/LICENSE.txt"/>
         {{js|/js/redirect.js}}
-        <script type="module" src="/js/fastboot/ce2370da/fastboot.min.mjs" integrity="sha256-MAc6IU1v+gw1GYegH3OBFJspLgZfmVTcYtsdz1yqZpA="></script>
+        <script type="module" src="/js/fastboot/6dde62d4/fastboot.min.mjs" integrity="sha256-UOCvLjsBT6inovDMIH3bJIZ3mXvPZBKT7hh/XfB+HCQ="></script>
         {{js|/js/web-install.js}}
     </head>
     <body>
@@ -98,7 +98,7 @@
             <section id="prerequisites">
                 <h2><a href="#prerequisites">Prerequisites</a></h2>
 
-                <p>You should have at least 2GB of free memory available and 32GB of free storage
+                <p>You should have at least 4GB of free memory available and 32GB of free storage
                 space.</p>
 
                 <p>You need a USB cable for attaching the device to a laptop or desktop. Whenever
@@ -119,15 +119,16 @@
                 <ul>
                     <li>Windows 10</li>
                     <li>Windows 11</li>
-                    <li>macOS Catalina</li>
-                    <li>macOS Big Sur</li>
-                    <li>macOS Monterey</li>
+                    <li>macOS Catalina (10.15)</li>
+                    <li>macOS Big Sur (11)</li>
+                    <li>macOS Monterey (12)</li>
+                    <!--<li>macOS Ventura (13)</li>-->
                     <li>Arch Linux</li>
                     <li>Debian 10 (buster)</li>
                     <li>Debian 11 (bullseye)</li>
                     <li>Ubuntu 20.04 LTS</li>
-                    <li>Ubuntu 21.10</li>
                     <li>Ubuntu 22.04 LTS</li>
+                    <!--<li>Ubuntu 22.10</li>-->
                     <li>ChromeOS</li>
                     <li>GrapheneOS</li>
                     <li>Google Android (stock Pixel OS) and other certified Android variants</li>
@@ -361,11 +362,13 @@
                         <p>When loading an alternate OS, the device shows a yellow notice on boot
                         with the ID of the alternate OS based on the sha256 of the verified boot
                         public key. 4th and 5th generation Pixels only show the first 32 bits of
-                        the hash so you can't use this approach. 6th generation Pixels show the
-                        full hash and you can compare it against the official GrapheneOS verified
-                        boot hashes below:</p>
+                        the hash so you can't use this approach. 6th and 7th generation Pixels
+                        show the full hash and you can compare it against the official GrapheneOS
+                        verified boot hashes below:</p>
 
                         <ul>
+                            <li>Pixel 7 Pro: <code>bc1c0dd95664604382bb888412026422742eb333071ea0b2d19036217d49182f</code></li>
+                            <li>Pixel 7: <code>3efe5392be3ac38afb894d13de639e521675e62571a8a9b3ef9fc8c44fd17fa1</code></li>
                             <li>Pixel 6a: <code>08c860350a9600692d10c8512f7b8e80707757468e8fbfeea2a870c0a83d6031</code></li>
                             <li>Pixel 6 Pro: <code>439b76524d94c40652ce1bf0d8243773c634d2f99ba3160d8d02aa5e29ff925c</code></li>
                             <li>Pixel 6: <code>f0a890375d1405e62ebfd87e8d3f475f948ef031bbf9ddd516d5f600a23677e8</code></li>
@@ -446,6 +449,7 @@
         <footer>
             <a href="/"><img src="{{path|/mask-icon.svg}}" width="512" height="512" alt=""/>GrapheneOS</a>
             <ul id="social">
+                <li><a href="https://discuss.grapheneos.org/">Forum</a></li>
                 <li><a href="https://twitter.com/GrapheneOS">Twitter</a></li>
                 <li><a href="https://github.com/GrapheneOS">GitHub</a></li>
                 <li><a href="https://reddit.com/r/GrapheneOS">Reddit</a></li>
