@@ -645,6 +645,12 @@
                         <li>disable unnecessary ldisc_autoload feature (no relevant modules available for it to load anyway)</li>
                         <li>backport fix for crosvm locking up after suspend/resume</li>
                         <li>Vanadium: update Chromium base to 107.0.5304.54</li>
+                        <li>Sandboxed Google Play compatibility layer: stop special casing GmsCompat as force queryable by marking that way directly</li>
+                        <li>Sandboxed Google Play compatibility layer: improve shim for background activity starts</li>
+                        <li>Sandboxed Google Play compatibility layer: add PackageManager.getPackagesForUid() shim</li>
+                        <li>Sandboxed Google Play compatibility layer: update link to "Google Location Accuracy" activity to match the style of the Settings app</li>
+                        <li>Sandboxed Google Play compatibility layer: add early rejection of getCurrentLocation() requests to avoid unnecessary battery usage and location indicator when we're going to request the request anyway</li>
+                        <li>Sandboxed Google Play compatibility layer: check request granularity when issuing app-op checks to fix a case where apps can be blamed for doing a fine location check when they only did a coarse location check (no user-facing impact since the location history / indicator makes no distinction and it was correctly enforced for permission enforcement already)</li>
                     </ul>
                 </article>
                 -->
