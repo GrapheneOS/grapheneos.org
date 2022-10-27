@@ -101,6 +101,7 @@
                     <li>
                         <a href="#changelog">Changelog</a>
                         <ul>
+                            <li><a href="#2022102600">2022102600</a></li>
                             <li><a href="#2022102300">2022102300</a></li>
                             <li><a href="#2022101800">2022101800</a></li>
                             <li><a href="#2022101600">2022101600</a></li>
@@ -624,14 +625,31 @@
                 release notes from before the rebranding of the project in 2018 and 2019.</p>
 
                 <!--
-                <article id="2022102300">
-                    <h3><a href="#2022102300">2022102300</a></h3>
+                <article id="2022102600">
+                    <h3><a href="#2022102600">2022102600</a></h3>
 
                     <p>Tags:</p>
                     <ul>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/TP1A.221005.002.2022102300">TP1A.221005.002.2022102300</a> (Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro)</li>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/TP1A.221005.003.2022102300">TP1A.221005.003.2022102300</a> (Pixel 6a, emulator, generic, other targets)</li>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/TD1A.220804.031.2022102300">TD1A.220804.031.2022102300</a> (Pixel 7, Pixel 7 Pro)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/TP1A.221005.002.2022102600">TP1A.221005.002.2022102600</a> (Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/TP1A.221005.003.2022102600">TP1A.221005.003.2022102600</a> (Pixel 6a, emulator, generic, other targets)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/TD1A.220804.031.2022102600">TD1A.220804.031.2022102600</a> (Pixel 7, Pixel 7 Pro)</li>
+                    </ul>
+
+                    <p>Changes since the 2022102600 release:</p>
+
+                    <ul>
+                    </ul>
+                </article>
+                -->
+
+                <article id="2022102600">
+                    <h3><a href="#2022102600">2022102600</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/TP1A.221005.002.2022102600">TP1A.221005.002.2022102600</a> (Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/TP1A.221005.003.2022102600">TP1A.221005.003.2022102600</a> (Pixel 6a, emulator, generic, other targets)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/TD1A.220804.031.2022102600">TD1A.220804.031.2022102600</a> (Pixel 7, Pixel 7 Pro)</li>
                     </ul>
 
                     <p>Changes since the 2022102300 release:</p>
@@ -641,7 +659,7 @@
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro): switch from standard GKI kernel module signing (used to enforce protected symbol rules for vendor modules) to forced kernel module signing as an additional lower level layer of security beyond the verification already provided by verified boot and SELinux</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro): enable lockdown LSM in forced confidentiality mode as an additional laower level layer of security beyond the verification already provided by verified boot and SELinux</li>
                         <li>Pixel 7, Pixel 7 Pro: handle readlink system call failing in a friendlier way for detection of the camera service executable</li>
-                        <li>Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro: add back Pixel charger mode image overrides removed in the <a href="#2022101600">2022101600</a> release (fallback images aren't included on the Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7 and Pixel 7 Pro so these images were completely missing on those devices)
+                        <li>Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro: add back Pixel charger mode image overrides removed in the <a href="#2022101600">2022101600</a> release (fallback images aren't included on the Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7 and Pixel 7 Pro so these images were completely missing on those devices)</li>
                         <li>disable unnecessary ldisc_autoload feature (no relevant modules available for it to load anyway)</li>
                         <li>backport fix for crosvm locking up after suspend/resume</li>
                         <li>Vanadium: update Chromium base to 107.0.5304.54</li>
@@ -653,7 +671,6 @@
                         <li>Sandboxed Google Play compatibility layer: check request granularity when issuing app-op checks to fix a case where apps can be blamed for doing a fine location check when they only did a coarse location check (no user-facing impact since the location history / indicator makes no distinction and it was correctly enforced for permission enforcement already)</li>
                     </ul>
                 </article>
-                -->
 
                 <article id="2022102300">
                     <h3><a href="#2022102300">2022102300</a></h3>
