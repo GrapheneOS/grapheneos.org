@@ -667,7 +667,7 @@
                         <li>Sandboxed Google Play compatibility layer: improve shim for background activity starts</li>
                         <li>Sandboxed Google Play compatibility layer: add PackageManager.getPackagesForUid() shim</li>
                         <li>Sandboxed Google Play compatibility layer: update link to "Google Location Accuracy" activity to match the style of the Settings app</li>
-                        <li>Sandboxed Google Play compatibility layer: add early rejection of getCurrentLocation() requests to avoid unnecessary battery usage and location indicator when we're going to request the request anyway</li>
+                        <li>Sandboxed Google Play compatibility layer: add early rejection of getCurrentLocation() requests to avoid unnecessary battery usage and location indicator when we're going to reject the request anyway</li>
                         <li>Sandboxed Google Play compatibility layer: check request granularity when issuing app-op checks to fix a case where apps can be blamed for doing a fine location check when they only did a coarse location check (no user-facing impact since the location history / indicator makes no distinction and it was correctly enforced for permission enforcement already)</li>
                     </ul>
                 </article>
