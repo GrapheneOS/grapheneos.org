@@ -470,6 +470,12 @@
                     <p>The standard INTERNET permission used as the basis for the Network
                     permission toggle is enhanced with a second layer of enforcement and proper
                     support for granting/revoking it on a per-profile basis.</p>
+
+                    <p>To avoid breaking compatibility with Android apps, the added permission
+                    toggle is enabled by default. However, the OS app installation UI has been
+                    extended to show the toggle as part of the installation confirmation page so
+                    users can disable it when installing an app. This will be extended to the app
+                    repository client included in the OS in the future.</p>
                 </section>
 
                 <section id="sensors-permission-toggle">
@@ -478,9 +484,18 @@
                     <p>Sensors permission toggle: disallow access to all other sensors not covered
                     by existing Android permissions (Camera, Microphone, Body Sensors, Activity
                     Recognition) including an accelerometer, gyroscope, compass, barometer,
-                    thermometer and any other sensors present on a given device. To avoid breaking
-                    compatibility with Android apps, the added permission is enabled by
-                    default.</p>
+                    thermometer and any other sensors present on a given device. When access is
+                    disabled, apps receive zeroed data when they check for sensor values and don't
+                    receive events. GrapheneOS creates an easy to disable notification when apps
+                    try to access sensors blocked by the permission being denied. This makes the
+                    feature more usable since users can tell if the app is trying to access this
+                    functionality.</p>
+
+                    <p>To avoid breaking compatibility with Android apps, the added permission is
+                    enabled by default. When an app attempts to access sensors and receives zeroed
+                    data due to being denied, GrapheneOS creates a notification which can be
+                    easily disabled. The Sensors permission can be set to be disabled by default
+                    for user installed apps in Settings ➔ Privacy.</p>
                 </section>
 
                 <section id="storage-scopes">
