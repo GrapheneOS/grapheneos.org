@@ -90,11 +90,6 @@ for file in static-tmp/**/*.@(atom|xml); do
     xmllint --noblanks "$file" --output "$file"
 done
 
-brotli_k() {
-    brotli -k "$@"
-}
-export -f brotli_k
-
 zopfli_preserve_time() {
     zopfli "$1"
     touch -r "$1" "$1.gz"
@@ -102,4 +97,4 @@ zopfli_preserve_time() {
 export -f zopfli_preserve_time
 
 find static-tmp -regex '.+\.\(atom\|css\|html\|ico\|js\|json\|mjs\|pdf\|svg\|txt\|webmanifest\|xml\)' |
-    parallel -q ::: brotli_k zopfli_preserve_time :::: -
+    parallel -q ::: brotli zopfli_preserve_time :::: -
