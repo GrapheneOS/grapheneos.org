@@ -652,6 +652,7 @@
                     <p>Changes since the 2022110800 release:</p>
 
                     <ul>
+                        <li>remove TrustCor Certificate Authority due to <a href="https://groups.google.com/a/mozilla.org/g/dev-security-policy/c/oxX69KFvsm4">malicious domain squatting and ties to entites involved in surveillance</a> which should have very little impact on web compatibility due to this CA barely being used by anyone other than a specific dynamic DNS provider</li>
                         <li>ignore wireless alert channels being marked as always-on to prevent channel configuration overriding presidential alert toggle</li>
                         <li>GmsCompatConfig: change app label from "GmsCompat config" to "GmsCompatConfig"
                         <li>GmsCompatConfig: disable TelecomTaskService</li>
