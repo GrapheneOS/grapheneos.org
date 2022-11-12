@@ -9,7 +9,8 @@ const CACHE_DB_VERSION = 1;
 
 let safeToLeave = true;
 
-// This wraps XHR because getting progress updates with fetch() is overly complicated.
+// This wraps XHR because getting progress updates with fetch() is overly
+// complicated.
 function fetchBlobWithProgress(url, onProgress) {
     let xhr = new XMLHttpRequest();
     xhr.open("GET", url);
@@ -17,34 +18,20 @@ function fetchBlobWithProgress(url, onProgress) {
     xhr.send();
 
     return new Promise((resolve, reject) => {
-        xhr.onload = () => {
-            resolve(xhr.response);
-        };
-        xhr.onprogress = (event) => {
-            onProgress(event.loaded / event.total);
-        };
-        xhr.onerror = () => {
-            reject(`${xhr.status} ${xhr.statusText}`);
-        };
+        xhr.onload = () => { resolve(xhr.response); };
+        xhr.onprogress = (event) => { onProgress(event.loaded / event.total); };
+        xhr.onerror = () => { reject(`${xhr.status} ${xhr.statusText}`); };
     });
 }
 
 class BlobStore {
-    constructor() {
-        this.db = null;
-    }
+    constructor() { this.db = null; }
 
     async _wrapReq(request, onUpgrade = null) {
         return new Promise((resolve, reject) => {
-            request.onsuccess = () => {
-                resolve(request.result);
-            };
-            request.oncomplete = () => {
-                resolve(request.result);
-            };
-            request.onerror = (event) => {
-                reject(event);
-            };
+            request.onsuccess = () => { resolve(request.result); };
+            request.oncomplete = () => { resolve(request.result); };
+            request.onerror = (event) => { reject(event); };
 
             if (onUpgrade !== null) {
                 request.onupgradeneeded = onUpgrade;
@@ -55,37 +42,32 @@ class BlobStore {
     async init() {
         if (this.db === null) {
             this.db = await this._wrapReq(
-                indexedDB.open(CACHE_DB_NAME, CACHE_DB_VERSION),
-                (event) => {
+                indexedDB.open(CACHE_DB_NAME, CACHE_DB_VERSION), (event) => {
                     let db = event.target.result;
-                    db.createObjectStore("files", { keyPath: "name" });
+                    db.createObjectStore("files", {keyPath : "name"});
                     /* no index needed for such a small database */
-                }
-            );
+                });
         }
     }
 
     async saveFile(name, blob) {
-        this.db.transaction(["files"], "readwrite").objectStore("files").add({
-            name: name,
-            blob: blob,
+        this.db.transaction([ "files" ], "readwrite").objectStore("files").add({
+            name : name,
+            blob : blob,
         });
     }
 
     async loadFile(name) {
         try {
             let obj = await this._wrapReq(
-                this.db.transaction("files").objectStore("files").get(name)
-            );
+                this.db.transaction("files").objectStore("files").get(name));
             return obj.blob;
         } catch (error) {
             return null;
         }
     }
 
-    async close() {
-        this.db.close();
-    }
+    async close() { this.db.close(); }
 
     async download(url, onProgress = () => {}) {
         let filename = url.split("/").pop();
@@ -97,9 +79,7 @@ class BlobStore {
             await this.saveFile(filename, blob);
             console.log("File saved");
         } else {
-            console.log(
-                `Loaded ${filename} from blob store, skipping download`
-            );
+            console.log(`Loaded ${filename} from blob store, skipping download`);
         }
 
         return blob;
@@ -140,32 +120,42 @@ async function unlockBootloader(setProgress) {
     return "Bootloader unlocked.";
 }
 
-const supportedDevices = ["cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble", "sunfish", "coral", "flame", "bonito", "sargo", "crosshatch", "blueline"];
+const supportedDevices = [
+    "cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin",
+    "bramble", "sunfish", "coral", "flame", "bonito", "sargo", "crosshatch",
+    "blueline"
+];
 
-const qualcommDevices = ["barbet", "redfin", "bramble", "sunfish", "coral", "flame", "bonito", "sargo", "crosshatch", "blueline"];
+const qualcommDevices = [
+    "barbet", "redfin", "bramble", "sunfish", "coral", "flame", "bonito", "sargo",
+    "crosshatch", "blueline"
+];
 
-const legacyQualcommDevices = ["sunfish", "coral", "flame", "bonito", "sargo", "crosshatch", "blueline"];
+const legacyQualcommDevices = [
+    "sunfish", "coral", "flame", "bonito", "sargo", "crosshatch", "blueline"
+];
 
-const tensorDevices = ["cheetah", "panther", "bluejay", "raven", "oriole"];
+const tensorDevices = [ "cheetah", "panther", "bluejay", "raven", "oriole" ];
 
 async function getLatestRelease() {
     let product = await device.getVariable("product");
     if (!supportedDevices.includes(product)) {
-        throw new Error(`device model (${product}) is not supported by the GrapheneOS web installer`);
+        throw new Error(`device model (${
+            product}) is not supported by the GrapheneOS web installer`);
     }
 
     let metadataResp = await fetch(`${RELEASES_URL}/${product}-stable`);
     let metadata = await metadataResp.text();
     let releaseId = metadata.split(" ")[0];
 
-    return [`${product}-factory-${releaseId}.zip`, product];
+    return [ `${product}-factory-${releaseId}.zip`, product ];
 }
 
 async function downloadRelease(setProgress) {
     await ensureConnected(setProgress);
 
     setProgress("Finding latest release...");
-    let [latestZip,] = await getLatestRelease();
+    let [latestZip, ] = await getLatestRelease();
 
     // Download and cache the zip as a blob
     safeToLeave = false;
@@ -220,20 +210,21 @@ async function flashRelease(setProgress) {
 
     setProgress("Flashing release...");
     try {
-        await device.flashFactoryZip(blob, true, reconnectCallback,
-            (action, item, progress) => {
+        await device.flashFactoryZip(
+            blob, true, reconnectCallback, (action, item, progress) => {
                 let userAction = fastboot.USER_ACTION_MAP[action];
                 let userItem = item === "avb_custom_key" ? "verified boot key" : item;
                 setProgress(`${userAction} ${userItem}...`, progress);
-            }
-        );
+            });
         setProgress("Disabling UART...");
-        // See https://android.googlesource.com/platform/system/core/+/eclair-release/fastboot/fastboot.c#532
+        // See
+        // https://android.googlesource.com/platform/system/core/+/eclair-release/fastboot/fastboot.c#532
         // for context as to why the trailing space is needed.
         await device.runCommand("oem uart disable ");
         if (qualcommDevices.includes(product)) {
             setProgress("Erasing apdp...");
-            // Both slots are wiped as even apdp on an inactive slot will modify /proc/cmdline
+            // Both slots are wiped as even apdp on an inactive slot will modify
+            // /proc/cmdline
             await device.runCommand("erase:apdp_a");
             await device.runCommand("erase:apdp_b");
         }
@@ -326,13 +317,16 @@ function addButtonHook(id, callback) {
     };
 }
 
-// This doesn't really hurt, and because this page is exclusively for web install,
-// we can tolerate extra logging in the console in case something goes wrong.
+// This doesn't really hurt, and because this page is exclusively for web
+// install, we can tolerate extra logging in the console in case something goes
+// wrong.
 fastboot.setDebugLevel(2);
 
 fastboot.configureZip({
-    workerScripts: {
-        inflate: ["/js/fastboot/f270be49/vendor/z-worker-pako.js", "pako_inflate.min.js"],
+    workerScripts : {
+        inflate : [
+            "/js/fastboot/f270be49/vendor/z-worker-pako.js", "pako_inflate.min.js"
+        ],
     },
 });
 
@@ -346,7 +340,8 @@ if ("usb" in navigator) {
     console.log("WebUSB unavailable");
 }
 
-// This will create an alert box to stop the user from leaving the page during actions
+// This will create an alert box to stop the user from leaving the page during
+// actions
 window.addEventListener("beforeunload", event => {
     if (!safeToLeave) {
         console.log("User tried to leave the page whilst unsafe to leave!");
