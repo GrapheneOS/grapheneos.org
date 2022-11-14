@@ -653,7 +653,16 @@
                     <p>Changes since the 2022111000 release:</p>
 
                     <ul>
-                        <li>show version of GmsCompatConfig in the crash UI</li>
+                        <li>don't skip AOT compilation of apps that weren't recently used</li>
+                        <li>battery usage UI: use fallback name for unknown components</li>
+                        <li>change minimal value of battery saver schedule to 5% again as it was before Android 13</li>
+                        <li>enable the post-upgrade "Optimizing apps" progress indication UI</li>
+                        <li>app crash UI: show process uptime and optional extra text</li>
+                        <li>Sandboxed Google Play compatibility layer: show version of GmsCompatConfig in the crash UI</li>
+                        <li>Sandboxed Google Play compatibility layer: stop splitting multi-package PackageInstaller sessions</li>
+                        <li>Sandboxed Google Play compatibility layer: improve handling of activity starts</li>
+                        <li>Sandboxed Google Play compatibility layer: bugfix: Parcel position wasn't reset by dynamic stubs</li>
+                        <li>Sandboxed Google Play compatibility layer: bugfix: missing handling of ListSlices in dynamic stub</li>
                     </ul>
                 </article>
                 -->
