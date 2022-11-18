@@ -213,13 +213,8 @@ async function flashRelease(setProgress) {
         throw new Error("You need to download a release first!");
     }
 
-    safeToLeave = false;
-
-    // If the user didn't follow the update instructions correctly
-    setProgress("Cancelling any update in progress...");
-    await device.runCommand("snapshot-update:cancel");
-
     setProgress("Flashing release...");
+    safeToLeave = false;
     try {
         await device.flashFactoryZip(blob, true, reconnectCallback,
             (action, item, progress) => {
