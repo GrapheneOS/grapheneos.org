@@ -216,8 +216,13 @@ async function flashRelease(setProgress) {
     safeToLeave = false;
 
     // If the user didn't follow the update instructions correctly
-    setProgress("Cancelling any update in progress...");
-    await device.runCommand("snapshot-update:cancel");
+    try {
+        let snapshotStatus = await device.getVariable("snapshot-update-status");
+        if (snapshotStatus !== null && snapshotStatus !== "none") {
+            setProgress("Cancelling snapshot-based update...");
+            await device.runCommand("snapshot-update:cancel");
+        }
+    } catch(FastbootError) { /* PROCEED */ }
 
     setProgress("Flashing release...");
     try {
