@@ -182,6 +182,12 @@ button:focus, .button:focus {
     box-shadow: 0 2px 4px -1px rgba(0 0 0 / 20%), 0 4px 5px 0 rgba(0 0 0 / 14%), 0 1px 10px 0 rgba(0 0 0 / 12%);
 }
 
+button:disabled {
+    background-color: rgb(26 27 30 / 12%);
+    color: rgb(26 27 30 / 38%);
+    cursor: not-allowed;
+}
+
 .button, .button:visited, .button:hover, .button:active {
     text-decoration: none;
     padding-top: 0.75rem;
@@ -402,6 +408,11 @@ main.normalize {
 
     button:focus, .button:focus {
         background-color: #7ca3d4; /* button pressed on Android */
+    }
+
+    button:disabled {
+        background-color: rgb(227 226 230 / 12%);
+        color: rgb(227 226 230 / 38%);
     }
 
     code, pre {
