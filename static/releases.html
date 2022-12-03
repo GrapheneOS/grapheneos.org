@@ -663,6 +663,9 @@
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 7, Pixel 7 Pro, Generic 5.10, Generic 5.15): update to latest GKI LTS branch revision</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 7, Pixel 7 Pro): update Mali GPU driver to r37p0 (current release is r41p0 but there are substantial changes to the driver for the Tensor SoC on Pixels and it will take substantial work to upgrade all the way)</li>
                         <li>remove broken, obsolete upstream code causing install permissions defined by user install apps not being automatically granted for user installed apps installed before the app defining the permissions unless the app is reinstalled</li>
+                        <li>Messaging: update MMS configuration database based on Google Messages 20221115_01_RC01</li>
+                        <li>Dialer: update visual voicemail (VVM) configuration database based on Google Phone 90.0.477356402</li>
+                        <li>Dialer: adjust VVM configuration database entries for compatibility with AOSP</li>
                     </ul>
                 </article>
                 -->
@@ -2037,9 +2040,9 @@
                         <li>add missing change for using the GrapheneOS attestation key provisioning proxy</li>
                         <li>backport upstream workaround for hardware-based attestation on devices with a broken implementation of the CREATION_DATETIME feature (disables CREATION_DATETIME on devices without Keymint V1 (100) or later since it was only tested starting with Keymint V1 and is often broken on devices with earlier versions including the Pixel 3 and Pixel 3 XL)</li>
                         <li>Pixel 3, Pixel 3 XL: drop workaround for broken hardware-based attestation now that there's a generic solution backported</li>
-                        <li>Messaging: update MMS configuration database to the one from Android Messages messages.android_20220405_01_RC04.phone_dynamic</li>
+                        <li>Messaging: update MMS configuration database to the one from Android Messages 20220405_01_RC04</li>
                         <li>Dialer: update visual voicemail configuration based on Google Phone 79.0.438914483</li>
-                        <li>Dialer: switch to default VVM OMTP version for carriers with broken visual voicemail in an attempt to fix it</li>
+                        <li>Dialer: adjust VVM configuration database entries for compatibility with AOSP</li>
                         <li>Vanadium: disable fetching optimization guides by default</li>
                         <li>Apps: update to <a href="https://github.com/GrapheneOS/Apps/releases/tag/6">version 6</a></li>
                         <li>Camera: update to <a href="https://github.com/GrapheneOS/Camera/releases/tag/22">version 22</a></li>
