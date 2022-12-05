@@ -220,6 +220,14 @@
                 <p>Connect the phone to the computer. On Linux, you'll need to do this again if
                 you didn't have the udev rules set up when you connected it.</p>
 
+                <p>On Linux, GNOME has a bug causing compatibility issues with the installation
+                process. It wrongly detects the phone in fastboot mode or fastbootd mode as being
+                an MTP device and claims exclusive control over it. This will block the install
+                process from proceeding. We don't yet have more specific instructions on working
+                around this issue than avoiding GNOME or another desktop environment running the
+                GNOME services such as GVFS. We expect the problem is in GVFS, so stopping all of
+                the services should work, but you'll need to mask them or they'll auto restart.</p>
+
                 <p>On Windows, you need to install a driver for fastboot if you don't already have
                 it. No driver is needed on other operating systems. You can obtain the driver from
                 Windows Update which will detect it as an optional update when the device is
