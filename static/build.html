@@ -325,21 +325,12 @@
                         including the emulator, porting to other devices and for non-legacy
                         officially supported devices.</p>
 
-                        <p>The <code>13</code> branch is used for 4th, 5th and 6th generation
+                        <p>The <code>13</code> branch is used for 4th, 5th, 6th and 7th generation
                         Pixels, generic / emulator targets and non-Pixel devices:</p>
 
                         <pre>mkdir grapheneos-13
 cd grapheneos-13
 repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 13
-repo sync -j16</pre>
-
-                        <p>The <code>13-pantah</code> branch is used for the Pixel 7 and Pixel 7
-                        Pro since new devices use a temporary device support branch in AOSP until
-                        the code is merged into an AOSP quarterly release:</p>
-
-                        <pre>mkdir grapheneos-13-pantah
-cd grapheneos-13-pantah
-repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 13-pantah
 repo sync -j16</pre>
 
                         <p>If your network is unreliable and <code>repo sync</code> fails, you can run the
@@ -482,12 +473,12 @@ repo sync -j16</pre>
 
                         <pre>mkdir android/kernel/pantah
 cd android/kernel/pantah
-repo init -u https://github.com/GrapheneOS/kernel_manifest-pantah.git -b 13-pantah
+repo init -u https://github.com/GrapheneOS/kernel_manifest-pantah.git -b 13
 repo sync -j16</pre>
 
                         <p>To build the pantah kernel for the Pixel 7 and Pixel 7 Pro:</p>
 
-                        <pre>LTO=full BUILD_KERNEL=1 ./build_cloudripper.sh</pre>
+                        <pre>LTO=full BUILD_AOSP_KERNEL=1 ./build_cloudripper.sh</pre>
 
                         <p>Replace the files in the OS source tree at
                         <code>device/google/pantah-kernel/</code> with your build in
