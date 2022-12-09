@@ -126,6 +126,7 @@
                     <li><a href="#build">How do I build GrapheneOS?</a></li>
                     <li><a href="#donate">How can I donate to GrapheneOS?</a></li>
                     <li><a href="#upstream">Does GrapheneOS make upstream contributions?</a></li>
+                    <li><a href="#audit">Is GrapheneOS audited?</a></li>
                     <li><a href="#founding">When was the GrapheneOS project founded?</a></li>
                     <li><a href="#copperheados">How is CopperheadOS related to GrapheneOS?</a></li>
                     <li><a href="#company">Will GrapheneOS create a company?</a></li>
@@ -1504,6 +1505,86 @@
                 to have the concepts/restrictions considered by the upstream project and apps
                 needing to be compatible with it. Getting features upstream often leads to an
                 improved user experience and app compatibility.</p>
+            </article>
+
+            <article id="audit">
+                <h2><a href="#audit">Is GrapheneOS audited?</a></h2>
+
+                <p>Yes, the GrapheneOS code is reviewed by external security researchers,
+                companies and organizations on a continuous basis. This is the main benefit of
+                GrapheneOS being an open source project actively used by other organizations, but
+                it is certainly not something to take for granted based on a project being open
+                source. We put a lot of work into making our code well documented and easy to
+                review. Auditing and code review cannot be done properly as a one time thing but
+                rather need to be done continuously as the code changes. Most of the code review
+                and auditing results for GrapheneOS can be seen from the public pull requests and
+                issue trackers. For example, the French
+                <a href="https://www.ssi.gouv.fr/en/">ANSSI organization</a> uses a bunch of our
+                work and has given us suggestions along with reporting issues including a couple
+                issues in hardened_malloc where it could have a false positive detection of memory
+                corruption and wrongly abort the process.<a
+                href="https://github.com/GrapheneOS/hardened_malloc/pull/131">[1]</a><a
+                href="https://github.com/GrapheneOS/hardened_malloc/issues/133">[2]</a>
+                We've built relationships with security researchers and organizations interested
+                in GrapheneOS or using it which results in a lot of this kind of collaboration.
+                This is not a one-time event but rather something that happens regularly as the
+                code evolves, features are added and we ported to new release. The benefits of a
+                group unfamiliar with the code spending a short time doing a shallow review are
+                greatly overstated in marketing. We instead focus on having people very familiar
+                with areas of the code regularly auditing all our changes. The large number of
+                upstream Android security vulnerabilities discovered by GrapheneOS despite us not
+                actively seeking them out speaks to the results of our review and testing.</p>
+
+                <p>Other AOSP-based OS projects including DivestOS and ProtonAOSP using lots of
+                our code results in it getting additional review from outside our project. There
+                have been multiple app compatibility issues fixed as a result of this
+                collaboration. In another case, DivestOS using the GrapheneOS Camera app led to
+                the discovery that we were using incorrect units for the auto-focus region used
+                for QR scanning in our Camera and Auditor apps. This was only a very minor issue
+                reducing the quality of the focus in our apps, but it uncovered a serious bug on
+                certain older devices where memory corruption in the camera service can be
+                triggered by setting an overly large focus region in an app. The devices are
+                unmaintained by the vendors, so this was only reported to the CameraX
+                developers.</p>
+
+                <p>GrapheneOS code is not just open source but well documented and organized in
+                order to make it much easier to review. Every change we make to Android Open
+                Source Project repositories is maintained as a clean patch set on top of the
+                latest stable release of AOSP. We regularly clean up our changes by splitting up
+                the commits in a more sensible way, providing better commit messages, stripping
+                away everything but the essential changes, reordering the commits to group the
+                related changes and improving the implementation. This makes sense because these
+                are downstream changes ported between each stable release. Our approach also makes
+                it easy to port our patches elsewhere including upstreaming them. Ease of porting
+                helps us when we port to new quarterly and yearly major releases of AOSP. The best
+                way to review our changes over time is the <code>git range-diff</code> command by
+                passing the old range of commits and the new range of commits. For example, you
+                would pass <code>git range-diff OLD_AOSP_TAG..OLD_GRAPHENEOS_TAG
+                NEW_AOSP_TAG..NEW_GRAPHENEOS_TAG</code> to see how our changes on top of AOSP have
+                changed between releases without looking at the upstream AOSP changes. This is a
+                major part of our own regular review of our changes and porting work.</p>
+
+                <p>Our own standalone projects such as Auditor and AttestationServer also aim to
+                keep the code very easy to audit/review. In those projects, we're writing all the
+                code and choosing the dependencies ourselves, so we can take a minimalist and easy
+                to understand approach to the overall codebase instead of only our changes to
+                it.</p>
+
+                <p>We also get broad code review out of attempting to land changes in upstream
+                projects. For example, our CONFIG_FORTIFY_SOURCE feature for the Linux kernel
+                providing a modern take on that feature with support for detecting both read and
+                write overflows was accepted in the Linux kernel in 2017. It has taken several
+                years for all the extra bits of CONFIG_FORTIFY_SOURCE to be accepted upstream.
+                Substantial improvements have been made as part of upstreaming it including
+                upstream deciding to support detecting overflows within objects for the memory
+                family of functions, going far beyond the traditional approach. Based on our
+                issue reports and recommendations, multiple bugs were fixed in both GCC and Clang
+                for FORTIFY_SOURCE support along with a new feature for more dynamic object size
+                checks being added. Android also ended up shipping automatic array bounds checks
+                in addition to FORTIFY_SOURCE for the kernel. We would not have been able to do
+                the same level of testing to uncover the same number of upstream bugs, and we also
+                couldn't have made the more aggressive changes on our own due to lack of resources
+                to review/test the upstream code for compatibility issues.</p>
             </article>
 
             <article id="founding">
