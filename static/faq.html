@@ -89,6 +89,8 @@
                             <li><a href="#wifi-privacy">How private is Wi-Fi?</a></li>
                             <li><a href="#default-connections">Which connections do the OS and
                             bundled apps make by default?</a></li>
+                            <li><a href="#other-connections">Which additional connections can the
+                            OS make with a non-default configuration?</a></li>
                             <li><a href="#privacy-policy">What is the privacy policy for GrapheneOS services?</a></li>
                             <li><a href="#default-dns">Which DNS servers are used by default?</a></li>
                             <li><a href="#custom-dns">How do I use a custom DNS server?</a></li>
@@ -935,6 +937,55 @@
                     everything unnecessary and making our servers the default for handling anything that
                     cannot simply be shipped with Vanadium for one reason or another such as requiring
                     quicker updates.</p>
+                </article>
+
+                <article id="other-connections">
+                    <h3><a href="#other-connections">Which additional connections can the OS make
+                    with a non-default configuration?</a></h3>
+
+                    <p>The previous section is an exhaustive list of all the default connections
+                    made by a fresh GrapheneOS installation. Using a carrier, installing apps and
+                    changing configuration can enable additional connections. This section aims to
+                    list the cases which are not completely obvious to users. For example, if you
+                    explicitly configure a Private DNS server, we don't need to explain here that
+                    the OS will be connecting to that server.</p>
+
+                    <p>Apps can list domains where they want to handle URLs instead of them being
+                    handled by the browser. Domains officially associated with an app can add the
+                    required metadata authorizing the app to automatically handle URLs which the
+                    OS will fetch via HTTPS after installing the app to confirm if the app claims
+                    to be authorized. See <a href="/usage#app-link-verification">our usage guide
+                    section on app link verification</a> for more details such as how to block
+                    these connections. The apps bundled with GrapheneOS don't require this and we
+                    could hard-wire domains as verified if they did and we wanted to avoid more
+                    default connections.</p>
+
+                    <p>Most other connections made by the OS itself are made based on your chosen
+                    carrier. The OS has a database of APN and other carrier configuration settings
+                    which determines how this works by default. Normally, carriers can force their
+                    configuration choices on users by making APNs read-only and disabling various
+                    configuration options. GrapheneOS ignores this and always allows configuring
+                    APNs, APN types, changing preferred network mode, toggling off 2G and using
+                    tethering regardless of what the carrier wants. We leave the defaults chosen
+                    by the carriers alone. For example, if you want tethering traffic treated
+                    normally, you can remove the <code>dun</code> APN type from your APN
+                    configuration.</p>
+
+                    <p>If your chosen carrier includes the <code>supl</code> APN type in their APN
+                    configuration, SUPL will be used to provide A-GNSS in order to greatly improve
+                    location lock time for GNSS (GPS, GLONASS, etc.). The fallback SUPL server is
+                    <code>supl.google.com</code> if the carrier doesn't choose a specific one. You
+                    can remove <code>supl</code> from APN types if you don't want to use this, but
+                    it will greatly increase GNSS location lock time if your carrier lacks control
+                    plane A-GNSS via the cellular network and fully relies on user plane A-GNSS
+                    (SUPL) to provide this instead.</p>
+
+                    <p>MMS, RCS, SMS over LTE, VoLTE and VoWi-Fi are largely implemented by the OS
+                    via TCP/IP rather than by the cellular layer itself. This means there will be
+                    connections by the OS to carrier servers instead of being handled by cellular.
+                    There are already some toggles to control this along with APN configuration
+                    but GrapheneOS will be providing more ways to override carrier configuration
+                    in the future.</p>
                 </article>
 
                 <article id="privacy-policy">
