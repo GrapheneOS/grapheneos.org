@@ -8,6 +8,7 @@ const CACHE_DB_NAME = "BlobStore";
 const CACHE_DB_VERSION = 1;
 
 let safeToLeave = true;
+let flashInProgress = false;
 
 // This wraps XHR because getting progress updates with fetch() is overly complicated.
 function fetchBlobWithProgress(url, onProgress) {
@@ -116,6 +117,17 @@ async function ensureConnected(setProgress) {
     }
 }
 
+// TODO: Implement a better solution than producing error, if flashing in
+//  progress. For example, before flashing, selectively disabling buttons that
+//  can interrupt flashing and re-enabling them afterwards.
+async function checkFlashNotInProgress() {
+    if (flashInProgress) {
+        const msg = "Flashing is in progress, please wait for it to finish!";
+        alert(msg);
+        throw new Error(msg);
+    }
+}
+
 async function unlockBootloader(setProgress) {
     await ensureConnected(setProgress);
 
@@ -201,6 +213,15 @@ async function reconnectCallback() {
 }
 
 async function flashRelease(setProgress) {
+    try {
+        await checkFlashNotInProgress();
+    } catch {
+        // We don't want error produced by above check to show up as status
+        // (in progress), as flashRelease is also updating status while
+        // flashing.
+        return;
+    }
+
     await ensureConnected(setProgress);
 
     // Need to do this again because the user may not have clicked download if
@@ -215,6 +236,7 @@ async function flashRelease(setProgress) {
 
     setProgress("Flashing release...");
     safeToLeave = false;
+    flashInProgress = true;
     try {
         await device.flashFactoryZip(blob, true, reconnectCallback,
             (action, item, progress) => {
@@ -247,12 +269,14 @@ async function flashRelease(setProgress) {
         }
     } finally {
         safeToLeave = true;
+        flashInProgress = false;
     }
 
     return `Flashed ${latestZip} to device.`;
 }
 
 async function eraseNonStockKey(setProgress) {
+    await checkFlashNotInProgress();
     await ensureConnected(setProgress);
 
     setProgress("Erasing key...");
@@ -266,6 +290,7 @@ async function eraseNonStockKey(setProgress) {
 }
 
 async function lockBootloader(setProgress) {
+    await checkFlashNotInProgress();
     await ensureConnected(setProgress);
 
     setProgress("Locking bootloader...");
