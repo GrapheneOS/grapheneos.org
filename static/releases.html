@@ -676,7 +676,7 @@
 
                     <ul>
                         <li>resolve <a href="https://issuetracker.google.com/issues/254665045">upstream bug in Android 13 QPR1</a> causing screen brightness dimming on user profile changes</li>
-                        <li>Settings: replace hard-wired 90Hz refresh rate for smooth display toggle with the actual max refresh rate of the device model</li>
+                        <li>Settings: replace hard-wired refresh rate in the text for the smooth display toggle with the actual max refresh rate used for the device model (Android has the string hard-wired to say 90Hz and expects the device to provide an overlay with the correct string which isn't present in AOSP for Pixels)</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 7, Pixel 7 Pro, Generic 5.10): update to latest GKI LTS branch revision including update to 5.10.156</li>
                         <li>kernel (Generic 5.15): update to latest GKI LTS branch revision including update to 5.15.77</li>
                         <li>Sandboxed Google Play compatibility layer: new infrastructure for controlling Play Store updates of Play Store and Play services with a max version of Play services and the Play Store set via GmsCompatCompat and an override toggle for allowing it to update to any version</li>
