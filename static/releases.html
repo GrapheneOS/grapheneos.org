@@ -681,7 +681,7 @@
                     <ul>
                         <li>resolve <a href="https://issuetracker.google.com/issues/254665045">upstream bug in Android 13 QPR1</a> causing screen brightness dimming on user profile changes</li>
                         <li>Settings: replace hard-wired refresh rate in the text for the smooth display toggle with the actual max refresh rate used for the device model (Android has the string hard-wired to say 90Hz and expects the device to provide an overlay with the correct string which isn't present in AOSP for Pixels)</li>
-                        <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 7, Pixel 7 Pro, Generic 5.10): update to latest GKI LTS branch revision including update to 5.10.156</li>
+                        <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Generic 5.10): update to latest GKI LTS branch revision including update to 5.10.156</li>
                         <li>kernel (Generic 5.15): update to latest GKI LTS branch revision including update to 5.15.77</li>
                         <li>Sandboxed Google Play compatibility layer: new infrastructure for controlling Play Store updates of Play Store and Play services with a max version of Play services and the Play Store set via GmsCompatCompat and an override toggle for allowing it to update to any version</li>
                         <li>Sandboxed Google Play compatibility layer: hide GrapheneOS Auditor variant (app.attestation.auditor) from the Play Store so it doesn't try to update it (note: we plan to fully switch to app.grapheneos.auditor.play for the Play Store and we can remove this workaround once we unpublish the GrapheneOS variant of the app there and stop updating it)</li>
@@ -726,7 +726,7 @@
                         <li>Sandboxed Google Play compatibility layer: set GmsCompat versionCode to 1000 (v1) to prepare for defining dependencies on the compatibility layer version for the Google Play apps mirrored in our app repository</li>
                         <li>Pixel 6, Pixel 6 Pro, Pixel 6a: use Scudo instead of hardened_malloc for camera service for consistency with the Pixel 7 and Pixel 7 Pro until memory corruption issues with it are resolved</li>
                         <li>add back support for OS device controls and wallet quick tiles</li>
-                        <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 7, Pixel 7 Pro, Generic 5.10): update to latest GKI LTS branch revision including update to 5.10.152</li>
+                        <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Generic 5.10): update to latest GKI LTS branch revision including update to 5.10.152</li>
                     </ul>
                 </article>
 
@@ -747,8 +747,8 @@
                         <li>Sandboxed Google Play compatibility layer: avoid chain crash of GmsCompat app following process death from OOM killer, etc.</li>
                         <li>Vanadium: update Chromium base to 108.0.5359.79</li>
                         <li>kernel (Generic 5.15): update to latest GKI LTS branch revision including update to 5.15.76</li>
-                        <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 7, Pixel 7 Pro, Generic 5.10): update to latest GKI LTS branch revision</li>
-                        <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 7, Pixel 7 Pro): update Mali GPU driver to r37p0 (current release is r41p0 but there are substantial changes to the driver for the Tensor SoC on Pixels and it will take substantial work to upgrade all the way)</li>
+                        <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Generic 5.10): update to latest GKI LTS branch revision</li>
+                        <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro): update Mali GPU driver to r37p0 (current release is r41p0 but there are substantial changes to the driver for the Tensor SoC on Pixels and it will take substantial work to upgrade all the way)</li>
                         <li>remove broken, obsolete upstream code causing install permissions defined by user install apps not being automatically granted for user installed apps installed before the app defining the permissions unless the app is reinstalled</li>
                         <li>Messaging: update MMS configuration database based on Google Messages 20221115_01_RC01</li>
                         <li>Dialer: update visual voicemail (VVM) configuration database based on Google Phone 90.0.477356402</li>
@@ -772,7 +772,7 @@
                         <li>Vanadium: update Chromium base to 108.0.5359.61</li>
                         <li>Pixel 7, Pixel 7 Pro: set QNS package name to fix compatibility issues with Wi-Fi calling</li>
                         <li>kernel (Generic 5.15): update to latest GKI LTS branch revision including update to Linux 5.15.75</li>
-                        <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 7, Pixel 7 Pro, Generic 5.10, Generic 5.15): apply patches for remotely exploitable Bluetooth vulnerabilities (CVE-2022-42895, CVE-2022-42896)</li>
+                        <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Generic 5.10, Generic 5.15): apply patches for remotely exploitable Bluetooth vulnerabilities (CVE-2022-42895, CVE-2022-42896)</li>
                     </ul>
                 </article>
 
