@@ -842,14 +842,18 @@
 
                             <p>On 6th and 7th generation Pixels (which use a Broadcom GNSS chip),
                             almanacs are downloaded from
-                            https://google.psds.grapheneos.org/lto2.dat,
-                            https://google.psds.grapheneos.org/rto.dat and
-                            https://google.psds.grapheneos.org/rtistatus.dat which are the
-                            GrapheneOS proxy servers for the standard servers. Alternatively, the
-                            standard servers can be enabled in the Settings app which are
+                            https://broadcom.psds.grapheneos.org/lto2.dat,
+                            https://broadcom.psds.grapheneos.org/rto.dat and
+                            https://broadcom.psds.grapheneos.org/rtistatus.dat which are a caching
+                            proxy for Broadcom's data available at
+                            https://gllto.glpals.com/7day/v5/latest/lto2.dat,
+                            https://gllto.glpals.com/7day/v5/latest/rto.dat and
+                            https://gllto.glpals.com/7day/v5/latest/rtistatus.data. Alternatively,
+                            the standard servers can be enabled in the Settings app which are
                             https://agnss.goog/lto2.dat, https://agnss.goog/rto.dat and
-                            https://agnss.goog/rtistatus.dat which are currently (as of October 2022)
-                            hosted via Google Cloud Platform.</p>
+                            https://agnss.goog/rtistatus.dat providing a similar cache of
+                            Broadcom's data currently (as of October 2022) hosted on GCP (Google
+                            Cloud Platform).</p>
                         </li>
                         <li>
                             <p>Connectivity checks designed to mimic a web browser user agent are performed
