@@ -664,6 +664,7 @@
                         <li>adevtool: stop including unused install constraint configuration</li>
                         <li>adevtool: stop including stock OS root CA database</li>
                         <li>include Apps (app repository client) in managed profiles by default in order to support installing / updating sandboxed Google Play</li>
+                        <li>change DNS-over-TLS connectivity check to querying for <code><var>randomstring</var>-dnsotls-ds.dnscheck.grapheneos.org</code> rather than <code><var>randomstring</var>-dnsotls-ds.metric.gstatic.com</code> when the connectivity check mode is set to the default GrapheneOS mode (note: no connection is made to the resolved IP based on the DNS query, this is only used to check if the DNS resolver works and we're mainly changing this for aesthetic reasons)</li>
                         <li>Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro: switch to more generic broadcom.psds.grapheneos.org name for our Predicted Satellite Data Service (PSDS) cache instead of google.psds.grapheneos.org since we're obtaining it directly from Broadcom rather than Google's cache and it isn't Pixel specific but rather could be used with any Broadcomm GNSS (GPS, GLONASS, etc.) chip</li>
                     </ul>
                 </article>
