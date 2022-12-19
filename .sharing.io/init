@@ -1,0 +1,20 @@
+VALIDATOR_VERSION=20.6.30
+sudo apt update
+sudo apt -y upgrade
+sudo apt-get -y install libxml2-utils yajl-tools moreutils zopfli python3.10-venv brotli parallel
+
+npm install
+python3 -m venv venv
+source venv/bin/activate
+
+pip3 install -r requirements.txt
+
+curl -OL https://github.com/validator/validator/releases/download/$VALIDATOR_VERSION/vnu.linux.zip
+unzip vnu.linux.zip
+
+sed -i 's+validatornu+vnu-runtime-image/bin/vnu+g' process-static
+
+./process-static
+
+cd static-tmp
+npx -y http-server
