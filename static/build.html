@@ -654,13 +654,14 @@ vendor/adevtool/bin/run ota-firmware vendor/adevtool/config/<var>DEVICE</var>.ym
 
                     <pre>mkdir -p keys/raven
 cd keys/raven
-../../development/tools/make_key releasekey '/CN=GrapheneOS/'
-../../development/tools/make_key platform '/CN=GrapheneOS/'
-../../development/tools/make_key shared '/CN=GrapheneOS/'
-../../development/tools/make_key media '/CN=GrapheneOS/'
-../../development/tools/make_key networkstack '/CN=GrapheneOS/'
-../../development/tools/make_key sdk_sandbox '/CN=GrapheneOS/'
-../../development/tools/make_key bluetooth '/CN=GrapheneOS/'
+CN=GrapheneOS
+../../development/tools/make_key releasekey "/CN=$CN/"
+../../development/tools/make_key platform "/CN=$CN/"
+../../development/tools/make_key shared "/CN=$CN/"
+../../development/tools/make_key media "/CN=$CN/"
+../../development/tools/make_key networkstack "/CN=$CN/"
+../../development/tools/make_key sdk_sandbox "/CN=$CN/"
+../../development/tools/make_key bluetooth "/CN=$CN/"
 openssl genrsa 4096 | openssl pkcs8 -topk8 -scrypt -out avb.pem
 ../../external/avb/avbtool extract_public_key --key avb.pem --output avb_pkmd.bin
 cd ../..</pre>
