@@ -834,6 +834,13 @@
                             servers. These contain orbits and statuses of satellites, Earth
                             environmental data and time adjustment information.</p>
 
+                            <p>Qualcomm Snapdragon SoC devices also use the ntp.org NTP pool from
+                            the GNSS location service implementation when it's enabled as part of
+                            improving GNSS-based location accuracy. These connections are not used
+                            to update the system clock. GrapheneOS will likely offer more control
+                            over this in the future, although Pixels moving away from Snapdragon
+                            has moved this onto the backburner.</p>
+
                             <p>On 4th and 5th generation Pixels (which use a Qualcomm baseband
                             providing cellular, Wi-Fi, Bluetooth and GNSS in separate sandboxes),
                             almanacs are downloaded from
