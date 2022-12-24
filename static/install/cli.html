@@ -226,16 +226,14 @@
                 (adb, fastboot, etc.) with their own scheme and don't keep it up-to-date
                 despite that being crucial.</p>
 
-                <!--
                 <p>On Arch Linux, install <code>android-tools</code> and skip the section below on
                 using the standalone release of platform-tools from Android:</p>
 
                 <pre>sudo pacman -S android-tools</pre>
-                -->
 
-                <p><strong>Arch Linux currently includes a broken build of fastboot in the
-                android-tools package incompatible with the Pixel 7 and Pixel 7 Pro so our
-                recommendation to use their package has been temporarily retracted.</strong></p>
+                <p>The Arch Linux package must be <code>33.0.3-3</code> or later since earlier
+                versions had partially outdated code and therefore didn't work with the Pixel 7
+                and Pixel 7 Pro.</p>
 
                 <p>Debian and Ubuntu do not have a usable package for fastboot. Their packages for
                 these tools are both broken and many years out-of-date. Follow the instructions
