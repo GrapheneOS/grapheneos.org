@@ -102,6 +102,7 @@
                     <li>
                         <a href="#changelog">Changelog</a>
                         <ul>
+                            <li><a href="#2022122700">2022122700</a></li>
                             <li><a href="#2022122000">2022122000</a></li>
                             <li><a href="#2022121400">2022121400</a></li>
                             <li><a href="#2022121100">2022121100</a></li>
@@ -649,19 +650,35 @@
                 release notes from before the rebranding of the project in 2018 and 2019.</p>
 
                 <!--
-                <article id="2022122000">
-                    <h3><a href="#2022122000">2022122000</a></h3>
+                <article id="2022122700">
+                    <h3><a href="#2022122700">2022122700</a></h3>
 
                     <p>Tags:</p>
                     <ul>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/TP1A.221005.002.2022122000">TP1A.221005.002.2022122000</a> (Pixel 4, Pixel 4 XL) — extended support release for legacy devices with frozen 2022-11-01 patch level</li>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/TQ1A.221205.011.2022122000">TQ1A.221205.011.2022122000</a> (Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, emulator, generic, other targets)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/TP1A.221005.002.2022122700">TP1A.221005.002.2022122700</a> (Pixel 4, Pixel 4 XL) — extended support release for legacy devices with frozen 2022-11-01 patch level</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/TQ1A.221205.011.2022122700">TQ1A.221205.011.2022122700</a> (Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2022122700 release:</p>
+
+                    <ul>
+                    </ul>
+                </article>
+                -->
+
+                <article id="2022122700">
+                    <h3><a href="#2022122700">2022122700</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/TP1A.221005.002.2022122700">TP1A.221005.002.2022122700</a> (Pixel 4, Pixel 4 XL) — extended support release for legacy devices with frozen 2022-11-01 patch level</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/TQ1A.221205.011.2022122700">TQ1A.221205.011.2022122700</a> (Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, emulator, generic, other targets)</li>
                     </ul>
 
                     <p>Changes since the 2022122000 release:</p>
 
                     <ul>
-                        <li>fix upstream Android 13 QPR1 recent apps list bug mainly triggered after user profile switches</li>
+                        <li>fix upstream Android 13 QPR1 recent apps list bug mainly triggered after user profile switches (Android 13 QPR1 "App not available" bug)</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Generic 5.10): update to latest GKI LTS branch revision which provides a proper fix for a backport mistake we discovered and reported</li>
                         <li>block updating system packages to versions with the same versionCode since system packages without releases outside the OS rarely have their versionCode increased when changes are made and therefore it makes it possible to downgrade them which is a security weakness in Android's approach</li>
                         <li>prefer package from OS image  over equal version packages installed as an update to improve security by dropping potentially downgraded packages particularly for the verified boot security model, with the bonus of saving disk space by dropping out-of-band updates installed from our app repository once they're redundant</li>
@@ -671,7 +688,6 @@
                         <li>TalkBack (screen reader): update dependencies</li>
                     </ul>
                 </article>
-                -->
 
                 <article id="2022122000">
                     <h3><a href="#2022122000">2022122000</a></h3>
