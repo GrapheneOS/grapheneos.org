@@ -383,6 +383,12 @@
                         <ul>
                             <li>Enhanced <a href="https://source.android.com/docs/security/features/verifiedboot">verified boot</a>
                             with better security properties and reduced attack surface</li>
+                            <li>GrapheneOS closes a loophole where app-based system components
+                            built as part of the OS can be downgraded to an older version due to
+                            versionCode not being incremented when system components get updated
+                            as part of changes to the OS. We prevent this for both package updates
+                            and as part of detecting whether to use out-of-band updates to system
+                            apps at boot.</li>
                             <li>Enhanced hardware-based attestation with more precise version information</li>
                             <li>Hardware-based security verification and monitoring via our
                             <a href="#auditor">Auditor app and attestation service</a></li>
