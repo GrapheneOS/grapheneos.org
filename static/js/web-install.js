@@ -215,7 +215,7 @@ async function flashRelease(setProgress) {
         throw new Error("You need to download a release first!");
     }
 
-    setProgress("Cancelling any pending OTAs...")
+    setProgress("Cancelling any pending OTAs...");
     // Cancel snapshot update if in progress on devices which support it on all bootloader versions
     if (day1SnapshotCancelDevices.includes(product)) {
         let snapshotStatus = await device.getVariable("snapshot-update-status");
