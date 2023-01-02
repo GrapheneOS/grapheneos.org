@@ -941,8 +941,27 @@
                             the Google service if you prefer.</p>
                         </li>
                         <li>
-                            <p>DNS connectivity and functionality tests involving connections to
-                            the network / user provided DNS resolvers</p>
+                            <p>A test query is done via DNS-over-TLS in the automatic and manually
+                            enabled modes to detect if DNS-over-TLS is available. It won't happen
+                            when DNS-over-TLS is disabled. For the automatic mode, it uses this to
+                            determine if it should be using it and for the manual mode it uses it
+                            to report an error. This DNS query is not used to make a connection to
+                            the resulting resolved IP.</p>
+
+                            <p>GrapheneOS queries the DNS resolver for
+                            <code><var>randomstring</var>-dnsotls-ds.dnscheck.grapheneos.org</code>
+                            by default but switches to using the standard
+                            <code><var>randomstring</var>-dnsotls-ds.metric.gstatic.com</code>
+                            when the HTTP(S) connectivity check mode is set to Standard (Google)
+                            instead of the default GrapheneOS mode or Disabled mode to avoid
+                            identifying itself as GrapheneOS to the DNS resolver. The DNS-over-TLS
+                            test query will still happen with HTTP(S) connectivity checks disabled
+                            but DNS-over-TLS can be disabled by disabling Private DNS.</p>
+
+                            <p>The random string is used to bypass DNS caching to make sure the
+                            DNS resolver. It's generated with a cryptographically secure random
+                            number generator (CSPRNG) for each request and therefore can't leak
+                            any identifying info.</p>
                         </li>
                         <li>
                             <p>DNS resolution for other connections involving connections to the
