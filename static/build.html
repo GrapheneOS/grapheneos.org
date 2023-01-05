@@ -351,10 +351,18 @@ repo sync -j16</pre>
 cd grapheneos-<var>TAG_NAME</var>
 repo init -u https://github.com/GrapheneOS/platform_manifest.git -b refs/tags/<var>TAG_NAME</var></pre>
 
+                        <p>Obtain GPG public key for verifying tags before 2023-01-05:</p>
+
+                        <pre>gpg --recv-keys 65EEFE022108E2B708CBFCF7F9E712E59AF5F22A</pre>
+
+                        <p>Obtain SSH public key for verifying tags after 2023-01-05:</p>
+
+                        <pre>curl https://grapheneos.org/allowed_signers &gt; ~/.ssh/grapheneos_allowed_signers</pre>
+
                         <p>Verify the manifest:</p>
 
-                        <pre>gpg --recv-keys 65EEFE022108E2B708CBFCF7F9E712E59AF5F22A
-cd .repo/manifests
+<pre>cd .repo/manifests
+git config gpg.ssh.allowedSignersFile ~/.ssh/grapheneos_allowed_signers
 git verify-tag $(git describe)
 cd ../..</pre>
 
