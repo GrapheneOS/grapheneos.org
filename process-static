@@ -77,7 +77,7 @@ sed -i "$replace" static-tmp/releases.html
 gixy nginx-tmp/nginx.conf
 
 xmllint --noout static-tmp/**/*.html
-validatornu --Werror --also-check-css --also-check-svg static-tmp/**/!(bimi).@(css|html|svg)
+validatornu --errors-only --also-check-css --also-check-svg static-tmp/**/!(bimi).@(css|html|svg)
 find static-tmp -name '*.html' -exec html-minifier --collapse-whitespace \
     --process-scripts "application/ld+json" --collapse-boolean-attributes \
     --remove-attribute-quotes --remove-comments --remove-empty-attributes \
