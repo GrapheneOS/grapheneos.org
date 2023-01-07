@@ -1002,9 +1002,9 @@
                     <p>Google Play is divided up into 3 separate apps:</p>
 
                     <ul>
-                        <li>Google Services Framework (com.google.android.gsf)</li>
-                        <li>Google Play services (com.google.android.gms)</li>
-                        <li>Google Play Store (com.android.vending)</li>
+                        <li>Google Services Framework (GSF)</li>
+                        <li>Google Play services</li>
+                        <li>Google Play Store</li>
                     </ul>
 
                     <p>To use sandboxed Google Play, you simply need to install the official releases
@@ -1022,10 +1022,13 @@
                     <p>You can open our app repository client (look for Apps in the app drawer)
                     and install the 3 core Google Play apps mirrored in our repository. Our app repository
                     client has support for dependency installation so you can simply directly install
-                    the Play Store and it will install GSF and then Play services as dependencies.</p>
+                    Play services and it will install GSF and the Play Store as dependencies.</p>
 
                     <p>Play services and the Play Store depend on each other, one will not work properly
                     without the other.</p>
+
+                    <p>You can obtain updates to these apps from our app repository client or from
+                    the Play Store. Updates through the Play Store usually arrive first.</p>
 
                     <p>You should give a battery optimization exception to Google Play services
                     for features like push notifications to work properly in the background. It
@@ -1043,14 +1046,6 @@
                     Delivery, Play Feature Delivery, in-app purchases and license checks for paid
                     apps. The Play Store app is also the most secure way to install and update apps
                     from the Play Store.</p>
-
-                    <p>You can obtain updates to these apps from our app repository client. Our
-                    compatibility layer supports the Play Store updating itself and also Play
-                    services but we've chosen to block it from being able to update them in order
-                    to ship the updates through our repository after testing them. They use long
-                    staged rollouts for these app updates and it results in confusion when users
-                    can't install older versions in another user, which is resolved by us handling
-                    the updates ourselves.</p>
 
                     <p>Our compatibility layer has support for Play Games Services which you can
                     obtain by installing Google Play Games from the Play Store. Many games on the
