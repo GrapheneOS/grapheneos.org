@@ -665,8 +665,15 @@
                     <p>Changes since the 2023010300 release:</p>
 
                     <ul>
-                        <li>GmsCompatConfig: update max supported versions of Play services and Play Store</li>
                         <li>enable adaptive brightness by default</li>
+                        <li>Sandboxed Google Play compatibility layer: improve logging of GmsCompatConfig parser errors</li>
+                        <li>Sandboxed Google Play compatibility layer: update BluetoothAdapter.enable() shim for Android 13</li>
+                        <li>Sandboxed Google Play compatibility layer: fix deadlock when reading state of "Google Location Accuracy" toggle</li>
+                        <li>Sandboxed Google Play compatibility layer: delay notification about Google Play crash until after potential config update</li>
+                        <li>Sandboxed Google Play compatibility layer: allow bound Google Play apps to request update of GmsCompatConfig</li>
+                        <li>Sandboxed Google Play compatibility layer: don't block Play Store from installing APK splits for Play services and itself</li>
+                        <li>Sandboxed Google Play compatibility layer: try to update GmsCompatConfig before update of Play services or Play Store</li>
+                        <li>GmsCompatConfig: update max supported versions of Play services and Play Store</li>
                     </ul>
                 </article>
                 -->
