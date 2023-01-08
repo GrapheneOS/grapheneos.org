@@ -6,9 +6,6 @@ jobs:
   static:
     runs-on: ubuntu-latest
 
-    env:
-      VALIDATOR_VERSION: 20.6.30
-
     steps:
     - uses: actions/checkout@v3
       with:
@@ -21,25 +18,10 @@ jobs:
         python-version: '3.10'
         cache: pip
 
-    - name: Cache validator
-      id: validator-cache
-      uses: actions/cache@v3
-      with:
-        path: vnu-runtime-image
-        key: ${{ runner.os }}-validator-${{ env.VALIDATOR_VERSION }}
-
     - run: sudo apt-get update
     - run: sudo apt-get -y install libxml2-utils yajl-tools moreutils zopfli
     - run: npm install
     - run: pip install -r requirements.txt
-
-    - name: Download validatornu
-      # There isn't a package with a `validatornu` command in Ubuntu, so download the validator
-      # from the GitHub releases and change the process-static script later to use it.
-      run: curl -OL https://github.com/validator/validator/releases/download/${{ env.VALIDATOR_VERSION }}/vnu.linux.zip && unzip vnu.linux.zip
-      if: steps.validator-cache.outputs.cache-hit != 'true'
-
-    - run: sed -i 's+validatornu+vnu-runtime-image/bin/vnu+g' process-static
 
     - name: process static
       run: ./process-static
