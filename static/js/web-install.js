@@ -148,6 +148,8 @@ const legacyQualcommDevices = ["sunfish", "coral", "flame", "bonito", "sargo", "
 
 const tensorDevices = ["cheetah", "panther", "bluejay", "raven", "oriole"];
 
+const day1SnapshotCancelDevices = ["cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble"];
+
 async function getLatestRelease() {
     let product = await device.getVariable("product");
     if (!supportedDevices.includes(product)) {
@@ -211,6 +213,15 @@ async function flashRelease(setProgress) {
     let blob = await blobStore.loadFile(latestZip);
     if (blob === null) {
         throw new Error("You need to download a release first!");
+    }
+
+    setProgress("Cancelling any pending OTAs...");
+    // Cancel snapshot update if in progress on devices which support it on all bootloader versions
+    if (day1SnapshotCancelDevices.includes(product)) {
+        let snapshotStatus = await device.getVariable("snapshot-update-status");
+        if (snapshotStatus !== null && snapshotStatus !== "none") {
+            await device.runCommand("snapshot-update:cancel");
+        }
     }
 
     setProgress("Flashing release...");
