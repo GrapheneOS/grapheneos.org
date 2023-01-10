@@ -928,17 +928,43 @@
                             on internet access until it becomes available.</p>
                         </li>
                         <li>
-                            <p>Connections are made to a server to provision attestation
-                            certificates for hardware-based attestation. GrapheneOS uses
-                            https://remoteprovisioning.grapheneos.org/ by default which is a
-                            reverse proxy to the https://remoteprovisioning.googleapis.com/
-                            service. Their service splits up the implementation of provisioning to
-                            preserve privacy, and our reverse proxy adds to that since it's unable
-                            to decrypt the provisioned keys.</p>
+                            <p>Android devices launched with Android 8 or later provide support
+                            for hardware-based attestation as part of the hardware keystore API.
+                            Secure devices like Pixels provide both the traditional Trusted
+                            Execution Environment (TrustZone) keystore and StrongBox keystore
+                            based on a secure element, each providing attestation support. The
+                            hardware-based attestation feature is a standard part of the Android
+                            Open Source Project and are used to implement our Auditor app among
+                            other things.</p>
+
+                            <p>Initially, attestation signing keys were required to be batch keys
+                            provisioned to at least 100k devices to avoid them being used as
+                            unique identifiers. Unique attestation signing keys are an optional
+                            feature only available to privileged system components. Recent devices
+                            have replaced the batch and unique key system with remotely
+                            provisioned signing keys. The device obtains encrypted keys from a
+                            service to be decrypted by batch or unique keys inside the TEE and
+                            optional secure element. The new system improves privacy and security
+                            by using separate attestation signing keys for each app instead of
+                            needing to balance privacy and security by sharing the same
+                            attestation signing keys across a large batch of devices.</p>
+
+                            <p>GrapheneOS uses https://remoteprovisioning.grapheneos.org/ by
+                            default which is a private reverse proxy to the
+                            https://remoteprovisioning.googleapis.com/ service. The service splits
+                            up the implementation of provisioning to preserve privacy, and our
+                            reverse proxy adds to that since it's unable to decrypt the
+                            provisioned keys</p>
 
                             <p>A setting is added at Settings ➔ Network &amp; Internet ➔
                             Attestation key provisioning server for switching to directly using
                             the Google service if you prefer.</p>
+
+                            <p>A future device built to run GrapheneOS as the stock OS would be
+                            able to have a GrapheneOS attestation root and GrapheneOS attestation
+                            key provisioning service rather than a GrapheneOS proxy. A device
+                            built to run another OS without Google certification would need their
+                            own service and we'd need to support proxying to that service too.</p>
                         </li>
                         <li>
                             <p>A test query is done via DNS-over-TLS in the automatic and manually
