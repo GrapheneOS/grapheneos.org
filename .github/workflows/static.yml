@@ -18,7 +18,7 @@ jobs:
 
     - run: sudo apt-get update
     - run: sudo apt-get -y install libxml2-utils yajl-tools moreutils zopfli
-    - run: npm install
+    - run: npm ci --ignore-scripts
     - run: 'pip install --require-hashes --only-binary :all: -r requirements.txt'
 
     - name: process static
