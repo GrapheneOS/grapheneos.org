@@ -674,6 +674,7 @@
                         <li>Settings: revert to standard Android 13 minimum threshold of 10% for automatic battery saver since lowering it below 10% doesn't work as intended without more invasive changes outside the scope of GrapheneOS</li>
                         <li>fully disallow installing instant apps instead of permitting ADB shell and system apps to do it (this will simplify future work)</li>
                         <li>extend self app-op spoofing used for Network permission compatibility to unsafeCheckOpRaw()</li>
+                        <li>fix upstream bug causing crash from isServiceTokenValidLocked() being called without holding the lock</li>
                     </ul>
                 </article>
                 -->
