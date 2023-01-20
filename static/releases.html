@@ -672,6 +672,7 @@
                         <li>SELinux policy: drop auditing for apk_data_file execute/execute_no_trans (research is done)</li>
                         <li>SELinux policy: add back apk_data_file execute/execute_no_trans for adb shell for debugging use cases (removing it isn't really useful for hardening and we plan on hardening ADB for the verified boot model another way)</li>
                         <li>Settings: revert to standard Android 13 minimum threshold of 10% for automatic battery saver since lowering it below 10% doesn't work as intended without more invasive changes outside the scope of GrapheneOS</li>
+                        <li>fully disallow installing instant apps instead of permitting ADB shell and system apps to do it (this will simplify future work)</li>
                     </ul>
                 </article>
                 -->
