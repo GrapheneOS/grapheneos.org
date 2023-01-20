@@ -667,14 +667,20 @@
 
                     <ul>
                         <li>don't send IMSI / Phone number to SUPL server when SUPL is enabled (note: using SUPL is always an optional choice in APN configuration on GrapheneOS, unlike AOSP and the stock OS)</li>
-                        <li>GmsCompatConfig: add stub for LocationManager.registerGnssStatusCallback()</li>
-                        <li>GmsCompatConfig: update max supported version of Play Store</li>
                         <li>SELinux policy: drop auditing for apk_data_file execute/execute_no_trans (research is done)</li>
                         <li>SELinux policy: add back apk_data_file execute/execute_no_trans for adb shell for debugging use cases (removing it isn't really useful for hardening and we plan on hardening ADB for the verified boot model another way)</li>
                         <li>Settings: revert to standard Android 13 minimum threshold of 10% for automatic battery saver since lowering it below 10% doesn't work as intended without more invasive changes outside the scope of GrapheneOS</li>
                         <li>fully disallow installing instant apps instead of permitting ADB shell and system apps to do it (this will simplify future work)</li>
                         <li>extend self app-op spoofing used for Network permission compatibility to unsafeCheckOpRaw()</li>
                         <li>fix upstream bug causing crash from isServiceTokenValidLocked() being called without holding the lock</li>
+                        <li>Sandboxed Google Play compatibility layer: support enabling compatibility layer for any package on debuggable builds to help with development</li>
+                        <li>Sandboxed Google Play compatibility layer: coerce Play Store into not attempting to auto install AR services</lAi>
+                        <li>Sandboxed Google Play compatibility layer: fix issues with Play Store updates of Play services</li>
+                        <li>Sandboxed Google Play compatibility layer: avoid our implementation of the Play services location API returning null for getCurrentLocation() to avoid crashes in apps not handling it</li>
+                        <li>Sandboxed Google Play compatibility layer: increment compatibility layer version to 1001</li>
+                        <li>Sandboxed Google Play compatibility layer: use the most recent available version map in GmsCompatConfig to simplify defining configuration</li>
+                        <li>GmsCompatConfig: add stub for LocationManager.registerGnssStatusCallback()</li>
+                        <li>GmsCompatConfig: update max supported version of Play services and Play Store</li>
                     </ul>
                 </article>
                 -->
