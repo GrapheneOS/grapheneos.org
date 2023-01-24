@@ -1314,11 +1314,11 @@
                     supported devices.</p>
 
                     <p>A component being on a separate chip is orthogonal to whether it's isolated. In
-                    order to be isolated, the drivers need to treat it as untrusted. If it has DMA access
+                    order to be isolated, the drivers need to treat it as untrusted. If it has DMA access,
                     that needs to be contained via IOMMU and the driver needs to treat the shared memory
-                    as untrusted, as it would data received another way. There's a lot of attack surface
-                    between the baseband and the kernel/userspace software stack connected to it. OS
-                    security is very relevant to containing hardware components including the radios and
+                    as untrusted, as it would do with data received another way. There's a lot of attack
+                    surface between the baseband and the kernel/userspace software stack connected to it.
+                    OS security is very relevant to containing hardware components including the radios and
                     the vast majority of the attack surface is in software. The OS relies upon the
                     hardware and firmware to be able to contain components but ends up being primarily
                     responsible for it due to control over the configuration of shared memory and the
