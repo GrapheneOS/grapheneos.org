@@ -694,6 +694,7 @@
                         <li>require fs-verity for system app updates</li>
                         <li>SELinux policy: drop base OS apk_data_file restrictions to avoid blocking out-of-band updates to system apps providing native libraries such as Vanadium since we're going to be taking the approach of enforcing fs-verity for system app updates as a complete approach to proper verified boot enforcement for every read of data from out-of-band system component updates instead of only disallowing some forms of out-of-band updates</li>
                         <li>Vanadium: update Chromium base to 109.0.5414.118</li>
+                        <li>SettingsIntelligence: drop no longer required QUERY_ALL_PACKAGES permission now that more precise queries are defined upstream providing the necessary package visibility for Settings app search</li>
                     </ul>
                 </article>
                 -->
