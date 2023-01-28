@@ -668,6 +668,7 @@
 
                     <ul>
                         <li>Settings: fix issue preventing users from re-enabling system apps they previously disabled which can no longer be disabled</li>
+                        <li>fix upstream Android bug causing out-of-band updates to system components using original-package to be rolled back after reboot if they're still using the old package name, which will allow us to ship Vanadium updates out-of-band without the browser package updates being rolled back for users with an older install where it's still <code>org.chromium.chrome</code> instead of <code>app.vanadium.browser</code></li>
                     </ul>
                 </article>
                 -->
