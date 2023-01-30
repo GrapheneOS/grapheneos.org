@@ -1475,27 +1475,40 @@
             <article id="anti-theft">
                 <h2><a href="#anti-theft">Does GrapheneOS provide Factory Reset Protection?</a></h2>
 
-                <p>No, since this is strictly a theft deterrence feature, not a security feature, and
-                the standard implementation depends on having the device tied to an account on an
-                online service. The only advantage would be encouraging thieves to return a stolen
-                device for a potential reward after realizing that it has no value beyond scrapping it
-                for parts.</p>
+                <p>No, since this is strictly a theft deterrence feature, not a security feature,
+                and the standard implementation depends on having the device tied to an account on
+                an online service. The only advantage would be encouraging thieves to return a
+                stolen device for a potential reward after realizing that it has no value beyond
+                scrapping it for parts.</p>
 
-                <p>Google's Factory Reset Protection ties devices to a Google account using a tiny,
-                special region of persistent state not wiped by a factory reset. It prevents a thief
-                from wiping the device to a fresh state for resale without being stuck at a screen for
-                authenticating with the Google account persisted on the device after wiping.</p>
+                <p>Google's Factory Reset Protection ties devices to a Google account using a
+                tiny, special region of persistent state not wiped by a factory reset. It prevents
+                a thief from wiping the device to a fresh state for resale without being stuck at
+                a screen for authenticating with the Google account persisted on the device after
+                wiping. Google's approach works well because if users forget their Google
+                password, there are account recovery methods available to avoid a bricked
+                phone.</p>
 
-                <p>It would be possible to make an implementation not reliant upon an online service
-                where the user has the option to enable Factory Reset Protection and is given a seed
-                phrase required to use the device after wiping data from recovery. However, since this
-                has no security value and the ability to deter theft is questionable, implementing
-                this is an extremely low priority.</p>
+                <p>It would be possible to make an implementation not reliant upon an online
+                service where the user has the option to enable Factory Reset Protection and is
+                given a seed phrase required to use the device after wiping data from recovery.
+                However, since this has no security value and the ability to deter theft is
+                questionable, implementing this is an extremely low priority. Users will end up
+                with a bricked phone if they lose the seed phrase and need to wipe the phone after
+                forgetting their passphrase or something else causing them to need to wipe such as
+                breaking the OS via the Android Debug Bridge shell. Bricked phones would be a far
+                bigger problem than any theft deterrence this could provide. This approach may be
+                implemented by GrapheneOS in some form in the future but it's a low priority and
+                we don't want to cause people to brick their phones. We won't be able to offer any
+                help if people brick their phones with this.</p>
 
-                <p>Providing the option to disable wiping from recovery would be simpler, but would be
-                incompatible with features designed to wipe data automatically in certain cases. This
-                will not be implemented by GrapheneOS since it isn't a good approach and it conflicts
-                with other planned features.</p>
+                <p>Providing the option to disable wiping from recovery would be simpler, but
+                would be incompatible with features designed to wipe data automatically in certain
+                cases. It would also result in far more bricked phones than the seed phrase
+                approach describe above since setting a new lock method and forgetting it which is
+                a relatively common occurrence would mean a bricked phone. This will not be
+                implemented by GrapheneOS since it isn't a good approach and it conflicts with
+                other planned features.</p>
             </article>
 
             <article id="bundled-apps">
