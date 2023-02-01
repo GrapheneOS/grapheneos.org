@@ -99,8 +99,7 @@
                                     mitigations</a></li>
                                     <li><a href="#improved-sandboxing">Improved
                                     sandboxing</a></li>
-                                    <li><a href="#anti-persistence">Anti-persistence /
-                                    detection</a></li>
+                                    <li><a href="#anti-persistence">Anti-persistence/detection</a></li>
                                 </ul>
                             </li>
                             <li><a href="#more-complete-patching">More complete patching</a></li>
@@ -210,26 +209,26 @@
                     weaker less complete exploit mitigations can still provide meaningful barriers
                     against attacks as long as they're developed with a clear threat model.
                     GrapheneOS is heavily invested in many areas of developing these protections:
-                    developing/deploying memory safe languages / libraries, static/dynamic
+                    developing/deploying memory safe languages/libraries, static/dynamic
                     analysis tooling and many kinds of mitigations.</p>
 
                     <p>The final line of defense is containment through sandboxing at various
                     levels: fine-grained sandboxes around a specific context like per site browser
                     renderers, sandboxes around a specific component like Android's media codec
-                    sandbox and app / workspace sandboxes like the Android app sandbox used to
+                    sandbox and app/workspace sandboxes like the Android app sandbox used to
                     sandbox each app which is also the basis for user/work profiles. GrapheneOS
                     improves all of these sandboxes through fortifying the kernel and other base
                     OS components along with improving the sandboxing policies.</p>
 
                     <p>Preventing an attacker from persisting their control of a component or the
-                    OS / firmware through verified boot and avoiding trust in persistent state
+                    OS/firmware through verified boot and avoiding trust in persistent state
                     also helps to mitigate the damage after a compromise has occurred.</p>
 
                     <p>Remote code execution vulnerabilities are the most serious and allow an
                     attacker to gain a foothold on device or even substantial control over it
                     remotely. Local code execution vulnerabilities allow breaking out of a sandbox
                     including the app sandbox or browser renderer sandbox after either
-                    compromising an app / browser renderer remotely, compromising an app's supply
+                    compromising an app/browser renderer remotely, compromising an app's supply
                     chain or getting the user to install a malicious app. Many other kinds of
                     vulnerabilities exist but most of what we're protecting against falls into
                     these 2 broad categories.</p>
@@ -339,12 +338,12 @@
                                     including many which we played a part in developing and
                                     landing upstream as part of our linux-hardened project (which
                                     we intend to revive as a more active project again).</li>
-                                    <li>Forced kernel module signing with per-build RSA 4096 /
-                                    SHA256 keys and lockdown mode set to forced confidentiality
+                                    <li>Forced kernel module signing with per-build RSA 4096/SHA256
+                                    keys and lockdown mode set to forced confidentiality
                                     mode help to enforce a low-level boundary between the kernel
                                     and userspace even if mistakes are made in SELinux policy or
                                     there's a deep userspace compromise.</li>
-                                    <li>Additional consistency / integrity checks are enabled for
+                                    <li>Additional consistency/integrity checks are enabled for
                                     frequently targeted kernel data structures.</li>
                                 </ul>
                             </li>
@@ -379,7 +378,7 @@
                     </section>
 
                     <section id="anti-persistence">
-                        <h4><a href="#anti-persistence">Anti-persistence / detection</a></h4>
+                        <h4><a href="#anti-persistence">Anti-persistence/detection</a></h4>
 
                         <ul>
                             <li>Enhanced <a href="https://source.android.com/docs/security/features/verifiedboot">verified boot</a>
@@ -455,7 +454,7 @@
                     compatibility layer.</p>
 
                     <p>The vast majority of Play services functionality works perfectly including
-                    dynamically downloaded / updated modules (dynamite modules) and functionality
+                    dynamically downloaded/updated modules (dynamite modules) and functionality
                     provided by modular app components such as Google Play Games. By default,
                     location requests are rerouted to a reimplementation of the Play geolocation
                     service provided by GrapheneOS. You can disable rerouting and use the standard
@@ -464,7 +463,7 @@
 
                     <p>Our compatibility layer includes full support for the Play Store. Play
                     Store services are fully available including in-app purchases, Play Asset
-                    Delivery, Play Feature Delivery and app / content license checks. It can
+                    Delivery, Play Feature Delivery and app/content license checks. It can
                     install, update and uninstall apps with the standard approach requiring that
                     the user authorizes it as an app source and consents to each action. It will
                     use the standard Android 12+ unattended update feature to do automatic updates
@@ -862,7 +861,7 @@
                     all location data accesses through any APIs. Normally, the stock OS only shows
                     it for GNSS location requests, also known as high power location requests, and
                     doesn't normally show it for network location and other APIs gated by the
-                    Location permission / global block toggle.</p>
+                    Location permission/global block toggle.</p>
 
                     <p>The indicator works the same way as the Camera and Microphone ones, showing
                     a bright green icon when location access occurs which then gets minimized to a
@@ -896,10 +895,10 @@
                         features being enabled.</li>
                         <li>Authenticated encryption for network time updates via a first party server to
                         prevent attackers from changing the time and enabling attacks based on bypassing
-                        certificate / key expiry, etc.</li>
+                        certificate/key expiry, etc.</li>
                         <li>Proper support for disabling network time updates rather than just not using
                         the results</li>
-                        <li>Hardened local build / signing infrastructure</li>
+                        <li>Hardened local build/signing infrastructure</li>
                         <li><a href="/usage#updates">Seamless automatic OS update system</a> that just
                         works and stays out of the way in the background without disrupting device
                         usage, with full support for the standard automatic rollback if the first boot
@@ -919,11 +918,11 @@
                         <li>Secure-by-default Android 12 PendingIntent security check (FLAG_IMMUTABLE)
                         instead of crash-by-default improving older app compatibility and security.</li>
                         <li>Fixed UART debugging enabled warning on offical release builds.</li>
-                        <li>Engineering / Prototype ("EVT", "PVT" or "DVT") device warning as these
+                        <li>Engineering/Prototype ("EVT", "PVT" or "DVT") device warning as these
                         devices typically have relaxed security controls for development, mainly
                         the secure boot state property <code>ro.boot.secure_boot</code> not set
                         to <code>PRODUCTION</code>.</li>
-                        <li>Enable bootloader, radio, and boot partition version / fingerprint
+                        <li>Enable bootloader, radio, and boot partition version/fingerprint
                         checks.</li>
                         <li>Remove code automatically granting the location permission to system
                         browsers.</li>
