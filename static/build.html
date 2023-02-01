@@ -162,9 +162,9 @@
 
                     <p>These are all fully supported production-ready targets supporting all the
                     baseline security features and receiving full monthly security updates
-                    covering all firmware, kernel drivers, driver libraries / services and other
+                    covering all firmware, kernel drivers, driver libraries/services and other
                     device-specific code. A fully signed user build for these devices is a proper
-                    GrapheneOS release. Newer generation devices have stronger hardware / firmware
+                    GrapheneOS release. Newer generation devices have stronger hardware/firmware
                     security and hardware-based OS security features and are better development
                     devices for that reason. It's not possible to work on everything via past
                     generation devices. The best development devices are the Pixel 6 and 7 series.
@@ -204,8 +204,8 @@
                     an up-to-date kernel and device support code including driver libraries, firmware and
                     device SELinux policy extensions. Other than some special cases like the emulator, the
                     generic targets rely on the device support code present on the device. Shipping all of
-                    this is necessary for full security updates and is tied to enabling verified boot /
-                    attestation. Pixel targets have a lot of device-specific hardening in the AOSP base
+                    this is necessary for full security updates and is tied to enabling verified boot/attestation.
+                    Pixel targets have a lot of device-specific hardening in the AOSP base
                     along with some in GrapheneOS which needs to be ported over too. For example, various
                     security features in the kernel including type-based Control Flow Integrity (CFI) and
                     the shadow call stack are currently specific to the kernels for these devices.</p>
@@ -326,7 +326,7 @@
                         officially supported devices.</p>
 
                         <p>The <code>13</code> branch is used for 4th, 5th, 6th and 7th generation
-                        Pixels, generic / emulator targets and non-Pixel devices:</p>
+                        Pixels, generic/emulator targets and non-Pixel devices:</p>
 
                         <pre>mkdir grapheneos-13
 cd grapheneos-13
@@ -345,7 +345,7 @@ repo sync -j16</pre>
                         and download the source tree. Note that some devices use different Android Open Source
                         Project branches so they can end up with different tags. Make sure to use the correct
                         tag for a device. For devices without official support, use the latest tag marked as
-                        being appropriate for generic / other devices in the release notes.</p>
+                        being appropriate for generic/other devices in the release notes.</p>
 
                         <pre>mkdir grapheneos-<var>TAG_NAME</var>
 cd grapheneos-<var>TAG_NAME</var>
@@ -1140,7 +1140,7 @@ rm android-cts-media-1.5.zip</pre>
                             <li>Disable SIM lock</li>
                             <li>Enable Bluetooth</li>
                             <li>Enable NFC</li>
-                            <li>Open / close Chromium to deal with initial setup</li>
+                            <li>Open/close Chromium to deal with initial setup</li>
                             <li>Prop up with a good object to focus on and good lighting for Camera tests.
                             Both the front and rear cameras will be used, so ensure this is true for both the
                             front and the rear cameras.</li>
@@ -1181,7 +1181,7 @@ rm android-cts-media-1.5.zip</pre>
                 different components. There are tags and/or branches for the OS, device kernels,
                 mainline components (APEX), the NDK, Android Studio, the platform-tools distribution
                 packages, the CTS, androidx components, etc. You should obtain the sources via
-                manifests using the repo tool, either using the manifest for a tag / branch in
+                manifests using the repo tool, either using the manifest for a tag/branch in
                 platform/manifest.git or a manifest provided elsewhere. Different projects use
                 different subsets of the repositories. Many of the repositories only exist as an
                 archive for older releases and aren't referenced in current manifests.</p>
@@ -1271,8 +1271,8 @@ rm android-cts-media-1.5.zip</pre>
                     <code>variable_name</code>, <code>TypeName</code> and <code>CONSTANT_NAME</code>.
                     Prefer single-line comment syntax other than rare cases where it makes sense to add a
                     tiny comment within a line of code. In languages with the optional braces misfeature
-                    (C, C++, Java), always use them. Open braces on the same line as function definitions
-                    / statements. Wrap lines at 100 columns except in rare cases where it would be far
+                    (C, C++, Java), always use them. Open braces on the same line as function definitions/statements. 
+                    Wrap lines at 100 columns except in rare cases where it would be far
                     uglier to wrap the line.</p>
 
                     <p>For JavaScript, all code should be contained within ES6 modules. This means every
