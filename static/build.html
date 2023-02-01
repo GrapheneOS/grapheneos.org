@@ -510,11 +510,12 @@ repo sync -j16</pre>
 source script/envsetup.sh
 m aapt2</pre>
 
-                    <p>Extract the vendor files corresponding to the matching release with
+                    <p>Extract the vendor files corresponding to the matching <a
+                    href="https://developers.google.com/android/images">factory image release</a> with
                     <code><var>DEVICE</var></code> and <code><var>BUILD_ID</var></code> replaced with the
                     appropriate values:</p>
 
-<pre>vendor/adevtool/bin/run download vendor/adevtool/dl/ -d <var>DEVICE</var> -b <var>BUILD_ID</var> -t factory ota
+                    <pre>vendor/adevtool/bin/run download vendor/adevtool/dl/ -d <var>DEVICE</var> -b <var>BUILD_ID</var> -t factory ota
 sudo vendor/adevtool/bin/run generate-all vendor/adevtool/config/<var>DEVICE</var>.yml -c vendor/state/<var>DEVICE</var>.json -s vendor/adevtool/dl/<var>DEVICE</var>-<var>BUILD_ID</var>-*.zip
 sudo chown -R $(logname):$(logname) vendor/{google_devices,adevtool}
 vendor/adevtool/bin/run ota-firmware vendor/adevtool/config/<var>DEVICE</var>.yml -f vendor/adevtool/dl/<var>DEVICE</var>-ota-<var>BUILD_ID</var>-*.zip</pre>
