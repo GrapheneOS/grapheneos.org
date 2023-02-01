@@ -257,6 +257,10 @@ table {
     width: 100%;
 }
 
+#table-scroll {
+    overflow-x:auto;
+}
+
 td {
     border: 1px solid #ddd;
     padding: 0.5rem;
