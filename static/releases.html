@@ -664,6 +664,40 @@
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/TQ1A.230105.002.2023012500">TQ1A.230105.002.2023012500</a> (Pixel 6, Pixel 6 Pro, Pixel 7 Pro, emulator, generic, other targets)</li>
                     </ul>
 
+                    <p>This release fixes major weaknesses in Android's verified boot. Android has
+                    working protecting of the firmware images, OS images and out-of-band updates
+                    to APEX components through verified boot and provides verification for every
+                    read of the data rather than actually only verifying at boot. Firmware and
+                    core OS images are fully read and verified before use. High level OS images
+                    and out-of-band APEX updates are verified dynamically when data is read via
+                    dm-verity. Unfortunately, Android doesn't have anywhere near complete/correct
+                    verification of non-APEX APK-based components including many privileged OS
+                    components implemented as apps and the apps bundled with the OS. GrapheneOS
+                    now provides an implementation of this verification to extend verified boot
+                    and hardware-based attestation to these components correctly. We previously
+                    enhanced the downgrade protection check for system updates to require a
+                    greater version rather than equal or greater due to most Android OS components
+                    not having their versionCode consistently increased when they're changed, and
+                    this is now integrated into our new verification. At the moment, we enforce
+                    verification for APK-based components at boot. We already provide fs-verity
+                    metadata for continuous verification of all the out-of-band updates we ship
+                    and we require it to be provided for system update installation, but we need
+                    to phase in enforcing it at boot time in a way that won't cause system app
+                    updates to be rolled back for users upgrading from older OS releases where
+                    they updated to newer system app versions than the ones bundled in the new OS
+                    update.</p>
+
+                    <p>This release also supports out-of-band updates for Vanadium going forward
+                    due to replacing incompatible SELinux hardening with these far superior
+                    verified boot improvements along with fixing a major upstream Android 13
+                    regression in the original-package feature causing out-of-band updates to
+                    system apps using this feature to be rolled back on reboot. Vanadium used
+                    original-package to rename the browser app from org.chromium.chrome to
+                    app.vanadium.browser so it still uses the org.chromium.chrome app id for
+                    compatibility on older installs (factory reset counts as a fresh install).
+                    Both app ids will be able to receive out-of-band updates due to our bug
+                    fix.</p>
+
                     <p>Changes since the 2023012500 release:</p>
 
                     <ul>
