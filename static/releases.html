@@ -1027,7 +1027,7 @@
                         <li>Sandboxed Google Play compatibility layer: improve handling of activity starts</li>
                         <li>Sandboxed Google Play compatibility layer: bugfix: Parcel position wasn't reset by dynamic stubs</li>
                         <li>Sandboxed Google Play compatibility layer: bugfix: missing handling of ListSlices in dynamic stub</li>
-                        <li>GmsCompatConfig: make sure Play Store PhenotypeFlags are overridable by Gservices flags (further deterring Play Store trying to update Play services/Play Store beyond supported versions)</li>
+                        <li>GmsCompatConfig: make sure Play Store PhenotypeFlags are overridable by Gservices flags (further deterring Play Store trying to update Play services / Play Store beyond supported versions)</li>
                         <li>Pixel 7, Pixel 7 Pro (adevtool): drop unused face unlock components since we have no plans to enable support for an insecure face unlock implementation incapable providing reasonable security due to lack of dedicated face unlock hardware (Pixel 4 and Pixel 4 XL had dual infrared cameras, IR dot projector and IR flood illuminator providing a more secure biometric unlock system than fingerprint unlock as opposed to simply using the front camera in a way that could be done on any device)</li>
                         <li>Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 7, Pixel 7 Pro: include gril library to avoid qns crash on Pixel 7 and Pixel 7 Pro</li>
                         <li>Pixel 7, Pixel 7 Pro: include vendor_kernel_boot partition requirement in factory images metadata to force an error with an incompatible fastboot such as the currently buggy Arch Linux package</li>
@@ -1195,7 +1195,7 @@
                         <li>GmsCompatConfig: fix crash in FastPair service</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro): update GKI to Linux 5.10.149</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro): replace upstream default of sha1 with sha256 for module signing (GKI devices rely on verified boot for vendor modules and only use module signing for GKI modules of which there are currently 0, but it should be using a secure hash in case there are ever GKI modules and for when we extend it to vendor modules as a lower level 2nd layer of security not depending on userspace)</li>
-                        <li>kernel (Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a): enable forced kernel module signing with a per-build signing key (RSA 4096/sha256) as an additional lower level layer of security beyond the verification already provided by dm-verity and SELinux</li>
+                        <li>kernel (Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a): enable forced kernel module signing with a per-build signing key (RSA 4096 / sha256) as an additional lower level layer of security beyond the verification already provided by dm-verity and SELinux</li>
                         <li>kernel (Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a): disable IP_SCTP</li>
                         <li>kernel (Pixel 4a): enable REFCOUNT_FULL</li>
                         <li>Pixel 7, Pixel 7 Pro: fix bug in detection of the camera service executable for the memory corruption workaround added in the previous release (inconsequential in practice for this specific case of the bug)</li>
@@ -1516,7 +1516,7 @@
                         <li>full 2022-09-05 security patch level</li>
                         <li>rebased onto TP1A.220905.004 release</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a): update GKI base to ASB-2022-09-05_13-5.10</li>
-                        <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a): split raviole (Pixel 6, Pixel 6 Pro) and bluejay (Pixel 6a) kernels for now due to AOSP/stock OS differences</li>
+                        <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a): split raviole (Pixel 6, Pixel 6 Pro) and bluejay (Pixel 6a) kernels for now due to AOSP / stock OS differences</li>
                         <li>fix for Bluetooth timeout feature with BLE devices</li>
                         <li>remove conflicting permission from GSF when parsing the package since it appears to be set incorrectly by a build system bug and conflicts with Shannon IMS on 6th generation Pixels and is blocking us upgrading to GSF v33 via our app repository</li>
                         <li>Vanadium: update Chromium base to 105.0.5195.79</li>
@@ -1703,7 +1703,7 @@
                         <li>Dialer: temporarily disable R8 optimization to work around missing annotations/exceptions upstream</li>
                         <li>kernel (Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a): switch to kernel manifests instead of including the kernel source trees in the OS source tree with submodules for the module repositories</li>
                         <li>kernel (Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a): switch to AOSP kernel build system</li>
-                        <li>kernel (Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a): use dynamic kernel modules matching AOSP/stock OS instead of using monolithic kernel builds to avoid further issues from driver bugs with monolithic kernel builds (this was a useful feature but maintenance has become too difficult and the advantages of Generic Kernel Images for 6th generation Pixels and beyond outweigh the benefits so this was already phased out for 6th generation devices)</li>
+                        <li>kernel (Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a): use dynamic kernel modules matching AOSP / stock OS instead of using monolithic kernel builds to avoid further issues from driver bugs with monolithic kernel builds (this was a useful feature but maintenance has become too difficult and the advantages of Generic Kernel Images for 6th generation Pixels and beyond outweigh the benefits so this was already phased out for 6th generation devices)</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a): temporarily use ThinLTO instead of LTO due to an upstream kernel or toolchain bug we have yet to resolve or work around in a better way</li>
                     </ul>
                 </article>
@@ -1727,7 +1727,7 @@
                     <ul>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SP1A.210812.016.C2.2022081800">SP1A.210812.016.C2.2022081800</a> (Pixel 3, Pixel 3 XL) — extended support release for legacy devices with frozen 2021-11-01 patch level</li>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SP2A.220505.006.2022081800">SP2A.220505.006.2022081800</a> (Pixel 3a, Pixel 3a XL) — extended support release for legacy devices with frozen 2022-06-01 patch level</li>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SD2A.220601.004.B2.2022081800">SD2A.220601.004.B2.2022081800</a> (Pixel 6a) — early release for Pixel 6a with 2022-06-01 patch level which is the latest available until there's a normal AOSP/stock OS release for it on the latest patch level</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SD2A.220601.004.B2.2022081800">SD2A.220601.004.B2.2022081800</a> (Pixel 6a) — early release for Pixel 6a with 2022-06-01 patch level which is the latest available until there's a normal AOSP / stock OS release for it on the latest patch level</li>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SQ3A.220705.003.A1.2022081800">SQ3A.220705.003.A1.2022081800</a> (Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a)</li>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SQ3A.220705.004.2022081800">SQ3A.220705.004.2022081800</a> (Pixel 6, Pixel 6 Pro, emulator, generic, other targets)</li>
                     </ul>
@@ -1746,7 +1746,7 @@
                     <ul>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SP1A.210812.016.C2.2022081600">SP1A.210812.016.C2.2022081600</a> (Pixel 3, Pixel 3 XL) — extended support release for legacy devices with frozen 2021-11-01 patch level</li>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SP2A.220505.006.2022081600">SP2A.220505.006.2022081600</a> (Pixel 3a, Pixel 3a XL) — extended support release for legacy devices with frozen 2022-06-01 patch level</li>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SD2A.220601.004.B2.2022081600">SD2A.220601.004.B2.2022081600</a> (Pixel 6a) — early release for Pixel 6a with 2022-06-01 patch level which is the latest available until there's a normal AOSP/stock OS release for it on the latest patch level</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SD2A.220601.004.B2.2022081600">SD2A.220601.004.B2.2022081600</a> (Pixel 6a) — early release for Pixel 6a with 2022-06-01 patch level which is the latest available until there's a normal AOSP / stock OS release for it on the latest patch level</li>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SQ3A.220705.003.A1.2022081600">SQ3A.220705.003.A1.2022081600</a> (Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a)</li>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SQ3A.220705.004.2022081600">SQ3A.220705.004.2022081600</a> (Pixel 6, Pixel 6 Pro, emulator, generic, other targets)</li>
                     </ul>
@@ -1759,7 +1759,7 @@
                         <li>Vanadium: backport using Android 13 SDK and changes to support using Android 13</li>
                         <li>Vanadium: update Chromium base to 104.0.5112.97</li>
                         <li>Vanadium: restore previous launcher icon</li>
-                        <li>Pixel 6a: switch to SD2A.220601.004.B2 (July 2022) device sources and vendor files (AOSP/stock OS patch level for Pixel 6a is still 2022-06-01 until Android 13)</li>
+                        <li>Pixel 6a: switch to SD2A.220601.004.B2 (July 2022) device sources and vendor files (AOSP / stock OS patch level for Pixel 6a is still 2022-06-01 until Android 13)</li>
                     </ul>
                 </article>
 
@@ -1770,7 +1770,7 @@
                     <ul>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SP1A.210812.016.C2.2022080900">SP1A.210812.016.C2.2022080900</a> (Pixel 3, Pixel 3 XL) — extended support release for legacy devices with frozen 2021-11-01 patch level</li>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SP2A.220505.006.2022080900">SP2A.220505.006.2022080900</a> (Pixel 3a, Pixel 3a XL) — extended support release for legacy devices with frozen 2022-06-01 patch level</li>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SD2A.220601.004.2022080900">SD2A.220601.004.2022080900</a> (Pixel 6a) — early release for Pixel 6a with 2022-06-01 patch level which is the latest available until there's a normal AOSP/stock OS release for it on the latest patch level</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SD2A.220601.004.2022080900">SD2A.220601.004.2022080900</a> (Pixel 6a) — early release for Pixel 6a with 2022-06-01 patch level which is the latest available until there's a normal AOSP / stock OS release for it on the latest patch level</li>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SQ3A.220705.003.A1.2022080900">SQ3A.220705.003.A1.2022080900</a> (Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a)</li>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SQ3A.220705.004.2022080900">SQ3A.220705.004.2022080900</a> (Pixel 6, Pixel 6 Pro, emulator, generic, other targets)</li>
                     </ul>
@@ -1797,7 +1797,7 @@
                     <ul>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SP1A.210812.016.C2.2022080500">SP1A.210812.016.C2.2022080500</a> (Pixel 3, Pixel 3 XL) — extended support release for legacy devices with frozen 2021-11-01 patch level</li>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SP2A.220505.006.2022080500">SP2A.220505.006.2022080500</a> (Pixel 3a, Pixel 3a XL) — extended support release for legacy devices with frozen 2022-06-01 patch level</li>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SD2A.220601.004.2022080500">SD2A.220601.004.2022080500</a> (Pixel 6a) — early release for Pixel 6a with 2022-06-01 patch level which is the latest available until there's a normal AOSP/stock OS release for it on the latest patch level</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SD2A.220601.004.2022080500">SD2A.220601.004.2022080500</a> (Pixel 6a) — early release for Pixel 6a with 2022-06-01 patch level which is the latest available until there's a normal AOSP / stock OS release for it on the latest patch level</li>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SQ3A.220705.003.A1.2022080500">SQ3A.220705.003.A1.2022080500</a> (Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a)</li>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SQ3A.220705.004.2022080500">SQ3A.220705.004.2022080500</a> (Pixel 6, Pixel 6 Pro, emulator, generic, other targets)</li>
                     </ul>
@@ -1819,7 +1819,7 @@
                     <ul>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SP1A.210812.016.C2.2022080300">SP1A.210812.016.C2.2022080300</a> (Pixel 3, Pixel 3 XL) — extended support release for legacy devices with frozen 2021-11-01 patch level</li>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SP2A.220505.006.2022080300">SP2A.220505.006.2022080300</a> (Pixel 3a, Pixel 3a XL) — extended support release for legacy devices with frozen 2022-06-01 patch level</li>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SD2A.220601.004.2022080300">SD2A.220601.004.2022080300</a> (Pixel 6a) — early release for Pixel 6a with 2022-06-01 patch level which is the latest available until there's a normal AOSP/stock OS release for it on the latest patch level</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SD2A.220601.004.2022080300">SD2A.220601.004.2022080300</a> (Pixel 6a) — early release for Pixel 6a with 2022-06-01 patch level which is the latest available until there's a normal AOSP / stock OS release for it on the latest patch level</li>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SQ3A.220705.003.A1.2022080300">SQ3A.220705.003.A1.2022080300</a> (Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro, emulator, generic, other targets)</li>
                     </ul>
 
@@ -1843,7 +1843,7 @@
                     <ul>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SP1A.210812.016.C2.2022073000">SP1A.210812.016.C2.2022073000</a> (Pixel 3, Pixel 3 XL) — extended support release for legacy devices with frozen 2021-11-01 patch level</li>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SP2A.220505.006.2022073000">SP2A.220505.006.2022073000</a> (Pixel 3a, Pixel 3a XL) — extended support release for legacy devices with frozen 2022-06-01 patch level</li>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SD2A.220601.004.2022073000">SD2A.220601.004.2022073000</a> (Pixel 6a) — early release for Pixel 6a with 2022-06-01 patch level which is the latest available until there's a normal AOSP/stock OS release for it on the latest patch level</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SD2A.220601.004.2022073000">SD2A.220601.004.2022073000</a> (Pixel 6a) — early release for Pixel 6a with 2022-06-01 patch level which is the latest available until there's a normal AOSP / stock OS release for it on the latest patch level</li>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SQ3A.220705.003.A1.2022073000">SQ3A.220705.003.A1.2022073000</a> (Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro, emulator, generic, other targets)</li>
                     </ul>
 
@@ -2544,7 +2544,7 @@
                         <li>Camera: update to <a href="https://github.com/GrapheneOS/Camera/releases/tag/17">version 17</a></li>
                         <li>Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro: remove unnecessary configuration/permissions for apps not included in AOSP/GrapheneOS</li>
                         <li>Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro: add RCS packages</li>
-                        <li>Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro: remove AOSP/stock OS configuration pinning the system camera and launcher in memory since it's wasteful</li>
+                        <li>Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro: remove AOSP / stock OS configuration pinning the system camera and launcher in memory since it's wasteful</li>
                         <li>Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro: stop forcing camera shutter sound on the Japanese hardware SKUs</li>
                     </ul>
                 </article>
@@ -2564,7 +2564,7 @@
                     <ul>
                         <li>Pixel 6, Pixel 6 Pro: full Pixel 2022-03-05 security patch level (Android 2022-03-05 security patch level was already provided early by GrapheneOS)</li>
                         <li>Pixel 6, Pixel 6 Pro: rebased onto SP2A.220305.013.A3 release</li>
-                        <li>kernel (Pixel 6, Pixel 6 Pro): update GKI base to android12-5.10-2021-12_r8 from the android12-5.10-2021-12_r6 version still used by the AOSP/stock Pixel OS March release for a few additional security fixes beyond the ones already backported early by GrapheneOS along with latency improvements under certain heavy real-time loads</li>
+                        <li>kernel (Pixel 6, Pixel 6 Pro): update GKI base to android12-5.10-2021-12_r8 from the android12-5.10-2021-12_r6 version still used by the AOSP / stock Pixel OS March release for a few additional security fixes beyond the ones already backported early by GrapheneOS along with latency improvements under certain heavy real-time loads</li>
                         <li>add eSIM activation support as an optional toggle available when using sandboxed Google Play in the Owner profile (note: regular apps including sandboxed Google Play do not have additional access in the Owner profile)</li>
                         <li>Sandboxed Google Play compatibility layer: expand PhenoTypeFlags workaround to all Play services clients</li>
                         <li>GmsCompat: call startForegroundService from the main thread to avoid potential issues</li>
@@ -2962,7 +2962,7 @@
                     <ul>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SP1A.210812.015.2022010500">SP1A.210812.015.2022010500</a> (Pixel 3, Pixel 3 XL) — extended support release for legacy devices with frozen 2021-11-01 patch level</li>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SQ1A.220105.002.2022010500">SQ1A.220105.002.2022010500</a> (Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, emulator, generic, other targets)</li>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SQ1D.211205.017.2022010500">SQ1D.211205.017.2022010500</a> (Pixel 6, Pixel 6 Pro) — early release with the full Android 2022-01-05 patch level but only the 2022-01-01 Pixel patch level since the AOSP/stock OS January update for the Pixel 6 and Pixel 6 Pro is happening in late January so the patches specific to them aren't publicly available yet</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/SQ1D.211205.017.2022010500">SQ1D.211205.017.2022010500</a> (Pixel 6, Pixel 6 Pro) — early release with the full Android 2022-01-05 patch level but only the 2022-01-01 Pixel patch level since the AOSP / stock OS January update for the Pixel 6 and Pixel 6 Pro is happening in late January so the patches specific to them aren't publicly available yet</li>
                     </ul>
 
                     <p>Changes since the 2021122018 release:</p>
@@ -3895,7 +3895,7 @@
                         <li>integrate modern Android theme and wallpaper configuration</li>
                         <li>remove legacy WallpaperPicker app</li>
                         <li>System Updater: modernize update settings via androidx preference library (new theme has minor quirks we'll be fixing in the next release)</li>
-                        <li>use alternate grapheneos.online domain for connectivity check/captive portal fallback URLs to improve handling of future issues comparable to Quad9 temporarily blocking grapheneos.network due to some kind of false positive</li>
+                        <li>use alternate grapheneos.online domain for connectivity check / captive portal fallback URLs to improve handling of future issues comparable to Quad9 temporarily blocking grapheneos.network due to some kind of false positive</li>
                         <li>Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5: update APNs</li>
                         <li>Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5: update CarrierConfig vendor.xml</li>
                     </ul>
@@ -4519,7 +4519,7 @@
                     <p>Changes since the 2020.09.11.14 release:</p>
 
                     <ul>
-                        <li>initial port to Android 11 with most GrapheneOS changes ported over (missing most SELinux policy hardening, some Pixel 4/4 XL kernel side channel mitigations, finer-grained Pixel 4 kernel Control Flow Integrity and the setup wizard)</li>
+                        <li>initial port to Android 11 with most GrapheneOS changes ported over (missing most SELinux policy hardening, some Pixel 4 / 4 XL kernel side channel mitigations, finer-grained Pixel 4 kernel Control Flow Integrity and the setup wizard)</li>
                         <li>full 2020-09-05 security patch level</li>
                         <li>temporarily use stock WebView until the next release of Chromium is available with public support for Android 11 to provide the WebView via Vanadium again</li>
                         <li>fix VPN lockdown setting getting overridden on user stop</li>
