@@ -687,6 +687,13 @@
                     they updated to newer system app versions than the ones bundled in the new OS
                     update.</p>
 
+                    <p>Since fs-verity is now fully enforced for installing system app updates,
+                    they can only be installed from our app repository providing the fs-verity
+                    metadata. This happens automatically via our app repository client, but you
+                    could manually download packages and fs-verity metadata to manually install
+                    them. OS releases bundle the latest releases of the bundled components so the
+                    out-of-band updates are simply a way to get updates quicker.</p>
+
                     <p>This release also supports out-of-band updates for Vanadium going forward
                     due to replacing incompatible SELinux hardening with these far superior
                     verified boot improvements along with fixing a major upstream Android 13
