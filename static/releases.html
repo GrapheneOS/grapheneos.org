@@ -678,14 +678,13 @@
                     enhanced the downgrade protection check for system updates to require a
                     greater version rather than equal or greater due to most Android OS components
                     not having their versionCode consistently increased when they're changed, and
-                    this is now integrated into our new verification. At the moment, we enforce
-                    verification for APK-based components at boot. We already provide fs-verity
-                    metadata for continuous verification of all the out-of-band updates we ship
-                    and we require it to be provided for system update installation, but we need
-                    to phase in enforcing it at boot time in a way that won't cause system app
-                    updates to be rolled back for users upgrading from older OS releases where
-                    they updated to newer system app versions than the ones bundled in the new OS
-                    update.</p>
+                    this is now integrated into our new verification. Fully verifying signatures
+                    of system app updates at boot isn't enough to fully extend the verified boot
+                    guarantees to them, so we're shipping signed fs-verity metadata for all our
+                    system app updates through our app repository and we're enforcing having valid
+                    fs-verity metadata for system app updates at install time and boot time. This
+                    provides continuous verification of the data provided by out-of-band package
+                    updates.</p>
 
                     <p>Since fs-verity is now fully enforced for installing system app updates,
                     they can only be installed from our app repository providing the fs-verity
@@ -712,7 +711,7 @@
                         <li>fix upstream Android bug causing out-of-band updates to system components using original-package to be rolled back after reboot if they're still using the old package name, which will allow us to ship Vanadium updates out-of-band without the browser package updates being rolled back for users with an older install where it's still <code>org.chromium.chrome</code> instead of <code>app.vanadium.browser</code></li>
                         <li>SELinux policy: drop base OS apk_data_file restrictions to avoid blocking out-of-band updates to APK-based system components (this was a minor security feature that's being replaced with our recent and ongoing improvements to package manager and verified boot security to close major weaknesses in the standard Android verified boot security model)</li>
                         <li>disable package parser cache since it provides a verified boot bypass for system component updates for regular boots while not saving more than around a second of boot time</li>
-                        <li>perform additional boot-time checks on system package updates in order to extend verified boot to out-of-band system package updates</li>
+                        <li>perform additional boot-time checks on system package updates in order to extend verified boot to out-of-band system package updates including enforcing having valid signed fs-verity metadata for continuous verification (Android does not even provide working boot-time verification for out-of-band APK updates for non-APEX components)</li>
                         <li>reimplement requiring fs-verity when installing system package updates in a better way</li>
                         <li>remove unnecessary warning for failed virtual A/B sideloaded updates since it's atomic just like A/B updates</li>
                         <li>drop our extension to the install available apps feature making it work for apps not installed in Owner since this is risky in a situation where there are actually separate people using secondary users and while we want to provide this feature, we'd need to come up with a way to address this to add it back</li>
