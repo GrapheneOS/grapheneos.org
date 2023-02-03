@@ -733,7 +733,7 @@
                         <li>perform additional boot-time checks on system package updates in order to extend verified boot to out-of-band system package updates including enforcing having valid signed fs-verity metadata for continuous verification (Android does not even provide working boot-time verification for out-of-band APK updates for non-APEX components)</li>
                         <li>reimplement requiring fs-verity when installing system package updates in a better way</li>
                         <li>remove unnecessary warning for failed virtual A/B sideloaded updates since it's atomic just like A/B updates</li>
-                        <li>drop our extension to the install available apps feature making it work for apps not installed in Owner since this is risky in a situation where there are actually separate people using secondary users and while we want to provide this feature, we'd need to come up with a way to address this to add it back</li>
+                        <li>drop our extension to the install available apps feature (which is still available, without this extension) making it work for apps not installed in Owner since this is risky in a situation where there are actually separate people using secondary users and while we want to provide this feature, we'd need to come up with a way to address this to add it back</li>
                         <li>SetupWizard: stop enabling Wi-Fi automatically</li>
                         <li>SetupWizard: stop sending unused sticky broadcast</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Generic 5.10): update to latest GKI LTS branch revision</li>
