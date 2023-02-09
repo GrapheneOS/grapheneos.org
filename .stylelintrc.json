@@ -2,11 +2,8 @@
     "extends": "stylelint-config-standard",
     "rules": {
         "comment-empty-line-before": null,
-        "indentation": 4,
         "no-descending-specificity": null,
         "number-max-precision": null,
-        "max-line-length": null,
-        "selector-list-comma-newline-after": null,
         "value-no-vendor-prefix": null
     }
 }
