@@ -883,6 +883,16 @@
                     connecting to a network. It has 3 options available: "Use per-connection randomized MAC
                     (default)", "Use per-network randomized MAC" and "Use device MAC".</p>
 
+                    <p>In rare cases, broken routers are unable to accept new clients once their
+                    DHCP table is full instead of clearing the last recently used entry. You can
+                    work around this by manually clearing the DHCP table via the router
+                    administration page and can switch to the per-network randomized MAC mode to
+                    avoid triggering the issue again. This would prevent a router being used in
+                    any situation where many clients naturally come and go even without
+                    per-connection MAC randomization and is not generally an issue for any modern
+                    routers. Per-connection MAC randomization only makes it more likely to find a
+                    one of the rare routers with this issue.</p>
+
                     <p>The DHCP client uses the anonymity profile rather than sending a hostname
                     so it doesn't compromise the privacy offered by MAC randomization. When the
                     per-connection MAC randomization added by GrapheneOS is being used, DHCP
