@@ -709,18 +709,13 @@ cd ../..</pre>
                     providing the prebuilt toolchain for reproducible builds not depending on the
                     tools from the host OS.</p>
 
-                    <p>Additional Linux kernel build dependencies beyond the AOSP dependencies not
-                    provided by the source tree:</p>
+                    <p>Additional Linux kernel build dependencies for 4th and 5th generation
+                    Pixels not provided by the source tree:</p>
 
                     <ul>
                         <li>libgcc (for the host, not the target)</li>
                         <li>binutils (for the host, not the target)</li>
                     </ul>
-
-                    <p>The dependency on the host libgcc and binutils for building utilities during the
-                    build process will be phased out by moving to a pure LLVM-based toolchain alongside
-                    doing it for the target. This is lagging a bit behind for the kernel, particularly
-                    code built for the host.</p>
 
                     <section id="kernel-4th-generation-pixels">
                         <h4><a href="#kernel-4th-generation-pixels">4th generation Pixels</a></h4>
