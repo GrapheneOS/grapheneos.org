@@ -51,25 +51,28 @@
         <main id="attestation-compatibility-guide">
             <h1><a href="#attestation-compatibility-guide">Attestation compatibility guide</a></h1>
 
-            <p>Apps using the Play Integrity API or legacy SafetyNet attestation API to check the
-            authenticity/integrity of the OS can support GrapheneOS by using the standard Android
-            hardware attestation API and permitting our official release signing keys.
-            Android's <a href="https://developer.android.com/training/articles/security-key-attestation">hardware
-            attestation API</a> provides a much stronger form of attestation than SafetyNet with
-            the ability to whitelist the keys of alternate operating systems. It also avoids an
-            unnecessary dependency on Google Play services and Google's SafetyNet servers.</p>
+            <p>Apps using the Play Integrity API or
+            <a href="https://developer.android.com/training/safetynet/deprecation-timeline">obsolete</a>
+            SafetyNet Attestation API to check the authenticity/integrity of the OS can support
+            GrapheneOS by using the standard Android hardware attestation API instead and
+            permitting our official release signing keys. Android's
+            <a href="https://developer.android.com/training/articles/security-key-attestation">hardware
+            attestation API</a> provides a much stronger form of attestation than the Play
+            Integrity API with the ability to whitelist the keys of alternate operating systems.
+            It also avoids an unnecessary dependency on Google Play services and Google's
+            Play Integrity servers.</p>
 
             <p>Devices have been required to ship with hardware attestation support since Android
             8. You can use hardware attestation on devices running Android 8 or later when the
             <code>ro.product.first_api_level</code> system property isn't set to 25 or below,
             which indicates they launched with Android 8 or later with hardware attestation
-            support as a mandatory feature. On older devices, you can continue using SafetyNet
-            attestation. Some low quality devices shipped broken implementations of hardware
+            support as a mandatory feature. On older devices, you can continue using the Play
+            Integrity API. Some low quality devices shipped broken implementations of hardware
             attestation despite the requirement to have it working for CDD/CTS certification and
-            SafetyNet currently still passes on those devices wrongly claiming them to be CTS
-            certified. If you don't want to fail on those devices, then you can start with
-            hardware attestation and fall back to SafetyNet attestation or do both and accept
-            either passing as success.</p>
+            the Play Integrity API currently still passes on those devices wrongly claiming them
+            to be CTS certified. If you don't want to fail on those devices, then you can start
+            with hardware attestation and fall back to the Play Integrity API or do both and
+            accept either passing as success.</p>
 
             <p>After verifying the signature of the attestation certificate chain and extracting
             the attestation metadata, you can enforce that <code>verifiedBootState</code> is
@@ -105,7 +108,7 @@
             <p>The hardware attestation API also provides other useful information signed by the
             hardware including the OS patch level, in a way that even an attacker exploiting the
             OS after boot to gain root cannot trivially bypass. It's a better feature than the
-            SafetyNet API designed for the lowest common denominator.</p>
+            Play Integrity API which has to be designed for the lowest common denominator.</p>
 
             <p>GrapheneOS users are strongly encouraged to share this documentation with app
             developers enforcing only being able to use the stock OS. Send an email to the
