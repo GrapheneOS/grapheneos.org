@@ -1,0 +1,15 @@
+#!/bin/bash
+
+generate() {
+    echo $1
+    qrencode -s 1 -o $1 $2
+    gm identify -format '%w×%h\n' $1
+    zopflipng -ym $1 $1
+}
+
+generate static/donate-bitcoin.png 'bitcoin:bc1qy6fhm8p00p3h3w5rrcp2h2wejeeqn7x6y7xs2p?label=GrapheneOS&message=Donation%20to%20GrapheneOS'
+generate static/donate-bitcoin-taproot.png 'bitcoin:bc1paundtwscvlqchmjgds2cj2dpay5y72ll37r07x57dhw9q234k6dqmc2ztx?label=GrapheneOS&message=Donation%20to%20GrapheneOS'
+generate static/donate-monero.png 'monero:8BHhJ3AnnZUJu4JYHasUus6Tq4HYyhiYRgrJAKNtfPc2hKMrTzbeUuf3B8ojtFMAu5MjNEDhoFQ31QLhs2z46CYDTUnuN63?recipient_name=GrapheneOS&tx_description=Donation%20to%20GrapheneOS'
+generate static/donate-zcash-transparent.png 'zcash:t1dsDbZQZrEUEGanmPMTAGxY2PJowL2S4br?label=GrapheneOS&message=Donation%20to%20GrapheneOS'
+generate static/donate-ethereum.png 'ethereum:0xb74eD3BE17C0F2AF46AC6F15b0536d6D112D1A8c'
+generate static/donate-cardano.png 'web+cardano:addr1q9yy48cu957rgmsh7s355gm458vauqll0z56r7gehqge8sv29gwxlt6f8pavhx2hjuw6494sxny8te7lrs0c6237u9ps443gd6'
