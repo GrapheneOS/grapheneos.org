@@ -201,13 +201,6 @@ button:disabled {
     text-align: center;
 }
 
-.coin-address > img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-}
-
 footer img {
     width: 60px;
     height: auto;
