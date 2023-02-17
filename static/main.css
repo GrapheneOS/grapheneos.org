@@ -201,6 +201,10 @@ button:disabled {
     text-align: center;
 }
 
+.coin-address img {
+    image-rendering: pixelated;
+}
+
 footer img {
     width: 60px;
     height: auto;
