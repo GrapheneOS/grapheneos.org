@@ -1069,7 +1069,9 @@ mv android-studio studio</pre>
 
                     <p>To test a build for the emulator, run <code>emulator</code> within the build
                     environment. The emulator will use CPU hardware acceleration via KVM along with
-                    optional graphics acceleration via the host GPU if these are available.</p>
+                    optional graphics acceleration via the host GPU if these are available. The
+                    emulator does not work on Wayland due to the AOSP provided Qt build missing the
+                    Wayland platform plugin.</p>
                 </section>
 
                 <section id="compatibility-test-suite">
