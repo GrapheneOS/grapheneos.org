@@ -533,11 +533,11 @@
 
                     <p>GrapheneOS provides Storage Scopes as a fully compatible alternative to the
                     standard Android storage permissions. Instead of granting storage permissions,
-                    users can enable Storage Scopes to grant the requested permissions in a highly
-                    restricted mode where the app can create files/directories in the user's home
-                    directory but can only access the files it has created itself. Users can then
-                    optionally add files and directories as storage scopes to permit the app to
-                    access files created by other apps.</p>
+                    users can enable Storage Scopes to make the app assume that it has all storage
+                    permissions that it asked for. On Android, an app that doesn't have any storage
+                    permissions is still allowed to create files and directories, and is allowed to
+                    access the files that it created. Users can optionally add files and directories
+                    as storage scopes to permit the app to access files created by other apps.</p>
 
                     <p>For more details, see the <a href="/usage#storage-access">usage guide
                     section on storage access</a>.</p>
