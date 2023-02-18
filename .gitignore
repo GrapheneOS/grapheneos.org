@@ -1,6 +1,6 @@
+/lock
 /nginx-tmp/
 /node_modules/
-/static-tmp/
 /releases-base
-/lock
-/venv
+/static-tmp/
+/venv/
