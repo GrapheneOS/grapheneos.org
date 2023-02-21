@@ -684,6 +684,11 @@
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Generic 5.10): update to latest GKI LTS branch revision including update to 5.10.168</li>
                         <li>kernel (Generic 5.15): update to latest GKI LTS branch revision including update to 5.15.94</li>
                         <li>add internal getContext() method to ContentResolver to make adding GrapheneOS settings simpler</li>
+                        <li>HTTPS-based network time: switch to custom X-Time header with UTC time in milliseconds to improve precision</li>
+                        <li>HTTPS-based network time: establish HTTPS connection with another request in advance and then reuse it to improve accuracy</li>
+                        <li>HTTPS-based network time: set clock offset field used by tests</li>
+                        <li>HTTPS-based network time: improve logging</li>
+                        <li>HTTPS-based network time: simplify implementation</li>
                     </ul>
                 </article>
                 -->
