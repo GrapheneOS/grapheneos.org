@@ -690,6 +690,7 @@
                         <li>HTTPS-based network time: improve logging</li>
                         <li>HTTPS-based network time: simplify implementation</li>
                         <li>reduce time update threshold to 50ms from Android's default 2000ms instead of allowing the clock to get up to 2s out-of-date</li>
+                        <li>reduce system clock drift warning to 250ms from Android's default 2000ms</li>
                         <li>simplify our implementation of disabling cellular-based automatic time by using the standard permitted origin configuration</li>
                         <li>simplify our implementation of disabling network time refresh when automatic time is disabled (unlike GrapheneOS, Android always performs network time checks and the user only controls whether the results from any of the automatic time methods are used)</li>
                         <li>Messaging: avoid crash caused by upstream bug when forwarding a message</li>
