@@ -685,22 +685,11 @@
                     <p>Changes since the 2023021000 release:</p>
 
                     <ul>
-                        <li>GmsCompatConfig: update max supported version of Play services and Play Store</li>
-                        <li>GmsCompatConfig: fix location estimation based on nearby Wi-Fi access points by not ignoring the results of the legacy WifiManager#startScan(), which doesn't have an unprivileged modern version</li>
-                        <li>use C.UTF-8 locale for build environment to avoid dependency of the en_US.UTF-8 locale being available</li>
-                        <li>Seedvault: add back restore action in settings without marking it experimental</li>
-                        <li>Sandboxed Google Play compatibility layer: remove obsolete shim now handled by GmsCompatConfig</li>
                         <li>simplify infrastructure for special runtime permissions (Network, Sensors)</li>
-                        <li>Vanadium: reduce accept language header by default</li>
-                        <li>Vanadium: disable client-side field trials too</li>
-                        <li>Vanadium: update Chromium base to 110.0.5481.154</li>
-                        <li>add shared infrastructure for GrapheneOS settings and port the settings to it (improves UI of Settings)</li>
                         <li>Settings: only allow Owner to control our added toggle for camera availability on lockscreen since it's global</li>
                         <li>Settings: fix accessibility settings links for SetupWizard</li>
-                        <li>hardened_malloc: preserve errno for free calls (future POSIX requirement)</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Generic 5.10): update to latest GKI LTS branch revision including update to 5.10.168</li>
                         <li>kernel (Generic 5.15): update to latest GKI LTS branch revision including update to 5.15.94</li>
-                        <li>add internal getContext() method to ContentResolver to make adding GrapheneOS settings simpler</li>
                         <li>HTTPS-based network time: switch to custom X-Time header with UTC time in milliseconds to improve precision</li>
                         <li>HTTPS-based network time: establish HTTPS connection with another request in advance and then reuse it to improve accuracy</li>
                         <li>HTTPS-based network time: set clock offset field used by tests</li>
@@ -711,6 +700,17 @@
                         <li>simplify our implementation of disabling cellular-based automatic time by using the standard permitted origin configuration</li>
                         <li>simplify our implementation of disabling network time refresh when automatic time is disabled (unlike GrapheneOS, Android always performs network time checks and the user only controls whether the results from any of the automatic time methods are used)</li>
                         <li>Messaging: avoid crash caused by upstream bug when forwarding a message</li>
+                        <li>Seedvault: add back restore action in settings without marking it experimental</li>
+                        <li>add shared infrastructure for GrapheneOS settings and port the settings to it (improves UI of Settings)</li>
+                        <li>add internal getContext() method to ContentResolver to make adding GrapheneOS settings simpler</li>
+                        <li>hardened_malloc: preserve errno for free calls (future POSIX requirement)</li>
+                        <li>Sandboxed Google Play compatibility layer: remove obsolete shim now handled by GmsCompatConfig</li>
+                        <li>GmsCompatConfig: fix location estimation based on nearby Wi-Fi access points by not ignoring the results of the legacy WifiManager#startScan(), which doesn't have an unprivileged modern version</li>
+                        <li>GmsCompatConfig: update max supported version of Play services and Play Store</li>
+                        <li>Vanadium: reduce accept language header by default</li>
+                        <li>Vanadium: disable client-side field trials too</li>
+                        <li>Vanadium: update Chromium base to 110.0.5481.154</li>
+                        <li>use C.UTF-8 locale for build environment to avoid dependency of the en_US.UTF-8 locale being available</li>
                     </ul>
                 </article>
 
