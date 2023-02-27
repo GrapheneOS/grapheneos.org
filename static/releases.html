@@ -672,6 +672,11 @@
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-35">version 35</a></li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/110.0.5481.154.1">version 110.0.5481.154.1</a></li>
                         <li>disallow apps reading Global/Secure settings added by GrapheneOS via the new infrastructure since we currently have no settings apps need to read</li>
+                        <li>skip INTERNET pre-grant checkbox when installing a system app in a profile where it isn't considered installed since it doesn't work correctly</li>
+                        <li>add infrastructure for properly handling initial installation of system apps in Apps (our app repository client)</li>
+                        <li>improve OS debug build developer option for skipping install time fs-verity requirement</li>
+                        <li>reuse shared infrastructure for our implementation of enforcing a greater rather than greater or equal version for package updates</li>
+                        <li>replace disabling install time greater versionCode check in OS debug builds with a similar debug build developer option as we use for skipping fs-verity checks at install time</li>
                     </ul>
                 </article>
                 -->
