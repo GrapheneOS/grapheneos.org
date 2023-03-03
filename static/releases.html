@@ -670,6 +670,8 @@
 
                     <ul>
                         <li>Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro: enable and enforce TLSv1.2 for Broadcom gpsd SUPL connections rather than using SSLv2, SSLv3, TLSv1 and TLSv1.1 without TLSv1.2 enabled like the stock OS</li>
+                        <li>override carrier selected SUPL server (usually the fallback supl.google.com) to supl.grapheneos.org by default</li>
+                        <li>Settings: replace toggle for disabling SUPL with a new toggle for choosing between GrapheneOS proxy (default), Standard (carrier choice, usually supl.google.com) and Disabled (value of our previous toggle is ignored due to the new default choice)</li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-35">version 35</a></li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-36">version 36</a></li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/110.0.5481.154.1">version 110.0.5481.154.1</a></li>
