@@ -670,6 +670,7 @@
                         <li>Connectivity checks</li>
                         <li>Attestation key provisioning</li>
                         <li>GNSS almanac downloads (PSDS) on 6th generation Pixels</li>
+                        <li>Secure User Plane Location (SUPL)</li>
                         <li>Network time</li>
                     </ul>
 
@@ -680,6 +681,11 @@
                     device. This is only particularly important for connectivity checks since the
                     other connections get routed through a VPN which is needed to blend in on a
                     local network in practice.</p>
+
+                    <p>In addition to our SUPL privacy improvements, we override the SUPL server
+                    to our proxy by default. We also add a toggle for users to switch to the
+                    standard SUPL server for their carrier (usually supl.google.com) or disable it
+                    entirely.</p>
 
                     <p>See our <a href="/faq#default-connections">default connections FAQ entry
                     for much more detailed information</a>.</p>
