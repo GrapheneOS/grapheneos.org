@@ -886,7 +886,7 @@
                     <p>Changes since the 2023011000 release:</p>
 
                     <ul>
-                        <li>don't send IMSI / Phone number to SUPL server when SUPL is enabled (note: using SUPL is always an optional choice in APN configuration on GrapheneOS, unlike AOSP and the stock OS)</li>
+                        <li>don't send IMSI / Phone number to SUPL server when SUPL is enabled (note: using SUPL is always an optional choice in Settings ➔ Location on GrapheneOS, unlike AOSP and the stock OS)</li>
                         <li>SELinux policy: drop auditing for apk_data_file execute/execute_no_trans (research is done)</li>
                         <li>SELinux policy: add back apk_data_file execute/execute_no_trans for adb shell for debugging use cases (removing it isn't really useful for hardening and we plan on hardening ADB for the verified boot model another way)</li>
                         <li>Settings: revert to standard Android 13 minimum threshold of 10% for automatic battery saver since lowering it below 10% doesn't work as intended without more invasive changes outside the scope of GrapheneOS</li>
