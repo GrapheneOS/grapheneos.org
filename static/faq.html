@@ -1038,14 +1038,30 @@
                     normally, you can remove the <code>dun</code> APN type from your APN
                     configuration.</p>
 
-                    <p>If your chosen carrier includes the <code>supl</code> APN type in their APN
-                    configuration, SUPL will be used to provide A-GNSS in order to greatly improve
-                    location lock time for GNSS (GPS, GLONASS, etc.). The fallback SUPL server is
-                    <code>supl.google.com</code> if the carrier doesn't choose a specific one. You
-                    can remove <code>supl</code> from APN types if you don't want to use this, but
-                    it will greatly increase GNSS location lock time if your carrier lacks control
-                    plane A-GNSS via the cellular network and fully relies on user plane A-GNSS
-                    (SUPL) to provide this instead.</p>
+                    <p>When you have both a cellular connection and Location enabled, control plane
+                    and/or user plane (SUPL) A-GNSS is used in addition to PSDS to greatly reduce
+                    the time needed for GNSS to obtain an initial location lock. These obtain
+                    coarse location info from a server based on nearby cell towers. Control plane
+                    A-GNSS is provided by the cellular connection itself and therefore doesn't
+                    have any real privacy implications while SUPL connects to a server often not
+                    provided by the carrier. Most A-GNSS services only accelerate obtaining a satellite-based
+                    location and won't provide an estimate on their own. The carrier can choose a
+                    SUPL server as part of their carrier configuration but most leave it at the
+                    default of supl.google.com. By default, GrapheneOS overrides the
+                    carrier/fallback SUPL server and uses the supl.grapheneos.org proxy. GrapheneOS adds a
+                    toggle for configuring SUPL in Settings ➔ Location where you can choose
+                    between the default supl.grapheneos.org proxy, the standard server
+                    (carrier/fallback) or disabling it completely. GrapheneOS also disables
+                    sending IMSI and phone number as part of SUPL. Pixels with a Qualcomm baseband
+                    use it to provide both cellular and GNSS including both control plane and user
+                    plane A-GNSS being implemented inside the baseband. For Qualcomm baseband
+                    devices, SUPL is only enabled if the APN configuration for the carrier
+                    includes <code>supl</code> as an APN type. Pixels with a Samsung baseband have
+                    a separate Broadcom GNSS chip without integration between them so SUPL is done
+                    by the OS with regular networking (can use Wi-Fi and VPN) and SUPL is used
+                    regardless of the carrier's APN type configuration. GrapheneOS upgrades the
+                    Broadcom SUPL implementation to only using TLSv1.2 instead of using TLSv1.1
+                    and older.</p>
 
                     <p>MMS, RCS, SMS over LTE, VVM (Visual Voicemail), VoLTE (carrier-based calls
                     on 4G and higher) and VoWi-Fi are largely implemented by the OS via TCP/IP
