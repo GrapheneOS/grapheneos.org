@@ -980,9 +980,9 @@ git checkout <var>VERSION</var></pre>
 
                 <pre>mkdir -p ~/android/sdk/bootstrap
 cd ~/android/sdk/bootstrap
-curl -O https://dl.google.com/android/repository/commandlinetools-linux-9123335_latest.zip
-echo '0bebf59339eaa534f4217f8aa0972d14dc49e7207be225511073c661ae01da0a  commandlinetools-linux-9123335_latest.zip' | sha256sum -c
-unzip unzip commandlinetools-linux-9123335_latest.zip
+curl -O https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip
+echo 'bd1aa17c7ef10066949c88dc6c9c8d536be27f992a1f3b5a584f9bd2ba5646a0  commandlinetools-linux-9477386_latest.zip' | sha256sum -c
+unzip commandlinetools-linux-9477386_latest.zip
 cmdline-tools/bin/sdkmanager 'cmdline-tools;latest' --sdk_root=$HOME/android/sdk
 cd ..
 rm -r bootstrap</pre>
