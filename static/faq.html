@@ -834,12 +834,20 @@
                             servers. These contain orbits and statuses of satellites, Earth
                             environmental data and time adjustment information.</p>
 
-                            <p>Qualcomm Snapdragon SoC devices also use the ntp.org NTP pool from
-                            the GNSS location service implementation when it's enabled as part of
-                            improving GNSS-based location accuracy. These connections are not used
-                            to update the system clock. GrapheneOS will likely offer more control
-                            over this in the future, although Pixels moving away from Snapdragon
-                            has moved this onto the backburner.</p>
+                            <p>On 6th and 7th generation Pixels (which use a Broadcom GNSS chip),
+                            almanacs are downloaded from
+                            https://broadcom.psds.grapheneos.org/lto2.dat,
+                            https://broadcom.psds.grapheneos.org/rto.dat and
+                            https://broadcom.psds.grapheneos.org/rtistatus.dat which are a cache
+                            for Broadcom's data available at
+                            https://gllto.glpals.com/7day/v5/latest/lto2.dat,
+                            https://gllto.glpals.com/rto/v1/latest/rto.dat and
+                            https://gllto.glpals.com/rtistatus4.dat. Alternatively, the standard
+                            servers can be enabled in the Settings app which are
+                            https://agnss.goog/lto2.dat, https://agnss.goog/rto.dat and
+                            https://agnss.goog/rtistatus.dat providing a similar cache of
+                            Broadcom's data currently (as of October 2022) hosted on GCP (Google
+                            Cloud Platform).</p>
 
                             <p>On 4th and 5th generation Pixels (which use a Qualcomm baseband
                             providing cellular, Wi-Fi, Bluetooth and GNSS in separate sandboxes),
@@ -855,20 +863,20 @@
                             retain the option to use the standard servers to blend in with other
                             devices.</p>
 
-                            <p>On 6th and 7th generation Pixels (which use a Broadcom GNSS chip),
-                            almanacs are downloaded from
-                            https://broadcom.psds.grapheneos.org/lto2.dat,
-                            https://broadcom.psds.grapheneos.org/rto.dat and
-                            https://broadcom.psds.grapheneos.org/rtistatus.dat which are a cache
-                            for Broadcom's data available at
-                            https://gllto.glpals.com/7day/v5/latest/lto2.dat,
-                            https://gllto.glpals.com/rto/v1/latest/rto.dat and
-                            https://gllto.glpals.com/rtistatus4.dat. Alternatively, the standard
-                            servers can be enabled in the Settings app which are
-                            https://agnss.goog/lto2.dat, https://agnss.goog/rto.dat and
-                            https://agnss.goog/rtistatus.dat providing a similar cache of
-                            Broadcom's data currently (as of October 2022) hosted on GCP (Google
-                            Cloud Platform).</p>
+                            <p>Qualcomm Snapdragon SoC devices also fetch time from
+                            time.xtracloud.net via NTP rather than using the OS time. Stock Pixel
+                            OS overrides this to time.google.com but we use the standard server
+                            like other Snapdragon devices. It's technically incorrect to use the
+                            time.google.com server for this due to non-standard leap second
+                            smearing not expected by the Qualcomm GNSS implementation. This could
+                            be avoided by using OS time instead but Qualcomm built it this way to
+                            avoid GNSS-based location being crippled by having time set wrong in
+                            the OS.</p>
+
+                            <p>We're hosting a similar PSDS cache for Qualcomm PSDS data and plan
+                            to use it by default once we implement support for switching between
+                            our servers and Qualcomm's servers via the same toggle we use for the
+                            newer Broadcomm GNSS Pixels.</p>
                         </li>
                         <li>
                             <p>Connectivity checks designed to mimic a web browser user agent are performed
