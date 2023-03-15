@@ -675,7 +675,7 @@
                     <ul>
                         <li>Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro: disable GSI keys</li>
                         <li>keep PIN scrambling state up-to-date in all cases to make toggling it on or off kick in immediately instead of next time it opens</li>
-                        <li>adevtool: remove overlay setting config_systemBluetoothStack to the wrong value</li>
+                        <li>adevtool: remove overlay setting config_systemBluetoothStack to the wrong value (caused Bluetooth to break for users with exec-based spawning disabled, which is why the previous release only made it to Beta and not Stable)</li>
                         <li>adevtool: remove other unnecessary overlays</li>
                     </ul>
                 </article>
