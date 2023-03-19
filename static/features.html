@@ -997,9 +997,10 @@
                     <li>Static key pinning for our services in apps like Auditor</li>
                     <li>Our web services use robust OCSP stapling with Must-Staple</li>
                     <li>No persistent cookies or similar client-side state for anything other than
-                    login sessions, which are set up via SameSite=strict cookies and have
-                    server-side session tracking with the ability to log out of other
-                    sessions</li>
+                    login sessions, which are set up securely using <code>SameSite=Strict</code>,
+                    <code>Secure</code>, <code>HttpOnly</code>, and <code>Path=/</code> flags, prefixed with
+                    <code>__Host</code> and have server-side session tracking with the ability to log out
+                    of other sessions</li>
                     <li>scrypt-based password hashing (likely Argon2 when the available implementations
                     are more mature)</li>
                 </ul>
