@@ -806,13 +806,17 @@
                             repository.</p>
                         </li>
                         <li>
-                            <p>An HTTPS connection is made to https://time.grapheneos.org/ to update the
-                            time from the date header field. This is a full replacement of Android's
-                            standard network time update implementation, which uses the cellular network
-                            when available with a fallback to SNTP when it's not available. Network time
-                            updates are security sensitive since certificate validation depends on having
-                            an accurate time, but the standard NTP / SNTP protocols used across most OSes
-                            have no authentication.</p>
+                            <p>An HTTPS connection is made to https://time.grapheneos.org/generate_204 to
+                            update the time from the custom X-Time header field, which has millisecond
+                            precision, or falls back to the Date header if X-Time is not available with less
+                            precision. GrapheneOS also lowers the system clock drift warning from 2000 milliseconds
+                            to 250 milliseconds, and the time update threshold from 2000 milliseconds to 50
+                            milliseconds. This is a full and more precise replacement of Android's standard
+                            network time update implementation, which uses the cellular network when available
+                            with a fallback to SNTP when it's not available. Network time updates are security
+                            sensitive since certificate validation depends on having an accurate time, but
+                            the standard NTP / SNTP protocols used across most OSes have no authentication
+                            or encryption.</p>
 
                             <p>We plan to offer a toggle to use the standard functionality instead of
                             HTTPS-based time updates in order to blend in with other devices.</p>
