@@ -666,7 +666,7 @@
                     <p>Tags:</p>
                     <ul>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/TP1A.221005.002.B2.2023031500">TP1A.221005.002.B2.2023031500</a> (Pixel 4, Pixel 4 XL) — extended support release for legacy devices with frozen 2022-11-01 patch level</li>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/T2B3.230109.009.2023031500">T2B3.230109.009.2023031500</a> (Pixel 6, Pixel 6 Pro, Pixel 6a) — 2023-03-05 Android patch level but only 2023-03-01 Pixel patch until a March stock OS release is published with updated firmware, etc. (marked as 2023-03-01 overall patch level in the OS)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/TQ2A.230305.008.E1.2023031500">TQ2A.230305.008.E1.2023031500</a> (Pixel 6, Pixel 6 Pro, Pixel 6a)</li>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/TQ2A.230305.008.2023031500">TQ2A.230305.008.2023031500</a> (Pixel 7)</li>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/TQ2A.230305.008.C1.2023031500">TQ2A.230305.008.C1.2023031500</a> (Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 7 Pro, emulator, generic, other targets)</li>
                     </ul>
@@ -674,6 +674,8 @@
                     <p>Changes since the 2023031500 release:</p>
 
                     <ul>
+                        <li>Pixel 6, Pixel 6 Pro, Pixel 6a: switch to QPR2 stable release vendor files instead of using the QPR2 3.2 Beta release</li>
+                        <li>Pixel 6, Pixel 6 Pro, Pixel 6a: stop freezing the patch level at a lower value which we were doing in case QPR2 3.2 Beta was missing firmware and other updates from the 2023-03-05 Pixel patch level</li>
                         <li>disable screenshot sound when touch sounds are disabled</li>
                         <li>adevtool: add support for converting privileged apps to unprivileged apps</li>
                         <li>adevtool: include PixelNfc app on all supported Pixels to enable support for FeliCa on Japanese Pixel models</li>
