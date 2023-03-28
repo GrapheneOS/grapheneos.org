@@ -677,7 +677,9 @@
 
                     <ul>
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Generic 5.10): update to latest GKI LTS branch revision including update to 5.10.176</li>
+                        <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Generic 5.10): add back our slab allocator canary feature</li>
                         <li>kernel (Generic 5.15): update to latest GKI LTS branch revision including update to 5.15.98</li>
+                        <li>kernel (Generic 5.15): add back our slab allocator canary feature</li>
                         <li>add generic compatibility shim catching the exception from the Gservices provider being missing to enable apps like Google Camera and the Pixel eSIM firmware app to work without GSF installed since they don't have any actual hard dependency on Play services</li>
                         <li>remove unnecessary INTERNET (Network) permission from Pixel eSIM firmware app</li>
                         <li>enable Pixel eSIM firmware app by default instead of it being part of the eSIM activation toggle which is now only used for the eSIM activation app (Google eUICC LPA)</li>
