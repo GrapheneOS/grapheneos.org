@@ -686,6 +686,7 @@
                         <li>enable Pixel eSIM firmware app by default instead of it being part of the eSIM activation toggle which is now only used for the eSIM activation app (Google eUICC LPA)</li>
                         <li>restrict Pixel eSIM firmware app from communication with non-system components to prevent it trying to get flags from GSF or a fake GSF</li>
                         <li>Settings: add Pixel eSIM firmware app to the list of apps which can't be disabled via GUI since it updates firmware</li>
+                        <li>Dialer: replace disabling bytecode optimization with a specific rule to keep fragment constructors</li>
                         <li>Launcher: hide "all apps" view when search starts to avoid upstream race condition where the wrong app can be opened when pressing too quickly</li>
                         <li>Launcher, Keyboard: drop GrapheneOS prefix from naming to match other GrapheneOS apps</li>
                         <li>update timezone data to Android mainline (based on tzdata 2022g)</li>
