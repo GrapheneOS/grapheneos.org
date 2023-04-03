@@ -2,6 +2,7 @@
     "extends": "stylelint-config-standard",
     "rules": {
         "comment-empty-line-before": null,
+        "media-feature-range-notation": null,
         "no-descending-specificity": null,
         "number-max-precision": null,
         "value-no-vendor-prefix": null
