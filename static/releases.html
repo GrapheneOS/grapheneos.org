@@ -696,7 +696,7 @@
 
                     <ul>
                         <li>Keyboard: apply fix for spell checking bug causing words followed by periods to be flagged as invalid</li>
-                        <li>enable auto-reboot feature by default with a very conservative 72 hour timer</li>
+                        <li>enable auto-reboot feature by default with a very conservative 72 hour timer (i.e. the device will automatically reboot after 3 days without a successful unlock of any profile by default with users encouraged to set a shorter value to get their data automatically back at rest faster)</li>
                         <li>Dialer: add modernized call recording implementation using modern Android storage (no files permission) and with unnecessary cruft removed including not locking availability or playing a recording tone based on region (users are responsible for respecting regional laws including informing the other party or obtaining explicit consent if required)</li>
                         <li>Dialer: replace disabling bytecode optimization with a specific rule to keep fragment constructors</li>
                         <li>add generic compatibility shim catching the exception from the Gservices provider being missing to enable apps like Google Camera and the Pixel eSIM firmware app to work without GSF installed since they don't have any actual hard dependency on Play services</li>
