@@ -393,13 +393,15 @@ source script/envsetup.sh
 m aapt2</pre>
 
                     <p>Extract the vendor files corresponding to the matching release with
-                    <code><var>DEVICE</var></code> and <code><var>BUILD_ID</var></code> replaced with the
-                    appropriate values:</p>
+                    <code>DEVICE</code> and <code>BUILD_ID</code> variables replaced with the appropriate
+                    values:</p>
 
-<pre>vendor/adevtool/bin/run download vendor/adevtool/dl/ -d <var>DEVICE</var> -b <var>BUILD_ID</var> -t factory ota
-sudo vendor/adevtool/bin/run generate-all vendor/adevtool/config/<var>DEVICE</var>.yml -c vendor/state/<var>DEVICE</var>.json -s vendor/adevtool/dl/<var>DEVICE</var>-<var>BUILD_ID</var>-*.zip
+                    <pre>DEVICE=raven
+BUILD_ID=TQ2A.230405.003.E1
+vendor/adevtool/bin/run download vendor/adevtool/dl/ -d $DEVICE -b $BUILD_ID -t factory ota
+sudo vendor/adevtool/bin/run generate-all vendor/adevtool/config/$DEVICE.yml -c vendor/state/$DEVICE.json -s vendor/adevtool/dl/$DEVICE-${BUILD_ID,,}-*.zip
 sudo chown -R $(logname):$(logname) vendor/{google_devices,adevtool}
-vendor/adevtool/bin/run ota-firmware vendor/adevtool/config/<var>DEVICE</var>.yml -f vendor/adevtool/dl/<var>DEVICE</var>-ota-<var>BUILD_ID</var>-*.zip</pre>
+vendor/adevtool/bin/run ota-firmware vendor/adevtool/config/$DEVICE.yml -f vendor/adevtool/dl/$DEVICE-ota-${BUILD_ID,,}-*.zip</pre>
                 </section>
 
                 <section id="setting-up-the-os-build-environment">
