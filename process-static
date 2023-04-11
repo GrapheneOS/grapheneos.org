@@ -80,7 +80,7 @@ xmllint --noout static-tmp/**/*.@(html|svg|xml)
 java -jar node_modules/vnu-jar/build/dist/vnu.jar --errors-only static-tmp/**/*.html
 java -jar node_modules/vnu-jar/build/dist/vnu.jar --Werror --css static-tmp/**/*.css
 java -jar node_modules/vnu-jar/build/dist/vnu.jar --Werror --svg static-tmp/**/!(bimi).svg
-find static-tmp -name '*.html' -exec html-minifier --collapse-whitespace \
+find static-tmp -name '*.html' -exec html-minifier-terser --collapse-whitespace \
     --process-scripts "application/ld+json" --collapse-boolean-attributes \
     --remove-attribute-quotes --remove-comments --remove-empty-attributes \
     --remove-redundant-attributes --remove-script-type-attributes \
