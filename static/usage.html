@@ -728,24 +728,11 @@
 
                     <p>Google Camera can take full advantage of the available cameras and image
                     processing hardware as it can on the stock OS and does not require GSF or
-                    sandboxed Google Play on GrapheneOS.</p>
-
-                    <p>On 7th generation Pixels, Google Camera is a privileged app on the stock
-                    Pixel OS and has privileged access to Tensor SoC hardware acceleration
-                    unavailable to regular apps. Since it's a regular sandboxed app on GrapheneOS,
-                    it has to use more software processing. It captures photos just as quickly but
-                    takes longer to process them after capturing. It doesn't lose any features or
-                    any image quality from lack of privileged access. Since several photos can be
-                    queued up for processing, this is only noticeable if you try to quickly take
-                    multiple pictures without a couple seconds for it to process them. One special
-                    case is Portrait mode on the Pixel 7 and Pixel 7 Pro which requires a lot of
-                    time to process each picture without the privileged hardware acceleration and
-                    is therefore very noticeable because after a few shots, you'll need to wait a
-                    while for the slow software processing. Google has acknowledged this as an
-                    issue and is working on improving it. There have been major improvements in
-                    recent Google Camera releases. We're considering providing a toggle for users
-                    to choose to give direct GXP hardware acceleration access to Google
-                    Camera.</p>
+                    sandboxed Google Play on GrapheneOS. Direct TPU and GXP access by Google apps
+                    including Google Camera is controlled by a toggle added by GrapheneOS and
+                    doesn't provide them with any additional access to data. The toggle exists for
+                    attack surface reduction. Every app can use the TPU and GXP via standard APIs
+                    including the Android Neural Networks API and Camera2 API regardless.</p>
 
                     <p>We aim to reduce the benefits of Google Camera compared to GrapheneOS
                     Camera over time, especially on Pixels. Many features of Google Camera will
