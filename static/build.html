@@ -315,7 +315,7 @@
                         <pre>mkdir grapheneos-13
 cd grapheneos-13
 repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 13
-repo sync -j16</pre>
+repo sync -j8</pre>
 
                         <p>If your network is unreliable and <code>repo sync</code> fails, you can run the
                         <code>repo sync</code> command again to continue from where it was interrupted. It
@@ -348,7 +348,7 @@ cd ../..</pre>
 
                         <p>Complete the source tree download:</p>
 
-                        <pre>repo sync -j16</pre>
+                        <pre>repo sync -j8</pre>
 
                         <p>The manifest for the latest stable release refers to the revisions in other
                         repositories via commit hashes rather than tag names. This avoids the need to use a
@@ -364,7 +364,7 @@ cd ../..</pre>
                     <h3><a href="#updating-and-switching-branches-or-tags">Updating and switching branches or tags</a></h3>
 
                     <p>To update the source tree, run the <code>repo init</code> command again to select
-                    the branch or tag and then run <code>repo sync -j16</code> again. You may need to add
+                    the branch or tag and then run <code>repo sync -j8</code> again. You may need to add
                     <code>--force-sync</code> if a repository switched from one source to another,
                     such as when GrapheneOS forks an additional Android Open Source Project repository.
                     You don't need to start over to switch between different branches or tags. You may
@@ -721,7 +721,7 @@ cd ../..</pre>
                         <pre>mkdir -p android/kernel/coral
 cd android/kernel/coral
 repo init -u https://github.com/GrapheneOS/kernel_manifest-coral.git -b 13
-repo sync -j16</pre>
+repo sync -j8</pre>
 
                         <p>To build the coral kernel for the Pixel 4 and Pixel 4 XL:</p>
 
@@ -745,7 +745,7 @@ repo sync -j16</pre>
                         <pre>mkdir -p android/kernel/redbull
 cd android/kernel/redbull
 repo init -u https://github.com/GrapheneOS/kernel_manifest-redbull.git -b 13
-repo sync -j16</pre>
+repo sync -j8</pre>
 
                         <p>To build the redbull kernel for the Pixel 4a (5G), Pixel 5 and Pixel 5a
                         kernel:</p>
@@ -766,14 +766,14 @@ repo sync -j16</pre>
                         <pre>mkdir -p android/kernel/raviole
 cd android/kernel/raviole
 repo init -u https://github.com/GrapheneOS/kernel_manifest-raviole.git -b 13
-repo sync -j16</pre>
+repo sync -j8</pre>
 
                         <p>To sync the bluejay kernel for the Pixel 6a:</p>
 
                         <pre>mkdir -p android/kernel/bluejay
 cd android/kernel/bluejay
 repo init -u https://github.com/GrapheneOS/kernel_manifest-bluejay.git -b 13
-repo sync -j16</pre>
+repo sync -j8</pre>
 
                         <p>To build the raviole kernel for the Pixel 6 and Pixel 6 Pro:</p>
 
@@ -797,7 +797,7 @@ repo sync -j16</pre>
                         <pre>mkdir -p android/kernel/pantah
 cd android/kernel/pantah
 repo init -u https://github.com/GrapheneOS/kernel_manifest-pantah.git -b 13
-repo sync -j16</pre>
+repo sync -j8</pre>
 
                         <p>To build the pantah kernel for the Pixel 7 and Pixel 7 Pro:</p>
 
