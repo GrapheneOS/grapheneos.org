@@ -97,6 +97,7 @@
                             <li>
                                 <a href="#kernel">Kernel</a>
                                 <ul>
+                                    <li><a href="#kernel-emulator">Emulator</a></li>
                                     <li><a href="#kernel-4th-generation-pixels">4th generation Pixels</a></li>
                                     <li><a href="#kernel-5th-generation-pixels">5th generation Pixels</a></li>
                                     <li><a href="#kernel-6th-generation-pixels">6th generation Pixels</a></li>
@@ -714,6 +715,27 @@ cd ../..</pre>
                         <li>libgcc (for the host, not the target)</li>
                         <li>binutils (for the host, not the target)</li>
                     </ul>
+
+                    <section id="kernel-emulator">
+                        <h4><a href="#kernel-emulator">Emulator</a></h4>
+
+                        <pre>mkdir -p android/kernel/5.15
+cd android/kernel/5.15
+repo init -u https://github.com/GrapheneOS/kernel_manifest-5.15.git -b 13
+repo sync -j8</pre>
+
+                        <p>To build the 5.15 kernel image and modules for the emulator:</p>
+
+                        <pre>BUILD_CONFIG=common/build.config.gki.x86_64 build/build.sh
+BUILD_CONFIG=common-modules/virtual-device/build.config.virtual_device.x86_64 build/build.sh</pre>
+
+                        <p>Replace the prebuilts in the OS source tree:</p>
+
+                        <pre>ANDROID_BUILD_TOP=~/android/grapheneos-13
+cp out/android13-5.15/dist/bzImage $ANDROID_BUILD_TOP/kernel/prebuilts/5.15/x86_64/kernel-5.15
+cp out/android13-5.15/dist/System.map $ANDROID_BUILD_TOP/kernel/prebuilts/5.15/x86_64/System.map
+cp out/android13-5.15/dist/*.ko $ANDROID_BUILD_TOP/kernel/prebuilts/common-modules/virtual-device/5.15/x86-64/</pre>
+                    </section>
 
                     <section id="kernel-4th-generation-pixels">
                         <h4><a href="#kernel-4th-generation-pixels">4th generation Pixels</a></h4>
