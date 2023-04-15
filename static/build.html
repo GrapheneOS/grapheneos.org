@@ -729,7 +729,8 @@ repo sync -j8</pre>
                         <p>To build the 5.15 kernel image and modules for the emulator:</p>
 
                         <pre>BUILD_CONFIG=common/build.config.gki.x86_64 build/build.sh
-BUILD_CONFIG=common-modules/virtual-device/build.config.virtual_device.x86_64 build/build.sh</pre>
+BUILD_CONFIG=common-modules/virtual-device/build.config.virtual_device.x86_64 build/build.sh
+find out/android13-5.15/dist -type f -name '*.ko' -exec out/android13-5.15/common/scripts/sign-file sha256 out/android13-5.15/common/certs/signing_key.pem out/android13-5.15/common/certs/signing_key.x509 {} \;</pre>
 
                         <p>Replace the prebuilts in the OS source tree:</p>
 
@@ -748,7 +749,8 @@ repo sync -j8</pre>
                         <p>To build the 5.10 kernel image and modules for the emulator:</p>
 
                         <pre>BUILD_CONFIG=common/build.config.gki.x86_64 build/build.sh
-BUILD_CONFIG=common-modules/virtual-device/build.config.virtual_device.x86_64 build/build.sh</pre>
+BUILD_CONFIG=common-modules/virtual-device/build.config.virtual_device.x86_64 build/build.sh
+find out/android13-5.10/dist -type f -name '*.ko' -exec out/android13-5.10/common/scripts/sign-file sha256 out/android13-5.10/common/certs/signing_key.pem out/android13-5.10/common/certs/signing_key.x509 {} \;</pre>
 
                         <p>Replace the prebuilts in the OS source tree:</p>
 
