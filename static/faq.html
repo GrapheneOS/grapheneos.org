@@ -865,7 +865,15 @@
                             https://path1.xtracloud.net/xtra3Mgrbeji.bin,
                             https://path2.xtracloud.net/xtra3Mgrbeji.bin and
                             https://path3.xtracloud.net/xtra3Mgrbeji.bin which currently (as of
-                            October 2022) are hosted via Amazon Web Services.</p>
+                            October 2022) are hosted via Amazon Web Services. xtra-daemon sets a
+                            custom User-Agent header with information on the device. GrapheneOS
+                            stops it from including any unique hardware identifiers and is in the
+                            process of entirely disabling the User-Agent header to avoid sending
+                            the device model, manufacturer, etc. to Qualcomm. We're hosting a
+                            similar PSDS cache for Qualcomm PSDS data and plan to use it by
+                            default once we implement support for switching between our servers
+                            and Qualcomm's servers via the same toggle we use for the newer
+                            Broadcomm GNSS Pixels.</p>
 
                             <p>Qualcomm Snapdragon SoC devices also fetch time from
                             time.xtracloud.net via NTP rather than using the OS time. Stock Pixel
@@ -877,10 +885,7 @@
                             avoid GNSS-based location being crippled by having time set wrong in
                             the OS.</p>
 
-                            <p>We're hosting a similar PSDS cache for Qualcomm PSDS data and plan
-                            to use it by default once we implement support for switching between
-                            our servers and Qualcomm's servers via the same toggle we use for the
-                            newer Broadcomm GNSS Pixels.</p>
+                            <p></p>
                         </li>
                         <li>
                             <p>Connectivity checks designed to mimic a web browser user agent are performed
