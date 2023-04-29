@@ -771,6 +771,17 @@
                     captive portals and download updates. No data varying per user / installation / device
                     is sent in these connections. There aren't analytics / telemetry in GrapheneOS.</p>
 
+                    <p>On 6th and 7th generation Pixels, GrapheneOS only connects to GrapheneOS
+                    servers by default. On 4th and 5th generation Pixels, there's a single
+                    non-GrapheneOS connection to download static files from a Qualcomm service
+                    (PSDS, referred to as XTRA by Qualcomm) hosted on Amazon Web Services which
+                    we're in the process of phasing out. We've already made changes to resolve a
+                    serious privacy issue with this Qualcomm service.</p>
+
+                    <p>Make sure to read the <a href="#other-connections">other connections</a>
+                    section below this one too which covers non-default connections triggered by
+                    having a certain carrier, having apps installed, etc.</p>
+
                     <p>The expected default connections by GrapheneOS (including all base system apps) are
                     the following:</p>
 
