@@ -1007,15 +1007,21 @@
                         </li>
                     </ul>
 
-                    <p>Unlike Chrome/Chromium, Vanadium does not make connections not requested by
-                    the app as part of providing the WebView implementation in the OS. If you
-                    choose to use it as your browser, it performs similar connections as the ones
-                    performed by the OS above. It does not send any identifying information to
-                    servers, etc. but rather fetches some static assets like dictionaries when
-                    triggered by usage of the app. We're working on eliminating everything
-                    unnecessary and making our servers the default for handling anything that
-                    cannot simply be shipped with Vanadium for one reason or another such as
-                    requiring quicker updates.</p>
+                    <p>Unlike Chrome/Chromium, Vanadium WebView does not make connections beyond
+                    those initiated by the app using it so there are no default connections from
+                    apps using the WebView.</p>
+
+                    <p>Vanadium browser uses <code>update.vanadium.app</code> to check for updates
+                    to components providing revoked certificates and other data. It downloads the
+                    components from <code>dl.vanadium.app</code>. Other connections are initiated
+                    by the user such as the search engine (defaults to DuckDuckGo), websites and
+                    retrieving favicons for your bookmarks and the frequent sites shown on the
+                    home page. We enable connection and cache partitioning to keep connections
+                    separate between different sites. There are a few parts of state partitioning
+                    still being implemented including cookie partitioning which is currently in
+                    the testing phase but causes too many compatibility issues to fully deploy it
+                    by default without any exceptions like Brave's heuristics to disable it for
+                    cross-site login flows, etc.</p>
                 </article>
 
                 <article id="other-connections">
