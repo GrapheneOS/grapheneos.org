@@ -33,6 +33,14 @@ const redirects = new Map([
     ["/releases#taimen-beta", "/faq#legacy-devices"],
     ["/releases#walleye-stable", "/faq#legacy-devices"],
     ["/releases#walleye-beta", "/faq#legacy-devices"],
+    ["/releases#bonito-stable", "/faq#legacy-devices"],
+    ["/releases#bonito-beta", "/faq#legacy-devices"],
+    ["/releases#sargo-stable", "/faq#legacy-devices"],
+    ["/releases#sargo-beta", "/faq#legacy-devices"],
+    ["/releases#crosshatch-stable", "/faq#legacy-devices"],
+    ["/releases#crosshatch-beta", "/faq#legacy-devices"],
+    ["/releases#blueline-stable", "/faq#legacy-devices"],
+    ["/releases#blueline-beta", "/faq#legacy-devices"],
 
     // legacy servers
     ["/articles/grapheneos-servers#apps.grapheneos.org", "/articles/grapheneos-servers#releases.grapheneos.org"],
