@@ -598,6 +598,14 @@
                     <p>Changes since the 2023050100 release:</p>
 
                     <ul>
+                        <li>add support for disabling PSDS in addition to the GrapheneOS server and standard server options</li>
+                        <li>add support for controlling PSDS on Qualcomm SoC devices to extend PSDS configuration to them along with using the GrapheneOS PSDS cache by default</li>
+                        <li>disable User-Agent for Qualcomm PSDS (XTRA) via xtra-daemon hooking to avoid providing device information to the server (we already removed the hardware identifier via SELinux policy in a previous release)</li>
+                        <li>always use most complete / generic Qualcomm PSDS (XTRA) variant via xtra-daemon hooking to avoid leaking info on radio variant or region</li>
+                        <li>Settings: improve infrastructure for GrapheneOS settings</li>
+                        <li>Settings: port remote key provisioning setting to new infrastructure</li>
+                        <li>Settings: port SUPL setting to new infrastructure</li>
+                        <li>Settings: remove icon for Internet connectivity check setting for now</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro: Mali GPU driver update</li>
                         <li>System Updater: add TLS key pinning with expiration 2 months in the future to make TLS more useful as an additional layer of security before the 3 layers of offline update signing (update package signature, update_engine payload signature and verified boot signature) while also avoiding blocking updates on extremely out-of-date installs falling behind changes to our TLS certificate approach</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/113.0.5672.77.0">version 113.0.5672.77.0</a></li>
