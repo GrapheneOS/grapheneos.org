@@ -608,6 +608,7 @@
                         <li>Settings: remove icon for Internet connectivity check setting for now</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro: Mali GPU driver update</li>
                         <li>System Updater: add TLS key pinning with expiration 2 months in the future to make TLS more useful as an additional layer of security before the 3 layers of offline update signing (update package signature, update_engine payload signature and verified boot signature) while also avoiding blocking updates on extremely out-of-date installs falling behind changes to our TLS certificate approach</li>
+                        <li>update timezone data to Android mainline 331314030 (based on tzdata 2023a)</li>
                         <li>kernel (Generic 5.15): update to latest GKI LTS branch revision including update to 5.15.106</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/113.0.5672.77.0">version 113.0.5672.77.0</a></li>
                         <li>Apps: update to <a href="https://github.com/GrapheneOS/Apps/releases/tag/19">version 19</a></li>
@@ -744,7 +745,7 @@
                         <li>Settings: add Pixel eSIM firmware app to the list of apps which can't be disabled via GUI since it updates firmware</li>
                         <li>Launcher: hide "all apps" view when search starts to avoid upstream race condition where the wrong app can be opened when pressing too quickly</li>
                         <li>Launcher, Keyboard: drop GrapheneOS prefix from naming to match other GrapheneOS apps</li>
-                        <li>update timezone data to Android mainline (based on tzdata 2022g)</li>
+                        <li>update timezone data to Android mainline 331314020 (based on tzdata 2022g)</li>
                         <li>kernel (Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Generic 5.10, Generic 5.15): add back our slab allocator canary feature</li>
                         <li>kernel (Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Generic 5.10, Generic 5.15): align with linux-hardened BPF JIT configuration (always on with JIT hardening enabled in all cases)</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Generic 5.10): update to latest GKI LTS branch revision including update to 5.10.176</li>
