@@ -879,7 +879,8 @@
                             to avoid leaking a small amount of information based on the database
                             variant.</p>
 
-                            <p>Qualcomm Snapdragon SoC devices also fetch time via NTP from
+                            <p>Qualcomm Snapdragon SoC devices also fetch time via NTP for
+                            xtra-daemon instead of using potentially incorrect OS time. We use
                             time.grapheneos.org when using the default GrapheneOS PSDS servers or
                             the standard time.xtracloud.net when using Qualcomm's servers. Stock
                             Pixel OS uses time.google.com but we follow Qualcomm's standard
