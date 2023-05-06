@@ -769,15 +769,14 @@
 
                     <p>By default, GrapheneOS only makes remote connections to GrapheneOS services
                     and the network provided DNS resolvers. There aren't any analytics/telemetry
-                    in GrapheneOS. None of the default connections sends any data varying based on
-                    the user, installation or specific device. The only information revealed to
-                    the GrapheneOS servers are the generic device model (such as Pixel 7 Pro) and
-                    OS version which are necessary for obtaining updates. The default connections
-                    provide the OS and apps with updates, set the system clock, check each network
-                    connection for internet connectivity, download a global database (does not
-                    vary based on location) with predicted satellite locations when using Location
-                    and obtain attestation chain signing keys for the hardware keystore needed for
-                    the hardware-based attestation feature.</p>
+                    in GrapheneOS. The only information revealed to the GrapheneOS servers are the
+                    generic device model (such as Pixel 7 Pro) and OS version which are necessary
+                    for obtaining updates. The default connections provide the OS and apps with
+                    updates, set the system clock, check each network connection for internet
+                    connectivity, download a global database (does not vary based on location)
+                    with predicted satellite locations when using Location and obtain attestation
+                    chain signing keys for the hardware keystore needed for the hardware-based
+                    attestation feature.</p>
 
                     <p>Make sure to read the <a href="#other-connections">other connections</a>
                     section below this one too which covers non-default connections triggered by
@@ -845,56 +844,6 @@
                             time zone automatically" toggle.</p>
                         </li>
                         <li>
-                            <p>HTTPS connections are made to fetch
-                            <a href="https://en.wikipedia.org/wiki/GPS_signals#Almanac">PSDS
-                            information</a> to assist with satellite based location. These are
-                            static files and are downloaded automatically to improve location
-                            resolution speed and accuracy. No query or data is sent to these
-                            servers. These contain orbits and statuses of satellites, Earth
-                            environmental data and time adjustment information.</p>
-
-                            <p>On 6th and 7th generation Pixels (which use a Broadcom GNSS chip),
-                            almanacs are downloaded from
-                            https://broadcom.psds.grapheneos.org/lto2.dat,
-                            https://broadcom.psds.grapheneos.org/rto.dat and
-                            https://broadcom.psds.grapheneos.org/rtistatus.dat which are a cache
-                            for Broadcom's data available at
-                            https://gllto.glpals.com/7day/v5/latest/lto2.dat,
-                            https://gllto.glpals.com/rto/v1/latest/rto.dat and
-                            https://gllto.glpals.com/rtistatus4.dat. Alternatively, the standard
-                            servers can be enabled in the Settings app which are
-                            https://agnss.goog/lto2.dat, https://agnss.goog/rto.dat and
-                            https://agnss.goog/rtistatus.dat providing a similar cache of
-                            Broadcom's data currently (as of October 2022) hosted on GCP (Google
-                            Cloud Platform).</p>
-
-                            <p>On 4th and 5th generation Pixels (which use a Qualcomm baseband
-                            providing cellular, Wi-Fi, Bluetooth and GNSS in separate sandboxes),
-                            almanacs are downloaded from
-                            https://qualcomm.psds.grapheneos.org/xtra3Mgrbeji.bin which is a cache
-                            of Qualcomm's data. Alternatively, the standard servers can be enabled
-                            in the Settings app which will use
-                            https://path1.xtracloud.net/xtra3Mgrbeji.bin,
-                            https://path2.xtracloud.net/xtra3Mgrbeji.bin and
-                            https://path3.xtracloud.net/xtra3Mgrbeji.bin. GrapheneOS improves the
-                            privacy of Qualcomm PSDS (XTRA) by removing the User-Agent header
-                            normally containing an SoC serial number (unique hardware identifier),
-                            random ID and information on the phone including manufacturer, brand
-                            and model. We also always fetch the most complete XTRA database variant
-                            (xtra3Mgrbeji.bin) instead of model/carrier/region dependent variants
-                            to avoid leaking a small amount of information based on the database
-                            variant.</p>
-
-                            <p>Qualcomm Snapdragon SoC devices also fetch time via NTP for
-                            xtra-daemon instead of using potentially incorrect OS time. We use
-                            time.grapheneos.org when using the default GrapheneOS PSDS servers or
-                            the standard time.xtracloud.net when using Qualcomm's servers. Stock
-                            Pixel OS uses time.google.com but we follow Qualcomm's standard
-                            settings to match other devices and to avoid the incompatible leap
-                            second handling. These connections all go through the Owner VPN so it
-                            isn't a real world fingerprinting issue.</p>
-                        </li>
-                        <li>
                             <p>Connectivity checks designed to mimic a web browser user agent are performed
                             by using HTTP and HTTPS to fetch standard URLs generating an HTTP 204 status
                             code. This is used to detect when internet connectivity is lost on a network,
@@ -950,6 +899,56 @@
                             itself, not falling back to other networks when some don't have
                             internet access and not being able to delay scheduled jobs depending
                             on internet access until it becomes available.</p>
+                        </li>
+                        <li>
+                            <p>HTTPS connections are made to fetch
+                            <a href="https://en.wikipedia.org/wiki/GPS_signals#Almanac">PSDS
+                            information</a> to assist with satellite based location. These are
+                            static files and are downloaded automatically to improve location
+                            resolution speed and accuracy. No query or data is sent to these
+                            servers. These contain orbits and statuses of satellites, Earth
+                            environmental data and time adjustment information.</p>
+
+                            <p>On 6th and 7th generation Pixels (which use a Broadcom GNSS chip),
+                            almanacs are downloaded from
+                            https://broadcom.psds.grapheneos.org/lto2.dat,
+                            https://broadcom.psds.grapheneos.org/rto.dat and
+                            https://broadcom.psds.grapheneos.org/rtistatus.dat which are a cache
+                            for Broadcom's data available at
+                            https://gllto.glpals.com/7day/v5/latest/lto2.dat,
+                            https://gllto.glpals.com/rto/v1/latest/rto.dat and
+                            https://gllto.glpals.com/rtistatus4.dat. Alternatively, the standard
+                            servers can be enabled in the Settings app which are
+                            https://agnss.goog/lto2.dat, https://agnss.goog/rto.dat and
+                            https://agnss.goog/rtistatus.dat providing a similar cache of
+                            Broadcom's data currently (as of October 2022) hosted on GCP (Google
+                            Cloud Platform).</p>
+
+                            <p>On 4th and 5th generation Pixels (which use a Qualcomm baseband
+                            providing cellular, Wi-Fi, Bluetooth and GNSS in separate sandboxes),
+                            almanacs are downloaded from
+                            https://qualcomm.psds.grapheneos.org/xtra3Mgrbeji.bin which is a cache
+                            of Qualcomm's data. Alternatively, the standard servers can be enabled
+                            in the Settings app which will use
+                            https://path1.xtracloud.net/xtra3Mgrbeji.bin,
+                            https://path2.xtracloud.net/xtra3Mgrbeji.bin and
+                            https://path3.xtracloud.net/xtra3Mgrbeji.bin. GrapheneOS improves the
+                            privacy of Qualcomm PSDS (XTRA) by removing the User-Agent header
+                            normally containing an SoC serial number (unique hardware identifier),
+                            random ID and information on the phone including manufacturer, brand
+                            and model. We also always fetch the most complete XTRA database variant
+                            (xtra3Mgrbeji.bin) instead of model/carrier/region dependent variants
+                            to avoid leaking a small amount of information based on the database
+                            variant.</p>
+
+                            <p>Qualcomm Snapdragon SoC devices also fetch time via NTP for
+                            xtra-daemon instead of using potentially incorrect OS time. We use
+                            time.grapheneos.org when using the default GrapheneOS PSDS servers or
+                            the standard time.xtracloud.net when using Qualcomm's servers. Stock
+                            Pixel OS uses time.google.com but we follow Qualcomm's standard
+                            settings to match other devices and to avoid the incompatible leap
+                            second handling. These connections all go through the Owner VPN so it
+                            isn't a real world fingerprinting issue.</p>
                         </li>
                         <li>
                             <p>Android devices launched with Android 8 or later provide support
