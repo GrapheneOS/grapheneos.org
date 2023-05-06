@@ -767,16 +767,11 @@
                 <article id="default-connections">
                     <h3><a href="#default-connections">What kind of connections do the OS and bundled apps make by default?</a></h3>
 
-                    <p>GrapheneOS makes connections to the outside world to test connectivity, detect
-                    captive portals and download updates. No data varying per user / installation / device
-                    is sent in these connections. There aren't analytics / telemetry in GrapheneOS.</p>
-
-                    <p>On 6th and 7th generation Pixels, GrapheneOS only connects to GrapheneOS
-                    servers by default. On 4th and 5th generation Pixels, there's a single
-                    non-GrapheneOS connection to download static files from a Qualcomm service
-                    (PSDS, referred to as XTRA by Qualcomm) hosted on Amazon Web Services which
-                    we're in the process of phasing out. We've already made changes to resolve a
-                    serious privacy issue with this Qualcomm service.</p>
+                    <p>GrapheneOS makes connections to the outside world to test connectivity,
+                    detect captive portals and download updates. No data varying per user /
+                    installation / device is sent in these connections. There aren't analytics /
+                    telemetry in GrapheneOS. By default, remote connections are only made to
+                    GrapheneOS services and the network provided DNS resolvers.</p>
 
                     <p>Make sure to read the <a href="#other-connections">other connections</a>
                     section below this one too which covers non-default connections triggered by
@@ -870,33 +865,27 @@
                             <p>On 4th and 5th generation Pixels (which use a Qualcomm baseband
                             providing cellular, Wi-Fi, Bluetooth and GNSS in separate sandboxes),
                             almanacs are downloaded from
-                            https://path1.xtracloud.net/xtra3grcej.bin
-                            https://path2.xtracloud.net/xtra3grcej.bin,
-                            https://path3.xtracloud.net/xtra3grcej.bin,
+                            https://qualcomm.psds.grapheneos.org/xtra3Mgrbeji.bin which is a cache
+                            of Qualcomm's data. Alternatively, the standard servers can be enabled
+                            in the Settings app which will use
                             https://path1.xtracloud.net/xtra3Mgrbeji.bin,
                             https://path2.xtracloud.net/xtra3Mgrbeji.bin and
-                            https://path3.xtracloud.net/xtra3Mgrbeji.bin which currently (as of
-                            October 2022) are hosted via Amazon Web Services. xtra-daemon sets a
-                            custom User-Agent header with information on the device. GrapheneOS
-                            stops it from including any unique hardware identifiers and is in the
-                            process of entirely disabling the User-Agent header to avoid sending
-                            the device model, manufacturer, etc. to Qualcomm. We're hosting a
-                            similar PSDS cache for Qualcomm PSDS data and plan to use it by
-                            default once we implement support for switching between our servers
-                            and Qualcomm's servers via the same toggle we use for the newer
-                            Broadcomm GNSS Pixels.</p>
+                            https://path3.xtracloud.net/xtra3Mgrbeji.bin. GrapheneOS improves the
+                            privacy of Qualcomm PSDS (XTRA) by removing the User-Agent header
+                            normally containing an SoC serial number (unique hardware identifier),
+                            random ID and information on the phone including manufacturer, brand
+                            and model. We also always fetch the most complete XTRA database variant
+                            (xtra3Mgrbeji.bin) instead of model/carrier/region dependent variants
+                            to avoid leaking a small amount of information based on the database
+                            variant.</p>
 
-                            <p>Qualcomm Snapdragon SoC devices also fetch time from
-                            time.xtracloud.net via NTP rather than using the OS time. Stock Pixel
-                            OS overrides this to time.google.com but we use the standard server
-                            like other Snapdragon devices. It's technically incorrect to use the
-                            time.google.com server for this due to non-standard leap second
-                            smearing not expected by the Qualcomm GNSS implementation. This could
-                            be avoided by using OS time instead but Qualcomm built it this way to
-                            avoid GNSS-based location being crippled by having time set wrong in
-                            the OS.</p>
-
-                            <p></p>
+                            <p>Qualcomm Snapdragon SoC devices also fetch time via NTP from
+                            time.grapheneos.org when using the default GrapheneOS PSDS servers or
+                            the standard time.xtracloud.net when using Qualcomm's servers. Stock
+                            Pixel OS uses time.google.com but we follow Qualcomm's standard
+                            settings to match other devices and to avoid the incompatible leap
+                            second handling. These connections all go through the Owner VPN so it
+                            isn't a real world fingerprinting issue.</p>
                         </li>
                         <li>
                             <p>Connectivity checks designed to mimic a web browser user agent are performed
