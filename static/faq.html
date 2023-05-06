@@ -788,12 +788,12 @@
                     <ul>
                         <li>
                             <p>The GrapheneOS System Updater app fetches update metadata from
-                            https://releases.grapheneos.org/DEVICE-CHANNEL approximately once every four hours
+                            https://releases.grapheneos.org/<var>DEVICE</var>-<var>CHANNEL</var> approximately once every four hours
                             when connected to a permitted network for updates.</p>
                             <p>Once an update is available, it tries to download
-                            https://releases.grapheneos.org/DEVICE-incremental-OLD_VERSION-NEW_VERSION.zip
+                            https://releases.grapheneos.org/<var>DEVICE</var>-incremental-<var>OLD_VERSION</var>-<var>NEW_VERSION</var>.zip
                             for a delta update, and then falls back to
-                            https://releases.grapheneos.org/DEVICE-ota_update-NEW_VERSION.zip.</p>
+                            https://releases.grapheneos.org/<var>DEVICE</var>-ota_update-<var>NEW_VERSION</var>.zip.</p>
                             <p>No query / data is sent to the server, so the only information leaked to it
                             are the variables in these 3 URLs (device, channel, current version) which is
                             necessary to obtain the update.</p>
