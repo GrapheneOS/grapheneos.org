@@ -767,11 +767,17 @@
                 <article id="default-connections">
                     <h3><a href="#default-connections">What kind of connections do the OS and bundled apps make by default?</a></h3>
 
-                    <p>GrapheneOS makes connections to the outside world to test connectivity,
-                    detect captive portals and download updates. No data varying per user /
-                    installation / device is sent in these connections. There aren't analytics /
-                    telemetry in GrapheneOS. By default, remote connections are only made to
-                    GrapheneOS services and the network provided DNS resolvers.</p>
+                    <p>By default, GrapheneOS only makes remote connections to GrapheneOS services
+                    and the network provided DNS resolvers. There aren't any analytics/telemetry
+                    in GrapheneOS. None of the default connections sends any data varying based on
+                    the user, installation or specific device. The only information revealed to
+                    the GrapheneOS servers are the generic device model (such as Pixel 7 Pro) and
+                    OS version which are necessary for obtaining updates. The default connections
+                    provide the OS and apps with updates, set the system clock, check each network
+                    connection for internet connectivity, download a global database (does not
+                    vary based on location) with predicted satellite locations when using Location
+                    and obtain attestation chain signing keys for the hardware keystore needed for
+                    the hardware-based attestation feature.</p>
 
                     <p>Make sure to read the <a href="#other-connections">other connections</a>
                     section below this one too which covers non-default connections triggered by
