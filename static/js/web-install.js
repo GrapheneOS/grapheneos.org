@@ -140,11 +140,11 @@ async function unlockBootloader(setProgress) {
     return "Bootloader unlocked.";
 }
 
-const supportedDevices = ["cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble", "sunfish", "coral", "flame", "bonito", "sargo", "crosshatch", "blueline"];
+const supportedDevices = ["cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble", "sunfish", "coral", "flame"];
 
-const qualcommDevices = ["barbet", "redfin", "bramble", "sunfish", "coral", "flame", "bonito", "sargo", "crosshatch", "blueline"];
+const qualcommDevices = ["barbet", "redfin", "bramble", "sunfish", "coral", "flame"];
 
-const legacyQualcommDevices = ["sunfish", "coral", "flame", "bonito", "sargo", "crosshatch", "blueline"];
+const legacyQualcommDevices = ["sunfish", "coral", "flame"];
 
 const tensorDevices = ["cheetah", "panther", "bluejay", "raven", "oriole"];
 
