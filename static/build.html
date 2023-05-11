@@ -856,6 +856,21 @@ repo sync -j8</pre>
                         <p>Replace the files in the OS source tree at
                         <code>device/google/pantah-kernel/</code> with your build in
                         <code>out/mixed/dist/</code>.</p>
+
+                        <p>To sync the lynx kernel for the Pixel 7a:</p>
+
+                        <pre>mkdir -p android/kernel/lynx
+cd android/kernel/lynx
+repo init -u https://github.com/GrapheneOS/kernel_manifest-lynx.git -b 13-lynx
+repo sync -j8</pre>
+
+                        <p>To build the lynx kernel for the Pixel 7a:</p>
+
+                        <pre>LTO=full BUILD_AOSP_KERNEL=1 ./build_lynx.sh</pre>
+
+                        <p>Replace the files in the OS source tree at
+                        <code>device/google/lynx-kernel/</code> with your build in
+                        <code>out/mixed/dist/</code>.</p>
                     </section>
                 </section>
 
