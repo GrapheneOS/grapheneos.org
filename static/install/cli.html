@@ -254,19 +254,19 @@
 
                     <pre>sudo apt install libarchive-tools
 curl -O https://dl.google.com/android/repository/platform-tools_r34.0.1-linux.zip
-echo '09aa9346b7c61adbf79f15378cbd61666899a20678b8cb9872f078c38fe3833f  platform-tools_r34.0.1-linux.zip' | sha256sum -c
+echo 'c72bba58d99103abd4931b5a5d75146047b35e498092b6f03b6db3f5b07afc51  platform-tools_r34.0.1-linux.zip' | sha256sum -c
 bsdtar xvf platform-tools_r34.0.1-linux.zip</pre>
 
                     <p>To download, verify and extract the standalone platform-tools on macOS:</p>
 
                     <pre>curl -O https://dl.google.com/android/repository/platform-tools_r34.0.1-darwin.zip
-echo 'SHA256 (platform-tools_r34.0.1-darwin.zip) = ef3dd374ebd2dddf5d8ab6179feb8016462ad25473ccc44555a98fb37adc9d63' | shasum -c
+echo 'SHA256 (platform-tools_r34.0.1-darwin.zip) = 38e4abc642250e7090041e569d9de8d3f1dee2908fa30daf5ebe45a3089ec54b' | shasum -c
 tar xvf platform-tools_r34.0.1-darwin.zip</pre>
 
                     <p>To download, verify and extract the standalone platform-tools on Windows:</p>
 
                     <pre>curl -O https://dl.google.com/android/repository/platform-tools_r34.0.1-windows.zip
-(Get-FileHash platform-tools_r34.0.1-windows.zip).hash -eq "5dd9c2be744c224fa3a7cbe30ba02d2cb378c763bd0f797a7e47e9f3156a5daa"
+(Get-FileHash platform-tools_r34.0.1-windows.zip).hash -eq "328e7fa407ac50672b3935e2cf1ae40b4bf08120605b91ed1b089e065bce517c"
 tar xvf platform-tools_r34.0.1-windows.zip</pre>
 
                     <p>Next, add the tools to your <code>PATH</code> in the current shell so they can be
