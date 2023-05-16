@@ -220,7 +220,7 @@
                 <p>You need an updated copy of the <code>fastboot</code> tool and the
                 directory containing it needs to be included in the <code>PATH</code>
                 environment variable. You can run <code>fastboot --version</code> to determine
-                the current version. It must be at least <code>33.0.3</code>. You can use a
+                the current version. It must be at least <code>34.0.1</code>. You can use a
                 distribution package for this, but most of them mistakenly package development
                 snapshots of fastboot, clobber the standard version scheme for platform-tools
                 (adb, fastboot, etc.) with their own scheme and don't keep it up-to-date
@@ -230,10 +230,6 @@
                 using the standalone release of platform-tools from Android:</p>
 
                 <pre>sudo pacman -S android-tools</pre>
-
-                <p>The Arch Linux package must be <code>33.0.3-3</code> or later since earlier
-                versions had partially outdated code and therefore didn't work with the Pixel 7
-                and Pixel 7 Pro.</p>
 
                 <p>Debian and Ubuntu do not have a usable package for fastboot. Their packages for
                 these tools are both broken and many years out-of-date. Follow the instructions
