@@ -315,10 +315,6 @@
                         <p>The <code>13</code> branch is used for most Pixels, generic / emulator
                         targets and non-Pixel devices.</p>
 
-                        <p>The <code>13-lynx</code> branch is used for the newly launched Pixel 7a
-                        since there hasn't been a quarterly or yearly release to merge in support
-                        for it yet.</p>
-
                         <p>The <code>13-coral</code> branch is used for the end-of-life Pixel 4
                         and Pixel 4 XL due to incompatibilities with certain new changes.</p>
 
@@ -872,7 +868,7 @@ repo sync -j8</pre>
 
                         <pre>mkdir -p android/kernel/lynx
 cd android/kernel/lynx
-repo init -u https://github.com/GrapheneOS/kernel_manifest-lynx.git -b 13-lynx
+repo init -u https://github.com/GrapheneOS/kernel_manifest-lynx.git -b 13
 repo sync -j8</pre>
 
                         <p>To build the lynx kernel for the Pixel 7a:</p>
