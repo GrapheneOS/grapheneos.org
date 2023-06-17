@@ -233,9 +233,15 @@
 
                 <pre>sudo pacman -S android-tools</pre>
 
-                <p>Debian and Ubuntu do not have a usable package for fastboot. Their packages for
-                these tools are both broken and many years out-of-date. Follow the instructions
-                below for platforms without a proper package.</p>
+                <p>On Debian Bookworm and Ubuntu 22.10 or later, install
+                <code>google-android-platform-tools-installer</code> and skip the section below on
+                using the standalone relase of platform-tools from Android:</p>
+
+                <pre>sudo apt install google-android-platform-tools-installer</pre>
+
+                <p>Older versions of Debian and Ubuntu do not have a usable package for fastboot.
+                Their packages for these tools are both broken and many years out-of-date. Follow
+                the instructions below for platforms without a proper package.</p>
 
                 <section id="standalone-platform-tools">
                     <h3><a href="#standalone-platform-tools">Standalone platform-tools</a></h3>
