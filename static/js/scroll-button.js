@@ -8,7 +8,7 @@ window.onscroll = function () {
 // Shows or hides the scroll button
 function showButton() {
   // Get the scroll button
-  const scrollButton = document.getElementById("scrollButton");
+  const scrollButton = document.getElementById("scroll-button");
 
   // When the user scrolls down, make the scroll button visible
   if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {

@@ -194,9 +194,9 @@ button:disabled {
     line-height: 2.5rem;
 }
 
-button.scrollButton {
+button.scroll-button {
     display: none;
-    padding: 0.5rem 0.5rem;
+    padding: 0.5rem;
     position: fixed;
     bottom: 20px;
     right: 30px;
