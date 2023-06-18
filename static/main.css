@@ -218,7 +218,7 @@ footer {
     margin-left: auto;
     margin-right: auto;
     padding: 1em;
-    max-width: 800px;
+    max-width: 100vw;
     overflow-wrap: break-word;
     text-align: center;
 }
@@ -234,7 +234,7 @@ footer a, footer a:visited {
 }
 
 #social li {
-    display: inline;
+    display: inline-block;
     padding: 0 0.5em;
 }
 
