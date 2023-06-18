@@ -194,6 +194,15 @@ button:disabled {
     line-height: 2.5rem;
 }
 
+button.scrollButton {
+    display: none;
+    padding: 0.5rem 0.5rem;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+}
+
 .coin-address {
     display: block;
     margin-left: auto;
