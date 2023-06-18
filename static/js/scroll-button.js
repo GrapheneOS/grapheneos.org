@@ -2,7 +2,7 @@
 
 // When the user scrolls
 window.onscroll = function () {
-  showButton()
+  showButton();
 };
 
 // Shows or hides the scroll button
@@ -24,6 +24,6 @@ function showButton() {
 function scrollUp() {
   window.scrollTo({
     top: 0,
-    behavior: 'smooth'
+    behavior: "smooth"
   });
 }
