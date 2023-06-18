@@ -11,18 +11,18 @@ function showButton() {
   const scrollButton = document.getElementById("scroll-button");
   // When the user scrolls down, make the scroll button visible
   if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-    scrollButton.style.display = "block";
+      scrollButton.style.display = "block";
   }
   // When the user is as the top of the page, hide the scroll button
   else {
-    scrollButton.style.display = "none";
+      scrollButton.style.display = "none";
   }
 }
 
 // When the user clicks on the button, scroll to the top of the page
 function scrollUp() {
   window.scrollTo({
-    top: 0,
-    behavior: "smooth"
+      top: 0,
+      behavior: "smooth"
   });
 }
