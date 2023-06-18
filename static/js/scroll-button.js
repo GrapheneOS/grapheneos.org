@@ -11,7 +11,7 @@ function showButton() {
   const scrollButton = document.getElementById("scrollButton");
 
   // When the user scrolls down, make the scroll button visible
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
     scrollButton.style.display = "block";
   }
   // When the user is as the top of the page, hide the scroll button
