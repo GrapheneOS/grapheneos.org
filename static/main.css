@@ -116,6 +116,10 @@ var {
     display: flex;
 }
 
+#site-menu ul li:hover {
+    background-color: #424242; /* grey800 */
+}
+
 #site-menu ul li a {
     color: #fff; /* 100% white */
     display: flex;
@@ -136,7 +140,6 @@ var {
 
 #site-menu ul li[aria-current] a {
     color: #64b5f6; /* blue300 */
-    font-weight: bold;
 }
 
 #site-menu img {
