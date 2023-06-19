@@ -116,10 +116,6 @@ var {
     display: flex;
 }
 
-#site-menu ul li:hover {
-    background-color: #424242; /* grey800 */
-}
-
 #site-menu ul li a {
     color: #fff; /* 100% white */
     display: flex;
