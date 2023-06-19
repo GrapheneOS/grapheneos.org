@@ -19,7 +19,9 @@ function showButton() {
     }
 }
 
-// When the user clicks on the button, scroll to the top of the page
+// When the user clicks on the button, call the scrollUp() function
+document.getElementById("scroll-button").addEventListener("click", scrollUp); 
+
 function scrollUp() {
     window.scrollTo({
         top: 0,

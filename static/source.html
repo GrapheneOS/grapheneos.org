@@ -24,11 +24,10 @@
         <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
         <link rel="mask-icon" href="{{path|/mask-icon.svg}}" color="#1a1a1a"/>
         <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-        <link rel="stylesheet" href="./main.css">
+        {{css|/main.css}}
         <link rel="manifest" href="/manifest.webmanifest"/>
         <link rel="license" href="/LICENSE.txt"/>
         <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
-        <script src="./js/scroll-button.js"></script>
     </head>
     <body>
         <header>
@@ -308,6 +307,7 @@
                 <li><a href="https://www.linkedin.com/company/grapheneos/">LinkedIn</a></li>
             </ul>
         </footer>
-        <button id="scroll-button" class="scroll-button" onclick="scrollUp()"><img src="./scroll-arrow.svg"></button>
+        <button id="scroll-button" class="scroll-button"><img src="./scroll-arrow.svg"></button>
+        {{js|/js/scroll-button.js}}
     </body>
 </html>
