@@ -116,16 +116,18 @@ var {
     display: flex;
 }
 
-#site-menu ul li:hover {
-    background-color: #424242; /* grey800 */
-}
-
 #site-menu ul li a {
     color: #fff; /* 100% white */
     display: flex;
     text-decoration: none;
-    padding: 1em;
+    padding: 0.25em 0.5em;
+    margin: 0.75em 0.5em;
     align-items: center;
+}
+
+#site-menu ul li a:hover {
+    background-color: #424242; /* grey800 */
+    border-radius: 20px;
 }
 
 #site-menu ul li a:visited {
@@ -134,6 +136,7 @@ var {
 
 #site-menu ul li[aria-current] a {
     color: #64b5f6; /* blue300 */
+    font-weight: bold;
 }
 
 #site-menu img {
