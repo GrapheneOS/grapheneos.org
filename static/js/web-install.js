@@ -146,9 +146,9 @@ const qualcommDevices = ["barbet", "redfin", "bramble", "sunfish", "coral", "fla
 
 const legacyQualcommDevices = ["sunfish", "coral", "flame"];
 
-const tensorDevices = ["lynx", "cheetah", "panther", "bluejay", "raven", "oriole"];
+const tensorDevices = ["tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole"];
 
-const day1SnapshotCancelDevices = ["lynx", "cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble"];
+const day1SnapshotCancelDevices = ["tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble"];
 
 async function getLatestRelease() {
     let product = await device.getVariable("product");
