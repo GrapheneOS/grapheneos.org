@@ -216,7 +216,7 @@ div.donate-qr img {
 }
 
 div.donate-qr img.logo {
-    image-rendering: pixelated;
+    image-rendering: auto;
     width: 100px;
     height: 100px;
     border-radius: 16px;
