@@ -217,10 +217,10 @@ div.donate-qr img {
 
 div.donate-qr img.logo {
     image-rendering: auto;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     border-radius: 16px;
-    margin: 1em 2em;
+    margin-right: 1em;
 }
 
 div.donations {
