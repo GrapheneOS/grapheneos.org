@@ -524,6 +524,12 @@ main.normalize {
         filter: invert(87%);
     }
 
+    section.donation-card {
+        background-color: #212121;
+        border-radius: 16px;
+        box-shadow: 0px 2px 22px -18px rgba(0,0,0,0.75);
+    }
+
     .surface {
         background-color: #212121;
     }
