@@ -201,13 +201,6 @@ button:disabled {
     text-align: center;
 }
 
-.coin-address img {
-    image-rendering: pixelated;
-    width: 180px;
-    height: 180px;
-    border-radius: 16px;
-}
-
 div.donate-qr {
     display: grid;
     justify-items: center;
@@ -219,6 +212,7 @@ div.donate-qr img {
     width: 150px;
     height: 150px;
     border-radius: 16px;
+    margin-right: 1em;
 }
 
 div.donate-qr img.logo {
@@ -244,6 +238,9 @@ div.donations {
 @media (max-width: 600px) {
     div.donations {
         grid-template-columns: 1fr;
+    }
+    div.donate-qr img {
+        margin-right: 0em;
     }
 }
 
