@@ -1,219 +1,175 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
-    <head>
-        <meta charset="utf-8"/>
-        <title>Donate | GrapheneOS</title>
-        <meta name="description" content="Donating to support development of GrapheneOS."/>
-        <meta name="theme-color" content="#212121"/>
-        <meta name="color-scheme" content="dark light"/>
-        <meta name="msapplication-TileColor" content="#ffffff"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <meta name="twitter:site" content="@GrapheneOS"/>
-        <meta name="twitter:creator" content="@GrapheneOS"/>
-        <meta property="og:title" content="GrapheneOS donations"/>
-        <meta property="og:description" content="Donating to support development of GrapheneOS."/>
-        <meta property="og:type" content="website"/>
-        <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
-        <meta property="og:image:width" content="512"/>
-        <meta property="og:image:height" content="512"/>
-        <meta property="og:image:alt" content="GrapheneOS logo"/>
-        <meta property="og:site_name" content="GrapheneOS"/>
-        <meta property="og:url" content="https://grapheneos.org/donate"/>
-        <link rel="canonical" href="https://grapheneos.org/donate"/>
-        <link rel="icon" href="/favicon.ico"/>
-        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
-        <link rel="mask-icon" href="{{path|/mask-icon.svg}}" color="#1a1a1a"/>
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-        {{css|/main.css}}
-        <link rel="manifest" href="/manifest.webmanifest"/>
-        <link rel="license" href="/LICENSE.txt"/>
-        <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
-    </head>
-    <body>
-        <header>
-            <nav id="site-menu">
-                <ul>
-                    <li><a href="/"><img src="{{path|/mask-icon.svg}}" alt=""/>GrapheneOS</a></li>
-                    <li><a href="/features">Features</a></li>
-                    <li><a href="/install/">Install</a></li>
-                    <li><a href="/build">Build</a></li>
-                    <li><a href="/usage">Usage</a></li>
-                    <li><a href="/faq">FAQ</a></li>
-                    <li><a href="/releases">Releases</a></li>
-                    <li><a href="/source">Source</a></li>
-                    <li><a href="/history/">History</a></li>
-                    <li><a href="/articles/">Articles</a></li>
-                    <li aria-current="page"><a href="/donate">Donate</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main id="donate">
-            <h1><a href="#donate">Donate</a></h1>
 
-            <p>GrapheneOS is an open source project supported via donations from individuals,
-            companies and other organizations. Donations are used for paying developers,
-            purchasing hardware (workstations, test devices, debugging cables/boards, etc.),
-            paying for infrastructure (domains, virtual/dedicated servers) and paying legal
-            fees.</p>
+<head>
+    <meta charset="utf-8" />
+    <title>Donate | GrapheneOS</title>
+    <meta name="description" content="Donating to support development of GrapheneOS." />
+    <meta name="theme-color" content="#212121" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="twitter:site" content="@GrapheneOS" />
+    <meta name="twitter:creator" content="@GrapheneOS" />
+    <meta property="og:title" content="GrapheneOS donations" />
+    <meta property="og:description" content="Donating to support development of GrapheneOS." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://grapheneos.org/opengraph.png" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta property="og:image:alt" content="GrapheneOS logo" />
+    <meta property="og:site_name" content="GrapheneOS" />
+    <meta property="og:url" content="https://grapheneos.org/donate" />
+    <link rel="canonical" href="https://grapheneos.org/donate" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="mask-icon" href="{{path|/mask-icon.svg}}" color="#1a1a1a" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="stylesheet" href="./main.css" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="license" href="/LICENSE.txt" />
+    <link rel="me" href="https://grapheneos.social/@GrapheneOS" />
+</head>
 
-            <p>The multiple ways to donate are listed in the sections on this page.</p>
-
-            <nav id="table-of-contents">
-                <h2><a href="#table-of-contents">Table of contents</a></h2>
-
-                <ul>
-                    <li><a href="#github">GitHub Sponsors (credit card)</a></li>
-                    <li><a href="#bitcoin">Bitcoin</a></li>
-                    <li><a href="#monero">Monero</a></li>
-                    <li><a href="#zcash">Zcash</a></li>
-                    <li><a href="#ethereum">Ethereum</a></li>
-                    <li><a href="#cardano">Cardano</a></li>
-                    <li><a href="#paypal">PayPal</a></li>
-                    <li><a href="#e-transfer">Interac e-Transfer</a></li>
-                </ul>
-            </nav>
-
-            <section id="github">
-                <h2><a href="#github">GitHub Sponsors (credit card)</a></h2>
-
-                <p>GrapheneOS can be sponsored with recurring or one-time donations via credit
-                cards through <a href="https://github.com/sponsors/thestinger">GitHub
-                Sponsors</a>. There are standard tiers from $5 to $250 or you can donate a custom
-                amount.</p>
-            </section>
-
-            <section id="bitcoin">
-                <h2><a href="#bitcoin">Bitcoin</a></h2>
-
-                <p>You can send Bitcoin donations to the following address to support GrapheneOS:</p>
-
-                <div class="coin-address">
-                    <a href="bitcoin:bc1qy6fhm8p00p3h3w5rrcp2h2wejeeqn7x6y7xs2p?label=GrapheneOS&amp;message=Donation%20to%20GrapheneOS" rel="nofollow">
-                        <img src="/donate-bitcoin.png" alt="Bitcoin donation QR code"/>
-                        <p>bc1qy6fhm8p00p3h3w5rrcp2h2wejeeqn7x6y7xs2p</p>
-                    </a>
-                </div>
-
-                <p>Alternatively, you can donate to the following Taproot address if your wallet supports it (preferred):</p>
-
-                <div class="coin-address">
-                    <a href="bitcoin:bc1paundtwscvlqchmjgds2cj2dpay5y72ll37r07x57dhw9q234k6dqmc2ztx?label=GrapheneOS&amp;message=Donation%20to%20GrapheneOS" rel="nofollow">
-                        <img src="/donate-bitcoin-taproot.png" alt="Bitcoin Taproot donation QR code"/>
-                        <p>bc1paundtwscvlqchmjgds2cj2dpay5y72ll37r07x57dhw9q234k6dqmc2ztx</p>
-                    </a>
-                </div>
-
-                <p>Using a low fee is recommended, since the payment doesn't need to be quick. There's
-                no need to waste your money choosing a fee based on having it arrive within an hour,
-                when having it go through within a couple days is perfectly fine.</p>
-            </section>
-
-            <section id="monero">
-                <h2><a href="#monero">Monero</a></h2>
-
-                <p>You can send Monero donations to the following address to support GrapheneOS:</p>
-
-                <div class="coin-address">
-                    <a href="monero:8BHhJ3AnnZUJu4JYHasUus6Tq4HYyhiYRgrJAKNtfPc2hKMrTzbeUuf3B8ojtFMAu5MjNEDhoFQ31QLhs2z46CYDTUnuN63?recipient_name=GrapheneOS&amp;tx_description=Donation%20to%20GrapheneOS" rel="nofollow">
-                        <img src="/donate-monero.png" alt="Monero donation QR code"/>
-                        <p>8BHhJ3AnnZUJu4JYHasUus6Tq4HYyhiYRgrJAKNtfPc2hKMrTzbeUuf3B8ojtFMAu5MjNEDhoFQ31QLhs2z46CYDTUnuN63</p>
-                    </a>
-                </div>
-
-                <p>Using a low fee is recommended, since the payment doesn't need to be quick. There's
-                no need to waste your money choosing a fee based on having it arrive within an hour,
-                when having it go through within a couple days is perfectly fine.</p>
-            </section>
-
-            <section id="zcash">
-                <h2><a href="#zcash">Zcash</a></h2>
-
-                <p>A shielded address will be added as the main donation address once Trezor has
-                support for it. It's
-                <a href="https://grants.zfnd.org/proposals/1792958360-trezor-support-for-zcash-shielded-transactions">currently
-                in active development</a>.</p>
-
-                <p>You can send Zcash donations to the following transparent address to support
-                GrapheneOS:</p>
-
-                <div class="coin-address">
-                    <a href="zcash:t1dsDbZQZrEUEGanmPMTAGxY2PJowL2S4br?label=GrapheneOS&amp;message=Donation%20to%20GrapheneOS" rel="nofollow">
-                        <img src="/donate-zcash-transparent.png" alt="Transparent Zcash donation QR code"/>
-                        <p>t1dsDbZQZrEUEGanmPMTAGxY2PJowL2S4br</p>
-                    </a>
-                </div>
-            </section>
-
-            <section id="ethereum">
-                <h2><a href="#ethereum">Ethereum</a></h2>
-
-                <p>You can send Ethereum donations to the following address to support GrapheneOS:</p>
-
-                <div class="coin-address">
-                    <a href="ethereum:0xb74eD3BE17C0F2AF46AC6F15b0536d6D112D1A8c" rel="nofollow">
-                        <img src="/donate-ethereum.png" alt="Ethereum donation QR code"/>
-                        <p>0xb74eD3BE17C0F2AF46AC6F15b0536d6D112D1A8c</p>
-                    </a>
-                </div>
-
-                <p><strong>We aren't looking for donations of tokens, only Ethereum itself.</strong></p>
-            </section>
-
-            <section id="cardano">
-                <h2><a href="#cardano">Cardano</a></h2>
-
-                <p>You can send Cardano donations to the following address to support GrapheneOS:</p>
-
-                <div class="coin-address">
-                    <a href="web+cardano:addr1q9yy48cu957rgmsh7s355gm458vauqll0z56r7gehqge8sv29gwxlt6f8pavhx2hjuw6494sxny8te7lrs0c6237u9ps443gd6" rel="nofollow">
-                        <img src="/donate-cardano.png" alt="Cardano donation QR code"/>
-                        <p>addr1q9yy48cu957rgmsh7s355gm458vauqll0z56r7gehqge8sv29gwxlt6f8pavhx2hjuw6494sxny8te7lrs0c6237u9ps443gd6</p>
-                    </a>
-                </div>
-
-                <p>We own the $grapheneos handle with this address so you can also send to the handle.</p>
-
-                <p><strong>We aren't looking for donations of tokens, only Cardano itself.</strong></p>
-            </section>
-
-            <section id="paypal">
-                <h2><a href="#paypal">PayPal</a></h2>
-
-                <p>You can donate to support the project <a href="https://paypal.me/DanielMicay">via PayPal.me</a>
-                or by sending the money to daniel.micay@grapheneos.org. If you have USD, please
-                send it as USD instead of converting it to CAD. Sending a transfer with another
-                currency will be auto-converted to CAD.</p>
-
-                <p>Please mention GrapheneOS in the donation description to
-                allow for proper record keeping, since PayPal
-                <a href="https://www.paypal.com/ms/smarthelp/article/can-i-have-multiple-paypal-accounts-faq762">
-                does not allow multiple personal accounts</a>.</p>
-
-                <p>Please don't mark it as a purchase or PayPal will take a portion of it as a fee
-                and it may cause problems.</p>
-            </section>
-
-            <section id="e-transfer">
-                <h2><a href="#e-transfer">Interac e-Transfer</a></h2>
-
-                <p>If you have a Canadian bank account, you can send Canadian dollar donations via
-                Interac e-Transfer to daniel.micay@grapheneos.org. The email address has Interac
-                e-Transfer Autodeposit support enabled so no security question is necessary. If
-                your bank doesn't support Autodeposit, set the answer to the security question to
-                GrapheneOS.</p>
-            </section>
-        </main>
-        <footer>
-            <a href="/"><img src="{{path|/mask-icon.svg}}" width="512" height="512" alt=""/>GrapheneOS</a>
-            <ul id="social">
-                <li><a href="https://discuss.grapheneos.org/">Forum</a></li>
-                <li><a href="https://twitter.com/GrapheneOS">Twitter</a></li>
-                <li><a href="https://grapheneos.social/@GrapheneOS">Mastodon</a></li>
-                <li><a href="https://github.com/GrapheneOS">GitHub</a></li>
-                <li><a href="https://reddit.com/r/GrapheneOS">Reddit</a></li>
-                <li><a href="https://www.linkedin.com/company/grapheneos/">LinkedIn</a></li>
+<body>
+    <header>
+        <nav id="site-menu">
+            <ul>
+                <li><a href="/"><img src="./mask-icon.svg" alt="" />GrapheneOS</a></li>
+                <li><a href="/features">Features</a></li>
+                <li><a href="/install/">Install</a></li>
+                <li><a href="/build">Build</a></li>
+                <li><a href="/usage">Usage</a></li>
+                <li><a href="/faq">FAQ</a></li>
+                <li><a href="/releases">Releases</a></li>
+                <li><a href="/source">Source</a></li>
+                <li><a href="/history/">History</a></li>
+                <li><a href="/articles/">Articles</a></li>
+                <li aria-current="page"><a href="/donate">Donate</a></li>
+                <li><a href="/contact">Contact</a></li>
             </ul>
-        </footer>
-    </body>
+        </nav>
+    </header>
+    <h1 style="text-align: center;"><a href="#donate">Donate</a></h1>
+    <p style="text-align: center;">GrapheneOS is an open source project supported via donations from individuals,
+        companies and other organizations.</p>
+    <div class="donations" id="donate">
+        <section class="donation-card" id="github-sponsors">
+            <div class="donate-qr">
+                <img class="logo" src="./github-logo.png" alt="Bitcoin donation QR code" />
+            </div>
+            <div>
+                <h2><a href="#github-sponsors">GitHub Sponsors</a></h2>
+                <p>Recurring or one-time donations via credit cards through GitHub Sponsors.</p>
+                <a href="https://github.com/sponsors/thestinger"
+                rel="nofollow">
+                <p>github.com/sponsors/thestinger</p>
+            </a>
+            </div>
+        </section>
+        <section class="donation-card" id="paypal">
+            <div class="donate-qr">
+                <img class="logo" src="./paypal-logo.png" alt="Bitcoin donation QR code" />
+            </div>
+            <div>
+                <h2><a href="#paypal">PayPal</a></h2>
+                <p>You can send Bitcoin donations to the following address to support GrapheneOS:</p>
+                <a href="bitcoin:bc1qy6fhm8p00p3h3w5rrcp2h2wejeeqn7x6y7xs2p?label=GrapheneOS&amp;message=Donation%20to%20GrapheneOS"
+                rel="nofollow">
+                <p>bc1qy6fhm8p00p3h3w5rrcp2h2wejeeqn7x6y7xs2p</p>
+            </a>
+            </div>
+        </section>
+        <section class="donation-card" id="bitcoin">
+            <div class="donate-qr">
+                <img src="./donate-bitcoin.png" alt="Bitcoin donation QR code" />
+            </div>
+            <div>
+                <h2><a href="#bitcoin">Bitcoin</a></h2>
+                <p>You can send Bitcoin donations to the following address to support GrapheneOS:</p>
+                <a href="bitcoin:bc1qy6fhm8p00p3h3w5rrcp2h2wejeeqn7x6y7xs2p?label=GrapheneOS&amp;message=Donation%20to%20GrapheneOS"
+                rel="nofollow">
+                <p>bc1qy6fhm8p00p3h3w5rrcp2h2wejeeqn7x6y7xs2p</p>
+            </a>
+            </div>
+        </section>
+        <section class="donation-card" id="bitcoin-taproot">
+            <div class="donate-qr">
+                <img src="./donate-bitcoin.png" alt="Bitcoin donation QR code" />
+            </div>
+            <div>
+                <h2><a href="#bitcoin-taproot">Bitcoin Taproot</a></h2>
+                <p>You can send Bitcoin Taproot donations to the following address to support GrapheneOS:</p>
+                <a href="bitcoin:bc1qy6fhm8p00p3h3w5rrcp2h2wejeeqn7x6y7xs2p?label=GrapheneOS&amp;message=Donation%20to%20GrapheneOS"
+                rel="nofollow">
+                <p>bc1qy6fhm8p00p3h3w5rrcp2h2wejeeqn7x6y7xs2p</p>
+            </a>
+            </div>
+        </section>
+        <section class="donation-card" id="monero">
+            <div class="donate-qr">
+                <img src="./donate-bitcoin.png" alt="Bitcoin donation QR code" />
+            </div>
+            <div>
+                <h2><a href="#monero">Monero</a></h2>
+                <p>You can send Monero donations to the following address to support GrapheneOS:</p>
+                <a href="bitcoin:bc1qy6fhm8p00p3h3w5rrcp2h2wejeeqn7x6y7xs2p?label=GrapheneOS&amp;message=Donation%20to%20GrapheneOS"
+                rel="nofollow">
+                <p>bc1qy6fhm8p00p3h3w5rrcp2h2wejeeqn7x6y7xs2p</p>
+            </a>
+            </div>
+        </section>
+        <section class="donation-card" id="zcash">
+            <div class="donate-qr">
+                <img src="./donate-bitcoin.png" alt="Bitcoin donation QR code" />
+            </div>
+            <div>
+                <h2><a href="#zcash">Zcash</a></h2>
+                <p>You can send Zcash donations to the following address to support GrapheneOS:</p>
+                <a href="bitcoin:bc1qy6fhm8p00p3h3w5rrcp2h2wejeeqn7x6y7xs2p?label=GrapheneOS&amp;message=Donation%20to%20GrapheneOS"
+                rel="nofollow">
+                <p>bc1qy6fhm8p00p3h3w5rrcp2h2wejeeqn7x6y7xs2p</p>
+            </a>
+            </div>
+        </section>
+        <section class="donation-card" id="ethereum">
+            <div class="donate-qr">
+                <img src="./donate-bitcoin.png" alt="Bitcoin donation QR code" />
+            </div>
+            <div>
+                <h2><a href="#ethereum">Ethereum</a></h2>
+                <p>You can send Zcash donations to the following address to support GrapheneOS:</p>
+                <a href="bitcoin:bc1qy6fhm8p00p3h3w5rrcp2h2wejeeqn7x6y7xs2p?label=GrapheneOS&amp;message=Donation%20to%20GrapheneOS"
+                rel="nofollow">
+                <p>bc1qy6fhm8p00p3h3w5rrcp2h2wejeeqn7x6y7xs2p</p>
+            </a>
+            </div>
+        </section>
+        <section class="donation-card" id="cardano">
+            <div class="donate-qr">
+                <img src="./donate-bitcoin.png" alt="Bitcoin donation QR code" />
+            </div>
+            <div>
+                <h2><a href="#cardano">Cardano</a></h2>
+                <p>You can send Zcash donations to the following address to support GrapheneOS:</p>
+                <a href="bitcoin:bc1qy6fhm8p00p3h3w5rrcp2h2wejeeqn7x6y7xs2p?label=GrapheneOS&amp;message=Donation%20to%20GrapheneOS"
+                rel="nofollow">
+                <p>bc1qy6fhm8p00p3h3w5rrcp2h2wejeeqn7x6y7xs2p</p>
+            </a>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <a href="/"><img src="{{path|/mask-icon.svg}}" width="512" height="512" alt="" />GrapheneOS</a>
+        <ul id="social">
+            <li><a href="https://discuss.grapheneos.org/">Forum</a></li>
+            <li><a href="https://twitter.com/GrapheneOS">Twitter</a></li>
+            <li><a href="https://grapheneos.social/@GrapheneOS">Mastodon</a></li>
+            <li><a href="https://github.com/GrapheneOS">GitHub</a></li>
+            <li><a href="https://reddit.com/r/GrapheneOS">Reddit</a></li>
+            <li><a href="https://www.linkedin.com/company/grapheneos/">LinkedIn</a></li>
+        </ul>
+    </footer>
+</body>
+
 </html>

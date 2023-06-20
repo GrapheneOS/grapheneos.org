@@ -208,6 +208,49 @@ button:disabled {
     border-radius: 16px;
 }
 
+div.donate-qr {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+div.donate-qr img {
+    image-rendering: pixelated;
+    width: 150px;
+    height: 150px;
+    margin-right: 1em;
+    border-radius: 16px;
+}
+
+div.donate-qr img.logo {
+    image-rendering: pixelated;
+    width: 100px;
+    height: 100px;
+    border-radius: 16px;
+    margin: 1em 2em;
+}
+
+div.donations {
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+    width: 90vw;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1em;
+    row-gap: 1em;
+}
+
+section.donation-card {
+    width: auto;
+    display: grid;
+    padding: 1em;
+    grid-template-columns: 0.25fr 0.75fr;
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0px 2px 22px -18px rgba(0,0,0,0.75);
+}
+
 footer img {
     width: 60px;
     height: auto;
