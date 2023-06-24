@@ -66,9 +66,7 @@ channels=(stable beta)
 for device in ${devices[@]}; do
     for channel in ${channels[@]}; do
         metadata=$(curl -s $RELEASES_BASE/$device-$channel)
-        build_id=$(echo -n $metadata | cut -d ' ' -f 3)
         build_number=$(echo -n $metadata | cut -d ' ' -f 1)
-        replace+=";s@{{$device-$channel-BUILD_ID}}@$build_id@g"
         replace+=";s@{{$device-$channel-BUILD_NUMBER}}@$build_number@g"
     done
 done

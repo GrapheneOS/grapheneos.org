@@ -1,7 +1,6 @@
 // @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt MIT
 
 const baseUrl = "https://releases.grapheneos.org/";
-const versionBaseUrl = "https://github.com/GrapheneOS/platform_manifest/releases/tag/";
 const devices = ["tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble", "sunfish", "coral", "flame"];
 const channels = ["stable", "beta"];
 const delayMs = 1000 * 60 * 5;
@@ -30,12 +29,10 @@ async function updateReleases() {
                 const updateFilename = device + "-ota_update-" + metadata[0] + ".zip";
                 const updateUrl = baseUrl + updateFilename;
 
-                const tag = metadata[2] + "." + metadata[0];
-
                 const release = document.getElementById(device + "-" + channel);
                 const links = release.getElementsByTagName("a");
 
-                updateLink(links[1], tag, versionBaseUrl + tag);
+                updateLink(links[1], metadata[0], "#" + metadata[0]);
                 updateLink(links[2], factoryFilename, factoryUrl);
                 updateLink(links[3], factoryFilename + ".sig", factoryUrl + ".sig");
                 updateLink(links[4], updateFilename, updateUrl);
