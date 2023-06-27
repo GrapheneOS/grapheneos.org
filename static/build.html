@@ -148,6 +148,7 @@
                     <p>Smartphone and tablet targets:</p>
 
                     <ul>
+                        <li>felix (Pixel Fold)</li>
                         <li>tangorpro (Pixel Tablet)</li>
                         <li>lynx (Pixel 7a)</li>
                         <li>cheetah (Pixel 7 Pro)</li>
@@ -318,6 +319,10 @@
 
                         <p>The <code>13-tangorpro</code> branch is used for the newly launched
                         Pixel Tablet since there hasn't been a quarterly or yearly release to
+                        merge in support for it yet.</p>
+
+                        <p>The <code>13-felix</code> branch is used for the newly launched
+                        Pixel Fold since there hasn't been a quarterly or yearly release to
                         merge in support for it yet.</p>
 
                         <p>The <code>13-coral</code> branch is used for the end-of-life Pixel 4
@@ -897,6 +902,21 @@ repo sync -j8</pre>
 
                         <p>Replace the files in the OS source tree at
                         <code>device/google/tangorpro-kernel/</code> with your build in
+                        <code>out/mixed/dist/</code>.</p>
+
+                        <p>To sync the felix kernel for the Pixel Fold:</p>
+
+                        <pre>mkdir -p android/kernel/felix
+cd android/kernel/felix
+repo init -u https://github.com/GrapheneOS/kernel_manifest-felix.git -b 13-felix
+repo sync -j8</pre>
+
+                        <p>To build the felix kernel for the Pixel Fold:</p>
+
+                        <pre>LTO=full BUILD_AOSP_KERNEL=1 ./build_felix.sh</pre>
+
+                        <p>Replace the files in the OS source tree at
+                        <code>device/google/felix-kernel/</code> with your build in
                         <code>out/mixed/dist/</code>.</p>
                     </section>
                 </section>
