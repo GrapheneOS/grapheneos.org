@@ -11,7 +11,7 @@ fi
 
 ./process-static $fd
 
-servers=({0..2}.grapheneos.org)
+servers=({0..3}.grapheneos.org)
 
 for server in ${servers[@]}; do
     echo $server
