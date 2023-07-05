@@ -99,10 +99,10 @@
                                 <a href="#kernel">Kernel</a>
                                 <ul>
                                     <li><a href="#kernel-emulator">Emulator</a></li>
-                                    <li><a href="#kernel-4th-generation-pixels">4th generation Pixels</a></li>
-                                    <li><a href="#kernel-5th-generation-pixels">5th generation Pixels</a></li>
-                                    <li><a href="#kernel-6th-generation-pixels">6th generation Pixels</a></li>
                                     <li><a href="#kernel-7th-generation-pixels">7th generation Pixels</a></li>
+                                    <li><a href="#kernel-6th-generation-pixels">6th generation Pixels</a></li>
+                                    <li><a href="#kernel-5th-generation-pixels">5th generation Pixels</a></li>
+                                    <li><a href="#kernel-4th-generation-pixels">4th generation Pixels</a></li>
                                 </ul>
                             </li>
                             <li><a href="#browser-and-webview">Browser and WebView</a></li>
@@ -771,80 +771,6 @@ cp out-vendor-modules/android13-5.10/dist/*.ko $ANDROID_BUILD_TOP/kernel/prebuil
                         <code>device/generic/goldfish/x86_64-kernel.mk</code>.</p>
                     </section>
 
-                    <section id="kernel-4th-generation-pixels">
-                        <h4><a href="#kernel-4th-generation-pixels">4th generation Pixels</a></h4>
-
-                        <pre>mkdir -p android/kernel/coral
-cd android/kernel/coral
-repo init -u https://github.com/GrapheneOS/kernel_manifest-coral.git -b 13
-repo sync -j8</pre>
-
-                        <p>To build the coral kernel for the Pixel 4 and Pixel 4 XL:</p>
-
-                        <pre>KBUILD_BUILD_VERSION=1 KBUILD_BUILD_USER=build-user KBUILD_BUILD_HOST=build-host KBUILD_BUILD_TIMESTAMP="Thu 01 Jan 1970 12:00:00 AM UTC" BUILD_CONFIG=private/msm-google/build.config.floral build/build.sh</pre>
-
-                        <p>To build the sunfish kernel for the Pixel 4a:</p>
-
-                        <pre>KBUILD_BUILD_VERSION=1 KBUILD_BUILD_USER=build-user KBUILD_BUILD_HOST=build-host KBUILD_BUILD_TIMESTAMP="Thu 01 Jan 1970 12:00:00 AM UTC" BUILD_CONFIG=private/msm-google/build.config.sunfish build/build.sh</pre>
-
-                        <p>Replace the files in the OS source tree at
-                        <code>device/google/coral-kernel/</code> or
-                        <code>device/google/sunfish-kernel/</code> with your build in
-                        <code>out/android-msm-pixel-4.14/dist/</code>.</p>
-                    </section>
-
-                    <section id="kernel-5th-generation-pixels">
-                        <h4><a href="#kernel-5th-generation-pixels">5th generation Pixels</a></h4>
-
-                        <p>For 5th generation Pixels:</p>
-
-                        <pre>mkdir -p android/kernel/redbull
-cd android/kernel/redbull
-repo init -u https://github.com/GrapheneOS/kernel_manifest-redbull.git -b 13
-repo sync -j8</pre>
-
-                        <p>To build the redbull kernel for the Pixel 4a (5G), Pixel 5 and Pixel 5a
-                        kernel:</p>
-
-                        <pre>BUILD_CONFIG=private/msm-google/build.config.redbull.vintf build/build.sh</pre>
-
-                        <p>Replace the files in the OS source tree at
-                        <code>device/google/redbull-kernel/</code> (userdebug/eng) and
-                        <code>device/google/redbull-kernel/vintf/</code> (user) with your build in
-                        <code>out/android-msm-pixel-4.19/dist/</code>.</p>
-                    </section>
-
-                    <section id="kernel-6th-generation-pixels">
-                        <h4><a href="#kernel-6th-generation-pixels">6th generation Pixels</a></h4>
-
-                        <p>To sync the raviole kernel for the Pixel 6 and Pixel 6 Pro:</p>
-
-                        <pre>mkdir -p android/kernel/raviole
-cd android/kernel/raviole
-repo init -u https://github.com/GrapheneOS/kernel_manifest-raviole.git -b 13
-repo sync -j8</pre>
-
-                        <p>To sync the bluejay kernel for the Pixel 6a:</p>
-
-                        <pre>mkdir -p android/kernel/bluejay
-cd android/kernel/bluejay
-repo init -u https://github.com/GrapheneOS/kernel_manifest-bluejay.git -b 13
-repo sync -j8</pre>
-
-                        <p>To build the raviole kernel for the Pixel 6 and Pixel 6 Pro:</p>
-
-                        <pre>LTO=full BUILD_AOSP_KERNEL=1 ./build_slider.sh</pre>
-
-                        <p>To build the bluejay kernel for the Pixel 6a:</p>
-
-                        <pre>LTO=full BUILD_AOSP_KERNEL=1 ./build_bluejay.sh</pre>
-
-                        <p>Replace the files in the OS source tree at
-                        <code>device/google/raviole-kernel/</code> or
-                        <code>device/google/bluejay-kernel/</code> with your build in
-                        <code>out/mixed/dist/</code>.</p>
-                    </section>
-
                     <section id="kernel-7th-generation-pixels">
                         <h4><a href="#kernel-7th-generation-pixels">7th generation Pixels</a></h4>
 
@@ -907,6 +833,80 @@ repo sync -j8</pre>
                         <p>Replace the files in the OS source tree at
                         <code>device/google/felix-kernel/</code> with your build in
                         <code>out/mixed/dist/</code>.</p>
+                    </section>
+
+                    <section id="kernel-6th-generation-pixels">
+                        <h4><a href="#kernel-6th-generation-pixels">6th generation Pixels</a></h4>
+
+                        <p>To sync the raviole kernel for the Pixel 6 and Pixel 6 Pro:</p>
+
+                        <pre>mkdir -p android/kernel/raviole
+cd android/kernel/raviole
+repo init -u https://github.com/GrapheneOS/kernel_manifest-raviole.git -b 13
+repo sync -j8</pre>
+
+                        <p>To sync the bluejay kernel for the Pixel 6a:</p>
+
+                        <pre>mkdir -p android/kernel/bluejay
+cd android/kernel/bluejay
+repo init -u https://github.com/GrapheneOS/kernel_manifest-bluejay.git -b 13
+repo sync -j8</pre>
+
+                        <p>To build the raviole kernel for the Pixel 6 and Pixel 6 Pro:</p>
+
+                        <pre>LTO=full BUILD_AOSP_KERNEL=1 ./build_slider.sh</pre>
+
+                        <p>To build the bluejay kernel for the Pixel 6a:</p>
+
+                        <pre>LTO=full BUILD_AOSP_KERNEL=1 ./build_bluejay.sh</pre>
+
+                        <p>Replace the files in the OS source tree at
+                        <code>device/google/raviole-kernel/</code> or
+                        <code>device/google/bluejay-kernel/</code> with your build in
+                        <code>out/mixed/dist/</code>.</p>
+                    </section>
+
+                    <section id="kernel-5th-generation-pixels">
+                        <h4><a href="#kernel-5th-generation-pixels">5th generation Pixels</a></h4>
+
+                        <p>For 5th generation Pixels:</p>
+
+                        <pre>mkdir -p android/kernel/redbull
+cd android/kernel/redbull
+repo init -u https://github.com/GrapheneOS/kernel_manifest-redbull.git -b 13
+repo sync -j8</pre>
+
+                        <p>To build the redbull kernel for the Pixel 4a (5G), Pixel 5 and Pixel 5a
+                        kernel:</p>
+
+                        <pre>BUILD_CONFIG=private/msm-google/build.config.redbull.vintf build/build.sh</pre>
+
+                        <p>Replace the files in the OS source tree at
+                        <code>device/google/redbull-kernel/</code> (userdebug/eng) and
+                        <code>device/google/redbull-kernel/vintf/</code> (user) with your build in
+                        <code>out/android-msm-pixel-4.19/dist/</code>.</p>
+                    </section>
+
+                    <section id="kernel-4th-generation-pixels">
+                        <h4><a href="#kernel-4th-generation-pixels">4th generation Pixels</a></h4>
+
+                        <pre>mkdir -p android/kernel/coral
+cd android/kernel/coral
+repo init -u https://github.com/GrapheneOS/kernel_manifest-coral.git -b 13
+repo sync -j8</pre>
+
+                        <p>To build the coral kernel for the Pixel 4 and Pixel 4 XL:</p>
+
+                        <pre>KBUILD_BUILD_VERSION=1 KBUILD_BUILD_USER=build-user KBUILD_BUILD_HOST=build-host KBUILD_BUILD_TIMESTAMP="Thu 01 Jan 1970 12:00:00 AM UTC" BUILD_CONFIG=private/msm-google/build.config.floral build/build.sh</pre>
+
+                        <p>To build the sunfish kernel for the Pixel 4a:</p>
+
+                        <pre>KBUILD_BUILD_VERSION=1 KBUILD_BUILD_USER=build-user KBUILD_BUILD_HOST=build-host KBUILD_BUILD_TIMESTAMP="Thu 01 Jan 1970 12:00:00 AM UTC" BUILD_CONFIG=private/msm-google/build.config.sunfish build/build.sh</pre>
+
+                        <p>Replace the files in the OS source tree at
+                        <code>device/google/coral-kernel/</code> or
+                        <code>device/google/sunfish-kernel/</code> with your build in
+                        <code>out/android-msm-pixel-4.14/dist/</code>.</p>
                     </section>
                 </section>
 
