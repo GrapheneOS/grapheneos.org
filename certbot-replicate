@@ -10,6 +10,6 @@ for replica in ${replicas[@]}; do
     echo
 
     rsync -rptvl --fsync --delete /etc/letsencrypt/ $replica:/etc/letsencrypt
-    rsync -rptvl --fsync --delete /etc/nginx/ocsp-cache/ $replica:/etc/nginx/ocsp-cache
+    rsync -rptvl --fsync --delete /var/cache/certbot-ocsp-fetcher/ $replica:/var/cache/certbot-ocsp-fetcher
     ssh root@$replica nginx -s reload
 done
