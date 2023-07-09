@@ -13,6 +13,9 @@ fi
 
 servers=({0..3}.grapheneos.org)
 
+rsync -ptcv --fsync --chmod=F755 certbot-replicate root@${servers[0]}:/usr/local/bin/
+rsync -ptcv --fsync --chmod=F644 replicate.conf root@${servers[0]}:/etc/systemd/system/certbot-renew.service.d/
+
 for server in ${servers[@]}; do
     echo $server
 
