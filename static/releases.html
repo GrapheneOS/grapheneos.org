@@ -674,6 +674,9 @@
                         <li>do not allow enabling eSIM activation app on first boot due to issues from not including the Google Setup Wizard</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Generic 5.10): update to latest GKI LTS branch revision including update to 5.10.186</li>
                         <li>SELinux policy: allow OemRilHookService to access IOemSlsiRadioExternal hwservice in order to avoid occasional battery drain from retries</li>
+                        <li>Sandboxed Google Play compatibility layer: handle location rerouting inside the app using the Google Play location service to have the location permission usage and battery consumption properly attributed among other improvements</li>
+                        <li>Sandboxed Google Play compatibility layer: notify user when "Nearby devices" perm is needed to connect to Wear OS</li>
+                        <li>Sandboxed Google Play compatibility layer: show name of calling app in "Missing Play Games app" notification</li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-62">version 62</a></li>
                     </ul>
                 </article>
