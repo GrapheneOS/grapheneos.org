@@ -31,6 +31,8 @@ cp -a nginx nginx-tmp
 rm -rf static-tmp
 cp -a static static-tmp
 
+python3 process-templates.py static-tmp
+
 for file in static-tmp/**/*.@(json|webmanifest); do
     json_verify < "$file" >/dev/null
     json_reformat -m < "$file" | sponge "$file"
