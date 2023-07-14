@@ -452,3 +452,8 @@ main.normalize {
         color: #ffb4ab;
     }
 }
+
+.text-danger {
+  color: red;
+  font-weight: bold;
+}
