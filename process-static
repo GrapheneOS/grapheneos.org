@@ -86,7 +86,7 @@ find static-tmp -name '*.html' -exec html-minifier-terser --collapse-whitespace 
     --remove-redundant-attributes --remove-script-type-attributes \
     --remove-style-link-type-attributes --sort-attributes --sort-class-name {} -o {} \;
 
-./generate-feed.py
+./generate-feed
 
 for file in static-tmp/**/*.@(atom|xml); do
     xmllint --noblanks "$file" --output "$file"
