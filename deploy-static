@@ -36,10 +36,8 @@ for server in ${servers[@]}; do
     rsync -rptcv --fsync --chmod=D755,F644 --delete static-tmp/ $remote:$target
     ssh $remote "ln -snf $target /srv/grapheneos.org && sync /srv/grapheneos.org"
 
-    sed "s|/srv/grapheneos.org|$target|" nginx-tmp/nginx.conf > nginx-tmp/nginx.conf.root
-    rsync -rptcv --fsync --chmod=D755,F644 --delete nginx-tmp/nginx.conf.root $remote:/etc/nginx/nginx.conf
-    rsync -rptcv --fsync --chmod=D755,F644 --delete nginx-tmp/mime.types $remote:/etc/nginx/mime.types
-    rsync -rptcv --fsync --chmod=D755,F644 --delete nginx-tmp/snippets/ $remote:/etc/nginx/snippets
+    echo "root $target;" > nginx-tmp/root_grapheneos.org.conf
+    rsync -rptcv --fsync --chmod=D755,F644 --delete nginx-tmp/{nginx.conf,mime.types,root_grapheneos.org.conf,snippets} $remote:/etc/nginx/
     ssh $remote nginx -s reload
 
     echo
