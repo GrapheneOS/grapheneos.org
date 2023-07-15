@@ -205,7 +205,7 @@
                 <p>You need an updated copy of the <code>fastboot</code> tool and the
                 directory containing it needs to be included in the <code>PATH</code>
                 environment variable. You can run <code>fastboot --version</code> to determine
-                the current version. It must be at least <code>33.0.3</code>. You can use a
+                the current version. It must be at least <code>34.0.4</code>. You can use a
                 distribution package for this, but most of them mistakenly package development
                 snapshots of fastboot, clobber the standard version scheme for platform-tools
                 (adb, fastboot, etc.) with their own scheme and don't keep it up-to-date
@@ -234,21 +234,21 @@
                     Ubuntu:</p>
 
                     <pre>sudo apt install libarchive-tools
-curl -O https://dl.google.com/android/repository/platform-tools_r33.0.3-linux.zip
-echo 'ab885c20f1a9cb528eb145b9208f53540efa3d26258ac3ce4363570a0846f8f7  platform-tools_r33.0.3-linux.zip' | sha256sum -c
-bsdtar xvf platform-tools_r33.0.3-linux.zip</pre>
+curl -O https://dl.google.com/android/repository/platform-tools_r34.0.4-linux.zip
+echo 'f2eee6e8220f3dfde6e1acc93c5b25d3d8bd215c0b03585b21665f1ea30d66ba  platform-tools_r34.0.4-linux.zip' | sha256sum -c
+bsdtar xvf platform-tools_r34.0.4-linux.zip</pre>
 
                     <p>To download, verify and extract the standalone platform-tools on macOS:</p>
 
-                    <pre>curl -O https://dl.google.com/android/repository/platform-tools_r33.0.3-darwin.zip
-echo 'SHA256 (platform-tools_r33.0.3-darwin.zip) = 84acbbd2b2ccef159ae3e6f83137e44ad18388ff3cc66bb057c87d761744e595' | shasum -c
-tar xvf platform-tools_r33.0.3-darwin.zip</pre>
+                    <pre>curl -O https://dl.google.com/android/repository/platform-tools_r34.0.4-darwin.zip
+echo 'SHA256 (platform-tools_r34.0.4-darwin.zip) = bd09b834c150181a383deba63e157e9a53a6eb5a9cf4849b2b79dd89d0a2ddf1' | shasum -c
+tar xvf platform-tools_r34.0.4-darwin.zip</pre>
 
                     <p>To download, verify and extract the standalone platform-tools on Windows:</p>
 
-                    <pre>curl -O https://dl.google.com/android/repository/platform-tools_r33.0.3-windows.zip
-(Get-FileHash platform-tools_r33.0.3-windows.zip).hash -eq "1e59afd40a74c5c0eab0a9fad3f0faf8a674267106e0b19921be9f67081808c2"
-tar xvf platform-tools_r33.0.3-windows.zip</pre>
+                    <pre>curl -O https://dl.google.com/android/repository/platform-tools_r34.0.4-windows.zip
+(Get-FileHash platform-tools_r34.0.4-windows.zip).hash -eq "0938352ecc4952222c1fefe3845c4574fdeaa6228bf9dbe17716090f02cc3893"
+tar xvf platform-tools_r34.0.4-windows.zip</pre>
 
                     <p>Next, add the tools to your <code>PATH</code> in the current shell so they can be
                     used without referencing them by file path, enabling usage by the flashing script.</p>
@@ -274,7 +274,7 @@ tar xvf platform-tools_r33.0.3-windows.zip</pre>
                 <p>Example of the output after following the instructions above for the
                 standalone platform-tools:</p>
 
-                <pre>fastboot version 33.0.3-8952118
+                <pre>fastboot version 34.0.4-10411341
 Installed as /home/username/platform-tools/fastboot</pre>
             </section>
 
