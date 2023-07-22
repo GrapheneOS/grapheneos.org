@@ -255,9 +255,11 @@ div.page-description p {
     div.donations {
         grid-template-columns: 1fr;
     }
+
     div.donate-qr img {
-        margin-right: 0em;
+        margin-right: 0;
     }
+
     div.page-description p {
         width: 85vw;
     }
@@ -270,7 +272,7 @@ section.donation-card {
     grid-template-columns: 0.25fr 0.75fr;
     background-color: #fff;
     border-radius: 16px;
-    box-shadow: 0px 2px 22px -18px rgba(0,0,0,0.75);
+    box-shadow: 0 2px 22px -18px rgb(0 0 0 / 75%);
 }
 
 @media (max-width: 600px) {
@@ -303,6 +305,7 @@ section.donation-card a {
         max-width: 80%;
         margin: 0.5em auto;
     }
+
     section.donation-card a {
         max-width: 80%;
         overflow-wrap: break-word;
@@ -547,8 +550,6 @@ main.normalize {
 
     section.donation-card {
         background-color: #212121;
-        border-radius: 16px;
-        box-shadow: 0px 2px 22px -18px rgba(0,0,0,0.75);
     }
 
     .surface {
