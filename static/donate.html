@@ -1,56 +1,38 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
     <head>
-        <meta charset="utf-8" />
+        <meta charset="utf-8"/>
         <title>Donate | GrapheneOS</title>
-        <meta name="description" content="Donating to support development of GrapheneOS." />
-        <meta name="theme-color" content="#212121" />
-        <meta name="color-scheme" content="dark light" />
-        <meta name="msapplication-TileColor" content="#ffffff" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="twitter:site" content="@GrapheneOS" />
-        <meta name="twitter:creator" content="@GrapheneOS" />
-        <meta property="og:title" content="GrapheneOS donations" />
-        <meta property="og:description" content="Donating to support development of GrapheneOS." />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://grapheneos.org/opengraph.png" />
-        <meta property="og:image:width" content="512" />
-        <meta property="og:image:height" content="512" />
-        <meta property="og:image:alt" content="GrapheneOS logo" />
-        <meta property="og:site_name" content="GrapheneOS" />
-        <meta property="og:url" content="https://grapheneos.org/donate" />
-        <link rel="canonical" href="https://grapheneos.org/donate" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <meta name="description" content="Donating to support development of GrapheneOS."/>
+        <meta name="theme-color" content="#212121"/>
+        <meta name="color-scheme" content="dark light"/>
+        <meta name="msapplication-TileColor" content="#ffffff"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="twitter:site" content="@GrapheneOS"/>
+        <meta name="twitter:creator" content="@GrapheneOS"/>
+        <meta property="og:title" content="GrapheneOS donations"/>
+        <meta property="og:description" content="Donating to support development of GrapheneOS."/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
+        <meta property="og:image:width" content="512"/>
+        <meta property="og:image:height" content="512"/>
+        <meta property="og:image:alt" content="GrapheneOS logo"/>
+        <meta property="og:site_name" content="GrapheneOS"/>
+        <meta property="og:url" content="https://grapheneos.org/donate"/>
+        <link rel="canonical" href="https://grapheneos.org/donate"/>
+        <link rel="icon" href="/favicon.ico"/>
+        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
+        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
         [[css|/main.css]]
-        <link rel="manifest" href="/manifest.webmanifest" />
-        <link rel="license" href="/LICENSE.txt" />
-        <link rel="me" href="https://grapheneos.social/@GrapheneOS" />
+        <link rel="manifest" href="/manifest.webmanifest"/>
+        <link rel="license" href="/LICENSE.txt"/>
+        <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
     </head>
     <body>
         {% with current_page="donate" %}
             {% include "header.html" %}
         {% endwith %}
-        <header>
-            <nav id="site-menu">
-                <ul>
-                    <li><a href="/"><img src="./mask-icon.svg" alt="" />GrapheneOS</a></li>
-                    <li><a href="/features">Features</a></li>
-                    <li><a href="/install/">Install</a></li>
-                    <li><a href="/build">Build</a></li>
-                    <li><a href="/usage">Usage</a></li>
-                    <li><a href="/faq">FAQ</a></li>
-                    <li><a href="/releases">Releases</a></li>
-                    <li><a href="/source">Source</a></li>
-                    <li><a href="/history/">History</a></li>
-                    <li><a href="/articles/">Articles</a></li>
-                    <li aria-current="page"><a href="/donate">Donate</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
         <div class="page-title">
             <h1 class="page-title">Donate</h1>
         </div>
@@ -63,7 +45,7 @@
         <div class="donations" id="donate">
             <section class="donation-card" id="github-sponsors">
                 <div class="donate-qr">
-                    <img class="logo" src="./github-logo.png" alt="GitHub logo" />
+                    <img class="logo" src="./github-logo.png" alt="GitHub logo"/>
                 </div>
                 <div>
                     <h2><a href="#github-sponsors">GitHub Sponsors</a></h2>
@@ -73,9 +55,10 @@
                     </a>
                 </div>
             </section>
+
             <section class="donation-card" id="paypal">
                 <div class="donate-qr">
-                    <img class="logo" src="./paypal-logo.png" alt="PayPal Logo" />
+                    <img class="logo" src="./paypal-logo.png" alt="PayPal Logo"/>
                 </div>
                 <div>
                     <h2><a href="#paypal">PayPal</a></h2>
@@ -95,9 +78,10 @@
                     </a>
                 </div>
             </section>
+
             <section class="donation-card" id="interac">
                 <div class="donate-qr">
-                    <img class="logo" src="./interac-logo.png" alt="Interac logo" />
+                    <img class="logo" src="./interac-logo.png" alt="Interac logo"/>
                 </div>
                 <div>
                     <h2><a href="#paypal">Interac e-Transfer</a></h2>
@@ -107,9 +91,10 @@
                     </a>
                 </div>
             </section>
+
             <section class="donation-card" id="bitcoin">
                 <div class="donate-qr">
-                    <img class="qr" src="./donate-bitcoin.png" alt="Bitcoin donation QR code" />
+                    <img class="qr" src="./donate-bitcoin.png" alt="Bitcoin donation QR code"/>
                 </div>
                 <div>
                     <h2><a href="#bitcoin">Bitcoin</a></h2>
@@ -120,9 +105,10 @@
                     </a>
                 </div>
             </section>
+
             <section class="donation-card" id="bitcoin-taproot">
                 <div class="donate-qr">
-                    <img class="qr" src="./donate-bitcoin-taproot.png" alt="Bitcoin Taproot donation QR code" />
+                    <img class="qr" src="./donate-bitcoin-taproot.png" alt="Bitcoin Taproot donation QR code"/>
                 </div>
                 <div>
                     <h2><a href="#bitcoin-taproot">Bitcoin Taproot</a></h2>
@@ -133,9 +119,10 @@
                     </a>
                 </div>
             </section>
+
             <section class="donation-card" id="monero">
                 <div class="donate-qr">
-                    <img class="qr" src="./donate-monero.png" alt="Monero donation QR code" />
+                    <img class="qr" src="./donate-monero.png" alt="Monero donation QR code"/>
                 </div>
                 <div>
                     <h2><a href="#monero">Monero</a></h2>
@@ -146,9 +133,10 @@
                     </a>
                 </div>
             </section>
+
             <section class="donation-card" id="zcash">
                 <div class="donate-qr">
-                    <img class="qr" src="./donate-zcash-transparent.png" alt="Zcash donation QR code" />
+                    <img class="qr" src="./donate-zcash-transparent.png" alt="Zcash donation QR code"/>
                 </div>
                 <div>
                     <h2><a href="#zcash">Zcash</a></h2>
@@ -159,9 +147,10 @@
                     </a>
                 </div>
             </section>
+
             <section class="donation-card" id="ethereum">
                 <div class="donate-qr">
-                    <img class="qr" src="./donate-ethereum.png" alt="Ethereum donation QR code" />
+                    <img class="qr" src="./donate-ethereum.png" alt="Ethereum donation QR code"/>
                 </div>
                 <div>
                     <h2><a href="#ethereum">Ethereum</a></h2>
@@ -171,9 +160,10 @@
                     </a>
                 </div>
             </section>
+            
             <section class="donation-card" id="cardano">
                 <div class="donate-qr">
-                    <img class="qr" src="./donate-cardano.png" alt="Cardano donation QR code" />
+                    <img class="qr" src="./donate-cardano.png" alt="Cardano donation QR code"/>
                 </div>
                 <div>
                     <h2><a href="#cardano">Cardano</a></h2>
