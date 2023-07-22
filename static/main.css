@@ -44,10 +44,6 @@ h1 {
     letter-spacing: 0;
 }
 
-h1.page-title {
-    margin-bottom: 0em;
-}
-
 h2 {
     /* Headline small */
     font-size: 1.5rem;
@@ -240,8 +236,19 @@ div.donations {
     row-gap: 1em;
 }
 
-div.page-title {
+div.page-title h1{
     text-align: center;
+    margin-bottom: 0.5em;
+}
+
+div.page-description {
+    text-align: center;
+}
+
+div.page-description p {
+    margin: 0 auto;
+    width: 50vw;
+    margin-bottom: 0.5em;
 }
 
 @media (max-width: 600px) {
