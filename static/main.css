@@ -258,6 +258,9 @@ div.page-description p {
     div.donate-qr img {
         margin-right: 0em;
     }
+    div.page-description p {
+        width: 85vw;
+    }
 }
 
 section.donation-card {
