@@ -22,32 +22,17 @@
         <link rel="canonical" href="https://grapheneos.org/source"/>
         <link rel="icon" href="/favicon.ico"/>
         <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
-        <link rel="mask-icon" href="{{path|/mask-icon.svg}}" color="#1a1a1a"/>
+        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
         <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-        {{css|/main.css}}
+        [[css|/main.css]]
         <link rel="manifest" href="/manifest.webmanifest"/>
         <link rel="license" href="/LICENSE.txt"/>
         <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
     </head>
     <body>
-        <header>
-            <nav id="site-menu">
-                <ul>
-                    <li><a href="/"><img src="{{path|/mask-icon.svg}}" alt=""/>GrapheneOS</a></li>
-                    <li><a href="/features">Features</a></li>
-                    <li><a href="/install/">Install</a></li>
-                    <li><a href="/build">Build</a></li>
-                    <li><a href="/usage">Usage</a></li>
-                    <li><a href="/faq">FAQ</a></li>
-                    <li><a href="/releases">Releases</a></li>
-                    <li aria-current="page"><a href="/source">Source</a></li>
-                    <li><a href="/history/">History</a></li>
-                    <li><a href="/articles/">Articles</a></li>
-                    <li><a href="/donate">Donate</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
+        {% with current_page="source" %}
+            {% include "header.html" %}
+        {% endwith %}
         <main id="source">
             <h1><a href="#source">Source code</a></h1>
 
@@ -105,6 +90,7 @@
                     <li><a href="https://github.com/GrapheneOS/device_google_bramble">device_google_bramble</a></li>
                     <li><a href="https://github.com/GrapheneOS/device_google_coral">device_google_coral</a></li>
                     <li><a href="https://github.com/GrapheneOS/device_google_coral-sepolicy">device_google_coral-sepolicy</a></li>
+                    <li><a href="https://github.com/GrapheneOS/device_google_felix">device_google_felix</a></li>
                     <li><a href="https://github.com/GrapheneOS/device_google_gs-common">device_google_gs-common</a></li>
                     <li><a href="https://github.com/GrapheneOS/device_google_gs101">device_google_gs101</a></li>
                     <li><a href="https://github.com/GrapheneOS/device_google_gs101-sepolicy">device_google_gs101-sepolicy</a></li>
@@ -117,6 +103,7 @@
                     <li><a href="https://github.com/GrapheneOS/device_google_redfin">device_google_redfin</a></li>
                     <li><a href="https://github.com/GrapheneOS/device_google_sunfish">device_google_sunfish</a></li>
                     <li><a href="https://github.com/GrapheneOS/device_google_sunfish-sepolicy">device_google_sunfish-sepolicy</a></li>
+                    <li><a href="https://github.com/GrapheneOS/device_google_tangorpro">device_google_tangorpro</a></li>
                     <li><a href="https://github.com/GrapheneOS/kernel_configs">kernel_configs</a></li>
                     <li><a href="https://github.com/GrapheneOS/platform_art">platform_art</a></li>
                     <li><a href="https://github.com/GrapheneOS/platform_bionic">platform_bionic</a></li>
@@ -184,6 +171,8 @@
                     <li><a href="https://github.com/GrapheneOS/device_google_bluejay-kernel">device_google_bluejay-kernel</a>: Pixel 6a kernel prebuilts.</li>
                     <li><a href="https://github.com/GrapheneOS/device_google_pantah-kernel">device_google_pantah-kernel</a>: Pixel 7 and Pixel 7 Pro kernel prebuilts.</li>
                     <li><a href="https://github.com/GrapheneOS/device_google_lynx-kernel">device_google_lynx-kernel</a>: Pixel 7a kernel prebuilts.</li>
+                    <li><a href="https://github.com/GrapheneOS/device_google_tangorpro-kernel">device_google_tangorpro-kernel</a>: Pixel Tablet kernel prebuilts.</li>
+                    <li><a href="https://github.com/GrapheneOS/device_google_felix-kernel">device_google_felix-kernel</a>: Pixel Fold kernel prebuilts.</li>
                 </ul>
 
                 <p>GrapheneOS forks of AOSP kernel repositories:</p>
@@ -213,6 +202,8 @@
                     <li><a href="https://github.com/GrapheneOS/kernel_google-modules_wlan_bcmdhd_bcm4389-gs">kernel_google-modules_wlan_bcmdhd_bcm4389-gs</a>: Kernel Wi-Fi/Bluetooth driver for the Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7 and Pixel 7 Pro.</li>
                     <li><a href="https://github.com/GrapheneOS/kernel_manifest-pantah">kernel_manifest-pantah</a>: Kernel manifest for the Pixel 7 and Pixel 7 Pro.</li>
                     <li><a href="https://github.com/GrapheneOS/kernel_manifest-lynx">kernel_manifest-lynx</a>: Kernel manifest for the Pixel 7a.</li>
+                    <li><a href="https://github.com/GrapheneOS/kernel_manifest-tangorpro">kernel_manifest-tangorpro</a>: Kernel manifest for the Pixel Tablet.</li>
+                    <li><a href="https://github.com/GrapheneOS/kernel_manifest-felix">kernel_manifest-felix</a>: Kernel manifest for the Pixel Fold.</li>
                 </ul>
 
                 <p>Repositories added by GrapheneOS:</p>
@@ -296,16 +287,6 @@
                 the project.</p>
             </section>
         </main>
-        <footer>
-            <a href="/"><img src="{{path|/mask-icon.svg}}" width="512" height="512" alt=""/>GrapheneOS</a>
-            <ul id="social">
-                <li><a href="https://discuss.grapheneos.org/">Forum</a></li>
-                <li><a href="https://twitter.com/GrapheneOS">Twitter</a></li>
-                <li><a href="https://grapheneos.social/@GrapheneOS">Mastodon</a></li>
-                <li><a href="https://github.com/GrapheneOS">GitHub</a></li>
-                <li><a href="https://reddit.com/r/GrapheneOS">Reddit</a></li>
-                <li><a href="https://www.linkedin.com/company/grapheneos/">LinkedIn</a></li>
-            </ul>
-        </footer>
+        {% include "footer.html" %}
     </body>
 </html>

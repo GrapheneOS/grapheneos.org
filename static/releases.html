@@ -23,34 +23,19 @@
         <link rel="alternate" type="application/atom+xml" href="/releases.atom"/>
         <link rel="icon" href="/favicon.ico"/>
         <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
-        <link rel="mask-icon" href="{{path|/mask-icon.svg}}" color="#1a1a1a"/>
+        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
         <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-        {{css|/main.css}}
+        [[css|/main.css]]
         <link rel="manifest" href="/manifest.webmanifest"/>
         <link rel="license" href="/LICENSE.txt"/>
         <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
-        {{js|/js/releases.js}}
-        {{js|/js/redirect.js}}
+        [[js|/js/releases.js]]
+        [[js|/js/redirect.js]]
     </head>
     <body>
-        <header>
-            <nav id="site-menu">
-                <ul>
-                    <li><a href="/"><img src="{{path|/mask-icon.svg}}" alt=""/>GrapheneOS</a></li>
-                    <li><a href="/features">Features</a></li>
-                    <li><a href="/install/">Install</a></li>
-                    <li><a href="/build">Build</a></li>
-                    <li><a href="/usage">Usage</a></li>
-                    <li><a href="/faq">FAQ</a></li>
-                    <li aria-current="page"><a href="/releases">Releases</a></li>
-                    <li><a href="/source">Source</a></li>
-                    <li><a href="/history/">History</a></li>
-                    <li><a href="/articles/">Articles</a></li>
-                    <li><a href="/donate">Donate</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
+        {% with current_page="releases" %}
+            {% include "header.html" %}
+        {% endwith %}
         <main id="releases">
             <h1><a href="#releases">Releases</a></h1>
 
@@ -62,6 +47,8 @@
                     <li>
                         <a href="#stable-channel">Stable channel</a>
                         <ul>
+                            <li><a href="#felix-stable">Pixel Fold</a></li>
+                            <li><a href="#tangorpro-stable">Pixel Tablet</a></li>
                             <li><a href="#lynx-stable">Pixel 7a</a></li>
                             <li><a href="#cheetah-stable">Pixel 7 Pro</a></li>
                             <li><a href="#panther-stable">Pixel 7</a></li>
@@ -79,6 +66,8 @@
                     <li>
                         <a href="#beta-channel">Beta channel</a>
                         <ul>
+                            <li><a href="#felix-beta">Pixel Fold</a></li>
+                            <li><a href="#tangorpro-beta">Pixel Tablet</a></li>
                             <li><a href="#lynx-beta">Pixel 7a</a></li>
                             <li><a href="#cheetah-beta">Pixel 7 Pro</a></li>
                             <li><a href="#panther-beta">Pixel 7</a></li>
@@ -96,6 +85,10 @@
                     <li>
                         <a href="#changelog">Changelog</a>
                         <ul>
+                            <li><a href="#2023071100">2023071100</a></li>
+                            <li><a href="#2023070500">2023070500</a></li>
+                            <li><a href="#2023062800">2023062800</a></li>
+                            <li><a href="#2023062300">2023062300</a></li>
                             <li><a href="#2023061402">2023061402</a></li>
                             <li><a href="#2023061400">2023061400</a></li>
                             <li><a href="#2023060700">2023060700</a></li>
@@ -377,112 +370,130 @@
             <section id="stable-channel">
                 <h2><a href="#stable-channel">Stable channel</a></h2>
 
+                <section id="felix-stable">
+                    <h3><a href="#felix-stable">Pixel Fold</a></h3>
+                    <p>Version: <a href="#[[felix-stable-BUILD_NUMBER]]">[[felix-stable-BUILD_NUMBER]]</a></p>
+                    <ul>
+                        <li><a href="https://releases.grapheneos.org/felix-factory-[[felix-stable-BUILD_NUMBER]].zip">felix-factory-[[felix-stable-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/felix-factory-[[felix-stable-BUILD_NUMBER]].zip.sig">felix-factory-[[felix-stable-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/felix-ota_update-[[felix-stable-BUILD_NUMBER]].zip">felix-ota_update-[[felix-stable-BUILD_NUMBER]].zip</a></li>
+                    </ul>
+                </section>
+                <section id="tangorpro-stable">
+                    <h3><a href="#tangorpro-stable">Pixel Tablet</a></h3>
+                    <p>Version: <a href="#[[tangorpro-stable-BUILD_NUMBER]]">[[tangorpro-stable-BUILD_NUMBER]]</a></p>
+                    <ul>
+                        <li><a href="https://releases.grapheneos.org/tangorpro-factory-[[tangorpro-stable-BUILD_NUMBER]].zip">tangorpro-factory-[[tangorpro-stable-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/tangorpro-factory-[[tangorpro-stable-BUILD_NUMBER]].zip.sig">tangorpro-factory-[[tangorpro-stable-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/tangorpro-ota_update-[[tangorpro-stable-BUILD_NUMBER]].zip">tangorpro-ota_update-[[tangorpro-stable-BUILD_NUMBER]].zip</a></li>
+                    </ul>
+                </section>
                 <section id="lynx-stable">
                     <h3><a href="#lynx-stable">Pixel 7a</a></h3>
-                    <p>Version: <a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/{{lynx-stable-BUILD_ID}}.{{lynx-stable-BUILD_NUMBER}}">{{lynx-stable-BUILD_ID}}.{{lynx-stable-BUILD_NUMBER}}</a></p>
+                    <p>Version: <a href="#[[lynx-stable-BUILD_NUMBER]]">[[lynx-stable-BUILD_NUMBER]]</a></p>
                     <ul>
-                        <li><a href="https://releases.grapheneos.org/lynx-factory-{{lynx-stable-BUILD_NUMBER}}.zip">lynx-factory-{{lynx-stable-BUILD_NUMBER}}.zip</a></li>
-                        <li><a href="https://releases.grapheneos.org/lynx-factory-{{lynx-stable-BUILD_NUMBER}}.zip.sig">lynx-factory-{{lynx-stable-BUILD_NUMBER}}.zip.sig</a></li>
-                        <li><a href="https://releases.grapheneos.org/lynx-ota_update-{{lynx-stable-BUILD_NUMBER}}.zip">lynx-ota_update-{{lynx-stable-BUILD_NUMBER}}.zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/lynx-factory-[[lynx-stable-BUILD_NUMBER]].zip">lynx-factory-[[lynx-stable-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/lynx-factory-[[lynx-stable-BUILD_NUMBER]].zip.sig">lynx-factory-[[lynx-stable-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/lynx-ota_update-[[lynx-stable-BUILD_NUMBER]].zip">lynx-ota_update-[[lynx-stable-BUILD_NUMBER]].zip</a></li>
                     </ul>
                 </section>
                 <section id="cheetah-stable">
                     <h3><a href="#cheetah-stable">Pixel 7 Pro</a></h3>
-                    <p>Version: <a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/{{cheetah-stable-BUILD_ID}}.{{cheetah-stable-BUILD_NUMBER}}">{{cheetah-stable-BUILD_ID}}.{{cheetah-stable-BUILD_NUMBER}}</a></p>
+                    <p>Version: <a href="#[[cheetah-stable-BUILD_NUMBER]]">[[cheetah-stable-BUILD_NUMBER]]</a></p>
                     <ul>
-                        <li><a href="https://releases.grapheneos.org/cheetah-factory-{{cheetah-stable-BUILD_NUMBER}}.zip">cheetah-factory-{{cheetah-stable-BUILD_NUMBER}}.zip</a></li>
-                        <li><a href="https://releases.grapheneos.org/cheetah-factory-{{cheetah-stable-BUILD_NUMBER}}.zip.sig">cheetah-factory-{{cheetah-stable-BUILD_NUMBER}}.zip.sig</a></li>
-                        <li><a href="https://releases.grapheneos.org/cheetah-ota_update-{{cheetah-stable-BUILD_NUMBER}}.zip">cheetah-ota_update-{{cheetah-stable-BUILD_NUMBER}}.zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/cheetah-factory-[[cheetah-stable-BUILD_NUMBER]].zip">cheetah-factory-[[cheetah-stable-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/cheetah-factory-[[cheetah-stable-BUILD_NUMBER]].zip.sig">cheetah-factory-[[cheetah-stable-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/cheetah-ota_update-[[cheetah-stable-BUILD_NUMBER]].zip">cheetah-ota_update-[[cheetah-stable-BUILD_NUMBER]].zip</a></li>
                     </ul>
                 </section>
                 <section id="panther-stable">
                     <h3><a href="#panther-stable">Pixel 7</a></h3>
-                    <p>Version: <a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/{{panther-stable-BUILD_ID}}.{{panther-stable-BUILD_NUMBER}}">{{panther-stable-BUILD_ID}}.{{panther-stable-BUILD_NUMBER}}</a></p>
+                    <p>Version: <a href="#[[panther-stable-BUILD_NUMBER]]">[[panther-stable-BUILD_NUMBER]]</a></p>
                     <ul>
-                        <li><a href="https://releases.grapheneos.org/panther-factory-{{panther-stable-BUILD_NUMBER}}.zip">panther-factory-{{panther-stable-BUILD_NUMBER}}.zip</a></li>
-                        <li><a href="https://releases.grapheneos.org/panther-factory-{{panther-stable-BUILD_NUMBER}}.zip.sig">panther-factory-{{panther-stable-BUILD_NUMBER}}.zip.sig</a></li>
-                        <li><a href="https://releases.grapheneos.org/panther-ota_update-{{panther-stable-BUILD_NUMBER}}.zip">panther-ota_update-{{panther-stable-BUILD_NUMBER}}.zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/panther-factory-[[panther-stable-BUILD_NUMBER]].zip">panther-factory-[[panther-stable-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/panther-factory-[[panther-stable-BUILD_NUMBER]].zip.sig">panther-factory-[[panther-stable-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/panther-ota_update-[[panther-stable-BUILD_NUMBER]].zip">panther-ota_update-[[panther-stable-BUILD_NUMBER]].zip</a></li>
                     </ul>
                 </section>
                 <section id="bluejay-stable">
                     <h3><a href="#bluejay-stable">Pixel 6a</a></h3>
-                    <p>Version: <a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/{{bluejay-stable-BUILD_ID}}.{{bluejay-stable-BUILD_NUMBER}}">{{bluejay-stable-BUILD_ID}}.{{bluejay-stable-BUILD_NUMBER}}</a></p>
+                    <p>Version: <a href="#[[bluejay-stable-BUILD_NUMBER]]">[[bluejay-stable-BUILD_NUMBER]]</a></p>
                     <ul>
-                        <li><a href="https://releases.grapheneos.org/bluejay-factory-{{bluejay-stable-BUILD_NUMBER}}.zip">bluejay-factory-{{bluejay-stable-BUILD_NUMBER}}.zip</a></li>
-                        <li><a href="https://releases.grapheneos.org/bluejay-factory-{{bluejay-stable-BUILD_NUMBER}}.zip.sig">bluejay-factory-{{bluejay-stable-BUILD_NUMBER}}.zip.sig</a></li>
-                        <li><a href="https://releases.grapheneos.org/bluejay-ota_update-{{bluejay-stable-BUILD_NUMBER}}.zip">bluejay-ota_update-{{bluejay-stable-BUILD_NUMBER}}.zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/bluejay-factory-[[bluejay-stable-BUILD_NUMBER]].zip">bluejay-factory-[[bluejay-stable-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/bluejay-factory-[[bluejay-stable-BUILD_NUMBER]].zip.sig">bluejay-factory-[[bluejay-stable-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/bluejay-ota_update-[[bluejay-stable-BUILD_NUMBER]].zip">bluejay-ota_update-[[bluejay-stable-BUILD_NUMBER]].zip</a></li>
                     </ul>
                 </section>
                 <section id="raven-stable">
                     <h3><a href="#raven-stable">Pixel 6 Pro</a></h3>
-                    <p>Version: <a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/{{raven-stable-BUILD_ID}}.{{raven-stable-BUILD_NUMBER}}">{{raven-stable-BUILD_ID}}.{{raven-stable-BUILD_NUMBER}}</a></p>
+                    <p>Version: <a href="#[[raven-stable-BUILD_NUMBER]]">[[raven-stable-BUILD_NUMBER]]</a></p>
                     <ul>
-                        <li><a href="https://releases.grapheneos.org/raven-factory-{{raven-stable-BUILD_NUMBER}}.zip">raven-factory-{{raven-stable-BUILD_NUMBER}}.zip</a></li>
-                        <li><a href="https://releases.grapheneos.org/raven-factory-{{raven-stable-BUILD_NUMBER}}.zip.sig">raven-factory-{{raven-stable-BUILD_NUMBER}}.zip.sig</a></li>
-                        <li><a href="https://releases.grapheneos.org/raven-ota_update-{{raven-stable-BUILD_NUMBER}}.zip">raven-ota_update-{{raven-stable-BUILD_NUMBER}}.zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/raven-factory-[[raven-stable-BUILD_NUMBER]].zip">raven-factory-[[raven-stable-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/raven-factory-[[raven-stable-BUILD_NUMBER]].zip.sig">raven-factory-[[raven-stable-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/raven-ota_update-[[raven-stable-BUILD_NUMBER]].zip">raven-ota_update-[[raven-stable-BUILD_NUMBER]].zip</a></li>
                     </ul>
                 </section>
                 <section id="oriole-stable">
                     <h3><a href="#oriole-stable">Pixel 6</a></h3>
-                    <p>Version: <a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/{{oriole-stable-BUILD_ID}}.{{oriole-stable-BUILD_NUMBER}}">{{oriole-stable-BUILD_ID}}.{{oriole-stable-BUILD_NUMBER}}</a></p>
+                    <p>Version: <a href="#[[oriole-stable-BUILD_NUMBER]]">[[oriole-stable-BUILD_NUMBER]]</a></p>
                     <ul>
-                        <li><a href="https://releases.grapheneos.org/oriole-factory-{{oriole-stable-BUILD_NUMBER}}.zip">oriole-factory-{{oriole-stable-BUILD_NUMBER}}.zip</a></li>
-                        <li><a href="https://releases.grapheneos.org/oriole-factory-{{oriole-stable-BUILD_NUMBER}}.zip.sig">oriole-factory-{{oriole-stable-BUILD_NUMBER}}.zip.sig</a></li>
-                        <li><a href="https://releases.grapheneos.org/oriole-ota_update-{{oriole-stable-BUILD_NUMBER}}.zip">oriole-ota_update-{{oriole-stable-BUILD_NUMBER}}.zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/oriole-factory-[[oriole-stable-BUILD_NUMBER]].zip">oriole-factory-[[oriole-stable-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/oriole-factory-[[oriole-stable-BUILD_NUMBER]].zip.sig">oriole-factory-[[oriole-stable-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/oriole-ota_update-[[oriole-stable-BUILD_NUMBER]].zip">oriole-ota_update-[[oriole-stable-BUILD_NUMBER]].zip</a></li>
                     </ul>
                 </section>
                 <section id="barbet-stable">
                     <h3><a href="#barbet-stable">Pixel 5a</a></h3>
-                    <p>Version: <a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/{{barbet-stable-BUILD_ID}}.{{barbet-stable-BUILD_NUMBER}}">{{barbet-stable-BUILD_ID}}.{{barbet-stable-BUILD_NUMBER}}</a></p>
+                    <p>Version: <a href="#[[barbet-stable-BUILD_NUMBER]]">[[barbet-stable-BUILD_NUMBER]]</a></p>
                     <ul>
-                        <li><a href="https://releases.grapheneos.org/barbet-factory-{{barbet-stable-BUILD_NUMBER}}.zip">barbet-factory-{{barbet-stable-BUILD_NUMBER}}.zip</a></li>
-                        <li><a href="https://releases.grapheneos.org/barbet-factory-{{barbet-stable-BUILD_NUMBER}}.zip.sig">barbet-factory-{{barbet-stable-BUILD_NUMBER}}.zip.sig</a></li>
-                        <li><a href="https://releases.grapheneos.org/barbet-ota_update-{{barbet-stable-BUILD_NUMBER}}.zip">barbet-ota_update-{{barbet-stable-BUILD_NUMBER}}.zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/barbet-factory-[[barbet-stable-BUILD_NUMBER]].zip">barbet-factory-[[barbet-stable-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/barbet-factory-[[barbet-stable-BUILD_NUMBER]].zip.sig">barbet-factory-[[barbet-stable-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/barbet-ota_update-[[barbet-stable-BUILD_NUMBER]].zip">barbet-ota_update-[[barbet-stable-BUILD_NUMBER]].zip</a></li>
                     </ul>
                 </section>
                 <section id="redfin-stable">
                     <h3><a href="#redfin-stable">Pixel 5</a></h3>
-                    <p>Version: <a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/{{redfin-stable-BUILD_ID}}.{{redfin-stable-BUILD_NUMBER}}">{{redfin-stable-BUILD_ID}}.{{redfin-stable-BUILD_NUMBER}}</a></p>
+                    <p>Version: <a href="#[[redfin-stable-BUILD_NUMBER]]">[[redfin-stable-BUILD_NUMBER]]</a></p>
                     <ul>
-                        <li><a href="https://releases.grapheneos.org/redfin-factory-{{redfin-stable-BUILD_NUMBER}}.zip">redfin-factory-{{redfin-stable-BUILD_NUMBER}}.zip</a></li>
-                        <li><a href="https://releases.grapheneos.org/redfin-factory-{{redfin-stable-BUILD_NUMBER}}.zip.sig">redfin-factory-{{redfin-stable-BUILD_NUMBER}}.zip.sig</a></li>
-                        <li><a href="https://releases.grapheneos.org/redfin-ota_update-{{redfin-stable-BUILD_NUMBER}}.zip">redfin-ota_update-{{redfin-stable-BUILD_NUMBER}}.zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/redfin-factory-[[redfin-stable-BUILD_NUMBER]].zip">redfin-factory-[[redfin-stable-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/redfin-factory-[[redfin-stable-BUILD_NUMBER]].zip.sig">redfin-factory-[[redfin-stable-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/redfin-ota_update-[[redfin-stable-BUILD_NUMBER]].zip">redfin-ota_update-[[redfin-stable-BUILD_NUMBER]].zip</a></li>
                     </ul>
                 </section>
                 <section id="bramble-stable">
                     <h3><a href="#bramble-stable">Pixel 4a (5G)</a></h3>
-                    <p>Version: <a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/{{bramble-stable-BUILD_ID}}.{{bramble-stable-BUILD_NUMBER}}">{{bramble-stable-BUILD_ID}}.{{bramble-stable-BUILD_NUMBER}}</a></p>
+                    <p>Version: <a href="#[[bramble-stable-BUILD_NUMBER]]">[[bramble-stable-BUILD_NUMBER]]</a></p>
                     <ul>
-                        <li><a href="https://releases.grapheneos.org/bramble-factory-{{bramble-stable-BUILD_NUMBER}}.zip">bramble-factory-{{bramble-stable-BUILD_NUMBER}}.zip</a></li>
-                        <li><a href="https://releases.grapheneos.org/bramble-factory-{{bramble-stable-BUILD_NUMBER}}.zip.sig">bramble-factory-{{bramble-stable-BUILD_NUMBER}}.zip.sig</a></li>
-                        <li><a href="https://releases.grapheneos.org/bramble-ota_update-{{bramble-stable-BUILD_NUMBER}}.zip">bramble-ota_update-{{bramble-stable-BUILD_NUMBER}}.zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/bramble-factory-[[bramble-stable-BUILD_NUMBER]].zip">bramble-factory-[[bramble-stable-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/bramble-factory-[[bramble-stable-BUILD_NUMBER]].zip.sig">bramble-factory-[[bramble-stable-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/bramble-ota_update-[[bramble-stable-BUILD_NUMBER]].zip">bramble-ota_update-[[bramble-stable-BUILD_NUMBER]].zip</a></li>
                     </ul>
                 </section>
                 <section id="sunfish-stable">
                     <h3><a href="#sunfish-stable">Pixel 4a</a></h3>
-                    <p>Version: <a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/{{sunfish-stable-BUILD_ID}}.{{sunfish-stable-BUILD_NUMBER}}">{{sunfish-stable-BUILD_ID}}.{{sunfish-stable-BUILD_NUMBER}}</a></p>
+                    <p>Version: <a href="#[[sunfish-stable-BUILD_NUMBER]]">[[sunfish-stable-BUILD_NUMBER]]</a></p>
                     <ul>
-                        <li><a href="https://releases.grapheneos.org/sunfish-factory-{{sunfish-stable-BUILD_NUMBER}}.zip">sunfish-factory-{{sunfish-stable-BUILD_NUMBER}}.zip</a></li>
-                        <li><a href="https://releases.grapheneos.org/sunfish-factory-{{sunfish-stable-BUILD_NUMBER}}.zip.sig">sunfish-factory-{{sunfish-stable-BUILD_NUMBER}}.zip.sig</a></li>
-                        <li><a href="https://releases.grapheneos.org/sunfish-ota_update-{{sunfish-stable-BUILD_NUMBER}}.zip">sunfish-ota_update-{{sunfish-stable-BUILD_NUMBER}}.zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/sunfish-factory-[[sunfish-stable-BUILD_NUMBER]].zip">sunfish-factory-[[sunfish-stable-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/sunfish-factory-[[sunfish-stable-BUILD_NUMBER]].zip.sig">sunfish-factory-[[sunfish-stable-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/sunfish-ota_update-[[sunfish-stable-BUILD_NUMBER]].zip">sunfish-ota_update-[[sunfish-stable-BUILD_NUMBER]].zip</a></li>
                     </ul>
                 </section>
                 <section id="coral-stable">
                     <h3><a href="#coral-stable">Pixel 4 XL (extended support)</a></h3>
-                    <p>Version: <a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/{{coral-stable-BUILD_ID}}.{{coral-stable-BUILD_NUMBER}}">{{coral-stable-BUILD_ID}}.{{coral-stable-BUILD_NUMBER}}</a></p>
+                    <p>Version: <a href="#[[coral-stable-BUILD_NUMBER]]">[[coral-stable-BUILD_NUMBER]]</a></p>
                     <ul>
-                        <li><a href="https://releases.grapheneos.org/coral-factory-{{coral-stable-BUILD_NUMBER}}.zip">coral-factory-{{coral-stable-BUILD_NUMBER}}.zip</a></li>
-                        <li><a href="https://releases.grapheneos.org/coral-factory-{{coral-stable-BUILD_NUMBER}}.zip.sig">coral-factory-{{coral-stable-BUILD_NUMBER}}.zip.sig</a></li>
-                        <li><a href="https://releases.grapheneos.org/coral-ota_update-{{coral-stable-BUILD_NUMBER}}.zip">coral-ota_update-{{coral-stable-BUILD_NUMBER}}.zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/coral-factory-[[coral-stable-BUILD_NUMBER]].zip">coral-factory-[[coral-stable-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/coral-factory-[[coral-stable-BUILD_NUMBER]].zip.sig">coral-factory-[[coral-stable-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/coral-ota_update-[[coral-stable-BUILD_NUMBER]].zip">coral-ota_update-[[coral-stable-BUILD_NUMBER]].zip</a></li>
                     </ul>
                 </section>
                 <section id="flame-stable">
                     <h3><a href="#flame-stable">Pixel 4 (extended support)</a></h3>
-                    <p>Version: <a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/{{flame-stable-BUILD_ID}}.{{flame-stable-BUILD_NUMBER}}">{{flame-stable-BUILD_ID}}.{{flame-stable-BUILD_NUMBER}}</a></p>
+                    <p>Version: <a href="#[[flame-stable-BUILD_NUMBER]]">[[flame-stable-BUILD_NUMBER]]</a></p>
                     <ul>
-                        <li><a href="https://releases.grapheneos.org/flame-factory-{{flame-stable-BUILD_NUMBER}}.zip">flame-factory-{{flame-stable-BUILD_NUMBER}}.zip</a></li>
-                        <li><a href="https://releases.grapheneos.org/flame-factory-{{flame-stable-BUILD_NUMBER}}.zip.sig">flame-factory-{{flame-stable-BUILD_NUMBER}}.zip.sig</a></li>
-                        <li><a href="https://releases.grapheneos.org/flame-ota_update-{{flame-stable-BUILD_NUMBER}}.zip">flame-ota_update-{{flame-stable-BUILD_NUMBER}}.zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/flame-factory-[[flame-stable-BUILD_NUMBER]].zip">flame-factory-[[flame-stable-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/flame-factory-[[flame-stable-BUILD_NUMBER]].zip.sig">flame-factory-[[flame-stable-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/flame-ota_update-[[flame-stable-BUILD_NUMBER]].zip">flame-ota_update-[[flame-stable-BUILD_NUMBER]].zip</a></li>
                     </ul>
                 </section>
             </section>
@@ -490,112 +501,130 @@
             <section id="beta-channel">
                 <h2><a href="#beta-channel">Beta channel</a></h2>
 
+                <section id="felix-beta">
+                    <h3><a href="#felix-beta">Pixel Fold</a></h3>
+                    <p>Version: <a href="#[[felix-beta-BUILD_NUMBER]]">[[felix-beta-BUILD_NUMBER]]</a></p>
+                    <ul>
+                        <li><a href="https://releases.grapheneos.org/felix-factory-[[felix-beta-BUILD_NUMBER]].zip">felix-factory-[[felix-beta-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/felix-factory-[[felix-beta-BUILD_NUMBER]].zip.sig">felix-factory-[[felix-beta-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/felix-ota_update-[[felix-beta-BUILD_NUMBER]].zip">felix-ota_update-[[felix-beta-BUILD_NUMBER]].zip</a></li>
+                    </ul>
+                </section>
+                <section id="tangorpro-beta">
+                    <h3><a href="#tangorpro-beta">Pixel Tablet</a></h3>
+                    <p>Version: <a href="#[[tangorpro-beta-BUILD_NUMBER]]">[[tangorpro-beta-BUILD_NUMBER]]</a></p>
+                    <ul>
+                        <li><a href="https://releases.grapheneos.org/tangorpro-factory-[[tangorpro-beta-BUILD_NUMBER]].zip">tangorpro-factory-[[tangorpro-beta-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/tangorpro-factory-[[tangorpro-beta-BUILD_NUMBER]].zip.sig">tangorpro-factory-[[tangorpro-beta-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/tangorpro-ota_update-[[tangorpro-beta-BUILD_NUMBER]].zip">tangorpro-ota_update-[[tangorpro-beta-BUILD_NUMBER]].zip</a></li>
+                    </ul>
+                </section>
                 <section id="lynx-beta">
                     <h3><a href="#lynx-beta">Pixel 7a</a></h3>
-                    <p>Version: <a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/{{lynx-beta-BUILD_ID}}.{{lynx-beta-BUILD_NUMBER}}">{{lynx-beta-BUILD_ID}}.{{lynx-beta-BUILD_NUMBER}}</a></p>
+                    <p>Version: <a href="#[[lynx-beta-BUILD_NUMBER]]">[[lynx-beta-BUILD_NUMBER]]</a></p>
                     <ul>
-                        <li><a href="https://releases.grapheneos.org/lynx-factory-{{lynx-beta-BUILD_NUMBER}}.zip">lynx-factory-{{lynx-beta-BUILD_NUMBER}}.zip</a></li>
-                        <li><a href="https://releases.grapheneos.org/lynx-factory-{{lynx-beta-BUILD_NUMBER}}.zip.sig">lynx-factory-{{lynx-beta-BUILD_NUMBER}}.zip.sig</a></li>
-                        <li><a href="https://releases.grapheneos.org/lynx-ota_update-{{lynx-beta-BUILD_NUMBER}}.zip">lynx-ota_update-{{lynx-beta-BUILD_NUMBER}}.zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/lynx-factory-[[lynx-beta-BUILD_NUMBER]].zip">lynx-factory-[[lynx-beta-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/lynx-factory-[[lynx-beta-BUILD_NUMBER]].zip.sig">lynx-factory-[[lynx-beta-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/lynx-ota_update-[[lynx-beta-BUILD_NUMBER]].zip">lynx-ota_update-[[lynx-beta-BUILD_NUMBER]].zip</a></li>
                     </ul>
                 </section>
                 <section id="cheetah-beta">
                     <h3><a href="#cheetah-beta">Pixel 7 Pro</a></h3>
-                    <p>Version: <a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/{{cheetah-beta-BUILD_ID}}.{{cheetah-beta-BUILD_NUMBER}}">{{cheetah-beta-BUILD_ID}}.{{cheetah-beta-BUILD_NUMBER}}</a></p>
+                    <p>Version: <a href="#[[cheetah-beta-BUILD_NUMBER]]">[[cheetah-beta-BUILD_NUMBER]]</a></p>
                     <ul>
-                        <li><a href="https://releases.grapheneos.org/cheetah-factory-{{cheetah-beta-BUILD_NUMBER}}.zip">cheetah-factory-{{cheetah-beta-BUILD_NUMBER}}.zip</a></li>
-                        <li><a href="https://releases.grapheneos.org/cheetah-factory-{{cheetah-beta-BUILD_NUMBER}}.zip.sig">cheetah-factory-{{cheetah-beta-BUILD_NUMBER}}.zip.sig</a></li>
-                        <li><a href="https://releases.grapheneos.org/cheetah-ota_update-{{cheetah-beta-BUILD_NUMBER}}.zip">cheetah-ota_update-{{cheetah-beta-BUILD_NUMBER}}.zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/cheetah-factory-[[cheetah-beta-BUILD_NUMBER]].zip">cheetah-factory-[[cheetah-beta-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/cheetah-factory-[[cheetah-beta-BUILD_NUMBER]].zip.sig">cheetah-factory-[[cheetah-beta-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/cheetah-ota_update-[[cheetah-beta-BUILD_NUMBER]].zip">cheetah-ota_update-[[cheetah-beta-BUILD_NUMBER]].zip</a></li>
                     </ul>
                 </section>
                 <section id="panther-beta">
                     <h3><a href="#panther-beta">Pixel 7</a></h3>
-                    <p>Version: <a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/{{panther-beta-BUILD_ID}}.{{panther-beta-BUILD_NUMBER}}">{{panther-beta-BUILD_ID}}.{{panther-beta-BUILD_NUMBER}}</a></p>
+                    <p>Version: <a href="#[[panther-beta-BUILD_NUMBER]]">[[panther-beta-BUILD_NUMBER]]</a></p>
                     <ul>
-                        <li><a href="https://releases.grapheneos.org/panther-factory-{{panther-beta-BUILD_NUMBER}}.zip">panther-factory-{{panther-beta-BUILD_NUMBER}}.zip</a></li>
-                        <li><a href="https://releases.grapheneos.org/panther-factory-{{panther-beta-BUILD_NUMBER}}.zip.sig">panther-factory-{{panther-beta-BUILD_NUMBER}}.zip.sig</a></li>
-                        <li><a href="https://releases.grapheneos.org/panther-ota_update-{{panther-beta-BUILD_NUMBER}}.zip">panther-ota_update-{{panther-beta-BUILD_NUMBER}}.zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/panther-factory-[[panther-beta-BUILD_NUMBER]].zip">panther-factory-[[panther-beta-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/panther-factory-[[panther-beta-BUILD_NUMBER]].zip.sig">panther-factory-[[panther-beta-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/panther-ota_update-[[panther-beta-BUILD_NUMBER]].zip">panther-ota_update-[[panther-beta-BUILD_NUMBER]].zip</a></li>
                     </ul>
                 </section>
                 <section id="bluejay-beta">
                     <h3><a href="#bluejay-beta">Pixel 6a</a></h3>
-                    <p>Version: <a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/{{bluejay-beta-BUILD_ID}}.{{bluejay-beta-BUILD_NUMBER}}">{{bluejay-beta-BUILD_ID}}.{{bluejay-beta-BUILD_NUMBER}}</a></p>
+                    <p>Version: <a href="#[[bluejay-beta-BUILD_NUMBER]]">[[bluejay-beta-BUILD_NUMBER]]</a></p>
                     <ul>
-                        <li><a href="https://releases.grapheneos.org/bluejay-factory-{{bluejay-beta-BUILD_NUMBER}}.zip">bluejay-factory-{{bluejay-beta-BUILD_NUMBER}}.zip</a></li>
-                        <li><a href="https://releases.grapheneos.org/bluejay-factory-{{bluejay-beta-BUILD_NUMBER}}.zip.sig">bluejay-factory-{{bluejay-beta-BUILD_NUMBER}}.zip.sig</a></li>
-                        <li><a href="https://releases.grapheneos.org/bluejay-ota_update-{{bluejay-beta-BUILD_NUMBER}}.zip">bluejay-ota_update-{{bluejay-beta-BUILD_NUMBER}}.zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/bluejay-factory-[[bluejay-beta-BUILD_NUMBER]].zip">bluejay-factory-[[bluejay-beta-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/bluejay-factory-[[bluejay-beta-BUILD_NUMBER]].zip.sig">bluejay-factory-[[bluejay-beta-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/bluejay-ota_update-[[bluejay-beta-BUILD_NUMBER]].zip">bluejay-ota_update-[[bluejay-beta-BUILD_NUMBER]].zip</a></li>
                     </ul>
                 </section>
                 <section id="raven-beta">
                     <h3><a href="#raven-beta">Pixel 6 Pro</a></h3>
-                    <p>Version: <a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/{{raven-beta-BUILD_ID}}.{{raven-beta-BUILD_NUMBER}}">{{raven-beta-BUILD_ID}}.{{raven-beta-BUILD_NUMBER}}</a></p>
+                    <p>Version: <a href="#[[raven-beta-BUILD_NUMBER]]">[[raven-beta-BUILD_NUMBER]]</a></p>
                     <ul>
-                        <li><a href="https://releases.grapheneos.org/raven-factory-{{raven-beta-BUILD_NUMBER}}.zip">raven-factory-{{raven-beta-BUILD_NUMBER}}.zip</a></li>
-                        <li><a href="https://releases.grapheneos.org/raven-factory-{{raven-beta-BUILD_NUMBER}}.zip.sig">raven-factory-{{raven-beta-BUILD_NUMBER}}.zip.sig</a></li>
-                        <li><a href="https://releases.grapheneos.org/raven-ota_update-{{raven-beta-BUILD_NUMBER}}.zip">raven-ota_update-{{raven-beta-BUILD_NUMBER}}.zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/raven-factory-[[raven-beta-BUILD_NUMBER]].zip">raven-factory-[[raven-beta-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/raven-factory-[[raven-beta-BUILD_NUMBER]].zip.sig">raven-factory-[[raven-beta-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/raven-ota_update-[[raven-beta-BUILD_NUMBER]].zip">raven-ota_update-[[raven-beta-BUILD_NUMBER]].zip</a></li>
                     </ul>
                 </section>
                 <section id="oriole-beta">
                     <h3><a href="#oriole-beta">Pixel 6</a></h3>
-                    <p>Version: <a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/{{oriole-beta-BUILD_ID}}.{{oriole-beta-BUILD_NUMBER}}">{{oriole-beta-BUILD_ID}}.{{oriole-beta-BUILD_NUMBER}}</a></p>
+                    <p>Version: <a href="#[[oriole-beta-BUILD_NUMBER]]">[[oriole-beta-BUILD_NUMBER]]</a></p>
                     <ul>
-                        <li><a href="https://releases.grapheneos.org/oriole-factory-{{oriole-beta-BUILD_NUMBER}}.zip">oriole-factory-{{oriole-beta-BUILD_NUMBER}}.zip</a></li>
-                        <li><a href="https://releases.grapheneos.org/oriole-factory-{{oriole-beta-BUILD_NUMBER}}.zip.sig">oriole-factory-{{oriole-beta-BUILD_NUMBER}}.zip.sig</a></li>
-                        <li><a href="https://releases.grapheneos.org/oriole-ota_update-{{oriole-beta-BUILD_NUMBER}}.zip">oriole-ota_update-{{oriole-beta-BUILD_NUMBER}}.zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/oriole-factory-[[oriole-beta-BUILD_NUMBER]].zip">oriole-factory-[[oriole-beta-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/oriole-factory-[[oriole-beta-BUILD_NUMBER]].zip.sig">oriole-factory-[[oriole-beta-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/oriole-ota_update-[[oriole-beta-BUILD_NUMBER]].zip">oriole-ota_update-[[oriole-beta-BUILD_NUMBER]].zip</a></li>
                     </ul>
                 </section>
                 <section id="barbet-beta">
                     <h3><a href="#barbet-beta">Pixel 5a</a></h3>
-                    <p>Version: <a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/{{barbet-beta-BUILD_ID}}.{{barbet-beta-BUILD_NUMBER}}">{{barbet-beta-BUILD_ID}}.{{barbet-beta-BUILD_NUMBER}}</a></p>
+                    <p>Version: <a href="#[[barbet-beta-BUILD_NUMBER]]">[[barbet-beta-BUILD_NUMBER]]</a></p>
                     <ul>
-                        <li><a href="https://releases.grapheneos.org/barbet-factory-{{barbet-beta-BUILD_NUMBER}}.zip">barbet-factory-{{barbet-beta-BUILD_NUMBER}}.zip</a></li>
-                        <li><a href="https://releases.grapheneos.org/barbet-factory-{{barbet-beta-BUILD_NUMBER}}.zip.sig">barbet-factory-{{barbet-beta-BUILD_NUMBER}}.zip.sig</a></li>
-                        <li><a href="https://releases.grapheneos.org/barbet-ota_update-{{barbet-beta-BUILD_NUMBER}}.zip">barbet-ota_update-{{barbet-beta-BUILD_NUMBER}}.zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/barbet-factory-[[barbet-beta-BUILD_NUMBER]].zip">barbet-factory-[[barbet-beta-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/barbet-factory-[[barbet-beta-BUILD_NUMBER]].zip.sig">barbet-factory-[[barbet-beta-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/barbet-ota_update-[[barbet-beta-BUILD_NUMBER]].zip">barbet-ota_update-[[barbet-beta-BUILD_NUMBER]].zip</a></li>
                     </ul>
                 </section>
                 <section id="redfin-beta">
                     <h3><a href="#redfin-beta">Pixel 5</a></h3>
-                    <p>Version: <a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/{{redfin-beta-BUILD_ID}}.{{redfin-beta-BUILD_NUMBER}}">{{redfin-beta-BUILD_ID}}.{{redfin-beta-BUILD_NUMBER}}</a></p>
+                    <p>Version: <a href="#[[redfin-beta-BUILD_NUMBER]]">[[redfin-beta-BUILD_NUMBER]]</a></p>
                     <ul>
-                        <li><a href="https://releases.grapheneos.org/redfin-factory-{{redfin-beta-BUILD_NUMBER}}.zip">redfin-factory-{{redfin-beta-BUILD_NUMBER}}.zip</a></li>
-                        <li><a href="https://releases.grapheneos.org/redfin-factory-{{redfin-beta-BUILD_NUMBER}}.zip.sig">redfin-factory-{{redfin-beta-BUILD_NUMBER}}.zip.sig</a></li>
-                        <li><a href="https://releases.grapheneos.org/redfin-ota_update-{{redfin-beta-BUILD_NUMBER}}.zip">redfin-ota_update-{{redfin-beta-BUILD_NUMBER}}.zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/redfin-factory-[[redfin-beta-BUILD_NUMBER]].zip">redfin-factory-[[redfin-beta-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/redfin-factory-[[redfin-beta-BUILD_NUMBER]].zip.sig">redfin-factory-[[redfin-beta-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/redfin-ota_update-[[redfin-beta-BUILD_NUMBER]].zip">redfin-ota_update-[[redfin-beta-BUILD_NUMBER]].zip</a></li>
                     </ul>
                 </section>
                 <section id="bramble-beta">
                     <h3><a href="#bramble-beta">Pixel 4a (5G)</a></h3>
-                    <p>Version: <a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/{{bramble-beta-BUILD_ID}}.{{bramble-beta-BUILD_NUMBER}}">{{bramble-beta-BUILD_ID}}.{{bramble-beta-BUILD_NUMBER}}</a></p>
+                    <p>Version: <a href="#[[bramble-beta-BUILD_NUMBER]]">[[bramble-beta-BUILD_NUMBER]]</a></p>
                     <ul>
-                        <li><a href="https://releases.grapheneos.org/bramble-factory-{{bramble-beta-BUILD_NUMBER}}.zip">bramble-factory-{{bramble-beta-BUILD_NUMBER}}.zip</a></li>
-                        <li><a href="https://releases.grapheneos.org/bramble-factory-{{bramble-beta-BUILD_NUMBER}}.zip.sig">bramble-factory-{{bramble-beta-BUILD_NUMBER}}.zip.sig</a></li>
-                        <li><a href="https://releases.grapheneos.org/bramble-ota_update-{{bramble-beta-BUILD_NUMBER}}.zip">bramble-ota_update-{{bramble-beta-BUILD_NUMBER}}.zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/bramble-factory-[[bramble-beta-BUILD_NUMBER]].zip">bramble-factory-[[bramble-beta-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/bramble-factory-[[bramble-beta-BUILD_NUMBER]].zip.sig">bramble-factory-[[bramble-beta-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/bramble-ota_update-[[bramble-beta-BUILD_NUMBER]].zip">bramble-ota_update-[[bramble-beta-BUILD_NUMBER]].zip</a></li>
                     </ul>
                 </section>
                 <section id="sunfish-beta">
                     <h3><a href="#sunfish-beta">Pixel 4a</a></h3>
-                    <p>Version: <a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/{{sunfish-beta-BUILD_ID}}.{{sunfish-beta-BUILD_NUMBER}}">{{sunfish-beta-BUILD_ID}}.{{sunfish-beta-BUILD_NUMBER}}</a></p>
+                    <p>Version: <a href="#[[sunfish-beta-BUILD_NUMBER]]">[[sunfish-beta-BUILD_NUMBER]]</a></p>
                     <ul>
-                        <li><a href="https://releases.grapheneos.org/sunfish-factory-{{sunfish-beta-BUILD_NUMBER}}.zip">sunfish-factory-{{sunfish-beta-BUILD_NUMBER}}.zip</a></li>
-                        <li><a href="https://releases.grapheneos.org/sunfish-factory-{{sunfish-beta-BUILD_NUMBER}}.zip.sig">sunfish-factory-{{sunfish-beta-BUILD_NUMBER}}.zip.sig</a></li>
-                        <li><a href="https://releases.grapheneos.org/sunfish-ota_update-{{sunfish-beta-BUILD_NUMBER}}.zip">sunfish-ota_update-{{sunfish-beta-BUILD_NUMBER}}.zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/sunfish-factory-[[sunfish-beta-BUILD_NUMBER]].zip">sunfish-factory-[[sunfish-beta-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/sunfish-factory-[[sunfish-beta-BUILD_NUMBER]].zip.sig">sunfish-factory-[[sunfish-beta-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/sunfish-ota_update-[[sunfish-beta-BUILD_NUMBER]].zip">sunfish-ota_update-[[sunfish-beta-BUILD_NUMBER]].zip</a></li>
                     </ul>
                 </section>
                 <section id="coral-beta">
                     <h3><a href="#coral-beta">Pixel 4 XL (extended support)</a></h3>
-                    <p>Version: <a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/{{coral-beta-BUILD_ID}}.{{coral-beta-BUILD_NUMBER}}">{{coral-beta-BUILD_ID}}.{{coral-beta-BUILD_NUMBER}}</a></p>
+                    <p>Version: <a href="#[[coral-beta-BUILD_NUMBER]]">[[coral-beta-BUILD_NUMBER]]</a></p>
                     <ul>
-                        <li><a href="https://releases.grapheneos.org/coral-factory-{{coral-beta-BUILD_NUMBER}}.zip">coral-factory-{{coral-beta-BUILD_NUMBER}}.zip</a></li>
-                        <li><a href="https://releases.grapheneos.org/coral-factory-{{coral-beta-BUILD_NUMBER}}.zip.sig">coral-factory-{{coral-beta-BUILD_NUMBER}}.zip.sig</a></li>
-                        <li><a href="https://releases.grapheneos.org/coral-ota_update-{{coral-beta-BUILD_NUMBER}}.zip">coral-ota_update-{{coral-beta-BUILD_NUMBER}}.zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/coral-factory-[[coral-beta-BUILD_NUMBER]].zip">coral-factory-[[coral-beta-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/coral-factory-[[coral-beta-BUILD_NUMBER]].zip.sig">coral-factory-[[coral-beta-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/coral-ota_update-[[coral-beta-BUILD_NUMBER]].zip">coral-ota_update-[[coral-beta-BUILD_NUMBER]].zip</a></li>
                     </ul>
                 </section>
                 <section id="flame-beta">
                     <h3><a href="#flame-beta">Pixel 4 (extended support)</a></h3>
-                    <p>Version: <a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/{{flame-beta-BUILD_ID}}.{{flame-beta-BUILD_NUMBER}}">{{flame-beta-BUILD_ID}}.{{flame-beta-BUILD_NUMBER}}</a></p>
+                    <p>Version: <a href="#[[flame-beta-BUILD_NUMBER]]">[[flame-beta-BUILD_NUMBER]]</a></p>
                     <ul>
-                        <li><a href="https://releases.grapheneos.org/flame-factory-{{flame-beta-BUILD_NUMBER}}.zip">flame-factory-{{flame-beta-BUILD_NUMBER}}.zip</a></li>
-                        <li><a href="https://releases.grapheneos.org/flame-factory-{{flame-beta-BUILD_NUMBER}}.zip.sig">flame-factory-{{flame-beta-BUILD_NUMBER}}.zip.sig</a></li>
-                        <li><a href="https://releases.grapheneos.org/flame-ota_update-{{flame-beta-BUILD_NUMBER}}.zip">flame-ota_update-{{flame-beta-BUILD_NUMBER}}.zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/flame-factory-[[flame-beta-BUILD_NUMBER]].zip">flame-factory-[[flame-beta-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/flame-factory-[[flame-beta-BUILD_NUMBER]].zip.sig">flame-factory-[[flame-beta-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/flame-ota_update-[[flame-beta-BUILD_NUMBER]].zip">flame-ota_update-[[flame-beta-BUILD_NUMBER]].zip</a></li>
                     </ul>
                 </section>
             </section>
@@ -613,30 +642,155 @@
                 release notes from before the rebranding of the project in 2018 and 2019.</p>
 
                 <!--
-                <article id="2023061402">
-                    <h3><a href="#2023061402">2023061402</a></h3>
+                <article id="2023071100">
+                    <h3><a href="#2023071100">2023071100</a></h3>
 
                     <p>Tags:</p>
                     <ul>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023061402-coral">2023061402-coral</a> (Pixel 4, Pixel 4 XL) — extended support release for legacy devices with frozen 2022-11-01 patch level</li>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023061402">2023061402</a> (Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, emulator, generic, other targets)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023071100-coral">2023071100-coral</a> (Pixel 4, Pixel 4 XL) — extended support release for legacy devices with frozen 2022-11-01 patch level</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023071100">2023071100</a> (Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, emulator, generic, other targets)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023071100-tangorpro">2023071100-tangorpro</a> (Pixel Tablet)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023071100-felix">2023071100-felix</a> (Pixel Fold)</li>
+                    </ul>
+
+                    <p>Changes since the 2023071100 release:</p>
+
+                    <ul>
+                        <li>show installer package name in error reports to help with identifying issues caused by broken installers</li>
+                        <li>Sandboxed Google Play compatibility layer: support overriding ComponentEnabledSettings via GmsCompatConfig</li>
+                        <li>Sandboxed Google Play compatibility layer: add missing string for "Missing Play Games app" notification channel name</li>
+                        <li>Sandboxed Google Play compatibility layer: avoid uncaught exceptions with location rerouting when client only has coarse location permission</li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/115.0.5790.85.0">version 115.0.5790.85.0</a></li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/115.0.5790.136.0">version 115.0.5790.136.0</a></li>
+                        <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-63">version 63</a></li>
+                    </ul>
+                </article>
+                -->
+
+                <article id="2023071100">
+                    <h3><a href="#2023071100">2023071100</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023071100-coral">2023071100-coral</a> (Pixel 4, Pixel 4 XL) — extended support release for legacy devices with frozen 2022-11-01 patch level</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023071100">2023071100</a> (Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, emulator, generic, other targets)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023071100-tangorpro">2023071100-tangorpro</a> (Pixel Tablet)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023071100-felix">2023071100-felix</a> (Pixel Fold)</li>
+                    </ul>
+
+                    <p>Changes since the 2023070500 release:</p>
+
+                    <ul>
+                        <li>Pixel Fold: rebased onto TQ3C.230705.001.C1 Android Open Source Project release</li>
+                        <li>fix incomplete eSIM activation app initialization</li>
+                        <li>do not allow enabling eSIM activation app on first boot due to issues from not including the Google Setup Wizard (UI explains that a reboot is required)</li>
+                        <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Generic 5.10): update to latest GKI LTS branch revision including update to 5.10.186</li>
+                        <li>SELinux policy (Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Fold): allow OemRilHookService to access IOemSlsiRadioExternal hwservice in order to avoid occasional battery drain from retries</li>
+                        <li>Sandboxed Google Play compatibility layer: handle location rerouting inside the app using the Google Play location service to have the location permission usage and battery consumption properly attributed among other improvements</li>
+                        <li>Sandboxed Google Play compatibility layer: notify user when "Nearby devices" perm is needed to connect to Wear OS</li>
+                        <li>Sandboxed Google Play compatibility layer: show name of calling app in "Missing Play Games app" notification</li>
+                        <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-62">version 62</a></li>
+                    </ul>
+                </article>
+
+                <article id="2023070500">
+                    <h3><a href="#2023070500">2023070500</a></h3>
+
+                    <p>July release of the Android Open Source Project and stock OS for the Pixel
+                    Fold is delayed, likely only for a few days. The device was just released on
+                    June 27th with official support shipped in a GrapheneOS release on June
+                    28th so it doesn't make sense to do an incomplete early release. We'll include
+                    it as part of this release when the official July release is available.</p>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023070500-coral">2023070500-coral</a> (Pixel 4, Pixel 4 XL) — extended support release for legacy devices with frozen 2022-11-01 patch level</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023070500">2023070500</a> (Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, emulator, generic, other targets)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023070500-tangorpro">2023070500-tangorpro</a> (Pixel Tablet)</li>
+                    </ul>
+
+                    <p>Changes since the 2023062800 release:</p>
+
+                    <ul>
+                        <li>full 2023-07-01 security patch level</li>
+                        <li>full 2023-07-05 security patch level</li>
+                        <li>rebased onto TQ3A.230705.001 (generic, coral) and TQ3A.230705.001.B4 (tangorpro) Android Open Source Project releases</li>
+                        <li>do not report pseudo-"network" location provider to be always disabled (resolves regression with network location compatibility from <a href="#2023062300">2023062300</a>)</li>
+                        <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Generic 5.10): update to latest GKI LTS branch revision including update to 5.10.185</li>
+                        <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Generic 5.10): revert 2 f2fs garbage collection optimizations backported in the Android GKI tree since at least one of them appears to be broken which we ran into in our previous <a href="#2023061400">2023061400 release</a> and now multiple OEMs including Xiaomi have encountered the issue in their own testing too</li>
+                        <li>kernel (Generic 5.15): update to latest GKI LTS branch revision including update to 5.15.119</li>
+                        <li>disable unused instant app features at boot</li>
+                        <li>disable problematic "Add users from lock screen" setting at boot</li>
+                        <li>Settings: remove problematic "Add users from lock screen" setting</li>
+                        <li>Dialer: re-enable false gesture detection for answering calls, which can be replaced with a newer implementation in the near future instead of it being removed</li>
+                        <li>Settings: require device restart to disable eSIM activation app via our toggle</li>
+                        <li>Seedvault: update to latest revision (we plan on replacing this with a new backup implementation since Seedvault is buggy/unreliable, has consistently needed security fixes applied downstream, has failed to provide the originally planned core features and despite being initially created by a GrapheneOS community member for GrapheneOS was taken over by a group hostile towards it)</li>
+                        <li>PDF Viewer: update to <a href="https://github.com/GrapheneOS/PdfViewer/releases/tag/17">version 17</a></li>
+                        <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-61">version 61</a></li>
+                    </ul>
+                </article>
+
+                <article id="2023062800">
+                    <h3><a href="#2023062800">2023062800</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023062800-coral">2023062800-coral</a> (Pixel 4, Pixel 4 XL) — extended support release for legacy devices with frozen 2022-11-01 patch level</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023062800">2023062800</a> (Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, emulator, generic, other targets)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023062800-tangorpro">2023062800-tangorpro</a> (Pixel Tablet)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023062800-felix">2023062800-felix</a> (Pixel Fold)</li>
+                    </ul>
+
+                    <p>Changes since the 2023062300 release:</p>
+
+                    <ul>
+                        <li>add initial Pixel Fold support</li>
+                        <li>replace unused BUILD_ID field with device name in release channel metadata</li>
+                        <li>System Updater: add enforcement of device name in release channel metadata as a misuse resistance improvement</li>
+                        <li>Settings: mark DSUs (Dynamic System Updates) as unsupported</li>
+                        <li>Launcher: add back Storage Scopes and Contact Scopes links to launcher icon shortcuts since this is now separate from the recent apps screen</li>
+                        <li>Pixel Tablet: set default screen rotation to landscape mode (270 degrees) since we disable auto-rotation by default (due to the manual rotate button appearing after rotation) and the current default means that the device starts locked in portrait mode in the initial setup which gives a bad impression</li>
+                        <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Generic 5.10): add missing non-security patch</li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/114.0.5735.196.0">version 114.0.5735.196.0</a></li>
+                        <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/73">version 73</a></li>
+                    </ul>
+                </article>
+
+                <article id="2023062300">
+                    <h3><a href="#2023062300">2023062300</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023062300-coral">2023062300-coral</a> (Pixel 4, Pixel 4 XL) — extended support release for legacy devices with frozen 2022-11-01 patch level</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023062300">2023062300</a> (Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, emulator, generic, other targets)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023062301-tangorpro">2023062301-tangorpro</a> (Pixel Tablet)</li>
                     </ul>
 
                     <p>Changes since the 2023061402 release:</p>
 
                     <ul>
+                        <li>Sandboxed Google Play compatibility layer: fix compatibility with Nearby Share with current Play services versions</li>
+                        <li>add production ready Pixel Tablet support (we published our initial release for it on June 21st, but this is the first production release with tags)</li>
+                        <li>ignore non-system packages for location indicator exemptions, getLocationBypassPackages(), Qualified Network Services, telephony data services, device provisioning and wlan/wwan wireless network services to resolve an upstream vulnerability in the approach to exemptions impacting the Pixel Tablet</li>
+                        <li>Settings: hide eSIM activation app toggle when the app isn't included in the OS such as the Pixel Tablet</li>
+                        <li>prevent adding guest user on lockscreen via adding new users on lockscreen is disabled (UI only appears on large screens such as the Pixel Tablet)</li>
                         <li>improve compatibility with apps trying to use a network location provider when none is available</li>
                         <li>fix work profile screenshot crash caused by missing configuration in AOSP</li>
                         <li>use unified tags based on our build number rather than the standard <var>BUILD_ID</var>.<var>BUILD_NUMBER</var></li>
                         <li>Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a: set <var>BUILD_ID</var> to match stock OS again</li>
                         <li>Settings: improve our infrastructure for user management toggles</li>
                         <li>Settings: add toggle for preventing a user from running in the background</li>
-                        <li>kernel (Generic 5.15): update to latest GKI LTS branch revision</li>
+                        <li>kernel (Generic 5.15): update to latest GKI LTS branch revision including update to 5.15.110</li>
+                        <li>adevtool: add support for devices without a cellular baseband</li>
+                        <li>adevtool: make adding vendor_kernel_boot partition-exists generic</li>
+                        <li>adevtool: disable broken support for file reference overlays</li>
+                        <li>simplify Pixel prototype check by comparing brand instead of device model</li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-58">version 58</a></li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-59">version 59</a></li>
+                        <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-60">version 60</a></li>
+                        <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/72">version 72</a></li>
                     </ul>
                 </article>
-                -->
 
                 <article id="2023061402">
                     <h3><a href="#2023061402">2023061402</a></h3>
@@ -1537,6 +1691,7 @@
                         <li>Pixel 6, Pixel 6 Pro, Pixel 6a: use Scudo instead of hardened_malloc for camera service for consistency with the Pixel 7 and Pixel 7 Pro until memory corruption issues with it are resolved</li>
                         <li>add back support for OS device controls and wallet quick tiles</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Generic 5.10): update to latest GKI LTS branch revision including update to 5.10.152</li>
+                        <li>PDF Viewer: update to <a href="https://github.com/GrapheneOS/PdfViewer/releases/tag/16">version 16</a></li>
                     </ul>
                 </article>
 
@@ -6289,16 +6444,6 @@
                 </article>
             </section>
         </main>
-        <footer>
-            <a href="/"><img src="{{path|/mask-icon.svg}}" width="512" height="512" alt=""/>GrapheneOS</a>
-            <ul id="social">
-                <li><a href="https://discuss.grapheneos.org/">Forum</a></li>
-                <li><a href="https://twitter.com/GrapheneOS">Twitter</a></li>
-                <li><a href="https://grapheneos.social/@GrapheneOS">Mastodon</a></li>
-                <li><a href="https://github.com/GrapheneOS">GitHub</a></li>
-                <li><a href="https://reddit.com/r/GrapheneOS">Reddit</a></li>
-                <li><a href="https://www.linkedin.com/company/grapheneos/">LinkedIn</a></li>
-            </ul>
-        </footer>
+        {% include "footer.html" %}
     </body>
 </html>

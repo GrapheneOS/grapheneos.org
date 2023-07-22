@@ -24,6 +24,8 @@ const redirects = new Map([
     ["/install/cli#fastboot-as-non-root", "/install/cli#flashing-as-non-root"],
     ["/install/web#fastboot-as-non-root", "/install/web#flashing-as-non-root"],
 
+    ["/build#enabling-updatable-apex-components", "/build#apex-components"],
+
     // legacy devices
     ["/releases#marlin-stable", "/faq#legacy-devices"],
     ["/releases#marlin-beta", "/faq#legacy-devices"],

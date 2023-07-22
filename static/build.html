@@ -22,32 +22,18 @@
         <link rel="canonical" href="https://grapheneos.org/build"/>
         <link rel="icon" href="/favicon.ico"/>
         <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
-        <link rel="mask-icon" href="{{path|/mask-icon.svg}}" color="#1a1a1a"/>
+        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
         <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-        {{css|/main.css}}
+        [[css|/main.css]]
         <link rel="manifest" href="/manifest.webmanifest"/>
         <link rel="license" href="/LICENSE.txt"/>
         <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
+        [[js|/js/redirect.js]]
     </head>
     <body>
-        <header>
-            <nav id="site-menu">
-                <ul>
-                    <li><a href="/"><img src="{{path|/mask-icon.svg}}" alt=""/>GrapheneOS</a></li>
-                    <li><a href="/features">Features</a></li>
-                    <li><a href="/install/">Install</a></li>
-                    <li aria-current="page"><a href="/build">Build</a></li>
-                    <li><a href="/usage">Usage</a></li>
-                    <li><a href="/faq">FAQ</a></li>
-                    <li><a href="/releases">Releases</a></li>
-                    <li><a href="/source">Source</a></li>
-                    <li><a href="/history/">History</a></li>
-                    <li><a href="/articles/">Articles</a></li>
-                    <li><a href="/donate">Donate</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
+        {% with current_page="build" %}
+            {% include "header.html" %}
+        {% endwith %}
         <main id="build">
             <h1><a href="#build">Build</a></h1>
 
@@ -80,7 +66,7 @@
                                 <ul>
                                     <li><a href="#migration-to-android-13">Migration to Android 13</a></li>
                                     <li><a href="#encrypting-keys">Encrypting keys</a></li>
-                                    <li><a href="#enabling-updatable-apex-components">Enabling updatable APEX components</a></li>
+                                    <li><a href="#apex-components">APEX components</a></li>
                                 </ul>
                             </li>
                             <li>
@@ -98,10 +84,10 @@
                                 <a href="#kernel">Kernel</a>
                                 <ul>
                                     <li><a href="#kernel-emulator">Emulator</a></li>
-                                    <li><a href="#kernel-4th-generation-pixels">4th generation Pixels</a></li>
-                                    <li><a href="#kernel-5th-generation-pixels">5th generation Pixels</a></li>
-                                    <li><a href="#kernel-6th-generation-pixels">6th generation Pixels</a></li>
                                     <li><a href="#kernel-7th-generation-pixels">7th generation Pixels</a></li>
+                                    <li><a href="#kernel-6th-generation-pixels">6th generation Pixels</a></li>
+                                    <li><a href="#kernel-5th-generation-pixels">5th generation Pixels</a></li>
+                                    <li><a href="#kernel-4th-generation-pixels">4th generation Pixels</a></li>
                                 </ul>
                             </li>
                             <li><a href="#browser-and-webview">Browser and WebView</a></li>
@@ -145,9 +131,11 @@
                 <section id="build-targets">
                     <h3><a href="#build-targets">Build targets</a></h3>
 
-                    <p>Smartphone targets:</p>
+                    <p>Smartphone and tablet targets:</p>
 
                     <ul>
+                        <li>felix (Pixel Fold)</li>
+                        <li>tangorpro (Pixel Tablet)</li>
                         <li>lynx (Pixel 7a)</li>
                         <li>cheetah (Pixel 7 Pro)</li>
                         <li>panther (Pixel 7)</li>
@@ -315,6 +303,14 @@
                         <p>The <code>13</code> branch is used for most Pixels, generic / emulator
                         targets and non-Pixel devices.</p>
 
+                        <p>The <code>13-tangorpro</code> branch is used for the newly launched
+                        Pixel Tablet since there hasn't been a quarterly or yearly release to
+                        merge in support for it yet.</p>
+
+                        <p>The <code>13-felix</code> branch is used for the newly launched
+                        Pixel Fold since there hasn't been a quarterly or yearly release to
+                        merge in support for it yet.</p>
+
                         <p>The <code>13-coral</code> branch is used for the end-of-life Pixel 4
                         and Pixel 4 XL due to incompatibilities with certain new changes.</p>
 
@@ -401,8 +397,9 @@ source script/envsetup.sh
 m aapt2</pre>
 
                     <p>Extract the vendor files corresponding to the matching release with
-                    <code>DEVICE</code> and <code>BUILD_ID</code> variables replaced with the appropriate
-                    values:</p>
+                    <code>DEVICE</code> and <code>BUILD_ID</code> variables replaced with the
+                    appropriate values (can obtain the correct <code>BUILD_ID</code> from
+                    <code>build/make/core/build_id.mk</code>):</p>
 
                     <pre>DEVICE=raven
 BUILD_ID=TQ2A.230405.003.E1
@@ -485,9 +482,9 @@ vendor/adevtool/bin/run ota-firmware vendor/adevtool/config/$DEVICE.yml -f vendo
                     vendorbootimage target-files-package</code> instead of
                     <code>target-files-package</code>.</p>
 
-                    <p>For the Pixel 7, Pixel 7 Pro and Pixel 7a you currently need <code>m vendorbootimage
-                    vendorkernelbootimage target-files-package</code> instead of
-                    <code>target-files-package</code>.</p>
+                    <p>For the Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet and Pixel Fold you
+                    currently need <code>m vendorbootimage vendorkernelbootimage
+                    target-files-package</code> instead of <code>target-files-package</code>.</p>
 
                     <p>The <code>-j</code> parameter can be passed to <code>m</code> to set a specific
                     number of jobs such as <code>-j4</code> to use 4 jobs. By default, the build system
@@ -596,27 +593,15 @@ cd ../..</pre>
                         the keys in tmpfs to perform signing.</p>
                     </section>
 
-                    <section id="enabling-updatable-apex-components">
-                        <h4><a href="#enabling-updatable-apex-components">Enabling updatable APEX components</a></h4>
+                    <section id="apex-components">
+                        <h4><a href="#apex-components">APEX components</a></h4>
 
-                        <p>GrapheneOS uses the <code>TARGET_FLATTEN_APEX := true</code> format to
-                        include APEX components as part of the base OS and disables support for
-                        out-of-band APEX component updates. This reduces complexity and attack
-                        surface along with simplifying key management since there aren't a bunch
-                        of additional components to sign. GrapheneOS has no use for out-of-band
-                        updates to APEX components since we update the OS for each device and
-                        don't need partial out-of-band updates for portable components.</p>
-
-                        <p>APEX components that aren't flattened are a signed APK (used to verify
-                        updates) with an embedded filesystem image signed with an AVB key (for
-                        verified boot). Our release signing scripts has support for signing
-                        non-flattened APEX components with the releasekey and AVB key for the
-                        device. This secures it but wouldn't be usable for shipping out-of-band
-                        updates to APEX components across multiple devices. You could switch to
-                        using a single shared APEX APK signing key and AVB signing key. You'll
-                        also need to add parameters for additional device-specific APEX components
-                        not included in our release signing script which was set up based on the
-                        Pixel 6 and Pixel 6 Pro.</p>
+                        <p>GrapheneOS currently doesn't use out-of-date updates to APEX
+                        components, so these are all signed with the OS releasekey and verified
+                        boot key to avoid needing many extra pairs of keys. Each APEX needs an APK
+                        signing key and verified boot signing key. If you want to ship out-of-band
+                        updates to APEX components, you'll need to deal with this and you should
+                        make a separate pair of keys for each one.</p>
 
                         <p>Consult the upstream documentation on generating these keys. It will
                         likely be covered here in the future, especially if non-flattened APEX
@@ -772,47 +757,68 @@ cp out-vendor-modules/android13-5.10/dist/*.ko $ANDROID_BUILD_TOP/kernel/prebuil
                         <code>device/generic/goldfish/x86_64-kernel.mk</code>.</p>
                     </section>
 
-                    <section id="kernel-4th-generation-pixels">
-                        <h4><a href="#kernel-4th-generation-pixels">4th generation Pixels</a></h4>
+                    <section id="kernel-7th-generation-pixels">
+                        <h4><a href="#kernel-7th-generation-pixels">7th generation Pixels</a></h4>
 
-                        <pre>mkdir -p android/kernel/coral
-cd android/kernel/coral
-repo init -u https://github.com/GrapheneOS/kernel_manifest-coral.git -b 13
+                        <p>To sync the pantah kernel for the Pixel 7 and Pixel 7 Pro:</p>
+
+                        <pre>mkdir -p android/kernel/pantah
+cd android/kernel/pantah
+repo init -u https://github.com/GrapheneOS/kernel_manifest-pantah.git -b 13
 repo sync -j8</pre>
 
-                        <p>To build the coral kernel for the Pixel 4 and Pixel 4 XL:</p>
+                        <p>To build the pantah kernel for the Pixel 7 and Pixel 7 Pro:</p>
 
-                        <pre>KBUILD_BUILD_VERSION=1 KBUILD_BUILD_USER=build-user KBUILD_BUILD_HOST=build-host KBUILD_BUILD_TIMESTAMP="Thu 01 Jan 1970 12:00:00 AM UTC" BUILD_CONFIG=private/msm-google/build.config.floral build/build.sh</pre>
-
-                        <p>To build the sunfish kernel for the Pixel 4a:</p>
-
-                        <pre>KBUILD_BUILD_VERSION=1 KBUILD_BUILD_USER=build-user KBUILD_BUILD_HOST=build-host KBUILD_BUILD_TIMESTAMP="Thu 01 Jan 1970 12:00:00 AM UTC" BUILD_CONFIG=private/msm-google/build.config.sunfish build/build.sh</pre>
+                        <pre>LTO=full BUILD_AOSP_KERNEL=1 ./build_cloudripper.sh</pre>
 
                         <p>Replace the files in the OS source tree at
-                        <code>device/google/coral-kernel/</code> or
-                        <code>device/google/sunfish-kernel/</code> with your build in
-                        <code>out/android-msm-pixel-4.14/dist/</code>.</p>
-                    </section>
+                        <code>device/google/pantah-kernel/</code> with your build in
+                        <code>out/mixed/dist/</code>.</p>
 
-                    <section id="kernel-5th-generation-pixels">
-                        <h4><a href="#kernel-5th-generation-pixels">5th generation Pixels</a></h4>
+                        <p>To sync the lynx kernel for the Pixel 7a:</p>
 
-                        <p>For 5th generation Pixels:</p>
-
-                        <pre>mkdir -p android/kernel/redbull
-cd android/kernel/redbull
-repo init -u https://github.com/GrapheneOS/kernel_manifest-redbull.git -b 13
+                        <pre>mkdir -p android/kernel/lynx
+cd android/kernel/lynx
+repo init -u https://github.com/GrapheneOS/kernel_manifest-lynx.git -b 13
 repo sync -j8</pre>
 
-                        <p>To build the redbull kernel for the Pixel 4a (5G), Pixel 5 and Pixel 5a
-                        kernel:</p>
+                        <p>To build the lynx kernel for the Pixel 7a:</p>
 
-                        <pre>BUILD_CONFIG=private/msm-google/build.config.redbull.vintf build/build.sh</pre>
+                        <pre>LTO=full BUILD_AOSP_KERNEL=1 ./build_lynx.sh</pre>
 
                         <p>Replace the files in the OS source tree at
-                        <code>device/google/redbull-kernel/</code> (userdebug/eng) and
-                        <code>device/google/redbull-kernel/vintf/</code> (user) with your build in
-                        <code>out/android-msm-pixel-4.19/dist/</code>.</p>
+                        <code>device/google/lynx-kernel/</code> with your build in
+                        <code>out/mixed/dist/</code>.</p>
+
+                        <p>To sync the tangorpro kernel for the Pixel Tablet:</p>
+
+                        <pre>mkdir -p android/kernel/tangorpro
+cd android/kernel/tangorpro
+repo init -u https://github.com/GrapheneOS/kernel_manifest-tangorpro.git -b 13
+repo sync -j8</pre>
+
+                        <p>To build the tangorpro kernel for the Pixel Tablet:</p>
+
+                        <pre>LTO=full BUILD_AOSP_KERNEL=1 ./build_tangorpro.sh</pre>
+
+                        <p>Replace the files in the OS source tree at
+                        <code>device/google/tangorpro-kernel/</code> with your build in
+                        <code>out/mixed/dist/</code>.</p>
+
+                        <p>To sync the felix kernel for the Pixel Fold:</p>
+
+                        <pre>mkdir -p android/kernel/felix
+cd android/kernel/felix
+repo init -u https://github.com/GrapheneOS/kernel_manifest-felix.git -b 13
+repo sync -j8</pre>
+
+                        <p>To build the felix kernel for the Pixel Fold:</p>
+
+                        <pre>LTO=full BUILD_AOSP_KERNEL=1 ./build_felix.sh</pre>
+
+                        <p>Replace the files in the OS source tree at
+                        <code>device/google/felix-kernel/</code> with your build in
+                        <code>out/mixed/dist/</code>.</p>
                     </section>
 
                     <section id="kernel-6th-generation-pixels">
@@ -846,38 +852,47 @@ repo sync -j8</pre>
                         <code>out/mixed/dist/</code>.</p>
                     </section>
 
-                    <section id="kernel-7th-generation-pixels">
-                        <h4><a href="#kernel-7th-generation-pixels">7th generation Pixels</a></h4>
+                    <section id="kernel-5th-generation-pixels">
+                        <h4><a href="#kernel-5th-generation-pixels">5th generation Pixels</a></h4>
 
-                        <p>To sync the pantah kernel for the Pixel 7 and Pixel 7 Pro:</p>
+                        <p>For 5th generation Pixels:</p>
 
-                        <pre>mkdir -p android/kernel/pantah
-cd android/kernel/pantah
-repo init -u https://github.com/GrapheneOS/kernel_manifest-pantah.git -b 13
+                        <pre>mkdir -p android/kernel/redbull
+cd android/kernel/redbull
+repo init -u https://github.com/GrapheneOS/kernel_manifest-redbull.git -b 13
 repo sync -j8</pre>
 
-                        <p>To build the pantah kernel for the Pixel 7 and Pixel 7 Pro:</p>
+                        <p>To build the redbull kernel for the Pixel 4a (5G), Pixel 5 and Pixel 5a
+                        kernel:</p>
 
-                        <pre>LTO=full BUILD_AOSP_KERNEL=1 ./build_cloudripper.sh</pre>
+                        <pre>BUILD_CONFIG=private/msm-google/build.config.redbull.vintf build/build.sh</pre>
 
                         <p>Replace the files in the OS source tree at
-                        <code>device/google/pantah-kernel/</code> with your build in
-                        <code>out/mixed/dist/</code>.</p>
+                        <code>device/google/redbull-kernel/</code> (userdebug/eng) and
+                        <code>device/google/redbull-kernel/vintf/</code> (user) with your build in
+                        <code>out/android-msm-pixel-4.19/dist/</code>.</p>
+                    </section>
 
-                        <p>To sync the lynx kernel for the Pixel 7a:</p>
+                    <section id="kernel-4th-generation-pixels">
+                        <h4><a href="#kernel-4th-generation-pixels">4th generation Pixels</a></h4>
 
-                        <pre>mkdir -p android/kernel/lynx
-cd android/kernel/lynx
-repo init -u https://github.com/GrapheneOS/kernel_manifest-lynx.git -b 13
+                        <pre>mkdir -p android/kernel/coral
+cd android/kernel/coral
+repo init -u https://github.com/GrapheneOS/kernel_manifest-coral.git -b 13
 repo sync -j8</pre>
 
-                        <p>To build the lynx kernel for the Pixel 7a:</p>
+                        <p>To build the coral kernel for the Pixel 4 and Pixel 4 XL:</p>
 
-                        <pre>LTO=full BUILD_AOSP_KERNEL=1 ./build_lynx.sh</pre>
+                        <pre>KBUILD_BUILD_VERSION=1 KBUILD_BUILD_USER=build-user KBUILD_BUILD_HOST=build-host KBUILD_BUILD_TIMESTAMP="Thu 01 Jan 1970 12:00:00 AM UTC" BUILD_CONFIG=private/msm-google/build.config.floral build/build.sh</pre>
+
+                        <p>To build the sunfish kernel for the Pixel 4a:</p>
+
+                        <pre>KBUILD_BUILD_VERSION=1 KBUILD_BUILD_USER=build-user KBUILD_BUILD_HOST=build-host KBUILD_BUILD_TIMESTAMP="Thu 01 Jan 1970 12:00:00 AM UTC" BUILD_CONFIG=private/msm-google/build.config.sunfish build/build.sh</pre>
 
                         <p>Replace the files in the OS source tree at
-                        <code>device/google/lynx-kernel/</code> with your build in
-                        <code>out/mixed/dist/</code>.</p>
+                        <code>device/google/coral-kernel/</code> or
+                        <code>device/google/sunfish-kernel/</code> with your build in
+                        <code>out/android-msm-pixel-4.14/dist/</code>.</p>
                     </section>
                 </section>
 
@@ -1458,16 +1473,6 @@ rm android-cts-media-1.5.zip</pre>
                 </section>
             </article>
         </main>
-        <footer>
-            <a href="/"><img src="{{path|/mask-icon.svg}}" width="512" height="512" alt=""/>GrapheneOS</a>
-            <ul id="social">
-                <li><a href="https://discuss.grapheneos.org/">Forum</a></li>
-                <li><a href="https://twitter.com/GrapheneOS">Twitter</a></li>
-                <li><a href="https://grapheneos.social/@GrapheneOS">Mastodon</a></li>
-                <li><a href="https://github.com/GrapheneOS">GitHub</a></li>
-                <li><a href="https://reddit.com/r/GrapheneOS">Reddit</a></li>
-                <li><a href="https://www.linkedin.com/company/grapheneos/">LinkedIn</a></li>
-            </ul>
-        </footer>
+        {% include "footer.html" %}
     </body>
 </html>

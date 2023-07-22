@@ -7,7 +7,18 @@ const RELEASES_URL = "https://releases.grapheneos.org";
 const CACHE_DB_NAME = "BlobStore";
 const CACHE_DB_VERSION = 1;
 
-let safeToLeave = true;
+const Buttons = {
+    UNLOCK_BOOTLOADER: "unlock-bootloader",
+    DOWNLOAD_RELEASE: "download-release",
+    FLASH_RELEASE: "flash-release",
+    LOCK_BOOTLOADER: "lock-bootloader",
+    REMOVE_CUSTOM_KEY: "remove-custom-key"
+};
+
+const InstallerState = {
+    DOWNLOADING_RELEASE: 0x1,
+    INSTALLING_RELEASE: 0x2
+};
 
 // This wraps XHR because getting progress updates with fetch() is overly complicated.
 function fetchBlobWithProgress(url, onProgress) {
@@ -27,6 +38,12 @@ function fetchBlobWithProgress(url, onProgress) {
             reject(`${xhr.status} ${xhr.statusText}`);
         };
     });
+}
+
+function setButtonState({ id, enabled }) {
+    const button = document.getElementById(`${id}-button`);
+    button.disabled = !enabled;
+    return button;
 }
 
 class BlobStore {
@@ -106,8 +123,39 @@ class BlobStore {
     }
 }
 
+class ButtonController {
+    #map;
+
+    constructor() {
+        this.#map = new Map();
+    }
+
+    setEnabled(...ids) {
+        ids.forEach((id) => {
+            // Only enable button if it won't be disabled.
+            if (!this.#map.has(id)) {
+                this.#map.set(id, /* enabled = */ true);
+            }
+        });
+    }
+
+    setDisabled(...ids) {
+        ids.forEach((id) => this.#map.set(id, /* enabled = */ false));
+    }
+
+    applyState() {
+        this.#map.forEach((enabled, id) => {
+            setButtonState({ id, enabled });
+        });
+        this.#map.clear();
+    }
+}
+
+let installerState = 0;
+
 let device = new fastboot.FastbootDevice();
 let blobStore = new BlobStore();
+let buttonController = new ButtonController();
 
 async function ensureConnected(setProgress) {
     if (!device.isConnected) {
@@ -140,15 +188,15 @@ async function unlockBootloader(setProgress) {
     return "Bootloader unlocked.";
 }
 
-const supportedDevices = ["lynx", "cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble", "sunfish", "coral", "flame"];
+const supportedDevices = ["felix", "tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble", "sunfish", "coral", "flame"];
 
 const qualcommDevices = ["barbet", "redfin", "bramble", "sunfish", "coral", "flame"];
 
 const legacyQualcommDevices = ["sunfish", "coral", "flame"];
 
-const tensorDevices = ["lynx", "cheetah", "panther", "bluejay", "raven", "oriole"];
+const tensorDevices = ["felix", "tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole"];
 
-const day1SnapshotCancelDevices = ["lynx", "cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble"];
+const day1SnapshotCancelDevices = ["felix", "tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble"];
 
 async function getLatestRelease() {
     let product = await device.getVariable("product");
@@ -170,7 +218,7 @@ async function downloadRelease(setProgress) {
     let [latestZip,] = await getLatestRelease();
 
     // Download and cache the zip as a blob
-    safeToLeave = false;
+    setInstallerState({ state: InstallerState.DOWNLOADING_RELEASE, active: true });
     setProgress(`Downloading ${latestZip}...`);
     await blobStore.init();
     try {
@@ -178,7 +226,7 @@ async function downloadRelease(setProgress) {
             setProgress(`Downloading ${latestZip}...`, progress);
         });
     } finally {
-        safeToLeave = true;
+        setInstallerState({ state: InstallerState.DOWNLOADING_RELEASE, active: false });
     }
     setProgress(`Downloaded ${latestZip} release.`, 1.0);
 }
@@ -225,7 +273,7 @@ async function flashRelease(setProgress) {
     }
 
     setProgress("Flashing release...");
-    safeToLeave = false;
+    setInstallerState({ state: InstallerState.INSTALLING_RELEASE, active: true });
     try {
         await device.flashFactoryZip(blob, true, reconnectCallback,
             (action, item, progress) => {
@@ -257,7 +305,7 @@ async function flashRelease(setProgress) {
             await device.runCommand("erase:dpm_b");
         }
     } finally {
-        safeToLeave = true;
+        setInstallerState({ state: InstallerState.INSTALLING_RELEASE, active: false });
     }
 
     return `Flashed ${latestZip} to device.`;
@@ -316,8 +364,7 @@ function addButtonHook(id, callback) {
         }
     };
 
-    let button = document.getElementById(`${id}-button`);
-    button.disabled = false;
+    let button = setButtonState({ id, enabled: true });
     button.onclick = async () => {
         try {
             let finalStatus = await callback(statusCallback);
@@ -333,6 +380,45 @@ function addButtonHook(id, callback) {
     };
 }
 
+function setInstallerState({ state, active }) {
+    if (active) {
+        installerState |= state;
+    } else {
+        installerState &= ~state;
+    }
+    invalidateInstallerState();
+}
+
+function isInstallerStateActive(state) {
+    return (installerState & state) === state;
+}
+
+function invalidateInstallerState() {
+    if (isInstallerStateActive(InstallerState.DOWNLOADING_RELEASE)) {
+        buttonController.setDisabled(Buttons.DOWNLOAD_RELEASE);
+    } else {
+        buttonController.setEnabled(Buttons.DOWNLOAD_RELEASE);
+    }
+
+    let disableWhileInstalling = [
+        Buttons.DOWNLOAD_RELEASE,
+        Buttons.FLASH_RELEASE,
+        Buttons.LOCK_BOOTLOADER,
+        Buttons.REMOVE_CUSTOM_KEY,
+    ];
+    if (isInstallerStateActive(InstallerState.INSTALLING_RELEASE)) {
+        buttonController.setDisabled(...disableWhileInstalling);
+    } else {
+        buttonController.setEnabled(...disableWhileInstalling);
+    }
+
+    buttonController.applyState();
+}
+
+function safeToLeave() {
+    return installerState === 0;
+}
+
 // This doesn't really hurt, and because this page is exclusively for web install,
 // we can tolerate extra logging in the console in case something goes wrong.
 fastboot.setDebugLevel(2);
@@ -344,18 +430,18 @@ fastboot.configureZip({
 });
 
 if ("usb" in navigator) {
-    addButtonHook("unlock-bootloader", unlockBootloader);
-    addButtonHook("download-release", downloadRelease);
-    addButtonHook("flash-release", flashRelease);
-    addButtonHook("lock-bootloader", lockBootloader);
-    addButtonHook("remove-custom-key", eraseNonStockKey);
+    addButtonHook(Buttons.UNLOCK_BOOTLOADER, unlockBootloader);
+    addButtonHook(Buttons.DOWNLOAD_RELEASE, downloadRelease);
+    addButtonHook(Buttons.FLASH_RELEASE, flashRelease);
+    addButtonHook(Buttons.LOCK_BOOTLOADER, lockBootloader);
+    addButtonHook(Buttons.REMOVE_CUSTOM_KEY, eraseNonStockKey);
 } else {
     console.log("WebUSB unavailable");
 }
 
 // This will create an alert box to stop the user from leaving the page during actions
 window.addEventListener("beforeunload", event => {
-    if (!safeToLeave) {
+    if (!safeToLeave()) {
         console.log("User tried to leave the page whilst unsafe to leave!");
         event.returnValue = "";
     }
