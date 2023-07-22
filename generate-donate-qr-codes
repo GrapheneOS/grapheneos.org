@@ -9,9 +9,9 @@ generate() {
     zopflipng -ym $1 $1
 }
 
-generate static/donate-bitcoin.png 'bitcoin:bc1qy6fhm8p00p3h3w5rrcp2h2wejeeqn7x6y7xs2p?label=GrapheneOS&message=Donation%20to%20GrapheneOS'
-generate static/donate-bitcoin-taproot.png 'bitcoin:bc1paundtwscvlqchmjgds2cj2dpay5y72ll37r07x57dhw9q234k6dqmc2ztx?label=GrapheneOS&message=Donation%20to%20GrapheneOS'
-generate static/donate-monero.png 'monero:8BHhJ3AnnZUJu4JYHasUus6Tq4HYyhiYRgrJAKNtfPc2hKMrTzbeUuf3B8ojtFMAu5MjNEDhoFQ31QLhs2z46CYDTUnuN63?recipient_name=GrapheneOS&tx_description=Donation%20to%20GrapheneOS'
-generate static/donate-zcash-transparent.png 'zcash:t1dsDbZQZrEUEGanmPMTAGxY2PJowL2S4br?label=GrapheneOS&message=Donation%20to%20GrapheneOS'
-generate static/donate-ethereum.png 'ethereum:0xb74eD3BE17C0F2AF46AC6F15b0536d6D112D1A8c'
-generate static/donate-cardano.png 'web+cardano:addr1q9yy48cu957rgmsh7s355gm458vauqll0z56r7gehqge8sv29gwxlt6f8pavhx2hjuw6494sxny8te7lrs0c6237u9ps443gd6'
+generate static/donate-bitcoin.png 'bitcoin:bc1q9qw3g8tdxf3dugkv2z8cahd3axehph0mhsqk96?label=GrapheneOS%20Foundation&message=Donation%20to%20GrapheneOS%20Foundation'
+generate static/donate-bitcoin-taproot.png 'bitcoin:bc1prqf5hks5dnd4j87wxw3djn20559yhj7wvvcv6fqxpwlg96udkzgqtamhry?label=GrapheneOS%20Foundation&message=Donation%20to%20GrapheneOS%20Foundation'
+generate static/donate-monero.png 'monero:862CebHaBpFPgYoNC6zw4U8rsXrDjD8s5LMJNS7yVCRHMUKr9dDi7adMSLUMjkDYJ85xahQTCJHHyK5RCvvRJu9x7iSzN9D?recipient_name=GrapheneOS&tx_description=Donation%20to%20GrapheneOS'
+generate static/donate-zcash-transparent.png 'zcash:t1SJABjX8rqgzqgrzLW5dUw7ikSDZ2snD8A?label=GrapheneOS%20Foundation&message=Donation%20to%20GrapheneOS%20Foundation'
+generate static/donate-ethereum.png 'ethereum:0xC822A62E5Ab443E0001f30cEB9B2336D0524fC61'
+generate static/donate-cardano.png 'web+cardano:addr1q9v89vfwyfssveug5zf2w7leafz8ethq490gvq0ghag883atfnucytpnq2t38dj7cnyngs6ne05cdwu9gseevgmt3ggq2a2wt6'

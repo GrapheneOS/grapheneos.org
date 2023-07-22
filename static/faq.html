@@ -22,33 +22,18 @@
         <link rel="canonical" href="https://grapheneos.org/faq"/>
         <link rel="icon" href="/favicon.ico"/>
         <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
-        <link rel="mask-icon" href="{{path|/mask-icon.svg}}" color="#1a1a1a"/>
+        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
         <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-        {{css|/main.css}}
+        [[css|/main.css]]
         <link rel="manifest" href="/manifest.webmanifest"/>
         <link rel="license" href="/LICENSE.txt"/>
         <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
-        {{js|/js/redirect.js}}
+        [[js|/js/redirect.js]]
     </head>
     <body>
-        <header>
-            <nav id="site-menu">
-                <ul>
-                    <li><a href="/"><img src="{{path|/mask-icon.svg}}" alt=""/>GrapheneOS</a></li>
-                    <li><a href="/features">Features</a></li>
-                    <li><a href="/install/">Install</a></li>
-                    <li><a href="/build">Build</a></li>
-                    <li><a href="/usage">Usage</a></li>
-                    <li aria-current="page"><a href="/faq">FAQ</a></li>
-                    <li><a href="/releases">Releases</a></li>
-                    <li><a href="/source">Source</a></li>
-                    <li><a href="/history/">History</a></li>
-                    <li><a href="/articles/">Articles</a></li>
-                    <li><a href="/donate">Donate</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
+        {% with current_page="faq" %}
+            {% include "header.html" %}
+        {% endwith %}
         <main id="faq">
             <h1><a href="#faq">Frequently Asked Questions</a></h1>
 
@@ -146,6 +131,8 @@
                     <p>GrapheneOS has official production support for the following devices:</p>
 
                     <ul>
+                        <li>Pixel Fold (felix)</li>
+                        <li>Pixel Tablet (tangorpro)</li>
                         <li>Pixel 7a (lynx)</li>
                         <li>Pixel 7 Pro (cheetah)</li>
                         <li>Pixel 7 (panther)</li>
@@ -213,6 +200,8 @@
                     from launch for full security updates and other improvements:</p>
 
                     <ul>
+                        <li>Pixel Fold</li>
+                        <li>Pixel Tablet</li>
                         <li>Pixel 7a</li>
                         <li>Pixel 7 Pro</li>
                         <li>Pixel 7</li>
@@ -232,6 +221,10 @@
                     <p>Pixel 7a is nearly the same as the Pixel 7 other than having slow wireless
                     charging and weaker dust/water protection. Pixel 7a offers the best value when
                     buying a new device.</p>
+
+                    <p>The Pixel Tablet is a tablet variant of the 7th generation devices and the
+                    Pixel Fold is a hybrid phone/tablet. These share the same SoC and are nearly
+                    the same as the other 7th generation devices under the hood.</p>
 
                     <p>Pixel 6, Pixel 6 Pro and Pixel 6a can still be worth buying if you can get
                     a good deal due to the long support time. They still have 3.5 to 4 years of
@@ -380,6 +373,16 @@
                             <th>Device</th>
                             <th>OEM minimum support end</th>
                             <th>OEM minimum support length</th>
+                        </tr>
+                        <tr>
+                            <td>Google Pixel Fold</td>
+                            <td>June 2028</td>
+                            <td>5 years</td>
+                        </tr>
+                        <tr>
+                            <td>Google Pixel Tablet</td>
+                            <td>June 2028</td>
+                            <td>5 years</td>
                         </tr>
                         <tr>
                             <td>Google Pixel 7a</td>
@@ -1098,7 +1101,7 @@
                     GrapheneOS modifies carrier configuration so that toggles for disabling VoLTE,
                     VoNR and VoWi-Fi are always available. We plan to provide more toggles to
                     control these things in the future beyond making all the standard toggles
-                    avialable.</p>
+                    available.</p>
                 </article>
 
                 <article id="privacy-policy">
@@ -1287,18 +1290,26 @@
                 <article id="firewall">
                     <h3><a href="#firewall">Does GrapheneOS provide a firewall?</a></h3>
 
-                    <p>Yes, GrapheneOS inherits the deeply integrated firewall from the Android Open
-                    Source Project, which is used to implement portions of the security model and various
-                    other features. The GrapheneOS project historically made various improvements to the
-                    firewall but over time most of these changes have been integrated upstream or became
-                    irrelevant.</p>
+                    <p>Yes, GrapheneOS inherits the deeply integrated firewall from the Android
+                    Open Source Project, which is used to implement portions of the security model
+                    and various other features. The GrapheneOS project historically made various
+                    improvements to the firewall but over time most of these changes have been
+                    integrated upstream or became irrelevant.</p>
 
-                    <p>GrapheneOS adds a user-facing Network permission toggle providing a robust way to
-                    deny both direct and indirect network access to applications. It builds upon the
-                    standard non-user-facing INTERNET permission, so it's already fully adopted by the app
-                    ecosystem. Revoking the permission denies indirect access via OS components and apps
-                    enforcing the INTERNET permission, such as DownloadManager. Direct access is denied
-                    by blocking low-level network socket access.</p>
+                    <p>GrapheneOS adds a user-facing Network permission toggle providing a robust
+                    way to deny both direct and indirect network access to applications. It builds
+                    upon the standard non-user-facing INTERNET permission, so it's already fully
+                    adopted by the app ecosystem. Revoking the permission denies indirect access
+                    via OS components and apps enforcing the INTERNET permission, such as
+                    DownloadManager. Direct access is denied by blocking low-level network socket
+                    access. A packet-based firewall would only block direct access so our approach
+                    is much more complete. Additionally, GrapheneOS pretends that the Network is
+                    down for most APIs when the Network permission is disabled. For example, it
+                    won't run scheduled jobs depending internet availability and most APIs for
+                    checking the state of the network will report it as down and internet access
+                    as unavailable. This means apps won't try to keep trying to access the
+                    internet and draining battery because they'll treat it the way they do when
+                    internet access is genuinely unavailable.</p>
                 </article>
 
                 <article id="ad-blocking">
@@ -1845,16 +1856,6 @@
                 as a distinct OS based on GrapheneOS.</p>
             </article>
         </main>
-        <footer>
-            <a href="/"><img src="{{path|/mask-icon.svg}}" width="512" height="512" alt=""/>GrapheneOS</a>
-            <ul id="social">
-                <li><a href="https://discuss.grapheneos.org/">Forum</a></li>
-                <li><a href="https://twitter.com/GrapheneOS">Twitter</a></li>
-                <li><a href="https://grapheneos.social/@GrapheneOS">Mastodon</a></li>
-                <li><a href="https://github.com/GrapheneOS">GitHub</a></li>
-                <li><a href="https://reddit.com/r/GrapheneOS">Reddit</a></li>
-                <li><a href="https://www.linkedin.com/company/grapheneos/">LinkedIn</a></li>
-            </ul>
-        </footer>
+        {% include "footer.html" %}
     </body>
 </html>
