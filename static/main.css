@@ -3,6 +3,7 @@
 
 html {
     height: -webkit-fill-available; /* replace with stretch when standardized */
+    scroll-behavior: smooth;
 }
 
 body {
