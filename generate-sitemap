@@ -4,7 +4,7 @@ from datetime import datetime, timezone
 from os.path import getmtime
 from pathlib import Path
 
-base = "https://grapheneos.org"
+base = "https://staging.grapheneos.org"
 
 pages = [
     ["/", 0.5],
@@ -42,7 +42,7 @@ entries = []
 for page in pages:
     path = page[0]
     loc = base + path
-    filepath = "static-production" + path
+    filepath = "static-staging" + path
     if path[-1] == '/':
         filepath += "index.html"
     elif "." not in path:
