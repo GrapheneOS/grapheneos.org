@@ -14,22 +14,20 @@ fi
 
 . servers.sh
 
-remote=root@yto.grapheneos.org
+remote=root@staging.grapheneos.org
 
-rsync -pcv --chmod=F644 --fsync --preallocate mirrors $remote:/etc/mirrors
-
-# use last modified timestamps from yto.grapheneos.org
-rsync -rptcv --chmod=D755,F644 --delete --fsync --preallocate $remote:/srv/grapheneos.org/ static-production
-rsync -pcv --chmod=D755,F644 --fsync --preallocate static-production/sitemap.xml{,.gz,.br} static-tmp/
-rsync -rpcv --chmod=D755,F644 --delete --fsync --preallocate static-tmp/ static-production
-for f in static-production/**.*(br|gz); do
+# use last modified timestamps from staging.grapheneos.org
+rsync -rptcv --chmod=D755,F644 --delete --fsync --preallocate $remote:/srv/grapheneos.org/ static-staging
+rsync -pcv --chmod=D755,F644 --fsync --preallocate static-staging/sitemap.xml{,.gz,.br} static-tmp/
+rsync -rpcv --chmod=D755,F644 --delete --fsync --preallocate static-tmp/ static-staging
+for f in static-staging/**.*(br|gz); do
     touch -r "${f%.*}" "$f"
 done
 changed="$(./generate-sitemap)"
 xmllint --noblanks static-tmp/sitemap.xml --output static-tmp/sitemap.xml
 brotli -f static-tmp/sitemap.xml
 zopfli static-tmp/sitemap.xml
-rsync -pcv --chmod=D755,F644 --fsync --preallocate static-tmp/sitemap.xml{,.gz,.br} static-production/
+rsync -pcv --chmod=D755,F644 --fsync --preallocate static-tmp/sitemap.xml{,.gz,.br} static-staging/
 
 for server in ${servers[@]}; do
     echo $server
@@ -48,7 +46,7 @@ for server in ${servers[@]}; do
     echo
 
     ssh $remote "rm -rf $target && cp -a $active $target"
-    rsync -rptcv --chmod=D755,F644 --delete --fsync --preallocate static-production/ $remote:$target
+    rsync -rptcv --chmod=D755,F644 --delete --fsync --preallocate static-staging/ $remote:$target
     ssh $remote "ln -snf $target /srv/grapheneos.org && sync /srv/grapheneos.org"
 
     echo "root $target;" > nginx-tmp/root_grapheneos.org.conf
@@ -59,7 +57,3 @@ for server in ${servers[@]}; do
     echo active is now $target
     echo
 done
-
-if [[ -n "$changed" ]]; then
-    ./indexnow <<< "$changed"
-fi
