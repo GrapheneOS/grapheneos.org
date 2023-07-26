@@ -12,15 +12,12 @@ fi
 
 ./process-static $fd
 
-servers=({0..3}.grapheneos.org)
+servers=(staging.grapheneos.org)
 
-rsync -pcv --chmod=F755 --fsync --preallocate certbot-replicate root@${servers[0]}:/usr/local/bin/
-rsync -pcv --chmod=F644 --fsync --preallocate replicate.conf root@${servers[0]}:/etc/systemd/system/certbot-renew.service.d/
-
-# use last modified timestamps from 0.grapheneos.org
-rsync -rptcv --chmod=D755,F644 --delete --fsync --preallocate root@${servers[0]}:/srv/grapheneos.org/ static-production
-rsync -rpcv --chmod=D755,F644 --delete --fsync --preallocate static-tmp/ static-production
-for f in static-production/**.*(br|gz); do
+# use last modified timestamps from staging.grapheneos.org
+rsync -rptcv --chmod=D755,F644 --delete --fsync --preallocate root@${servers[0]}:/srv/grapheneos.org/ static-staging
+rsync -rpcv --chmod=D755,F644 --delete --fsync --preallocate static-tmp/ static-staging
+for f in static-staging/**.*(br|gz); do
     touch -r "${f%.*}" "$f"
 done
 
@@ -41,7 +38,7 @@ for server in ${servers[@]}; do
     echo
 
     ssh $remote "rm -rf $target && cp -a $active $target"
-    rsync -rptcv --chmod=D755,F644 --delete --fsync --preallocate static-production/ $remote:$target
+    rsync -rptcv --chmod=D755,F644 --delete --fsync --preallocate static-staging/ $remote:$target
     ssh $remote "ln -snf $target /srv/grapheneos.org && sync /srv/grapheneos.org"
 
     echo "root $target;" > nginx-tmp/root_grapheneos.org.conf
