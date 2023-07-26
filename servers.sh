@@ -1,1 +1,1 @@
-servers=({bhs0,bhs1,fra,gra,hio,las,sin}.grapheneos.org)
+servers=(staging.grapheneos.org)
