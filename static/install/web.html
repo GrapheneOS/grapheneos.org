@@ -55,7 +55,7 @@
                     <li><a href="#enabling-oem-unlocking">Enabling OEM unlocking</a></li>
                     <li><a href="#flashing-as-non-root">Flashing as non-root</a></li>
                     <li><a href="#booting-into-the-bootloader-interface">Booting into the bootloader interface</a></li>
-                    <li><a href="#connecting-phone">Connecting the phone</a></li>
+                    <li><a href="#connecting-device">Connecting the device</a></li>
                     <li><a href="#unlocking-the-bootloader">Unlocking the bootloader</a></li>
                     <li><a href="#obtaining-factory-images">Obtaining factory images</a></li>
                     <li><a href="#flashing-factory-images">Flashing factory images</a></li>
@@ -151,7 +151,7 @@
                 and the hardware is the same.</p>
 
                 <p>It's best practice to update the device before installing GrapheneOS to have
-                the latest firmware for connecting the phone to the computer and performing the
+                the latest firmware for connecting the device to the computer and performing the
                 early flashing process. Either way, GrapheneOS flashes the latest firmware early
                 in the installation process.</p>
             </section>
@@ -161,7 +161,7 @@
 
                 <p>OEM unlocking needs to be enabled from within the operating system.</p>
 
-                <p>Enable the developer options menu by going to Settings ➔ About phone and
+                <p>Enable the developer options menu by going to Settings ➔ About phone/tablet and
                 repeatedly pressing the build number menu entry until developer mode is
                 enabled.</p>
 
@@ -190,25 +190,25 @@
             <section id="booting-into-the-bootloader-interface">
                 <h2><a href="#booting-into-the-bootloader-interface">Booting into the bootloader interface</a></h2>
 
-                <p>You need to boot your phone into the bootloader interface. To do this, you need
-                to hold the volume down button while the phone boots.</p>
+                <p>You need to boot your device into the bootloader interface. To do this, you need
+                to hold the volume down button while the device boots.</p>
 
-                <p>The easiest approach is to reboot the phone and begin holding the volume down
+                <p>The easiest approach is to reboot the device and begin holding the volume down
                 button until it boots up into the bootloader interface.</p>
 
-                <p>Alternatively, turn off the phone, then boot it up while holding the volume
+                <p>Alternatively, turn off the device, then boot it up while holding the volume
                 down button during the boot process. You can either boot it with the power button
                 or by plugging it in as required in the next section.</p>
             </section>
 
-            <section id="connecting-phone">
-                <h2><a href="#connecting-phone">Connecting the phone</a></h2>
+            <section id="connecting-device">
+                <h2><a href="#connecting-device">Connecting the device</a></h2>
 
-                <p>Connect the phone to the computer. On Linux, you'll need to do this again if
+                <p>Connect the device to the computer. On Linux, you'll need to do this again if
                 you didn't have the udev rules set up when you connected it.</p>
 
                 <p>On Linux, GNOME has a bug causing compatibility issues with the installation
-                process. It wrongly detects the phone in fastboot mode or fastbootd mode as being
+                process. It wrongly detects the device in fastboot mode or fastbootd mode as being
                 an MTP device and claims exclusive control over it. This will block the install
                 process from proceeding. You can run the following command to work around it:</p>
 
