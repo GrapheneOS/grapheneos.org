@@ -33,35 +33,34 @@
         {% with current_page="donate" %}
             {% include "header.html" %}
         {% endwith %}
-        <main id="donate">
-            <div class="page-title">
-                <h1 class="page-title">Donate</h1>
-            </div>
-            <div class="page-description">
+        <main class="normalize" id="donate">
+
+            <section class="page-title">
+                <h1><a href="#donate">Donate</a></h1>
+
                 <p>GrapheneOS is an open source project supported via donations from individuals,
-                    companies and other organizations.
-                    <a href="./donation-information.html">Learn more about donations.</a>
-                </p>
-            </div>
-            <div class="donations">
+                    companies and other organizations. <a href="./donation-information">Learn more about donations.</a></p>
+            </section>
+
+            <section class="donation-card-holder">
                 <section class="donation-card" id="github-sponsors">
-                    <div class="donate-qr">
+                    <section class="donate-thumb">
                         <img class="logo" src="./github-logo.png" alt="GitHub logo"/>
-                    </div>
-                    <div>
+                    </section>
+                    <section>
                         <h2><a href="#github-sponsors">GitHub Sponsors</a></h2>
                         <p>Recurring or one-time donations through GitHub Sponsors.</p>
                         <a href="https://github.com/sponsors/thestinger" rel="nofollow">
                             <p>github.com/sponsors/thestinger</p>
                         </a>
-                    </div>
+                    </section>
                 </section>
-    
+                
                 <section class="donation-card" id="paypal">
-                    <div class="donate-qr">
+                    <section class="donate-thumb">
                         <img class="logo" src="./paypal-logo.png" alt="PayPal Logo"/>
-                    </div>
-                    <div>
+                    </section>
+                    <section>
                         <h2><a href="#paypal">PayPal</a></h2>
                         <p>You can donate via one of the PayPal links below.</p><br>
                         <p>PayPal: </p>
@@ -77,96 +76,96 @@
                         <a href="https://www.paypal.com/donate/?hosted_button_id=N498QNB7NPKU8" rel="nofollow">
                             <p>(GBP)</p>
                         </a>
-                    </div>
+                    </section>
                 </section>
-    
+                
                 <section class="donation-card" id="interac">
-                    <div class="donate-qr">
+                    <section class="donate-thumb">
                         <img class="logo" src="./interac-logo.png" alt="Interac logo"/>
-                    </div>
-                    <div>
-                        <h2><a href="#paypal">Interac e-Transfer</a></h2>
+                    </section>
+                    <section>
+                        <h2><a href="#paypal">Interac e-Transfer    </a></h2>
                         <p>If you have a Canadian bank account, you can send CAD donations via </p>
-                        <a href="mailto:daniel.micay@grapheneos.org" rel="nofollow">
-                            <p>daniel.micay@grapheneos.org</p>
+                        <a href="mailto:contact@grapheneos.org" rel="nofollow">
+                            <p>contact@grapheneos.org</p>
                         </a>
-                    </div>
+                    </section>
                 </section>
-    
+                
                 <section class="donation-card" id="bitcoin">
-                    <div class="donate-qr">
+                    <section class="donate-thumb">
                         <img class="qr" src="./donate-bitcoin.png" alt="Bitcoin donation QR code"/>
-                    </div>
-                    <div>
+                    </section>
+                    <section>
                         <h2><a href="#bitcoin">Bitcoin</a></h2>
                         <p>You can send Bitcoin donations to the following address:</p>
                         <a href="bitcoin:bc1q9qw3g8tdxf3dugkv2z8cahd3axehph0mhsqk96?label=GrapheneOS%20Foundation&amp;message=Donation%20to%20GrapheneOS%20Foundation"
                             rel="nofollow">
                             <p>Bitcoin address</p>
                         </a>
-                    </div>
+                    </section>
                 </section>
-    
+                
                 <section class="donation-card" id="bitcoin-taproot">
-                    <div class="donate-qr">
+                    <section class="donate-thumb">
                         <img class="qr" src="./donate-bitcoin-taproot.png" alt="Bitcoin Taproot donation QR code"/>
-                    </div>
-                    <div>
+                    </section>
+                    <section>
                         <h2><a href="#bitcoin-taproot">Bitcoin Taproot</a></h2>
                         <p>You can send Bitcoin Taproot donations to the following address:</p>
                         <a href="bitcoin:bc1prqf5hks5dnd4j87wxw3djn20559yhj7wvvcv6fqxpwlg96udkzgqtamhry?label=GrapheneOS%20Foundation&amp;message=Donation%20to%20GrapheneOS%20Foundation"
                             rel="nofollow">
                             <p>Bitcoin Taproot address</p>
                         </a>
-                    </div>
+                    </section>
                 </section>
-    
+                
                 <section class="donation-card" id="monero">
-                    <div class="donate-qr">
+                    <section class="donate-thumb">
                         <img class="qr" src="./donate-monero.png" alt="Monero donation QR code"/>
-                    </div>
-                    <div>
+                    </section>
+                    <section>
                         <h2><a href="#monero">Monero</a></h2>
                         <p>You can send Monero donations to the following address:</p>
                         <a href="monero:862CebHaBpFPgYoNC6zw4U8rsXrDjD8s5LMJNS7yVCRHMUKr9dDi7adMSLUMjkDYJ85xahQTCJHHyK5RCvvRJu9x7iSzN9D?recipient_name=GrapheneOS%20Foundation&amp;tx_description=Donation%20to%20GrapheneOS%20Foundation"
                             rel="nofollow">
                             <p>Monero address</p>
                         </a>
-                    </div>
+                    </section>
                 </section>
-    
+                
                 <section class="donation-card" id="zcash">
-                    <div class="donate-qr">
+                    <section class="donate-thumb">
                         <img class="qr" src="./donate-zcash-transparent.png" alt="Zcash donation QR code"/>
-                    </div>
-                    <div>
+                    </section>
+                    <section>
                         <h2><a href="#zcash">Zcash</a></h2>
                         <p>You can send Zcash donations to the following address:</p>
                         <a href="zcash:t1SJABjX8rqgzqgrzLW5dUw7ikSDZ2snD8A?label=GrapheneOS%20Foundation&amp;message=Donation%20to%20GrapheneOS%20Foundation"
                             rel="nofollow">
                             <p>Zcash address</p>
                         </a>
-                    </div>
+                    </section>
                 </section>
-    
+                
                 <section class="donation-card" id="ethereum">
-                    <div class="donate-qr">
+                    <section class="donate-thumb">
                         <img class="qr" src="./donate-ethereum.png" alt="Ethereum donation QR code"/>
-                    </div>
-                    <div>
+                    </section>
+                    <section>
                         <h2><a href="#ethereum">Ethereum</a></h2>
                         <p>You can send Ethereum donations to the following address:</p>
                         <a href="ethereum:0xC822A62E5Ab443E0001f30cEB9B2336D0524fC61" rel="nofollow">
                             <p>Ethereum address</p>
                         </a>
-                    </div>
+                    </section>
                 </section>
                 
                 <section class="donation-card" id="cardano">
-                    <div class="donate-qr">
+                    <section class="donate-thumb">
                         <img class="qr" src="./donate-cardano.png" alt="Cardano donation QR code"/>
-                    </div>
-                    <div>
+                    </section>
+                    <section>
                         <h2><a href="#cardano">Cardano</a></h2>
                         <p>You can send Cardano donations to the following address:</p>
                         <a href="web+cardano:addr1q9v89vfwyfssveug5zf2w7leafz8ethq490gvq0ghag883atfnucytpnq2t38dj7cnyngs6ne05cdwu9gseevgmt3ggq2a2wt6"
@@ -174,9 +173,9 @@
                             <p>Cardano address
                             </p>
                         </a>
-                    </div>
+                    </section>
                 </section>
-            </div>
+            </section>
         </main>
         {% include "footer.html" %}
     </body>

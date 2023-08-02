@@ -201,13 +201,13 @@ button:disabled {
     text-align: center;
 }
 
-div.donate-qr {
+section.donate-thumb {
     display: grid;
     justify-items: center;
     align-items: center;
 }
 
-div.donate-qr img.qr {
+section.donate-thumb img.qr {
     image-rendering: pixelated;
     width: 150px;
     height: 150px;
@@ -216,7 +216,7 @@ div.donate-qr img.qr {
     margin-right: 1em;
 }
 
-div.donate-qr img.logo {
+section.donate-thumb img.logo {
     image-rendering: auto;
     width: 150px;
     height: 150px;
@@ -224,7 +224,7 @@ div.donate-qr img.logo {
     margin-right: 1em;
 }
 
-div.donations {
+section.donation-card-holder {
     display: grid;
     margin-left: auto;
     margin-right: auto;
@@ -236,33 +236,14 @@ div.donations {
     row-gap: 1em;
 }
 
-div.page-title h1{
+section.page-title {
     text-align: center;
     margin-bottom: 0.5em;
 }
 
-div.page-description {
-    text-align: center;
-}
-
-div.page-description p {
+section.page-title p {
     margin: 0 auto;
     width: 50vw;
-    margin-bottom: 0.5em;
-}
-
-@media (max-width: 600px) {
-    div.donations {
-        grid-template-columns: 1fr;
-    }
-
-    div.donate-qr img {
-        margin-right: 0;
-    }
-
-    div.page-description p {
-        width: 85vw;
-    }
 }
 
 section.donation-card {
@@ -284,8 +265,19 @@ section.donation-card {
         grid-template-rows: 0.25fr 0.75fr;
         text-align: center;
     }
-}
 
+    section.donation-card-holder {
+        grid-template-columns: 1fr;
+    }
+
+    section.donate-thumb img {
+        margin-right: 0;
+    }
+
+    section.page-description p {
+        width: 85vw;
+    }
+}
 section.donation-card h2 {
     margin-bottom: 0;
 }
