@@ -541,6 +541,14 @@ main.normalize {
         filter: invert(87%);
     }
 
+    section.donation-card {
+        background-color: #212121;
+    }
+
+    section.donate-thumb img.qr {
+        border-color: black;
+    }
+
     .surface {
         background-color: #212121;
     }
