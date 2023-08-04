@@ -420,7 +420,13 @@ curl -O https://releases.grapheneos.org/<var>DEVICE_NAME</var>-factory-202111012
                 <code>signify</code> from trusted package repositories (see above), otherwise
                 continue on to the next section without this:</p>
 
+                <p>On Arch Linux:</p>
+
                 <pre>signify -Cqp factory.pub -x <var>DEVICE_NAME</var>-factory-2021110122.zip.sig &amp;&amp; echo verified</pre>
+
+                <p>On Debian and Ubuntu:</p>
+
+                <pre>signify-openbsd -Cqp factory.pub -x <var>DEVICE_NAME</var>-factory-2021110122.zip.sig &amp;&amp; echo verified</pre>
 
                 <p>This will output <code>verified</code> if verification is successful. If something
                 goes wrong, it will output an error message rather than <code>verified</code>.</p>
