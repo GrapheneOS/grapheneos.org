@@ -10,8 +10,8 @@ for replica in ${replicas[@]}; do
     echo Deploying to $replica
     echo
 
-    rsync -rptvl --fsync --delete /etc/letsencrypt/ $replica:/etc/letsencrypt &&
-        rsync -rptvl --fsync --delete /var/cache/certbot-ocsp-fetcher/ $replica:/var/cache/certbot-ocsp-fetcher &&
+    rsync -rptvl --delete --fsync --preallocate /etc/letsencrypt/ $replica:/etc/letsencrypt &&
+        rsync -rptvl --delete --fsync --preallocate /var/cache/certbot-ocsp-fetcher/ $replica:/var/cache/certbot-ocsp-fetcher &&
         ssh root@$replica nginx -s reload ||
         status=1
 done

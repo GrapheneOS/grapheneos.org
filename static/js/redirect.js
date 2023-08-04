@@ -68,6 +68,8 @@ const redirects = new Map([
     ["/install/#disabling-oem-unlocking", "/install/cli#disabling-oem-unlocking"],
     ["/install/#replacing-grapheneos-with-the-stock-os", "/install/cli#replacing-grapheneos-with-the-stock-os"],
     ["/install/#further-information", "/install/cli#further-information"],
+    ["/install/web#connecting-phone", "/install/web#connecting-device"],
+    ["/install/cli#connecting-phone", "/install/cli#connecting-device"],
 ]);
 
 function handleHash() {

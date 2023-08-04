@@ -85,6 +85,8 @@
                     <li>
                         <a href="#changelog">Changelog</a>
                         <ul>
+                            <li><a href="#2023072600">2023072600</a></li>
+                            <li><a href="#2023072400">2023072400</a></li>
                             <li><a href="#2023071100">2023071100</a></li>
                             <li><a href="#2023070500">2023070500</a></li>
                             <li><a href="#2023062800">2023062800</a></li>
@@ -642,30 +644,81 @@
                 release notes from before the rebranding of the project in 2018 and 2019.</p>
 
                 <!--
-                <article id="2023071100">
-                    <h3><a href="#2023071100">2023071100</a></h3>
+                <article id="2023072600">
+                    <h3><a href="#2023072600">2023072600</a></h3>
 
                     <p>Tags:</p>
                     <ul>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023071100-coral">2023071100-coral</a> (Pixel 4, Pixel 4 XL) — extended support release for legacy devices with frozen 2022-11-01 patch level</li>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023071100">2023071100</a> (Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, emulator, generic, other targets)</li>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023071100-tangorpro">2023071100-tangorpro</a> (Pixel Tablet)</li>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023071100-felix">2023071100-felix</a> (Pixel Fold)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023072600-coral">2023072600-coral</a> (Pixel 4, Pixel 4 XL) — extended support release for legacy devices with frozen 2022-11-01 patch level</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023072600">2023072600</a> (Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, emulator, generic, other targets)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023072600-tangorpro">2023072600-tangorpro</a> (Pixel Tablet)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023072600-felix">2023072600-felix</a> (Pixel Fold)</li>
+                    </ul>
+
+                    <p>Changes since the 2023072600 release:</p>
+
+                    <ul>
+                        <li>add workarounds for upstream Android issue with user profiles causing screenshots to break the recent app list and launcher</li>
+                        <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Generic 5.10): update to latest GKI LTS branch revision including update to 5.10.187</li>
+                        <li>kernel (Generic 5.15): update to latest GKI LTS branch revision including update to 5.15.120</li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/115.0.5790.166.0">version 115.0.5790.166.0</a></li>
+                        <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-65">version 65</a></li>
+                        <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-66">version 66</a></li>
+                    </ul>
+                </article>
+                -->
+
+                <article id="2023072600">
+                    <h3><a href="#2023072600">2023072600</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023072600-coral">2023072600-coral</a> (Pixel 4, Pixel 4 XL) — extended support release for legacy devices with frozen 2022-11-01 patch level</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023072600">2023072600</a> (Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, emulator, generic, other targets)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023072600-tangorpro">2023072600-tangorpro</a> (Pixel Tablet)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023072600-felix">2023072600-felix</a> (Pixel Fold)</li>
+                    </ul>
+
+                    <p>Changes since the 2023072400 release:</p>
+
+                    <ul>
+                        <li>Sandboxed Google Play compatibility layer: fix crash caused by regression in the previous release which was caught in Alpha/Beta testing and blocked us from releasing it to the Stable channel</li>
+                        <li>Settings: improve GrapheneOS user management setting infrastructure</li>
+                        <li>Settings: move run in background settings right below switch user settings</li>
+                        <li>Settings: unify app install settings into three options for non-guest users and two for guest users and move them right above the install available apps settings</li>
+                        <li>Settings: remove incorrect caching of default guest user manager restrictions</li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/115.0.5790.138.0">version 115.0.5790.138.0</a></li>
+                    </ul>
+                </article>
+
+                <article id="2023072400">
+                    <h3><a href="#2023072400">2023072400</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023072400-coral">2023072400-coral</a> (Pixel 4, Pixel 4 XL) — extended support release for legacy devices with frozen 2022-11-01 patch level</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023072400">2023072400</a> (Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, emulator, generic, other targets)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023072400-tangorpro">2023072400-tangorpro</a> (Pixel Tablet)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023072400-felix">2023072400-felix</a> (Pixel Fold)</li>
                     </ul>
 
                     <p>Changes since the 2023071100 release:</p>
 
                     <ul>
+                        <li>replace our changes to AOSP APN and CarrierConfig configurations with a GrapheneOS CarrierConfig2 app for easier maintenance, improved MVNO support and support for recently added configuration options</li>
+                        <li>add infrastructure for comparing CarrierConfig2 against Google's CarrierSettings app</li>
                         <li>show installer package name in error reports to help with identifying issues caused by broken installers</li>
+                        <li>update timezone module to Android mainline 331910000</li>
                         <li>Sandboxed Google Play compatibility layer: support overriding ComponentEnabledSettings via GmsCompatConfig</li>
                         <li>Sandboxed Google Play compatibility layer: add missing string for "Missing Play Games app" notification channel name</li>
                         <li>Sandboxed Google Play compatibility layer: avoid uncaught exceptions with location rerouting when client only has coarse location permission</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/115.0.5790.85.0">version 115.0.5790.85.0</a></li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/115.0.5790.136.0">version 115.0.5790.136.0</a></li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-63">version 63</a></li>
+                        <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-64">version 64</a></li>
+                        <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/74">version 74</a></li>
                     </ul>
                 </article>
-                -->
 
                 <article id="2023071100">
                     <h3><a href="#2023071100">2023071100</a></h3>
@@ -959,7 +1012,7 @@
                         <li>Settings: remove icon for Internet connectivity check and remote key provisioning settings for now</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro): Mali GPU driver update</li>
                         <li>System Updater: add TLS key pinning with expiration 2 months in the future to make TLS more useful as an additional layer of security before the 3 layers of offline update signing with downgrade protection (update package signature, update_engine payload signature and verified boot signatures) while also avoiding blocking updates on out-of-date installs falling behind changes to our TLS certificate approach</li>
-                        <li>update timezone data to Android mainline 331314030 (based on tzdata 2023a)</li>
+                        <li>update timezone module to Android mainline 331314030 (based on tzdata 2023a)</li>
                         <li>kernel (Generic 5.15): update to latest GKI LTS branch revision including update to 5.15.106</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/113.0.5672.77.0">version 113.0.5672.77.0</a></li>
                         <li>Apps: update to <a href="https://github.com/GrapheneOS/Apps/releases/tag/19">version 19</a></li>
@@ -1097,7 +1150,7 @@
                         <li>Settings: add Pixel eSIM firmware app to the list of apps which can't be disabled via GUI since it updates firmware</li>
                         <li>Launcher: hide "all apps" view when search starts to avoid upstream race condition where the wrong app can be opened when pressing too quickly</li>
                         <li>Launcher, Keyboard: drop GrapheneOS prefix from naming to match other GrapheneOS apps</li>
-                        <li>update timezone data to Android mainline 331314020 (based on tzdata 2022g)</li>
+                        <li>update timezone module to Android mainline 331314020 (based on tzdata 2022g)</li>
                         <li>kernel (Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Generic 5.10, Generic 5.15): add back our slab allocator canary feature</li>
                         <li>kernel (Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Generic 5.10, Generic 5.15): align with linux-hardened BPF JIT configuration (always on with JIT hardening enabled in all cases)</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Generic 5.10): update to latest GKI LTS branch revision including update to 5.10.176</li>

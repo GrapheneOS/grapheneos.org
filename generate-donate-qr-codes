@@ -11,6 +11,7 @@ generate() {
 
 generate static/donate-bitcoin.png 'bitcoin:bc1q9qw3g8tdxf3dugkv2z8cahd3axehph0mhsqk96?label=GrapheneOS%20Foundation&message=Donation%20to%20GrapheneOS%20Foundation'
 generate static/donate-bitcoin-taproot.png 'bitcoin:bc1prqf5hks5dnd4j87wxw3djn20559yhj7wvvcv6fqxpwlg96udkzgqtamhry?label=GrapheneOS%20Foundation&message=Donation%20to%20GrapheneOS%20Foundation'
+generate static/donate-bitcoin-bip47.png 'bitcoin:PM8TJKmhJNQX6UTFagyuBk8UGmwKM6yDovEokpHBscPgP3Ac7WdK5zaQKh5XLSawyxiGYZS2a7HkAoeL6oHg7Ahn1VXX888yRG4PwF1dojouPtW7tEHT'
 generate static/donate-monero.png 'monero:862CebHaBpFPgYoNC6zw4U8rsXrDjD8s5LMJNS7yVCRHMUKr9dDi7adMSLUMjkDYJ85xahQTCJHHyK5RCvvRJu9x7iSzN9D?recipient_name=GrapheneOS&tx_description=Donation%20to%20GrapheneOS'
 generate static/donate-zcash-transparent.png 'zcash:t1SJABjX8rqgzqgrzLW5dUw7ikSDZ2snD8A?label=GrapheneOS%20Foundation&message=Donation%20to%20GrapheneOS%20Foundation'
 generate static/donate-ethereum.png 'ethereum:0xC822A62E5Ab443E0001f30cEB9B2336D0524fC61'
