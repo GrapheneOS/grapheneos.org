@@ -201,11 +201,14 @@ button:disabled {
     text-align: center;
 }
 
-.coin-address img {
-    image-rendering: pixelated;
-    width: 180px;
-    height: 180px;
-    border-radius: 16px;
+section.page-title {
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+
+section.page-title p {
+    margin: 0 auto;
+    width: 50vw;
 }
 
 footer img {
