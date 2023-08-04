@@ -286,6 +286,7 @@ section.donation-card h2 {
 section.donation-card p {
     margin-top: 0.5em;
     display: inline-block;
+    white-space: pre-wrap;
 }
 
 section.donation-card a {
