@@ -201,11 +201,109 @@ button:disabled {
     text-align: center;
 }
 
-.coin-address img {
+section.donate-thumb {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+section.donate-thumb img.qr {
     image-rendering: pixelated;
-    width: 180px;
-    height: 180px;
+    width: 150px;
+    height: 150px;
+    border: 2px solid gray;
     border-radius: 16px;
+    margin-right: 1em;
+}
+
+section.donate-thumb img.logo {
+    image-rendering: auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 16px;
+    margin-right: 1em;
+}
+
+section.donation-card-holder {
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2em;
+    padding: 1em;
+    width: 90vw;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1em;
+    row-gap: 1em;
+}
+
+section.page-title {
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+
+section.page-title p {
+    margin: 0 auto;
+    width: 50vw;
+}
+
+section.donation-card {
+    width: auto;
+    display: grid;
+    padding: 1em;
+    grid-template-columns: 0.25fr 0.75fr;
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 22px -18px rgb(0 0 0 / 75%);
+}
+
+@media (max-width: 600px) {
+    section.donation-card {
+        display: block;
+        width: inherit;
+        padding: 1em 0.1em;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.25fr 0.75fr;
+        text-align: center;
+    }
+
+    section.donation-card-holder {
+        grid-template-columns: 1fr;
+    }
+
+    section.donate-thumb img {
+        margin-right: 0;
+    }
+
+    section.page-title p {
+        width: 85vw;
+    }
+}
+
+section.donation-card h2 {
+    margin-bottom: 0;
+}
+
+section.donation-card p {
+    margin-top: 0.5em;
+    display: inline-block;
+    white-space: pre-wrap;
+}
+
+section.donation-card a {
+    margin-top: 0.5em;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+    section.donation-card p {
+        max-width: 80%;
+        margin: 0.5em auto;
+    }
+
+    section.donation-card a {
+        max-width: 80%;
+        overflow-wrap: break-word;
+    }
 }
 
 footer img {
@@ -442,6 +540,14 @@ main.normalize {
 
     .phone-logo-img {
         filter: invert(87%);
+    }
+
+    section.donation-card {
+        background-color: #212121;
+    }
+
+    section.donate-thumb img.qr {
+        border-color: black;
     }
 
     .surface {
