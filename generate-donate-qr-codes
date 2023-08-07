@@ -16,3 +16,4 @@ generate static/donate-monero.png 'monero:862CebHaBpFPgYoNC6zw4U8rsXrDjD8s5LMJNS
 generate static/donate-zcash-transparent.png 'zcash:t1SJABjX8rqgzqgrzLW5dUw7ikSDZ2snD8A?label=GrapheneOS%20Foundation&message=Donation%20to%20GrapheneOS%20Foundation'
 generate static/donate-ethereum.png 'ethereum:0xC822A62E5Ab443E0001f30cEB9B2336D0524fC61'
 generate static/donate-cardano.png 'web+cardano:addr1q9v89vfwyfssveug5zf2w7leafz8ethq490gvq0ghag883atfnucytpnq2t38dj7cnyngs6ne05cdwu9gseevgmt3ggq2a2wt6'
+generate static/donate-litecoin.png 'litecoin:ltc1qzssmqueth6zjzr95rkluy5xdx9q4lk8vyrvea9?label=GrapheneOS%20Foundation&message=Donation%20to%20GrapheneOS%20Foundation'
