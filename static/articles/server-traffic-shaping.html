@@ -228,6 +228,20 @@ PriorityQueueingPreset=besteffort</pre>
                 empty.</p>
             </section>
 
+            <section id="high-link-speed">
+                <h2><a href="#high-link-speed">High link speed</a></h2>
+
+                <p>By default, CAKE splits General Segmentation Offload (GSO) super-packets to
+                reduce latency at the expense of CPU efficiency and throughput. This can create a
+                bottleneck at high link speeds. We've had to disable this on the 2Gbit GrapheneOS
+                update servers.</p>
+
+                <pre>[CAKE]
+Bandwidth=1995M
+PriorityQueueingPreset=besteffort
+SplitGSO=false</pre>
+            </section>
+
             <section id="future">
                 <h2><a href="#future">Future</a></h2>
 
