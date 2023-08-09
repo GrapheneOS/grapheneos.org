@@ -1,7 +1,57 @@
 #!/bin/bash
 
+exitStatus=0
+function logerr {
+    echo ""
+    echo "SETUP CHECK FAILED:"
+    echo "$@"
+    exitStatus=1
+}
+
 npm ci --ignore-scripts
 
-python3 -m venv --clear venv
-source venv/bin/activate
-pip install --require-hashes --only-binary :all: -r requirements.txt
+if ! python3 -m venv --clear venv; then
+    logerr "Could not setup venv"
+fi
+
+if ! source venv/bin/activate; then
+    logerr "Could not activate venv"
+fi
+
+if ! pip install --require-hashes --only-binary :all: -r requirements.txt; then
+    logerr "Failed to install pip requirements"
+fi
+
+if ! command -v json_verify > /dev/null; then
+    logerr "json_verify missing, on Debian/Ubuntu this is provided by the package yajl-tools"
+fi
+
+if ! command -v json_reformat > /dev/null; then
+    logerr "Command json_reformat missing, on Debian/Ubuntu this is provided by the package yajl-tools"
+fi
+
+if ! command -v json_reformat > /dev/null; then
+    logerr "Command json_reformat missing, on Debian/Ubuntu this is provided by the package yajl-tools"
+fi
+
+if ! command -v xmllint > /dev/null; then
+    logerr "Command xmllint missing, on Debian/Ubuntu this is provided by the package libxml2-utils"
+fi
+
+if ! command -v parallel > /dev/null; then
+    logerr "Command parallel missing, on Debian/Ubuntu this is provided by the package moreutils (do not use the package parallel)"
+fi
+
+if ! command -v zopfli > /dev/null; then
+    logerr "Command zopfli missing, on Debian/Ubuntu this is provided by the package zopfli"
+fi
+
+if ! command -v java > /dev/null; then
+    logerr "Command java missing, on Debian/Ubuntu this is provided by the package default-jre"
+fi
+
+if ! command -v brotli > /dev/null; then
+    logerr "Command brotli missing, on Debian/Ubuntu this is provided by the package brotli"
+fi
+
+exit $exitStatus
