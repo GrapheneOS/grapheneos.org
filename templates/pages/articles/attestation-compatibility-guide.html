@@ -1,117 +1,92 @@
-<!DOCTYPE html>
-<html lang="en" prefix="og: https://ogp.me/ns#">
-    <head>
-        <meta charset="utf-8"/>
-        <title>Attestation compatibility guide | Articles | GrapheneOS</title>
-        <meta name="description" content="Guide on using remote attestation in a way that's compatible with GrapheneOS."/>
-        <meta name="theme-color" content="#212121"/>
-        <meta name="color-scheme" content="dark light"/>
-        <meta name="msapplication-TileColor" content="#ffffff"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <meta name="twitter:site" content="@GrapheneOS"/>
-        <meta name="twitter:creator" content="@GrapheneOS"/>
-        <meta property="og:title" content="GrapheneOS attestation compatibility guide"/>
-        <meta property="og:description" content="Guide on using remote attestation in a way that's compatible with GrapheneOS."/>
-        <meta property="og:type" content="website"/>
-        <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
-        <meta property="og:image:width" content="512"/>
-        <meta property="og:image:height" content="512"/>
-        <meta property="og:image:alt" content="GrapheneOS logo"/>
-        <meta property="og:site_name" content="GrapheneOS"/>
-        <meta property="og:url" content="https://grapheneos.org/articles/attestation-compatibility-guide"/>
-        <link rel="canonical" href="https://grapheneos.org/articles/attestation-compatibility-guide"/>
-        <link rel="icon" href="/favicon.ico"/>
-        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
-        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-        [[css|/main.css]]
-        <link rel="manifest" href="/manifest.webmanifest"/>
-        <link rel="license" href="/LICENSE.txt"/>
-        <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
-    </head>
-    <body>
-        {% include "header.html" %}
-        <main id="attestation-compatibility-guide">
-            <h1><a href="#attestation-compatibility-guide">Attestation compatibility guide</a></h1>
+{% extends "layouts/default.html" %}
+{% block head %}
+  {{ seometa(
+        "Attestation compatibility guide | Articles",
+        "Guide on using remote attestation in a way that's compatible with GrapheneOS.",
+        "/articles/attestation-compatibility-guide",
+        "Attestation compatibility guide"
+    ) }}
+  {{ super() }}
+{% endblock %}
 
-            <p>Apps using the Play Integrity API or
-            <a href="https://developer.android.com/training/safetynet/deprecation-timeline">obsolete</a>
-            SafetyNet Attestation API to check the authenticity/integrity of the OS can support
-            GrapheneOS by using the standard Android hardware attestation API instead and
-            permitting our official release signing keys. Android's
-            <a href="https://developer.android.com/training/articles/security-key-attestation">hardware
-            attestation API</a> provides a much stronger form of attestation than the Play
-            Integrity API with the ability to whitelist the keys of alternate operating systems.
-            It also avoids an unnecessary dependency on Google Play services and Google's
-            Play Integrity servers.</p>
+{% block content %}
+    <h1 id="attestation-compatibility-guide"><a href="#attestation-compatibility-guide">Attestation compatibility guide</a></h1>
 
-            <p>Devices have been required to ship with hardware attestation support since Android
-            8. You can use hardware attestation on devices running Android 8 or later when the
-            <code>ro.product.first_api_level</code> system property isn't set to 25 or below,
-            which indicates they launched with Android 8 or later with hardware attestation
-            support as a mandatory feature. On older devices, you can continue using the Play
-            Integrity API. Some low quality devices shipped broken implementations of hardware
-            attestation despite the requirement to have it working for CDD/CTS certification and
-            the Play Integrity API currently still passes on those devices wrongly claiming them
-            to be CTS certified. If you don't want to fail on those devices, then you can start
-            with hardware attestation and fall back to the Play Integrity API or do both and
-            accept either passing as success.</p>
+    <p>Apps using the Play Integrity API or
+    <a href="https://developer.android.com/training/safetynet/deprecation-timeline">obsolete</a>
+    SafetyNet Attestation API to check the authenticity/integrity of the OS can support
+    GrapheneOS by using the standard Android hardware attestation API instead and
+    permitting our official release signing keys. Android's
+    <a href="https://developer.android.com/training/articles/security-key-attestation">hardware
+    attestation API</a> provides a much stronger form of attestation than the Play
+    Integrity API with the ability to whitelist the keys of alternate operating systems.
+    It also avoids an unnecessary dependency on Google Play services and Google's
+    Play Integrity servers.</p>
 
-            <p>Our <a href="https://github.com/GrapheneOS/Auditor">MIT / Apache 2 licensed Auditor
-            app</a> can be used a reference implementation for verifying hardware-based
-            attestations. There are some subtleties in the verification process such as making
-            sure only the 2nd certificate in the chain (the one signing the certificate for the
-            key generated by your app) has an attestation extension to prevent making a fake
-            attestation by extending the chain. You can reuse our code and simply omit support for
-            an app generated attestation signing key (attest key) and the other pinning
-            support.</p>
+    <p>Devices have been required to ship with hardware attestation support since Android
+    8. You can use hardware attestation on devices running Android 8 or later when the
+    <code>ro.product.first_api_level</code> system property isn't set to 25 or below,
+    which indicates they launched with Android 8 or later with hardware attestation
+    support as a mandatory feature. On older devices, you can continue using the Play
+    Integrity API. Some low quality devices shipped broken implementations of hardware
+    attestation despite the requirement to have it working for CDD/CTS certification and
+    the Play Integrity API currently still passes on those devices wrongly claiming them
+    to be CTS certified. If you don't want to fail on those devices, then you can start
+    with hardware attestation and fall back to the Play Integrity API or do both and
+    accept either passing as success.</p>
 
-            <p>After verifying the signature of the attestation certificate chain and extracting
-            the attestation metadata, you can enforce that <code>verifiedBootState</code> is
-            either <code>Verified</code> or <code>SelfSigned</code>. For the
-            <code>SelfSigned</code> case, you can check that <code>verifiedBootKey</code> matches
-            one of the official GrapheneOS verified boot keys. These are the base16-encoded
-            verified boot key fingerprints for the official GrapheneOS releases:</p>
+    <p>Our <a href="https://github.com/GrapheneOS/Auditor">MIT / Apache 2 licensed Auditor
+    app</a> can be used a reference implementation for verifying hardware-based
+    attestations. There are some subtleties in the verification process such as making
+    sure only the 2nd certificate in the chain (the one signing the certificate for the
+    key generated by your app) has an attestation extension to prevent making a fake
+    attestation by extending the chain. You can reuse our code and simply omit support for
+    an app generated attestation signing key (attest key) and the other pinning
+    support.</p>
 
-            <ul>
-                <li><code>ee0c9dfef6f55a878538b0dbf7e78e3bc3f1a13c8c44839b095fe26dd5fe2842</code>: Pixel Fold</li>
-                <li><code>94df136e6c6aa08dc26580af46f36419b5f9baf46039db076f5295b91aaff230</code>: Pixel Tablet</li>
-                <li><code>508d75dea10c5cbc3e7632260fc0b59f6055a8a49dd84e693b6d8899edbb01e4</code>: Pixel 7a</li>
-                <li><code>bc1c0dd95664604382bb888412026422742eb333071ea0b2d19036217d49182f</code>: Pixel 7 Pro</li>
-                <li><code>3efe5392be3ac38afb894d13de639e521675e62571a8a9b3ef9fc8c44fd17fa1</code>: Pixel 7</li>
-                <li><code>08c860350a9600692d10c8512f7b8e80707757468e8fbfeea2a870c0a83d6031</code>: Pixel 6a</li>
-                <li><code>439b76524d94c40652ce1bf0d8243773c634d2f99ba3160d8d02aa5e29ff925c</code>: Pixel 6 Pro</li>
-                <li><code>f0a890375d1405e62ebfd87e8d3f475f948ef031bbf9ddd516d5f600a23677e8</code>: Pixel 6</li>
-                <li><code>0abddeda03b6ce10548c95e0bea196faa539866f929bcdf7eca84b4203952514</code>: Pixel 5a</li>
-                <li><code>36a99eab7907e4fb12a70e3c41c456bcbe46c13413fbfe2436adee2b2b61120f</code>: Pixel 5</li>
-                <li><code>dcec2d053d3ec4f1c9be414aa07e4d7d7cbd12040ad2f8831c994a83a0536866</code>: Pixel 4a (5G)</li>
-                <li><code>9f2454a1657b1b5ad7f2336b39a2611f7a40b2e0ddfd0d6553a359605928df29</code>: Pixel 4a</li>
-                <li><code>3f15fdcb82847fed97427ce00563b8f9ff34627070de5fdb17aca7849ab98cc8</code>: Pixel 4 XL</li>
-                <li><code>80ef268700ee42686f779a47b4a155fe1ffc2eedf836b4803caab8fa61439746</code>: Pixel 4</li>
-            </ul>
+    <p>After verifying the signature of the attestation certificate chain and extracting
+    the attestation metadata, you can enforce that <code>verifiedBootState</code> is
+    either <code>Verified</code> or <code>SelfSigned</code>. For the
+    <code>SelfSigned</code> case, you can check that <code>verifiedBootKey</code> matches
+    one of the official GrapheneOS verified boot keys. These are the base16-encoded
+    verified boot key fingerprints for the official GrapheneOS releases:</p>
 
-            <p>The <code>verifiedBootKey</code> field is binary data so you either need to encode
-            it as base16 to compare with these or convert these to binary. An easy approach is
-            storing the permitted key fingerprints in a set and enforcing that the verified boot
-            key is in the permitted set when <code>verifiedBootState</code> is
-            <code>SelfSigned</code>.</p>
+    <ul>
+        <li><code>ee0c9dfef6f55a878538b0dbf7e78e3bc3f1a13c8c44839b095fe26dd5fe2842</code>: Pixel Fold</li>
+        <li><code>94df136e6c6aa08dc26580af46f36419b5f9baf46039db076f5295b91aaff230</code>: Pixel Tablet</li>
+        <li><code>508d75dea10c5cbc3e7632260fc0b59f6055a8a49dd84e693b6d8899edbb01e4</code>: Pixel 7a</li>
+        <li><code>bc1c0dd95664604382bb888412026422742eb333071ea0b2d19036217d49182f</code>: Pixel 7 Pro</li>
+        <li><code>3efe5392be3ac38afb894d13de639e521675e62571a8a9b3ef9fc8c44fd17fa1</code>: Pixel 7</li>
+        <li><code>08c860350a9600692d10c8512f7b8e80707757468e8fbfeea2a870c0a83d6031</code>: Pixel 6a</li>
+        <li><code>439b76524d94c40652ce1bf0d8243773c634d2f99ba3160d8d02aa5e29ff925c</code>: Pixel 6 Pro</li>
+        <li><code>f0a890375d1405e62ebfd87e8d3f475f948ef031bbf9ddd516d5f600a23677e8</code>: Pixel 6</li>
+        <li><code>0abddeda03b6ce10548c95e0bea196faa539866f929bcdf7eca84b4203952514</code>: Pixel 5a</li>
+        <li><code>36a99eab7907e4fb12a70e3c41c456bcbe46c13413fbfe2436adee2b2b61120f</code>: Pixel 5</li>
+        <li><code>dcec2d053d3ec4f1c9be414aa07e4d7d7cbd12040ad2f8831c994a83a0536866</code>: Pixel 4a (5G)</li>
+        <li><code>9f2454a1657b1b5ad7f2336b39a2611f7a40b2e0ddfd0d6553a359605928df29</code>: Pixel 4a</li>
+        <li><code>3f15fdcb82847fed97427ce00563b8f9ff34627070de5fdb17aca7849ab98cc8</code>: Pixel 4 XL</li>
+        <li><code>80ef268700ee42686f779a47b4a155fe1ffc2eedf836b4803caab8fa61439746</code>: Pixel 4</li>
+    </ul>
 
-            <p>GrapheneOS regularly adds support for new devices so you should have a process for
-            regularly adding the new verified boot key fingerprints from this page.</p>
+    <p>The <code>verifiedBootKey</code> field is binary data so you either need to encode
+    it as base16 to compare with these or convert these to binary. An easy approach is
+    storing the permitted key fingerprints in a set and enforcing that the verified boot
+    key is in the permitted set when <code>verifiedBootState</code> is
+    <code>SelfSigned</code>.</p>
 
-            <p>The hardware attestation API also provides other useful information signed by the
-            hardware including the OS patch level, in a way that even an attacker exploiting the
-            OS after boot to gain root cannot trivially bypass. It's a better feature than the
-            Play Integrity API which has to be designed for the lowest common denominator.</p>
+    <p>GrapheneOS regularly adds support for new devices so you should have a process for
+    regularly adding the new verified boot key fingerprints from this page.</p>
 
-            <p>GrapheneOS users are strongly encouraged to share this documentation with app
-            developers enforcing only being able to use the stock OS. Send an email to the
-            developers and leave a review of the app with a link to this information. Share it
-            with other users and create pressure to support GrapheneOS rather than locking users
-            into the stock OS without a valid security reason. GrapheneOS not only upholds the
-            app security model but substantially reinforces it, so it cannot be justified with
-            reasoning based on security, anti-fraud, etc.</p>
-        </main>
-        {% include "footer.html" %}
-    </body>
-</html>
+    <p>The hardware attestation API also provides other useful information signed by the
+    hardware including the OS patch level, in a way that even an attacker exploiting the
+    OS after boot to gain root cannot trivially bypass. It's a better feature than the
+    Play Integrity API which has to be designed for the lowest common denominator.</p>
+
+    <p>GrapheneOS users are strongly encouraged to share this documentation with app
+    developers enforcing only being able to use the stock OS. Send an email to the
+    developers and leave a review of the app with a link to this information. Share it
+    with other users and create pressure to support GrapheneOS rather than locking users
+    into the stock OS without a valid security reason. GrapheneOS not only upholds the
+    app security model but substantially reinforces it, so it cannot be justified with
+    reasoning based on security, anti-fraud, etc.</p>
+{% endblock %}

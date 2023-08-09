@@ -1,638 +1,613 @@
-<!DOCTYPE html>
-<html lang="en" prefix="og: https://ogp.me/ns#">
-    <head>
-        <meta charset="utf-8"/>
-        <title>CLI install guide | Install | GrapheneOS</title>
-        <meta name="description" content="Command-line installation instructions for GrapheneOS, a security and privacy focused mobile OS with Android app compatibility."/>
-        <meta name="theme-color" content="#212121"/>
-        <meta name="color-scheme" content="dark light"/>
-        <meta name="msapplication-TileColor" content="#ffffff"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <meta name="twitter:site" content="@GrapheneOS"/>
-        <meta name="twitter:creator" content="@GrapheneOS"/>
-        <meta property="og:title" content="GrapheneOS CLI install guide"/>
-        <meta property="og:description" content="Command-line installation instructions for GrapheneOS, a security and privacy focused mobile OS with Android app compatibility."/>
-        <meta property="og:type" content="website"/>
-        <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
-        <meta property="og:image:width" content="512"/>
-        <meta property="og:image:height" content="512"/>
-        <meta property="og:image:alt" content="GrapheneOS logo"/>
-        <meta property="og:site_name" content="GrapheneOS"/>
-        <meta property="og:url" content="https://grapheneos.org/install/cli"/>
-        <link rel="canonical" href="https://grapheneos.org/install/cli"/>
-        <link rel="icon" href="/favicon.ico"/>
-        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
-        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-        [[css|/main.css]]
-        <link rel="manifest" href="/manifest.webmanifest"/>
-        <link rel="license" href="/LICENSE.txt"/>
-        <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
-        [[js|/js/redirect.js]]
-    </head>
-    <body>
-        {% include "header.html" %}
-        <main id="cli-install">
-            <h1><a href="#cli-install">CLI install guide</a></h1>
+{% extends "layouts/default.html" %}
+{% block head %}
+  {{ seometa(
+        "CLI install guide | Install",
+        "Command-line installation instructions for GrapheneOS, a security and privacy focused mobile OS with Android app compatibility.",
+        "/install/cli",
+        "CLI install guide"
+    ) }}
+  {{ super() }}
+  [[js|/js/redirect.js]]
+{% endblock %}
 
-            <p>This is a guide on installing GrapheneOS on the
-            <a href="/faq#supported-devices">officially supported devices</a>. It can be followed
-            for both the <a href="/releases">official releases</a> and <a href="/build">custom
-            builds</a>. The <a href="/install/web">web installer</a> is an
-            easier approach to installing the official releases via a browser with WebUSB
-            support.</p>
+{% block content %}
+    <h1 id="cli-install"><a href="#cli-install">CLI install guide</a></h1>
 
-            <p>We strongly recommend following these official instructions. The official guide has
-            a lot of collaborative effort put into covering all of the edge cases and is regularly
-            tested by many people on each supported OS. Following these instructions to the letter
-            without skipping, reordering or adding any steps will give you a proper GrapheneOS
-            installation unless there's a hardware issue. We strongly recommend against following
-            unofficial guides deviating in any way from the official instructions.</p>
+    <p>This is a guide on installing GrapheneOS on the
+    <a href="/faq#supported-devices">officially supported devices</a>. It can be followed
+    for both the <a href="/releases">official releases</a> and <a href="/build">custom
+    builds</a>. The <a href="/install/web">web installer</a> is an
+    easier approach to installing the official releases via a browser with WebUSB
+    support.</p>
 
-            <p>If you have trouble with the installation process, ask for help on the
-            <a href="/contact#community">official GrapheneOS chat channel</a>. There are almost
-            always people around willing to help with it. Before asking for help, make an attempt
-            to follow the guide on your own and then ask for help with anything you get stuck
-            on.</p>
+    <p>We strongly recommend following these official instructions. The official guide has
+    a lot of collaborative effort put into covering all of the edge cases and is regularly
+    tested by many people on each supported OS. Following these instructions to the letter
+    without skipping, reordering or adding any steps will give you a proper GrapheneOS
+    installation unless there's a hardware issue. We strongly recommend against following
+    unofficial guides deviating in any way from the official instructions.</p>
 
-            <nav id="table-of-contents">
-                <h2><a href="#table-of-contents">Table of contents</a></h2>
+    <p>If you have trouble with the installation process, ask for help on the
+    <a href="/contact#community">official GrapheneOS chat channel</a>. There are almost
+    always people around willing to help with it. Before asking for help, make an attempt
+    to follow the guide on your own and then ask for help with anything you get stuck
+    on.</p>
 
+    <nav id="table-of-contents">
+        <h2><a href="#table-of-contents">Table of contents</a></h2>
+
+        <ul>
+            <li><a href="#prerequisites">Prerequisites</a></li>
+            <li><a href="#enabling-oem-unlocking">Enabling OEM unlocking</a></li>
+            <li><a href="#opening-terminal">Opening terminal</a></li>
+            <li>
+                <a href="#obtaining-fastboot">Obtaining fastboot</a>
                 <ul>
-                    <li><a href="#prerequisites">Prerequisites</a></li>
-                    <li><a href="#enabling-oem-unlocking">Enabling OEM unlocking</a></li>
-                    <li><a href="#opening-terminal">Opening terminal</a></li>
-                    <li>
-                        <a href="#obtaining-fastboot">Obtaining fastboot</a>
-                        <ul>
-                            <li><a href="#standalone-platform-tools">Standalone platform-tools</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#checking-fastboot-version">Checking fastboot version</a></li>
-                    <li><a href="#flashing-as-non-root">Flashing as non-root</a></li>
-                    <li><a href="#booting-into-the-bootloader-interface">Booting into the bootloader interface</a></li>
-                    <li><a href="#connecting-device">Connecting the device</a></li>
-                    <li><a href="#unlocking-the-bootloader">Unlocking the bootloader</a></li>
-                    <li><a href="#obtaining-signify">Obtaining signify</a></li>
-                    <li><a href="#obtaining-factory-images">Obtaining factory images</a></li>
-                    <li>
-                        <a href="#flashing-factory-images">Flashing factory images</a>
-                        <ul>
-                            <li><a href="#troubleshooting">Troubleshooting</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#locking-the-bootloader">Locking the bootloader</a></li>
-                    <li>
-                        <a href="#post-installation">Post-installation</a>
-                        <ul>
-                            <li><a href="#booting">Booting</a></li>
-                            <li><a href="#disabling-oem-unlocking">Disabling OEM unlocking</a></li>
-                            <li>
-                                <a href="#verifying-installation">Verifying installation</a>
-                                <ul>
-                                    <li><a href="#verified-boot-key-hash">Verified boot key hash</a></li>
-                                    <li><a href="#hardware-based-attestation">Hardware-based attestation</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#replacing-grapheneos-with-the-stock-os">Replacing GrapheneOS with the stock OS</a></li>
-                            <li><a href="#further-information">Further information</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="#standalone-platform-tools">Standalone platform-tools</a></li>
                 </ul>
-            </nav>
-
-            <section id="prerequisites">
-                <h2><a href="#prerequisites">Prerequisites</a></h2>
-
-                <p>You should have at least 2GB of free memory available and 8GB of free storage
-                space.</p>
-
-                <p>You need a USB cable for attaching the device to a laptop or desktop. Whenever
-                possible, use the high quality standards compliant USB-C cable packaged with the
-                device. If your computer doesn't have any USB-C ports, you'll need a high quality
-                USB-C to USB-A cable. You should avoid using a USB hub such as the front panel on
-                a desktop computer case. Connect directly to a rear port on a desktop or the ports
-                on a laptop. Many widely distributed USB cables and hubs are broken and are the
-                most common source of issues for installing GrapheneOS.</p>
-
-                <p>Installing from an OS in a virtual machine is not recommended. USB passthrough
-                is often not reliable. To rule out these problems, install from an OS running on
-                bare metal. Virtual machines are also often configured to have overly limited
-                memory and storage space.</p>
-
-                <p>Officially supported operating systems for the CLI install method:</p>
-
+            </li>
+            <li><a href="#checking-fastboot-version">Checking fastboot version</a></li>
+            <li><a href="#flashing-as-non-root">Flashing as non-root</a></li>
+            <li><a href="#booting-into-the-bootloader-interface">Booting into the bootloader interface</a></li>
+            <li><a href="#connecting-device">Connecting the device</a></li>
+            <li><a href="#unlocking-the-bootloader">Unlocking the bootloader</a></li>
+            <li><a href="#obtaining-signify">Obtaining signify</a></li>
+            <li><a href="#obtaining-factory-images">Obtaining factory images</a></li>
+            <li>
+                <a href="#flashing-factory-images">Flashing factory images</a>
                 <ul>
-                    <li>Windows 10</li>
-                    <li>Windows 11</li>
-                    <li>macOS Big Sur (11)</li>
-                    <li>macOS Monterey (12)</li>
-                    <li>macOS Ventura (13)</li>
-                    <li>Arch Linux</li>
-                    <li>Debian 10 (buster)</li>
-                    <li>Debian 11 (bullseye)</li>
-                    <li>Debian 12 (bookworm)</li>
-                    <li>Ubuntu 20.04 LTS</li>
-                    <li>Ubuntu 22.04 LTS</li>
-                    <li>Ubuntu 22.10</li>
-                    <li>Ubuntu 23.04</li>
+                    <li><a href="#troubleshooting">Troubleshooting</a></li>
                 </ul>
+            </li>
+            <li><a href="#locking-the-bootloader">Locking the bootloader</a></li>
+            <li>
+                <a href="#post-installation">Post-installation</a>
+                <ul>
+                    <li><a href="#booting">Booting</a></li>
+                    <li><a href="#disabling-oem-unlocking">Disabling OEM unlocking</a></li>
+                    <li>
+                        <a href="#verifying-installation">Verifying installation</a>
+                        <ul>
+                            <li><a href="#verified-boot-key-hash">Verified boot key hash</a></li>
+                            <li><a href="#hardware-based-attestation">Hardware-based attestation</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#replacing-grapheneos-with-the-stock-os">Replacing GrapheneOS with the stock OS</a></li>
+                    <li><a href="#further-information">Further information</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
 
-                <p>Make sure your operating system is up-to-date before proceeding.</p>
+    <section id="prerequisites">
+        <h2><a href="#prerequisites">Prerequisites</a></h2>
 
-                <p>The <a href="/install/web">web installer</a> is more portable and can be used
-                from Android, ChromeOS and GrapheneOS itself since it can run anywhere with a
-                browser with working WebUSB support.</p>
+        <p>You should have at least 2GB of free memory available and 8GB of free storage
+        space.</p>
 
-                <p>You need one of the officially supported devices. To make sure that the device can
-                be unlocked to install GrapheneOS, avoid carrier variants of the devices. Carrier
-                variants of Pixels use the same stock OS and firmware with a non-zero carrier id
-                flashed onto the persist partition in the factory. The carrier id activates
-                carrier-specific configuration in the stock OS including disabling carrier and
-                bootloader unlocking. The carrier may be able to remotely disable this, but their
-                support staff may not be aware and they probably won't do it. Get a carrier agnostic
-                device to avoid the risk and potential hassle. If you CAN figure out a way to unlock a
-                carrier device, it isn't a problem as GrapheneOS can just ignore the carrier id
-                and the hardware is the same.</p>
+        <p>You need a USB cable for attaching the device to a laptop or desktop. Whenever
+        possible, use the high quality standards compliant USB-C cable packaged with the
+        device. If your computer doesn't have any USB-C ports, you'll need a high quality
+        USB-C to USB-A cable. You should avoid using a USB hub such as the front panel on
+        a desktop computer case. Connect directly to a rear port on a desktop or the ports
+        on a laptop. Many widely distributed USB cables and hubs are broken and are the
+        most common source of issues for installing GrapheneOS.</p>
 
-                <p>It's best practice to update the device before installing GrapheneOS to have
-                the latest firmware for connecting the device to the computer and performing the
-                early flashing process. Either way, GrapheneOS flashes the latest firmware early
-                in the installation process.</p>
-            </section>
+        <p>Installing from an OS in a virtual machine is not recommended. USB passthrough
+        is often not reliable. To rule out these problems, install from an OS running on
+        bare metal. Virtual machines are also often configured to have overly limited
+        memory and storage space.</p>
 
-            <section id="enabling-oem-unlocking">
-                <h2><a href="#enabling-oem-unlocking">Enabling OEM unlocking</a></h2>
+        <p>Officially supported operating systems for the CLI install method:</p>
 
-                <p>OEM unlocking needs to be enabled from within the operating system.</p>
+        <ul>
+            <li>Windows 10</li>
+            <li>Windows 11</li>
+            <li>macOS Big Sur (11)</li>
+            <li>macOS Monterey (12)</li>
+            <li>macOS Ventura (13)</li>
+            <li>Arch Linux</li>
+            <li>Debian 10 (buster)</li>
+            <li>Debian 11 (bullseye)</li>
+            <li>Debian 12 (bookworm)</li>
+            <li>Ubuntu 20.04 LTS</li>
+            <li>Ubuntu 22.04 LTS</li>
+            <li>Ubuntu 22.10</li>
+            <li>Ubuntu 23.04</li>
+        </ul>
 
-                <p>Enable the developer options menu by going to Settings ➔ About phone/tablet and
-                repeatedly pressing the build number menu entry until developer mode is
-                enabled.</p>
+        <p>Make sure your operating system is up-to-date before proceeding.</p>
 
-                <p>Next, go to Settings ➔ System ➔ Developer options and toggle on the 'OEM
-                unlocking' setting. On device model variants (SKUs) which support being sold as
-                locked devices by carriers, enabling 'OEM unlocking' requires internet access so
-                that the stock OS can check if the device was sold as locked by a carrier.</p>
+        <p>The <a href="/install/web">web installer</a> is more portable and can be used
+        from Android, ChromeOS and GrapheneOS itself since it can run anywhere with a
+        browser with working WebUSB support.</p>
 
-                <p>For the Pixel 6a, OEM unlocking won't work with the version of the stock OS
-                from the factory. You need to update it to the June 2022 release or later via an
-                over-the-air update. After you've updated it you'll also need to factory reset
-                the device to fix OEM unlocking.</p>
-            </section>
+        <p>You need one of the officially supported devices. To make sure that the device can
+        be unlocked to install GrapheneOS, avoid carrier variants of the devices. Carrier
+        variants of Pixels use the same stock OS and firmware with a non-zero carrier id
+        flashed onto the persist partition in the factory. The carrier id activates
+        carrier-specific configuration in the stock OS including disabling carrier and
+        bootloader unlocking. The carrier may be able to remotely disable this, but their
+        support staff may not be aware and they probably won't do it. Get a carrier agnostic
+        device to avoid the risk and potential hassle. If you CAN figure out a way to unlock a
+        carrier device, it isn't a problem as GrapheneOS can just ignore the carrier id
+        and the hardware is the same.</p>
 
-            <section id="opening-terminal">
-                <h2><a href="#opening-terminal">Opening terminal</a></h2>
+        <p>It's best practice to update the device before installing GrapheneOS to have
+        the latest firmware for connecting the device to the computer and performing the
+        early flashing process. Either way, GrapheneOS flashes the latest firmware early
+        in the installation process.</p>
+    </section>
 
-                <p>These instructions use command-line tools. Launch the terminal as you would any
-                other application. On Windows, launch a regular non-administrator instance of the
-                PowerShell terminal. Do not use the legacy Command Prompt or administrator variant
-                of PowerShell.</p>
+    <section id="enabling-oem-unlocking">
+        <h2><a href="#enabling-oem-unlocking">Enabling OEM unlocking</a></h2>
 
-                <p>Use the same terminal for the whole installation process. If you close it,
-                you'll lose the setup of the environment for the installation.</p>
+        <p>OEM unlocking needs to be enabled from within the operating system.</p>
 
-                <p>On Windows, run the following command to remove PowerShell's legacy curl alias
-                for the current shell to avoid needing to reference it as <code>curl.exe</code>
-                instead of <code>curl</code>:</p>
+        <p>Enable the developer options menu by going to Settings ➔ About phone/tablet and
+        repeatedly pressing the build number menu entry until developer mode is
+        enabled.</p>
 
-                <pre>Remove-Item Alias:Curl</pre>
-            </section>
+        <p>Next, go to Settings ➔ System ➔ Developer options and toggle on the 'OEM
+        unlocking' setting. On device model variants (SKUs) which support being sold as
+        locked devices by carriers, enabling 'OEM unlocking' requires internet access so
+        that the stock OS can check if the device was sold as locked by a carrier.</p>
 
-            <section id="obtaining-fastboot">
-                <h2><a href="#obtaining-fastboot">Obtaining fastboot</a></h2>
+        <p>For the Pixel 6a, OEM unlocking won't work with the version of the stock OS
+        from the factory. You need to update it to the June 2022 release or later via an
+        over-the-air update. After you've updated it you'll also need to factory reset
+        the device to fix OEM unlocking.</p>
+    </section>
 
-                <p>You need an updated copy of the <code>fastboot</code> tool and the
-                directory containing it needs to be included in the <code>PATH</code>
-                environment variable. You can run <code>fastboot --version</code> to determine
-                the current version. It must be at least <code>34.0.4</code>. You can use a
-                distribution package for this, but most of them mistakenly package development
-                snapshots of fastboot, clobber the standard version scheme for platform-tools
-                (adb, fastboot, etc.) with their own scheme and don't keep it up-to-date
-                despite that being crucial.</p>
+    <section id="opening-terminal">
+        <h2><a href="#opening-terminal">Opening terminal</a></h2>
 
-                <p>On Arch Linux, install <code>android-tools</code> and skip the section below on
-                using the standalone release of platform-tools from Android:</p>
+        <p>These instructions use command-line tools. Launch the terminal as you would any
+        other application. On Windows, launch a regular non-administrator instance of the
+        PowerShell terminal. Do not use the legacy Command Prompt or administrator variant
+        of PowerShell.</p>
 
-                <pre>sudo pacman -S android-tools</pre>
+        <p>Use the same terminal for the whole installation process. If you close it,
+        you'll lose the setup of the environment for the installation.</p>
 
-                <p>Debian and Ubuntu do not have a usable package for fastboot. Their packages for
-                these tools are both broken and many years out-of-date. Follow the instructions
-                below for platforms without a proper package.</p>
+        <p>On Windows, run the following command to remove PowerShell's legacy curl alias
+        for the current shell to avoid needing to reference it as <code>curl.exe</code>
+        instead of <code>curl</code>:</p>
 
-                <section id="standalone-platform-tools">
-                    <h3><a href="#standalone-platform-tools">Standalone platform-tools</a></h3>
+        <pre>Remove-Item Alias:Curl</pre>
+    </section>
 
-                    <!-- https://developer.android.com/studio/releases/platform-tools -->
+    <section id="obtaining-fastboot">
+        <h2><a href="#obtaining-fastboot">Obtaining fastboot</a></h2>
 
-                    <p>If your operating system doesn't include a usable version of fastboot,
-                    you can use the official standalone releases of platform-tools. This is
-                    our recommendation for most users. The flashing process won't work unless
-                    you follow these instructions including setting up PATH.</p>
+        <p>You need an updated copy of the <code>fastboot</code> tool and the
+        directory containing it needs to be included in the <code>PATH</code>
+        environment variable. You can run <code>fastboot --version</code> to determine
+        the current version. It must be at least <code>34.0.4</code>. You can use a
+        distribution package for this, but most of them mistakenly package development
+        snapshots of fastboot, clobber the standard version scheme for platform-tools
+        (adb, fastboot, etc.) with their own scheme and don't keep it up-to-date
+        despite that being crucial.</p>
 
-                    <p>To download, verify and extract the standalone platform-tools on Debian and
-                    Ubuntu:</p>
+        <p>On Arch Linux, install <code>android-tools</code> and skip the section below on
+        using the standalone release of platform-tools from Android:</p>
 
-                    <pre>sudo apt install libarchive-tools
+        <pre>sudo pacman -S android-tools</pre>
+
+        <p>Debian and Ubuntu do not have a usable package for fastboot. Their packages for
+        these tools are both broken and many years out-of-date. Follow the instructions
+        below for platforms without a proper package.</p>
+
+        <section id="standalone-platform-tools">
+            <h3><a href="#standalone-platform-tools">Standalone platform-tools</a></h3>
+
+            <!-- https://developer.android.com/studio/releases/platform-tools -->
+
+            <p>If your operating system doesn't include a usable version of fastboot,
+            you can use the official standalone releases of platform-tools. This is
+            our recommendation for most users. The flashing process won't work unless
+            you follow these instructions including setting up PATH.</p>
+
+            <p>To download, verify and extract the standalone platform-tools on Debian and
+            Ubuntu:</p>
+
+            <pre>sudo apt install libarchive-tools
 curl -O https://dl.google.com/android/repository/platform-tools_r34.0.4-linux.zip
 echo 'f2eee6e8220f3dfde6e1acc93c5b25d3d8bd215c0b03585b21665f1ea30d66ba  platform-tools_r34.0.4-linux.zip' | sha256sum -c
 bsdtar xvf platform-tools_r34.0.4-linux.zip</pre>
 
-                    <p>To download, verify and extract the standalone platform-tools on macOS:</p>
+            <p>To download, verify and extract the standalone platform-tools on macOS:</p>
 
-                    <pre>curl -O https://dl.google.com/android/repository/platform-tools_r34.0.4-darwin.zip
+            <pre>curl -O https://dl.google.com/android/repository/platform-tools_r34.0.4-darwin.zip
 echo 'SHA256 (platform-tools_r34.0.4-darwin.zip) = c60d9ee0acade673b649543b2d53c632ba54f9ca083ed612176105117fa16102' | shasum -c
 tar xvf platform-tools_r34.0.4-darwin.zip</pre>
 
-                    <p>To download, verify and extract the standalone platform-tools on Windows:</p>
+            <p>To download, verify and extract the standalone platform-tools on Windows:</p>
 
-                    <pre>curl -O https://dl.google.com/android/repository/platform-tools_r34.0.4-windows.zip
+            <pre>curl -O https://dl.google.com/android/repository/platform-tools_r34.0.4-windows.zip
 (Get-FileHash platform-tools_r34.0.4-windows.zip).hash -eq "520a453af1d0baf1939a80038a816cb8de40d000542b1a71bf60ba6fc80784d9"
 tar xvf platform-tools_r34.0.4-windows.zip</pre>
 
-                    <p>Next, add the tools to your <code>PATH</code> in the current shell so they can be
-                    used without referencing them by file path, enabling usage by the flashing script.</p>
+            <p>Next, add the tools to your <code>PATH</code> in the current shell so they can be
+            used without referencing them by file path, enabling usage by the flashing script.</p>
 
-                    <p>On Debian, Ubuntu and macOS:</p>
+            <p>On Debian, Ubuntu and macOS:</p>
 
-                    <pre>export PATH="$PWD/platform-tools:$PATH"</pre>
+            <pre>export PATH="$PWD/platform-tools:$PATH"</pre>
 
-                    <p>On Windows:</p>
+            <p>On Windows:</p>
 
-                    <pre>$env:Path = "$pwd\platform-tools;$env:Path"</pre>
+            <pre>$env:Path = "$pwd\platform-tools;$env:Path"</pre>
 
-                    <p>This only changes <code>PATH</code> for the current shell and will need
-                    to be done again if you open a new terminal.</p>
-                </section>
-            </section>
+            <p>This only changes <code>PATH</code> for the current shell and will need
+            to be done again if you open a new terminal.</p>
+        </section>
+    </section>
 
-            <section id="checking-fastboot-version">
-                <h2><a href="#checking-fastboot-version">Checking fastboot version</a></h2>
+    <section id="checking-fastboot-version">
+        <h2><a href="#checking-fastboot-version">Checking fastboot version</a></h2>
 
-                <p>Check the output of <code>fastboot --version</code> before continuing.</p>
+        <p>Check the output of <code>fastboot --version</code> before continuing.</p>
 
-                <p>Example of the output after following the instructions above for the
-                standalone platform-tools:</p>
+        <p>Example of the output after following the instructions above for the
+        standalone platform-tools:</p>
 
-                <pre>fastboot version 34.0.4-10411341
+        <pre>fastboot version 34.0.4-10411341
 Installed as /home/username/platform-tools/fastboot</pre>
-            </section>
+    </section>
 
-            <section id="flashing-as-non-root">
-                <h2><a href="#flashing-as-non-root">Flashing as non-root</a></h2>
+    <section id="flashing-as-non-root">
+        <h2><a href="#flashing-as-non-root">Flashing as non-root</a></h2>
 
-                <p>On traditional Linux distributions, USB devices cannot be used as non-root
-                without udev rules for each type of device. This is not an issue for other
-                platforms.</p>
+        <p>On traditional Linux distributions, USB devices cannot be used as non-root
+        without udev rules for each type of device. This is not an issue for other
+        platforms.</p>
 
-                <p>On Arch Linux:</p>
+        <p>On Arch Linux:</p>
 
-                <pre>sudo pacman -S android-udev</pre>
+        <pre>sudo pacman -S android-udev</pre>
 
-                <p>On Debian and Ubuntu:</p>
+        <p>On Debian and Ubuntu:</p>
 
-                <pre>sudo apt install android-sdk-platform-tools-common</pre>
+        <pre>sudo apt install android-sdk-platform-tools-common</pre>
 
-                <p>The udev rules on Debian and Ubuntu are very out-of-date but the package has
-                the rules needed for Pixel devices since the same USB IDs have been used for many
-                years.</p>
-            </section>
+        <p>The udev rules on Debian and Ubuntu are very out-of-date but the package has
+        the rules needed for Pixel devices since the same USB IDs have been used for many
+        years.</p>
+    </section>
 
-            <section id="booting-into-the-bootloader-interface">
-                <h2><a href="#booting-into-the-bootloader-interface">Booting into the bootloader interface</a></h2>
+    <section id="booting-into-the-bootloader-interface">
+        <h2><a href="#booting-into-the-bootloader-interface">Booting into the bootloader interface</a></h2>
 
-                <p>You need to boot your device into the bootloader interface. To do this, you need
-                to hold the volume down button while the device boots.</p>
+        <p>You need to boot your device into the bootloader interface. To do this, you need
+        to hold the volume down button while the device boots.</p>
 
-                <p>The easiest approach is to reboot the device and begin holding the volume down
-                button until it boots up into the bootloader interface.</p>
+        <p>The easiest approach is to reboot the device and begin holding the volume down
+        button until it boots up into the bootloader interface.</p>
 
-                <p>Alternatively, turn off the device, then boot it up while holding the volume
-                down button during the boot process. You can either boot it with the power button
-                or by plugging it in as required in the next section.</p>
-            </section>
+        <p>Alternatively, turn off the device, then boot it up while holding the volume
+        down button during the boot process. You can either boot it with the power button
+        or by plugging it in as required in the next section.</p>
+    </section>
 
-            <section id="connecting-device">
-                <h2><a href="#connecting-device">Connecting the device</a></h2>
+    <section id="connecting-device">
+        <h2><a href="#connecting-device">Connecting the device</a></h2>
 
-                <p>Connect the device to the computer. On Linux, you'll need to do this again if
-                you didn't have the udev rules set up when you connected it.</p>
+        <p>Connect the device to the computer. On Linux, you'll need to do this again if
+        you didn't have the udev rules set up when you connected it.</p>
 
-                <p>On Linux, GNOME has a bug causing compatibility issues with the installation
-                process. It wrongly detects the device in fastboot mode or fastbootd mode as being
-                an MTP device and claims exclusive control over it. This will block the install
-                process from proceeding. You can run the following command to work around it:</p>
+        <p>On Linux, GNOME has a bug causing compatibility issues with the installation
+        process. It wrongly detects the device in fastboot mode or fastbootd mode as being
+        an MTP device and claims exclusive control over it. This will block the install
+        process from proceeding. You can run the following command to work around it:</p>
 
-                <pre>echo 0 | sudo tee /sys/bus/usb/drivers_autoprobe</pre>
+        <pre>echo 0 | sudo tee /sys/bus/usb/drivers_autoprobe</pre>
 
-                <p>After installing, you can undo this by rebooting or by running the following
-                command:</p>
+        <p>After installing, you can undo this by rebooting or by running the following
+        command:</p>
 
-                <pre>echo 1 | sudo tee /sys/bus/usb/drivers_autoprobe</pre>
+        <pre>echo 1 | sudo tee /sys/bus/usb/drivers_autoprobe</pre>
 
-                <p>On Windows, you need to install a driver for fastboot if you don't already have
-                it. No driver is needed on other operating systems. You can obtain the driver from
-                Windows Update which will detect it as an optional update when the device is
-                booted into the bootloader interface and connected to the computer. Open Windows
-                Update, run a check for updates and then open the "View optional updates"
-                interface. Install the driver for the Android bootloader interface as an optional
-                update.</p>
+        <p>On Windows, you need to install a driver for fastboot if you don't already have
+        it. No driver is needed on other operating systems. You can obtain the driver from
+        Windows Update which will detect it as an optional update when the device is
+        booted into the bootloader interface and connected to the computer. Open Windows
+        Update, run a check for updates and then open the "View optional updates"
+        interface. Install the driver for the Android bootloader interface as an optional
+        update.</p>
 
-                <p>An alternative approach to obtaining the Windows fastboot driver is to obtain
-                the <a href="https://developer.android.com/studio/run/win-usb">latest driver for
-                Pixels</a> from Google and then
-                <a href="https://developer.android.com/studio/run/oem-usb#InstallingDriver">manually
-                install it with the Windows Device Manager</a>.</p>
-            </section>
+        <p>An alternative approach to obtaining the Windows fastboot driver is to obtain
+        the <a href="https://developer.android.com/studio/run/win-usb">latest driver for
+        Pixels</a> from Google and then
+        <a href="https://developer.android.com/studio/run/oem-usb#InstallingDriver">manually
+        install it with the Windows Device Manager</a>.</p>
+    </section>
 
-            <section id="unlocking-the-bootloader">
-                <h2><a href="#unlocking-the-bootloader">Unlocking the bootloader</a></h2>
+    <section id="unlocking-the-bootloader">
+        <h2><a href="#unlocking-the-bootloader">Unlocking the bootloader</a></h2>
 
-                <p>Unlock the bootloader to allow flashing the OS and firmware:</p>
+        <p>Unlock the bootloader to allow flashing the OS and firmware:</p>
 
-                <pre>fastboot flashing unlock</pre>
+        <pre>fastboot flashing unlock</pre>
 
-                <p>The command needs to be confirmed on the device and will wipe all data. Use one
-                of the volume buttons to switch the selection to accepting it and the power button
-                to confirm.</p>
-            </section>
+        <p>The command needs to be confirmed on the device and will wipe all data. Use one
+        of the volume buttons to switch the selection to accepting it and the power button
+        to confirm.</p>
+    </section>
 
-            <section id="obtaining-signify">
-                <h2><a href="#obtaining-signify">Obtaining signify</a></h2>
+    <section id="obtaining-signify">
+        <h2><a href="#obtaining-signify">Obtaining signify</a></h2>
 
-                <p>On the supported Linux distributions, the signify tool is used to verify the
-                download of the OS beyond the security offered by HTTPS. You should skip this on
-                macOS and Windows. It only makes sense to do this if you can obtain signify from
-                the distribution package repositories. GrapheneOS releases are hosted on our
-                servers and we do not have third party mirrors.</p>
+        <p>On the supported Linux distributions, the signify tool is used to verify the
+        download of the OS beyond the security offered by HTTPS. You should skip this on
+        macOS and Windows. It only makes sense to do this if you can obtain signify from
+        the distribution package repositories. GrapheneOS releases are hosted on our
+        servers and we do not have third party mirrors.</p>
 
-                <p>On Arch Linux:</p>
+        <p>On Arch Linux:</p>
 
-                <pre>sudo pacman -S signify</pre>
+        <pre>sudo pacman -S signify</pre>
 
-                <p>On Debian and Ubuntu:</p>
+        <p>On Debian and Ubuntu:</p>
 
-                <pre>sudo apt install signify-openbsd
+        <pre>sudo apt install signify-openbsd
 alias signify=signify-openbsd</pre>
 
-                <p>On Debian-based distributions, the <code>signify</code> package and command are an
-                <a href="http://signify.sourceforge.net/" rel="nofollow">unmaintained mail-related
-                tool for generating mail signatures (not cryptographic signatures)</a>. Make sure
-                to install <code>signify-openbsd</code>.</p>
-            </section>
+        <p>On Debian-based distributions, the <code>signify</code> package and command are an
+        <a href="http://signify.sourceforge.net/" rel="nofollow">unmaintained mail-related
+        tool for generating mail signatures (not cryptographic signatures)</a>. Make sure
+        to install <code>signify-openbsd</code>.</p>
+    </section>
 
-            <section id="obtaining-factory-images">
-                <h2><a href="#obtaining-factory-images">Obtaining factory images</a></h2>
+    <section id="obtaining-factory-images">
+        <h2><a href="#obtaining-factory-images">Obtaining factory images</a></h2>
 
-                <p>You need to obtain the GrapheneOS factory images for your device to proceed with
-                the installation process.</p>
+        <p>You need to obtain the GrapheneOS factory images for your device to proceed with
+        the installation process.</p>
 
-                <p>You can either download the files with your browser or using a command like
-                <code>curl</code>. It's generally easier to use the command-line since you're already
-                using it for the rest of the installation process, so these instructions use
-                <code>curl</code>.</p>
+        <p>You can either download the files with your browser or using a command like
+        <code>curl</code>. It's generally easier to use the command-line since you're already
+        using it for the rest of the installation process, so these instructions use
+        <code>curl</code>.</p>
 
-                <p>Download <a href="https://releases.grapheneos.org/factory.pub">the factory images
-                public key (factory.pub)</a> in order to verify the factory images:</p>
+        <p>Download <a href="https://releases.grapheneos.org/factory.pub">the factory images
+        public key (factory.pub)</a> in order to verify the factory images:</p>
 
-                <pre>curl -O https://releases.grapheneos.org/factory.pub</pre>
+        <pre>curl -O https://releases.grapheneos.org/factory.pub</pre>
 
-                <p>This is the content of <code>factory.pub</code>:</p>
+        <p>This is the content of <code>factory.pub</code>:</p>
 
-                <pre>untrusted comment: GrapheneOS factory images public key
+        <pre>untrusted comment: GrapheneOS factory images public key
 RWQZW9NItOuQYJ86EooQBxScfclrWiieJtAO9GpnfEjKbCO/3FriLGX3</pre>
 
-                <p>The public key has also been published via the official
-                <a href="https://twitter.com/GrapheneOS/status/1145259815851253762">@GrapheneOS Twitter
-                account</a>,
-                <a href="https://www.reddit.com/r/GrapheneOS/comments/c7gb3f/grapheneos_factory_images_are_now_signed_with/esewpm9">the /u/GrapheneOS
-                Reddit account</a> and <a href="https://github.com/GrapheneOS/releases.grapheneos.org/blob/main/static/factory.pub">is available on GitHub</a>.
-                When the current signing key is replaced, the new key will be signed with it.</p>
+        <p>The public key has also been published via the official
+        <a href="https://twitter.com/GrapheneOS/status/1145259815851253762">@GrapheneOS Twitter
+        account</a>,
+        <a href="https://www.reddit.com/r/GrapheneOS/comments/c7gb3f/grapheneos_factory_images_are_now_signed_with/esewpm9">the /u/GrapheneOS
+        Reddit account</a> and <a href="https://github.com/GrapheneOS/releases.grapheneos.org/blob/main/static/factory.pub">is available on GitHub</a>.
+        When the current signing key is replaced, the new key will be signed with it.</p>
 
-                <p>Download the factory images for the device from <a href="/releases">the releases
-                page</a>. For example, to download the 2021110122 release for a device with the
-                codename <code><var>DEVICE_NAME</var></code>:</p>
+        <p>Download the factory images for the device from <a href="/releases">the releases
+        page</a>. For example, to download the 2021110122 release for a device with the
+        codename <code><var>DEVICE_NAME</var></code>:</p>
 
-                <pre>curl -O https://releases.grapheneos.org/<var>DEVICE_NAME</var>-factory-2021110122.zip
+        <pre>curl -O https://releases.grapheneos.org/<var>DEVICE_NAME</var>-factory-2021110122.zip
 curl -O https://releases.grapheneos.org/<var>DEVICE_NAME</var>-factory-2021110122.zip.sig</pre>
 
-                <p>Verify the factory images using the signature if you were able to obtain
-                <code>signify</code> from trusted package repositories (see above), otherwise
-                continue on to the next section without this:</p>
+        <p>Verify the factory images using the signature if you were able to obtain
+        <code>signify</code> from trusted package repositories (see above), otherwise
+        continue on to the next section without this:</p>
 
-                <pre>signify -Cqp factory.pub -x <var>DEVICE_NAME</var>-factory-2021110122.zip.sig &amp;&amp; echo verified</pre>
+        <pre>signify -Cqp factory.pub -x <var>DEVICE_NAME</var>-factory-2021110122.zip.sig &amp;&amp; echo verified</pre>
 
-                <p>This will output <code>verified</code> if verification is successful. If something
-                goes wrong, it will output an error message rather than <code>verified</code>.</p>
+        <p>This will output <code>verified</code> if verification is successful. If something
+        goes wrong, it will output an error message rather than <code>verified</code>.</p>
+    </section>
+
+    <section id="flashing-factory-images">
+        <h2><a href="#flashing-factory-images">Flashing factory images</a></h2>
+
+        <p>The initial install will be performed by flashing the factory images. This will
+        replace the existing OS installation and wipe all the existing data.</p>
+
+        <p>Next, extract the factory images.</p>
+
+        <p>On Linux:</p>
+
+        <pre>bsdtar xvf <var>DEVICE_NAME</var>-factory-2021110122.zip</pre>
+
+        <p>On macOS and Windows:</p>
+
+        <pre>tar xvf <var>DEVICE_NAME</var>-factory-2021110122.zip</pre>
+
+        <p>Move into the directory:</p>
+
+        <pre>cd <var>DEVICE_NAME</var>-factory-2021110122</pre>
+
+        <p>Flash the images with the flash-all script in the directory.</p>
+
+        <p>On Linux and macOS:</p>
+
+        <pre>./flash-all.sh</pre>
+
+        <p>On Windows:</p>
+
+        <pre>./flash-all.bat</pre>
+
+        <p>Wait for the flashing process to complete. It will automatically handle
+        flashing the firmware, rebooting into the bootloader interface, flashing the core
+        OS, rebooting into the userspace fastboot mode, flashing the rest of the OS and
+        finally rebooting back into the bootloader interface. Avoid interacting with the
+        device until the flashing script is finished and the device is back at the
+        bootloader interface. Then, proceed to <a href="#locking-the-bootloader">locking
+        the bootloader</a> before using the device as locking wipes the data again.</p>
+
+        <section id="troubleshooting">
+            <h3><a href="#troubleshooting">Troubleshooting</a></h3>
+
+            <p>The text output from a failed attempt at flashing will contain valuable
+            diagnostic information which is essential in knowing where and how the process
+            went wrong. Please provide this information when asking for help on the
+            <a href="/contact#community">GrapheneOS chat room</a>.</p>
+
+            <p>A common issue on Linux distributions is that they mount the default temporary file
+            directory <code>/tmp</code> as tmpfs which results in it being backed by memory and
+            swap rather than persistent storage. By default, the size is 50% of the available
+            virtual memory. This is often not enough for the flashing process, especially since
+            <code>/tmp</code> is shared between applications and users. To use a different
+            temporary directory if your <code>/tmp</code> doesn't have enough space available:</p>
+
+            <pre>mkdir tmp &amp;&amp; TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
+        </section>
+    </section>
+
+    <section id="locking-the-bootloader">
+        <h2><a href="#locking-the-bootloader">Locking the bootloader</a></h2>
+
+        <p>Locking the bootloader is important as it enables full verified boot. It also
+        prevents using fastboot to flash, format or erase partitions.  Verified boot will
+        detect modifications to any of the OS partitions and it will prevent reading any
+        modified / corrupted data. If changes are detected, error correction data is used
+        to attempt to obtain the original data at which point it's verified again which
+        makes verified boot robust to non-malicious corruption.</p>
+
+        <p>In the bootloader interface, set it to locked:</p>
+
+        <pre>fastboot flashing lock</pre>
+
+        <p>The command needs to be confirmed on the device and will wipe all data. Use one
+        of the volume buttons to switch the selection to accepting it and the power button
+        to confirm.</p>
+    </section>
+
+    <section id="post-installation">
+        <h2><a href="#post-installation">Post-installation</a></h2>
+
+        <section id="booting">
+            <h3><a href="#booting">Booting</a></h3>
+
+            <p>You've now successfully installed GrapheneOS and can boot it. Pressing the
+            power button with the default Start option selected in the bootloader
+            interface will boot the OS.</p>
+        </section>
+
+        <section id="disabling-oem-unlocking">
+            <h3><a href="#disabling-oem-unlocking">Disabling OEM unlocking</a></h3>
+
+            <p>OEM unlocking can be disabled again in the developer settings menu within the
+            operating system after booting it up again.</p>
+
+            <p>After disabling OEM unlocking, we recommend disabling developer options as
+            a whole for a device that's not being used for app or OS development.</p>
+        </section>
+
+        <section id="verifying-installation">
+            <h3><a href="#verifying-installation">Verifying installation</a></h3>
+
+            <p>The verified boot and attestation features provided by the supported
+            devices can be used to verify that the hardware, firmware and GrapheneOS
+            installation are genuine. Even if the computer you used to flash GrapheneOS
+            was compromised and an attacker replaced GrapheneOS with their own malicious
+            OS, it can be detected with these features.</p>
+
+            <p>Verified boot verifies the entirety of the firmware and OS images on every
+            boot. The public key for the firmware images is burned into fuses in the SoC
+            at the factory. Firmware security updates can also update the rollback index
+            burned into fuses to provide rollback protection.</p>
+
+            <p>The final firmware boot stage before the OS is responsible for verifying
+            it. For the stock OS, it uses a hard-wired public key. Installing GrapheneOS
+            flashes the GrapheneOS verified boot public key to the secure element. Each
+            boot, this key is loaded and used to verify the OS. For both the stock OS and
+            GrapheneOS, a rollback index based on the security patch level is loaded from
+            the secure element to provide rollback protection.</p>
+
+            <section id="verified-boot-key-hash">
+                <h3><a href="#verified-boot-key-hash">Verified boot key hash</a></h3>
+
+                <p>When loading an alternate OS, the device shows a yellow notice on boot
+                with the ID of the alternate OS based on the sha256 of the verified boot
+                public key. 4th and 5th generation Pixels only show the first 32 bits of
+                the hash so you can't use this approach. 6th and 7th generation Pixels
+                show the full hash and you can compare it against the official GrapheneOS
+                verified boot hashes below:</p>
+
+                <ul>
+                    <li>Pixel Fold: <code>ee0c9dfef6f55a878538b0dbf7e78e3bc3f1a13c8c44839b095fe26dd5fe2842</code></li>
+                    <li>Pixel Tablet: <code>94df136e6c6aa08dc26580af46f36419b5f9baf46039db076f5295b91aaff230</code></li>
+                    <li>Pixel 7a: <code>508d75dea10c5cbc3e7632260fc0b59f6055a8a49dd84e693b6d8899edbb01e4</code></li>
+                    <li>Pixel 7 Pro: <code>bc1c0dd95664604382bb888412026422742eb333071ea0b2d19036217d49182f</code></li>
+                    <li>Pixel 7: <code>3efe5392be3ac38afb894d13de639e521675e62571a8a9b3ef9fc8c44fd17fa1</code></li>
+                    <li>Pixel 6a: <code>08c860350a9600692d10c8512f7b8e80707757468e8fbfeea2a870c0a83d6031</code></li>
+                    <li>Pixel 6 Pro: <code>439b76524d94c40652ce1bf0d8243773c634d2f99ba3160d8d02aa5e29ff925c</code></li>
+                    <li>Pixel 6: <code>f0a890375d1405e62ebfd87e8d3f475f948ef031bbf9ddd516d5f600a23677e8</code></li>
+                </ul>
+
+                <p>Checking this is useful after installation, but you don't need to check
+                it manually for verified boot to work. The verified boot public key
+                flashed to the secure element can only be changed when the device is
+                unlocked. Unlocking the device performs the same wiping of the secure
+                element as a factory reset and prevents data from being recovered even if
+                the SSD was cloned and your passphrase(s) are obtained because the
+                encryption keys can no longer be derived anymore. The verified boot key is
+                also one of the inputs for deriving the encryption keys in addition to the
+                user's lock method(s) and random token(s) on the secure element.</p>
             </section>
 
-            <section id="flashing-factory-images">
-                <h2><a href="#flashing-factory-images">Flashing factory images</a></h2>
+            <section id="hardware-based-attestation">
+                <h3><a href="#hardware-based-attestation">Hardware-based attestation</a></h3>
 
-                <p>The initial install will be performed by flashing the factory images. This will
-                replace the existing OS installation and wipe all the existing data.</p>
+                <p>GrapheneOS provides our Auditor app for using a combination of the
+                verified boot and attestation features to verify that the hardware,
+                firmware and operating system are genuine along with providing other
+                useful data from the hardware and operating system.</p>
 
-                <p>Next, extract the factory images.</p>
+                <p>Since the purpose of Auditor is to obtain information about the device
+                without trusting it to be honest, results aren't shown on the device being
+                verified. You need a 2nd Android device running Auditor for local QR code
+                based verification. You can also use our optional device integrity
+                monitoring service for automatic scheduled verifications with support for
+                email alerts.</p>
 
-                <p>On Linux:</p>
+                <p>See the <a href="https://attestation.app/tutorial">Auditor tutorial</a>
+                for a guide.</p>
 
-                <pre>bsdtar xvf <var>DEVICE_NAME</var>-factory-2021110122.zip</pre>
-
-                <p>On macOS and Windows:</p>
-
-                <pre>tar xvf <var>DEVICE_NAME</var>-factory-2021110122.zip</pre>
-
-                <p>Move into the directory:</p>
-
-                <pre>cd <var>DEVICE_NAME</var>-factory-2021110122</pre>
-
-                <p>Flash the images with the flash-all script in the directory.</p>
-
-                <p>On Linux and macOS:</p>
-
-                <pre>./flash-all.sh</pre>
-
-                <p>On Windows:</p>
-
-                <pre>./flash-all.bat</pre>
-
-                <p>Wait for the flashing process to complete. It will automatically handle
-                flashing the firmware, rebooting into the bootloader interface, flashing the core
-                OS, rebooting into the userspace fastboot mode, flashing the rest of the OS and
-                finally rebooting back into the bootloader interface. Avoid interacting with the
-                device until the flashing script is finished and the device is back at the
-                bootloader interface. Then, proceed to <a href="#locking-the-bootloader">locking
-                the bootloader</a> before using the device as locking wipes the data again.</p>
-
-                <section id="troubleshooting">
-                    <h3><a href="#troubleshooting">Troubleshooting</a></h3>
-
-                    <p>The text output from a failed attempt at flashing will contain valuable
-                    diagnostic information which is essential in knowing where and how the process
-                    went wrong. Please provide this information when asking for help on the
-                    <a href="/contact#community">GrapheneOS chat room</a>.</p>
-
-                    <p>A common issue on Linux distributions is that they mount the default temporary file
-                    directory <code>/tmp</code> as tmpfs which results in it being backed by memory and
-                    swap rather than persistent storage. By default, the size is 50% of the available
-                    virtual memory. This is often not enough for the flashing process, especially since
-                    <code>/tmp</code> is shared between applications and users. To use a different
-                    temporary directory if your <code>/tmp</code> doesn't have enough space available:</p>
-
-                    <pre>mkdir tmp &amp;&amp; TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
-                </section>
+                <p>Auditor is primarily based on a pairing model where it generates a
+                hardware backed signing key and hardware backed attestation signing key
+                and pins them as part of the initial verification. The first verification
+                is bootstrapped based on chaining trust to one of the Android attestation
+                roots. After the first verification, it provides a highly secure system
+                for obtaining information about the device going forward. An attacker
+                could bypass the initial verification with a leaked attestation key or by
+                proxying to another device with the device model, OS and patch level that
+                the user is expecting. Proxying to another device will be addressed in the
+                future with optional support for the hardware serial number attestation
+                feature.</p>
             </section>
+        </section>
 
-            <section id="locking-the-bootloader">
-                <h2><a href="#locking-the-bootloader">Locking the bootloader</a></h2>
+        <section id="replacing-grapheneos-with-the-stock-os">
+            <h3><a href="#replacing-grapheneos-with-the-stock-os">Replacing GrapheneOS with the stock OS</a></h3>
 
-                <p>Locking the bootloader is important as it enables full verified boot. It also
-                prevents using fastboot to flash, format or erase partitions.  Verified boot will
-                detect modifications to any of the OS partitions and it will prevent reading any
-                modified / corrupted data. If changes are detected, error correction data is used
-                to attempt to obtain the original data at which point it's verified again which
-                makes verified boot robust to non-malicious corruption.</p>
+            <p>Installation of the stock OS via the stock factory images is the same process
+            described above. However, before flashing and locking, there's an additional step
+            to fully revert the device to a clean factory state.</p>
 
-                <p>In the bootloader interface, set it to locked:</p>
+            <p>The GrapheneOS factory images flash a non-stock Android Verified Boot key which
+            needs to be erased to fully revert back to a stock device state. Before flashing the
+            stock factory images and before locking the bootloader, you should erase the custom
+            Android Verified Boot key to untrust it:</p>
 
-                <pre>fastboot flashing lock</pre>
+            <pre>fastboot erase avb_custom_key</pre>
+        </section>
 
-                <p>The command needs to be confirmed on the device and will wipe all data. Use one
-                of the volume buttons to switch the selection to accepting it and the power button
-                to confirm.</p>
-            </section>
+        <section id="further-information">
+            <h3><a href="#further-information">Further information</a></h3>
 
-            <section id="post-installation">
-                <h2><a href="#post-installation">Post-installation</a></h2>
-
-                <section id="booting">
-                    <h3><a href="#booting">Booting</a></h3>
-
-                    <p>You've now successfully installed GrapheneOS and can boot it. Pressing the
-                    power button with the default Start option selected in the bootloader
-                    interface will boot the OS.</p>
-                </section>
-
-                <section id="disabling-oem-unlocking">
-                    <h3><a href="#disabling-oem-unlocking">Disabling OEM unlocking</a></h3>
-
-                    <p>OEM unlocking can be disabled again in the developer settings menu within the
-                    operating system after booting it up again.</p>
-
-                    <p>After disabling OEM unlocking, we recommend disabling developer options as
-                    a whole for a device that's not being used for app or OS development.</p>
-                </section>
-
-                <section id="verifying-installation">
-                    <h3><a href="#verifying-installation">Verifying installation</a></h3>
-
-                    <p>The verified boot and attestation features provided by the supported
-                    devices can be used to verify that the hardware, firmware and GrapheneOS
-                    installation are genuine. Even if the computer you used to flash GrapheneOS
-                    was compromised and an attacker replaced GrapheneOS with their own malicious
-                    OS, it can be detected with these features.</p>
-
-                    <p>Verified boot verifies the entirety of the firmware and OS images on every
-                    boot. The public key for the firmware images is burned into fuses in the SoC
-                    at the factory. Firmware security updates can also update the rollback index
-                    burned into fuses to provide rollback protection.</p>
-
-                    <p>The final firmware boot stage before the OS is responsible for verifying
-                    it. For the stock OS, it uses a hard-wired public key. Installing GrapheneOS
-                    flashes the GrapheneOS verified boot public key to the secure element. Each
-                    boot, this key is loaded and used to verify the OS. For both the stock OS and
-                    GrapheneOS, a rollback index based on the security patch level is loaded from
-                    the secure element to provide rollback protection.</p>
-
-                    <section id="verified-boot-key-hash">
-                        <h3><a href="#verified-boot-key-hash">Verified boot key hash</a></h3>
-
-                        <p>When loading an alternate OS, the device shows a yellow notice on boot
-                        with the ID of the alternate OS based on the sha256 of the verified boot
-                        public key. 4th and 5th generation Pixels only show the first 32 bits of
-                        the hash so you can't use this approach. 6th and 7th generation Pixels
-                        show the full hash and you can compare it against the official GrapheneOS
-                        verified boot hashes below:</p>
-
-                        <ul>
-                            <li>Pixel Fold: <code>ee0c9dfef6f55a878538b0dbf7e78e3bc3f1a13c8c44839b095fe26dd5fe2842</code></li>
-                            <li>Pixel Tablet: <code>94df136e6c6aa08dc26580af46f36419b5f9baf46039db076f5295b91aaff230</code></li>
-                            <li>Pixel 7a: <code>508d75dea10c5cbc3e7632260fc0b59f6055a8a49dd84e693b6d8899edbb01e4</code></li>
-                            <li>Pixel 7 Pro: <code>bc1c0dd95664604382bb888412026422742eb333071ea0b2d19036217d49182f</code></li>
-                            <li>Pixel 7: <code>3efe5392be3ac38afb894d13de639e521675e62571a8a9b3ef9fc8c44fd17fa1</code></li>
-                            <li>Pixel 6a: <code>08c860350a9600692d10c8512f7b8e80707757468e8fbfeea2a870c0a83d6031</code></li>
-                            <li>Pixel 6 Pro: <code>439b76524d94c40652ce1bf0d8243773c634d2f99ba3160d8d02aa5e29ff925c</code></li>
-                            <li>Pixel 6: <code>f0a890375d1405e62ebfd87e8d3f475f948ef031bbf9ddd516d5f600a23677e8</code></li>
-                        </ul>
-
-                        <p>Checking this is useful after installation, but you don't need to check
-                        it manually for verified boot to work. The verified boot public key
-                        flashed to the secure element can only be changed when the device is
-                        unlocked. Unlocking the device performs the same wiping of the secure
-                        element as a factory reset and prevents data from being recovered even if
-                        the SSD was cloned and your passphrase(s) are obtained because the
-                        encryption keys can no longer be derived anymore. The verified boot key is
-                        also one of the inputs for deriving the encryption keys in addition to the
-                        user's lock method(s) and random token(s) on the secure element.</p>
-                    </section>
-
-                    <section id="hardware-based-attestation">
-                        <h3><a href="#hardware-based-attestation">Hardware-based attestation</a></h3>
-
-                        <p>GrapheneOS provides our Auditor app for using a combination of the
-                        verified boot and attestation features to verify that the hardware,
-                        firmware and operating system are genuine along with providing other
-                        useful data from the hardware and operating system.</p>
-
-                        <p>Since the purpose of Auditor is to obtain information about the device
-                        without trusting it to be honest, results aren't shown on the device being
-                        verified. You need a 2nd Android device running Auditor for local QR code
-                        based verification. You can also use our optional device integrity
-                        monitoring service for automatic scheduled verifications with support for
-                        email alerts.</p>
-
-                        <p>See the <a href="https://attestation.app/tutorial">Auditor tutorial</a>
-                        for a guide.</p>
-
-                        <p>Auditor is primarily based on a pairing model where it generates a
-                        hardware backed signing key and hardware backed attestation signing key
-                        and pins them as part of the initial verification. The first verification
-                        is bootstrapped based on chaining trust to one of the Android attestation
-                        roots. After the first verification, it provides a highly secure system
-                        for obtaining information about the device going forward. An attacker
-                        could bypass the initial verification with a leaked attestation key or by
-                        proxying to another device with the device model, OS and patch level that
-                        the user is expecting. Proxying to another device will be addressed in the
-                        future with optional support for the hardware serial number attestation
-                        feature.</p>
-                    </section>
-                </section>
-
-                <section id="replacing-grapheneos-with-the-stock-os">
-                    <h3><a href="#replacing-grapheneos-with-the-stock-os">Replacing GrapheneOS with the stock OS</a></h3>
-
-                    <p>Installation of the stock OS via the stock factory images is the same process
-                    described above. However, before flashing and locking, there's an additional step
-                    to fully revert the device to a clean factory state.</p>
-
-                    <p>The GrapheneOS factory images flash a non-stock Android Verified Boot key which
-                    needs to be erased to fully revert back to a stock device state. Before flashing the
-                    stock factory images and before locking the bootloader, you should erase the custom
-                    Android Verified Boot key to untrust it:</p>
-
-                    <pre>fastboot erase avb_custom_key</pre>
-                </section>
-
-                <section id="further-information">
-                    <h3><a href="#further-information">Further information</a></h3>
-
-                    <p>Please look through the <a href="/usage">usage guide</a> and
-                    <a href="/faq">FAQ</a> for more information. If you have further questions not
-                    covered by the site, join the <a href="/contact#community">official GrapheneOS
-                    chat channels</a> and ask the questions in the appropriate channel.</p>
-                </section>
-            </section>
-        </main>
-        {% include "footer.html" %}
-    </body>
-</html>
+            <p>Please look through the <a href="/usage">usage guide</a> and
+            <a href="/faq">FAQ</a> for more information. If you have further questions not
+            covered by the site, join the <a href="/contact#community">official GrapheneOS
+            chat channels</a> and ask the questions in the appropriate channel.</p>
+        </section>
+    </section>
+{% endblock %}
