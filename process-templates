@@ -1,26 +1,40 @@
 #!/usr/bin/env python3
 
 from jinja2 import FileSystemLoader, Environment
+import argparse
 import os
 import sys
 
-ROOT_DIR = sys.argv[1]
-TEMPLATE_PATH_LIST = [ROOT_DIR, "templates/"]
+parser = argparse.ArgumentParser("process-templates")
+parser.add_argument("templates_dir", help="Folder containing all templates", type=str)
+parser.add_argument("pages_dir", help="Folder container page templates", type=str)
+parser.add_argument("static_dir", help="Folder to write generated templates to", type=str)
+args = parser.parse_args()
 
-loader = FileSystemLoader(searchpath=TEMPLATE_PATH_LIST)
+loader = FileSystemLoader(searchpath=[args.templates_dir, args.pages_dir])
 environment = Environment(loader=loader, autoescape=True)
 
 template_file_list = []
-for dirpath, dirnames, filenames in os.walk(ROOT_DIR):
+for dirpath, dirnames, filenames in os.walk(args.pages_dir):
     for filename in filenames:
         if filename.endswith(".html"):
             template_file_list.append(
-                (os.path.join(dirpath, filename)).split(sep=os.path.sep, maxsplit=1)[1]
+                (os.path.join(dirpath, filename)).split(sep=os.path.sep, maxsplit=2).pop()
             )
 
 for template_file in template_file_list:
     template = environment.get_template(template_file)
-    rendered_template = template.render()
-    path = os.path.join(ROOT_DIR, template_file)
+    current_page = template_file.replace('/index.html', '').replace('.html', '')
+
+    rendered_template = template.render(current_page=current_page)
+    path = os.path.join(args.static_dir, template_file)
+
+    # Replicate folders from template/pages in static-tmp
+    dir = os.path.dirname(path)
+    if not os.path.exists(dir):
+        os.makedirs(dir)
+
+    # Write generated html
     with open(path, mode="w") as f:
         f.write(rendered_template)
+        f.close()

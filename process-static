@@ -31,7 +31,7 @@ cp -a nginx nginx-tmp
 rm -rf static-tmp
 cp -a static static-tmp
 
-./process-templates static-tmp
+./process-templates templates templates/pages static-tmp
 
 for file in static-tmp/**/*.@(json|webmanifest); do
     json_verify < "$file" >/dev/null
@@ -74,7 +74,11 @@ for device in ${devices[@]}; do
 done
 sed -i "$replace" static-tmp/releases.html
 
-gixy nginx-tmp/nginx.conf
+if command -v gixy > /dev/null; then
+    gixy nginx-tmp/nginx.conf
+else
+    echo "Command gixy not found, not checking nginx config"
+fi
 
 xmllint --noout static-tmp/**/*.@(html|svg|xml)
 java -jar node_modules/vnu-jar/build/dist/vnu.jar --errors-only static-tmp/**/*.html
