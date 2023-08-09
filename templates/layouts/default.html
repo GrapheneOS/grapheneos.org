@@ -1,32 +1,41 @@
-{% macro seometa(title, description, pathname = '', ogTitle = '') %}
-        <meta charset="utf-8"/>
-        <title>{{ title }} | GrapheneOS</title>
-        <meta name="description" content="{{ description }}"/>
-        <meta name="theme-color" content="#212121"/>
-        <meta name="color-scheme" content="dark light"/>
-        <meta name="msapplication-TileColor" content="#ffffff"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <meta name="twitter:site" content="@GrapheneOS"/>
-        <meta name="twitter:creator" content="@GrapheneOS"/>
-        <meta property="og:title" content="GrapheneOS {{ ogTitle | title }}"/>
-        <meta property="og:description" content="{{ description }}"/>
-        <meta property="og:type" content="website"/>
-        <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
-        <meta property="og:image:width" content="512"/>
-        <meta property="og:image:height" content="512"/>
-        <meta property="og:image:alt" content="GrapheneOS logo"/>
-        <meta property="og:site_name" content="GrapheneOS"/>
-        {% if pathname %}
-        <meta property="og:url" content="https://grapheneos.org{{ pathname }}"/>
-        <link rel="canonical" href="https://grapheneos.org{{ pathname }}"/>
-        {% endif %}
-        <link rel="icon" href="/favicon.ico"/>
-        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
-        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-        <link rel="manifest" href="/manifest.webmanifest"/>
-        <link rel="license" href="/LICENSE.txt"/>
-        <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
+{% macro seometa(title, description, pathname = '', og_title = '', add_title_suffix = True, add_og_title_prefix = True) %}
+    {# /*
+        Remarks about pathname
+        - og:url and canonical tags are only added if pathname is truthy
+
+        Remarks about og_title
+        - If og_title provided then the exact value is always used
+        - Else if og_title is empty and add_og_title_prefix is true then the lowercase title is used
+        - Else if og_title is empty and add_og_title_prefix is false then the exact title value is used
+    */ #}
+    <meta charset="utf-8"/>
+    <title>{{ title }}{% if add_title_suffix %} | GrapheneOS{% endif %}</title>
+    <meta name="description" content="{{ description }}"/>
+    <meta name="theme-color" content="#212121"/>
+    <meta name="color-scheme" content="dark light"/>
+    <meta name="msapplication-TileColor" content="#ffffff"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="twitter:site" content="@GrapheneOS"/>
+    <meta name="twitter:creator" content="@GrapheneOS"/>
+    <meta property="og:title" content="{% if add_og_title_prefix %}GrapheneOS {{ og_title if og_title else title|lower }}{% else %}{{ og_title or title }}{% endif %}"/>
+    <meta property="og:description" content="{{ description }}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
+    <meta property="og:image:width" content="512"/>
+    <meta property="og:image:height" content="512"/>
+    <meta property="og:image:alt" content="GrapheneOS logo"/>
+    <meta property="og:site_name" content="GrapheneOS"/>
+    {% if pathname %}
+    <meta property="og:url" content="https://grapheneos.org{{ pathname }}"/>
+    <link rel="canonical" href="https://grapheneos.org{{ pathname }}"/>
+    {% endif %}
+    <link rel="icon" href="/favicon.ico"/>
+    <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
+    <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+    <link rel="manifest" href="/manifest.webmanifest"/>
+    <link rel="license" href="/LICENSE.txt"/>
+    <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
 {% endmacro %}
 <!DOCTYPE html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
