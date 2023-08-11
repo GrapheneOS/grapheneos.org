@@ -1,0 +1,78 @@
+#!/usr/bin/env python3
+"""
+Simple Flask dev server for grapheneos.org
+
+This is a bare-minimum dev server to improve DX by generating & reloading
+page templates on the fly. Note that there is no HMR (Hot Module Reloading)
+so you need to refresh the page in the browser manually
+"""
+from os.path import exists, join
+from flask import Flask, send_from_directory, render_template
+import argparse
+import re
+
+def resourcerepl(match):
+    """
+    Regex callable to replace matched template strings with html
+    """
+    resourcetype = match.group(1)
+    pathname = match.group(2)
+
+    if resourcetype == 'js':
+        return '<script src="' + pathname + '"></script>'
+    elif resourcetype == 'css':
+        return '<link rel="stylesheet" href="' + pathname + '">'
+    elif resourcetype == 'path':
+        return pathname
+    else:
+        raise Exception('Unsupported resource type:' + resourcetype)
+
+app = Flask(
+    __name__,
+    #static_url_path='', 
+    #static_folder='static',
+    template_folder='templates'
+    )
+
+@app.route("/", defaults={'path': ''})
+@app.route("/<path:path>", methods=["GET"])
+def get(path):
+    orig_path = path
+    try_template = False
+
+    # Home / index has empty path
+    if not path:
+        try_template = True
+        path = "index.html"
+    # Assume that anything with a dot in the request path is a request for a static file
+    elif "." not in path:
+        # Match without trailing slash (ie /faq)
+        if exists(join('templates', 'pages', path + '.html')):
+            try_template = True
+            path += ".html"
+        # Match with trailing slash (ie /faq/)
+        elif exists(join('templates', 'pages', path + "index.html")):
+            try_template = True
+            path += "index.html"
+
+    if try_template:
+        current_page = orig_path.rstrip('/') # TODO: sanitize
+        html = render_template(join("pages", path), current_page=current_page)
+
+        # Replace generated resources in html
+        html = re.sub(r'\[\[(css|js|path)\|(.*?)\]\]', resourcerepl, html)
+        return html
+
+    return send_from_directory('static', path)
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser("./dev.py")
+    # Debugger is enabled by default to support auto reloading
+    parser.add_argument("--debug", help="Start debugger", type=bool, default=True)
+    parser.add_argument("--host", help="Interface to listen on", type=str, default='')
+    parser.add_argument("--port", help="Port to listen on", type=int, default=5000)
+    args = parser.parse_args()
+
+    app.jinja_env.auto_reload = True
+    app.config['TEMPLATES_AUTO_RELOAD'] = True
+    app.run(debug=args.debug, host=args.host, port=args.port)
