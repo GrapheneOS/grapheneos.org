@@ -1,5 +1,5 @@
 <header>
-    <nav id="site-menu">
+    <nav id="site-menu" role="menubar">
         <a href="/" id="brand" role="menuitem"{% if current_page == "" %} aria-current="page"{% endif %}>
             <img src="[[path|/mask-icon.svg]]" alt=""/>
             GrapheneOS
@@ -19,7 +19,7 @@
                 <ul id="dropdown-guide" class="dropdown" aria-labelledby="menu-guide">
                     <li role="presentation"><a href="/install/" role="menuitem"{% if current_page == "install" %} aria-current="page"{% endif %}>Install</a></li>
                     <li role="presentation"><a href="/build" role="menuitem"{% if current_page == "build" %} aria-current="page"{% endif %}>Build</a></li>
-                    <li role="presentation"><a href="/source" role="menuitem"{% if current_page == "source" %}aria-current="page"{% endif %}>Source</a></li>
+                    <li role="presentation"><a href="/source" role="menuitem"{% if current_page == "source" %} aria-current="page"{% endif %}>Source</a></li>
                 </ul>
             </li>
             <li role="presentation"><a href="/releases" role="menuitem"{% if current_page == "releases" %} aria-current="page"{% endif %}>Releases</a></li>
