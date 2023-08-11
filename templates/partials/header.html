@@ -1,63 +1,200 @@
 <header>
     <script>
-    const breakpoint = 735
+    // The current screensize, needs to be the same as in static/main.css
+    let screenSizes = { sm: 735, lg: Infinity }
+    let currentScreenSize = screenSizes.lg
+    let eventListeners = []
+    let deviceSupportsHover = true
 
-    function onClick(selector, callback) {
+    /**
+     * @callback eventCallback
+     * @param {MouseEvent}
+     * @param {HTMLElement}
+     */
+
+    /**
+     * Helper util to add a click event listener to an element
+     *
+     * @param {string|HTMLElement} selector - If a string is passed then the HTMLElement returned by querySelector will be used
+     * @param [eventCallback} callback
+     * @param {string=click} - The event type to listen too
+     * @returns {Function} - Function to remove the click event
+     */
+    function onEvent(selector, callback, type = 'click') {
         const el = typeof selector === 'string' ? document.querySelector(selector) : selector
         if (!el) {
             return
         }
 
-        el.addEventListener('click', (e) => callback(e, el))
-        return () => el.removeEventListener('click', callback)
+        const cb = (e) => callback(e, el)
+        el.addEventListener(type, cb)
+        return () => el.removeEventListener(type, cb)
     }
 
-    function listenMenuToggles() {
-        onClick('#menu-toggle', (e, el) => {
-            const isExpanded = el.getAttribute('aria-expanded') === 'true'
-            el.setAttribute('aria-expanded', !isExpanded)
-        })
+    /**
+     * Add all required menu opening/close listeners
+     */
+    function addMenuListeners() {
+        eventListeners.forEach(remove => remove?.())
+        eventListeners.splice(0, Infinity)
 
-        onClick('#toc-toggle', (e, el) => {
-            const isExpanded = el.getAttribute('aria-expanded') === 'true'
-            el.setAttribute('aria-expanded', !isExpanded)
+        // MAIN MENU TOGGLE
+        if (currentScreenSize === screenSizes.sm) {
+            // The menu toggle is only visible/used on small screens
+            eventListeners.push(
+                onEvent('#menu-toggle', (e, el) => {
+                    const isExpanded = el.getAttribute('aria-expanded') === 'true'
+                    el.setAttribute('aria-expanded', !isExpanded)
+                })
+            )
+        }
 
-            const scrollY = isExpanded ? +document.body.getAttribute('data-scroll-y') : window.scrollY
-            document.body.classList.toggle('no-scroll', !isExpanded)
+        // SUB MENUS IN MAIN MENU
+        document.querySelectorAll('#main-menu [aria-haspopup="true"]').forEach((el) => {
+            if (!deviceSupportsHover || currentScreenSize === screenSizes.sm) {
+                // For small screens or when the device doesnt support hovering, add
+                // a click listener to toggle the submenu dropdown
+                eventListeners.push(
+                    onEvent(el, (e) => {
+                        e.stopPropagation()
 
-            if (!isExpanded) {
-                document.body.setAttribute('data-scroll-y', scrollY)
-            } else {
-                document.body.removeAttribute('data-scroll-y')
-                if (scrollY > 0) {
-                    window.scrollTo(0, scrollY)
-                }
+                        const isExpanded = el.getAttribute('aria-expanded') === 'true'
+                        el.setAttribute('aria-expanded', !isExpanded)
+
+                        if (!isExpanded) {
+                            // Add a click listener on the body so that the dropdown closes
+                            // when you click anywhere else on the body
+                            const stopBodyClickListener = onEvent(document.body, (e) => {
+                                const clickedWithinTOC = !!e.target.closest('.dropdown')
+                                if (!clickedWithinTOC) {
+                                    el.setAttribute('aria-expanded', false)
+                                    stopBodyClickListener()
+                                }
+                            })
+                        }
+                    })
+                )
+            }
+
+            if (deviceSupportsHover && currentScreenSize !== screenSizes.sm) {
+                // On screens larger then small that supports hovering also listen for mouseover events
+                eventListeners.push(
+                    onEvent(el, (e) => {
+                        el.setAttribute('aria-expanded', true)
+
+                        const mainMenuItem = el.closest('#main-menu > li')
+
+                        const stopMouseMoveListener = onEvent(document.body, (e) => {
+                            const target = event.target
+                            const currentMainMenuItem = target.closest('#main-menu > li')
+
+                            // Hide the open submenu if the mouse move was not over the
+                            // top menu item or open submenu
+                            if (!currentMainMenuItem || currentMainMenuItem !== mainMenuItem) {
+                                el.setAttribute('aria-expanded', false)
+                                stopMouseMoveListener()
+                            }
+                        }, 'mousemove')
+                    }, 'mouseover')
+                )
+
             }
         })
 
-        document.querySelectorAll('#main-menu [aria-haspopup="true"]').forEach((el) => {
-            onClick(el, () => {
-                const isExpanded = el.getAttribute('aria-expanded') === 'true'
-                el.setAttribute('aria-expanded', !isExpanded)
-            })
-        })
+        // Check if a TOC exists on the current page
+        const tocToggle = document.querySelector('#toc-toggle')
+        if (!tocToggle) {
+            return
+        }
+
+        if (currentScreenSize === screenSizes.sm) {
+            tocToggle.setAttribute('aria-haspopup', true)
+            tocToggle.setAttribute('aria-controls', 'toc-menu')
+
+            // Add click listener on TOC toggle
+            eventListeners.push(
+                onEvent(tocToggle, (e, el) => {
+                    const isExpanded = el.getAttribute('aria-expanded') === 'true'
+
+                    // To prevent scrolling the main page, add a no-scroll class to the body
+                    // which fixes the position/size of the main page when the TOC is opened.
+                    // Because this would reset the scroll position, we need to save the scroll
+                    // position and restore it after the TOC is closed again
+                    const scrollY = isExpanded ? +document.body.getAttribute('data-scroll-y') : window.scrollY
+
+                    el.setAttribute('aria-expanded', !isExpanded)
+                    document.body.classList.toggle('no-scroll', !isExpanded)
+
+                    if (!isExpanded) {
+                        document.body.setAttribute('data-scroll-y', scrollY)
+
+                        // Listen for clicks in the TOC menu to close the TOC, if we dont
+                        // close the TOC then the page will not jump to the new clicked
+                        // header as we would otherwise restore the scroll position from
+                        // data-scroll-y
+                        onEvent('#toc-menu', (e) => {
+                            if (e.target.tagName !== 'A') {
+                                return
+                            }
+
+                            el.setAttribute('aria-expanded', false)
+                            document.body.classList.toggle('no-scroll', false)
+
+                            document.body.removeAttribute('data-scroll-y')
+                        })
+                    } else {
+                        document.body.removeAttribute('data-scroll-y')
+                        if (scrollY > 0) {
+                            window.scrollTo(0, scrollY)
+                        }
+                    }
+                })
+            )
+        } else {
+            tocToggle.removeAttribute('aria-haspopup')
+            tocToggle.removeAttribute('aria-controls')
+            tocToggle.removeAttribute('aria-expanded')
+        }
     }
 
-    function checkMenuState() {
-        const shouldMenuBeOpen = window.screenX > breakpoint
+    /**
+     * Checks the current screen size and adjust aria-expanded on the main menu accordingly
+     */
+    function checkScreenSize() {
+        currentScreenSize = screenSizes.sm
 
-        const el = document.querySelector('#main-menu')
-        el.setAttribute('aria-expanded', shouldMenuBeOpen)
+        let viewportWidth = window.screen.width
+        try {
+            viewportWidth = window.visualViewport.width
+        } catch {}
+
+        for (const [, screenWidth] of Object.entries(screenSizes)) {
+            if (viewportWidth <= screenWidth) {
+                currentScreenSize = screenWidth
+                break
+            }
+        }
+
+        deviceSupportsHover = window.matchMedia('(hover:hover)').matches
+
+        // Re-init state & listeners if screen is resized
+        window.addEventListener('resize', init)
+        eventListeners.push(() => window.removeEventListener('resize', init))
     }
 
-    window.addEventListener('DOMContentLoaded', () => {
-        listenMenuToggles()
-        checkMenuState()
-    })
+    /**
+     * Init all state & listeners
+     */
+    function init(a) {
+        checkScreenSize()
+        addMenuListeners()
+    }
 
-    window.addEventListener('resize', () => {
-        checkMenuState()
-    })
+    if (document.readyState === 'complete' || document.readyState === 'loaded') {
+        init()
+    } else {
+        window.addEventListener('DOMContentLoaded', init)
+    }
     </script>
     <nav id="site-menu">
         <a href="/" id="brand" role="menuitem"{% if current_page == "" %} aria-current="page"{% endif %}>
@@ -74,40 +211,39 @@
             <li role="presentation">
                 <a href="/features" role="menuitem"{% if current_page == "features" %} aria-current="page"{% endif %}>Features</a>
             </li>
-            <li {% if current_page in ["install", "build", "releases"] %}class="active-child"{% endif %}>
+            <li {% if current_page in ["install", "build", "source"] %}class="active-child"{% endif %}>
                 <span id="menu-guide" role="button" aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-guide">Guide</span>
                 <ul id="dropdown-guide" class="dropdown" aria-labelledby="menu-guide">
-                    <li {% if current_page == "install" %}aria-current="page"{% endif %}><a href="/install/">Install</a></li>
-                    <li {% if current_page == "build" %}aria-current="page"{% endif %}><a href="/build">Build</a></li>
-                    <li {% if current_page == "source" %}aria-current="page"{% endif %}><a href="/source">Source</a></li>
+                    <li role="presentation"><a href="/install/" role="menuitem"{% if current_page == "install" %} aria-current="page"{% endif %}>Install</a></li>
+                    <li role="presentation"><a href="/build" role="menuitem"{% if current_page == "build" %} aria-current="page"{% endif %}>Build</a></li>
+                    <li role="presentation"><a href="/source" role="menuitem"{% if current_page == "source" %}aria-current="page"{% endif %}>Source</a></li>
                 </ul>
             </li>
-            <li {% if current_page == "releases" %}aria-current="page"{% endif %}><a href="/releases">Releases</a></li>
-            <li {% if current_page in ["usage", "faq", "articles"] %}class="active-child"{% endif %}>
+            <li role="presentation"><a href="/releases" role="menuitem"{% if current_page == "releases" %} aria-current="page"{% endif %}>Releases</a></li>
+            <li role="presentation" {% if current_page in ["usage", "faq", "articles"] %}class="active-child"{% endif %}>
                 <span id="menu-support" role="button" aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-support">Support</span>
                 <ul id="dropdown-support" class="dropdown" aria-labelledby="menu-support">
-                    <li {% if current_page == "usage" %}aria-current="page"{% endif %} role="presentation"><a href="/usage" role="menuitem">Usage</a></li>
-                    <li {% if current_page == "faq" %}aria-current="page"{% endif %}><a href="/faq">FAQ</a></li>
-                    <li {% if current_page == "articles" %}aria-current="page"{% endif %}><a href="/articles/">Articles</a></li>
+                    <li role="presentation"><a href="/usage" role="menuitem"{% if current_page == "usage" %} aria-current="page"{% endif %}>Usage</a></li>
+                    <li role="presentation"><a href="/faq" role="menuitem"{% if current_page == "faq" %} aria-current="page"{% endif %}>FAQ</a></li>
+                    <li role="presentation"><a href="/articles/" role="menuitem"{% if current_page == "articles" %} aria-current="page"{% endif %}>Articles</a></li>
                 </ul>
             </li>
-            <li {% if current_page in ["history", "contact"] %}class="active-child"{% endif %}>
+            <li {% if current_page in ["donate", "history", "contact"] %}class="active-child"{% endif %}>
                 <span id="menu-about" role="button" aria-haspopup="true" aria-expanded="false" aria-controls="dropdown-about">About</span>
                 <ul id="dropdown-about" class="dropdown" aria-labelledby="menu-about">
-
-                    <li {% if current_page == "donate" %}aria-current="page"{% endif %}><a href="/donate">Donate</a></li>
-                    <li {% if current_page == "history" %}aria-current="page"{% endif %}><a href="/history/">History</a></li>
-                    <li {% if current_page == "contact" %}aria-current="page"{% endif %}><a href="/contact">Contact</a></li>
+                    <li role="presentation"><a href="/donate" role="menuitem"{% if current_page == "donate" %} aria-current="page"{% endif %}>Donate</a></li>
+                    <li role="presentation"><a href="/history/" role="menuitem"{% if current_page == "history" %} aria-current="page"{% endif %}>History</a></li>
+                    <li role="presentation"><a href="/contact" role="menuitem"{% if current_page == "contact" %} aria-current="page"{% endif %}>Contact</a></li>
                 </ul>
             </li>
         </ul>
 
         <ul id="menu-right">
-            <li><a href="/donate">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M326.7 403.7c-22.1 8-45.9 12.3-70.7 12.3s-48.7-4.4-70.7-12.3c-.3-.1-.5-.2-.8-.3c-30-11-56.8-28.7-78.6-51.4C70 314.6 48 263.9 48 208C48 93.1 141.1 0 256 0S464 93.1 464 208c0 55.9-22 106.6-57.9 144c-1 1-2 2.1-3 3.1c-21.4 21.4-47.4 38.1-76.3 48.6zM256 91.9c-11.1 0-20.1 9-20.1 20.1v6c-5.6 1.2-10.9 2.9-15.9 5.1c-15 6.8-27.9 19.4-31.1 37.7c-1.8 10.2-.8 20 3.4 29c4.2 8.8 10.7 15 17.3 19.5c11.6 7.9 26.9 12.5 38.6 16l2.2 .7c13.9 4.2 23.4 7.4 29.3 11.7c2.5 1.8 3.4 3.2 3.7 4c.3 .8 .9 2.6 .2 6.7c-.6 3.5-2.5 6.4-8 8.8c-6.1 2.6-16 3.9-28.8 1.9c-6-1-16.7-4.6-26.2-7.9l0 0 0 0 0 0c-2.2-.7-4.3-1.5-6.4-2.1c-10.5-3.5-21.8 2.2-25.3 12.7s2.2 21.8 12.7 25.3c1.2 .4 2.7 .9 4.4 1.5c7.9 2.7 20.3 6.9 29.8 9.1V304c0 11.1 9 20.1 20.1 20.1s20.1-9 20.1-20.1v-5.5c5.3-1 10.5-2.5 15.4-4.6c15.7-6.7 28.4-19.7 31.6-38.7c1.8-10.4 1-20.3-3-29.4c-3.9-9-10.2-15.6-16.9-20.5c-12.2-8.8-28.3-13.7-40.4-17.4l-.8-.2c-14.2-4.3-23.8-7.3-29.9-11.4c-2.6-1.8-3.4-3-3.6-3.5c-.2-.3-.7-1.6-.1-5c.3-1.9 1.9-5.2 8.2-8.1c6.4-2.9 16.4-4.5 28.6-2.6c4.3 .7 17.9 3.3 21.7 4.3c10.7 2.8 21.6-3.5 24.5-14.2s-3.5-21.6-14.2-24.5c-4.4-1.2-14.4-3.2-21-4.4V112c0-11.1-9-20.1-20.1-20.1zM48 352H64c19.5 25.9 44 47.7 72.2 64H64v32H256 448V416H375.8c28.2-16.3 52.8-38.1 72.2-64h16c26.5 0 48 21.5 48 48v64c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V400c0-26.5 21.5-48 48-48z"/></svg>
+            <li><a href="/donate" title="donate">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="1.2em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M326.7 403.7c-22.1 8-45.9 12.3-70.7 12.3s-48.7-4.4-70.7-12.3c-.3-.1-.5-.2-.8-.3c-30-11-56.8-28.7-78.6-51.4C70 314.6 48 263.9 48 208C48 93.1 141.1 0 256 0S464 93.1 464 208c0 55.9-22 106.6-57.9 144c-1 1-2 2.1-3 3.1c-21.4 21.4-47.4 38.1-76.3 48.6zM256 91.9c-11.1 0-20.1 9-20.1 20.1v6c-5.6 1.2-10.9 2.9-15.9 5.1c-15 6.8-27.9 19.4-31.1 37.7c-1.8 10.2-.8 20 3.4 29c4.2 8.8 10.7 15 17.3 19.5c11.6 7.9 26.9 12.5 38.6 16l2.2 .7c13.9 4.2 23.4 7.4 29.3 11.7c2.5 1.8 3.4 3.2 3.7 4c.3 .8 .9 2.6 .2 6.7c-.6 3.5-2.5 6.4-8 8.8c-6.1 2.6-16 3.9-28.8 1.9c-6-1-16.7-4.6-26.2-7.9l0 0 0 0 0 0c-2.2-.7-4.3-1.5-6.4-2.1c-10.5-3.5-21.8 2.2-25.3 12.7s2.2 21.8 12.7 25.3c1.2 .4 2.7 .9 4.4 1.5c7.9 2.7 20.3 6.9 29.8 9.1V304c0 11.1 9 20.1 20.1 20.1s20.1-9 20.1-20.1v-5.5c5.3-1 10.5-2.5 15.4-4.6c15.7-6.7 28.4-19.7 31.6-38.7c1.8-10.4 1-20.3-3-29.4c-3.9-9-10.2-15.6-16.9-20.5c-12.2-8.8-28.3-13.7-40.4-17.4l-.8-.2c-14.2-4.3-23.8-7.3-29.9-11.4c-2.6-1.8-3.4-3-3.6-3.5c-.2-.3-.7-1.6-.1-5c.3-1.9 1.9-5.2 8.2-8.1c6.4-2.9 16.4-4.5 28.6-2.6c4.3 .7 17.9 3.3 21.7 4.3c10.7 2.8 21.6-3.5 24.5-14.2s-3.5-21.6-14.2-24.5c-4.4-1.2-14.4-3.2-21-4.4V112c0-11.1-9-20.1-20.1-20.1zM48 352H64c19.5 25.9 44 47.7 72.2 64H64v32H256 448V416H375.8c28.2-16.3 52.8-38.1 72.2-64h16c26.5 0 48 21.5 48 48v64c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V400c0-26.5 21.5-48 48-48z"/></svg>
             </a></li>
-            <li><a href="https://github.com/GrapheneOS" rel="noopener noreferrer">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="1em" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+            <li><a href="https://github.com/GrapheneOS" title="go to github" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" height="1.2em" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
             </a></li>
         </ul>
     </nav>
