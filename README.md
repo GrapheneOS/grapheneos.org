@@ -15,12 +15,3 @@ Clone repo & run setup
 $ git clone https://github.com/GrapheneOS/grapheneos.org
 $ ./setup
 ```
-
-## Run development server
-
-```bash
-# Start the dev server on localhost:5000
-$ ./dev-server
-# or
-$ ./dev-server --host 0.0.0.0 --port 3000
-```
