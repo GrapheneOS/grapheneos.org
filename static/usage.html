@@ -1032,20 +1032,24 @@
                     Apps ➔ Sandboxed Google Play.</p>
 
                     <p>By default, apps using Google Play geolocation are redirected to our own
-                    implementation on top of the standard OS geolocation service. If you want to
-                    use Google's geolocation service instead, you can disable the "Reroute
-                    location requests to OS APIs" toggle and manually grant "Allow all the time"
-                    Location access to Google Play services. For it to be fully functional, you
-                    also need to use "Google Location Accuracy" link to access the Google Play
-                    services menu for opting into their network location service. This will send
-                    the nearby Wi-Fi and cellular networks provided via the Location permission to
-                    their service to retrieve a location estimate. The Nearby Devices permission
-                    can also be granted to give it access to nearby Bluetooth device IDs. If you
-                    stick with the default enabled redirection mode, none of this needs to be
-                    granted for working geolocation in apps. In order to fully take advantage of
-                    Wi-Fi and Bluetooth scanning, you also need to enable the scanning toggles in
-                    Settings ➔ Location ➔ Location services which are disabled by default rather
-                    than enabled by default like the stock OS.</p>
+                    implementation on top of the standard OS geolocation service. You don't need
+                    to grant any permissions to Google Play or change any settings for working
+                    location in apps using Google Play geolocation due to our rerouting feature.
+                    If you want to use Google's network location service to provide location
+                    estimates without satellite reception, you can disable the "Reroute location
+                    requests to OS APIs" toggle and grant what it requires to provide network
+                    location. You will need to grant "Allow all the time" Location access to
+                    Google Play services along with the Nearby Devices permission for it to have
+                    all the access it needs. You need to use the "Google Location Accuracy" link
+                    from the sandboxed Google Play configuration menu to access the Google Play
+                    services menu for opting into their network location service, otherwise this
+                    is all pointless. It will send the nearby Wi-Fi and cellular networks provided
+                    via the Location and Nearby Devices permissions to their service to retrieve a
+                    location estimate. In order to fully take advantage of Wi-Fi and Bluetooth
+                    scanning, you also need to enable the scanning toggles in Settings ➔ Location
+                    ➔ Location services which are disabled by default and control whether apps
+                    with the required permissions can scan when Wi-Fi and Bluetooth are otherwise
+                    disabled.</p>
 
                     <p>Re-routing location to the OS geolocation service will use more power than
                     using the Google Play geolocation service since we do not provide a
