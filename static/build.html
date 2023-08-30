@@ -743,7 +743,7 @@ repo sync -j8</pre>
 
                         <pre>BUILD_CONFIG=common/build.config.gki.x86_64 build/build.sh
 cp -a out out-vendor-modules
-BUILD_CONFIG=common-modules/virtual-device/build.config.virtual_device.x86_64 OUT_DIR=out-vendor-modules/android13-5.15 build/build.sh
+BUILD_CONFIG=common-modules/virtual-device/build.config.virtual_device.x86_64 OUT_DIR=out-vendor-modules/android13-5.10 build/build.sh
 find out-vendor-modules/android13-5.10/dist -type f -name '*.ko' -exec out/android13-5.10/common/scripts/sign-file sha256 out/android13-5.10/common/certs/signing_key.pem out/android13-5.10/common/certs/signing_key.x509 {} \;</pre>
 
                         <p>Replace the prebuilts in the OS source tree:</p>
