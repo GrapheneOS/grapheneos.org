@@ -661,6 +661,7 @@
 
                     <ul>
                         <li>fix 6th generation Pixel builds with PRODUCT_ENFORCE_RRO_TARGETS to make adevtool vendor generation easier</li>
+                        <li>adevtool: major overhaul fixing resource parsing bugs via protobuf aapt2 output, removing depencency on BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES, verifying hashes of vendor files, unpacking via debugfs/fsck.erofs to avoid needing mount privileges on the workstation and other UX / error checking improvements</li>
                         <li>add support for viewing 7 days of history in the privacy dashboard via the official toggle instead of our previous approach</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/116.0.5845.78.0">version 116.0.5845.78.0</a></li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/116.0.5845.92.0">version 116.0.5845.92.0</a></li>
