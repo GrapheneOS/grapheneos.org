@@ -396,17 +396,11 @@ cd ../..</pre>
 source script/envsetup.sh
 m aapt2</pre>
 
-                    <p>Extract the vendor files corresponding to the matching release with
-                    <code>DEVICE</code> and <code>BUILD_ID</code> variables replaced with the
-                    appropriate values (can obtain the correct <code>BUILD_ID</code> from
-                    <code>build/make/core/build_id.mk</code>):</p>
+                    <p>Download, extract and prepare the vendor files:</p>
 
-                    <pre>DEVICE=raven
-BUILD_ID=TQ2A.230405.003.E1
-vendor/adevtool/bin/run download vendor/adevtool/dl/ -d $DEVICE -b $BUILD_ID -t factory ota
-sudo vendor/adevtool/bin/run generate-all vendor/adevtool/config/$DEVICE.yml -c vendor/state/$DEVICE.json -s vendor/adevtool/dl/$DEVICE-${BUILD_ID,,}-*.zip
-sudo chown -R $(logname):$(logname) vendor/{google_devices,adevtool}
-vendor/adevtool/bin/run ota-firmware vendor/adevtool/config/$DEVICE.yml -f vendor/adevtool/dl/$DEVICE-ota-${BUILD_ID,,}-*.zip</pre>
+                    <pre>adevtool generate-all -d PIXEL_CODENAME</pre>
+
+                    <p>Replace PIXEL_CODENAME with Pixel device codename, which is the same as <a href="#build-targets">build target name</a>.</p>
                 </section>
 
                 <section id="setting-up-the-os-build-environment">
