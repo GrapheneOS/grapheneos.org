@@ -49,7 +49,12 @@
                             <li><a href="#3-button-navigation">3-button navigation</a></li>
                         </ul>
                     </li>
-                    <li><a href="#storage-access">Storage access</a></li>
+                    <li>
+                        <a href="#storage-access">Storage access</a>
+                        <ul>
+                            <li><a href="#storage-scopes">Storage Scopes</a></li>
+                        </ul>
+                    </li>
                     <li><a href="#accessibility">Accessibility</a></li>
                     <li><a href="#auditor">Auditor</a></li>
                     <li>
@@ -265,47 +270,49 @@
                 providers and modern Android has removed the legacy approach for accessing
                 external drives.</p>
 
-                <h3>Storage Scopes</h3>
+                <section id="storage-scopes">
+                    <h3><a href="#storage-scopes">Storage Scopes</a></h3>
 
-                <p>GrapheneOS provides the Storage Scopes feature as a fully compatible alternative
-                to the standard Android storage permissions.
-                Storage Scopes can be enabled only if the app doesn't have any storage permission.
-                Enabling Storage Scopes makes the app assume that it has all of storage permissions
-                that were requested by it, despite not actually having any of them.</p>
+                    <p>GrapheneOS provides the Storage Scopes feature as a fully compatible alternative
+                    to the standard Android storage permissions.
+                    Storage Scopes can be enabled only if the app doesn't have any storage permission.
+                    Enabling Storage Scopes makes the app assume that it has all of storage permissions
+                    that were requested by it, despite not actually having any of them.</p>
 
-                <p>This means that the app can't see any of the files that were created by other apps.
-                The app is still allowed to create files and directories, same as any other modern
-                app that doesn't have any storage access permission.</p>
+                    <p>This means that the app can't see any of the files that were created by other apps.
+                    The app is still allowed to create files and directories, same as any other modern
+                    app that doesn't have any storage access permission.</p>
 
-                <p>Apps that would normally use the legacy storage mode are switched to the
-                modern storage mode when Storage Scopes is enabled.</p>
+                    <p>Apps that would normally use the legacy storage mode are switched to the
+                    modern storage mode when Storage Scopes is enabled.</p>
 
-                <p>If the app requests the "All files access" permission (or is a legacy app
-                that requests <code>WRITE_EXTERNAL_STORAGE</code> permission), then the write
-                restrictions that are normally applied to apps that don't have a storage access
-                permission are relaxed to provide the same write access that the app would have if
-                it was granted the "All files access" permission.
-                This is done to ensure compatibility with apps that, for example, create a new
-                directory in the root of shared storage, or write a text file (eg lyrics.txt) to
-                the Music/ directory (normally, only audio files can be placed there).
-                No additional read access is granted to such apps, they still can see only their
-                own files.
-                </p>
+                    <p>If the app requests the "All files access" permission (or is a legacy app
+                    that requests <code>WRITE_EXTERNAL_STORAGE</code> permission), then the write
+                    restrictions that are normally applied to apps that don't have a storage access
+                    permission are relaxed to provide the same write access that the app would have if
+                    it was granted the "All files access" permission.
+                    This is done to ensure compatibility with apps that, for example, create a new
+                    directory in the root of shared storage, or write a text file (eg lyrics.txt) to
+                    the Music/ directory (normally, only audio files can be placed there).
+                    No additional read access is granted to such apps, they still can see only their
+                    own files.
+                    </p>
 
-                <p>For all other apps, enabling Storage Scopes doesn't grant any additional
-                storage access beyond what a modern app that doesn't have any storage permission
-                already has.</p>
+                    <p>For all other apps, enabling Storage Scopes doesn't grant any additional
+                    storage access beyond what a modern app that doesn't have any storage permission
+                    already has.</p>
 
-                <p>Optionally, users can specify which of the files created by other apps the app
-                can access. Access can be granted to a specific file or to all files in
-                a directory. The standard SAF picker is used for this purpose in a special mode
-                where it shows only shared storage files/directories.</p>
+                    <p>Optionally, users can specify which of the files created by other apps the app
+                    can access. Access can be granted to a specific file or to all files in
+                    a directory. The standard SAF picker is used for this purpose in a special mode
+                    where it shows only shared storage files/directories.</p>
 
-                <p>The most significant limitation of Storage Scopes is the fact that the app
-                will lose access to files that it created if it's uninstalled and then installed
-                again, same as any other app that doesn't have a storage access permission.
-                As a workaround, users can manually grant access to these files/directories via
-                SAF picker.</p>
+                    <p>The most significant limitation of Storage Scopes is the fact that the app
+                    will lose access to files that it created if it's uninstalled and then installed
+                    again, same as any other app that doesn't have a storage access permission.
+                    As a workaround, users can manually grant access to these files/directories via
+                    SAF picker.</p>
+                </section>
             </section>
 
             <section id="accessibility">
