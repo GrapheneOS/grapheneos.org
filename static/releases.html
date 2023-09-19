@@ -647,10 +647,36 @@
                 <p>The <a href="/history/legacy-changelog">legacy changelog page</a> has the
                 release notes from before the rebranding of the project in 2018 and 2019.</p>
 
-
                 <!--
                 <article id="2023090600">
                     <h3><a href="#2023090600">2023090600</a></h3>
+
+                    <p>The September release of AOSP and the stock OS came out on 2023-09-18 and
+                    are incorporated into this release. Unusually, they still set the patch level
+                    to 2023-09-01 despite having all listed patches for 2023-09-05 for some of the
+                    devices such as the Pixel 6 and Pixel 7. We left the listed patch level alone
+                    to avoid delaying the release for aesthetic reasons while we figured out where
+                    it could be raised. We shipped 2023-09-01 in our 2023090600 release but this
+                    is the actual September release from AOSP and the stock OS rather than just
+                    applying the Android Security Bulletin backports to Android 13.</p>
+
+                    <p>The strange timing and inclusion of only a single Mali GPU kernel driver
+                    patch in the September Pixel Update Bulletin is due to Android 14 being
+                    scheduled for this month but delayed to October. The Pixel Update Bulletin for
+                    Android 14 will include a large number of recommended AOSP security patches
+                    and many hardware related patches, neither of which will be backported to
+                    Android 13, so we've already put a significant effort into porting to Android
+                    14 via our limited early access to the source code. We aim to have our Android
+                    14 port available as soon as possible after the stable release is published
+                    due to the importance for security. It's unfortunate we don't have full access
+                    to the sources in advance like Android partners, but we've had access to more
+                    than we usually do this year and for longer due to the delay.</p>
+
+                    <p>We've also included additional Mali GPU kernel driver patches and a libwebp
+                    patch in this release, similar to the kernel.org LTS patches we ship on a
+                    regular basis many months before Android. We'll do more of this in the future
+                    as our resources and partnerships grow, but we don't have much ability to ship
+                    firmware patches earlier until there's hardware built to run GrapheneOS.</p>
 
                     <p>Tags:</p>
                     <ul>
