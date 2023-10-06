@@ -292,33 +292,25 @@
                     <section id="development-branch">
                         <h4><a href="#development-branch">Development branch</a></h4>
 
-                        <p>The <code>13</code> branch is the main development branch of
+                        <p>The <code>14</code> branch is the main development branch of
                         GrapheneOS. It follows along with the latest stable releases of the
                         Android Open Source Project which currently means the latest monthly
-                        release of the <code>android13-qpr2-release</code> (Android 13 Quarterly
-                        Platform Release 2) branch. The <code>13</code> branch of GrapheneOS
-                        should be used for generic builds including the emulator, porting to other
-                        devices and for non-legacy officially supported devices.</p>
+                        release of the <code>android14-release</code>. The <code>14</code> branch
+                        of GrapheneOS should be used for generic builds including the emulator,
+                        porting to other devices and for non-legacy officially supported
+                        devices.</p>
 
-                        <p>The <code>13</code> branch is used for most Pixels, generic / emulator
-                        targets and non-Pixel devices.</p>
-
-                        <p>The <code>13-tangorpro</code> branch is used for the newly launched
-                        Pixel Tablet since there hasn't been a quarterly or yearly release to
-                        merge in support for it yet.</p>
-
-                        <p>The <code>13-felix</code> branch is used for the newly launched
-                        Pixel Fold since there hasn't been a quarterly or yearly release to
-                        merge in support for it yet.</p>
+                        <p>The <code>13</code> branch is used for the legacy Pixel 4a until it
+                        gets ported to Android 14.</p>
 
                         <p>The <code>13-coral</code> branch is used for the end-of-life Pixel 4
                         and Pixel 4 XL due to incompatibilities with certain new changes.</p>
 
-                        <p>To sync the <code>13</code> branch:</p>
+                        <p>To sync the <code>14</code> branch:</p>
 
-                        <pre>mkdir grapheneos-13
-cd grapheneos-13
-repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 13
+                        <pre>mkdir grapheneos-14
+cd grapheneos-14
+repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 14
 repo sync -j8</pre>
 
                         <p>If your network is unreliable and <code>repo sync</code> fails, you can run the
@@ -751,7 +743,7 @@ cp out-vendor-modules/android13-5.10/dist/*.ko $ANDROID_BUILD_TOP/kernel/prebuil
 
                         <pre>mkdir -p android/kernel/pantah
 cd android/kernel/pantah
-repo init -u https://github.com/GrapheneOS/kernel_manifest-pantah.git -b 13
+repo init -u https://github.com/GrapheneOS/kernel_manifest-pantah.git -b 14
 repo sync -j8</pre>
 
                         <p>To build the pantah kernel for the Pixel 7 and Pixel 7 Pro:</p>
@@ -766,7 +758,7 @@ repo sync -j8</pre>
 
                         <pre>mkdir -p android/kernel/lynx
 cd android/kernel/lynx
-repo init -u https://github.com/GrapheneOS/kernel_manifest-lynx.git -b 13
+repo init -u https://github.com/GrapheneOS/kernel_manifest-lynx.git -b 14
 repo sync -j8</pre>
 
                         <p>To build the lynx kernel for the Pixel 7a:</p>
@@ -781,7 +773,7 @@ repo sync -j8</pre>
 
                         <pre>mkdir -p android/kernel/tangorpro
 cd android/kernel/tangorpro
-repo init -u https://github.com/GrapheneOS/kernel_manifest-tangorpro.git -b 13
+repo init -u https://github.com/GrapheneOS/kernel_manifest-tangorpro.git -b 14
 repo sync -j8</pre>
 
                         <p>To build the tangorpro kernel for the Pixel Tablet:</p>
@@ -796,7 +788,7 @@ repo sync -j8</pre>
 
                         <pre>mkdir -p android/kernel/felix
 cd android/kernel/felix
-repo init -u https://github.com/GrapheneOS/kernel_manifest-felix.git -b 13
+repo init -u https://github.com/GrapheneOS/kernel_manifest-felix.git -b 14
 repo sync -j8</pre>
 
                         <p>To build the felix kernel for the Pixel Fold:</p>
@@ -815,14 +807,14 @@ repo sync -j8</pre>
 
                         <pre>mkdir -p android/kernel/raviole
 cd android/kernel/raviole
-repo init -u https://github.com/GrapheneOS/kernel_manifest-raviole.git -b 13
+repo init -u https://github.com/GrapheneOS/kernel_manifest-raviole.git -b 14
 repo sync -j8</pre>
 
                         <p>To sync the bluejay kernel for the Pixel 6a:</p>
 
                         <pre>mkdir -p android/kernel/bluejay
 cd android/kernel/bluejay
-repo init -u https://github.com/GrapheneOS/kernel_manifest-bluejay.git -b 13
+repo init -u https://github.com/GrapheneOS/kernel_manifest-bluejay.git -b 14
 repo sync -j8</pre>
 
                         <p>To build the raviole kernel for the Pixel 6 and Pixel 6 Pro:</p>
@@ -846,7 +838,7 @@ repo sync -j8</pre>
 
                         <pre>mkdir -p android/kernel/redbull
 cd android/kernel/redbull
-repo init -u https://github.com/GrapheneOS/kernel_manifest-redbull.git -b 13
+repo init -u https://github.com/GrapheneOS/kernel_manifest-redbull.git -b 14
 repo sync -j8</pre>
 
                         <p>To build the redbull kernel for the Pixel 4a (5G), Pixel 5 and Pixel 5a
