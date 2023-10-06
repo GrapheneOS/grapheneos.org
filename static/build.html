@@ -551,7 +551,7 @@ CN=GrapheneOS
 ../../development/tools/make_key sdk_sandbox "/CN=$CN/"
 ../../development/tools/make_key bluetooth "/CN=$CN/"
 openssl genrsa 4096 | openssl pkcs8 -topk8 -scrypt -out avb.pem
-../../external/avb/avbtool extract_public_key --key avb.pem --output avb_pkmd.bin
+../../external/avb/avbtool.py extract_public_key --key avb.pem --output avb_pkmd.bin
 cd ../..</pre>
 
                     <p>The <code>avb_pkmd.bin</code> file isn't needed for generating a signed release but
