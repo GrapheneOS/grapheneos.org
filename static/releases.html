@@ -655,10 +655,6 @@
                 <article id="2023100800">
                     <h3><a href="#2023100800">2023100800</a></h3>
 
-                    <p>This is the initial non-experimental release of GrapheneOS based on Android
-                    14. Our initial public experimental release (2023100800) was published on
-                    October 6th so there have already been a couple days of public testing.</p>
-
                     <p>Tags:</p>
                     <ul>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2023100800">2023100800</a> (Pixel 4a (5G), Pixel 5, Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, emulator, generic, other targets)</li>
@@ -690,7 +686,25 @@
 
                     <p>This is the initial non-experimental release of GrapheneOS based on Android
                     14. Our initial public experimental release (2023100800) was published on
-                    October 6th so there have already been a couple days of public testing.</p>
+                    October 6th so there have already been a couple days of public testing. All of
+                    our documented features are now ported to Android 14. We'll be continuing to
+                    work on fixing regressions including new Android bugs and new compatibility
+                    issues caused by our features. However, it's already stable and usable.</p>
+
+                    <p>This release provides the full 2023-10-06 patch level for all supported
+                    devices along with the recommended security patches only included in Android
+                    14.</p>
+
+                    <p>Android 13 is no longer actively developed upstream and now only receives
+                    backports of the Android Security Bulletin patches, not the recommended
+                    patches included in the latest stable release of Android. Pixels are also now
+                    only supported via Android 14 and require Android 14 to achieve a patch level
+                    above 2023-10-01. Android 14 has had publicly available experimental releases
+                    since February 2023 and is already a mature OS. It also contains significant
+                    privacy and security enhancements which more than offset the attack surface
+                    from added features. These reasons are why we have so heavily prioritized
+                    porting to Android 14 and began to defer more and more of our other work until
+                    after Android 14 since around July 2023.</p>
 
                     <p>Pixel 4, Pixel 4 XL and Pixel 4a are end-of-life and shouldn't be used
                     anymore due to lack of most security patches for firmware and drivers. We're
