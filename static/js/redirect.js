@@ -19,6 +19,7 @@ const redirects = new Map([
     ["/usage#sandboxed-play-services", "/usage#sandboxed-google-play"],
     ["/usage#sandboxed-play-services-installation", "/usage#sandboxed-google-play-installation"],
     ["/usage#sandboxed-play-services-limitations", "/usage#sandboxed-google-play-limitations"],
+    ["/usage#google-camera", "/usage#pixel-camera"],
 
     ["/faq#dns", "/faq#custom-dns"],
     ["/install/cli#fastboot-as-non-root", "/install/cli#flashing-as-non-root"],
