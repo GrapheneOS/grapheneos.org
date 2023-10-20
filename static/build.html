@@ -83,6 +83,7 @@
                                 <a href="#kernel">Kernel</a>
                                 <ul>
                                     <li><a href="#kernel-emulator">Emulator</a></li>
+                                    <li><a href="#kernel-8th-generation-pixels">8th generation Pixels</a></li>
                                     <li><a href="#kernel-7th-generation-pixels">7th generation Pixels</a></li>
                                     <li><a href="#kernel-6th-generation-pixels">6th generation Pixels</a></li>
                                     <li><a href="#kernel-5th-generation-pixels">5th generation Pixels</a></li>
@@ -740,6 +741,25 @@ cp out-vendor-modules/android13-5.10/dist/*.ko $ANDROID_BUILD_TOP/kernel/prebuil
 
                         <p>You can configure the kernel version used for the x86_64 emulate in
                         <code>device/generic/goldfish/x86_64-kernel.mk</code>.</p>
+                    </section>
+
+                    <section id="kernel-8th-generation-pixels">
+                        <h4><a href="#kernel-8th-generation-pixels">8th generation Pixels</a></h4>
+
+                        <p>To sync the shusky kernel for the Pixel 8 and Pixel 8 Pro:</p>
+
+                        <pre>mkdir -p android/kernel/shusky
+cd android/kernel/shusky
+repo init -u https://github.com/GrapheneOS/kernel_manifest-shusky.git -b 14-shusky
+repo sync -j8</pre>
+
+                        <p>To build the shusky kernel for the Pixel 8 and Pixel 8 Pro:</p>
+
+                        <pre>BUILD_AOSP_KERNEL=1 ./build_shusky.sh --lto=full</pre>
+
+                        <p>Replace the files in the OS source tree at
+                        <code>device/google/shusky-kernel/</code> with your build in
+                        <code>out/shusky/dist/</code>.</p>
                     </section>
 
                     <section id="kernel-7th-generation-pixels">
