@@ -716,6 +716,12 @@
                     <p>Changes since the 2023101300 release:</p>
 
                     <ul>
+                        <li>speed up skipping compilation of system packages with dexpreopt (precompilation to native code) to improve post-update boot time</li>
+                        <li>backport assorted dexpreopt fixes to make it work for more system packages again to improve verified boot security, free up wasted disk space and reduce post-update boot time</li>
+                        <li>use speed-profile compilation for user installed packages for first boot of an update to significantly improve boot time</li>
+                        <li>add background recompilation of user installed packages for first boot of an update with a progress notification and a notice to respawn them</li>
+                        <li>temporarily disable otapreopt (precompilation of apps in the background in update Finalizing step) due to it being broken in Android 14</li>
+                        <li>Gallery: remove optional dependency to fix dexpreopt (precompilation to native code)</li>
                         <li>Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold: fix support for Widevine L1 on Android 14</li>
                         <li>fix PIN scrambling for SIM PIN (regression from port to Android 14)</li>
                         <li>handle new Android 14 network time code path for our feature making the automatic time toggle control whether network time connections are made</li>
@@ -726,6 +732,7 @@
                         <li>Apps: update to <a href="https://github.com/GrapheneOS/Apps/releases/tag/21">version 21</a></li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/118.0.5993.80.0>version 118.0.5993.80.0/a></li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-79">version 79</a></li>
+                        <li>improve GrapheneOS system_server infrastructure</li>
                     </ul>
                 </article>
                 -->
