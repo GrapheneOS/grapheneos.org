@@ -721,6 +721,8 @@
                         <li>Settings: enable memory tagging toggle at Settings -> Security -> More security settings -> Advanced memory protection beta</li>
                         <li>enable memory tagging support for everything built by GrapheneOS and also user installed apps without native libraries</li>
                         <li>use asymmetric memory tagging mode on all cores to provide much higher security than asynchronous mode without much more overhead unlike the very expensive synchronous mode without any clear security benefits over asymmetric</li>
+                        <li>enable parallel compilation of non-precompiled bytecode to native code for first-boot and first-boot-after-update with 2 processes for now (can be increased later)</li>
+                        <li>improve user interface for reporting background package compilation progress</li>
                         <li>show crash dialog for first crash of an app since boot instead of waiting until the second crash like upstream Android</li>
                         <li>add infrastructure for build variations based on hardware memory tagging support</li>
                         <li>Gallery: fix low resolution image preview in editor</li>
