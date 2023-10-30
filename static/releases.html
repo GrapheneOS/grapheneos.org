@@ -717,6 +717,10 @@
                     <p>Changes since the 2023102300 release:</p>
 
                     <ul>
+                        <li>hardened_malloc: add support for hardware memory tagging launched with the ARMv9 cores on the Pixel 8 and Pixel 8 Pro</li>
+                        <li>Settings: enable memory tagging toggle at Settings -> Security -> More security settings -> Advanced memory protection beta</li>
+                        <li>enable memory tagging support for everything built by GrapheneOS and also user installed apps without native libraries</li>
+                        <li>use asymmetric memory tagging mode on all cores to provide much higher security than asynchronous mode without much more overhead unlike the very expensive synchronous mode without any clear security benefits over asymmetric</li>
                         <li>show crash dialog for first crash of an app since boot instead of waiting until the second crash like upstream Android</li>
                         <li>add infrastructure for build variations based on hardware memory tagging support</li>
                         <li>Gallery: fix low resolution image preview in editor</li>
