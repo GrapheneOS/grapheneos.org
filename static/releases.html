@@ -717,6 +717,7 @@
                     <p>Changes since the 2023102300 release:</p>
 
                     <ul>
+                        <li>add infrastructure for hardware memory tagging support</li>
                         <li>hardened_malloc: add support for hardware memory tagging launched with the ARMv9 cores on the Pixel 8 and Pixel 8 Pro</li>
                         <li>Settings: enable memory tagging toggle at Settings -> Security -> More security settings -> Advanced memory protection beta</li>
                         <li>enable memory tagging support for everything built by GrapheneOS (other than Vanadium, since Chromium currently disables it) and also user installed apps without native libraries (will be expanded to Vanadium later along with the option to use it for all user installed apps)</li>
@@ -724,7 +725,6 @@
                         <li>enable parallel compilation of non-precompiled bytecode to native code for first-boot and first-boot-after-update with 2 processes for now (can be increased later)</li>
                         <li>improve user interface for reporting background package compilation progress</li>
                         <li>show crash dialog for first crash of an app since boot instead of waiting until the second crash like upstream Android</li>
-                        <li>add infrastructure for build variations based on hardware memory tagging support</li>
                         <li>Gallery: fix low resolution image preview in editor</li>
                         <li>restore Android 13 behavior for installing APKs from the file manager by requesting permission for the app which created the APK (current Google Files behavior is a bit different and requests permission for Google Files, but the AOSP Files approach seems more useful)</li>
                         <li>SELinux policy: use per-app-instance MLS level for the update client domain as used for regular apps to provide better isolation from other system components</li>
