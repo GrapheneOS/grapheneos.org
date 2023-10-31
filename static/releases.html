@@ -745,9 +745,9 @@
                     <ul>
                         <li>add infrastructure for hardware memory tagging support</li>
                         <li>hardened_malloc: add support for hardware memory tagging launched with the ARMv9 cores on the Pixel 8 and Pixel 8 Pro</li>
-                        <li>Settings: enable memory tagging toggle at Settings -> Security -> More security settings -> Advanced memory protection beta</li>
-                        <li>enable memory tagging support for everything built by GrapheneOS (other than Vanadium, since Chromium currently disables it) and also user installed apps without native libraries (will be expanded to Vanadium later along with the option to use it for all user installed apps)</li>
-                        <li>use asymmetric memory tagging mode on all cores to provide much higher security than asynchronous mode without much more overhead unlike the very expensive synchronous mode without any clear security benefits over asymmetric</li>
+                        <li>Settings: enable memory tagging toggle at Settings ➔ Security ➔ More security settings ➔ Advanced memory protection beta</li>
+                        <li>Pixel 8, Pixel 8 Pro: enable memory tagging support for everything built by GrapheneOS (other than Vanadium, since Chromium currently disables it) and also user installed apps without native libraries (will be expanded to Vanadium later along with the option to use it for all user installed apps)</li>
+                        <li>Pixel 8, Pixel 8 Pro: use asymmetric memory tagging mode on all cores to provide much higher security than asynchronous mode without much more overhead unlike the very expensive synchronous mode without any clear security benefits over asymmetric</li>
                         <li>enable parallel compilation of non-precompiled bytecode to native code for first-boot and first-boot-after-update with 2 processes for now (can be increased later)</li>
                         <li>improve user interface for reporting background package compilation progress</li>
                         <li>show crash dialog for first crash of an app since boot instead of waiting until the second crash like upstream Android</li>
