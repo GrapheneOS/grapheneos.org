@@ -719,6 +719,7 @@
                     <p>Changes since the 2023103100 release:</p>
 
                     <ul>
+                        <li>always compile VPN service packages with speed filter to avoid background recompilation since many of these apps only automatically connect at boot and the user has to manually reconnect if the OS restarts them such as when users manually trigger app restart via the background recompilation notification</li>
                         <li>disable GWP-ASan since it's a bug finding features rather than a hardening feature and doesn't preserve all the hardened_malloc security properties for the random allocations in random system processes where it gets activated especially now that memory tagging is supported</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Generic 5.10): update to latest GKI LTS branch revision including update to 5.10.199</li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-81">version 81</a></li>
