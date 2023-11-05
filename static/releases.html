@@ -719,6 +719,7 @@
                     <p>Changes since the 2023103100 release:</p>
 
                     <ul>
+                        <li>Pixel 8, Pixel 8 Pro: always enable support for hardware memory tagging (there is no longer an opt-in toggle) with exceptions for vendor executables and user installed apps with their own native code unless they mark themselves as compatible with memory tagging</li>
                         <li>Launcher: add missing catch for null pointer exception (upstream bug) triggered by Signal</li>
                         <li>revert change to show crash dialog for first crash of an app since boot since this results in a high support burden from the many third party app crashes it uncovers especially since it's not enabled on the stock OS</li>
                         <li>always compile VPN service packages with speed filter to avoid background recompilation since many of these apps only automatically connect at boot and the user has to manually reconnect if the OS restarts them such as when users manually trigger app restart via the background recompilation notification</li>
