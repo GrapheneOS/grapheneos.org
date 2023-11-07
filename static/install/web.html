@@ -208,18 +208,6 @@
                 <p>Connect the device to the computer. On Linux, you'll need to do this again if
                 you didn't have the udev rules set up when you connected it.</p>
 
-                <p>On Linux, GNOME has a bug causing compatibility issues with the installation
-                process. It wrongly detects the device in fastboot mode or fastbootd mode as being
-                an MTP device and claims exclusive control over it. This will block the install
-                process from proceeding. You can run the following command to work around it:</p>
-
-                <pre>echo 0 | sudo tee /sys/bus/usb/drivers_autoprobe</pre>
-
-                <p>After installing, you can undo this by rebooting or by running the following
-                command:</p>
-
-                <pre>echo 1 | sudo tee /sys/bus/usb/drivers_autoprobe</pre>
-
                 <p>On Windows, you need to install a driver for fastboot if you don't already have
                 it. No driver is needed on other operating systems. You can obtain the driver from
                 Windows Update which will detect it as an optional update when the device is
