@@ -256,29 +256,48 @@
                     devices, and officially supported devices are the ones targeted by most of this
                     ongoing work.</p>
 
-                    <p>Devices need to be meeting the standards of the project in order to be considered as
-                    potential targets. In addition to support for installing other operating systems,
-                    standard hardware-based security features like the hardware-backed keystores, verified
-                    boot, attestation and various hardware-based exploit mitigations need to be available.
-                    Devices also need to have decent integration of IOMMUs for isolating components such
-                    as the GPU, radios (NFC, Wi-Fi, Bluetooth, Cellular), media decode / encode, image
-                    processor, etc., because if the hardware / firmware support is missing or broken,
-                    there's not much that the OS can do to provide an alternative. Devices with support for
-                    alternative operating systems as an afterthought will not be considered. Devices need
-                    to have proper ongoing support for their firmware and software specific to the hardware
-                    like drivers in order to provide proper full security updates too. Devices that are
-                    end-of-life and no longer receiving these updates will not be supported.</p>
-
-                    <p>In order to support a device, the appropriate resources also need to be available
-                    and dedicated towards it. Releases for each supported device need to be robust and
-                    stable, with all standard functionality working properly and testing for each of the
-                    releases.</p>
-
                     <p>Hardware, firmware and software specific to devices like drivers play a huge role
                     in the overall security of a device. The goal of the project is not to slightly
                     improve some aspects of insecure devices and supporting a broad set of devices would
                     be directly counter to the values of the project. A lot of the low-level work also
                     ends up being fairly tied to the hardware.</p>
+
+                    <p>Non-exhaustive list of requirements for future devices, which are standards
+                    met or exceeded by current Pixel devices:</p>
+
+                    <ul>
+                        <li>Support for using alternate operating systems including full hardware
+                        security functionality</li>
+                        <li>Complete monthly Android Security Bulletin patches within any regular
+                        delays longer than a week</li>
+                        <li>At least 4 years of updates from launch (Pixels now have 7)</li>
+                        <li>Vendor code updated to new monthly, quarterly and yearly releases of
+                        AOSP within several months to provide new security improvements (Pixels
+                        receive these in the month they're released)</li>
+                        <li>Linux 5.15 or Linux 6.1 Generic Kernel Image (GKI) support</li>
+                        <li>Hardware memory tagging (ARM MTE or equivalent)</li>
+                        <li>BTI/PAC, CET or equivalent</li>
+                        <li>PXN, SMEP or equivalent</li>
+                        <li>PAN, SMAP or equivalent</li>
+                        <li>Isolated radios (cellular, Wi-Fi, Bluetooth, NFC, etc.), GPU, SSD,
+                        media encode / decide, image processor and other components</li>
+                        <li>Verified boot with rollback protection for firmware</li>
+                        <li>Verified boot with rollback protection for the OS (Android Verified
+                        Boot)</li>
+                        <li>Verified boot key fingerprint for yellow boot state displayed with a
+                        secure hash (non-truncated SHA-256 or better)</li>
+                        <li>StrongBox keystore provided by secure element</li>
+                        <li>Hardware key attestation support for the StrongBox keystore</li>
+                        <li>Attest key support for hardware key attestation to provide pinning
+                        support</li>
+                        <li>Weaver disk encryption key derivation throttling provided by secure
+                        element</li>
+                    </ul>
+
+                    <p>In order to support a device, the appropriate resources also need to be available
+                    and dedicated towards it. Releases for each supported device need to be robust and
+                    stable, with all standard functionality working properly and testing for each of the
+                    releases.</p>
                 </article>
 
                 <article id="when-devices">
