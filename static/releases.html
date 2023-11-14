@@ -723,7 +723,7 @@
                         <li>Sandboxed Google Play compatibility layer: replace cross-user intent broadcasts with user-local ones</li>
                         <li>fix upstream bug causing crash for previewing live wallpapers</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Generic 5.10): update to latest GKI LTS branch revision</li>
-                        <li>Seedvault: update to latest revision</li>
+                        <li>Seedvault: update to latest revision (will be replaced with a better backup implementation in the future)</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/119.0.6045.134.0">version 119.0.6045.134.0</a></li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-83">version 83</a></li>
                         <li>Camera: update to <a href="https://github.com/GrapheneOS/Camera/releases/tag/64">version 64</a></li>
@@ -973,7 +973,7 @@
                         <li>fix port of our change enabling usage timeline for all permission groups</li>
                         <li>add back compiling code not built with signed integer overflow checking using -fwrapv to make it well defined</li>
                         <li>add back very minor hardening involving making more data read only</li>
-                        <li>Seedvault: update to latest revision</li>
+                        <li>Seedvault: update to latest revision (will be replaced with a better backup implementation in the future)</li>
                         <li>Health Fitness: disable functionality for showing available apps, updating apps and sending feedback when Google Play is unavailable (these options may be removed completely in the future)</li>
                         <li>Health Fitness: check for Google Play via signature instead of whether it's a system app to support sandboxed Google Play</li>
                     </ul>
@@ -1386,7 +1386,7 @@
                         <li>Settings: remove problematic "Add users from lock screen" setting</li>
                         <li>Dialer: re-enable false gesture detection for answering calls, which can be replaced with a newer implementation in the near future instead of it being removed</li>
                         <li>Settings: require device restart to disable eSIM activation app via our toggle</li>
-                        <li>Seedvault: update to latest revision (we plan on replacing this with a new backup implementation since Seedvault is buggy/unreliable, has consistently needed security fixes applied downstream, has failed to provide the originally planned core features and despite being initially created by a GrapheneOS community member for GrapheneOS was taken over by a group hostile towards it)</li>
+                        <li>Seedvault: update to latest revision (will be replaced with a better backup implementation in the future)</li>
                         <li>PDF Viewer: update to <a href="https://github.com/GrapheneOS/PdfViewer/releases/tag/17">version 17</a></li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-61">version 61</a></li>
                     </ul>
@@ -2017,7 +2017,7 @@
                         <li>rebased onto TQ1A.230205.002 release</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Generic 5.10): update to latest GKI LTS branch revision including update to 5.10.162</li>
                         <li>kernel (Generic 5.15): update to latest GKI LTS branch revision including update to 5.15.91</li>
-                        <li>Seedvault: update to latest revision (we plan on replacing this with a new backup implementation since Seedvault is buggy/unreliable, has consistently needed security fixes applied downstream, has failed to provide the originally planned core features and despite being initially created by a GrapheneOS community member for GrapheneOS was taken over by a group hostile towards it)</li>
+                        <li>Seedvault: update to latest revision (will be replaced with a better backup implementation in the future)</li>
                         <li>Seedvault: require lock method to enable backups to prevent accessing internal app data for a device that has been unlocked without the lock method for the user profile, similar to how enabling developer options requires the lock method</li>
                         <li>SetupWizard: update GrapheneOS string branding</li>
                         <li>fix renaming of original-package Vanadium provider authorities regressed in the previous release due to the fix for an upstream Android 13 bug</li>
