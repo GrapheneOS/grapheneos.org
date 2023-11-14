@@ -159,6 +159,10 @@ main {
     overflow-wrap: break-word;
 }
 
+button, input, select, textarea {
+    font-family: inherit;
+}
+
 button, .button, .button:visited {
     color: white;
     font-size: 0.9em;
