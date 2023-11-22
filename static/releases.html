@@ -719,8 +719,20 @@
                     <p>Changes since the 2023111500 release:</p>
 
                     <ul>
+                        <li>improve existing infrastructure and settings for per-app hardening control</li>
+                        <li>add new infrastructure for dynamic SELinux flags for apps</p>
+                        <li>replace static SELinux policy disabling dynamic native code generation for base system apps with dynamic SELinux flag</li>
+                        <li>replace YAMA LSM with dynamic SELinux flag for ptrace access</li>
+                        <li>add per-app toggle for native debugging</li>
+                        <li>add global toggle to disable native debugging for user installed apps by default</li>
+                        <li>add per-app memory tagging toggle for user installed apps</li>
+                        <li>add global toggle to enable memory tagging for user installed apps by default</li>
+                        <li>add logging infrastructure for dynamic GrapheneOS SELinux flags</li>
+                        <li>raise post-boot audit message rate limit from 5 to 50 per second</p>
+                        <li>add more infrastructure and tests for per-app hardening control</li>
                         <li>Pixel 8, Pixel 8 Pro: migrate to using our standard 5.15.137 GKI LTS kernel as the base with reverts for changes that are not compatible with the driver tree yet</li>
                         <li>include more info about Java and native crashes, ANRs, low memory conditions. kernel crash logs and filesystem check errors in bug report zips manually captured by users which on the stock OS is uploaded by Play services</li>
+                        <li>Sandboxed Google Play compatibility layer: allow compatibility layer to show the error report UI</li>
                     </ul>
                 </article>
                 -->
