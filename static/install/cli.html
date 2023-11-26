@@ -70,6 +70,7 @@
                     </li>
                     <li><a href="#checking-fastboot-version">Checking fastboot version</a></li>
                     <li><a href="#flashing-as-non-root">Flashing as non-root</a></li>
+                    <li><a href="#working-around-fwupd-bug-on-linux-distributions">Working around fwupd bug on Linux distributions</a></li>
                     <li><a href="#booting-into-the-bootloader-interface">Booting into the bootloader interface</a></li>
                     <li><a href="#connecting-device">Connecting the device</a></li>
                     <li><a href="#unlocking-the-bootloader">Unlocking the bootloader</a></li>
@@ -297,6 +298,18 @@ Installed as /home/username/platform-tools/fastboot</pre>
                 <p>The udev rules on Debian and Ubuntu are very out-of-date but the package has
                 the rules needed for Pixel devices since the same USB IDs have been used for many
                 years.</p>
+            </section>
+
+            <section id="working-around-fwupd-bug-on-linux-distributions">
+                <h2><a href="#working-around-fwupd-bug-on-linux-distributions">Working around fwupd bug on Linux distributions</a></h2>
+
+                <p>The fwupd software used by many traditional Linux distributions (not Android or
+                ChromeOS) has a bug breaking connecting to fastboot devices. The web installer
+                takes slightly longer to connect to the device and is more impacted by this. If
+                you're on a Linux distribution with fwupd running, stop it before proceeding. You
+                can do this by running the following command in a terminal:</p>
+
+                <pre>sudo systemctl stop fwupd.service</pre>
             </section>
 
             <section id="booting-into-the-bootloader-interface">
