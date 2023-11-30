@@ -239,8 +239,10 @@
                             optional features by default (NFC, Bluetooth, UWB, etc.), when the screen is
                             locked (connecting new USB peripherals, camera access) and optionally after a
                             timeout (Bluetooth, Wi-Fi)</li>
-                            <li>Option to disable native debugging (ptrace) to reduce local attack surface
-                            (still enabled by default for compatibility)</li>
+                            <li>Native debugging (ptrace) access is blocked for all bundled apps to
+                            reduce local attack surface. ptrace access is allowed by default for user
+                            installed apps for compatibility, with an option to block it by default. In
+                            both cases, ptrace access can be blocked or allowed manually.</li>
                         </ul>
                     </section>
 
