@@ -804,11 +804,15 @@
                 application when it violates the rules.</p>
 
                 <p>You can enable our exploit protection compatibility mode via Settings ➔ Apps ➔
-                App ➔ Advanced. The exploit protection compatibility mode toggle will switch from
-                hardened_malloc to Android's standard allocator (Scudo) and will reduce address
-                space size from 48 bit to Android's standard 39 bit. There are also separate
-                toggles for these features in the Configure hardening menu if you want to narrow
-                down the cause to a specific feature.</p>
+                App ➔ Exploit protection. The exploit protection compatibility mode toggle will:</p>
+                <ul>
+                <li>Switch from hardened_malloc to Android's standard allocator (Scudo)</li>
+                <li>Reduce address space size from 48 bit to Android's standard 39 bit</li>
+                <li>Disable memory tagging, unless the app has opted-in to it (only on compatible devices)</li>
+                <li>Allow native debugging (ptrace) access</li>
+                </ul>
+
+                <p>All of these changes apply only to the selected app and can be toggled separately.</p>
 
                 <p>If you run into an application aborting, try to come up with a process for
                 reproducing the issue and then capture a bug report via the 'Take bug report'
