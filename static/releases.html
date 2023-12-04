@@ -705,6 +705,23 @@
                 <article id="2023112900">
                     <h3><a href="#2023112900">2023112900</a></h3>
 
+                    <p>The December release of the Android Open Source Project and stock Pixel OS
+                    will be the first quarterly release of Android 14. It will likely be available
+                    this week, but hasn't been published yet. Since there hasn't been a release
+                    yet this month, we're publishing an early December security update based on
+                    the AOSP backports to Android 14.</p>
+
+                    <p>It's unclear if 6th/7th generation Pixels received a specific Mali GPU
+                    kernel driver patch so we aren't raising the patch level for these until the
+                    official December release is available. We often backport these patches early
+                    but we don't know which patch corresponds to which CVE ID so we can't raise
+                    the claimed patch level. ARM covers up the details publicly and only releases
+                    tarballs for each major revision without the Git commit history or individual
+                    security patch backports they make available to partners, despite partners
+                    being allowed to apply those in public Git repositories. We can often figure
+                    out the patch corresponding to a CVE ID or vice versa through ARM partners
+                    publishing it, but we haven't been able to in this case.</p>
+
                     <p>Pixel 4, Pixel 4 XL and Pixel 4a are end-of-life and shouldn't be used
                     anymore due to lack of most security patches for firmware and drivers. We're
                     currently supporting them via a legacy Android 13 branch separate from these
@@ -721,6 +738,7 @@
                     <p>Changes since the 2023112900 release:</p>
 
                     <ul>
+                        <li>full 2023-12-01 security patch level (6th/7th generation Pixels may be missing a 2023-11-05 Mali GPU patch so we've frozen the patch level string until the official December update)</li>
                         <li>Pixel 8, Pixel 8 Pro: use more modern target CPU configuration</li>
                         <li>System Updater: enable non-low battery requirement for the update job by default</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Generic 5.10): update to latest GKI LTS branch revision</li>
