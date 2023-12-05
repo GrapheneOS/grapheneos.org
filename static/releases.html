@@ -764,7 +764,7 @@
                     <ul>
                         <li>full 2023-12-01 security patch level (6th/7th generation Pixels may be missing a 2023-11-05 Mali GPU patch so we've frozen the patch level string until the official December update)</li>
                         <li>Pixel 8, Pixel 8 Pro: use more modern target CPU configuration</li>
-                        <li>System Updater: enable non-low battery requirement for the update job by default</li>
+                        <li>System Updater: enable non-low (currently 20% or higher) battery requirement for the update job by default (will not change for users who have previously opened the update settings due to how they're implemented)</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Generic 5.10): update to latest GKI LTS branch revision</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/120.0.6099.43.0">version 120.0.6099.43.0</a></li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-85">version 85</a></li>
