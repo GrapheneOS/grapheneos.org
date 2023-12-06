@@ -303,10 +303,6 @@
                         porting to other devices and for non-legacy officially supported
                         devices.</p>
 
-                        <p>The <code>14-shusky</code> branch is used for the Pixel 8 and Pixel 8
-                        Pro until a quarterly release merges them into the main branch of
-                        AOSP.</p>
-
                         <p>The <code>13</code> branch is used for the legacy Pixel 4a until it
                         gets ported to Android 14.</p>
 
@@ -750,7 +746,7 @@ cp out-vendor-modules/android13-5.10/dist/*.ko $ANDROID_BUILD_TOP/kernel/prebuil
 
                         <pre>mkdir -p android/kernel/shusky
 cd android/kernel/shusky
-repo init -u https://github.com/GrapheneOS/kernel_manifest-shusky.git -b 14-shusky
+repo init -u https://github.com/GrapheneOS/kernel_manifest-shusky.git -b 14
 repo sync -j8</pre>
 
                         <p>To build the shusky kernel for the Pixel 8 and Pixel 8 Pro:</p>
