@@ -171,18 +171,21 @@
                     the same standards. For most devices, the hardware and firmware will prevent providing
                     a reasonably secure device, regardless of the work put into device support.</p>
 
-                    <p>GrapheneOS also supports generic targets, but these aren't suitable for production
-                    usage and are only intended for development and testing use. For mobile devices, the
-                    generic targets simply run on top of the underlying device support code (firmware,
-                    kernel, device trees, vendor code) rather than shipping it and keeping it updated. It
-                    would be possible to ship generic system images with separate updates for the device
-                    support code. However, it would be drastically more complicated to maintain and
-                    support due to combinations of different versions and it would cause complications for
-                    the hardening done by GrapheneOS. The motivation doesn't exist for GrapheneOS, since
-                    full updates with deltas to minimize bandwidth can be shipped for every device and
-                    GrapheneOS is the only party involved in providing the updates. For the same reason,
-                    it has little use for the ability to provide out-of-band updates to system image
-                    components including all the apps and many other components.</p>
+                    <p>GrapheneOS does not support being used as a Generic System Image, which
+                    only exists for development/testing purposes and isn't usable for GrapheneOS
+                    since we require kernel changes and the userspace part of the OS cannot run on
+                    top of a kernel without the required functionality. The generic targets simply
+                    run on top of the underlying device support code (firmware, kernel, device
+                    trees, vendor code) rather than shipping it and keeping it updated. It would
+                    be possible to ship generic system images with separate updates for the device
+                    support code. However, it would be drastically more complicated to maintain
+                    and support due to combinations of different versions and it would cause
+                    complications for the hardening done by GrapheneOS. The motivation doesn't
+                    exist for GrapheneOS, since full updates with deltas to minimize bandwidth can
+                    be shipped for every device and GrapheneOS is the only party involved in
+                    providing the updates. For the same reason, it has little use for the ability
+                    to provide out-of-band updates to system image components including all the
+                    apps and many other components.</p>
 
                     <p>Some of the GrapheneOS sub-projects support other operating systems on a broader
                     range of devices. Device support for Auditor and AttestationServer is documented in
