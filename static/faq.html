@@ -1289,8 +1289,9 @@
                     <p>VPNs can be configured under Settings ➔ Network &amp; Internet ➔ VPN.
                     Support for the following protocols is included: IKEv2/IPSec MSCHAPv2,
                     IKEv2/IPSec PSK and IKEv2/IPSec RSA. Apps can also provide userspace VPN
-                    implementations and the following open source apps are recommended: Orbot
-                    (Tor), WireGuard and OpenVPN for Android.</p>
+                    implementations and the following open source apps are recommended: WireGuard,
+                    RethinkDNS (WireGuard with local filtering options), Orbot (Tor) and OpenVPN
+                    for Android.</p>
 
                     <p>VPN configurations created with the built-in support can be set as the
                     always-on VPN in the configuration panel. This will keep the VPN running,
@@ -1299,6 +1300,13 @@
                     the Settings page. For app-based VPN implementations, there's also an
                     additional "Block connections without VPN" toggle which is needed to prevent
                     leaks when the app's VPN service isn't running.</p>
+
+                    <p>If you're using a VPN, we recommended against having a Private DNS server
+                    configured. If you want to filter traffic while using a VPN, use a VPN service
+                    app able to do both such as RethinkDNS. Private DNS also interacts strangely
+                    with multiple profiles since each profile has their own VPN configuration but
+                    Private DNS is global. Either leave Private DNS on the default Automatic mode
+                    or set it to disabled when using VPNs.</p>
                 </article>
 
                 <article id="network-monitoring">
@@ -1361,9 +1369,10 @@
                 <article id="ad-blocking-apps">
                     <h3><a href="#ad-blocking-apps">Are ad-blocking apps supported?</a></h3>
 
-                    <p>Content filtering apps are fully compatible with GrapheneOS, but they have serious
-                    drawbacks and are not recommended. These apps use the VPN service feature to route
-                    traffic through themselves to perform filtering.</p>
+                    <p>Content filtering apps are fully compatible with GrapheneOS, but they have
+                    serious drawbacks and using apps doing more than DNS-based filtering are not
+                    recommended. These apps use the VPN service feature to route traffic through
+                    themselves to perform filtering.</p>
 
                     <p>The approach of intercepting traffic is inherently incompatible with encryption
                     from the client to the server. The AdGuard app works around encryption by supporting
@@ -1383,6 +1392,12 @@
                     <p>Using the VPN service to provide something other than a VPN also means that these
                     apps need to provide an actual VPN implementation or a way to forward to apps
                     providing one, and very few have bothered to implement this.</p>
+
+                    <p>RethinkDNS combines local filtering via DNS with the ability to directly
+                    use a WireGuard VPN without another app. It also has other features such as
+                    connection monitoring. This is a much better approach than most of the apps in
+                    this space which force choosing between them and a VPN, recommend problematic
+                    TLS interception (AdGuard), etc.</p>
                 </article>
 
                 <article id="baseband-isolation">
