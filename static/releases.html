@@ -717,6 +717,8 @@
                     <p>Changes since the 2023120800 release:</p>
 
                     <ul>
+                        <li>stop reporting forced reboot (long press power) as a kernel crash</li>
+                        <li>filter out SoC ID from kernel crash logs (logged by Little Kernel firmware boot stage before the OS)</li>
                         <li>temporarily disable memory tagging and hardened_malloc for surfaceflinger process to work around upstream use-after-free bug(s)</li>
                         <li>raise max open files for system_server to 256k from the baseline 32k limit used for all processes on Android due to situations where the 32k limit is exhausted</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold): backport fix for glibc 2.38 build error to device-specific driver source tree too to end the need for mounting a modified features.h for building host executables</li>
