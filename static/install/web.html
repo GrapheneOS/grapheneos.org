@@ -35,6 +35,19 @@
     <body>
         {% include "header.html" %}
         <main id="web-install">
+            <p id="sticky-error-text" hidden="hidden">
+                Your browser reports that your device doesn't have enough free storage space to install GrapheneOS (needed: 32 gigabytes). 
+                This may be caused by insufficient storage being free on your device, or by some artificial restriction, 
+                such as an "Incognito mode" tab or an "InPrivate Window". Please close this tab/window, 
+                then check that your device has enough free storage space, then start over, without "Incognito mode", "InPrivate Window", etc. 
+                Also, please check that all necessary <a href="#prerequisites">prerequisites</a> are satisfied.
+            </p>
+            <p id="sticky-error-text-brave" hidden="hidden">
+                The Shields function of the Brave browser restricts the amount of file storage that a web page can use. 
+                This will cause the installer to fail. If you have not disabled Shields for this web site, 
+                please close this window, disable Shields for this site, and start over. 
+                Also, please check that all necessary <a href="#prerequisites">prerequisites</a> are satisfied.
+            </p>
             <h1><a href="#web-install">Web installer</a></h1>
 
             <p>This is the WebUSB-based installer for GrapheneOS and is the recommended approach

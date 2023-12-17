@@ -447,4 +447,20 @@ window.addEventListener("beforeunload", event => {
     }
 });
 
+const isBrave = navigator.brave !== undefined && await navigator.brave.isBrave();
+if (isBrave) {
+    const elementError = document.getElementById("sticky-error-text-brave");
+    elementError.hidden = false;
+}
+
+const estimatedStorage = await navigator.storage.estimate();
+const estimatedStorageInGB = (estimatedStorage.quota / 1024 / 1024 / 1024).toFixed(2);
+const MIN_FREE_STORAGE_REQUIRED_IN_GB = 32.0;
+
+if (!isBrave && "usb" in navigator && MIN_FREE_STORAGE_REQUIRED_IN_GB > estimatedStorageInGB) {
+    const elementError = document.getElementById("sticky-error-text");
+    elementError.hidden = false;
+}
+console.log(`Free storage : ${estimatedStorageInGB}`);
+
 // @license-end

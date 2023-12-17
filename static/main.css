@@ -264,6 +264,19 @@ footer a, footer a:visited {
     color: #b00020;
 }
 
+#sticky-error-text {
+    background-color: #b00020;
+    border-radius: 0.5rem;
+    color: white;
+    padding: 1rem;
+}
+
+#sticky-error-text-brave {
+    background-color: #F96;
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
 table {
     border-collapse: collapse;
     width: 100%;
