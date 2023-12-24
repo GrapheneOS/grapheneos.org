@@ -1,6 +1,58 @@
 /* use the standard Material Light theme to match GrapheneOS apps */
 /* https://android.googlesource.com/platform/frameworks/base/+/android-11.0.0_r32/core/res/res/values/colors_material.xml */
 
+:root {
+    --color-background: #fafafa; /* grey50 */
+    --color-on-background: rgba(0 0 0 / 87%); /* 87% black */
+    --color-anchor: #1565c0; /* blue800 */
+    --color-anchor-visited: #6a1b9a; /* purple800 */
+    --color-anchor-footer: #616161; /* grey500 */
+    --color-button: #0053a3; /* accent_device_default_light => system_accent1_600 */
+    --color-on-button: white;
+    --color-button-hover: #1863ad; /* color between default and pressed */
+    --color-button-focus: #2f73b4; /* button pressed on Android */
+    --color-button-disabled: rgb(26 27 30 / 12%);
+    --color-on-button-disabled: rgb(26 27 30 / 38%);
+    --color-background-code: #e0e0e0; /* grey300 */
+    --color-error-text: #b00020;
+    --color-table: #ddd;
+    --color-surface: #e6e6e6;
+    --color-placeholder: #ba1a1a;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-background: #121212;
+        --color-on-background: rgba(255 255 255 / 87%); /* 87% white */
+        --color-anchor: #90caf9; /* blue200 */
+        --color-anchor-visited: #ce93d8; /* purple200 */
+        --color-anchor-footer: #9f9f9f;
+        --color-button: #95c4ff; /* system_accent1_200, because accent_device_default_dark => system_accent1_100 was too light */
+        --color-on-button: black;
+        --color-button-hover: #89b4ea;
+        --color-button-focus: #7ca3d4;
+        --color-button-disabled: rgb(227 226 230 / 12%);
+        --color-on-button-disabled: rgb(227 226 230 / 38%);
+        --color-background-code: #424242; /* grey800 */
+        --color-error-text: #cf6679;
+        --color-table: #222;
+        --color-surface: #212121;
+        --color-placeholder: #ffb4ab;
+    }
+
+    footer img {
+        filter: invert(87%);
+    }
+
+    .phone-img {
+        filter: brightness(0.87);
+    }
+
+    .phone-logo-img {
+        filter: invert(87%);
+    }
+}
+
 html {
     height: -webkit-fill-available; /* replace with stretch when standardized */
 }
@@ -13,20 +65,20 @@ body {
     font-family: Roboto, sans-serif;
     line-height: 1.5;
     letter-spacing: 0.009375rem;
-    background-color: #fafafa; /* grey50 */
-    color: rgba(0 0 0 / 87%); /* 87% black */
+    background-color: var(--color-background);
+    color: var(--color-on-background);
     margin: 0;
     padding: 0;
     overflow-y: scroll;
 }
 
 a {
-    color: #1565c0; /* blue800 */
+    color: var(--color-anchor);
     text-decoration: none;
 }
 
 a:visited {
-    color: #6a1b9a; /* purple800 */
+    color: var(--color-anchor-visited);
 }
 
 a:hover {
@@ -34,7 +86,7 @@ a:hover {
 }
 
 h1 a, h1 a:visited, h2 a, h2 a:visited, h3 a, h3 a:visited, h4 a, h4 a:visited, h5 a, h5 a:visited, h6 a, h6 a:visited {
-    color: rgba(0 0 0 / 87%); /* 87% black */
+    color: var(--color-on-background);
 }
 
 h1 {
@@ -80,7 +132,7 @@ h6 {
 }
 
 code, pre {
-    background-color: #e0e0e0; /* grey300 */
+    background-color: var(--color-background-code);
     font-family: "Roboto Mono", monospace;
 }
 
@@ -95,7 +147,7 @@ code {
 }
 
 var {
-    color: #ba1a1a;
+    color: var(--color-placeholder);
 }
 
 #site-menu ul {
@@ -164,11 +216,11 @@ button, input, select, textarea {
 }
 
 button, .button, .button:visited {
-    color: white;
+    color: var(--color-on-button);
     font-size: 0.9em;
     font-weight: bold;
     letter-spacing: 0.0892857143em;
-    background-color: #0053a3; /* accent_device_default_light => system_accent1_600 */
+    background-color: var(--color-button);
     border-radius: 20px;
     border: none;
     height: 40px;
@@ -176,18 +228,18 @@ button, .button, .button:visited {
 }
 
 button:hover, .button:hover {
-    background-color: #1863ad; /* color between default and pressed */
+    background-color: var(--color-button-hover);
     cursor: pointer;
 }
 
 button:focus, .button:focus {
-    background-color: #2f73b4; /* button pressed on Android */
+    background-color: var(--color-button-focus);
     box-shadow: 0 2px 4px -1px rgba(0 0 0 / 20%), 0 4px 5px 0 rgba(0 0 0 / 14%), 0 1px 10px 0 rgba(0 0 0 / 12%);
 }
 
 button:disabled {
-    background-color: rgb(26 27 30 / 12%);
-    color: rgb(26 27 30 / 38%);
+    background-color: var(--color-button-disabled);
+    color: var(--color-on-button-disabled);
     cursor: not-allowed;
 }
 
@@ -231,7 +283,7 @@ footer {
 }
 
 footer a, footer a:visited {
-    color: #616161; /* grey500 */
+    color: var(--color-anchor-footer);
 }
 
 #social {
@@ -253,8 +305,7 @@ footer a, footer a:visited {
 }
 
 .error-text {
-    /* Baseline Material error color */
-    color: #b00020;
+    color: var(--color-error-text);
 }
 
 table {
@@ -263,7 +314,7 @@ table {
 }
 
 td {
-    border: 1px solid #ddd;
+    border: 1px solid var(--color-table);
     padding: 0.5rem;
 }
 
@@ -304,7 +355,7 @@ main.normalize {
 }
 
 .surface {
-    background-color: #e6e6e6;
+    background-color: var(--color-surface);
     width: 100%;
 }
 
@@ -380,79 +431,5 @@ main.normalize {
 
     .device-img {
         margin: 3.5rem 0 0;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    body {
-        background: #121212;
-        color: rgba(255 255 255 / 87%); /* 87% white */
-    }
-
-    a {
-        color: #90caf9; /* blue200 */
-    }
-
-    a:visited {
-        color: #ce93d8; /* purple200 */
-    }
-
-    h1 a, h1 a:visited, h2 a, h2 a:visited, h3 a, h3 a:visited, h4 a, h4 a:visited, h5 a, h5 a:visited, h6 a, h6 a:visited {
-        color: rgba(255 255 255 / 87%); /* 87% white */
-    }
-
-    button, .button, .button:visited {
-        color: black;
-        background-color: #95c4ff; /* system_accent1_200, because accent_device_default_dark => system_accent1_100 was too light */
-    }
-
-    button:hover, .button:hover {
-        background-color: #89b4ea; /* color between default and pressed */
-    }
-
-    button:focus, .button:focus {
-        background-color: #7ca3d4; /* button pressed on Android */
-    }
-
-    button:disabled {
-        background-color: rgb(227 226 230 / 12%);
-        color: rgb(227 226 230 / 38%);
-    }
-
-    code, pre {
-        background-color: #424242; /* grey800 */
-    }
-
-    footer a, footer a:visited {
-        color: #9f9f9f;
-    }
-
-    footer img {
-        filter: invert(87%);
-    }
-
-    .error-text {
-        /* Baseline Material dark error color */
-        color: #cf6679;
-    }
-
-    td {
-        border-color: #222;
-    }
-
-    .phone-img {
-        filter: brightness(0.87);
-    }
-
-    .phone-logo-img {
-        filter: invert(87%);
-    }
-
-    .surface {
-        background-color: #212121;
-    }
-
-    var {
-        color: #ffb4ab;
     }
 }
