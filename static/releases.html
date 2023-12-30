@@ -723,6 +723,7 @@
                     <p>Changes since the 2023121200 release:</p>
 
                     <ul>
+                        <li>Keyboard: add new implementation of multi-locale spell checking support to fix crashes and other issues</li>
                         <li>Sandboxed Google Play compatibility layer: add Android Auto support with the compatibility layer eliminating the need for most of the permissions and a permission menu with 4 toggles for granting the minimal special access required for wired Android Android, wireless Android Auto, audio routing and phone calls</li>
                         <li>Settings: remove confusing mention of Android Auto from Connected devices screen</li>
                         <li>exempt non-app system processes from Sensors permission enforcement (fixes some issues including gpsd crashes)</li>
@@ -737,7 +738,6 @@
                         <li>kernel (Pixel 8, Pixel 8 Pro, Generic 5.15): update to latest GKI LTS branch revision including update to 5.15.142</li>
                         <li>kernel (Generic 6.1): initial port of GrapheneOS changes for use with emulator builds</li>
                         <li>force disable network ADB in early boot to improve verified boot security (no user-facing change since it's currently disabled by default later in the boot process, but not robustly)</li>
-                        <li>Keyboard: temporarily revert change including words from all active locales until it can be reimplemented properly</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/120.0.6099.115.0">version 120.0.6099.115.0</a></li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/120.0.6099.144.0">version 120.0.6099.144.0</a></li>
                         <li>AppCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_AppCompatConfig/releases/tag/config-2">version 2</a></li>
