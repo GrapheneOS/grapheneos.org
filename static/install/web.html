@@ -192,13 +192,17 @@
             <section id="working-around-fwupd-bug-on-linux-distributions">
                 <h2><a href="#working-around-fwupd-bug-on-linux-distributions">Working around fwupd bug on Linux distributions</a></h2>
 
-                <p>The fwupd software used by many traditional Linux distributions (not Android or
-                ChromeOS) has a bug breaking connecting to fastboot devices. The web installer
-                takes slightly longer to connect to the device and is more impacted by this. If
-                you're on a Linux distribution with fwupd running, stop it before proceeding. You
-                can do this by running the following command in a terminal:</p>
+                <p>Debian stable and Ubuntu have an outdated fwupd package with a bug breaking
+                connecting to Android's bootloader interface (fastboot) while fwupd is running
+                since it tries to connect to arbitrary devices. This section can be skipped on
+                Arch Linux and other distributions with fwupd 1.9.10 or later since we reported
+                the bug and it was fixed. This never impacted Android or ChromeOS.</p>
+
+                <p>You can stop fwupd with the following command:</p>
 
                 <pre>sudo systemctl stop fwupd.service</pre>
+
+                <p>This doesn't disable the service and it will start again on reboot.</p>
             </section>
 
             <section id="booting-into-the-bootloader-interface">
