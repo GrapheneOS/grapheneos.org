@@ -724,6 +724,7 @@
                     <p>Changes since the 2023123000 release:</p>
 
                     <ul>
+                        <li>Keyboard: avoid spell checker crash after keyboard's spell checking service is stopped by the OS (regression in the last Alpha channel only release fixing multi-locale spell checking)</li>
                         <li>hardened_malloc / bionic: restore default SIGABRT handler in fatal_error to work around crashlytics bug caused by it using fork instead of clone which triggers a deadlock when malloc locks are held already</li>
                         <li>skip missing sensors permission notification with wrong app id</li>
                         <li>Sandboxed Google Play compatibility layer: avoid crashes from missing Google Search app</li>
