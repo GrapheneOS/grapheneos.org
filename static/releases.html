@@ -748,7 +748,7 @@
                         <li>Sandboxed Google Play compatibility layer: add Android Auto support with the compatibility layer eliminating the need for most of the permissions and a permission menu with 4 toggles for granting the minimal special access required for wired Android Android, wireless Android Auto, audio routing and phone calls</li>
                         <li>Settings: remove confusing mention of Android Auto from Connected devices screen</li>
                         <li>exempt non-app system processes from Sensors permission enforcement (fixes some issues including gpsd crashes)</li>
-                        <li>fix Bluetooth auto-turn-off race condition leading to potential crash</li>
+                        <li>fix Bluetooth auto-turn-off race condition to avoid crashes</li>
                         <li>work around upstream race condition bug in biometric service</li>
                         <li>disable support for pre-approving PackageInstaller sessions due to incompatibility with Network permission toggle</li>
                         <li>fix several upstream bugs in handling crash reports mainly to improve our user-facing crash reporting system</li>
