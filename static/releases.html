@@ -749,7 +749,7 @@
                         <li>backport upstream fix for Wi-Fi background scan system_server crash</li>
                         <li>hardened_malloc / bionic: restore default SIGABRT handler in fatal_error to work around crashlytics bug caused by it using fork instead of clone which triggers a deadlock when malloc locks are held already</li>
                         <li>skip missing sensors permission notification with wrong app id</li>
-                        <li>Sandboxed Google Play compatibility layer: avoid crashes from missing Google Search app</li>
+                        <li>Sandboxed Google Play compatibility layer: avoid crashes in Android Auto and potentially elsewhere from missing Google Search app to make it a proper optional dependency</li>
                         <li>Sandboxed Google Play compatibility layer: fix handling of while-in-use permissions</li>
                         <li>Sandboxed Google Play compatibility layer: drop ACCESS_BACKGROUND_LOCATION permission now that while-in-use permission works</li>
                         <li>Sandboxed Google Play compatibility layer: add workaround for rare foreground service crash (may be upstream bug)</li>
