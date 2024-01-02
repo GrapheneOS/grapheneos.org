@@ -500,6 +500,13 @@
                     toggle is enabled by default. However, the OS app installation UI has been
                     extended to show the toggle as part of the installation confirmation page so
                     users can disable it when installing an app.</p>
+
+                    <p>When the Network permission is disabled, GrapheneOS pretends the network is
+                    down. It shows the network as down in various APIs, returns errors showing a
+                    network connectivity issue rather than a revoked permission and avoids running
+                    scheduled jobs depending on the network. This results in apps handling it as
+                    if the network is down rather than crashing or showing errors from trying to
+                    use the network and being unable to do it.</p>
                 </section>
 
                 <section id="sensors-permission-toggle">
