@@ -725,6 +725,12 @@
                     <p>Changes since the 2023123100 release:</p>
 
                     <ul>
+                        <li>Sandboxed Google Play compatibility layer: stop hiding Android Auto from the Play Store since it breaks Play Store dependent functionality</li>
+                        <li>Sandboxed Google Play compatibility layer: mark Android Auto as owned by our app repository client to stop the Play Store from updating it</li>
+                        <li>Sandboxed Google Play compatibility layer: add Network permission to baseline permissions needed for wireless Android Auto</li>
+                        <li>Sandboxed Google Play compatibility layer: add list of requirements for Android Auto voice commands</li>
+                        <li>Sandboxed Google Play compatibility layer: add back dedicated name for Sandboxed Google Play crash notification channel</li>
+                        <li>Sandboxed Google Play compatibility layer: skip Android Auto crash reports when it lacks baseline permissions and show a dedicated notification about the problem instead</li>
                         <li>Keyboard: add workaround for multi-locale spell checking and remove our attempt at implementing it properly in the keyboard itself for now</li>
                         <li>AppCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_AppCompatConfig/releases/tag/3">version 3</a></li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/120.0.6099.193.0">version 120.0.6099.193.0</a></li>
