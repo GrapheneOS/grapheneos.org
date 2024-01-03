@@ -1084,16 +1084,19 @@
                     <h3><a href="#sandboxed-google-play-limitations">Limitations</a></h3>
 
                     <p>Our compatibility layer has to be expanded on a case-by-case basis to teach
-                    Play services to work as a regular app without any of the invasive access
-                    and integration it expects. In many cases, it doesn't truly need the access or
-                    we can teach it to use the regular approach available to a normal app. In some
-                    cases, the functionality it offers fundamentally requires privileged
-                    access and cannot be supported. For example, it's unlikely Android Auto will be
-                    supported. The same applies to other highly invasive OS integration / control
-                    or privileged access to hardware. Our compatibility layer is a very actively
-                    developed work in progress and most of the remaining unavailable functionality
-                    is quickly becoming supported. In the future, we can also support redirection
-                    for more APIs such as FIDO2 rather than only the geolocation service.</p>
+                    Play services to work as a regular app without any of the invasive access and
+                    integration it expects. In many cases, it doesn't truly need the access or we
+                    can teach it to use the regular approach available to a normal app. In some
+                    cases, the functionality it offers fundamentally requires privileged access
+                    and cannot be supported. For example, Android Auto cannot be supported by
+                    default as part of the baseline compatibility layer, but is supported as an
+                    extension of it with dedicated toggles for the functionality that's not
+                    possible to implement another way. The same applies to other highly invasive
+                    OS integration / control or privileged access to hardware. Our compatibility
+                    layer is a very actively developed work in progress and most of the remaining
+                    unavailable functionality is quickly becoming supported. In the future, we can
+                    also support redirection for more APIs such as FIDO2 rather than only the
+                    geolocation service.</p>
 
                     <p>Functionality depending on the OS integrating Play services and using it as
                     a backend is unavailable. An OS integrating Play uses it as the backend for OS
