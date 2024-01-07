@@ -4,10 +4,6 @@
 #
 #    pip-compile --generate-hashes
 #
-argparse==1.4.0 \
-    --hash=sha256:62b089a55be1d8949cd2bc7e0df0bddb9e028faefc8c32038cc84862aefdd6e4 \
-    --hash=sha256:c31647edb69fd3d465a847ea3157d37bed1f95f19760b11a47aa91c04b666314
-    # via gixy
 cached-property==1.5.2 \
     --hash=sha256:9fa5755838eecbb2d234c3aa390bd80fbd3ac6b6869109bfc1b499f7bd89a130 \
     --hash=sha256:df4f613cf7ad9a588cc381aaf4a512d26265ecebd5eb9e1ba12f1319eb85a6a0
@@ -20,9 +16,9 @@ cssselect==1.2.0 \
     --hash=sha256:666b19839cfaddb9ce9d36bfe4c969132c647b92fc9088c4e23f786b30f1b3dc \
     --hash=sha256:da1885f0c10b60c03ed5eccbb6b68d6eff248d91976fcde348f395d54c9fd35e
     # via -r requirements.in
-gixy==0.1.20 \
-    --hash=sha256:0ad96e4a75e6c89fe2f03f496d0fee3bfe958beb2933c6fe9ff72d3c2e222bb4 \
-    --hash=sha256:54b4d66e770181ad9d18266c4772400ba05a7d0ca1753531e471ec00de6815ef
+gixy==0.1.21 \
+    --hash=sha256:55be805e0582ac95540f49ea7f80b2de0b5304cb63edd22e1e6520d18f3c184b \
+    --hash=sha256:e39c87401c73d33cd8965324caa3e1778ef22ed7ade179b459a3493bdfe0f88a
     # via -r requirements.in
 jinja2==3.1.2 \
     --hash=sha256:31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852 \
