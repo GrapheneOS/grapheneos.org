@@ -747,7 +747,7 @@
                     <p>Changes since the 2024010400 release:</p>
 
                     <ul>
-                        <li>replace auto-reboot implementation with a new more hardened implementation based on a timer in the init process which also avoids rebooting when the device hasn't been unlocked since boot</li>
+                        <li>replace auto-reboot implementation with a new more hardened implementation based on a timer in the init process (since init crashing reboots the device, unlike system_server) which also avoids rebooting when the device hasn't been unlocked since boot</li>
                         <li>reduce default auto-reboot timer from 72 hours to 18 hours</li>
                         <li>add log viewer available at Settings > System > View logs to avoid needing developer options for making useful bug reports and inspecting the device for issues</li>
                         <li>reimplement our user-facing crash reporting infrastructure with our new log viewer app</li>
