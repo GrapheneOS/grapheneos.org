@@ -617,7 +617,7 @@
                     scanning along with additional modes based on CameraX vendor extensions
                     (Portrait, HDR, Night, Face Retouch and Auto) on <a
                     href="https://developer.android.com/training/camera/supported-devices">devices
-                    where they're available</a> (not available on Pixels yet).</p>
+                    where they're available</a> (Pixels currently only have support for Night mode).</p>
 
                     <p>Modes are displayed as tabs at the bottom of the screen. You can switch
                     between modes using the tab interface or by swiping left/right anywhere on the
@@ -653,12 +653,11 @@
                     in HDR+ being disabled which is why automatic flash isn't enabled by default.
                     The lightweight HDR+ doesn't use as many frames as the more aggressive Pixel
                     Camera HDR+. CameraX extensions will eventually provide support for an HDR
-                    mode with more aggressive HDR+ taking/combining more than only around 3 frames
-                    along with a Night mode providing the Night Sight variant of HDR+ inflating
+                    mode with more aggressive HDR+ taking/combining more than only around 3 frames.
+                    It currently supports a Night mode providing the Night Sight variant of HDR+ inflating
                     the light of the scene through combining the frames. Other fancy features like
                     Portrait mode will also depend on CameraX extensions being provided in the
-                    future. There isn't a timeline for this but an initial implementation will
-                    likely be shipped within the next year for Pixels.</p>
+                    future. There isn't a timeline for when additional CameraX extensions will be added.</p>
 
                     <p>Zooming via pinch to zoom or the zoom slider will automatically make use of
                     the wide angle and telephoto cameras on Pixels. 5th and 6th generation Pixels
