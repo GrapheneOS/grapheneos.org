@@ -727,6 +727,13 @@
                     <p>Changes since the 2024011300 release:</p>
 
                     <ul>
+                        <li>work around upstream Android bug causing system_server crash due to failed security-related assertion by denying the action without crashing system_server, which avoids turning a buggy security check into a denial of service issue</li>
+                        <li>add workaround for upstream Android crash reporting bug recording clean f2fs filesystem check results as errors which is resulting in many users receiving filesystem check error reports on GrapheneOS due to our user-facing notifications for serious errors/crashes</li>
+                        <li>add workaround for upstream Android crash reporting bug causing old crashes to be reported again</li>
+                        <li>add workaround for upstream Android crash reporting bug wrongly attributing certain app crashes to system_server</li>
+                        <li>only show kernel crashes when the user opts into system crash notifications since there are many false positives caused by hardware issues such as some users having devices which sometimes fail to resume from sleep while idle</li>
+                        <li>only show report button in log viewer for system_server Java/native crashes, MTE crashes and filesystem check errors (which now have non-error results properly filtered out) due to receiving too many reports about upstream bugs and hardware issues</li>
+                        <li>hide specific system apps and also sandboxed Google Play from Aurora Store so users don't try to update them through it and receive errors</li>
                         <li>Log Viewer: explicitly set status bar color to fix light mode icon colors</li>
                         <li>kernel (Pixel 4a (5G), Pixel 5, Pixel 5a): add missing kernel changes from the past 2 releases</li>
                     </ul>
