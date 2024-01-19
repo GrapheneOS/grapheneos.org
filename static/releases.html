@@ -728,6 +728,7 @@
                     <p>Changes since the 2024011600 release:</p>
 
                     <ul>
+                        <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro): disable warm reboot on thermal shutdown</li>
                         <li>kernel: enable reset attack mitigation for UEFI systems supporting it (Tensor Pixels don't use UEFI and the previous Snapdragon Pixels using UEFI didn't implement this but we should have the flag enabled in our generic kernels for future devices with it)</li>
                         <li>Launcher: disable gradient at the top of the home screen again (change lost with Android 14 QPR1 due to it being reimplemented upstream)</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/120.0.6099.230.0">version 120.0.6099.230.0</a></li>
