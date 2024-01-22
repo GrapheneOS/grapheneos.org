@@ -728,7 +728,7 @@
                     <p>Changes since the 2024011600 release:</p>
 
                     <ul>
-                        <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro): disable warm reboot on thermal shutdown</li>
+                        <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro): use a normal reboot on overheating instead of a warm reboot to harden against physical attacks</li>
                         <li>kernel: enable reset attack mitigation for UEFI systems supporting it (Tensor Pixels use minimalistic littlekernel-based boot firmware rather than UEFI and the previous Snapdragon Pixels using UEFI didn't implement this but we may need this for future devices)</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Generic 5.10): update to latest GKI LTS branch revision including update to 5.10.208</li>
                         <li>kernel (Pixel 8, Pixel 8 Pro, Generic 5.15): update to latest GKI LTS branch revision including update to 5.15.147</li>
