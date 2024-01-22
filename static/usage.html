@@ -95,6 +95,7 @@
                             <li><a href="#sandboxed-google-play-esim">Privileged eSIM management</a></li>
                         </ul>
                     </li>
+                    <li><a href="#android-auto">Android Auto</a></li>
                     <li><a href="#banking-apps">Banking apps</a></li>
                     <li><a href="#app-link-verification">App link verification</a></li>
                     <li><a href="#carrier-functionality">Carrier functionality</a></li>
@@ -1166,6 +1167,54 @@
                     you may need to call the USSD code <code>*#*#4636#*#*</code> and then enable
                     DSDS in the menu that is presented.</p>
                 </section>
+            </section>
+
+            <section id="android-auto">
+                <h2><a href="#android-auto">Android Auto</a></h2>
+
+                <p>GrapheneOS provides an option to install and use the official releases of
+                Android Auto.</p>
+
+                <p>Android Auto requires privileged access in order to work. GrapheneOS uses
+                an extension of the sandboxed Google Play compatibility layer to make Android
+                Auto work with a reduced level of privileges.</p>
+
+                <p>To install Android Auto, use our app repository client ("Apps"). Android Auto
+                can't be installed through the Play Store or other app sources. Android Auto
+                depends on sandboxed Google Play, you'll be prompted to install it if it's not
+                already installed.</p>
+
+                <p>After installation, Android Auto has to be set up from the "Settings ➔ Apps ➔
+                Sandboxed Google Play ➔ Android Auto" configuration screen, which contains
+                permission toggles, links to related configuration screens, configuration tips, and
+                links to optional Android Auto dependencies.</p>
+
+                <p>The permission toggles ask for a confirmation before turning on. The
+                confirmation popup explains what access each permission toggle provides.</p>
+
+                <p>By default, Android Auto is not granted any kind of privileged access. It's
+                treated the same way other apps are treated.</p>
+
+                <p>In order to work, Android Auto has to be granted baseline permissions for wired
+                or wireless Android Auto. Wired Android Auto requires far less access than wireless
+                Android Auto does. Baseline permissions are controlled by the "Allow permissions
+                for wired / wireless Android Auto" toggles.</p>
+
+                <p>For some cars, baseline permissions for wireless Android Auto are needed even
+                when using wired Android Auto. Therefore, if wired Android Auto is unable to
+                connect to the car with only wired permissions granted, try granting wireless
+                permissions instead.</p>
+
+                <p>To forward notifications from the device to the car, Android Auto has to be
+                allowed notification access. The notification access settings are linked below the
+                permission toggles.</p>
+
+                <p>In order to show up in the Android Auto car interface, apps have to be installed
+                from the Play Store and include Android Auto support.</p>
+
+                <p>See Google's <a href="https://support.google.com/androidauto/topic/6106969">
+                Android Auto Help</a> pages for further Android Auto setup steps and usage
+                instructions.</p>
             </section>
 
             <section id="banking-apps">
