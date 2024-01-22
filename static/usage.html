@@ -319,36 +319,30 @@
             <section id="contact-scopes">
                 <h2><a href="#contact-scopes">Contact Scopes</a></h2>
 
-                <p>The Contact Scopes feature enables the user to grant an app read access to a
-                subset of data in the OS ContactsProvider. Granting write access (insert,
-                update, delete) is not supported.</p>
+                <p>On Android, contact access is controlled with an all-or-nothing Contacts permission, which grants
+                both read and write access to all contacts stored on the device.</p>
 
-                <p>Read access can be granted to the following scopes:</p>
+                <p>A lot of apps (e.g. popular messaging apps) refuse to work unless the Contacts permission is granted.</p>
+
+                <p>GrapheneOS provides the Contact Scopes feature as an alternative to granting the Contacts permission.
+                Enabling Contact Scopes makes the app assume that it has the Contacts permission, despite not actually 
+                having it. By default, an app that has Contact Scopes enabled is not allowed any kind of contact access.</p>
+
+                <p>Optionally, read access can be granted to the following scopes:</p>
 
                 <ul>
-                    <li>Contact data (phone number or email). Access to each type of number and
-                    email in a contact is granted separately. Access to contact name is granted
-                    automatically.</li>
-
-                    <li>Single contact. Access is granted to all contact data, except photo,
-                    originating account type and name, contact sync data.</li>
-
-                    <li>Contact group ("label"). Equivalent to granting access to all contacts
-                    in the group. Any contact can be in any number of contact groups.</li>
+                    <li>Contact data (phone number or email). Access to each type of number and email in a contact is
+                    granted separately. Access to the contact name is granted automatically.</li>
+                    <li>Single contact. Access is granted to all contact data, except contact photo.</li>
+                    <li>Contact group ("label"). Equivalent to granting access to all contacts in the group. Any contact
+                    can be in any number of contact groups.</li>
                 </ul>
 
-                <p>Type and name of account that contact is stored in is fully hidden from the
-                app. Name of contact account is usually the same as email address of that
-                account.</p>
+                <p>The type and name of the account that the contact is stored in are fully hidden from the app. The name
+                of the contact account is usually the same as the email address of that account.</p>
 
-                <p>Access to SIM phonebook data is fully stubbed out: an empty and immutable
-                content provider is exposed instead of the actual SIM phonebook. Implementations
-                of legacy (ICC) and modern SIM stub phonebook providers are added to
-                packages/services/Telephony.</p>
-
-                <p>The Contact Scopes feature is enabled per-app. When it's enabled, app's calls
-                to contacts provider and to SIM phonebook providers are redirected, respectively,
-                to ScopedContactsProvider and to stub SIM phonebook providers.</p>
+                <p>When Contact Scopes is enabled, write access is fully blocked: the app is not allowed to edit any
+                contact data, add or remove contacts, etc.</p>
             </section>
 
             <section id="accessibility">
