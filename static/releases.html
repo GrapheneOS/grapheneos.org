@@ -728,6 +728,7 @@
                     <p>Changes since the 2024011600 release:</p>
 
                     <ul>
+                        <li>hardened_malloc: use tag 0 for freed slots instead of reserving a tag to allow using 15 of 16 possible tag values for random tags (there are 3 dynamic exclusions of the random values for the previous tag along with the 2 current or previous adjacent tags)</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro): use a normal reboot on overheating instead of a warm reboot to harden against physical attacks</li>
                         <li>kernel: enable reset attack mitigation for UEFI systems supporting it (Tensor Pixels use minimalistic littlekernel-based boot firmware rather than UEFI and the previous Snapdragon Pixels using UEFI didn't implement this but we may need this for future devices)</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Generic 5.10): update to latest GKI LTS branch revision including update to 5.10.208</li>
