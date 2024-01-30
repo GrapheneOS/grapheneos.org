@@ -92,9 +92,9 @@
                             <li><a href="#sandboxed-google-play-installation">Installation</a></li>
                             <li><a href="#sandboxed-google-play-configuration">Configuration</a></li>
                             <li><a href="#sandboxed-google-play-limitations">Limitations</a></li>
-                            <li><a href="#sandboxed-google-play-esim">Privileged eSIM management</a></li>
                         </ul>
                     </li>
+                    <li><a href="#esim-support">eSIM support</a></li>
                     <li><a href="#android-auto">Android Auto</a></li>
                     <li><a href="#banking-apps">Banking apps</a></li>
                     <li><a href="#app-link-verification">App link verification</a></li>
@@ -1139,28 +1139,27 @@
                     user to choose the provider, Play services can often be used. It's on a level
                     playing field with other apps on GrapheneOS.</p>
                 </section>
+            </section>
+            <section id="esim-support">
+                <h3><a href="#esim-support">eSIM support</a></h3>
+                <p>By default GrapheneOS always has shipped with baseline support for eSIM,
+                where users can use any eSIMs installed previously on the device. However, in
+                order to manage and add eSIMs, proprietary Google functionality is needed. This
+                is fully disabled by default.</p>
 
-                <section id="sandboxed-google-play-esim">
-                    <h3><a href="#sandboxed-google-play-esim">Privileged eSIM management</a></h3>
+                <p>eSIM support on GrapheneOS doesn't require any dependency on Google Play,
+                and never shares data to Google Play even when installed.</p>
 
-                    <p>By default GrapheneOS always has shipped with baseline support for eSIM,
-                    where users can use any eSIMs installed previously on the device. However, in
-                    order to manage and add eSIMs, proprietary Google functionality is needed. This
-                    is fully disabled by default.</p>
+                <p>eSIM support can be enabled in Settings ➔ Network &amp;
+                Internet ➔ eSIM support.</p>
 
-                    <p>Privileged eSIM management can be enabled in Settings ➔ Network &amp;
-                    Internet ➔ Privileged eSIM management. The toggle will be greyed out and
-                    unusable if sandboxed Google Play is not installed, as the functionality is
-                    reliant on it.</p>
+                <p>By enabling the toggle, the proprietary Google functionality is enabled and
+                will be used by the OS to provision and manage eSIMs.</p>
 
-                    <p>By enabling the toggle, the proprietary Google functionality is enabled and
-                    will be used by the OS to provision and manage eSIMs.</p>
-
-                    <p>Note that if the eSIM installation process does not progress past the
-                    "Checking network info..." stage despite having a stable Internet connection,
-                    you may need to call the USSD code <code>*#*#4636#*#*</code> and then enable
-                    DSDS in the menu that is presented.</p>
-                </section>
+                <p>Note that if the eSIM installation process does not progress past the
+                "Checking network info..." stage despite having a stable Internet connection,
+                you may need to call the USSD code <code>*#*#4636#*#*</code> and then enable
+                DSDS in the menu that is presented.</p>
             </section>
 
             <section id="android-auto">
