@@ -16,6 +16,7 @@ const redirects = new Map([
     ["/#upstream", "/faq#upstream"],
 
     ["/usage#default-connections", "/faq#default-connections"],
+    ["/usage#sandboxed-google-play-esim", "/usage#esim-support"],
     ["/usage#sandboxed-play-services", "/usage#sandboxed-google-play"],
     ["/usage#sandboxed-play-services-installation", "/usage#sandboxed-google-play-installation"],
     ["/usage#sandboxed-play-services-limitations", "/usage#sandboxed-google-play-limitations"],
