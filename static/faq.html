@@ -1117,6 +1117,17 @@
                     could hard-wire domains as verified if they did and we wanted to avoid more
                     default connections.</p>
 
+                    <p>GrapheneOS uses
+                    https://widevineprovisioning.grapheneos.org/certificateprovisioning/v1/devicecertificates/create
+                    by default which is a private reverse proxy to
+                    https://www.googleapis.com/certificateprovisioning/v1/devicecertificates/create
+                    as part of Widevine provisioning. This is another form of key provisioning for
+                    per-app keys that are used when playing DRM protected media. DRM support is
+                    enabled in the OS by default but we don't include any apps using it by default,
+                    since it's disabled in Vanadium. A setting is added at Settings ➔ Network &amp;
+                    Internet ➔ Widevine provisioning for switching to directly using the Google
+                    service if you prefer.</p>
+
                     <p>Most other connections made by the OS itself are made based on your chosen
                     carrier. The OS has a database of APN and other carrier configuration settings
                     which determines how this works by default. Normally, carriers can force their
