@@ -1039,6 +1039,16 @@
                             own service and we'd need to support proxying to that service too.</p>
                         </li>
                         <li>
+                            <p>GrapheneOS uses https://widevineprovisioning.grapheneos.org/certificateprovisioning/v1/devicecertificates/create 
+                            by default which is a private reverse proxy to 
+                            https://www.googleapis.com/certificateprovisioning/v1/devicecertificates/create
+                            as part of Widevine provisioning.</p>
+
+                            <p>A setting is added at Settings ➔ Network &amp; Internet ➔
+                            Widevine provisioning for switching to directly using the 
+                            Google service if you prefer.</p>
+                        </li>
+                        <li>
                             <p>A test query is done via DNS-over-TLS in the automatic and manually
                             enabled modes to detect if DNS-over-TLS is available. It won't happen
                             when DNS-over-TLS is disabled. For the automatic mode, it uses this to
