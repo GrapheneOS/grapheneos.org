@@ -635,7 +635,9 @@
 
                     <p>As of Android 12, the user is notified when an app reads clipboard content
                     which was set by a different app. This notice is enabled by default and can be
-                    toggled under Settings ➔ Privacy ➔ Show clipboard access.</p>
+                    toggled under <b>Settings&#160;<span aria-label="and then">></span>
+                    Privacy&#160;<span aria-label="and then">></span> Show clipboard
+                    access</b>.</p>
                 </article>
 
                 <article id="hardware-identifiers">
@@ -884,13 +886,15 @@
                             <p>We plan to offer a toggle to use the standard functionality instead of
                             HTTPS-based time updates in order to blend in with other devices.</p>
 
-                            <p>Network time can be disabled with the toggle at Settings ➔ System ➔ Date
-                            &amp; time ➔ Set time automatically. Unlike AOSP or the stock OS on the
-                            supported devices, GrapheneOS stops making network time connections when using
-                            network time is disabled rather than just not setting the clock based on it.
-                            The time zone is still obtained directly via the time zone provided by the
-                            mobile network (NITZ) when available which you can also disable by the "Set
-                            time zone automatically" toggle.</p>
+                            <p>Network time can be disabled with the toggle at
+                            <b>Settings&#160;<span aria-label="and then">></span>
+                            System&#160;<span aria-label="and then">></span> Date &amp;
+                            time&#160;<span aria-label="and then">></span> Set time automatically</b>.
+                            Unlike AOSP or the stock OS on the supported devices, GrapheneOS stops making
+                            network time connections when using network time is disabled rather than just
+                            not setting the clock based on it. The time zone is still obtained directly
+                            via the time zone provided by the mobile network (NITZ) when available which
+                            you can also disable by the <b>Set time zone automatically</b> toggle.</p>
                         </li>
                         <li>
                             <p>Connectivity checks designed to mimic a web browser user agent are performed
@@ -915,14 +919,15 @@
                             right underlying network for a VPN and to handle many types of captive
                             portals without the user turning off their VPN.</p>
 
-                            <p>You can change the connectivity check URLs via the Settings ➔
-                            Network &amp; Internet ➔ Internet connectivity check setting.
-                            At the moment, it can be toggled between the GrapheneOS servers
-                            (default), the standard Google servers used by billions of other
-                            Android devices or disabled.</p>
+                            <p>You can change the connectivity check URLs via the
+                            <b>Settings&#160;<span aria-label="and then">></span> Network &amp;
+                            internet&#160;<span aria-label="and then">></span> Internet
+                            connectivity check</b> setting. At the moment, it can be toggled between
+                            the <b>GrapheneOS server</b> (default), the <b>Standard (Google) server</b>
+                            used by billions of other Android devices or <b>Off</b>.</p>
 
-                            <p>By default, the GrapheneOS connectivity check servers are used via the
-                            following URLs:</p>
+                            <p>By default, the <b>GrapheneOS server</b> is used via the following
+                            URLs:</p>
 
                             <ul>
                                 <li>HTTPS: https://connectivitycheck.grapheneos.network/generate_204</li>
@@ -931,10 +936,10 @@
                                 <li>HTTP other fallback: http://grapheneos.online/generate_204</li>
                             </ul>
 
-                            <p>Changing this to the Standard (Google) mode will use the same URLs
-                            used by AOSP and the stock OS along with the vast majority of other
-                            devices, blending in with billions of other Android devices both with
-                            and without Play services:</p>
+                            <p>Changing this to <b>Standard (Google) server</b> will use the same
+                            URLs used by AOSP and the stock OS along with the vast majority of
+                            other devices, blending in with billions of other Android devices both
+                            with and without Play services:</p>
 
                             <ul>
                                 <li>HTTPS: https://www.google.com/generate_204</li>
@@ -943,11 +948,11 @@
                                 <li>HTTP other fallback: http://play.googleapis.com/generate_204</li>
                             </ul>
 
-                            <p>GrapheneOS also adds the ability to fully disable the connectivity
-                            checks. This results in the OS no longer handling captive portals
-                            itself, not falling back to other networks when some don't have
-                            internet access and not being able to delay scheduled jobs depending
-                            on internet access until it becomes available.</p>
+                            <p>GrapheneOS also adds the ability to fully turn <b>Off</b> the
+                            connectivity checks. This results in the OS no longer handling captive
+                            portals itself, not falling back to other networks when some don't
+                            have internet access and not being able to delay scheduled jobs
+                            depending on internet access until it becomes available.</p>
                         </li>
                         <li>
                             <p>HTTPS connections are made to fetch
@@ -1028,9 +1033,11 @@
                             reverse proxy adds to that since it's unable to decrypt the
                             provisioned keys</p>
 
-                            <p>A setting is added at Settings ➔ Network &amp; Internet ➔
-                            Attestation key provisioning server for switching to directly using
-                            the Google service if you prefer.</p>
+                            <p>A setting is added at <b>Settings&#160;<span aria-label="and
+                            then">></span> Network &amp; internet&#160;<span
+                            aria-label="and then">></span> Attestation key
+                            provisioning</b> for switching to directly using the Google service if
+                            you prefer.</p>
 
                             <p>A future device built to run GrapheneOS as the stock OS would be
                             able to have a GrapheneOS attestation root and GrapheneOS attestation
@@ -1114,30 +1121,31 @@
                     normally, you can remove the <code>dun</code> APN type from your APN
                     configuration.</p>
 
-                    <p>When you have both a cellular connection and Location enabled, control plane
-                    and/or user plane (SUPL) A-GNSS is used in addition to PSDS to greatly reduce
-                    the time needed for GNSS to obtain an initial location lock. These obtain
-                    coarse location info from a server based on nearby cell towers. Control plane
-                    A-GNSS is provided by the cellular connection itself and therefore doesn't
-                    have any real privacy implications while SUPL connects to a server often not
-                    provided by the carrier. Most A-GNSS services only accelerate obtaining a satellite-based
-                    location and won't provide an estimate on their own. The carrier can choose a
-                    SUPL server as part of their carrier configuration but most leave it at the
-                    default of supl.google.com. By default, GrapheneOS overrides the
-                    carrier/fallback SUPL server and uses the supl.grapheneos.org proxy. GrapheneOS adds a
-                    toggle for configuring SUPL in Settings ➔ Location where you can choose
-                    between the default supl.grapheneos.org proxy, the standard server
-                    (carrier/fallback) or disabling it completely. GrapheneOS also disables
-                    sending IMSI and phone number as part of SUPL. Pixels with a Qualcomm baseband
-                    use it to provide both cellular and GNSS including both control plane and user
-                    plane A-GNSS being implemented inside the baseband. For Qualcomm baseband
-                    devices, SUPL is only enabled if the APN configuration for the carrier
-                    includes <code>supl</code> as an APN type. Pixels with a Samsung baseband have
-                    a separate Broadcom GNSS chip without integration between them so SUPL is done
-                    by the OS with regular networking (can use Wi-Fi and VPN) and SUPL is used
-                    regardless of the carrier's APN type configuration. GrapheneOS upgrades the
-                    Broadcom SUPL implementation to only using TLSv1.2 instead of using TLSv1.1
-                    and older with TLSv1.2 disabled.</p>
+                    <p>When you have both a cellular connection and Location enabled, control
+                    plane and/or user plane (SUPL) A-GNSS is used in addition to PSDS to greatly
+                    reduce the time needed for GNSS to obtain an initial location lock. These
+                    obtain coarse location info from a server based on nearby cell towers. Control
+                    plane A-GNSS is provided by the cellular connection itself and therefore
+                    doesn't have any real privacy implications while SUPL connects to a server
+                    often not provided by the carrier. Most A-GNSS services only accelerate
+                    obtaining a satellite-based location and won't provide an estimate on their
+                    own. The carrier can choose a SUPL server as part of their carrier
+                    configuration but most leave it at the default of supl.google.com. By default,
+                    GrapheneOS overrides the carrier/fallback SUPL server and uses the
+                    supl.grapheneos.org proxy. GrapheneOS adds a toggle for configuring SUPL in
+                    <b>Settings&#160;<span aria-label="and then">></span> Location</b> where you
+                    can choose between the default <b>GrapheneOS proxy</b> supl.grapheneos.org,
+                    the <b>Standard server</b> (carrier/fallback) or turning it <b>Off</b>
+                    completely. GrapheneOS also disables sending IMSI and phone number as part of
+                    SUPL. Pixels with a Qualcomm baseband use it to provide both cellular and GNSS
+                    including both control plane and user plane A-GNSS being implemented inside
+                    the baseband. For Qualcomm baseband devices, SUPL is only enabled if the APN
+                    configuration for the carrier includes <code>supl</code> as an APN type.
+                    Pixels with a Samsung baseband have a separate Broadcom GNSS chip without
+                    integration between them so SUPL is done by the OS with regular networking
+                    (can use Wi-Fi and VPN) and SUPL is used regardless of the carrier's APN type
+                    configuration. GrapheneOS upgrades the Broadcom SUPL implementation to only
+                    using TLSv1.2 instead of using TLSv1.1 and older with TLSv1.2 disabled.</p>
 
                     <p>MMS, RCS, SMS over LTE, VVM (Visual Voicemail), VoLTE (carrier-based calls
                     on 4G and higher), VoNR (5G) and VoWi-Fi are largely implemented by the OS via
@@ -1229,14 +1237,16 @@
                 <article id="custom-dns">
                     <h3><a href="#custom-dns">How do I use a custom DNS server?</a></h3>
 
-                    <p>It isn't possible to directly override the DNS servers provided by the network via
-                    DHCP. Instead, use the Private DNS feature in Settings ➔ Network &amp; Internet ➔
-                    Private DNS to set the hostname of a DNS-over-TLS server. It needs to have
-                    a valid certificate such as a free certificate from Let's Encrypt. The OS will look up
-                    the Private DNS hostname via the network provided DNS servers and will then force all
-                    other DNS requests through the Private DNS server. Unlike an option to override the
-                    network-provided DNS servers, this prevents the network from monitoring or tampering
-                    with DNS requests/responses.</p>
+                    <p>It isn't possible to directly override the DNS servers provided by the
+                    network via DHCP. Instead, use the Private DNS feature in
+                    <b>Settings&#160;<span aria-label="and then">></span> Network &amp;
+                    internet&#160;<span aria-label="and then">></span> Private DNS</b> to set the
+                    hostname of a DNS-over-TLS server. It needs to have a valid certificate such as a
+                    free certificate from Let's Encrypt. The OS will look up the Private DNS hostname
+                    via the network provided DNS servers and will then force all other DNS requests
+                    through the Private DNS server. Unlike an option to override the network-provided
+                    DNS servers, this prevents the network from monitoring or tampering with DNS
+                    requests/responses.</p>
 
                     <p>As an example, set the hostname to <code>one.one.one.one</code> for Cloudflare DNS.
                     There are various other mainstream DNS-over-TLS options available including Quad9,
@@ -1305,12 +1315,13 @@
                 <article id="vpn-support">
                     <h3><a href="#vpn-support">What kind of VPN and Tor support is available?</a></h3>
 
-                    <p>VPNs can be configured under Settings ➔ Network &amp; Internet ➔ VPN.
-                    Support for the following protocols is included: IKEv2/IPSec MSCHAPv2,
-                    IKEv2/IPSec PSK and IKEv2/IPSec RSA. Apps can also provide userspace VPN
-                    implementations and the following open source apps are recommended: WireGuard,
-                    RethinkDNS (WireGuard with local filtering options), Orbot (Tor) and OpenVPN
-                    for Android.</p>
+                    <p>VPNs can be configured under <b>Settings&#160;<span aria-label="and
+                    then">></span> Network &amp; internet&#160;<span aria-label="and
+                    then">></span> VPN</b>. Support for the following protocols is
+                    included: IKEv2/IPSec MSCHAPv2, IKEv2/IPSec PSK and IKEv2/IPSec RSA. Apps can
+                    also provide userspace VPN implementations and the following open source apps
+                    are recommended: WireGuard, RethinkDNS (WireGuard with local filtering
+                    options), Orbot (Tor) and OpenVPN for Android.</p>
 
                     <p>VPN configurations created with the built-in support can be set as the
                     always-on VPN in the configuration panel. This will keep the VPN running,
@@ -1331,11 +1342,13 @@
                 <article id="network-monitoring">
                     <h3><a href="#network-monitoring">Can apps monitor network connections or statistics?</a></h3>
 
-                    <p>Apps cannot monitor network connections unless they're made into the active VPN
-                    service by the user. Apps cannot normally access network stats and cannot directly
-                    request access to them. However, app-based stats can be explicitly granted by users as
-                    part of access to app usage stats in Settings ➔ Apps ➔ Special app access ➔ Usage
-                    access.</p>
+                    <p>Apps cannot monitor network connections unless they're made into the active
+                    VPN service by the user. Apps cannot normally access network stats and cannot
+                    directly request access to them. However, app-based stats can be explicitly
+                    granted by users as part of access to app usage stats in
+                    <b>Settings&#160;<span aria-label="and then">></span> Apps&#160;<span
+                    aria-label="and then">></span> Special app access&#160;<span aria-label="and
+                    then">></span> Usage access</b>.</p>
 
                     <p>This was previously part of the GrapheneOS privacy improvements, but became a
                     standard Android feature with Android 10.</p>
@@ -1540,22 +1553,23 @@
                     <p>To use an external drive, plug it into the phone and use the system file
                     manager to copy files to and from it. The only difference on GrapheneOS is USB
                     peripherals such as USB flash drives will be ignored unless they're plugged in
-                    at boot or when the device is unlocked. You can configure this in Settings ➔
-                    Security.</p>
+                    at boot or when the device is unlocked. You can configure this in
+                    <b>Settings&#160;<span aria-label="and then">></span> Security&#160;<span
+                    aria-label="and then">></span> USB peripherals</b>.</p>
 
                     <p>Transferring files to an attached computer is done with MTP / PTP. Users on
-                    a Mac computer will need to install
-                    <a href="https://www.android.com/filetransfer/">Android File Transfer</a> to be
-                    able to transfer files between macOS and Android. After plugging in the phone
-                    to the computer, there will be a notification showing the current USB mode with
+                    a Mac computer will need to install <a
+                    href="https://www.android.com/filetransfer/">Android File Transfer</a> to be
+                    able to transfer files between macOS and Android. After plugging in the phone to
+                    the computer, there will be a notification showing the current USB mode with
                     charging as the default. Pressing the notification acts as a shortcut to
-                    Settings ➔ Connected devices ➔ USB. You can enable file transfer (MTP) or PTP
-                    with this menu. It will provide read/write access to the entire profile home
-                    directory, i.e. the top-level directory named after the device in the system
-                    file manager which does not include internal app data. Due to needing to trust
-                    the computer with coarse-grained access, we recommend transferring files with a
-                    flash drive or by sending the files to yourself via an end-to-end encrypted
-                    messaging app like Element (Matrix).</p>
+                    <b>Settings&#160;<span aria-label="and then">></span> Connected devices&#160;<span
+                    aria-label="and then">></span> USB</b>. You can enable <b>File Transfer</b> (MTP)
+                    or <b>PTP</b> with this menu. It will provide read/write access to the entire profile home
+                    directory, i.e. the top-level directory named after the device in the system file manager
+                    which does not include internal app data. Due to needing to trust the computer with
+                    coarse-grained access, we recommend transferring files with a flash drive or by sending
+                    the files to yourself via an end-to-end encrypted messaging app like Element (Matrix).</p>
                 </article>
             </section>
 
