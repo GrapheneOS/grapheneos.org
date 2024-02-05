@@ -164,25 +164,24 @@ button, input, select, textarea {
 }
 
 button, .button, .button:visited {
-    color: white;
-    font-size: 0.9em;
-    font-weight: bold;
-    letter-spacing: 0.0892857143em;
-    background-color: #0053a3; /* accent_device_default_light => system_accent1_600 */
-    border-radius: 20px;
+    color: #fff; /* on-primary */
+    font-size: 0.875rem; /* = 14pt/16px label-large */
+    font-weight: 700; /* weight.prominent */
+    letter-spacing: 0.00625rem; /* = 0.1pt/16px label-large */
+    background-color: #1a5eae; /* primary */
+    border-radius: 1.25rem; /* = 20dp/16px button container shape */
     border: none;
-    height: 40px;
+    height: 40px; /* container height */
     padding: 0.5rem 1.5rem;
 }
 
 button:hover, .button:hover {
-    background-color: #1863ad; /* color between default and pressed */
+    background-color: #2266b6; /* primary + 8 */
     cursor: pointer;
 }
 
 button:focus, .button:focus {
-    background-color: #2f73b4; /* button pressed on Android */
-    box-shadow: 0 2px 4px -1px rgba(0 0 0 / 20%), 0 4px 5px 0 rgba(0 0 0 / 14%), 0 1px 10px 0 rgba(0 0 0 / 12%);
+    background-color: #2a6ebe; /* primary + 10 */
 }
 
 button:disabled {
@@ -403,16 +402,18 @@ main.normalize {
     }
 
     button, .button, .button:visited {
-        color: black;
-        background-color: #95c4ff; /* system_accent1_200, because accent_device_default_dark => system_accent1_100 was too light */
+        background-color: #a9c7ff; /* primary */
+        color: #003063; /* on-primary */
     }
 
     button:hover, .button:hover {
-        background-color: #89b4ea; /* color between default and pressed */
+        background-color: #a1bff7; /* primary - 8 */
+        color: #00285b; /* on-primary - 8 */
     }
 
     button:focus, .button:focus {
-        background-color: #7ca3d4; /* button pressed on Android */
+        background-color: #99b7ef; /* primary - 10 */
+        color: #002053; /* on-primary - 10 */
     }
 
     button:disabled {
