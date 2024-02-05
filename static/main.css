@@ -12,9 +12,9 @@ body {
     min-height: -webkit-fill-available; /* replace with stretch when standardized */
     font-family: Roboto, sans-serif;
     line-height: 1.5;
-    letter-spacing: 0.009375rem;
-    background-color: #fafafa; /* grey50 */
-    color: rgba(0 0 0 / 87%); /* 87% black */
+    letter-spacing: 0.03125rem; /* = 0.5pt/16px body-large.tracking */
+    background-color: #fdfbff; /* background */
+    color: #1a1b1e; /* on-background */
     margin: 0;
     padding: 0;
     overflow-y: scroll;
@@ -386,8 +386,8 @@ main.normalize {
 
 @media (prefers-color-scheme: dark) {
     body {
-        background: #121212;
-        color: rgba(255 255 255 / 87%); /* 87% white */
+        background: #1a1b1e; /* background */
+        color: #e3e2e6; /* on-background */
     }
 
     a {
