@@ -758,7 +758,7 @@
                         <li>kernel (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Generic 5.10): update to latest GKI LTS branch revision including update to 5.10.209</li>
                         <li>kernel (Pixel 8, Pixel 8 Pro, Generic 5.15): update to latest GKI LTS branch revision including update to 5.15.148</li>
                         <li>kernel (Pixel 8, Pixel 8 Pro, Generic 5.15, Generic 6.1): enable both software Shadow Call Stack (SCS) and Pointer Authentication Code (PAC) protection for kernel return addresses instead of only using SCS when PAC is unavailable</li>
-                        <li>kernel (Pixel 8, Pixel 8 Pro, Generic 5.15, Generic 6.1): enable Branch Target Identification (BTI) protection for the kernel in addition to Clang type-based CFI to provide coarse-grained CFI coverage for calls excluded from CFI</li>
+                        <li>kernel (Pixel 8, Pixel 8 Pro, Generic 5.15, Generic 6.1): enable Branch Target Identification (BTI) protection for the kernel in addition to Clang type-based CFI to provide coarse-grained CFI coverage for indirect calls excluded from type-based CFI</li>
                         <li>kernel (Generic 6.1): apply sysrq hardening changes</li>
                         <li>kernel (Generic 6.1): update to latest GKI LTS branch revision including update to 6.1.74</li>
                         <li>Settings: enable SIM deletion confirmation by default</li>
