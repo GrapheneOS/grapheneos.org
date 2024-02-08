@@ -730,6 +730,9 @@
                     <p>Changes since the 2024020500 release:</p>
 
                     <ul>
+                        <li>Sandboxed Google Play compatibility layer: add developer functionality for updating Android Auto via the Play Store for testing</li>
+                        <li>Sandboxed Google Play compatibility layer: always apply PhenotypeFlag overrides to avoid regressions for some users</li>
+                        <li>Sandboxed Google Play compatibility layer: catch SecurityException from setApplicationEnabledSetting() instead of relying on PhenotypeFlag override</li>
                         <li>remove legacy AOSP Search app now that Vanadium provides the global search intent in addition to the more common web search intent also implemented by other browsers including Brave</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/121.0.6167.164.0">version 121.0.6167.164.0</a></li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-94">version 94</a></li>
