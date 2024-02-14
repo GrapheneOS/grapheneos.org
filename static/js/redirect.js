@@ -64,7 +64,7 @@ const redirects = new Map([
     ["/install/#unlocking-the-bootloader", "/install/cli#unlocking-the-bootloader"],
     ["/install/#obtaining-signify", "/install/cli#obtaining-signify"],
     ["/install/#obtaining-factory-images", "/install/cli#obtaining-factory-images"],
-    ["/install/#flashing-factory-images", "/install/cli#flashing-as-non-root"],
+    ["/install/#flashing-factory-images", "/install/cli#flashing-factory-images"],
     ["/install/#troubleshooting", "/install/cli#troubleshooting"],
     ["/install/#locking-the-bootloader", "/install/cli#locking-the-bootloader"],
     ["/install/#post-installation", "/install/cli#post-installation"],
