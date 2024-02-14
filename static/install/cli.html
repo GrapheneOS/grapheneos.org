@@ -431,9 +431,15 @@ signify -V -m allowed_signers -x allowed_signers.sig -p factory.pub</pre>
                 <pre>curl -O https://releases.grapheneos.org/<var>DEVICE_NAME</var>-factory-2021110122.zip
 curl -O https://releases.grapheneos.org/<var>DEVICE_NAME</var>-factory-2021110122.zip.sig</pre>
 
-                <p>On Linux and macOS, verify the factory images using the signature:</p>
+                <p>Next, verify the factory images using the signature.</p>
+
+                <p>On Linux and macOS:</p>
 
                 <pre>ssh-keygen -Y verify -f allowed_signers -I contact@grapheneos.org -n "factory images" -s <var>DEVICE_NAME</var>-factory-2021110122.zip.sig &lt; <var>DEVICE_NAME</var>-factory-2021110122.zip</pre>
+
+                <p>On Windows:</p>
+
+                <pre>cmd /c 'ssh-keygen -Y verify -f allowed_signers -I contact@grapheneos.org -n "factory images" -s <var>DEVICE_NAME</var>-factory-2021110122.zip.sig &lt; <var>DEVICE_NAME</var>-factory-2021110122.zip'</pre>
 
                 <p>This will producing the following output when successful:</p>
 
