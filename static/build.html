@@ -261,8 +261,11 @@
                         <li>32-bit gcc runtime library</li>
                     </ul>
 
-                    <p>The <code>signify</code> tool (with the proper naming) is also required for signing
-                    factory images zips.</p>
+                    <p>Additional dependencies for signing factory images releases:</p>
+
+                    <ul>
+                        <li>ssh-keygen (OpenSSH)</li>
+                    </ul>
                 </section>
 
                 <section id="downloading-source-code">
@@ -537,14 +540,10 @@ cd ../..</pre>
 
                     <p>Generate a signify key for signing factory images:</p>
 
-                    <pre>signify -G -n -p keys/raven/factory.pub -s keys/raven/factory.sec</pre>
+                    <pre>ssh-keygen -t ed25519 -f keys/raven/id_ed25519</pre>
 
-                    <p>Remove the <code>-n</code> switch to set a passphrase. The <code>signify</code>
-                    tool doesn't provide a way to change the passphrase without generating a new key, so
-                    this is currently handled separately from encrypting the other keys and there will be
-                    a separate prompt for the passphrase. In the future, expect this to be handled by the
-                    same scripts along with the expectation of it using the same passphrase as the other
-                    keys.</p>
+                    <p>The passphrase for the SSH key should also match the other keys, although we
+                    don't currently handle it automatically in the encrypt/decrypt scripts.</p>
 
                     <section id="encrypting-keys">
                         <h4><a href="#encrypting-keys">Encrypting keys</a></h4>

@@ -28,6 +28,8 @@ const redirects = new Map([
 
     ["/build#enabling-updatable-apex-components", "/build#apex-components"],
 
+    ["/install/cli#obtaining-signify", "/install/cli#obtaining-openssh"],
+
     // legacy devices
     ["/releases#marlin-stable", "/faq#legacy-devices"],
     ["/releases#marlin-beta", "/faq#legacy-devices"],

@@ -74,7 +74,7 @@
                     <li><a href="#booting-into-the-bootloader-interface">Booting into the bootloader interface</a></li>
                     <li><a href="#connecting-device">Connecting the device</a></li>
                     <li><a href="#unlocking-the-bootloader">Unlocking the bootloader</a></li>
-                    <li><a href="#obtaining-signify">Obtaining signify</a></li>
+                    <li><a href="#obtaining-openssh">Obtaining OpenSSH</a></li>
                     <li><a href="#obtaining-factory-images">Obtaining factory images</a></li>
                     <li>
                         <a href="#flashing-factory-images">Flashing factory images</a>
@@ -370,28 +370,22 @@ Installed as /home/username/platform-tools/fastboot</pre>
                 to confirm.</p>
             </section>
 
-            <section id="obtaining-signify">
-                <h2><a href="#obtaining-signify">Obtaining signify</a></h2>
+            <section id="obtaining-openssh">
+                <h2><a href="#obtaining-openssh">Obtaining openssh</a></h2>
 
-                <p>On the supported Linux distributions, the signify tool is used to verify the
-                download of the OS beyond the security offered by HTTPS. You should skip this on
-                macOS and Windows. It only makes sense to do this if you can obtain signify from
-                the distribution package repositories. GrapheneOS releases are hosted on our
-                servers and we do not have third party mirrors.</p>
+                <p>On the supported Linux distributions, OpenSSH is used to verify the download of
+                the OS beyond the security offered by HTTPS. You should skip this on macOS and
+                Windows. It only makes sense to do this if you can obtain OpenSSH from the
+                distribution package repositories. GrapheneOS releases are hosted on our servers and
+                we do not have third party mirrors.</p>
 
                 <p>On Arch Linux:</p>
 
-                <pre>sudo pacman -S signify</pre>
+                <pre>sudo pacman -S openssh</pre>
 
                 <p>On Debian and Ubuntu:</p>
 
-                <pre>sudo apt install signify-openbsd
-alias signify=signify-openbsd</pre>
-
-                <p>On Debian-based distributions, the <code>signify</code> package and command are an
-                <a href="http://signify.sourceforge.net/" rel="nofollow">unmaintained mail-related
-                tool for generating mail signatures (not cryptographic signatures)</a>. Make sure
-                to install <code>signify-openbsd</code>.</p>
+                <pre>sudo apt install openssh-client</pre>
             </section>
 
             <section id="obtaining-factory-images">
@@ -405,22 +399,31 @@ alias signify=signify-openbsd</pre>
                 using it for the rest of the installation process, so these instructions use
                 <code>curl</code>.</p>
 
-                <p>Download <a href="https://releases.grapheneos.org/factory.pub">the factory images
-                public key (factory.pub)</a> in order to verify the factory images:</p>
+                <p>Download <a href="https://releases.grapheneos.org/allowed_signers">the factory images
+                public key (allowed_signers)</a> in order to verify the factory images:</p>
 
-                <pre>curl -O https://releases.grapheneos.org/factory.pub</pre>
+                <pre>curl -O https://releases.grapheneos.org/allowed_signers</pre>
 
-                <p>This is the content of <code>factory.pub</code>:</p>
+                <p>This is the content of <code>allowed_signers</code>:</p>
 
-                <pre>untrusted comment: GrapheneOS factory images public key
-RWQZW9NItOuQYJ86EooQBxScfclrWiieJtAO9GpnfEjKbCO/3FriLGX3</pre>
+                <pre>contact@grapheneos.org ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIUg/m5CoP83b0rfSCzYSVA4cw4ir49io5GPoxbgxdJE</pre>
 
-                <p>The public key has also been published via the official
-                <a href="https://twitter.com/GrapheneOS/status/1145259815851253762">@GrapheneOS Twitter
-                account</a>,
-                <a href="https://www.reddit.com/r/GrapheneOS/comments/c7gb3f/grapheneos_factory_images_are_now_signed_with/esewpm9">the /u/GrapheneOS
-                Reddit account</a> and <a href="https://github.com/GrapheneOS/releases.grapheneos.org/blob/main/static/factory.pub">is available on GitHub</a>.
-                When the current signing key is replaced, the new key will be signed with it.</p>
+                <p>Other locations to obtain the signing key:</p>
+
+                <ul>
+                    <li><a href="https://bsky.app/profile/grapheneos.org/post/3kleyygkptm2x">Bluesky</a></li>
+                    <li><a href="https://twitter.com/GrapheneOS/status/1757758688952009209">Twitter</a></li>
+                    <li><a href="https://github.com/GrapheneOS/releases.grapheneos.org/blob/main/static/allowed_signers">GitHub</a></li>
+                </ul>
+
+                <p>The current public key is signed with the previous signify key. If you already
+                have the previous signify public key (factory.pub) and want to verify the new key
+                with it:</p>
+
+                <pre>curl -O https://releases.grapheneos.org/allowed_signers.sig
+signify -V -m allowed_signers -x allowed_signers.sig -p factory.pub</pre>
+
+                <p>When the current signing key is replaced, the new key will be signed with it.</p>
 
                 <p>Download the factory images for the device from <a href="/releases">the releases
                 page</a>. For example, to download the 2021110122 release for a device with the
@@ -429,14 +432,15 @@ RWQZW9NItOuQYJ86EooQBxScfclrWiieJtAO9GpnfEjKbCO/3FriLGX3</pre>
                 <pre>curl -O https://releases.grapheneos.org/<var>DEVICE_NAME</var>-factory-2021110122.zip
 curl -O https://releases.grapheneos.org/<var>DEVICE_NAME</var>-factory-2021110122.zip.sig</pre>
 
-                <p>Verify the factory images using the signature if you were able to obtain
-                <code>signify</code> from trusted package repositories (see above), otherwise
-                continue on to the next section without this:</p>
+                <p>Verify the factory images using the signature if you were able to obtain OpenSSH
+                from trusted package repositories (see above), otherwise continue on to the next
+                section without this:</p>
 
-                <pre>signify -Cqp factory.pub -x <var>DEVICE_NAME</var>-factory-2021110122.zip.sig &amp;&amp; echo verified</pre>
+                <pre>ssh-keygen -Y verify -f allowed_signers -I contact@grapheneos.org -n "factory images" -s <var>DEVICE_NAME</var>-factory-2021110122.zip.sig &lt; <var>DEVICE_NAME</var>-factory-2021110122.zip</pre>
 
-                <p>This will output <code>verified</code> if verification is successful. If something
-                goes wrong, it will output an error message rather than <code>verified</code>.</p>
+                <p>This will producing the following output when successful:</p>
+
+                <pre>Good "factory images" signature for contact@grapheneos.org with ED25519 key SHA256:AhgHif0mei+9aNyKLfMZBh2yptHdw/aN7Tlh/j2eFwM</pre>
             </section>
 
             <section id="flashing-factory-images">
