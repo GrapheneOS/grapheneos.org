@@ -23,12 +23,12 @@ const redirects = new Map([
     ["/usage#google-camera", "/usage#pixel-camera"],
 
     ["/faq#dns", "/faq#custom-dns"],
+
     ["/install/cli#fastboot-as-non-root", "/install/cli#flashing-as-non-root"],
+    ["/install/cli#obtaining-signify", "/install/cli#obtaining-openssh"],
     ["/install/web#fastboot-as-non-root", "/install/web#flashing-as-non-root"],
 
     ["/build#enabling-updatable-apex-components", "/build#apex-components"],
-
-    ["/install/cli#obtaining-signify", "/install/cli#obtaining-openssh"],
 
     // legacy devices
     ["/releases#marlin-stable", "/faq#legacy-devices"],
