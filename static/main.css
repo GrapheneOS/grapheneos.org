@@ -80,18 +80,24 @@ h6 {
 }
 
 code, pre {
-    background-color: #e0e0e0; /* grey300 */
+    background-color: #e0e2ec; /* surface-variant */
+    color: #44474e; /* on-surface-variant */
     font-family: "Roboto Mono", monospace;
+    font-size: 0.875rem; /* body-medium.size */
+    letter-spacing: 0.015625rem; /* body-medium.tracking */
+    line-height: 1.25rem; /* body-medium.line-height */
 }
 
 pre {
+    border-radius: 12px;
+    border: 1px solid #74777f /* outline */;
     overflow-x: auto;
-    border-radius: 5px;
-    padding: 10px;
+    padding: 0.875rem;
 }
 
 code {
-    border-radius: 2.5px;
+    border-radius: 8px;
+    padding: 0.25rem;
 }
 
 var {
@@ -421,7 +427,12 @@ main.normalize {
     }
 
     code, pre {
-        background-color: #424242; /* grey800 */
+        background-color: #44474e; /* surface-variant */
+        color: #c4c6cf; /* on-surface-variant */
+    }
+
+    pre {
+        border-color: #8e9099; /* outline */
     }
 
     footer a, footer a:visited {
