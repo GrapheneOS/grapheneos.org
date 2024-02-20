@@ -737,6 +737,7 @@
                         <li>Sandboxed Google Play compatibility layer: always apply PhenotypeFlag overrides to avoid regressions for some users</li>
                         <li>Sandboxed Google Play compatibility layer: catch SecurityException from setApplicationEnabledSetting() instead of relying on PhenotypeFlag override</li>
                         <li>Sandboxed Google Play compatibility layer: add support for Android Auto 11.3 by extending the wireless Android Auto and phone call handling toggles to also allow BluetoothAdapter#getActiveDevices</li>
+                        <li>Storage Scopes: avoid legacy apps using legacy storage crashing when trying to access the wallpaper</li>
                         <li>remove legacy AOSP Search app now that Vanadium provides the global search intent in addition to the more common web search intent also implemented by other browsers including Brave</li>
                         <li>Settings: improve strings for network connection toggles</li>
                         <li>kernel (5.10, 5.15, 6.1): temporarily ignore sysrq_always_enabled to avoid sysrq being enabled on devices passing it on the kernel line unconditionally</li>
