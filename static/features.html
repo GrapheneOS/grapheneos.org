@@ -852,7 +852,107 @@
                     AOSP. The Vanadium browser currently doesn't add many features but there are a
                     lot of enhancements planned in the long term.</p>
 
-                    <p>More details are available in the <a href="/usage#web-browsing">web
+                    <p>Some of the features added compared to standard mobile Chromium:</p>
+
+                    <ul>
+                        <li>Type-based Control Flow Integrity</li>
+                        <li>Hardware memory tagging (MTE) enabled for the main allocator</li>
+                        <li>Strict site isolation and sandboxed iframes</li>
+                        <li>JavaScript JIT disabled by default with per-site override option</li>
+                        <li>Native Android autofill implementation to avoid needing sandboxed Google
+                        Play for autofill support</li>
+                        <li>WebGPU disabled for attack surface reduction</li>
+                        <li>WebRTC IP handling policy toggle to control peer-to-peer WebRTC mode</li>
+                        <li>Compiler hardening: automatic variable initialization, strong stack protector, well defined signed overflow</li>
+                        <li>High performance content filtering engine using EasyList + EasyPrivacy
+                        with a per-site override option</li>
+                        <li>More complete state partitioning without origin trial opt-out</li>
+                        <li>High entropy client hints replaced with the frozen user agent values to avoid leaking device/OS info</li>
+                        <li>Battery API always shows the battery as charging and at 100% capacity</li>
+                        <li>Trivial subdomain hiding disabled</li>
+                        <li>Consistent browser behavior across users without usage of feature flags and seed-based trials</li>
+                        <li>Nearly all remote services disabled by default or removed. Only connects
+                        to GrapheneOS servers by default. There are only 2 default services:
+                        component updates such as certificate authority and certificate revocation
+                        updates and DNS-over-HTTPS connectivity checks when enabled</li>
+                        <li>Web search and global search intents to replace the need for an OS
+                        search app</li>
+                        <li>Option to always open links from other apps, custom tabs and search
+                        intents in Incognito mode</li>
+                    </ul>
+
+                    <p>Better default settings, including non-user-facing flags:</p>
+
+                    <ul>
+                        <li>Reduce Accept-Language header by default (only available via
+                        chrome://flags)</li>
+                        <li>Third party cookies disabled by default</li>
+                        <li>Payment support disabled by default</li>
+                        <li>Website background sync disabled by default</li>
+                        <li>Sensors access disabled by default</li>
+                        <li>Protected media (DRM) disabled by default</li>
+                        <li>Hyperlink auditing disabled by default</li>
+                        <li>Do Not Track enabled by default mainly to avoid users differentiating
+                        themselves from others by enabling it since it has no real value</li>
+                        <li>WebRTC IP handling policy set to the most private value by default
+                        instead of the least private value (turned into a user-facing option by
+                        Vanadium)</li>
+                    </ul>
+
+                    <p>Configurable features such as JS JIT disabling and content filtering are
+                    currently exclusive to the Vanadium browser. Vanadium WebView is currently
+                    excluded from these changes until it has an app setting configuration menu
+                    similar to the standard site setting configuration menu.</p>
+
+                    <p>Extension support isn't planned due to being at odds with site isolation and
+                    anti-fingerprinting. We plan to implement more features as part of the browser
+                    with a focus on privacy and security improvements which can be active by default
+                    rather than opt-in niche features. Improvements will generally be opt-out on a
+                    per-site basis rather than opt-in to provide privacy and security by default and
+                    to avoid users making themselves more identifiable by opting into privacy and
+                    security features. Default-disabled JS JIT and default-enabled content filtering
+                    are early examples of this approach we plan to expand upon.</p>
+
+                    <p>We plan to add more site settings toggles related to attack surface reduction
+                    such as site setting toggles for WebGL, WebGPU, WebRTC and other features which
+                    are normally always enabled. This will help with both security and improving the
+                    defenses against fingerprinting.</p>
+
+                    <p>Anti-fingerprinting depends on having a large userbase with the same browser,
+                    extensions, content filters and other web-facing configuration. Once Vanadium
+                    has more features, it will be made available outside GrapheneOS to expand the
+                    userbase. Our approach to attack surface reduction eliminates fingerprinting
+                    methods in addition to attack surface for exploits and this will be a key part
+                    of how we approach preventing fingerprinting by not having features like WebGL,
+                    WebGPU and WebRTC exposed in the first place. Good defaults and avoiding having
+                    users changing web-facing configuration is an important part of this. Content
+                    filters will remain standard across users and updated together as part of the
+                    Vanadium configuration app. We'll address the need for language-focused filters
+                    by enabling them based on browser language configuration. Fingerprinting based
+                    on hardware differences will become more relevant once Vanadium is available
+                    outside of GrapheneOS which will always support a small set of highly secure
+                    devices.</p>
+
+                    <p>State partitioning still needs to be fully completed. The main remaining
+                    hurdle is providing full cookie partitioning. Mainstream browsers with this
+                    feature rely on heuristics bypassing cookie partitioning which can be easily
+                    abused to bypass the feature. We tried deploying full cookie partitioning by
+                    default but had to roll it back and will need to consider how to approach this
+                    particularly with our goal of having most Vanadium users using nearly the same
+                    configuration.</p>
+
+                    <p>We plan to move to a better content engine with support for content hiding
+                    and more advanced filter rules in the future. Expanding the standard filters
+                    will depend on having support for the extensions used by uBlock Origin, AdGuard
+                    and other filters.</p>
+
+                    <p>Most browser data is currently excluded from OS backups, which will likely be
+                    changed once GrapheneOS has a better backup service included. Export/import for
+                    bookmarks and similar data export/import features are also planned. Sync beyond
+                    OS backup service support which will eventually provide per-app backup and
+                    restore including across devices and via sync services is not planned.</p>
+
+                    <p>More information is available in the <a href="/usage#web-browsing">web
                     browsing section of our usage guide</a>.</p>
                 </section>
 
