@@ -1466,6 +1466,33 @@
                     is problematic and a HardMAC implementation with most complexity in the isolated
                     firmware could be better than the status quo. An isolated driver would be ideal.</p>
                 </article>
+
+                <article id="bootloader-locking-setup">
+                <h2><a href="#bootloader-locking-setup">Why am I seeing a message about my bootloader not being locked when setting up the device?</a></h2>
+
+                <p>If you are seeing this warning when setting up your device after installing GrapheneOS, 
+                it means that you have not followed all of the installation steps. This can be remediated 
+                by finishing the installation process and locking the device's bootloader.</p>
+
+                <p>To do this, follow these steps:</p>
+
+               <li>
+                        <ol>
+                            <li>Navigate to the bootloader locking section of the <a href="https://grapheneos.org/install/web">web install 
+                            (recommended)</a> or <a href="https://grapheneos.org/install/cli">CLI install</a> guide.</li>
+                            <li>Press "Next" on the setup screen.</li>
+                            <li>On the confirmation prompt, tap on "Yes, reboot to bootloader".</li>
+                            <li>Connect your GrapheneOS device to the device where you have the install page open.</li>
+                            <li>Follow the steps on the respective install page to lock the bootloader.</li>
+                            <li>Once locked, you can start setting up your GrapheneOS device.</li>
+                        </ol>
+               </li>
+
+                <p>It is important to note that this is something that should be done before placing any data onto the device, 
+                as until this step is completed, the device is considered to be insecure. Please note that locking the bootloader 
+                wipes all user data on the device. GrapheneOS does not give any support whatsoever to users running with 
+                an unlocked bootloader, as this is considered to be an incomplete installation.</p>
+                </article>
             </section>
 
             <section id="day-to-day-use">
@@ -1573,33 +1600,6 @@
                     the files to yourself via an end-to-end encrypted messaging app like Element (Matrix).</p>
                 </article>
             </section>
-
-            <article id="bootloader-locking-setup">
-                <h2><a href="#bootloader-locking-setup">Why am I seeing a message about my bootloader not being locked when setting up the device?</a></h2>
-
-                <p>If you are seeing this warning when setting up your device after installing GrapheneOS, 
-                it means that you have not followed all of the installation steps. This can be remediated 
-                by finishing the installation process and locking the device's bootloader.</p>
-
-                <p>To do this, follow these steps:</p>
-
-               <li>
-                        <ol>
-                            <li>Navigate to the bootloader locking section of the <a href="https://grapheneos.org/install/web">web install 
-                            (recommended)</a> or <a href="https://grapheneos.org/install/cli">CLI install</a> guide.</li>
-                            <li>Press "Next" on the setup screen.</li>
-                            <li>On the confirmation prompt, tap on "Yes, reboot to bootloader".</li>
-                            <li>Connect your GrapheneOS device to the device where you have the install page open.</li>
-                            <li>Follow the steps on the respective install page to lock the bootloader.</li>
-                            <li>Once locked, you can start setting up your GrapheneOS device.</li>
-                        </ol>
-               </li>
-
-                <p>It is important to note that this is something that should be done before placing any data onto the device, 
-                as until this step is completed, the device is considered to be insecure. Please note that locking the bootloader 
-                wipes all user data on the device. GrapheneOS does not give any support whatsoever to users running with 
-                an unlocked bootloader, as this is considered to be an incomplete installation.</p>
-                </article>
 
             <article id="google-services">
                 <h2><a href="#google-services">Will GrapheneOS include support for Google services?</a></h2>
