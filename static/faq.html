@@ -104,6 +104,7 @@
                             <li><a href="#file-transfer">How do I transfer files to another device?</a></li>
                         </ul>
                     </li>
+                    <li><a href="#bootloader-locking-setup">Why am I seeing a message about my bootloader not being locked when setting up the device?</a></li>
                     <li><a href="#google-services">Will GrapheneOS include support for Google services?</a></li>
                     <li><a href="#features">What features does GrapheneOS implement?</a></li>
                     <li><a href="#anti-theft">Does GrapheneOS provide Factory Reset Protection?</a></li>
@@ -1572,6 +1573,32 @@
                     the files to yourself via an end-to-end encrypted messaging app like Element (Matrix).</p>
                 </article>
             </section>
+
+            <article id="bootloader-locking-setup">
+                <h2><a href="#bootloader-locking-setup">Why am I seeing a message about my bootloader not being locked when setting up the device?</a></h2>
+
+                <p>If you are seeing this warning when setting up your device after installing GrapheneOS, 
+                it means that you have not followed all of the installation steps. This can be remediated 
+                by finishing the installation process and locking the device's bootloader.</p>
+
+                <p>To do this, follow these steps:</p>
+
+               <li>
+                        <ol>
+                            <li>Navigate to the bootloader locking section of the <a href="https://grapheneos.org/install/web">web install 
+                            (recommended)</a> or <a href="https://grapheneos.org/install/cli">CLI install</a> guide.</li>
+                            <li>Press "Next" on the setup screen.</li>
+                            <li>On the confirmation prompt, tap on "Yes, reboot to bootloader".</li>
+                            <li>Connect your GrapheneOS device to the device where you have the install page open.</li>
+                            <li>Follow the steps on the respective install page to lock the bootloader.</li>
+                            <li>Once locked, you can start setting up your GrapheneOS device.</li>
+                        </ol>
+               </li>
+
+                <p>It is important to note that this is something that should be done as soon as possible, 
+                rather than after settup, as locking the bootloader wipes all user data on the device, 
+                along with making the device insecure.</p>
+                </article>
 
             <article id="google-services">
                 <h2><a href="#google-services">Will GrapheneOS include support for Google services?</a></h2>
