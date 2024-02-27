@@ -733,6 +733,9 @@
                     <p>Changes since the 2024022300 release:</p>
 
                     <ul>
+                        <li>Tensor Pixels: add new USB-C port mode setting to Settings > Security providing a high level of control over USB functionality with hardware-specific integration for disabling USB controller functionality including fully disabling the data lines. There are 5 modes: On (current default during testing), Charging-only when locked except before first unlock (likely near future default), Charging-only when locked, Charging-only and Off (which even disables charging while booted into the normal OS mode). The modes tied to lock state permit already connected devices to continue working after locking and disable the data lines at a USB controller level after disconnecting. This is much different from the existing USB features including the Android 12 USB HAL toggle which only disable high-level kernel functionality and leave all the low-level kernel driver, USB protocol and USB controller attack surface enabled.</li>
+                        <li>kernel (5.10, 5.15): add support for ignoring USB alt modes</li>
+                        <li>kernel (Tensor Pixels): extend max77759 USB-C controller driver with support for a sysfs node providing fine-grained control over the USB-C data path at the USB controller level (only possible via hardware-specific code)</li>
                         <li>Setup Wizard: fix crash for SIM locales not recognized by com.android.internal.app.LocalePicker</li>
                     </ul>
                 </article>
