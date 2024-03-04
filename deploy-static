@@ -16,6 +16,10 @@ servers=({0..3}.grapheneos.org)
 rsync -pcv --chmod=F755 --fsync --preallocate certbot-replicate root@${servers[0]}:/usr/local/bin/
 rsync -pcv --chmod=F644 --fsync --preallocate replicate.conf root@${servers[0]}:/etc/systemd/system/certbot-renew.service.d/
 
+# use last modified timestamps from 0.grapheneos.org
+rsync -rptcv --chmod=D755,F644 --delete --fsync --preallocate root@${servers[0]}:/srv/grapheneos.org/ static-deploy
+rsync -rpcv --chmod=D755,F644 --delete --fsync --preallocate static-tmp/ static-deploy
+
 for server in ${servers[@]}; do
     echo $server
 
@@ -33,7 +37,7 @@ for server in ${servers[@]}; do
     echo
 
     ssh $remote "rm -rf $target && cp -a $active $target"
-    rsync -rpcv --chmod=D755,F644 --delete --fsync --preallocate static-tmp/ $remote:$target
+    rsync -rptcv --chmod=D755,F644 --delete --fsync --preallocate static-deploy/ $remote:$target
     ssh $remote "ln -snf $target /srv/grapheneos.org && sync /srv/grapheneos.org"
 
     echo "root $target;" > nginx-tmp/root_grapheneos.org.conf

@@ -2,5 +2,6 @@
 /nginx-tmp/
 /node_modules/
 /releases-base
+/static-deploy/
 /static-tmp/
 /venv/
