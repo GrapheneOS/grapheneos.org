@@ -734,7 +734,7 @@ repo sync -j8</pre>
 
                         <p>To build the shusky kernel for the Pixel 8 and Pixel 8 Pro:</p>
 
-                        <pre>BUILD_AOSP_KERNEL=1 ./build_shusky.sh --lto=full</pre>
+                        <pre>./build_shusky.sh --config=use_source_tree_aosp --config=no_download_gki --lto=full</pre>
 
                         <p>Replace the files in the OS source tree at
                         <code>device/google/shusky-kernel/</code> with your build in
