@@ -734,6 +734,7 @@
                     <p>Changes since the 2024030800 release:</p>
 
                     <ul>
+                        <li>fix upstream Android 14 QPR2 use-after-free bug impacting Bluetooth LE audio with certain devices which is reliably caught by our hardware memory tagging integration on the Pixel 8 and Pixel 8 Pro, and which is likely also breaking these devices on earlier generations due to zero-on-free but without making a nice easy to use crash report like MTE</li>
                         <li>Settings: hide placeholder dates for Battery information screen in Settings > About device due to 6th/7th generation Pixel batteries having a placeholder value for the first use date</li>
                     </ul>
                 </article>
