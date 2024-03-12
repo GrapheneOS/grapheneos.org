@@ -753,7 +753,7 @@
                     <ul>
                         <li>toggle USB port after device unlock to automatically detect a device plugged in while it was in charging-only mode while locked, etc.</li>
                         <li>change default mode for our USB-C port control feature currently exclusive to Tensor Pixels to "Charging-only when locked, except before first unlock" (doesn't apply to connections that were made before locking or first unlock) which can be changed by users in Settings > Security > USB-C port</li>
-                        <li>fix support Wi-Fi auto-turn-off issues caused by Android 14 QPR14 changes</li>
+                        <li>fix Wi-Fi auto-turn-off issues leading to it not triggering in certain cases caused by backwards incompatible changes in Android 14 QPR2</li>
                         <li>Pixel 8, Pixel 8 Pro: fix enabling DisplayPort alternate mode support</li>
                         <li>Pixel 8, Pixel 8 Pro: fully enable PAC and BTI for userspace too, especially since ShadowCallStack is not currently used in userspace and Clang type-based CFI is not fully deployed</li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-98">version 98</a></li>
