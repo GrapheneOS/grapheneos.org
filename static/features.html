@@ -343,6 +343,12 @@
                                     there's a deep userspace compromise.</li>
                                     <li>Additional consistency / integrity checks are enabled for
                                     frequently targeted kernel data structures.</li>
+                                    <li>On ARMv9, Branch Target Identification (BTI) is enabled in
+                                    addition to Clang type-based Control Flow Integrity (CFI) to
+                                    cover functions excluded from type-based CFI</li>
+                                    <li>On ARMv9, ShadowCallStack (SCS) is enabled in addition to
+                                    Pointer Authentication Code (PAC) return address protection
+                                    instead of only enabling SCS when PAC is unavailable</li>
                                 </ul>
                             </li>
                             <li>Android Runtime Just-In-Time (JIT) compilation/profiling is fully
