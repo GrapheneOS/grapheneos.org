@@ -305,7 +305,11 @@
                                     been reused once and gone through the quarantines twice</li>
                                 </ul>
                             </li>
-                            <li>Hardened compiler toolchain</li>
+                            <li>On ARMv9, Branch Target Identification (BTI) and Pointer
+                            Authentication Code (PAC) return address protection are enabled for
+                            userspace OS code we build instead of only specific apps</li>
+                            <li>Signed integer overflow is made well defined in C and C++ for code
+                            where automatic overflow checking is disabled</li>
                             <li>
                                 Hardened kernel
                                 <ul>
