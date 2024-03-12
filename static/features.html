@@ -187,39 +187,39 @@
                     bugs via languages/tooling or preventing exploitation with strong exploit
                     mitigations. In many cases, vulnerability classes can be completely wiped out
                     while in many others they can at least be made meaningfully harder to exploit.
-                    Android does a lot of work in this area and GrapheneOS has helped to advance
+                    Android does a lot of work in this area, and GrapheneOS has helped to advance
                     this in Android and the Linux kernel. It takes an enormous amount of resources
                     to develop fundamental fixes for these problems and there's often a high
                     performance, memory or compatibility cost to deploying them. Mainstream
                     operating systems usually don't prioritize security over other areas.
-                    GrapheneOS is willing to go further and we offer toggles for users to choose
+                    GrapheneOS is willing to go further, thus we offer toggles for users to choose
                     the compromises they prefer instead of forcing it on them. In the meantime,
                     weaker less complete exploit mitigations can still provide meaningful barriers
                     against attacks as long as they're developed with a clear threat model.
                     GrapheneOS is heavily invested in many areas of developing these protections:
-                    developing/deploying memory safe languages / libraries, static/dynamic
+                    developing/deploying memory safe languages/libraries, static/dynamic
                     analysis tooling and many kinds of mitigations.</p>
 
                     <p>The final line of defense is containment through sandboxing at various
                     levels: fine-grained sandboxes around a specific context like per site browser
                     renderers, sandboxes around a specific component like Android's media codec
-                    sandbox and app / workspace sandboxes like the Android app sandbox used to
+                    sandbox and app/workspace sandboxes like the Android app sandbox used to
                     sandbox each app which is also the basis for user/work profiles. GrapheneOS
                     improves all of these sandboxes through fortifying the kernel and other base
                     OS components along with improving the sandboxing policies.</p>
 
                     <p>Preventing an attacker from persisting their control of a component or the
-                    OS / firmware through verified boot and avoiding trust in persistent state
+                    OS/firmware through verified boot and avoiding trust in persistent state
                     also helps to mitigate the damage after a compromise has occurred.</p>
 
                     <p>Remote code execution vulnerabilities are the most serious and allow an
-                    attacker to gain a foothold on device or even substantial control over it
+                    attacker to gain a foothold on the device or even substantial control over it
                     remotely. Local code execution vulnerabilities allow breaking out of a sandbox
                     including the app sandbox or browser renderer sandbox after either
-                    compromising an app / browser renderer remotely, compromising an app's supply
+                    compromising an app/browser renderer remotely, compromising an app's supply
                     chain or getting the user to install a malicious app. Many other kinds of
                     vulnerabilities exist but most of what we're protecting against falls into
-                    these 2 broad categories.</p>
+                    these two broad categories.</p>
 
                     <p>The vast majority of local and remote code execution vulnerabilities are
                     memory corruption bugs caused by memory unsafe languages or rare low-level
@@ -239,7 +239,7 @@
                             stripping out unnecessary code, making more features optional and disabling
                             optional features by default (NFC, Bluetooth, UWB, etc.), when the screen is
                             locked (connecting new USB peripherals, camera access) and optionally after a
-                            timeout (Bluetooth, Wi-Fi)</li>
+                            timeout (Bluetooth, Wi-Fi).</li>
                             <li>Native debugging (ptrace) access is blocked for all bundled apps to
                             reduce local attack surface. ptrace access is allowed by default for user
                             installed apps for compatibility, with an option to block it by default. In
@@ -345,7 +345,7 @@
                                     mode help to enforce a low-level boundary between the kernel
                                     and userspace even if mistakes are made in SELinux policy or
                                     there's a deep userspace compromise.</li>
-                                    <li>Additional consistency / integrity checks are enabled for
+                                    <li>Additional consistency/integrity checks are enabled for
                                     frequently targeted kernel data structures.</li>
                                     <li>On ARMv9, Branch Target Identification (BTI) is enabled in
                                     addition to Clang type-based Control Flow Integrity (CFI) to
@@ -461,7 +461,7 @@
 
                     <p>Since the Google Play apps are simply regular apps on GrapheneOS, you install
                     them within a specific user or work profile and they're only available within that
-                    profile. Only apps within the same profile can use it and they need to explicitly
+                    profile. Only apps within the same profile can use it, and they need to explicitly
                     choose to use it. It works the same way as any other app and has no special
                     capabilities. As with any other app, it can't access data of other apps and
                     requires explicit user consent to gain access to profile data or the standard
@@ -476,7 +476,7 @@
                     compatibility layer.</p>
 
                     <p>The vast majority of Play services functionality works perfectly including
-                    dynamically downloaded / updated modules (dynamite modules) and functionality
+                    dynamically downloaded/updated modules (dynamite modules) and functionality
                     provided by modular app components such as Google Play Games. By default,
                     location requests are rerouted to a reimplementation of the Play geolocation
                     service provided by GrapheneOS. You can disable rerouting and use the standard
@@ -485,7 +485,7 @@
 
                     <p>Our compatibility layer includes full support for the Play Store. Play
                     Store services are fully available including in-app purchases, Play Asset
-                    Delivery, Play Feature Delivery and app / content license checks. It can
+                    Delivery, Play Feature Delivery and app/content license checks. It can
                     install, update and uninstall apps with the standard approach requiring that
                     the user authorizes it as an app source and consents to each action. It will
                     use the standard Android 12+ unattended update feature to do automatic updates
@@ -545,14 +545,14 @@
                     Recognition) including an accelerometer, gyroscope, compass, barometer,
                     thermometer and any other sensors present on a given device. When access is
                     disabled, apps receive zeroed data when they check for sensor values and don't
-                    receive events. GrapheneOS creates an easy to disable notification when apps
+                    receive events. GrapheneOS creates an easy-to-disable notification when apps
                     try to access sensors blocked by the permission being denied. This makes the
                     feature more usable since users can tell if the app is trying to access this
                     functionality.</p>
 
                     <p>To avoid breaking compatibility with Android apps, the added permission is
                     enabled by default. When an app attempts to access sensors and receives zeroed
-                    data due to being denied, GrapheneOS creates a notification which can be
+                    data due to being denied, GrapheneOS creates a notification that can be
                     easily disabled. The Sensors permission can be set to be disabled by default
                     for user installed apps in <b>Settings&#160;<span aria-label="and
                     then">></span> Privacy</b>.</p>
@@ -593,7 +593,7 @@
                     APN, carrier configuration, MMS and visual voicemail databases to the formats
                     used by AOSP with our CarrierConfig2 project and scripts. We strip out
                     anti-user configuration requiring provisioning for tethering, forbidding
-                    disabling 2G, etc. We don't include the invasive carrier specific apps and
+                    disabling 2G, etc. We don't include the invasive carrier-specific apps and
                     support for Open Mobile Alliance Device Management (OMA DM) so we also strip
                     out configuration depending on those.</p>
 
@@ -642,15 +642,15 @@
                     same value shown at <b>Settings&#160;<span aria-label="and then">></span>
                     About device&#160;<span aria-label="and then">></span> Build number</b>. This
                     leaks the OS, OS version and also usually the device family/model since builds are
-                    usually specific to a family of devices. GrapheneOS completely disables this
+                    specific to a family of devices. GrapheneOS completely disables this
                     tag.</p>
 
                     <p>On Android, each screenshot also includes EXIF tags with the local date,
-                    time and timezone offset. GrapheneOS disables this by default in order to
+                    time and timezone offset. GrapheneOS disables this by default to
                     avoid leaking the time and quasi-location information through metadata that
                     isn't visible to the user. The date and time are already included in the file
                     name of the screenshot which is fully visible to the user and can be easily
-                    modified by them without a third party tool. GrapheneOS includes a toggle for
+                    modified by them without a third-party tool. GrapheneOS includes a toggle for
                     turning this metadata back on in <b>Settings&#160;<span aria-label="and
                     then">></span> Privacy</b> since some users may find it to be useful.</p>
                 </section>
@@ -755,7 +755,7 @@
                     <h3><a href="#auto-reboot">Auto reboot</a></h3>
 
                     <p>Option to enable automatically rebooting the device when no profile has
-                    been unlocked for the configured time period to put the device fully at rest
+                    been unlocked for the configured period to put the device fully at rest
                     again, which is enabled by default at 18 hours. This can be configured at
                     Settings > Security > Auto reboot.</p>
                 </section>
@@ -845,8 +845,8 @@
                 <section id="grapheneos-app-repository">
                     <h3><a href="#grapheneos-app-repository">GrapheneOS app repository</a></h3>
 
-                    <p>GrapheneOS includes our own security, minimalism and usability focused app
-                    repository client for using our first party app repository. Our app repository
+                    <p>GrapheneOS includes our own security, minimalism and usability-focused app
+                    repository client for using our first-party app repository. Our app repository
                     is currently used to distribute our own apps and a mirror of Google Play for
                     the sandboxed Google Play feature. In the future, it will be used to
                     distribute first-party GrapheneOS builds of externally developed open source
@@ -873,11 +873,11 @@
                         Play for autofill support</li>
                         <li>WebGPU disabled for attack surface reduction</li>
                         <li>WebRTC IP handling policy toggle to control peer-to-peer WebRTC mode</li>
-                        <li>Compiler hardening: automatic variable initialization, strong stack protector, well defined signed overflow</li>
+                        <li>Compiler hardening: automatic variable initialization, strong stack protector, well-defined signed overflow</li>
                         <li>High performance content filtering engine using EasyList + EasyPrivacy
                         with per-site toggle via drop-down permission menu</li>
                         <li>More complete state partitioning without origin trial opt-out</li>
-                        <li>High entropy client hints replaced with the frozen user agent values to avoid leaking device/OS info</li>
+                        <li>High entropy client hints are replaced with the frozen user agent values to avoid leaking device/OS info</li>
                         <li>Battery API always shows the battery as charging and at 100% capacity</li>
                         <li>Trivial subdomain hiding disabled</li>
                         <li>Consistent browser behavior across users without usage of feature flags and seed-based trials</li>
@@ -975,11 +975,11 @@
                     app</a> and <a href="https://attestation.app/">attestation service</a>
                     provide strong hardware-based verification of the authenticity and integrity
                     of the firmware/software on the device. A strong pairing-based approach is
-                    used which also provides verification of the device's identity based on the
-                    hardware backed key generated for each pairing. Software-based checks are
+                    used which also verifies the device's identity based on the
+                    hardware-backed key generated for each pairing. Software-based checks are
                     layered on top with trust securely chained from the hardware. For more
-                    details, see the <a href="https://attestation.app/about">about page</a> and
-                    <a href="https://attestation.app/tutorial">tutorial</a>.</p>
+                    details, see the <a href="https://attestation.app/about">About</a> and
+                    <a href="https://attestation.app/tutorial">Tutorial</a> pages.</p>
                 </section>
 
                 <section id="grapheneos-camera">
@@ -987,7 +987,7 @@
 
                     <p><a href="/usage#grapheneos-camera-app">GrapheneOS Camera</a> is a modern
                     camera app with a great user interface and a focus on privacy and
-                    security. More details are available the <a href="/usage#camera">camera
+                    security. More details are available in the <a href="/usage#camera">camera
                     section of our usage guide</a>.</p>
                 </section>
 
@@ -1010,7 +1010,7 @@
                     <p>Seedvault was created by a GrapheneOS community member for inclusion in our
                     operating system. We plan on replacing it with a new implementation since the
                     project has been taken over by another group of people not sharing our goals
-                    or approach. For now, this is the best available option so we're including it
+                    or approach. For now, this is the best available option, so we're including it
                     to give people encrypted backup support. We've made several security fixes to
                     work around upstream issues with the project.</p>
                 </section>
@@ -1063,7 +1063,7 @@
                         <li>Improved user visibility into persistent firmware security through version
                         and configuration verification with reporting of inconsistencies and debug
                         features being enabled.</li>
-                        <li>Authenticated encryption for network time updates via a first party server to
+                        <li>Authenticated encryption for network time updates via a first-party server to
                         prevent attackers from changing the time and enabling attacks based on bypassing
                         certificate / key expiry, etc.</li>
                         <li>Proper support for disabling network time updates rather than just not using
@@ -1077,9 +1077,9 @@
                         <li><a href="/faq#bundled-apps">Minimal bundled apps and services</a>. Only
                         essential apps are integrated into the OS. We don't make partnerships with
                         apps and services to bundle them into the OS. An app may be the best choice
-                        today and poor choice in the future. Our approach will be recommending certain
+                        today but a poor choice in the future, and vice-versa. Our approach will be recommending certain
                         apps during the initial setup, not hard-wiring them into the OS.</li>
-                        <li>Wireless alerts are fully optional since GrapheneOS adds a toggle for
+                        <li>Wireless alerts are completely optional since GrapheneOS adds a toggle for
                         the otherwise mandatory presidential alert type. This is particularly
                         useful in Canada where the government abuses the system and sends every
                         type of alert as a presidential alert to stop users from being able to opt
@@ -1125,12 +1125,12 @@
 
                 <ul>
                     <li>Strict privacy and security practices for our infrastructure</li>
-                    <li>Unnecessary logging is avoided and logs are automatically purged after 4
+                    <li>Unnecessary logging is avoided, and logs are automatically purged after 4
                     days (network services used by the OS) to 10 days</li>
                     <li>Services are hosted entirely via our own dedicated servers and virtual
                     machines from OVH without involving any additional parties for CDNs, SaaS
                     platforms, mirrors or other services</li>
-                    <li>Our services are built with open technology stacks to avoid being locked in to
+                    <li>Our services are built with open technology stacks to avoid being locked into
                     any particular hosting provider or vendor</li>
                     <li>Open documentation on our infrastructure including listing out all of our
                     services, guides on making similar setups, published configurations for each
@@ -1176,7 +1176,7 @@
                 <ul>
                     <li>Collaborative, <a href="/source">open source project</a> with a
                     <a href="/contact#community">very active community</a> and contributors</li>
-                    <li>Can make your own builds and make desired changes, so you aren't stuck with
+                    <li>You can make your own builds and make desired changes, so you aren't stuck with
                     the decisions made by the upstream project</li>
                     <li>Non-profit project avoiding conflicts of interest by keeping commercialization
                     at a distance. Companies support the project
