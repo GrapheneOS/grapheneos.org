@@ -350,7 +350,7 @@
                 <h2><a href="#accessibility">Accessibility</a></h2>
 
                 <p>GrapheneOS includes all of the accessibility features from the Android Open
-                Source Project and strives to fill in the gaps by not including Google apps and
+                Source Project and strives to fill in the gaps from not including Google apps and
                 services. We include our own fork of the open source TalkBack accessibility
                 service along with a Monochromacy option for the standard color correction
                 menu.</p>
@@ -432,7 +432,7 @@
                     features.</p>
 
                     <p>The "Permitted networks" setting controls which networks will be used to perform
-                    updates. It defaults to use any network connection. It can be set to "Non-roaming"
+                    updates. Its default is to use any network connection. It can be set to "Non-roaming"
                     to disable it when the cellular service is marked as roaming or "Unmetered" to disable
                     it on cellular networks and also Wi-Fi networks marked as metered.</p>
 
@@ -464,7 +464,7 @@
                     able to comply with a government order to build, sign and ship a malicious update to a
                     specific user's device based on information like the IMEI, serial number, etc. The
                     update server only ends up knowing the IP address used to connect to it and the
-                    version being upgraded based on the requested incremental.</p>
+                    version being upgraded from based on the requested incremental.</p>
 
                     <p>Android updates can support serialno constraints to make them validate only on a
                     certain device but GrapheneOS rejects any update with a serialno constraint for both
@@ -476,7 +476,7 @@
 
                     <p>It's highly recommended to leave automatic updates enabled and to configure the
                     permitted networks if the bandwidth usage is a problem on your mobile data connection.
-                    However, it's possible to turn off the update client by going to Settings ➔ Apps ➔ See all xxx apps,
+                    However, it's possible to turn off the update client by going to Settings ➔ Apps ➔ See all ### apps,
                     enabling <strong>Show system</strong> via the three dots menu, selecting <strong>System Updater</strong> and disabling the
                     app. If you do this, you'll need to remember to enable it again to start receiving
                     updates.</p>
@@ -620,7 +620,7 @@
                 having the remote attack surface of two separate browser engines instead of only one.
                 Firefox/Gecko also bypasses or cripples a fair bit of the upstream and GrapheneOS
                 hardening work for apps. Worst of all, Firefox does not have internal sandboxing
-                on Android. Even though Chromium semantic sandbox layer on
+                on Android even though Chromium semantic sandbox layer on
                 Android is implemented via the OS <code>isolatedProcess</code> feature, which is a
                 very easy-to-use boolean property for app service processes to provide strong
                 isolation with only the ability to communicate with the app running them via the
@@ -1087,7 +1087,7 @@
                     Google Play services along with the Nearby Devices permission for it to have
                     all the access it needs. You need to use the "Google Location Accuracy" link
                     from the sandboxed Google Play configuration menu to access the Google Play
-                    services menu for opting into their network location service, otherwise, this
+                    services menu for opting into their network location service, otherwise this
                     is all pointless. It will send the nearby Wi-Fi and cellular networks provided
                     via the Location and Nearby Devices permissions to their service to retrieve a
                     location estimate. To fully take advantage of Wi-Fi and Bluetooth
@@ -1188,7 +1188,7 @@
                 permission toggles, links to related configuration screens, configuration tips, and
                 links to optional Android Auto dependencies.</p>
 
-                <p>The permission toggles ask for a confirmation before turning it on. The
+                <p>The permission toggles ask for a confirmation before enabling the permission. The
                 confirmation popup explains what access each permission toggle provides.</p>
 
                 <p>By default, Android Auto is not granted any kind of privileged access. It's
@@ -1208,7 +1208,7 @@
                 allowed notification access. The notification access settings are linked below the
                 permission toggles.</p>
 
-                <p>For Android Auto to show up in the car interface, apps have to be installed
+                <p>In order to show up in the Android Auto car interface, apps have to be installed
                 from the Play Store and include Android Auto support.</p>
 
                 <p>See Google's <a href="https://support.google.com/androidauto/topic/6106969">
