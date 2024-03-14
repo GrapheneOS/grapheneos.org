@@ -353,7 +353,7 @@
                 <h2><a href="#accessibility">Accessibility</a></h2>
 
                 <p>GrapheneOS includes all of the accessibility features from the Android Open
-                Source Project and strives to fill in the gaps by not including Google apps and
+                Source Project and strives to fill in the gaps from not including Google apps and
                 services. We include our own fork of the open source TalkBack accessibility
                 service along with a Monochromacy option for the standard color correction
                 menu.</p>
@@ -469,7 +469,7 @@
                     able to comply with a government order to build, sign and ship a malicious update to a
                     specific user's device based on information like the IMEI, serial number, etc. The
                     update server only ends up knowing the IP address used to connect to it and the
-                    version being upgraded based on the requested incremental.</p>
+                    version being upgraded from based on the requested incremental.</p>
 
                     <p>Android updates can support serialno constraints to make them validate only on a
                     certain device but GrapheneOS rejects any update with a serialno constraint for both
@@ -479,13 +479,28 @@
                 <section id="updates-disabling">
                     <h3><a href="#updates-disabling">Disabling</a></h3>
 
+<<<<<<< HEAD
                     <p>It's highly recommended to leave automatic updates enabled and to configure
                     the permitted networks if the bandwidth usage is a problem on your mobile data
                     connection. However, it's possible to turn off the update client by going to
+<<<<<<< HEAD
                     <b>Settings&#160;<span aria-label="and then">></span> Apps&#160;<span aria-label="and then">></span>
                     See all ### apps</b>, enabling <strong>Show system</strong> via the menu,
                     selecting <strong>System Updater</strong> and disabling the app. If you do this,
                     you'll need to remember to enable it again to start receiving updates.</p>
+=======
+                    <b>Settings&#160;<span aria-label="and then">></span> Apps</b>, enabling Show
+                    system via the menu, selecting System Updater and disabling the app. If you do
+                    this, you'll need to remember to enable it again to start receiving updates.</p>
+=======
+                    <p>It's highly recommended to leave automatic updates enabled and to configure the
+                    permitted networks if the bandwidth usage is a problem on your mobile data connection.
+                    However, it's possible to turn off the update client by going to Settings ➔ Apps ➔ See all ### apps,
+                    enabling <strong>Show system</strong> via the three dots menu, selecting <strong>System Updater</strong> and disabling the
+                    app. If you do this, you'll need to remember to enable it again to start receiving
+                    updates.</p>
+>>>>>>> 0a216e19 (other8026' reviews)
+>>>>>>> 65413145 (other8026' reviews)
                 </section>
 
                 <section id="updates-sideloading">
@@ -1095,6 +1110,7 @@
                     aria-label="and then">></span> Sandboxed Google Play</b>.</p>
 
                     <p>By default, apps using Google Play geolocation are redirected to our own
+<<<<<<< HEAD
                     implementation on top of the standard OS geolocation service. You don't need to
                     grant any permissions to Google Play or change any settings for working location
                     in apps using Google Play geolocation due to our rerouting feature. If you want
@@ -1113,6 +1129,26 @@
                     Location &#160;<span aria-label="and then">></span> Location services</b> which
                     are disabled by default and control whether apps with the required permissions can
                     scan when Wi-Fi and Bluetooth are otherwise disabled.</p>
+=======
+                    implementation on top of the standard OS geolocation service. You don't need
+                    to grant any permissions to Google Play or change any settings for working
+                    location in apps using Google Play geolocation due to our rerouting feature.
+                    If you want to use Google's network location service to provide location
+                    estimates without satellite reception, you can disable the "Reroute location
+                    requests to OS APIs" toggle and grant what it requires to provide network
+                    location. You will need to grant "Allow all the time" Location access to
+                    Google Play services along with the Nearby Devices permission for it to have
+                    all the access it needs. You need to use the "Google Location Accuracy" link
+                    from the sandboxed Google Play configuration menu to access the Google Play
+                    services menu for opting into their network location service, otherwise this
+                    is all pointless. It will send the nearby Wi-Fi and cellular networks provided
+                    via the Location and Nearby Devices permissions to their service to retrieve a
+                    location estimate. To fully take advantage of Wi-Fi and Bluetooth
+                    scanning, you also need to enable the scanning toggles in Settings ➔ Location
+                    ➔ Location services which are disabled by default and control whether apps
+                    with the required permissions can scan when Wi-Fi and Bluetooth are otherwise
+                    disabled.</p>
+>>>>>>> 0a216e19 (other8026' reviews)
 
                     <p>Re-routing location to the OS geolocation service will use more power than
                     using the Google Play geolocation service since we do not provide a
@@ -1231,7 +1267,7 @@
                 allowed notification access. The notification access settings are linked below the
                 permission toggles.</p>
 
-                <p>For Android Auto to show up in the car interface, apps have to be installed
+                <p>In order to show up in the Android Auto car interface, apps have to be installed
                 from the Play Store and include Android Auto support.</p>
 
                 <p>See Google's <a href="https://support.google.com/androidauto/topic/6106969">
