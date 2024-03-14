@@ -43,7 +43,7 @@
                 <h2><a href="#table-of-contents">Table of contents</a></h2>
                 <ul>
                     <li>
-                        <a href="#system-navigation">System navigation</a>
+                        <a href="#navigation-mode">Navigation mode</a>
                         <ul>
                             <li><a href="#gesture-navigation">Gesture navigation</a></li>
                             <li><a href="#3-button-navigation">3-button navigation</a></li>
@@ -102,8 +102,8 @@
                 </ul>
             </nav>
 
-            <section id="system-navigation">
-                <h2><a href="#system-navigation">System navigation</a></h2>
+            <section id="navigation-mode">
+                <h2><a href="#navigation-mode">Navigation mode</a></h2>
 
                 <p>By default, GrapheneOS uses gesture-based navigation. We recommend reading our
                 guide on gesture navigation and giving it a chance even if you think you won't
@@ -111,8 +111,8 @@
                 vast majority of users prefer the newer gesture navigation approach.</p>
 
                 <p>The system navigation mode can be configured in Settings ➔ System ➔ Gestures ➔
-                System navigation. The same menu is also available in Settings ➔ Accessibility ➔
-                System controls ➔ System navigation.</p>
+                Navigation mode. The same menu is also available in Settings ➔ Accessibility ➔
+                System controls ➔ Navigation mode.</p>
 
                 <section id="gesture-navigation">
                     <h3><a href="#gesture-navigation">Gesture navigation</a></h3>
@@ -148,14 +148,14 @@
                     gesture if they truly need to get rid of it. Some legacy apps without active
                     development of their UI still haven't addressed this despite gestures being
                     the default for several years on Google Android. You can avoid triggering the
-                    back gesture in one of 2 easy ways: avoid swiping from right near the edge or
+                    back gesture in one of two easy ways: avoid swiping from right near the edge or
                     hold your finger on the side of the screen for a moment before swiping. The
-                    more advanced option is using a diagonal swipe pointing sharply to the bottom
+                    more advanced option is to use a diagonal swipe pointing sharply to the bottom
                     of the screen since this will bypass the back gesture but will still trigger
                     most app gestures. The advanced option is the most convenient approach once
                     you get used to doing it.</p>
 
-                    <p>The launcher uses a swipe up gesture starting anywhere on the screen to
+                    <p>The launcher uses a swipe-up gesture starting anywhere on the screen to
                     open the app drawer from the home screen. You need to start that gesture above
                     the system navigation bar since any gesture starting on the navigation bar is
                     handled by the OS as a system navigation gesture.</p>
@@ -238,7 +238,7 @@
                         <code>READ_MEDIA_IMAGES</code>, <code>READ_MEDIA_VIDEO</code> and
                         <code>READ_MEDIA_AUDIO</code>.</li>
                     <li>Media management special access permission ("Allow app to manage media",
-                        <code>MANAGE_MEDIA</code>) allows the app to delete and to rename media
+                        <code>MANAGE_MEDIA</code>) allows the app to delete and rename media
                         files created by other apps.</li>
                     <li>"All files access" special access permission (<code>MANAGE_EXTERNAL_STORAGE</code>)
                         allows the app to read, create, rename and delete files and directories
@@ -250,7 +250,7 @@
                 Android 10 and request legacy storage mode), storage access permissions have
                 a different meaning:</p>
                 <ul>
-                    <li>Without a storage permission, app is not allowed any type of access to
+                    <li>Without storage permission, an app is not allowed any type of access to
                         any files or directories inside the shared storage.</li>
                     <li><code>READ_EXTERNAL_STORAGE</code> permission allows the app to read both
                     media and non-media files in any directory.</li>
@@ -294,8 +294,8 @@
                     permission are relaxed to provide the same write access that the app would have if
                     it was granted the "All files access" permission.
                     This is done to ensure compatibility with apps that, for example, create a new
-                    directory in the root of shared storage, or write a text file (eg lyrics.txt) to
-                    the Music/ directory (normally, only audio files can be placed there).
+                    directory in the root of shared storage or write a text file (eg lyrics.txt) to
+                    the <code>Music/</code> directory (normally, only audio files can be placed there).
                     No additional read access is granted to such apps, they still can see only their
                     own files.
                     </p>
@@ -350,7 +350,7 @@
                 <h2><a href="#accessibility">Accessibility</a></h2>
 
                 <p>GrapheneOS includes all of the accessibility features from the Android Open
-                Source Project and strives to fill in the gaps from not including Google apps and
+                Source Project and strives to fill in the gaps by not including Google apps and
                 services. We include our own fork of the open source TalkBack accessibility
                 service along with a Monochromacy option for the standard color correction
                 menu.</p>
@@ -360,11 +360,11 @@
                 future when a suitable option is available. RHVoice and eSpeak NG are both open
                 source and are the most common choices by GrapheneOS users. Both of these work
                 fine but have licensing issues. eSpeak NG has added Direct Boot based on our
-                request for it, meaning it is able to function before the first unlock. RHVoice is
+                request for it, meaning it can function before the first unlock. RHVoice is
                 missing Direct Boot and can't run before the first unlock. Installing and setting
                 up either one of these or another TTS app will get TalkBack working. TalkBack
                 itself supports Direct Boot and works before the first unlock but it needs to have
-                a TTS app supporting it in order to do more than playing the activation sound
+                a TTS app supporting it to do more than play the activation sound
                 before the first unlock. After installing a TTS service, you need to select it in
                 the OS configuration to accept activating it. The OS will display one of them as
                 already selected, but it won't simply work from being installed as that wouldn't
@@ -374,11 +374,11 @@
                 <p>GrapheneOS disables showing the characters as passwords are typed by default.
                 You can enable this in Settings ➔ Privacy.</p>
 
-                <p>Third party accessibility services can be installed and activated. This
-                includes the ones made by Google. Most of these will work but some may have a hard
+                <p>Third-party accessibility services can be installed and activated. This
+                includes the ones made by Google. Most of these will work, but some may have a hard
                 dependency on functionality from Google Play services for some of their
                 functionality or to run at all. Accessibility services are very powerful and we
-                strongly recommend against using third party implementations if you can get by
+                strongly recommend against using third-party implementations if you can get by
                 well without them. We plan to add safeguards in this area while still keeping them
                 working without problematic barriers.</p>
             </section>
@@ -410,11 +410,11 @@
                 versions of the OS which will minimize bandwidth usage since incrementals will always
                 be available.</p>
 
-                <p>The updater works while the device is locked / idle, including before the first
+                <p>The updater works while the device is locked/idle, including before the first
                 unlock since it's explicitly designed to be able to run before decryption of user
                 data.</p>
 
-                <p>Release changelogs are available <a href="/releases#changelog">in a section on the releases page</a>.</p>
+                <p>Release changelogs are available on the <a href="/releases#changelog">Releases</a> page.</p>
 
                 <section id="updates-settings">
                     <h3><a href="#updates-settings">Settings</a></h3>
@@ -432,7 +432,7 @@
                     features.</p>
 
                     <p>The "Permitted networks" setting controls which networks will be used to perform
-                    updates. It defaults to using any network connection. It can be set to "Non-roaming"
+                    updates. It defaults to use any network connection. It can be set to "Non-roaming"
                     to disable it when the cellular service is marked as roaming or "Unmetered" to disable
                     it on cellular networks and also Wi-Fi networks marked as metered.</p>
 
@@ -450,8 +450,8 @@
 
                     <p>The "Notification settings" option is a shortcut to the System Updater notification
                     settings which allows you to control notification settings from System Updater such as
-                    notification dot, lock screen, and noisy / silent notifications. These notifications
-                    include updater errors, progress, already up to date, and reboot prompts. By default all
+                    notification dot, lock screen, and noisy/silent notifications. These notifications
+                    include updater errors, progress, already up-to-date, and reboot prompts. By default, all
                     notifications are enabled.</p>
                 </section>
 
@@ -460,11 +460,11 @@
 
                     <p>The update server isn't a trusted party since updates are signed and verified along
                     with downgrade attacks being prevented. The update protocol doesn't send identifiable
-                    information to the update server and works well over a VPN / Tor. GrapheneOS isn't
+                    information to the update server and works well over a VPN/Tor. GrapheneOS isn't
                     able to comply with a government order to build, sign and ship a malicious update to a
                     specific user's device based on information like the IMEI, serial number, etc. The
                     update server only ends up knowing the IP address used to connect to it and the
-                    version being upgraded from based on the requested incremental.</p>
+                    version being upgraded based on the requested incremental.</p>
 
                     <p>Android updates can support serialno constraints to make them validate only on a
                     certain device but GrapheneOS rejects any update with a serialno constraint for both
@@ -476,9 +476,9 @@
 
                     <p>It's highly recommended to leave automatic updates enabled and to configure the
                     permitted networks if the bandwidth usage is a problem on your mobile data connection.
-                    However, it's possible to turn off the update client by going to Settings ➔ Apps,
-                    enabling Show system via the menu, selecting System Updater and disabling the
-                    app.  If you do this, you'll need to remember to enable it again to start receiving
+                    However, it's possible to turn off the update client by going to Settings ➔ Apps ➔ See all xxx apps,
+                    enabling <strong>Show system</strong> via the three dots menu, selecting <strong>System Updater</strong> and disabling the
+                    app. If you do this, you'll need to remember to enable it again to start receiving
                     updates.</p>
                 </section>
 
@@ -522,7 +522,7 @@
 
                 <p>GrapheneOS defaults to ignoring connected USB peripherals when the device is
                 already booted and the screen is locked. A USB device already connected at boot
-                will still work. The purpose is reducing attack surface for a locked device with
+                will still work. The purpose is to reduce attack surface for a locked device with
                 active login sessions to user profiles to protect data that's not at rest. This
                 can be controlled in Settings ➔ Security ➔ USB accessories. The options are:</p>
 
@@ -533,7 +533,7 @@
                 </ul>
 
                 <p>This option has no impact on the device acting as a USB peripheral itself when
-                connected to a computer. Android defaults to charge only mode and requires opt-in
+                connected to a computer. Android defaults to charge-only mode and requires opt-in
                 to the device being used for file transfer, USB tethering, MIDI or PTP.</p>
             </section>
 
@@ -573,14 +573,14 @@
                 Some of the mitigations are inherited from the OS itself, which also applies to
                 other browsers, at least if they don't do things to break them.</p>
 
-                <p>We recommend against trying to achieve browser privacy and security through
+                <p>We recommend against trying to achieve browser privacy and security by
                 piling on browser extensions and modifications. Most privacy features for browsers
                 are privacy theater without a clear threat model and these features often reduce
                 privacy by aiding fingerprinting and adding more state shared between sites. Every
                 change you make results in you standing out from the crowd and generally provides
                 more ways to track you. Enumerating badness via content filtering is not a viable
                 approach to achieving decent privacy, just as AntiVirus isn't a viable way to
-                achieving decent security. These are losing battles, and are at best a stopgap
+                achieving decent security. These are losing battles and are at best a stopgap
                 reducing exposure while waiting for real privacy and security features.</p>
 
                 <p>Vanadium will be following the school of thought where hiding the IP address
@@ -618,16 +618,16 @@
                 a WebView implementation (GeckoView is not a WebView implementation), so it has to be
                 used alongside the Chromium-based WebView rather than instead of Chromium, which means
                 having the remote attack surface of two separate browser engines instead of only one.
-                Firefox / Gecko also bypass or cripple a fair bit of the upstream and GrapheneOS
+                Firefox/Gecko also bypasses or cripples a fair bit of the upstream and GrapheneOS
                 hardening work for apps. Worst of all, Firefox does not have internal sandboxing
-                on Android. This is despite the fact that Chromium semantic sandbox layer on
+                on Android. Even though Chromium semantic sandbox layer on
                 Android is implemented via the OS <code>isolatedProcess</code> feature, which is a
-                very easy to use boolean property for app service processes to provide strong
+                very easy-to-use boolean property for app service processes to provide strong
                 isolation with only the ability to communicate with the app running them via the
                 standard service API. Even in the desktop version, Firefox's sandbox is still
                 substantially weaker (especially on Linux) and lacks full support for isolating
                 sites from each other rather than only containing content as a whole. The sandbox
-                has been gradually improving on the desktop but it isn't happening for their
+                has been gradually improving on the desktop, but it isn't happening for their
                 Android browser yet.</p>
             </section>
 
@@ -647,7 +647,7 @@
                     <h3><a href="#grapheneos-camera-app">GrapheneOS Camera app</a></h3>
 
                     <p>GrapheneOS includes our own modern camera app focused on privacy and
-                    security. It includes modes for capturing images, videos and QR / barcode
+                    security. It includes modes for capturing images, videos and QR/barcode
                     scanning along with additional modes based on CameraX vendor extensions
                     (Portrait, HDR, Night, Face Retouch and Auto) on <a
                     href="https://developer.android.com/training/camera/supported-devices">devices
@@ -666,7 +666,7 @@
                     images.</p>
 
                     <p>Our Camera app provides the system media intents used by other apps to
-                    capture images / record videos via the OS provided camera implementation.
+                    capture images / record videos via the OS-provided camera implementation.
                     These intents can only be provided by a system app since Android 11, so the
                     quality of the system camera is quite important.</p>
 
@@ -683,40 +683,40 @@
                     not the case for Pixels or nearly any other smartphone.</p>
 
                     <p>Image capture uses lightweight HDR+ on all supported Pixels and HDRnet for the
-                    preview on 5th generation Pixels. Using the torch or camera flash will result
+                    preview on 5th-generation Pixels. Using the torch or camera flash will result
                     in HDR+ being disabled which is why automatic flash isn't enabled by default.
                     The lightweight HDR+ doesn't use as many frames as the more aggressive Pixel
                     Camera HDR+. CameraX extensions will eventually provide support for an HDR
                     mode with more aggressive HDR+ taking/combining more than only around 3 frames.
                     It currently supports a Night mode providing the Night Sight variant of HDR+ inflating
-                    the light of the scene through combining the frames. Other fancy features like
+                    the light of the scene by combining the frames. Other fancy features like
                     Portrait mode will also depend on CameraX extensions being provided in the
                     future. There isn't a timeline for when additional CameraX extensions will be added.</p>
 
                     <p>Zooming via pinch to zoom or the zoom slider will automatically make use of
-                    the wide angle and telephoto cameras on Pixels. 5th and 6th generation Pixels
-                    (4a (5G), 5, 5a, 6, 6 Pro) have a wide angle camera for zooming out to under
-                    1x to capture a much wider field of view. Images taken with the wide angle
-                    lens won't match the quality of the normal camera, especially with 6th
-                    generation Pixels. Flagship 4th generation Pixels (4, 4 XL) have a telephoto
+                    the wide-angle and telephoto cameras on Pixels. 5th and 6th generation Pixels
+                    (4a (5G), 5, 5a, 6, 6 Pro) have a wide-angle camera for zooming out to under
+                    1x to capture a much wider field of view. Images taken with the wide-angle
+                    lens won't match the quality of the normal camera, especially with 6th-generation Pixels.
+                    Flagship 4th generation Pixels (4, 4 XL) have a telephoto
                     camera providing 2x optical zoom and the Pixel 6 Pro has one providing 4x
                     optical zoom.</p>
 
-                    <p>By default, continuous auto focus, auto exposure and auto white balance are
-                    used across the whole scene. Tapping to focus will switch to auto focus, auto
+                    <p>By default, continuous autofocus, auto exposure and auto white balance are
+                    used across the whole scene. Tapping to focus will switch to autofocus, auto
                     exposure and auto white balance based on that location. The focus timeout
-                    setting determines the timeout before it switches back the default mode. The
+                    setting determines the timeout before it switches back to the default mode. The
                     exposure compensation slider on the left allows manually tuning exposure and
                     will automatically adjust shutter speed, aperture and ISO without disrupting
-                    lightweight HDR+ support. Further configuration / tuning will be provided in
+                    lightweight HDR+ support. Further configuration/tuning will be provided in
                     the future.</p>
 
                     <p>The QR scanning mode only scans within the scanning square marked on the
                     screen. The QR code should be aligned with the edges of the square but can
                     have any 90 degree orientation. Non-standard inverted QR codes are fully
-                    supported. It's a very quick and high quality QR scanner able to easily scan
-                    very high density QR codes from Pixels. Every 2 seconds, it will refresh auto
-                    focus, auto exposure and auto white balance on the scanning square. It has
+                    supported. It's a very quick and high-quality QR scanner able to easily scan
+                    very high-density QR codes from Pixels. Every 2 seconds, it will refresh auto-focus,
+                    auto exposure and auto white balance on the scanning square. It has
                     full support for zooming in and out. The torch can be toggled with the button
                     at the bottom center. The auto toggle at the bottom left can be used to toggle
                     scanning for all supported barcode types. Alternatively, you can select which
@@ -724,13 +724,13 @@
                     by default since that provides quick and reliable scanning. Most other types
                     of barcodes can result in false positives. Each enabled type will slow down
                     the scanning and will make it more prone to false positives especially with
-                    difficult to scan barcodes such as a dense QR code.</p>
+                    difficult-to-scan barcodes such as a dense QR code.</p>
 
                     <p>Camera permission is the only one that's required. Images and videos are
                     stored via the Media Store API so media/storage permissions aren't required.
                     The Microphone permission is needed for video recording by default but not
                     when including audio is disabled. Location permission is only needed if you
-                    explicitly enabling location tagging, which is an experimental feature.</p>
+                    explicitly enable location tagging, which is an experimental feature.</p>
 
                     <p>By default, EXIF metadata is stripped for captured images and only includes
                     the orientation. Stripping metadata for videos is planned but not supported
@@ -747,7 +747,7 @@
                     dialog.</p>
 
                     <p>Zero Shutter Lag (ZSL) is available as an opt-in toggle in More Settings
-                    and speeds up image capture for the Camera mode when flash is disabled.</p>
+                    and speeds up image capture for the Camera mode when the flash is disabled.</p>
                 </section>
 
                 <section id="pixel-camera">
@@ -765,14 +765,14 @@
                     Camera over time, especially on Pixels. Many features of Pixel Camera will
                     end up being available for GrapheneOS Camera in the next year or so via
                     CameraX extensions including more aggressive HDR+, Night Sight and Portrait.
-                    Video features such as slow motion and time lapse are likely further away than
+                    Video features such as slow motion and time-lapse are likely further away than
                     within the next year. These video features could potentially be provided via
                     CameraX vendor extensions or could be implemented via our own post-processing
                     of the video output. Panorama, Photo Sphere, Astrophotography, Motion Photos,
                     Frequent Faces, Dual Exposure Controls, Google Lens, etc. aren't on the
                     roadmap for GrapheneOS Camera. Video frame rate configuration and H.265
                     support should be available for GrapheneOS Camera in the near future via
-                    CameraX improvements along with DNG (RAW) support in the further future.</p>
+                    CameraX improvements along with DNG (RAW) support in the future.</p>
                 </section>
             </section>
 
@@ -805,7 +805,7 @@
                 profiles, so it also provides a temporary set of device identifiers across profiles
                 for each boot via the shared randomized values.</p>
 
-                <p>This feature can be disabled via Settings ➔ Security ➔ Enable secure app
+                <p>This feature can be disabled via Settings ➔ Security ➔ Secure app
                 spawning if you prefer to have faster cold start app spawning time and lower app
                 process memory usage instead of the substantial security benefits and the removal
                 of the only known remaining direct device identifiers across profiles (i.e. not
@@ -819,7 +819,7 @@
                 <p>GrapheneOS substantially expands the standard mitigations for memory corruption
                 vulnerabilities. Some of these features are designed to directly catch the memory
                 corruption bugs either via an explicit check or memory protection and abort the
-                program in order to prevent them from being exploited. Other features mitigate issues
+                program to prevent them from being exploited. Other features mitigate issues
                 a bit less directly such as zeroing data immediately upon free, isolated memory
                 regions, heap randomization, etc. and can also lead to latent memory corruption bugs
                 crashing instead of the program continuing onwards with corrupted memory. This means
@@ -837,7 +837,7 @@
                 application when it violates the rules.</p>
 
                 <p>You can enable our exploit protection compatibility mode via Settings ➔ Apps ➔
-                App ➔ Exploit protection. The exploit protection compatibility mode toggle will:</p>
+                <var>APP NAME</var> ➔ Exploit protection. The exploit protection compatibility mode toggle will:</p>
                 <ul>
                     <li>Switch from hardened_malloc to Android's standard allocator (Scudo)</li>
                     <li>Reduce address space size from 48 bit to Android's standard 39 bit</li>
@@ -852,7 +852,7 @@
                 reproducing the issue and then capture a bug report via the 'Take bug report'
                 feature in Developer options. Report an issue to <a
                 href="https://github.com/GrapheneOS/os-issue-tracker/issues">the GrapheneOS OS
-                issue tracker</a> and email the bug report capture zip to <a
+                issue tracker</a> repository and email the bug report capture zip to <a
                 href="mailto:contact@grapheneos.org">contact@grapheneos.org</a> with the
                 issue tracker number in the subject like "Bug report capture for issue
                 #104". The bug report capture includes plain text 'tombstones' with logs,
@@ -869,8 +869,8 @@
 
                 <p>Wi-Fi on GrapheneOS is very privacy-friendly and is essentially anonymous as long
                 as apps do not leak uniquely identifying information to the network. GrapheneOS avoids
-                allowing itself to be fingerprinted as GrapheneOS, other than connections which are
-                documented (see the <a href="/faq#default-connections">default connections FAQ</a>)
+                allowing itself to be fingerprinted as GrapheneOS, other than connections that are
+                documented (see the <a href="/faq#default-connections">default connections section in FAQ</a>)
                 and can be easily disabled or forced through a VPN service.</p>
 
                 <section id="wifi-privacy-scanning">
@@ -899,7 +899,7 @@
                     disabled to fully disable the radios when Wi-Fi and Bluetooth are disabled.
                     GrapheneOS itself doesn't currently include a supplementary location service
                     based on Wi-Fi and Bluetooth scanning. These options impact whether apps such
-                    as sandboxed Google Play are able to use the functionality if you grant them
+                    as sandboxed Google Play can use the functionality if you grant them
                     the Location permission. GrapheneOS plans to eventually include an OS service
                     based on local databases rather than a network-based service giving the user's
                     location to a server whenever location is being used.</p>
@@ -909,22 +909,22 @@
                     <h3><a href="#wifi-privacy-associated">Associated with an Access Point (AP)</a></h3>
 
                     <p>Associated MAC randomization is performed by default. This can be controlled
-                    per-network in Settings ➔ Network &amp; Internet ➔ Internet ➔ <var>NETWORK</var> ➔ Privacy.</p>
+                    per-network in Settings ➔ Network &amp; internet ➔ Internet ➔ <var>NETWORK</var> ➔ Privacy.</p>
 
                     <p>In the stock OS, the default is to use a unique persistent random MAC address for
-                    each network. It has 2 options available: "Use randomized MAC (default)" and "Use
+                    each network. It has two options available: "Use randomized MAC (default)" and "Use
                     device MAC". In GrapheneOS, the default is generating a new random MAC address when
-                    connecting to a network. It has 3 options available: "Use per-connection randomized MAC
+                    connecting to a network. It has three options available: "Use per-connection randomized MAC
                     (default)", "Use per-network randomized MAC" and "Use device MAC".</p>
 
                     <p>In rare cases, broken routers are unable to accept new clients once their
-                    DHCP table is full instead of clearing the last recently used entry. You can
+                    DHCP table is full instead of clearing the least recently used entry. You can
                     work around this by manually clearing the DHCP table via the router
-                    administration page and can switch to the per-network randomized MAC mode to
-                    avoid triggering the issue again. This would prevent a router being used in
+                    administration page and switch to the per-network randomized MAC mode to
+                    avoid triggering the issue again. This would prevent a router from being used in
                     any situation where many clients naturally come and go even without
                     per-connection MAC randomization and is not generally an issue for any modern
-                    routers. Per-connection MAC randomization only makes it more likely to find a
+                    routers. Per-connection MAC randomization only makes it more likely to find
                     one of the rare routers with this issue.</p>
 
                     <p>The DHCP client uses the anonymity profile rather than sending a hostname
@@ -947,19 +947,19 @@
 
                 <p>If you have a reliable LTE connection from your carrier, you can reduce attack
                 surface by disabling 2G, 3G and 5G connectivity in Settings ➔ Network &amp;
-                Internet ➔ SIMs ➔ Preferred network type. Traditional voice calls will only work
+                internet ➔ SIMs ➔ Preferred network type. Traditional voice calls will only work
                 in the LTE-only mode if you have either an LTE connection and VoLTE (Voice over
-                LTE) support or a Wi-Fi connection and VoWi-Fi (Voice over Wi-Fi) support. VoLTE /
-                VoWi-Fi works on GrapheneOS for most carriers unless they restrict it to carrier
+                LTE) support or a Wi-Fi connection and VoWi-Fi (Voice over Wi-Fi) support. VoLTE/VoWi-Fi
+                works on GrapheneOS for most carriers unless they restrict it to carrier's
                 phones. Some carriers may be missing VoWi-Fi due to us not including their
                 proprietary apps. Please note that AT&amp;T users may see "5Ge" being used when
-                LTE Only mode is enabled as AT&amp;T intentionally mislabel LTE services as "5Ge"
+                LTE-Only mode is enabled as AT&amp;T intentionally mislabels LTE services as "5Ge"
                 to mislead users.</p>
 
                 <p>This feature is not intended to improve the confidentiality of traditional calls and
                 texts, but it might somewhat raise the bar for some forms of interception. It's not a
-                substitute for end-to-end encrypted calls / texts or even transport layer encryption.
-                LTE does provide basic network authentication / encryption, but it's for the network
+                substitute for end-to-end encrypted calls/texts or even transport layer encryption.
+                LTE does provide basic network authentication/encryption, but it's for the network
                 itself. The intention of the LTE-only feature is only hardening against remote
                 exploitation by disabling an enormous amount of both legacy code (2G, 3G) and bleeding
                 edge code (5G).</p>
@@ -1019,7 +1019,7 @@
                     receive any special access. If you want to choose which apps use Google Play
                     rather than making it available to all of them, install it in a separate user
                     or work profile for apps depending on Google Play. You could also do it the
-                    other way around, but it makes more sense to try to use as much as possible
+                    other way around, but it makes more sense to try to use it as much as possible
                     without Google Play rather than treating not using it as the exceptional
                     case.</p>
 
@@ -1035,24 +1035,24 @@
                     of these 3 apps in the user and work profiles where you want to use it. Open
                     our app repository client (look for Apps in the app drawer) and install the 3
                     core Google Play apps mirrored in our repository. Our app repository client
-                    has support for dependency installation so you can simply directly install
+                    has support for dependency installation, so you can simply directly install
                     Play services and it will install GSF and the Play Store as dependencies.</p>
 
                     <p>Play services and the Play Store depend on each other, one will not work
                     properly without the other. Both of them depend on the Google Services
                     Framework app. Our app repository handles this automatically.</p>
 
-                    <p>You can obtain updates to these apps from our app repository client or from
+                    <p>You can obtain updates to these apps from our app repository client or
                     the Play Store. Updates through the Play Store usually arrive first.</p>
 
                     <p>You should give a battery optimization exception to Google Play services
                     for features like push notifications to work properly in the background. It
                     isn't needed for the other 2 apps.</p>
 
-                    <p>Signing in into a Google account is optional, unless you want to
+                    <p>Signing in to a Google account is optional unless you want to
                     use features depending on being signed into an account. For example, some apps
                     use Google account authentication instead of their accounts having a username
-                    and password. The Play Store requires being signed into an account in order to
+                    and password. The Play Store requires being signed into an account to
                     install apps or use in-app purchases. This is still true even for an alternate
                     frontend to the Play Store. Aurora Store still requires an account but fetches
                     shared account credentials from Aurora Store's service by default.</p>
@@ -1087,10 +1087,10 @@
                     Google Play services along with the Nearby Devices permission for it to have
                     all the access it needs. You need to use the "Google Location Accuracy" link
                     from the sandboxed Google Play configuration menu to access the Google Play
-                    services menu for opting into their network location service, otherwise this
+                    services menu for opting into their network location service, otherwise, this
                     is all pointless. It will send the nearby Wi-Fi and cellular networks provided
                     via the Location and Nearby Devices permissions to their service to retrieve a
-                    location estimate. In order to fully take advantage of Wi-Fi and Bluetooth
+                    location estimate. To fully take advantage of Wi-Fi and Bluetooth
                     scanning, you also need to enable the scanning toggles in Settings ➔ Location
                     ➔ Location services which are disabled by default and control whether apps
                     with the required permissions can scan when Wi-Fi and Bluetooth are otherwise
@@ -1098,7 +1098,7 @@
 
                     <p>Re-routing location to the OS geolocation service will use more power than
                     using the Google Play geolocation service since we do not provide a
-                    network-based location service and implement it via GNSS / A-GPS only. In the
+                    network-based location service and implement it via GNSS/A-GPS only. In the
                     future, we plan on providing a pseudo-network geolocation service for the OS
                     by using a local database of cell towers, and the location redirection feature
                     can also make use of this future OS implementation for network location
@@ -1123,10 +1123,10 @@
                     can teach it to use the regular approach available to a normal app. In some
                     cases, the functionality it offers fundamentally requires privileged access
                     and cannot be supported. For example, Android Auto cannot be supported by
-                    default as part of the baseline compatibility layer, but is supported as an
+                    default as part of the baseline compatibility layer but is supported as an
                     extension of it with dedicated toggles for the functionality that's not
                     possible to implement another way. The same applies to other highly invasive
-                    OS integration / control or privileged access to hardware. Our compatibility
+                    OS integration/control or privileged access to hardware. Our compatibility
                     layer is a very actively developed work in progress and most of the remaining
                     unavailable functionality is quickly becoming supported. In the future, we can
                     also support redirection for more APIs such as FIDO2 rather than only the
@@ -1143,12 +1143,12 @@
             <section id="esim-support">
                 <h3><a href="#esim-support">eSIM support</a></h3>
                 <p>By default, GrapheneOS has always shipped with baseline support for eSIM,
-                where users can use any eSIMs installed previously on the device. However, in
-                order to manage and add eSIMs, proprietary Google functionality is needed. This
+                where users can use any eSIMs installed previously on the device. However, to manage
+                and add eSIMs, proprietary Google functionality is needed. This
                 is fully disabled by default.</p>
 
                 <p>eSIM support on GrapheneOS doesn't require any dependency on Google Play,
-                and never shares data to Google Play even when installed.</p>
+                and never shares data with Google Play even when installed.</p>
 
                 <p>eSIM support can be enabled in Settings ➔ Network &amp;
                 Internet ➔ eSIM support. The toggle is persistent across every boot.</p>
@@ -1163,7 +1163,7 @@
 
                 <p>If an eSIM locked with a PIN is used, it is recommended to leave the eSIM
                 support toggle enabled even after activating the eSIM. This will allow you to
-                disable the eSIM on the lockscreen in case the PIN is forgotten. If the eSIM
+                disable the eSIM on the lock screen in case the PIN is forgotten. If the eSIM
                 support toggle is disabled and the PIN is forgotten, there is no way to access the
                 device unless the PUK is provided.</p>
             </section>
@@ -1174,7 +1174,7 @@
                 <p>GrapheneOS provides an option to install and use the official releases of
                 Android Auto.</p>
 
-                <p>Android Auto requires privileged access in order to work. GrapheneOS uses
+                <p>Android Auto requires privileged access to work. GrapheneOS uses
                 an extension of the sandboxed Google Play compatibility layer to make Android
                 Auto work with a reduced level of privileges.</p>
 
@@ -1188,13 +1188,13 @@
                 permission toggles, links to related configuration screens, configuration tips, and
                 links to optional Android Auto dependencies.</p>
 
-                <p>The permission toggles ask for a confirmation before turning on. The
+                <p>The permission toggles ask for a confirmation before turning it on. The
                 confirmation popup explains what access each permission toggle provides.</p>
 
                 <p>By default, Android Auto is not granted any kind of privileged access. It's
                 treated the same way other apps are treated.</p>
 
-                <p>In order to work, Android Auto has to be granted baseline permissions for wired
+                <p>For Android Auto to work properly, it has to be granted baseline permissions for wired
                 or wireless Android Auto. Wired Android Auto requires far less access than wireless
                 Android Auto does. Baseline permissions are controlled by the "Allow permissions
                 for wired / wireless Android Auto" toggles.</p>
@@ -1208,7 +1208,7 @@
                 allowed notification access. The notification access settings are linked below the
                 permission toggles.</p>
 
-                <p>In order to show up in the Android Auto car interface, apps have to be installed
+                <p>For Android Auto to show up in the car interface, apps have to be installed
                 from the Play Store and include Android Auto support.</p>
 
                 <p>See Google's <a href="https://support.google.com/androidauto/topic/6106969">
@@ -1247,7 +1247,7 @@
 
                 <p>The hardware attestation feature is part of the Android Open Source Project and
                 is fully supported by GrapheneOS. SafetyNet attestation chooses to use it to
-                enforce using Google certified operating systems. However, app developers can use
+                enforce using Google-certified operating systems. However, app developers can use
                 it directly and permit other properly signed operating systems upholding the
                 security model. GrapheneOS has a
                 <a href="/articles/attestation-compatibility-guide">detailed guide</a> for app
@@ -1265,26 +1265,26 @@
             <section id="app-link-verification">
                 <h2><a href="#app-link-verification">App link verification</a></h2>
 
-                <p>Android apps can declare associations with domains in order to handle those
+                <p>Android apps can declare associations with domains to handle those
                 URLs in the app automatically. For security reasons, app links are disabled by
-                default to prevent apps intercepting arbitrary URLs. First party apps associated
+                default to prevent apps from intercepting arbitrary URLs. First-party apps associated
                 with a domain are expected to be authorized by the domain. Apps can ask for their
                 app links to be verified by the OS by marking them with <code>autoVerify</code> in
                 their manifest. The OS will securely confirm that the domain authorizes the app to
                 handle the domain's URLs. Users can also manually enable an app's link
-                associations via Settings ➔ Apps ➔ App name ➔ Open by default ➔ Add link. Apps can
+                associations via Settings ➔ Apps ➔ <var>APP NAME</var> ➔ Open by default ➔ Add link. Apps can
                 ask users to enable the associations and send them to this page in the Settings
                 app.</p>
 
-                <p>As an example, the first party YouTube app will have the app links verified by
+                <p>As an example, the first-party YouTube app will have the app links verified by
                 the OS automatically while the NewPipe app requires manually enabling handling
                 links for YouTube and other sites.</p>
 
                 <p>Verification of app links by the OS is done by the Intent Filter Verification
                 Service system app. It will use an HTTPS GET request to fetch
-                <code>https://example.com/.well-known/assetlinks.json</code> in order to process a
+                <code>https://example.com/.well-known/assetlinks.json</code> to process a
                 request to verify that an app can handle <code>example.com</code> links. The app
-                needs to have their app id and signing keys authorized by the domain in order for
+                needs to have their app ID and signing keys authorized by the domain for
                 the verification to succeed.</p>
 
                 <p>These network requests by the Intent Filter Verification Service to verify app
@@ -1310,23 +1310,23 @@
 
                 <p>GrapheneOS aims to work with all carriers that are officially supported by
                 Google on the stock operating system on Pixel devices. Wi-Fi Calling, VoLTE,
-                Visual Voicemail, MMS, SMS, Calling and 5G (SA and NSA) all are supported, however
+                Visual Voicemail, MMS, SMS, Calling and 5G (SA and NSA) all are supported, however,
                 some functionality may not be usable due to Google not supporting carriers on the
-                stock OS officially or due to GrapheneOS not shipping proprietary apps required in
-                order for this functionality to work on some carriers. GrapheneOS extracts
+                stock OS officially or due to GrapheneOS not shipping proprietary apps required
+                for this functionality to work on some carriers. GrapheneOS extracts
                 CarrierConfigs, APNs, modem configurations, Visual Voicemail configurations and
                 MMS configurations from the stock operating system to ensure users get easy
                 carrier support that "just works".</p>
 
                 <p>Please note that in some regions, LTE is referred to as 4G.</p>
 
-                <p>Generally 5G, SMS, MMS, Calls and VoLTE will work fine on GrapheneOS with
+                <p>Generally, 5G, SMS, MMS, Calls and VoLTE will work fine on GrapheneOS with
                 officially supported carriers by Google. Wi-Fi calling may vary due to a reliance
                 on proprietary Google apps which GrapheneOS does not ship.</p>
 
                 <p>If you are having issues with Visual Voicemail, please be aware that AT&amp;T
                 USA users are unable to use this feature currently due to a lack of AOSP support.
-                Other carriers are done on a best effort basis. We would suggest using <a
+                Other carriers are done on a best-effort basis. We would suggest using <a
                 href="https://play.google.com/store/apps/details?id=com.google.android.dialer">Google
                 Dialer</a> with sandboxed Google Play if you are unable to get this feature
                 working.</p>
@@ -1341,11 +1341,11 @@
                 </ul>
 
                 <p>If you continue to have problems despite following the instructions above or
-                you have another carrier related issue, we suggest that you perform the following
+                you have another carrier-related issue, we suggest that you perform the following
                 steps:</p>
 
                 <ul>
-                    <li>Some carriers require you to explicitly opt in to use services such as Wi-Fi calling.
+                    <li>Some carriers require you to explicitly opt-in to use services such as Wi-Fi calling.
                         Consult your carrier's documentation on the process for this or contact them.</li>
                     <li>Reset Mobile Network settings in Settings ➔ System ➔ Reset options ➔ Reset Wi-Fi,
                         mobile &amp; Bluetooth and then reboot the device.</li>
@@ -1356,26 +1356,26 @@
                     <li>If calls do not work and you have <a href="#lte-only-mode">LTE-only mode</a> enabled,
                         try toggling it off. If "Allow 2G" is disabled, try toggling it back on. Your carrier
                         may not properly support VoLTE.</li>
-                    <li>As a last resort you may need to ask your carrier for a replacement SIM card.</li>
+                    <li>As a last resort, you may need to ask your carrier for a replacement SIM card.</li>
                 </ul>
 
                 <p>Some carriers may restrict functionality, such as VoLTE, on imported Pixel
-                devices as they only whitelist the IMEI ranges of Pixel device SKUs which were
+                devices as they only whitelist the IMEI ranges of Pixel device SKUs that were
                 sold locally. You can check your SKU on GrapheneOS by going to Settings ➔ About
                 phone ➔ Model ➔ Hardware SKU and using the
                 <a href="https://support.google.com/pixelphone/answer/7158570">official Google
                 documentation</a>. You should check if such functionality works on the stock OS to
-                troubleshoot. It is not possible to change the IMEI on a production device and
+                troubleshoot. It is not possible to change the IMEI on a production device, and
                 GrapheneOS cannot add support for it since the hardware doesn't support it.</p>
 
                 <p>Android 12 introduced support for the
                 <a href="https://www.gsma.com/newsroom/wp-content/uploads//TS.43-v9.0.pdf">GSMA
                 TS.43</a> standard where provisioning for VoLTE, VoNR and Wi-Fi calling may be
-                handled by Google Firebase. Currently it is very rare for carriers to be using
+                handled by Google Firebase. Currently, it is very rare for carriers to be using
                 Firebase to handle this. It is unlikely, but technically possible, that with such
-                carriers you may be required to install sandboxed Google Play in order to obtain
+                carriers you may be required to install sandboxed Google Play to obtain
                 the former mentioned functionality where the carrier has not implemented fallback
-                provisioning via SMS. Currently only US Cellular, Orange France, Cspire US,
+                provisioning via SMS. Currently, only US Cellular, Orange France, Cspire US,
                 and Cellcom US are using this standard.</p>
 
                 <p>GrapheneOS includes bypasses for carrier restrictions on APN editing, tethering
