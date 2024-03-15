@@ -754,7 +754,7 @@
                     <ul>
                         <li>allow users to disable GrapheneOS hardened_malloc for the Bluetooth system app via the Settings app to help with debugging upstream bugs (still enabled by default)</li>
                         <li>temporarily disable hardened_malloc for Broadcom Bluetooth HAL as a potential workaround for upstream bugs in Android 14 QPR2 (will be reverted if it doesn't help and reverted after fixes are implemented if it does help)</li>
-                        <li>fix upstream bug in Android 14 QPR2 breaking Wi-Fi tethering on fresh installs for the first time Wi-Fi is enabled, which didn't occur on the stock OS in practice due to it enabling Wi-Fi by default which leads to earlier initialization</li>
+                        <li>fix upstream bug in Android 14 QPR2 breaking Wi-Fi tethering on fresh installs before Wi-Fi is enabled for the first time, which didn't occur on the stock OS in practice due to it enabling Wi-Fi by default</li>
                         <li>fix upstream system_server crash in Android 14 QPR2 when installing updates to packages with an original-package application id such as Vanadium (was reported by users helping with Vanadium Alpha channel testing and we released Apps version 22 with a workaround avoiding the crash prior to this fix)</li>
                         <li>Apps: update to <a href="https://github.com/GrapheneOS/Apps/releases/tag/22">version 22</a></li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/122.0.6261.119.0">version 122.0.6261.119.0</a></li>
