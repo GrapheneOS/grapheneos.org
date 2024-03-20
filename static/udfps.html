@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: https://ogp.me/ns#">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Fingerprint Calibration Tool | GrapheneOS</title>
+        <meta name="description" content="Fingerprint calibration tool for GrapheneOS, a security and privacy focused mobile OS with Android app compatibility."/>
+        <meta name="theme-color" content="#212121"/>
+        <meta name="color-scheme" content="dark light"/>
+        <meta name="msapplication-TileColor" content="#ffffff"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta name="twitter:site" content="@GrapheneOS"/>
+        <meta name="twitter:creator" content="@GrapheneOS"/>
+        <meta property="og:title" content="GrapheneOS fingerprint calibration tool"/>
+        <meta property="og:description" content="Fingerprint calibration tool for GrapheneOS, a security and privacy focused mobile OS with Android app compatibility."/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
+        <meta property="og:image:width" content="512"/>
+        <meta property="og:image:height" content="512"/>
+        <meta property="og:image:alt" content="GrapheneOS logo"/>
+        <meta property="og:site_name" content="GrapheneOS"/>
+        <meta property="og:url" content="https://grapheneos.org/udfps"/>
+        <link rel="canonical" href="https://grapheneos.org/udfps"/>
+        <link rel="icon" href="/favicon.ico"/>
+        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
+        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+        [[css|/main.css]]
+        <link rel="manifest" href="/manifest.webmanifest"/>
+        <link rel="license" href="/LICENSE.txt"/>
+        <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
+        [[js|/js/redirect.js]]
+        <script type="module" src="/js/fastboot/066d736d/fastboot.min.mjs" integrity="sha256-mH1JDLfpm9jffXPX8pRlbJtTYkMcXN7LSLXNhCM9P4E="></script>
+        [[js|/js/udfps.js]]
+    </head>
+    <body>
+        {% include "header.html" %}
+        <main id="udfps-repair">
+            <h1><a href="#udfps-repair">Fingerprint calibration tool</a></h1>
+
+            <p>This is a reimplementation of Google's Pixel Fingerprint Calibration Tool,
+            which is needed when the screen is replaced on a Pixel device which uses a
+            fingerprint sensor under the device screen.</p>
+
+            <p>If you have trouble with the calibration process, ask for help on the
+            <a href="/contact#community">official GrapheneOS chat channel</a>. There are almost
+            always people around willing to help with it. Before asking for help, make an attempt
+            to follow the guide on your own and then ask for help with anything you get stuck
+            on.</p>
+
+            <nav id="table-of-contents">
+                <h2><a href="#table-of-contents">Table of contents</a></h2>
+
+                <ul>
+                    <li><a href="#prerequisites">Prerequisites</a></li>
+                    <li><a href="#calibrating-as-non-root">Calibrating as non-root</a></li>
+                    <li><a href="#booting-into-the-bootloader-interface">Booting into the bootloader interface</a></li>
+                    <li><a href="#connecting-phone">Connecting the phone</a></li>
+                    <li><a href="#obtain-calibration-file">Obtain calibration file</a></li>
+                    <li><a href="#flash-calibration-file">Flash calibration file</a></li>
+                </ul>
+            </nav>
+
+            <section id="prerequisites">
+                <h2><a href="#prerequisites">Prerequisites</a></h2>
+
+                <p>This tool is only compatible with the following devices:</p>
+
+                <ul>
+                    <li>Pixel 6</li>
+                    <li>Pixel 6 Pro</li>
+                    <li>Pixel 6a</li>
+                    <li>Pixel 7</li>
+                    <li>Pixel 7 Pro</li>
+                    <li>Pixel 7a</li>
+                </ul>
+
+                <p>You need a USB cable for attaching the device to a laptop or desktop. Whenever
+                possible, use the high quality standards compliant USB-C cable packaged with the
+                device. If your computer doesn't have any USB-C ports, you'll need a high quality
+                USB-C to USB-A cable. You should avoid using a USB hub such as the front panel on
+                a desktop computer case. Connect directly to a rear port on a desktop or the ports
+                on a laptop. Many widely distributed USB cables and hubs are broken and are the
+                most common source of issues for installing GrapheneOS.</p>
+
+                <p>Running this tool from an OS in a virtual machine is not recommended. USB 
+                passthrough is often not reliable. To rule out these problems, install from an OS 
+                running on bare metal. Virtual machines are also often configured to have overly 
+                limited memory and storage space.</p>
+
+                <p>Officially supported operating systems for this tool:</p>
+
+                <ul>
+                    <li>Windows 10</li>
+                    <li>Windows 11</li>
+                    <li>macOS Big Sur (11)</li>
+                    <li>macOS Monterey (12)</li>
+                    <li>macOS Ventura (13)</li>
+                    <li>Arch Linux</li>
+                    <li>Debian 10 (buster)</li>
+                    <li>Debian 11 (bullseye)</li>
+                    <li>Debian 12 (bookworm)</li>
+                    <li>Ubuntu 20.04 LTS</li>
+                    <li>Ubuntu 22.04 LTS</li>
+                    <li>Ubuntu 22.10</li>
+                    <li>Ubuntu 23.04</li>
+                    <li>ChromeOS</li>
+                    <li>GrapheneOS</li>
+                    <li>Google Android (stock Pixel OS) and other certified Android variants</li>
+                </ul>
+
+                <p>Make sure your operating system is up-to-date before proceeding.</p>
+
+                <p>Officially supported browsers for this tool:</p>
+
+                <ul>
+                    <li>Chromium (outside Ubuntu, since they ship a broken Snap package without working WebUSB)</li>
+                    <li>Vanadium (GrapheneOS)</li>
+                    <li>Google Chrome</li>
+                    <li>Microsoft Edge</li>
+                    <li>Brave</li>
+                </ul>
+
+                <p>You should avoid Flatpak and Snap versions of browsers, as they're known to cause issues during the usage of this tool.</p>
+
+                <p>Make sure your browser is up-to-date before proceeding.</p>
+
+                <p>It's best practice to update the device before using this tool to have
+                the latest firmware for connecting the phone to the computer and performing the
+                calibration. Older firmware versions may no longer have files hosted on Google
+                servers.</p>
+
+                <p>This tool connects to Google servers as part of it's operation, in order
+                to obtain the calibration file.</p>
+            </section>
+
+            <section id="calibrating-as-non-root">
+                <h2><a href="#calibrating-as-non-root">Calibrating as non-root</a></h2>
+
+                <p>On traditional Linux distributions, USB devices cannot be used as non-root
+                without udev rules for each type of device. This is not an issue for other
+                platforms.</p>
+
+                <p>On Arch Linux, install the <code>android-udev</code> package. On Debian and
+                Ubuntu, install the <code>android-sdk-platform-tools-common</code> package.</p>
+            </section>
+
+            <section id="booting-into-the-bootloader-interface">
+                <h2><a href="#booting-into-the-bootloader-interface">Booting into the bootloader interface</a></h2>
+
+                <p>You need to boot your phone into the bootloader interface. To do this, you need
+                to hold the volume down button while the phone boots.</p>
+
+                <p>The easiest approach is to reboot the phone and begin holding the volume down
+                button until it boots up into the bootloader interface.</p>
+
+                <p>Alternatively, turn off the phone, then boot it up while holding the volume
+                down button during the boot process. You can either boot it with the power button
+                or by plugging it in as required in the next section.</p>
+            </section>
+
+            <section id="connecting-phone">
+                <h2><a href="#connecting-phone">Connecting the phone</a></h2>
+
+                <p>Connect the phone to the computer. On Linux, you'll need to do this again if
+                you didn't have the udev rules set up when you connected it.</p>
+
+                <p>On Linux, GNOME has a bug causing compatibility issues with the installation
+                process. It wrongly detects the phone in fastboot mode or fastbootd mode as being
+                an MTP device and claims exclusive control over it. This will block the install
+                process from proceeding. You can run the following command to work around it:</p>
+
+                <pre>echo 0 | sudo tee /sys/bus/usb/drivers_autoprobe</pre>
+
+                <p>After installing, you can undo this by rebooting or by running the following
+                command:</p>
+
+                <pre>echo 1 | sudo tee /sys/bus/usb/drivers_autoprobe</pre>
+
+                <p>On Windows, you need to install a driver for fastboot if you don't already have
+                it. No driver is needed on other operating systems. You can obtain the driver from
+                Windows Update which will detect it as an optional update when the device is
+                booted into the bootloader interface and connected to the computer. Open Windows
+                Update, run a check for updates and then open the "View optional updates"
+                interface. Install the driver for the Android bootloader interface as an optional
+                update.</p>
+
+                <p>An alternative approach to obtaining the Windows fastboot driver is to obtain
+                the <a href="https://developer.android.com/studio/run/win-usb">latest driver for
+                Pixels</a> from Google and then
+                <a href="https://developer.android.com/studio/run/oem-usb#InstallingDriver">manually
+                install it with the Windows Device Manager</a>.</p>
+            </section>
+
+            <section id="obtain-calibration-file">
+                <h2><a href="#obtain-calibration-file">Obtain calibration file</a></h2>
+
+                <p>In order to calibrate the fingerprint sensor, a special calibration file
+                specific to your model of device must be downloaded from Google's servers.
+                The URL for this file is hardcoded in the device firmware, and is this URL is
+                extracted from the device, and then downloaded by this step of the tool.
+                </p>
+
+                <button id="obtain-calibration-file-button" disabled="">Obtain calibration file</button>
+
+                <p>
+                    <strong id="obtain-calibration-file-status"></strong>
+                    <br/>
+                    <progress id="obtain-calibration-file-progress" hidden="hidden" max="1" value="0"></progress>
+                </p>
+            </section>
+
+            <section id="flash-calibration-file">
+                <h2><a href="#flash-calibration-file">Flash calibration file</a></h2>
+
+                <p>This stage of the tool loads the previously downloaded calibration file
+                onto the device, and then reboots your device in order for it to take effect.
+                Once done, you can safely unplug the device, and use the power button to press
+                "Start" to boot into GrapheneOS.</p>
+
+                <button id="flash-calibration-file-button" disabled="">Flash calibration file</button>
+
+                <p>
+                    <strong id="flash-calibration-file-status"></strong>
+                    <button id="flash-calibration-file-reconnect-button" hidden="hidden"><strong>Reconnect device</strong></button>
+                </p>
+            </section>
+
+        </main>
+        {% include "footer.html" %}
+    </body>
+</html>
