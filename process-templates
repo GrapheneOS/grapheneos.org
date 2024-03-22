@@ -5,6 +5,10 @@ from pathlib import Path
 import os
 import sys
 
+if len(sys.argv) != 2:
+    print(f"Usage: {sys.argv[0]} <path>")
+    sys.exit(1)
+
 ROOT_DIR = Path(sys.argv[1])
 TEMPLATE_PATH_LIST = [ROOT_DIR, "templates/"]
 
