@@ -21,6 +21,7 @@ const redirects = new Map([
     ["/usage#sandboxed-play-services-installation", "/usage#sandboxed-google-play-installation"],
     ["/usage#sandboxed-play-services-limitations", "/usage#sandboxed-google-play-limitations"],
     ["/usage#google-camera", "/usage#pixel-camera"],
+    ["/usage#system-navigation", "/usage#navigation-mode"],
 
     ["/faq#dns", "/faq#custom-dns"],
 
