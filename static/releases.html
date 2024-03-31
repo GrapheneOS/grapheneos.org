@@ -743,6 +743,8 @@
                     <p>Changes since the 2024032100 release:</p>
 
                     <ul>
+                        <li>fix race condition for Wi-Fi and Bluetooth auto-turn-off</li>
+                        <li>fix Wi-Fi auto-turn-off no longer handling Wi-Fi state change events not involving a Wi-Fi network</li>
                         <li>DocumentsUI (Files): do not delegate handling of downloaded APKs to DownloadProvider to avoid confusing install permission prompt</li>
                         <li>flash-all: raise minimum fastboot version to 34.0.5</li>
                         <li>kernel (Pixel 8, Pixel 8 Pro): sign vendor modules after building them instead of only signing generic (GKI) modules</li>
