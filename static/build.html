@@ -1399,15 +1399,13 @@ rm android-cts-media-1.5.zip</pre>
     }
 }</pre>
 
-                    <p>Cookies are only used for login sessions. The only other use case considered valid
-                    would be optimizing HTTP/2 Server Push but the intention is only to use that for
-                    render blocking CSS and it's not really worth optimizing for caching when the CSS is
-                    tiny in practice. Every cookie must have the <code>__Host</code> prefix to guarantee
-                    that it has the <code>Secure</code> attribute and <code>Path=/</code>. The
-                    <code>HttpOnly</code> and <code>SameSite=Strict</code> flags should also always be
-                    included. These kinds of cookies can provide secure login sessions in browsers with
-                    fully working <code>SameSite=Strict</code> support. However, CSRF tokens should still
-                    be used for the near future in case there are browser issues.</p>
+                    <p>Cookies are only used for login sessions. Every cookie must have the
+                    <code>__Host</code> prefix to guarantee that it has the <code>Secure</code>
+                    attribute and <code>Path=/</code>. The <code>HttpOnly</code> and
+                    <code>SameSite=Strict</code> flags should also always be included. These kinds
+                    of cookies can provide secure login sessions in browsers with fully working
+                    <code>SameSite=Strict</code> support. However, CSRF tokens should still be used
+                    for the near future in case there are browser issues.</p>
 
                     <p>For web content, use dashes as user-facing word separators rather than underscores.
                     Page titles should follow the scheme "Page | Directory | Higher-level directory |
