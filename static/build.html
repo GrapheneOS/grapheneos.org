@@ -1404,8 +1404,11 @@ rm android-cts-media-1.5.zip</pre>
                     attribute and <code>Path=/</code>. The <code>HttpOnly</code> and
                     <code>SameSite=Strict</code> flags should also always be included. These kinds
                     of cookies can provide secure login sessions in browsers with fully working
-                    <code>SameSite=Strict</code> support. However, CSRF tokens should still be used
-                    for the near future in case there are browser issues.</p>
+                    <code>SameSite=Strict</code> support.</p>
+
+                    <p>CSRF mitigation should be implemented via enforcing the presence of
+                    Sec-Fetch-Site with the value same-origin. Services using only POST can also do
+                    this via the more backwards compatible Origin header.</p>
 
                     <p>For web content, use dashes as user-facing word separators rather than underscores.
                     Page titles should follow the scheme "Page | Directory | Higher-level directory |
