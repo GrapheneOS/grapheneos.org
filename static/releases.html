@@ -765,7 +765,7 @@
 
                     <ul>
                         <li>full 2024-04-01 security patch level (early release based on AOSP 14 April security backports since the official April AOSP and stock Pixel OS monthly releases aren't available yet)</li>
-                        <li>fix race condition for Wi-Fi and Bluetooth auto-turn-off</li>
+                        <li>fix race condition for Wi-Fi and Bluetooth auto-turn-off leading to the first auto-turn-off timer after the first Wi-Fi or Bluetooth state update potentially not being scheduled</li>
                         <li>fix Wi-Fi auto-turn-off no longer handling Wi-Fi state change events not involving a Wi-Fi network</li>
                         <li>DocumentsUI (Files): do not delegate handling of downloaded APKs to DownloadProvider to avoid confusing install permission prompt</li>
                         <li>flash-all: raise minimum fastboot version to 34.0.5</li>
