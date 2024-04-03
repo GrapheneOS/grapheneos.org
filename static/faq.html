@@ -319,6 +319,9 @@
                         sequence number randomization and no other leaked identifiers</li>
                         <li>Support for disabling USB data and also USB as a whole at a hardware
                         level in the USB controller</li>
+                        <li>Reset attack mitigation for firmware-based boot modes such as fastboot
+                        mode zeroing memory left over from the OS and delaying opening up attack
+                        surface such as USB functionality until that's completed</li>
                     </ul>
 
                     <p>In order to support a device, the appropriate resources also need to be available
