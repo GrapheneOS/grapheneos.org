@@ -751,6 +751,7 @@
                         <li>DNS resolver: fix upstream bug resulting in NUL byte being included in the random string for the DNS-over-TLS test query</li>
                         <li>allow privileged installers to use getSharedLibraries(MATCH_ANY_USER) in order to enable Apps to handle an edge case involving shared libraries (Vanadium Trichrome library) updated in other users while avoiding adding the INTERACT_ACROSS_USERS permission used for this purpose by the Play Store</li>
                         <li>kernel (5.10, 6.1): update to latest GKI LTS branch revision</li>
+                        <li>kernel (5.10): reapply reverted upstream f2fs and irq changes now that the regressions are resolved</li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-102">version 102</a></li>
                         <li>fix our infrastructure for testing our CarrierConfig2 app</li>
                     </ul>
