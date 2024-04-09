@@ -748,6 +748,7 @@
                         <li>avoid crashes in Chromium-based web browsers and the WebView in their sandboxed processes caused by an incompatibility between exec-based spawning and the new userfaultfd-based garbage collector enabled by Android 14 QPR2</li>
                         <li>rebased onto AP1A.240405.002.A1 Android Open Source Project release (includes a launcher taskbar improvement)</li>
                         <li>DNS resolver: fix upstream bug resulting in NUL byte being included in the random string for the DNS-over-TLS test query</li>
+                        <li>allow privileged installers to use getSharedLibraries(MATCH_ANY_USER) in order to enable Apps to handle an edge case involving shared libraries (Vanadium Trichrome library) updated in other users while avoiding adding the INTERACT_ACROSS_USERS permission used for this purpose by the Play Store</li>
                         <li>kernel (5.10, 6.1): update to latest GKI LTS branch revision</li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-102">version 102</a></li>
                         <li>fix our infrastructure for testing our CarrierConfig2 app</li>
