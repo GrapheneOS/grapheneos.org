@@ -754,10 +754,18 @@
                 <section id="auto-reboot">
                     <h3><a href="#auto-reboot">Auto reboot</a></h3>
 
-                    <p>Option to enable automatically rebooting the device when no profile has
-                    been unlocked for the configured period to put the device fully at rest
-                    again, which is enabled by default at 18 hours. This can be configured at
-                    Settings > Security > Auto reboot.</p>
+                    <p>GrapheneOS provides an auto-reboot feature which reboots locked devices after
+                    a set period of time to put data at rest. A countdown timer is started each time
+                    the device is locked, and the device will reboot if a successful unlock doesn't
+                    occur before the timer reaches zero. Unlocking any profile cancels the timer,
+                    not just the Owner profile.</p>
+
+                    <p>The timer is set to 18 hours by default, but can be set to values between 10
+                    minutes and 72 hours, or turned off.</p>
+
+                    <p>This feature doesn't apply when the device is in "Before First Unlock" state,
+                    meaning that it will not lead to the device continuously rebooting, as data is
+                    already at rest.</p>
                 </section>
 
                 <section id="more-secure-fingerprint-unlock">
