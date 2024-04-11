@@ -766,6 +766,10 @@
                     <p>This feature doesn't apply when the device is in "Before First Unlock" state,
                     meaning that it will not lead to the device continuously rebooting, as data is
                     already at rest.</p>
+
+                    <p>The feature is implemented in the init process, preventing it from being
+                    bypassed through system process crashes since an init crash causes a kernel
+                    panic which leads to a reboot.</p>
                 </section>
 
                 <section id="more-secure-fingerprint-unlock">
