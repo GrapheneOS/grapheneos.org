@@ -766,6 +766,10 @@
                     <p>This feature doesn't apply when the device is in "Before First Unlock" state,
                     meaning that it will not lead to the device continuously rebooting, as data is
                     already at rest.</p>
+
+                    <p>The feature is implemented in init, which makes it hardened against system 
+                    process crashes by ensuring that the timer won't be canceled or reset by one 
+                    occurring.</p>
                 </section>
 
                 <section id="more-secure-fingerprint-unlock">
