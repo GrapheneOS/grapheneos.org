@@ -754,10 +754,22 @@
                 <section id="auto-reboot">
                     <h3><a href="#auto-reboot">Auto reboot</a></h3>
 
-                    <p>Option to enable automatically rebooting the device when no profile has
-                    been unlocked for the configured period to put the device fully at rest
-                    again, which is enabled by default at 18 hours. This can be configured at
-                    Settings > Security > Auto reboot.</p>
+                    <p>GrapheneOS provides an auto-reboot feature which reboots locked devices after
+                    a set period of time to put data at rest. A countdown timer is started each time
+                    the device is locked, and the device will reboot if a successful unlock doesn't
+                    occur before the timer reaches zero. Unlocking any profile cancels the timer,
+                    not just the Owner profile.</p>
+
+                    <p>The timer is set to 18 hours by default, but can be set to values between 10
+                    minutes and 72 hours, or turned off.</p>
+
+                    <p>This feature doesn't apply when the device is in "Before First Unlock" state,
+                    meaning that it will not lead to the device continuously rebooting, as data is
+                    already at rest.</p>
+
+                    <p>The feature is implemented in the init process, preventing it from being
+                    bypassed through system process crashes since an init crash causes a kernel
+                    panic which leads to a reboot.</p>
                 </section>
 
                 <section id="more-secure-fingerprint-unlock">
@@ -1128,8 +1140,8 @@
                     <li>Unnecessary logging is avoided, and logs are automatically purged after 4
                     days (network services used by the OS) to 10 days</li>
                     <li>Services are hosted entirely via our own dedicated servers and virtual
-                    machines from OVH without involving any additional parties for CDNs, SaaS
-                    platforms, mirrors or other services</li>
+                    machines from OVH (and BuyVM for mirrors) without involving any additional
+                    parties for CDNs, SaaS platforms, mirrors or other services</li>
                     <li>Our services are built with open technology stacks to avoid being locked into
                     any particular hosting provider or vendor</li>
                     <li>Open documentation on our infrastructure including listing out all of our

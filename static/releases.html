@@ -89,6 +89,11 @@
                     <li>
                         <a href="#changelog">Changelog</a>
                         <ul>
+                            <li><a href="#2024040900">2024040900</a></li>
+                            <li><a href="#2024040300">2024040300</a></li>
+                            <li><a href="#2024040200">2024040200</a></li>
+                            <li><a href="#2024032100">2024032100</a></li>
+                            <li><a href="#2024031400">2024031400</a></li>
                             <li><a href="#2024031100">2024031100</a></li>
                             <li><a href="#2024030900">2024030900</a></li>
                             <li><a href="#2024030800">2024030800</a></li>
@@ -725,24 +730,175 @@
                 release notes from before the rebranding of the project in 2018 and 2019.</p>
 
                 <!--
-                <article id="2024031100">
-                    <h3><a href="#2024031100">2024031100</a></h3>
+                <article id="2024040900">
+                    <h3><a href="#2024040900">2024040900</a></h3>
+
+                    <p>Pixel 4a (5G) and Pixel 5 are end-of-life and shouldn't be used anymore due
+                    to lack of security patches for firmware and drivers. We provide extended
+                    support for harm reduction.</p>
 
                     <p>Tags:</p>
                     <ul>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024031100">2024031100</a> (Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, emulator, generic, other targets)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024040900-redfin">2024040900-redfin</a> (Pixel 4a (5G), Pixel 5)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024040900">2024040900</a> (Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2024040900 release:</p>
+
+                    <ul>
+                        <li>TalkBack (screen reader): update base code to 14.1 and massively overhaul our changes to it</li>
+                        <li>kernel (5.10): update to latest GKI LTS branch revision</li>
+                        <li>kernel (5.15): update to latest GKI LTS branch revision including update to 5.15.148</li>
+                        <li>kernel (6.1): update to latest GKI LTS branch revision including update to 6.1.76</li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/123.0.6312.118.0">version 123.0.6312.118.0</a></li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/124.0.6367.42.0">version 124.0.6367.42.0</a></li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/124.0.6367.54.0">version 124.0.6367.54.0</a></li>
+                        <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-103">version 103</a></li>
+                        <li>Setup Wizard: add functionality for testing on debug builds</li>
+                    </ul>
+                </article>
+                -->
+
+                <article id="2024040900">
+                    <h3><a href="#2024040900">2024040900</a></h3>
+
+                    <p>Pixel 4a (5G) and Pixel 5 are end-of-life and shouldn't be used anymore due
+                    to lack of security patches for firmware and drivers. We provide extended
+                    support for harm reduction.</p>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024040900-redfin">2024040900-redfin</a> (Pixel 4a (5G), Pixel 5)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024040900">2024040900</a> (Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2024040300 release:</p>
+
+                    <ul>
+                        <li>rebased onto AP1A.240405.002.A1 Android Open Source Project release (includes a launcher taskbar improvement)</li>
+                        <li>avoid crashes in Chromium-based web browsers and the WebView in their sandboxed processes caused by an incompatibility between exec-based spawning and the new userfaultfd-based garbage collector enabled by Android 14 QPR2</li>
+                        <li>DNS resolver: fix upstream bug resulting in NUL byte being included in the random string for the DNS-over-TLS test query</li>
+                        <li>allow privileged installers to use getSharedLibraries(MATCH_ANY_USER) in order to enable Apps to handle an edge case involving shared libraries (Vanadium Trichrome library) updated in other users while avoiding adding the INTERACT_ACROSS_USERS permission used for this purpose by the Play Store</li>
+                        <li>kernel (5.10, 6.1): update to latest GKI LTS branch revision</li>
+                        <li>kernel (5.10): reapply reverted upstream f2fs and irq changes now that the regressions are resolved</li>
+                        <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-102">version 102</a></li>
+                        <li>fix our infrastructure for testing our CarrierConfig2 app</li>
+                    </ul>
+                </article>
+
+                <article id="2024040300">
+                    <h3><a href="#2024040300">2024040300</a></h3>
+
+                    <p>Pixel 4a (5G) and Pixel 5 are end-of-life and shouldn't be used anymore due
+                    to lack of security patches for firmware and drivers. We provide extended
+                    support for harm reduction.</p>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024040300-redfin">2024040300-redfin</a> (Pixel 4a (5G), Pixel 5)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024040300">2024040300</a> (Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2024040200 release:</p>
+
+                    <ul>
+                        <li>full 2024-04-05 security patch level</li>
+                        <li>rebased onto AP1A.240405.002 Android Open Source Project release</li>
+                        <li>fix upstream OS limitation preventing using emergency dialer from setup wizard in secondary users</li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/123.0.6312.99.0">version 123.0.6312.99.0</a></li>
+                    </ul>
+                </article>
+
+                <article id="2024040200">
+                    <h3><a href="#2024040200">2024040200</a></h3>
+
+                    <p>Pixel 4a (5G) and Pixel 5 are end-of-life and shouldn't be used anymore due
+                    to lack of security patches for firmware and drivers. We provide extended
+                    support for harm reduction.</p>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024040200-redfin">2024040200-redfin</a> (Pixel 4a (5G), Pixel 5)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024040200">2024040200</a> (Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2024032100 release:</p>
+
+                    <ul>
+                        <li>full 2024-04-01 security patch level (early release based on AOSP 14 April security backports since the official April AOSP and stock Pixel OS monthly releases aren't available yet)</li>
+                        <li>fix race condition for Wi-Fi and Bluetooth auto-turn-off leading to the first auto-turn-off timer after the first Wi-Fi or Bluetooth state update potentially not being scheduled</li>
+                        <li>fix Wi-Fi auto-turn-off no longer handling Wi-Fi state change events not involving a Wi-Fi network</li>
+                        <li>DocumentsUI (Files): do not delegate handling of downloaded APKs to DownloadProvider to avoid confusing install permission prompt</li>
+                        <li>flash-all: raise minimum fastboot version to 34.0.5</li>
+                        <li>kernel (Pixel 8, Pixel 8 Pro): sign vendor modules after building them instead of only signing generic (GKI) modules</li>
+                        <li>kernel (6.1): update to latest GKI LTS branch revision</li>
+                        <li>fix upstream bug breaking pressing power button 5 times to make an emergency call</li>
+                        <li>fix upstream bug causing 5 second delay to start the emergency dialer for the first time</li>
+                        <li>CarrierConfig2 (app created by GrapheneOS to replace Google CarrierSettings): add stub implementation of VendorConfigProvider</li>
+                        <li>Setup Wizard: use new API for emergency calls</li>
+                        <li>Setup Wizard: add prompt for unlocked bootloader triggering reboot to fastboot mode to lock</li>
+                        <li>Setup Wizard: add prompt for disabling OEM unlocking after the device is locked (will be disabled by default)</li>
+                        <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-100">version 100</a></li>
+                        <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-101">version 101</a></li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/123.0.6312.80.0">version 123.0.6312.80.0</a></li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/123.0.6312.80.1">version 123.0.6312.80.1</a></li>
+                    </ul>
+                </article>
+
+                <article id="2024032100">
+                    <h3><a href="#2024032100">2024032100</a></h3>
+
+                    <p>Pixel 4a (5G) and Pixel 5 are end-of-life and shouldn't be used anymore due
+                    to lack of security patches for firmware and drivers. We provide extended
+                    support for harm reduction.</p>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024032100-redfin">2024032100-redfin</a> (Pixel 4a (5G), Pixel 5)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024032100">2024032100</a> (Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2024031400 release:</p>
+
+                    <ul>
+                        <li>Bluetooth: revert broken upstream change and changes depending on it to fix Galaxy Watch 6 Classic and likely other devices impacted by the same issue (this was a failure of upstream testing and release engineering for AOSP and doesn't impact the stock Pixel OS because it uses a different APEX module revision branched from an older revision of AOSP but it will impact every other Android-based OS on Android 14 QPR2 since there isn't a Bluetooth mainline module published in the Play Store and AOSP yet)</li>
+                        <li>revert disabling hardened_malloc for Broadcom Bluetooth HAL (we've fixed the upstream issue and this wasn't needed)</li>
+                        <li>revert allowing users to disable hardened_malloc for Bluetooth system app (we've fixed the upstream issue and this wasn't needed)</li>
+                        <li>Android Runtime: disable stripping symbols for libart to restore compatibility with some popular obfuscated Chinese apps using a specific obfuscation SDK depending on private APIs which was broken by Android 14 QPR2 when not using the mainline ART module based on older code like the stock Pixel OS (does not result in any lost storage space, just slightly larger factory images / updates as if we'd bundled another small app)</li>
+                        <li>Android Runtime: remove Android's hard-wired <code>speed-profile</code> compilation for launcher apps which was limiting ahead-of-time compilation for user installed launcher apps to the parts of the code included in baseline and/or cloud profiles rather than compiling the whole app via our default <code>speed</code> compilation which we use to replace JIT compilation and JIT profiles guiding background AOT compilation</li>
+                        <li>backport 12 upstream fixes from the mainline MediaProvider, Wifi, NetworkStack and HealthFitness APEX modules</li>
+                        <li>allow using device controls quick tile when unlocked since it already has a toggle for controlling availability so our new default requirement of the device being unlocked needs to be overridden for it</li>
+                        <li>more complete setup design configuration to improve appearance of Setup Wizard, etc.</li>
+                        <li>Settings: fix upstream footer formatting issue for App pinning screen</li>
+                        <li>update timezone module to Android mainline 341510010 (based on tzdata 2024a)</li>
+                        <li>kernel (5.15, 6.1): improve support for hosting servers by enabling SYN cookies as we do for the older kernels</li>
+                        <li>kernel (6.1): drop obsolete usage of YAMA which we replaced with our dynamic SELinux flag extension</li>
+                        <li>kernel (5.10): update to latest GKI LTS branch revision</li>
+                        <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-99">version 99</a></li>
+                    </ul>
+                </article>
+
+                <article id="2024031400">
+                    <h3><a href="#2024031400">2024031400</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024031400">2024031400</a> (Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, emulator, generic, other targets)</li>
                     </ul>
 
                     <p>Changes since the 2024031100 release:</p>
 
                     <ul>
-                        <li>fix upstream system_server crash in Android 14 QPR2 when installing updates to packages with an original-package application id such as Vanadium (was reported by users helping with Vanadium Alpha channel testing)</li>
+                        <li>allow users to disable GrapheneOS hardened_malloc for the Bluetooth system app via the Settings app to help with debugging upstream bugs (still enabled by default)</li>
+                        <li>temporarily disable hardened_malloc for Broadcom Bluetooth HAL as a potential workaround for upstream bugs in Android 14 QPR2 (will be reverted if it doesn't help and reverted after fixes are implemented if it does help)</li>
+                        <li>fix upstream bug in Android 14 QPR2 breaking Wi-Fi tethering on fresh installs before Wi-Fi is enabled for the first time, which didn't occur on the stock OS in practice due to it enabling Wi-Fi by default</li>
+                        <li>fix upstream system_server crash in Android 14 QPR2 when installing updates to packages with an original-package application id such as Vanadium (was reported by users helping with Vanadium Alpha channel testing and we released Apps version 22 with a workaround avoiding the crash prior to this fix)</li>
                         <li>Apps: update to <a href="https://github.com/GrapheneOS/Apps/releases/tag/22">version 22</a></li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/122.0.6261.119.0">version 122.0.6261.119.0</a></li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/123.0.6312.40.0">version 123.0.6312.40.0</a></li>
+                        <li>drop legacy script/envsetup.sh (see current build instructions)</li>
                     </ul>
                 </article>
-                -->
 
                 <article id="2024031100">
                     <h3><a href="#2024031100">2024031100</a></h3>

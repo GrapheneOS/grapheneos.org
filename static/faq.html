@@ -92,6 +92,7 @@
                             <li><a href="#ad-blocking">How can I set up system-wide ad-blocking?</a></li>
                             <li><a href="#ad-blocking-apps">Are ad-blocking apps supported?</a></li>
                             <li><a href="#baseband-isolation">Is the baseband isolated?</a></li>
+                            <li><a href="#bootloader-locking-setup">Why am I seeing a message about my bootloader not being locked when setting up the device?</a></li>
                         </ul>
                     </li>
                     <li>
@@ -288,7 +289,8 @@
                         <li>Vendor code updated to new monthly, quarterly and yearly releases of
                         AOSP within several months to provide new security improvements (Pixels
                         receive these in the month they're released)</li>
-                        <li>Linux 5.15 or Linux 6.1 Generic Kernel Image (GKI) support</li>
+                        <li>Linux 5.15 or 6.1 Generic Kernel Image (GKI) support (requirement will
+                        change to 6.1 or 6.6 after the stable release of Android 15)</li>
                         <li>Hardware accelerated virtualization usable by GrapheneOS (ideally pKVM
                         to match Pixels but another usable implementation may be acceptable)</li>
                         <li>Hardware memory tagging (ARM MTE or equivalent)</li>
@@ -318,6 +320,9 @@
                         sequence number randomization and no other leaked identifiers</li>
                         <li>Support for disabling USB data and also USB as a whole at a hardware
                         level in the USB controller</li>
+                        <li>Reset attack mitigation for firmware-based boot modes such as fastboot
+                        mode zeroing memory left over from the OS and delaying opening up attack
+                        surface such as USB functionality until that's completed</li>
                     </ul>
 
                     <p>In order to support a device, the appropriate resources also need to be available
@@ -1112,6 +1117,17 @@
                     could hard-wire domains as verified if they did and we wanted to avoid more
                     default connections.</p>
 
+                    <p>GrapheneOS uses
+                    https://widevineprovisioning.grapheneos.org/certificateprovisioning/v1/devicecertificates/create
+                    by default which is a private reverse proxy to
+                    https://www.googleapis.com/certificateprovisioning/v1/devicecertificates/create
+                    as part of Widevine provisioning. This is another form of key provisioning for
+                    per-app keys that are used when playing DRM protected media. DRM support is
+                    enabled in the OS by default but we don't include any apps using it by default,
+                    since it's disabled in Vanadium. A setting is added at Settings ➔ Network &amp;
+                    Internet ➔ Widevine provisioning for switching to directly using the Google
+                    service if you prefer.</p>
+
                     <p>Most other connections made by the OS itself are made based on your chosen
                     carrier. The OS has a database of APN and other carrier configuration settings
                     which determines how this works by default. Normally, carriers can force their
@@ -1465,6 +1481,35 @@
                     Linux kernel is monolithic and has no internal security boundaries, the attack surface
                     is problematic and a HardMAC implementation with most complexity in the isolated
                     firmware could be better than the status quo. An isolated driver would be ideal.</p>
+                </article>
+
+                <article id="bootloader-locking-setup">
+                    <h2><a href="#bootloader-locking-setup">Why am I seeing a message about my bootloader not being locked when setting up the device?</a></h2>
+
+                    <p>If you are seeing this warning when setting up your device after GrapheneOS
+                    has been installed, it means that not all of the installation steps have been
+                    completed. This can be remediated by finishing the installation process and
+                    locking the device's bootloader.</p>
+
+                    <p>To do this, follow these steps:</p>
+
+                        <ol>
+                            <li>Navigate to the bootloader locking section of the <a href="https://grapheneos.org/install/web">web install
+                            (recommended)</a> or <a href="https://grapheneos.org/install/cli">CLI install</a>
+                            guide on the device you'll be using to lock the bootloader.</li>
+                            <li>If you are at the welcome screen on your GrapheneOS device, tap "Next".</li>
+                            <li>On the resulting screen, tap "Reboot to bootloader".</li>
+                            <li>Connect your GrapheneOS device to the device where you have the install page open.</li>
+                            <li>Follow the steps on the install page to lock the bootloader.</li>
+                            <li>Once locked, you can start setting up your GrapheneOS device, and the warning should no longer be present.</li>
+                        </ol>
+
+                    <p>It is important to note that this is something that should be done before
+                    placing any data onto the device, as until this step is completed, the device is
+                    considered to be insecure. Please note that locking the bootloader wipes all
+                    user data on the device. GrapheneOS doesn't provide any support to users running
+                    GrapheneOS with an unlocked bootloader, as this is considered to be an
+                    incomplete installation.</p>
                 </article>
             </section>
 
