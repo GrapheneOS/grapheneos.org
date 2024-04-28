@@ -880,19 +880,23 @@
                         <li>Type-based Control Flow Integrity (CFI)</li>
                         <li>Hardware memory tagging (MTE) enabled for the main allocator</li>
                         <li>Strict site isolation and sandboxed iframes</li>
-                        <li>JavaScript JIT disabled by default with per-site toggle via drop-down permission menu</li>
+                        <li>JavaScript JIT disabled by default with per-site toggle via drop-down
+                        permission menu</li>
                         <li>Native Android autofill implementation to avoid needing sandboxed Google
                         Play for autofill support</li>
                         <li>WebGPU disabled for attack surface reduction</li>
                         <li>WebRTC IP handling policy toggle to control peer-to-peer WebRTC mode</li>
-                        <li>Compiler hardening: automatic variable initialization, strong stack protector, well-defined signed overflow</li>
+                        <li>Compiler hardening: automatic variable initialization, strong stack
+                        protector, well-defined signed overflow</li>
                         <li>High performance content filtering engine using EasyList + EasyPrivacy
                         with per-site toggle via drop-down permission menu</li>
                         <li>More complete state partitioning without origin trial opt-out</li>
-                        <li>High entropy client hints are replaced with the frozen user agent values to avoid leaking device/OS info</li>
+                        <li>High entropy client hints are replaced with the frozen user agent values
+                        to avoid leaking device/OS info</li>
                         <li>Battery API always shows the battery as charging and at 100% capacity</li>
                         <li>Trivial subdomain hiding disabled</li>
-                        <li>Consistent browser behavior across users without usage of feature flags and seed-based trials</li>
+                        <li>Consistent browser behavior across users without usage of feature flags
+                        and seed-based trials</li>
                         <li>Nearly all remote services disabled by default or removed. Only connects
                         to GrapheneOS servers by default. There are only 2 default services:
                         component updates such as certificate authority and certificate revocation
@@ -903,6 +907,9 @@
                         and share intents in Incognito mode</li>
                         <li>Option to reduce or disable sending cross-origin referrer information
                         sharing where a link was opened</li>
+                        <li>Hybrid post-quantum cryptography enabled by default to match the
+                        behavior of Chromium on desktop since the devices we support are more
+                        than fast enough</li>
                     </ul>
 
                     <p>Better default settings, including non-user-facing flags:</p>
