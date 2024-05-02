@@ -751,6 +751,9 @@
                     <ul>
                         <li>enable heap memory tagging for vendor processes by default, remove the user-facing toggle in the Settings and restrict toggling the value to debug builds</li>
                         <li>disable most handling for instant apps in the package manager as attack surface reduction</li>
+                        <li>disable out-of-band APEX updates as attack surface reduction</li>
+                        <li>only allow first party app source and shell to update system packages</li>
+                        <li>improve robustness of original-package handling</li>
                         <li>Settings: hide GNSS SUPL and PSDS settings on devices without GNSS hardware</li>
                         <li>fix regression from our Android 14 QPR2 port causing Storage/Contact Scopes link to disappear after going back to the permissions screen</li>
                         <li>improve setup wizard theme to more closely match the stock Pixel OS configuration</li>
@@ -768,6 +771,7 @@
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/124.0.6367.113.0">version 124.0.6367.113.0</a></li>
                         <li>Apps: update to <a href="https://github.com/GrapheneOS/Apps/releases/tag/23">version 23</a></li>
                         <li>work around our app repository client taking ownership of updates for the debug toggle we use to test new Android Auto releases</li>
+                        <li>fix debug build option for testing same versionCode package updates</li>
                     </ul>
                 </article>
                 -->
