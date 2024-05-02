@@ -89,6 +89,9 @@
                     <li>
                         <a href="#changelog">Changelog</a>
                         <ul>
+                            <li><a href="#2024042200">2024042200</a></li>
+                            <li><a href="#2024042100">2024042100</a></li>
+                            <li><a href="#2024042000">2024042000</a></li>
                             <li><a href="#2024040900">2024040900</a></li>
                             <li><a href="#2024040300">2024040300</a></li>
                             <li><a href="#2024040200">2024040200</a></li>
@@ -730,8 +733,8 @@
                 release notes from before the rebranding of the project in 2018 and 2019.</p>
 
                 <!--
-                <article id="2024040900">
-                    <h3><a href="#2024040900">2024040900</a></h3>
+                <article id="2024042200">
+                    <h3><a href="#2024042200">2024042200</a></h3>
 
                     <p>Pixel 4a (5G) and Pixel 5 are end-of-life and shouldn't be used anymore due
                     to lack of security patches for firmware and drivers. We provide extended
@@ -739,25 +742,116 @@
 
                     <p>Tags:</p>
                     <ul>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024040900-redfin">2024040900-redfin</a> (Pixel 4a (5G), Pixel 5)</li>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024040900">2024040900</a> (Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, emulator, generic, other targets)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024042200-redfin">2024042200-redfin</a> (Pixel 4a (5G), Pixel 5)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024042200">2024042200</a> (Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2024042200 release:</p>
+
+                    <ul>
+                        <li>enable heap memory tagging for vendor processes by default, remove the user-facing toggle in the Settings and restrict toggling the value to debug builds</li>
+                        <li>disable most handling for instant apps in the package manager as attack surface reduction</li>
+                        <li>Settings: hide GNSS SUPL and PSDS settings on devices without GNSS hardware</li>
+                        <li>fix regression from our Android 14 QPR2 port causing Storage/Contact Scopes link to disappear after going back to the permissions screen</li>
+                        <li>improve setup wizard theme to more closely match the stock Pixel OS configuration</li>
+                        <li>backport mainline APEX module patches for Android Health, Media Provider, Network Stack, and Wi-Fi</li>
+                        <li>kernel (5.10): update to latest GKI LTS branch revision including update to 5.10.212</li>
+                        <li>kernel (6.1): update to latest GKI LTS branch revision including update to 6.1.79</li>
+                        <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-105">version 105</a></li>
+                        <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-106">version 106</a></li>
+                        <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-107">version 107</a></li>
+                        <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-108">version 108</a></li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/124.0.6367.82.0">version 124.0.6367.82.0</a></li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/124.0.6367.82.1">version 124.0.6367.82.1</a></li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/124.0.6367.82.2">version 124.0.6367.82.2</a></li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/124.0.6367.113.0">version 124.0.6367.113.0</a></li>
+                        <li>Apps: update to <a href="https://github.com/GrapheneOS/Apps/releases/tag/23">version 23</a></li>
+                        <li>work around our app repository client taking ownership of updates for the debug toggle we use to test new Android Auto releases</li>
+                    </ul>
+                </article>
+                -->
+
+                <article id="2024042200">
+                    <h3><a href="#2024042200">2024042200</a></h3>
+
+                    <p>This release is only being done for the Pixel 8 and Pixel 8 Pro due to lack
+                    of changes relevant to other devices.</p>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024042200">2024042200</a> (Pixel 8, Pixel 8 Pro, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2024042100 release:</p>
+
+                    <ul>
+                        <li>kernel (5.15): revert another broken f2fs change from the 5.15.149 release (entirely separate from what was fixed in our last release)</li>
+                    </ul>
+                </article>
+
+                <article id="2024042100">
+                    <h3><a href="#2024042100">2024042100</a></h3>
+
+                    <p>Pixel 4a (5G) and Pixel 5 are end-of-life and shouldn't be used anymore due
+                    to lack of security patches for firmware and drivers. We provide extended
+                    support for harm reduction.</p>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024042100-redfin">2024042100-redfin</a> (Pixel 4a (5G), Pixel 5)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024042100">2024042100</a> (Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2024042000 release:</p>
+
+                    <ul>
+                        <li>kernel (5.10): update to latest GKI LTS branch revision</li>
+                        <li>kernel (5.15): backport upstream f2fs patch for a kernel panic caused by another upstream f2fs patch included in the last GKI LTS update (this fix is not included in any Linux stable release yet but rather only the release candidates for Linux 6.9)</li>
+                        <li>kernel (6.1): update to latest GKI LTS branch revision including update to 6.1.78</li>
+                    </ul>
+                </article>
+
+                <article id="2024042000">
+                    <h3><a href="#2024042000">2024042000</a></h3>
+
+                    <p>Pixel 4a (5G) and Pixel 5 are end-of-life and shouldn't be used anymore due
+                    to lack of security patches for firmware and drivers. We provide extended
+                    support for harm reduction.</p>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024042000-redfin">2024042000-redfin</a> (Pixel 4a (5G), Pixel 5)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024042000">2024042000</a> (Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, emulator, generic, other targets)</li>
                     </ul>
 
                     <p>Changes since the 2024040900 release:</p>
 
                     <ul>
+                        <li>for devices with hardware memory tagging support, add a toggle in Settings > Security for opting into memory tagging in vendor processes currently excluded from it with the end goal of having it force enabled without a toggle as we do for the rest of the base OS</li>
+                        <li>allow eSIM activation app to interact with Google Fi app when installed to fix Google Fi activation</li>
+                        <li>use ro.vendor.build.svn system property from adevtool instead of AOSP to make sure it always matches the stock OS</li>
+                        <li>Pixel Fold: update to AP1A.240405.002.A2 vendor files</li>
+                        <li>Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel 8, Pixel 8 Pro: update to AP1A.240405.002.B1 vendor files</li>
+                        <li>Log Viewer: include kernel log buffer in default log output</li>
+                        <li>Log Viewer: show "Save" instead of "Copy" button for logs that are over ~50 KB</li>
+                        <li>Log Viewer: improve handling of log saving</li>
+                        <li>backport mainline APEX module patches for Android Health, ART, DNS Resolver, Media Provider, Network Stack, PermissionController and Wi-Fi</li>
                         <li>TalkBack (screen reader): update base code to 14.1 and massively overhaul our changes to it</li>
                         <li>kernel (5.10): update to latest GKI LTS branch revision</li>
-                        <li>kernel (5.15): update to latest GKI LTS branch revision including update to 5.15.148</li>
+                        <li>kernel (5.15): update to latest GKI LTS branch revision including update to 5.15.149</li>
                         <li>kernel (6.1): update to latest GKI LTS branch revision including update to 6.1.76</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/123.0.6312.118.0">version 123.0.6312.118.0</a></li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/124.0.6367.42.0">version 124.0.6367.42.0</a></li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/124.0.6367.54.0">version 124.0.6367.54.0</a></li>
+                        <li>Camera: update to <a href="https://github.com/GrapheneOS/Camera/releases/tag/67">version 67</a></li>
+                        <li>Camera: update to <a href="https://github.com/GrapheneOS/Camera/releases/tag/68">version 68</a></li>
+                        <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/79">version 79</a></li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-103">version 103</a></li>
+                        <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-104">version 104</a></li>
+                        <li>Setup Wizard: layout and style improvements</li>
                         <li>Setup Wizard: add functionality for testing on debug builds</li>
                     </ul>
                 </article>
-                -->
 
                 <article id="2024040900">
                     <h3><a href="#2024040900">2024040900</a></h3>
