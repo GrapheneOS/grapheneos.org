@@ -751,6 +751,7 @@
                     <p>Changes since the 2024050700 release:</p>
 
                     <ul>
+                        <li>prevent app-based VPN implementations from leaking DNS requests when the VPN is down/connecting (this is a preliminary defense against this issue and more research is required, along with apps preventing the leaks on their end or they'll still have leaks outside of GrapheneOS)</li>
                         <li>exclude Settings app from visible Location indicator too since it gets triggered from accessing Wi-Fi data when enabling Wi-Fi hotspot and potentially other info tied to Wi-Fi and Bluetooth</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/125.0.6422.35.0">version 125.0.6422.35.0</a></li>
                         <li>PDF Viewer: update to <a href="https://github.com/GrapheneOS/PdfViewer/releases/tag/19">version 19</a></li>
