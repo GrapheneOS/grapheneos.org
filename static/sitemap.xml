@@ -71,6 +71,10 @@
         <priority>0.1</priority>
     </url>
     <url>
+        <loc>https://grapheneos.org/hiring</loc>
+        <priority>0.2</priority>
+    </url>
+    <url>
         <loc>https://grapheneos.org/humans.txt</loc>
         <priority>0.0</priority>
     </url>
