@@ -7,52 +7,12 @@
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://grapheneos.org/features</loc>
-        <priority>1.0</priority>
+        <loc>https://grapheneos.org/.well-known/security.txt</loc>
+        <priority>0.0</priority>
     </url>
     <url>
-        <loc>https://grapheneos.org/install/</loc>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>https://grapheneos.org/install/cli</loc>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>https://grapheneos.org/install/web</loc>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>https://grapheneos.org/build</loc>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>https://grapheneos.org/usage</loc>
-        <priority>1.0</priority>
-    </url>
-    <url>
-        <loc>https://grapheneos.org/faq</loc>
-        <priority>1.0</priority>
-    </url>
-    <url>
-        <loc>https://grapheneos.org/releases</loc>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>https://grapheneos.org/source</loc>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>https://grapheneos.org/history/</loc>
-        <priority>0.3</priority>
-    </url>
-    <url>
-        <loc>https://grapheneos.org/history/copperheados</loc>
-        <priority>0.1</priority>
-    </url>
-    <url>
-        <loc>https://grapheneos.org/history/legacy-changelog</loc>
-        <priority>0.1</priority>
+        <loc>https://grapheneos.org/LICENSE.txt</loc>
+        <priority>0.0</priority>
     </url>
     <url>
         <loc>https://grapheneos.org/articles/</loc>
@@ -75,31 +35,71 @@
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://grapheneos.org/donate</loc>
+        <loc>https://grapheneos.org/build</loc>
         <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>https://grapheneos.org/contact</loc>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>https://grapheneos.org/pdfviewer-privacy-policy</loc>
-        <priority>0.0</priority>
     </url>
     <url>
         <loc>https://grapheneos.org/camera-privacy-policy</loc>
         <priority>0.0</priority>
     </url>
     <url>
-        <loc>https://grapheneos.org/.well-known/security.txt</loc>
-        <priority>0.0</priority>
+        <loc>https://grapheneos.org/contact</loc>
+        <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://grapheneos.org/LICENSE.txt</loc>
-        <priority>0.0</priority>
+        <loc>https://grapheneos.org/donate</loc>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://grapheneos.org/faq</loc>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://grapheneos.org/features</loc>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://grapheneos.org/history/</loc>
+        <priority>0.3</priority>
+    </url>
+    <url>
+        <loc>https://grapheneos.org/history/copperheados</loc>
+        <priority>0.1</priority>
+    </url>
+    <url>
+        <loc>https://grapheneos.org/history/legacy-changelog</loc>
+        <priority>0.1</priority>
     </url>
     <url>
         <loc>https://grapheneos.org/humans.txt</loc>
         <priority>0.0</priority>
+    </url>
+    <url>
+        <loc>https://grapheneos.org/pdfviewer-privacy-policy</loc>
+        <priority>0.0</priority>
+    </url>
+    <url>
+        <loc>https://grapheneos.org/install/</loc>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://grapheneos.org/install/cli</loc>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://grapheneos.org/install/web</loc>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://grapheneos.org/releases</loc>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://grapheneos.org/source</loc>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://grapheneos.org/usage</loc>
+        <priority>1.0</priority>
     </url>
 </urlset>
