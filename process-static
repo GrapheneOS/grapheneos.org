@@ -92,5 +92,7 @@ for file in static-tmp/**/*.@(atom|xml); do
     xmllint --noblanks "$file" --output "$file"
 done
 
+[[ -f indexnow-key.txt ]] && index_now_key="$(cat indexnow-key.txt)" && echo "$index_now_key" > "static-tmp/$index_now_key.txt"
+
 find static-tmp -regex '.+\.\(atom\|css\|html\|ico\|js\|json\|mjs\|pdf\|svg\|txt\|webmanifest\|xml\)' |
     parallel -q ::: brotli zopfli :::: -
