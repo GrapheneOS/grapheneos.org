@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-from pathlib import Path
 from datetime import datetime, timezone
 from os.path import getmtime
+from pathlib import Path
 
 base = "https://grapheneos.org"
 
