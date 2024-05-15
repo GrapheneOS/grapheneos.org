@@ -772,7 +772,7 @@
                     <p>Changes since the 2024050900 release:</p>
 
                     <ul>
-                        <li>revert change for app-based VPN DNS since it isn't the right approach and we'll need to ship a new implementation of blocking DNS leaks with these apps</li>
+                        <li>revert our initial approach to blocking DNS leaks with third party Android VPN apps since it changed the behavior in a slightly different way than intended and caused compatibility issues with certain apps (particularly Proton VPN) which blocked us from releasing 2024050900 to the Stable channel (will be replaced in the near future with another approach)</li>
                         <li>improve GrapheneOS Predicted Satellite Data Service (PSDS) infrastructure with better logging, cleaner code and more generic code to support Samsung PSDS for the Pixel 8a in addition to Qualcomm and Broadcom PSDS</li>
                         <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/80">version 80</a></li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-110">version 110</a></li>
