@@ -1,0 +1,67 @@
+#!/usr/bin/env python3
+
+from pathlib import Path
+from datetime import datetime, timezone
+from os.path import getmtime
+
+base = "https://grapheneos.org"
+
+pages = [
+    ["/", 0.5],
+    ["/.well-known/security.txt", 0.0],
+    ["/LICENSE.txt", 0.0],
+    ["/articles/", 0.5],
+    ["/articles/attestation-compatibility-guide", 0.5],
+    ["/articles/grapheneos-servers", 0.1],
+    ["/articles/server-traffic-shaping", 0.5],
+    ["/articles/sitewide-advertising-industry-opt-out", 0.5],
+    ["/build", 0.5],
+    ["/camera-privacy-policy", 0.0],
+    ["/contact", 0.5],
+    ["/donate", 0.5],
+    ["/faq", 1.0],
+    ["/features", 1.0],
+    ["/history/", 0.3],
+    ["/history/copperheados", 0.1],
+    ["/history/legacy-changelog", 0.1],
+    ["/hiring", 0.2],
+    ["/humans.txt", 0.0],
+    ["/pdfviewer-privacy-policy", 0.0],
+    ["/install/", 0.5],
+    ["/install/cli", 0.5],
+    ["/install/web", 0.5],
+    ["/releases", 0.5],
+    ["/source", 0.5],
+    ["/usage", 1.0]
+]
+
+entries = []
+
+for page in pages:
+    path = page[0]
+    loc = base + path
+    filepath = "static-production" + path
+    if path[-1] == '/':
+        filepath += "index.html"
+    elif "." not in path:
+        filepath += ".html"
+
+    mtime = getmtime(filepath)
+    lastmod = datetime.fromtimestamp(mtime, timezone.utc).strftime("%Y-%m-%dT%H:%M:%S%:z")
+    priority = page[1]
+    entries.append(f"""
+    <url>
+        <loc>{loc}</loc>
+        <lastmod>{lastmod}</lastmod>
+        <priority>{priority}</priority>
+    </url>""")
+
+sitemap = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">{"".join(entries)}
+</urlset>
+"""
+
+with open("static-tmp/sitemap.xml", "w") as f:
+    f.write(sitemap)
