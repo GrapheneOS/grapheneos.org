@@ -134,6 +134,7 @@
                     <p>Smartphone and tablet targets:</p>
 
                     <ul>
+                        <li>akita (Pixel 8a) — prerelease</li>
                         <li>husky (Pixel 8 Pro)</li>
                         <li>shiba (Pixel 8)</li>
                         <li>felix (Pixel Fold)</li>
@@ -289,6 +290,9 @@
                         <code>android14-qpr2-release</code>. The <code>14</code> branch of
                         GrapheneOS should be used for generic builds including the emulator, porting
                         to other devices and for non-legacy officially supported devices.</p>
+
+                        <p>The <code>14-akita</code> branch is used for the newly released Pixel 8a
+                        until support for it is merged into mainline AOSP.</p>
 
                         <p>The <code>14-redfin</code> branch is used for the end-of-life Pixel 4a
                         (5G) and Pixel 5.</p>
@@ -746,6 +750,21 @@ repo sync -j8</pre>
                         <p>Replace the files in the OS source tree at
                         <code>device/google/shusky-kernel/</code> with your build in
                         <code>out/shusky/dist/</code>.</p>
+
+                        <p>To sync the akita kernel for the Pixel 8a:</p>
+
+                        <pre>mkdir -p android/kernel/akita
+cd android/kernel/akita
+repo init -u https://github.com/GrapheneOS/kernel_manifest-akita.git -b 14
+repo sync -j8</pre>
+
+                        <p>To build the akita kernel for the Pixel 8a:</p>
+
+                        <pre>./build_akita.sh --config=use_source_tree_aosp --config=no_download_gki --lto=full</pre>
+
+                        <p>Replace the files in the OS source tree at
+                        <code>device/google/akita-kernel/</code> with your build in
+                        <code>out/akita/dist/</code>.</p>
                     </section>
 
                     <section id="kernel-7th-generation-pixels">
