@@ -773,6 +773,7 @@
                     <p>Changes since the 2024051500 release:</p>
 
                     <ul>
+                        <li>add backport of the upstream Android implementation of wipe-without-reboot, which is the full fix for the ability to interrupt factory resets triggered by device admin apps (CVE-2024-29748 reported by GrapheneOS) and provides the infrastructure needed for our upcoming duress PIN/password feature in a much simpler way via existing HAL APIs</li>
                         <li>temporarily disable memory tagging for the Pixel camera provider and wifi_ext services due to incompatibilities found by users which should be addressed in an upcoming release of AOSP and the stock Pixel OS</li>
                         <li>Pixel 4a (5G), Pixel 5: omit Pixel Camera Services since it doesn't provide useful functionality and is broken due to these devices not being supported anymore by the current releases</li>
                         <li>kernel (5.15): update to latest GKI LTS branch revision including update to 5.15.152</li>
