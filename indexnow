@@ -10,12 +10,12 @@ if len(sys.argv) > 1:
 else:
     urls = sys.stdin.read().splitlines()
 
+if not urls:
+    sys.exit(2)
+
 for url in urls:
     if not validators.url(url):
-        sys.exit(2)
-
-if not urls:
-    sys.exit(3)
+        sys.exit(3)
 
 host = "grapheneos.org"
 api_url = "https://api.indexnow.org/indexnow"
