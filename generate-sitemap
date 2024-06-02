@@ -35,6 +35,7 @@ pages = [
     ["/usage", 1.0]
 ]
 
+base_mtime = getmtime("static-tmp")
 entries = []
 
 for page in pages:
@@ -47,6 +48,8 @@ for page in pages:
         filepath += ".html"
 
     mtime = getmtime(filepath)
+    if mtime > base_mtime:
+        print(loc)
     lastmod = datetime.fromtimestamp(mtime, timezone.utc).strftime("%Y-%m-%dT%H:%M:%S%:z")
     priority = page[1]
     entries.append(f"""

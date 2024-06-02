@@ -24,7 +24,7 @@ rsync -rpcv --chmod=D755,F644 --delete --fsync --preallocate static-tmp/ static-
 for f in static-production/**.*(br|gz); do
     touch -r "${f%.*}" "$f"
 done
-./generate-sitemap
+changed="$(./generate-sitemap)"
 xmllint --noblanks static-tmp/sitemap.xml --output static-tmp/sitemap.xml
 brotli -f static-tmp/sitemap.xml
 zopfli static-tmp/sitemap.xml
@@ -58,3 +58,7 @@ for server in ${servers[@]}; do
     echo active is now $target
     echo
 done
+
+if [[ -n "$changed" ]]; then
+    ./indexnow <<< "$changed"
+fi

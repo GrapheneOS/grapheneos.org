@@ -24,6 +24,7 @@ with open("indexnow-key.txt") as keyfile:
     key = keyfile.read().strip()
 
 def submit(urls):
+    print(urls)
     data = {
         "host": host,
         "key": key,
