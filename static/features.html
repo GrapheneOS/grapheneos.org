@@ -79,7 +79,11 @@
                                 unknown vulnerabilities</a>
                                 <ul>
                                     <li><a href="#attack-surface-reduction">Attack surface
-                                    reduction</a></li>
+                                    reduction</a>
+                                        <ul>
+                                            <li><a href="#usb-c-port-control">USB-C port control</a></li>
+                                        </ul>
+                                    </li>
                                     <li><a href="#exploit-mitigations">Exploit
                                     mitigations</a></li>
                                     <li><a href="#improved-sandboxing">Improved
@@ -249,6 +253,34 @@
                             GrapheneOS shows a notification that links the per-app native debugging
                             settings screen.</li>
                         </ul>
+
+                        <h5 id="usb-c-port-control"><a href="#usb-c-port-control">USB-C port control</a></h5>
+
+                        <p>Our USB-C port mode setting for Tensor Pixels offers precise control over
+                        USB functions, allowing complete disabling of USB controller functionality
+                        including data lines.</p>
+
+                        <p>Unlike the standard Android USB HAL and device administration API, our
+                        USB-C port control fully disables USB-C functionality at the hardware level
+                        using device-specific kernel modifications. This greatly reduces the USB-C
+                        attack surface based on the chosen setting.</p>
+
+                        <p>The feature has five modes:</p>
+
+                        <ul>
+                            <li>Off</li>
+                            <li>Charging-only</li>
+                            <li>Charging-only when locked</li>
+                            <li>Charging-only when locked, except before first unlock</li>
+                            <li>On</li>
+                        </ul>
+
+                        <p>The default is <b>Charging-only when locked, except before the first
+                        unlock</b>. This allows using peripherals like mice, keyboards, and
+                        monitors before the first unlock (for example, after a reboot), which can
+                        help save data if the touch screen fails. After locking, new connections are
+                        blocked immediately, and data lines are disabled when existing connections
+                        end.</p>
                     </section>
 
                     <section id="exploit-mitigations">
