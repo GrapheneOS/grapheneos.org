@@ -805,8 +805,7 @@
 
                     <ul>
                         <li>full 2024-06-01 security patch level</li>
-                        <li>extend the standard wipe-without-reboot implementation to run a secure element erase in addition to wiping the hardware keystore</li>
-                        <li>extend the standard wipe-without-reboot implementation to wipe the encrypted disk encryption keys in addition to preventing deriving the key encryption keys used to encrypt them by wiping the hardware keystore</li>
+                        <li>extend the standard wipe-without-reboot implementation beyond wiping the hardware keystores (which prevents recovering any OS data by preventing deriving the key encryption keys) by also wiping the secdiscardable data on the SSD needed to derive key encryption keys, the encrypted storage keys on the SSD and the Weaver slots in the secure element needed to derive per-user key encryption keys via a secure element erase</li>
                         <li>kernel (5.10): update to latest GKI LTS branch revision</li>
                         <li>kernel (5.15): update to latest GKI LTS branch revision</li>
                         <li>kernel (6.1): update to latest GKI LTS branch revision</li>
