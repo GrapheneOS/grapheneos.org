@@ -91,6 +91,7 @@
                     <li>
                         <a href="#changelog">Changelog</a>
                         <ul>
+                            <!--<li><a href="#2024060500">2024060500</a></li>-->
                             <li><a href="#2024060400">2024060400</a></li>
                             <li><a href="#2024053100">2024053100</a></li>
                             <li><a href="#2024052100">2024052100</a></li>
@@ -760,8 +761,8 @@
                 release notes from before the rebranding of the project in 2018 and 2019.</p>
 
                 <!--
-                <article id="2024060400">
-                    <h3><a href="#2024060400">2024060400</a></h3>
+                <article id="2024060500">
+                    <h3><a href="#2024060500">2024060500</a></h3>
 
                     <p>This is the first release of GrapheneOS based on Android 14 QPR3.</p>
 
@@ -771,15 +772,36 @@
 
                     <p>Tags:</p>
                     <ul>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024060400-redfin">2024060400-redfin</a> (Pixel 4a (5G), Pixel 5)</li>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024060400">2024060400</a> (Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, emulator, generic, other targets)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024060500-redfin">2024060500-redfin</a> (Pixel 4a (5G), Pixel 5)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024060500">2024060500</a> (Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2024060500 release:</p>
+
+                    <ul>
+                        <li>full 2024-06-05 security patch level</li>
+                        <li>rebased onto  Android Open Source Project release, which is the 3rd quarterly maintenance/feature release for Android 14 (QPR3)</li>
+                    </ul>
+                </article>
+                -->
+
+                <!--
+                <article id="2024060500">
+                    <h3><a href="#2024060500">2024060500</a></h3>
+
+                    <p>Pixel 4a (5G) and Pixel 5 are end-of-life and shouldn't be used anymore due
+                    to lack of security patches for firmware and drivers. We provide extended
+                    support for harm reduction.</p>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024060500-redfin">2024060500-redfin</a> (Pixel 4a (5G), Pixel 5)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024060500">2024060500</a> (Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, emulator, generic, other targets)</li>
                     </ul>
 
                     <p>Changes since the 2024060400 release:</p>
 
                     <ul>
-                        <li>full 2024-06-05 security patch level</li>
-                        <li>rebased onto  Android Open Source Project release, which is the 3rd quarterly maintenance/feature release for Android 14 (QPR3)</li>
                         <li>Sandboxed Google Play compatibility layer: adjust to DynamiteLoader changes being deployed with a new feature flag in Play services 24.22</li>
                         <li>stop treating pressing the spacebar on a physical keyboard as submitting the lockscreen password since it prevents entering passphrases with spaces (upstream Android bug which has existed for around 8.5 years)</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/125.0.6422.165.0">version 125.0.6422.165.0</a></li>
