@@ -19,10 +19,16 @@ rsync -pcv --chmod=F644 --fsync --preallocate replicate.conf root@${servers[0]}:
 
 # use last modified timestamps from 0.grapheneos.org
 rsync -rptcv --chmod=D755,F644 --delete --fsync --preallocate root@${servers[0]}:/srv/grapheneos.org/ static-production
+rsync -pcv --chmod=D755,F644 --fsync --preallocate static-production/sitemap.xml{,.gz,.br} static-tmp/
 rsync -rpcv --chmod=D755,F644 --delete --fsync --preallocate static-tmp/ static-production
 for f in static-production/**.*(br|gz); do
     touch -r "${f%.*}" "$f"
 done
+changed="$(./generate-sitemap)"
+xmllint --noblanks static-tmp/sitemap.xml --output static-tmp/sitemap.xml
+brotli -f static-tmp/sitemap.xml
+zopfli static-tmp/sitemap.xml
+rsync -pcv --chmod=D755,F644 --fsync --preallocate static-tmp/sitemap.xml{,.gz,.br} static-production/
 
 for server in ${servers[@]}; do
     echo $server
@@ -52,3 +58,7 @@ for server in ${servers[@]}; do
     echo active is now $target
     echo
 done
+
+if [[ -n "$changed" ]]; then
+    ./indexnow <<< "$changed"
+fi

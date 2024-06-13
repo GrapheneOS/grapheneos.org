@@ -1,0 +1,36 @@
+#!/usr/bin/env python3
+
+import sys
+
+import requests
+import validators
+
+if len(sys.argv) > 1:
+    urls = sys.argv[1:]
+else:
+    urls = sys.stdin.read().splitlines()
+
+if not urls:
+    sys.exit(2)
+
+for url in urls:
+    if not validators.url(url):
+        sys.exit(3)
+
+host = "grapheneos.org"
+api_url = "https://api.indexnow.org/indexnow"
+
+with open("indexnow-key.txt") as keyfile:
+    key = keyfile.read().strip()
+
+def submit(urls):
+    print(urls)
+    data = {
+        "host": host,
+        "key": key,
+        "urlList": urls
+    }
+    r = requests.post(api_url, json=data)
+    print(r.status_code)
+
+submit(urls)

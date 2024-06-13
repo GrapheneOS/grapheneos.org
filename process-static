@@ -42,7 +42,7 @@ stylelint static-tmp/**/*.css
 find static-tmp -name '*.css' -exec csso {} -o {} \;
 
 eslint static-tmp/**/!(fastboot.min.m|z-worker-pako.|pako_inflate.min.|)js
-find static-tmp -name '*.js' -exec terser --ecma 2021 --module -cmo {} {} \;
+find static-tmp -name '*.js' -exec terser --ecma 2022 --module -cmo {} {} \;
 
 replace=
 for file in static-tmp/**/*.css static-tmp/js/*.js static-tmp/**/!(bimi|favicon).svg; do
@@ -63,7 +63,7 @@ done
 sed -i "$replace" static-tmp/**/*.html nginx-tmp/nginx.conf nginx-tmp/snippets/preload.conf
 
 replace=
-devices=(husky shiba felix tangorpro lynx cheetah panther bluejay raven oriole barbet redfin bramble sunfish coral flame)
+devices=(akita husky shiba felix tangorpro lynx cheetah panther bluejay raven oriole barbet redfin bramble sunfish coral flame)
 channels=(stable beta)
 for device in ${devices[@]}; do
     for channel in ${channels[@]}; do
@@ -91,6 +91,8 @@ find static-tmp -name '*.html' -exec html-minifier-terser --collapse-whitespace 
 for file in static-tmp/**/*.@(atom|xml); do
     xmllint --noblanks "$file" --output "$file"
 done
+
+[[ -f indexnow-key.txt ]] && index_now_key="$(cat indexnow-key.txt)" && echo "$index_now_key" > "static-tmp/$index_now_key.txt"
 
 find static-tmp -regex '.+\.\(atom\|css\|html\|ico\|js\|json\|mjs\|pdf\|svg\|txt\|webmanifest\|xml\)' |
     parallel -q ::: brotli zopfli :::: -

@@ -134,6 +134,7 @@
                     <p>Smartphone and tablet targets:</p>
 
                     <ul>
+                        <li>akita (Pixel 8a)</li>
                         <li>husky (Pixel 8 Pro)</li>
                         <li>shiba (Pixel 8)</li>
                         <li>felix (Pixel Fold)</li>
@@ -147,9 +148,9 @@
                         <li>barbet (Pixel 5a)</li>
                         <li>redfin (Pixel 5) (extended support)</li>
                         <li>bramble (Pixel 4a (5G)) (extended support)</li>
-                        <li>sunfish (Pixel 4a) (extended support)</li>
-                        <li>coral (Pixel 4 XL) (extended support)</li>
-                        <li>flame (Pixel 4) (extended support)</li>
+                        <li>sunfish (Pixel 4a) (legacy extended support)</li>
+                        <li>coral (Pixel 4 XL) (legacy extended support)</li>
+                        <li>flame (Pixel 4) (legacy extended support)</li>
                     </ul>
 
                     <p>These are all fully supported production-ready targets supporting all the
@@ -283,19 +284,20 @@
                     <section id="development-branch">
                         <h4><a href="#development-branch">Development branch</a></h4>
 
-                        <p>The <code>14</code> branch is the main development branch of
-                        GrapheneOS. It follows along with the latest stable releases of the
-                        Android Open Source Project which currently means the latest monthly
-                        release of the <code>android14-release</code>. The <code>14</code> branch
-                        of GrapheneOS should be used for generic builds including the emulator,
-                        porting to other devices and for non-legacy officially supported
-                        devices.</p>
+                        <p>The <code>14</code> branch is the main development branch of GrapheneOS.
+                        It follows along with the latest stable releases of the Android Open Source
+                        Project which currently means the latest monthly release of the
+                        <code>android14-qpr3-release</code>. The <code>14</code> branch of
+                        GrapheneOS should be used for generic builds including the emulator, porting
+                        to other devices and for non-legacy officially supported devices.</p>
 
-                        <p>The <code>13</code> branch is used for the legacy Pixel 4a until it
-                        gets ported to Android 14.</p>
+                        <p>The <code>14-redfin</code> branch is used for the end-of-life Pixel 4a
+                        (5G) and Pixel 5.</p>
+
+                        <p>The <code>13</code> branch is used for the end-of-life Pixel 4a.</p>
 
                         <p>The <code>13-coral</code> branch is used for the end-of-life Pixel 4
-                        and Pixel 4 XL due to incompatibilities with certain new changes.</p>
+                        and Pixel 4 XL.</p>
 
                         <p>To sync the <code>14</code> branch:</p>
 
@@ -377,7 +379,8 @@ cd ../..</pre>
 
                     <pre>yarn install --cwd vendor/adevtool/
 source build/envsetup.sh
-TARGET_RELEASE=ap1a m aapt2</pre>
+lunch sdk_phone64_x86_64-ap2a-user
+m aapt2</pre>
 
                     <p>Download, extract and prepare the vendor files:</p>
 
@@ -398,7 +401,7 @@ TARGET_RELEASE=ap1a m aapt2</pre>
 
                     <p>Select the desired build target (<code>husky</code> is the Pixel 8 Pro):</p>
 
-                    <pre>lunch husky-ap1a-user</pre>
+                    <pre>lunch husky-ap2a-user</pre>
 
                     <p>For past stable tags and legacy branches, don't pass the Android release:</p>
 
@@ -735,7 +738,7 @@ cp out-vendor-modules/android13-5.10/dist/*.ko $ANDROID_BUILD_TOP/kernel/prebuil
 
                         <pre>mkdir -p android/kernel/shusky
 cd android/kernel/shusky
-repo init -u https://github.com/GrapheneOS/kernel_manifest-shusky.git -b 14
+repo init -u https://github.com/GrapheneOS/kernel_manifest-zuma.git -b 14
 repo sync -j8</pre>
 
                         <p>To build the shusky kernel for the Pixel 8 and Pixel 8 Pro:</p>
@@ -745,6 +748,21 @@ repo sync -j8</pre>
                         <p>Replace the files in the OS source tree at
                         <code>device/google/shusky-kernel/</code> with your build in
                         <code>out/shusky/dist/</code>.</p>
+
+                        <p>To sync the akita kernel for the Pixel 8a:</p>
+
+                        <pre>mkdir -p android/kernel/akita
+cd android/kernel/akita
+repo init -u https://github.com/GrapheneOS/kernel_manifest-zuma.git -b 14
+repo sync -j8</pre>
+
+                        <p>To build the akita kernel for the Pixel 8a:</p>
+
+                        <pre>./build_akita.sh --config=use_source_tree_aosp --config=no_download_gki --lto=full</pre>
+
+                        <p>Replace the files in the OS source tree at
+                        <code>device/google/akita-kernel/</code> with your build in
+                        <code>out/akita/dist/</code>.</p>
                     </section>
 
                     <section id="kernel-7th-generation-pixels">
@@ -754,7 +772,7 @@ repo sync -j8</pre>
 
                         <pre>mkdir -p android/kernel/pantah
 cd android/kernel/pantah
-repo init -u https://github.com/GrapheneOS/kernel_manifest-pantah.git -b 14
+repo init -u https://github.com/GrapheneOS/kernel_manifest-gs.git -b 14
 repo sync -j8</pre>
 
                         <p>To build the pantah kernel for the Pixel 7 and Pixel 7 Pro:</p>
@@ -769,7 +787,7 @@ repo sync -j8</pre>
 
                         <pre>mkdir -p android/kernel/lynx
 cd android/kernel/lynx
-repo init -u https://github.com/GrapheneOS/kernel_manifest-lynx.git -b 14
+repo init -u https://github.com/GrapheneOS/kernel_manifest-gs.git -b 14
 repo sync -j8</pre>
 
                         <p>To build the lynx kernel for the Pixel 7a:</p>
@@ -784,7 +802,7 @@ repo sync -j8</pre>
 
                         <pre>mkdir -p android/kernel/tangorpro
 cd android/kernel/tangorpro
-repo init -u https://github.com/GrapheneOS/kernel_manifest-tangorpro.git -b 14
+repo init -u https://github.com/GrapheneOS/kernel_manifest-gs.git -b 14
 repo sync -j8</pre>
 
                         <p>To build the tangorpro kernel for the Pixel Tablet:</p>
@@ -799,7 +817,7 @@ repo sync -j8</pre>
 
                         <pre>mkdir -p android/kernel/felix
 cd android/kernel/felix
-repo init -u https://github.com/GrapheneOS/kernel_manifest-felix.git -b 14
+repo init -u https://github.com/GrapheneOS/kernel_manifest-gs.git -b 14
 repo sync -j8</pre>
 
                         <p>To build the felix kernel for the Pixel Fold:</p>
@@ -818,14 +836,14 @@ repo sync -j8</pre>
 
                         <pre>mkdir -p android/kernel/raviole
 cd android/kernel/raviole
-repo init -u https://github.com/GrapheneOS/kernel_manifest-raviole.git -b 14
+repo init -u https://github.com/GrapheneOS/kernel_manifest-gs.git -b 14
 repo sync -j8</pre>
 
                         <p>To sync the bluejay kernel for the Pixel 6a:</p>
 
                         <pre>mkdir -p android/kernel/bluejay
 cd android/kernel/bluejay
-repo init -u https://github.com/GrapheneOS/kernel_manifest-bluejay.git -b 14
+repo init -u https://github.com/GrapheneOS/kernel_manifest-gs.git -b 14
 repo sync -j8</pre>
 
                         <p>To build the raviole kernel for the Pixel 6 and Pixel 6 Pro:</p>
@@ -1109,10 +1127,10 @@ export PATH="$HOME/android/sdk/cmdline-tools/latest/bin:$PATH"</pre>
                 copy of it. For example:</p>
 
                 <pre>cd ~/android
-curl -O https://dl.google.com/dl/android/studio/ide-zips/2023.3.1.18/android-studio-2023.3.1.18-linux.tar.gz
-echo '46a9b4a311820b2c1841110affa286d65665ac9f8970fd9e9eb903c3d7aa436e  android-studio-2023.3.1.18-linux.tar.gz' | sha256sum -c
-tar xvf android-studio-2023.3.1.18-linux.tar.gz
-rm android-studio-2023.3.1.18-linux.tar.gz
+curl -O https://dl.google.com/dl/android/studio/ide-zips/2023.3.1.19/android-studio-2023.3.1.19-linux.tar.gz
+echo '172b1c24fbac98adf750f21ec55db41974386795fc99f35114fbbfd977a0e6db  android-studio-2023.3.1.19-linux.tar.gz' | sha256sum -c
+tar xvf android-studio-2023.3.1.19-linux.tar.gz
+rm android-studio-2023.3.1.19-linux.tar.gz
 mv android-studio studio</pre>
 
                 <p>Add the Android Studio executables to your <code>PATH</code>:</p>

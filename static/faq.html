@@ -129,6 +129,14 @@
                 <article id="supported-devices">
                     <h3><a href="#supported-devices">Which devices are supported?</a></h3>
 
+                    <p><em>Devices sold in partnership with specific carriers may be locked by the
+                    carrier, which will prevent installing GrapheneOS. This is primarily an issue
+                    with US carriers and isn't common elsewhere in the world. To avoid this, either
+                    don't buy a carrier device or make sure it can be unlocked. It's the same
+                    hardware/firmware/software either way but carriers dislike having devices able
+                    to bypass their paywall for tethering, etc. so they disable it for the devices
+                    they sell as part of contracts.</em></p>
+
                     <p>GrapheneOS has official production support for the following devices:</p>
 
                     <ul>
@@ -143,6 +151,12 @@
                         <li>Pixel 6 Pro (raven)</li>
                         <li>Pixel 6 (oriole)</li>
                         <li>Pixel 5a (barbet)</li>
+                    </ul>
+
+                    <p>We have a prerelease available for the following devices:</p>
+
+                    <ul>
+                        <li>Pixel 8a (akita)</li>
                     </ul>
 
                     <p>The following devices are end-of-life, no longer receive firmware or most
@@ -212,11 +226,20 @@
                 <article id="recommended-devices">
                     <h3><a href="#recommended-devices">Which devices are recommended?</a></h3>
 
+                    <p><em>Devices sold in partnership with specific carriers may be locked by the
+                    carrier, which will prevent installing GrapheneOS. This is primarily an issue
+                    with US carriers and isn't common elsewhere in the world. To avoid this, either
+                    don't buy a carrier device or make sure it can be unlocked. It's the same
+                    hardware/firmware/software either way but carriers dislike having devices able
+                    to bypass their paywall for tethering, etc. so they disable it for the devices
+                    they sell as part of contracts.</em></p>
+
                     <p>We <strong>strongly recommend</strong> only purchasing one of the following
                     devices for GrapheneOS due to better security and a long minimum support
                     guarantee from launch for full security updates and other improvements:</p>
 
                     <ul>
+                        <li><strong>Pixel 8a</strong> — minimum 7 years support and hardware memory tagging support</li>
                         <li><strong>Pixel 8 Pro</strong> — minimum 7 years support and hardware memory tagging support</li>
                         <li><strong>Pixel 8</strong> — minimum 7 years support and hardware memory tagging support</li>
                         <li>Pixel Fold</li>
@@ -254,9 +277,9 @@
                     Pixel Fold is a hybrid phone/tablet. These share the same SoC and are nearly
                     the same as the other 7th generation devices under the hood.</p>
 
-                    <p>Pixel 6, Pixel 6 Pro and Pixel 6a can still be worth buying if you can get
-                    a good deal due to the long support time. They still have around 3 years of
-                    their minimum support guarantee remaining.</p>
+                    <p>Pixel 6, Pixel 6 Pro and Pixel 6a can still be worth buying if you can get a
+                    good deal due to the long support time. They still have over 2 years of their
+                    minimum support guarantee remaining.</p>
                 </article>
 
                 <article id="future-devices">
@@ -289,8 +312,7 @@
                         <li>Vendor code updated to new monthly, quarterly and yearly releases of
                         AOSP within several months to provide new security improvements (Pixels
                         receive these in the month they're released)</li>
-                        <li>Linux 5.15 or 6.1 Generic Kernel Image (GKI) support (requirement will
-                        change to 6.1 or 6.6 after the stable release of Android 15)</li>
+                        <li>Linux 5.15, 6.1 or 6.6 Generic Kernel Image (GKI) support</li>
                         <li>Hardware accelerated virtualization usable by GrapheneOS (ideally pKVM
                         to match Pixels but another usable implementation may be acceptable)</li>
                         <li>Hardware memory tagging (ARM MTE or equivalent)</li>
@@ -437,6 +459,11 @@
                             <th>Device</th>
                             <th>OEM minimum support end</th>
                             <th>OEM minimum support length</th>
+                        </tr>
+                        <tr>
+                            <td>Google Pixel 8a</td>
+                            <td>May 2031</td>
+                            <td>7 years</td>
                         </tr>
                         <tr>
                             <td>Google Pixel 8 Pro</td>
@@ -970,6 +997,12 @@
                             servers. These contain orbits and statuses of satellites, Earth
                             environmental data and time adjustment information.</p>
 
+                            <p>On the Pixel 8a (which uses a Samsung GNSS chip), almanacs are
+                            downloaded from https://samsung.psds.grapheneos.org/p4/42F3 which is a
+                            cache of Samsung's data. Alternatively, the standard servers can be
+                            enabled in the Settings app which will use
+                            https://1.ssiloc.com/p4/42F3.</p>
+
                             <p>On 6th generation Pixels onwards (which use a Broadcom GNSS chip),
                             almanacs are downloaded from
                             https://broadcom.psds.grapheneos.org/lto2.dat,
@@ -1192,6 +1225,7 @@
                         <li>grapheneos.social</li>
                         <li>apps.grapheneos.org</li>
                         <li>broadcom.psds.grapheneos.org</li>
+                        <li>samsung.psds.grapheneos.org</li>
                         <li>qualcomm.psds.grapheneos.org</li>
                         <li>discuss.grapheneos.org</li>
                         <li>element.grapheneos.org</li>

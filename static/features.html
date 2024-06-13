@@ -79,7 +79,11 @@
                                 unknown vulnerabilities</a>
                                 <ul>
                                     <li><a href="#attack-surface-reduction">Attack surface
-                                    reduction</a></li>
+                                    reduction</a>
+                                        <ul>
+                                            <li><a href="#usb-c-port-control">USB-C port control</a></li>
+                                        </ul>
+                                    </li>
                                     <li><a href="#exploit-mitigations">Exploit
                                     mitigations</a></li>
                                     <li><a href="#improved-sandboxing">Improved
@@ -105,6 +109,7 @@
                             <li><a href="#supports-longer-passwords">Supports longer
                             passwords</a></li>
                             <li><a href="#auto-reboot">Auto reboot</a></li>
+                            <li><a href="#duress">Duress PIN/Password</a></li>
                             <li><a href="#more-secure-fingerprint-unlock">More secure fingerprint
                             unlock</a></li>
                             <li>
@@ -248,6 +253,34 @@
                             GrapheneOS shows a notification that links the per-app native debugging
                             settings screen.</li>
                         </ul>
+
+                        <h5 id="usb-c-port-control"><a href="#usb-c-port-control">USB-C port control</a></h5>
+
+                        <p>Our USB-C port mode setting for Tensor Pixels offers precise control over
+                        USB functions, allowing complete disabling of USB controller functionality
+                        including data lines.</p>
+
+                        <p>Unlike the standard Android USB HAL and device administration API, our
+                        USB-C port control fully disables USB-C functionality at the hardware level
+                        using device-specific kernel modifications. This greatly reduces the USB-C
+                        attack surface based on the chosen setting.</p>
+
+                        <p>The feature has five modes:</p>
+
+                        <ul>
+                            <li>Off</li>
+                            <li>Charging-only</li>
+                            <li>Charging-only when locked</li>
+                            <li>Charging-only when locked, except before first unlock</li>
+                            <li>On</li>
+                        </ul>
+
+                        <p>The default is <b>Charging-only when locked, except before the first
+                        unlock</b>. This allows using peripherals like mice, keyboards, and
+                        monitors before the first unlock (for example, after a reboot), which can
+                        help save data if the touch screen fails. After locking, new connections are
+                        blocked immediately, and data lines are disabled when existing connections
+                        end.</p>
                     </section>
 
                     <section id="exploit-mitigations">
@@ -741,7 +774,7 @@
                 <section id="supports-longer-passwords">
                     <h3><a href="#supports-longer-passwords">Supports longer passwords</a></h3>
 
-                    <p>GrapheneOS supports setting longer passwords by default: 64 characters
+                    <p>GrapheneOS supports setting longer passwords by default: 128 characters
                     instead of 16 characters. This avoids the need to use a device manager to
                     enable this functionality.</p>
 
@@ -770,6 +803,25 @@
                     <p>The feature is implemented in the init process, preventing it from being
                     bypassed through system process crashes since an init crash causes a kernel
                     panic which leads to a reboot.</p>
+                </section>
+
+                <section id="duress">
+                    <h3><a href="#duress">Duress PIN/Password</a></h3>
+
+                    <p>GrapheneOS provides users with the ability to set a duress PIN/Password that
+                    will irreversibly wipe the device (along with any installed eSIMs) once entered
+                    anywhere where the device credentials are requested (on the lockscreen, along
+                    with any such prompt in the OS).</p>
+
+                    <p>The wipe does not require a reboot and cannot be interrupted. It can be set
+                    up at <b>Settings&#160;<span aria-label="and then">></span> Security&#160; <span
+                    aria-label="and then">></span> Duress Password</b> in the owner profile. Both a
+                    duress PIN and password will need to be set to account for different profiles
+                    that may have different unlock methods.</p>
+
+                    <p>Note that if the duress PIN/Password is the same as the actual unlock method,
+                    the actual unlock method always takes precedence, and therefore no wipe will
+                    occur.</p>
                 </section>
 
                 <section id="more-secure-fingerprint-unlock">
@@ -1133,6 +1185,8 @@
                         for complying with their local laws).</li>
                         <li>Change standard Android package installer behavior to preserving packages being 
                         disabled after updating them instead of them being re-enabled.</li>
+                        <li>Enable the "Always-on VPN" and "Block connections without VPN" toggles for 
+                        VPNs by default.</li>
                     </ul>
                 </section>
             </section>
