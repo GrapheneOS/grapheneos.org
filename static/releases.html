@@ -778,10 +778,10 @@
                     <p>Changes since the 2024061200 release:</p>
 
                     <ul>
-                        <li>fix Android 14 QPR3 regression which breaks updating certain apps with our app repository client</li>
+                        <li>fix upstream Android 14 QPR3 regression which breaks updating certain apps with our app repository client</li>
                         <li>fix boot-time optimizing apps progress UI with Android 14 QPR3 and enable it again</li>
                         <li>fix regression in our Android 14 QPR3 port resulting in PIN scrambling in secondary users being determined by the Owner user setting</li>
-                        <li>revert major Android 14 QPR3 Internet quick tile overhaul since it broke the functionality in secondary users</li>
+                        <li>revert major upstream Android 14 QPR3 Internet quick tile overhaul since it broke the functionality in secondary users</li>
                         <li>temporarily add back disabling memory tagging and hardened_malloc for surfaceflinger since Android 14 QPR3 didn't fix it as expected</li>
                         <li>disable temporary unconditional system crash notifications since we've gotten the initial feedback we needed via the previous release</li>
                         <li>add additional null check for eSIM wiping done as part of the duress PIN/password wipe implementation to avoid harmless exception</li>
