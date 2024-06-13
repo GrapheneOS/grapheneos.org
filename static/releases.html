@@ -778,9 +778,14 @@
                     <p>Changes since the 2024061200 release:</p>
 
                     <ul>
-                        <li>temporarily add back disabling memory tagging and hardened_malloc for surfaceflinger</li>
-                        <li>disable temporary unconditional system crash notifications</li>
+                        <li>fix Android 14 QPR3 regression which breaks updating certain apps with our app repository client</li>
+                        <li>fix boot-time optimizing apps progress UI with Android 14 QPR3 and enable it again</li>
+                        <li>temporarily add back disabling memory tagging and hardened_malloc for surfaceflinger since Android 14 QPR3 didn't fix it as expected</li>
+                        <li>disable temporary unconditional system crash notifications since we've gotten the initial feedback we needed via the previous release</li>
+                        <li>add additional null check for eSIM wiping done as part of the duress PIN/password wipe implementation to avoid harmless exception</li>
+                        <li>Settings: remove blank illustration from "Screen resolution" screen</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/126.0.6478.50.1">version 126.0.6478.50.1</a></li>
+                        <li>add additional duress PIN/password tests</li>
                     </ul>
                 </article>
                 -->
