@@ -765,19 +765,29 @@
                 <article id="2024061200">
                     <h3><a href="#2024061200">2024061200</a></h3>
 
-                    <p>Pixel 4a (5G) and Pixel 5 are end-of-life and shouldn't be used anymore due
-                    to lack of security patches for firmware and drivers. We provide extended
-                    support for harm reduction.</p>
+                    <p>We've found at least one new issue with the Android Open Source Project 14
+                    QPR3 Bluetooth module and are already working on resolving it. We'll have a
+                    quick follow-up release fixing the Bluetooth regression and other issues
+                    discovered during public Alpha testing.</p>
 
                     <p>Tags:</p>
                     <ul>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024061200-redfin">2024061200-redfin</a> (Pixel 4a (5G), Pixel 5)</li>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024061200">2024061200</a> (Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, emulator, generic, other targets)</li>
                     </ul>
 
                     <p>Changes since the 2024061200 release:</p>
 
                     <ul>
+                        <li>fix upstream Android 14 QPR3 regression which breaks updating certain apps with our app repository client</li>
+                        <li>fix boot-time optimizing apps progress UI with Android 14 QPR3 and enable it again</li>
+                        <li>fix regression in our Android 14 QPR3 port resulting in PIN scrambling in secondary users being determined by the Owner user setting</li>
+                        <li>revert major upstream Android 14 QPR3 Internet quick tile overhaul since it broke the functionality in secondary users</li>
+                        <li>temporarily add back disabling memory tagging and hardened_malloc for surfaceflinger since Android 14 QPR3 didn't fix it as expected</li>
+                        <li>disable temporary unconditional system crash notifications since we've gotten the initial feedback we needed via the previous release</li>
+                        <li>add additional null check for eSIM wiping done as part of the duress PIN/password wipe implementation to avoid harmless exception</li>
+                        <li>Settings: remove blank illustration from "Screen resolution" screen</li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/126.0.6478.50.1">version 126.0.6478.50.1</a></li>
+                        <li>make duress PIN/password tests faster and more reliable</li>
                     </ul>
                 </article>
                 -->
@@ -817,7 +827,7 @@
                     <ul>
                         <li>full 2024-06-05 security patch level</li>
                         <li>rebased onto AP2A.240605.024 Android Open Source Project release, which is the 3rd quarterly maintenance/feature release for Android 14 (QPR3)</li>
-                        <li>temporarily disable standard boot-time optimizing apps progress UI due to upstream Android 14 QPR3 regression (our own post-boot background optimizing apps progress notification works fine)</li>
+                        <li>temporarily disable boot-time optimizing apps progress UI due to upstream Android 14 QPR3 regression (our own post-boot background optimizing apps progress notification works fine)</li>
                         <li>temporarily enable system crash notifications unconditionally for the initial QPR3-based release</li>
                         <li>change default USB-C port mode to "Charging-only when locked" from "Charging-only when locked, except before first unlock"</li>
                         <li>stop disabling memory tagging and hardened_malloc for surfaceflinger</li>
