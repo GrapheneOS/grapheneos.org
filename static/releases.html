@@ -47,7 +47,7 @@
                     <li>
                         <a href="#stable-channel">Stable channel</a>
                         <ul>
-                            <li><a href="#akita-stable">Pixel 8a (prerelease)</a></li>
+                            <li><a href="#akita-stable">Pixel 8a</a></li>
                             <li><a href="#husky-stable">Pixel 8 Pro</a></li>
                             <li><a href="#shiba-stable">Pixel 8</a></li>
                             <li><a href="#felix-stable">Pixel Fold</a></li>
@@ -69,7 +69,7 @@
                     <li>
                         <a href="#beta-channel">Beta channel</a>
                         <ul>
-                            <li><a href="#akita-beta">Pixel 8a (prerelease)</a></li>
+                            <li><a href="#akita-beta">Pixel 8a</a></li>
                             <li><a href="#husky-beta">Pixel 8 Pro</a></li>
                             <li><a href="#shiba-beta">Pixel 8</a></li>
                             <li><a href="#felix-beta">Pixel Fold</a></li>
@@ -91,6 +91,8 @@
                     <li>
                         <a href="#changelog">Changelog</a>
                         <ul>
+                            <li><a href="#2024061400">2024061400</a></li>
+                            <li><a href="#2024061300">2024061300</a></li>
                             <li><a href="#2024061200">2024061200</a></li>
                             <li><a href="#2024060500">2024060500</a></li>
                             <li><a href="#2024060400">2024060400</a></li>
@@ -437,7 +439,7 @@
                 <h2><a href="#stable-channel">Stable channel</a></h2>
 
                 <section id="akita-stable">
-                    <h3><a href="#akita-stable">Pixel 8a (prerelease)</a></h3>
+                    <h3><a href="#akita-stable">Pixel 8a</a></h3>
                     <p>Version: <a href="#[[akita-stable-BUILD_NUMBER]]">[[akita-stable-BUILD_NUMBER]]</a></p>
                     <ul>
                         <li><a href="https://releases.grapheneos.org/akita-factory-[[akita-stable-BUILD_NUMBER]].zip">akita-factory-[[akita-stable-BUILD_NUMBER]].zip</a></li>
@@ -595,7 +597,7 @@
                 <h2><a href="#beta-channel">Beta channel</a></h2>
 
                 <section id="akita-beta">
-                    <h3><a href="#akita-beta">Pixel 8a (prerelease)</a></h3>
+                    <h3><a href="#akita-beta">Pixel 8a</a></h3>
                     <p>Version: <a href="#[[akita-beta-BUILD_NUMBER]]">[[akita-beta-BUILD_NUMBER]]</a></p>
                     <ul>
                         <li><a href="https://releases.grapheneos.org/akita-factory-[[akita-beta-BUILD_NUMBER]].zip">akita-factory-[[akita-beta-BUILD_NUMBER]].zip</a></li>
@@ -762,17 +764,59 @@
                 release notes from before the rebranding of the project in 2018 and 2019.</p>
 
                 <!--
-                <article id="2024061200">
-                    <h3><a href="#2024061200">2024061200</a></h3>
+                <article id="2024061400">
+                    <h3><a href="#2024061400">2024061400</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024061400">2024061400</a> (Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2024061400 release:</p>
+
+                    <ul>
+                        <li>temporarily add back memory tagging exception for Pixel wifi_ext service</li>
+                        <li>System Updater: increase update check interval to 6 hours from 4 hours</li>
+                        <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-118">version 118</a></li>
+                    </ul>
+                </article>
+                -->
+
+                <article id="2024061400">
+                    <h3><a href="#2024061400">2024061400</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024061400">2024061400</a> (Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2024061300 release:</p>
+
+                    <ul>
+                        <li>revert upstream refactoring of the device association code in Android 14 QPR3 due to it introducing a chain crash bug at boot in edge cases with associated devices such as paired Android Wear devices</li>
+                        <li>kernel (5.10): update to latest GKI LTS branch revision</li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/126.0.6478.71.0">version 126.0.6478.71.0</a></li>
+                    </ul>
+                </article>
+
+                <article id="2024061300">
+                    <h3><a href="#2024061300">2024061300</a></h3>
 
                     <p>We've found at least one new issue with the Android Open Source Project 14
                     QPR3 Bluetooth module and are already working on resolving it. We'll have a
                     quick follow-up release fixing the Bluetooth regression and other issues
-                    discovered during public Alpha testing.</p>
+                    discovered during public Alpha and Beta testing.</p>
+
+                    <p>Since Android 14 QPR3 is a major release, the end-of-life Pixel 4a (5G) and
+                    Pixel 5 receiving extended support releases from GrapheneOS will need to be
+                    ported to it with additional work in a future release, which is done as a low
+                    priority. Pixel 4a (5G) and Pixel 5 are end-of-life and shouldn't be used
+                    anymore due to lack of security patches for firmware and drivers. We provide
+                    extended support for harm reduction.</p>
 
                     <p>Tags:</p>
                     <ul>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024061200">2024061200</a> (Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, emulator, generic, other targets)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024061300">2024061300</a> (Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, emulator, generic, other targets)</li>
                     </ul>
 
                     <p>Changes since the 2024061200 release:</p>
@@ -781,7 +825,7 @@
                         <li>fix upstream Android 14 QPR3 regression which breaks updating certain apps with our app repository client</li>
                         <li>fix boot-time optimizing apps progress UI with Android 14 QPR3 and enable it again</li>
                         <li>fix regression in our Android 14 QPR3 port resulting in PIN scrambling in secondary users being determined by the Owner user setting</li>
-                        <li>revert major upstream Android 14 QPR3 Internet quick tile overhaul since it broke the functionality in secondary users</li>
+                        <li>revert upstream Android 14 QPR3 Internet quick tile overhaul since it broke the functionality in secondary users</li>
                         <li>temporarily add back disabling memory tagging and hardened_malloc for surfaceflinger since Android 14 QPR3 didn't fix it as expected</li>
                         <li>disable temporary unconditional system crash notifications since we've gotten the initial feedback we needed via the previous release</li>
                         <li>add additional null check for eSIM wiping done as part of the duress PIN/password wipe implementation to avoid harmless exception</li>
@@ -790,7 +834,6 @@
                         <li>make duress PIN/password tests faster and more reliable</li>
                     </ul>
                 </article>
-                -->
 
                 <article id="2024061200">
                     <h3><a href="#2024061200">2024061200</a></h3>
