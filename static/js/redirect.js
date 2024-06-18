@@ -23,6 +23,7 @@ const redirects = new Map([
     ["/usage#google-camera", "/usage#pixel-camera"],
 
     ["/faq#dns", "/faq#custom-dns"],
+    ["/faq#when-devices", "/faq#future-devices"],
 
     ["/hiring#qualitifations", "/hiring#qualifications"],
 
