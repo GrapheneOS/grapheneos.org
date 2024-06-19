@@ -775,6 +775,11 @@
                     <p>Changes since the 2024061400 release:</p>
 
                     <ul>
+                        <li>hide USB peripheral security setting when USB-C port setting is available</li>
+                        <li>extend USB-C port setting to pogo pins (for Pixel Tablet)</li>
+                        <li>kernel (5.10, 5.15, 6.1, 6.6): replace our deny_new_usb feature with a new deny_new_usb2 feature also disabling USB gadgets</li>
+                        <li>extend USB-C port setting to enable deny_new_usb2 as a second layer of defense beyond low-level hardware disabling of new USB connections and then USB data</li>
+                        <li>require user authentication for changing auto-reboot, USB peripheral and USB-C port security settings</li>
                         <li>temporarily add back memory tagging exception for Pixel wifi_ext service</li>
                         <li>add GrapheneOS Linux kernel port to the 6.6 GKI LTS branch</li>
                         <li>kernel (5.10): update to latest GKI LTS branch revision including update to 5.10.215</li>
