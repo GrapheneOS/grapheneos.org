@@ -254,16 +254,14 @@
                             settings screen.</li>
                         </ul>
 
-                        <h5 id="usb-c-port-control"><a href="#usb-c-port-control">USB-C port control</a></h5>
+                        <h5 id="usb-c-port-control"><a href="#usb-c-port-control">USB-C port and pogo pins control</a></h5>
 
-                        <p>Our USB-C port mode setting for Tensor Pixels offers precise control over
-                        USB functions, allowing complete disabling of USB controller functionality
-                        including data lines.</p>
-
-                        <p>Unlike the standard Android USB HAL and device administration API, our
-                        USB-C port control fully disables USB-C functionality at the hardware level
-                        using device-specific kernel modifications. This greatly reduces the USB-C
-                        attack surface based on the chosen setting.</p>
+                        <p>Our <b>USB-C port and pogo pins</b> setting protects against attacks
+                        through USB-C or pogo pins while the OS is booted. For the majority of
+                        devices without pogo pins, the setting is labelled <b>USB-C port</b>. We
+                        have a less advanced version of this feature on devices launched prior to
+                        October 2021 (Pixel 5a and earlier) since it requires a hardware-specific
+                        implementation with driver changes.</p>
 
                         <p>The feature has five modes:</p>
 
@@ -276,9 +274,26 @@
                         </ul>
 
                         <p>The default is <b>Charging-only when locked</b>, which significantly
-                        reduces attack surface when the device is locked. After locking, new
-                        connections are blocked immediately, and data lines are disabled when
-                        existing connections end.</p>
+                        reduces attack surface when the device is locked. After locking, it blocks
+                        any new USB connections immediately through either USB-C and pogo pins at
+                        both the hardware level via configuring the USB controller and also at the
+                        OS level in the kernel to provide a second layer of defense. It disables the
+                        data lines at a hardware level as soon as the existing connections end which
+                        happens right away if there were new USB connections. It also disables USB-C
+                        alternate modes including DisplayPort at both the OS and hardware level.</p>
+
+                        <p>Our implementation is far more secure than Android's standard USB HAL
+                        toggle available to device admin apps. The standard feature only disables
+                        high level USB handling in the OS. It doesn't block new USB connections or
+                        disable the data lines at a hardware level. It also leaves the handling of
+                        the USB-C and pogo pin protocols enabled in the OS, and it doesn't deal with
+                        USB-C alternate modes. The standard feature is also either blocking or not
+                        blocking USB at a high level, without the ability to block new connections
+                        and disable USB only once the existing connections end. Other operating
+                        systems trying to implement a similar feature via the standard toggle end up
+                        continuing to allow new USB connections in the OS until all connections end
+                        instead of the 2 phase approach we use for our two Charging-only when locked
+                        modes.</p>
                     </section>
 
                     <section id="exploit-mitigations">
