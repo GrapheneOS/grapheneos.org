@@ -25,6 +25,9 @@ const redirects = new Map([
     ["/faq#dns", "/faq#custom-dns"],
     ["/faq#when-devices", "/faq#future-devices"],
 
+
+    ["/features#usb-c-port-control", "/features#usb-c-port-and-pogo-pins-control"],
+
     ["/hiring#qualitifations", "/hiring#qualifications"],
 
     ["/install/cli#fastboot-as-non-root", "/install/cli#flashing-as-non-root"],
