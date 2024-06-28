@@ -287,13 +287,13 @@
                         toggle available to device admin apps. The standard feature only disables
                         high level USB handling in the OS. It doesn't block new USB connections or
                         disable the data lines at a hardware level. It also leaves the handling of
-                        the USB-C and pogo pins protocols enabled in the OS, and it doesn't deal
-                        with USB-C alternate modes. The standard feature is also either blocking or
+                        the USB-C and pogo pins protocols enabled in the OS, and it doesn't disable
+                        the USB-C alternate modes. The standard feature is also either blocking or
                         not blocking USB at a high level, without the ability to block new
                         connections and disable USB only once the existing connections end. Other
                         operating systems trying to implement a similar feature via the standard
                         toggle end up continuing to allow new USB connections in the OS until all
-                        connections end instead of the 2 phase approach we use for our two
+                        connections end instead of the two-phase approach we use for our two
                         Charging-only when locked modes.</p>
                     </section>
 
