@@ -896,7 +896,9 @@
                             by default, and OEMs can choose the priority order). Network time
                             updates are security sensitive since certificate validation depends on
                             having an accurate time, but the standard NTP / SNTP protocols used
-                            across most OSes have no authentication or encryption.</p>
+                            across most OSes have no authentication. Our servers obtain the time
+                            from 6 independent NTP servers with NTS for authentication where at
+                            least 3 servers need to agree on the time for it to be updated.</p>
 
                             <p>We plan to offer a toggle to use the standard functionality instead of
                             HTTPS-based time updates in order to blend in with other devices.</p>
