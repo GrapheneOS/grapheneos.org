@@ -536,16 +536,13 @@ curl -O https://releases.grapheneos.org/<var>DEVICE_NAME</var>-factory-<var>VERS
                 <section id="disabling-oem-unlocking">
                     <h3><a href="#disabling-oem-unlocking">Disabling OEM unlocking</a></h3>
 
-                    <p>During first setup, the final screen will contain a toggle regarding OEM
-                    unlocking which is checked by default. This will disable OEM unlocking, which is
-                    recommended.</p>
-
-                    <p>If you need to enable or disable OEM unlocking in the future, it can be done
-                    in the developer settings menu within the operating system.</p>
-
-                    <p>After manually disabling OEM unlocking via developer options, we recommend
-                    disabling them as a whole for a device that's not being used for app or OS
-                    development.</p>
+                    <p>During the initial setup, the final screen will include a toggle for OEM
+                    unlocking. This toggle is checked by default, which disables OEM unlocking,
+                    which is recommended. If you need to enable or disable OEM unlocking later,
+                    you can do so in the developer options within the operating system. For
+                    devices not used in app or OS development, we recommend having developer
+                    options off entirely, as these can cause unexpected behavior and increase
+                    the attack surface.</p>
                 </section>
 
                 <section id="verifying-installation">
@@ -572,12 +569,10 @@ curl -O https://releases.grapheneos.org/<var>DEVICE_NAME</var>-factory-<var>VERS
                     <section id="verified-boot-key-hash">
                         <h3><a href="#verified-boot-key-hash">Verified boot key hash</a></h3>
 
-                        <p>When loading an alternate OS, the device shows a yellow notice on boot
-                        with the ID of the alternate OS based on the sha256 of the verified boot
-                        public key. 4th and 5th generation Pixels only show the first 32 bits of
-                        the hash so you can't use this approach. 6th generation Pixels onwards
-                        show the full hash and you can compare it against the official GrapheneOS
-                        verified boot key hashes below:</p>
+                        <p>When loading an alternate OS, the device displays a yellow notice on
+                        boot with an ID based on the SHA-256 hash of the verified boot public key.
+                        Only 6th generation Pixel devices and newer show the full hash, allowing
+                        you to compare it against the official ones provided below:</p>
 
                         <ul>
                             <li>Pixel 8a: <code>096b8bd6d44527a24ac1564b308839f67e78202185cbff9cfdcb10e63250bc5e</code></li>
@@ -607,20 +602,18 @@ curl -O https://releases.grapheneos.org/<var>DEVICE_NAME</var>-factory-<var>VERS
                     <section id="hardware-based-attestation">
                         <h3><a href="#hardware-based-attestation">Hardware-based attestation</a></h3>
 
-                        <p>GrapheneOS provides our Auditor app for using a combination of the
+                        <p>GrapheneOS provides our Auditor app, which obtains information about the
+                        device without trusting it to be honest about it. It uses a combination of
                         verified boot and attestation features to verify that the hardware,
-                        firmware and operating system are genuine along with providing other
-                        useful data from the hardware and operating system.</p>
+                        firmware, and operating system are genuine, along with providing additional
+                        information about the device's state and configuration.</p>
 
-                        <p>Since the purpose of Auditor is to obtain information about the device
-                        without trusting it to be honest, results aren't shown on the device being
-                        verified. You need a 2nd Android device running Auditor for local QR code
-                        based verification. You can also use our optional device integrity
-                        monitoring service for automatic scheduled verifications with support for
-                        email alerts.</p>
-
-                        <p>See the <a href="https://attestation.app/tutorial">Auditor tutorial</a>
-                        for a guide.</p>
+                        <p>To use Auditor, you need a second Android device running the Auditor app
+                        for local QR code based verification. Alternatively, you can use our device
+                        integrity monitoring service for automatic scheduled verification with
+                        support for email alerts. See the
+                        <a href="https://attestation.app/tutorial">Auditor tutorial</a> for
+                        a guide.</p>
 
                         <p>Auditor is primarily based on a pairing model where it generates a
                         hardware backed signing key and hardware backed attestation signing key
