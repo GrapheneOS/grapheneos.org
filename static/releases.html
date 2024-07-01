@@ -786,6 +786,7 @@
 
                     <ul>
                         <li>avoid skipping toggling USB port after unlock in certain edge cases to make sure devices connected while locked are always detected when unlocking</li>
+                        <li>fix upstream bug causing first party app stores using the package install dialog to be blocked when the user isn't allowed to install apps from third party sources</li>
                         <li>Sandboxed Google Play compatibility layer: stub out reads of hidden system settings in Google's speech services app</li>
                         <li>Sandboxed Google Play compatibility layer: don't allow the Play Store to abort pending package installation to avoid it cancelling install/update attempts after 10 minutes of waiting for requested user approval it hasn't been designed to handle</li>
                     </ul>
