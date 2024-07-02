@@ -788,6 +788,7 @@
                         <li>avoid skipping toggling USB port after unlock in certain edge cases to make sure devices connected while locked are always detected when unlocking</li>
                         <li>fix upstream bug causing first party app stores using the package install dialog to be blocked when the user isn't allowed to install apps from third party sources</li>
                         <li>fix notification suppression check in currently unused code to prepare for our per-app clipboard toggle</li>
+                        <li>adevtool: download and use latest Pixel carrier settings from the API for use by our CarrierConfig2 app instead of using the snapshot included in the latest Pixel stock OS release since it lags months behind</li>
                         <li>Settings: fully fix regression permitting disabling apps when it shouldn't be allowed due to device manager policy</li>
                         <li>Sandboxed Google Play compatibility layer: stub out reads of hidden system settings in Google's speech services app</li>
                         <li>Sandboxed Google Play compatibility layer: don't allow the Play Store to abort pending package installation to avoid it cancelling install/update attempts after 10 minutes of waiting for requested user approval it hasn't been designed to handle</li>
