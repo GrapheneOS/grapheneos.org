@@ -792,7 +792,7 @@
                         <li>fix notification suppression check in currently unused code to prepare for our per-app clipboard toggle</li>
                         <li>adevtool: download and use latest Pixel carrier settings from the API for use by our CarrierConfig2 app instead of using the snapshot included in the latest Pixel stock OS release since it lags months behind</li>
                         <li>Settings: fully fix regression permitting disabling apps when it shouldn't be allowed due to device manager policy</li>
-                        <li>Sandboxed Google Play compatibility layer: stub out reads of hidden system settings in Google's speech services app</li>
+                        <li>Sandboxed Google Play compatibility layer: stub out reads of hidden system settings in Google's speech services app to avoid uncaught security exceptions</li>
                         <li>Sandboxed Google Play compatibility layer: don't allow the Play Store to abort pending package installation to avoid it cancelling install/update attempts after 10 minutes of waiting for requested user approval it hasn't been designed to handle</li>
                         <li>kernel (5.10): update to latest GKI LTS branch revision including update to 5.10.218</li>
                         <li>kernel (5.15): update to latest GKI LTS branch revision including update to 5.15.155</li>
