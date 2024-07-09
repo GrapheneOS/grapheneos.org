@@ -786,6 +786,7 @@
                     <p>Changes since the 2024070201 release:</p>
 
                     <ul>
+                        <li>Settings: extend standard fingerprint enrollment stages with proper support for devices with power button fingerprint scanners (Pixel Fold, Pixel Tablet) which is not present in AOSP (Pixel Fold was still usable, but it had become incredibly hard to successfully register new fingerprints on the Pixel Tablet)</li>
                         <li>improve warning for 32-bit-only apps by explaining why the warning is shown, how to resolve it for apps that are still developed and that we plan to phase out support for it on 5th/6th generation Pixels where it's still available</li>
                         <li>show warning for 32-bit-only apps on each launch instead of only once</li>
                         <li>kernel (Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a): disable 32-bit ABI support to substantially decrease kernel size and attack surface and raise mmap_min_addr to the standard 65536 for 64-bit-only ARM</li>
