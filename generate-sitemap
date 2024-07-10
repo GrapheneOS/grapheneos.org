@@ -13,6 +13,7 @@ pages = [
     ["/articles/", 0.5],
     ["/articles/attestation-compatibility-guide", 0.5],
     ["/articles/grapheneos-servers", 0.1],
+    ["/articles/positon-location-service", 0.5],
     ["/articles/server-traffic-shaping", 0.5],
     ["/articles/sitewide-advertising-industry-opt-out", 0.5],
     ["/build", 0.5],
