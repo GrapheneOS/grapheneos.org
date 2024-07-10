@@ -91,6 +91,11 @@
                     <li>
                         <a href="#changelog">Changelog</a>
                         <ul>
+                            <li><a href="#2024070900">2024070900</a></li>
+                            <li><a href="#2024070201">2024070201</a></li>
+                            <li><a href="#2024070200">2024070200</a></li>
+                            <li><a href="#2024062700">2024062700</a></li>
+                            <li><a href="#2024062000">2024062000</a></li>
                             <li><a href="#2024061400">2024061400</a></li>
                             <li><a href="#2024061300">2024061300</a></li>
                             <li><a href="#2024061200">2024061200</a></li>
@@ -425,7 +430,7 @@
                 with the <a href="https://discuss.grapheneos.org/t/announcements">Announcements tag</a>.</p>
 
                 <p>The announcements are also posted from the <a
-                href="https://x.com/GrapheneOS">@GrapheneOS Twitter account</a>, the <a
+                href="https://x.com/GrapheneOS">@GrapheneOS X account</a>, the <a
                 href="https://grapheneos.social/@GrapheneOS">@GrapheneOS Mastodon account</a>, the
                 <a href="https://bsky.app/profile/grapheneos.org"> @grapheneos.org Bluesky
                 account</a>, the <a href="https://reddit.com/r/GrapheneOS"> official subreddit</a>,
@@ -764,23 +769,160 @@
                 release notes from before the rebranding of the project in 2018 and 2019.</p>
 
                 <!--
-                <article id="2024061400">
-                    <h3><a href="#2024061400">2024061400</a></h3>
+                <article id="2024070900">
+                    <h3><a href="#2024070900">2024070900</a></h3>
+
+                    <p>Pixel 4a (5G) and Pixel 5 are end-of-life and shouldn't be used anymore due
+                    to lack of security patches for firmware and drivers. We provide extended
+                    support for harm reduction.</p>
 
                     <p>Tags:</p>
                     <ul>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024061400">2024061400</a> (Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, emulator, generic, other targets)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024070900-redfin">2024070900-redfin</a> (Pixel 4a (5G), Pixel 5)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024070900">2024070900</a> (Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2024070900 release:</p>
+
+                    <ul>
+                    </ul>
+                </article>
+                -->
+
+                <article id="2024070900">
+                    <h3><a href="#2024070900">2024070900</a></h3>
+
+                    <p>Pixel 4a (5G) and Pixel 5 are end-of-life and shouldn't be used anymore due
+                    to lack of security patches for firmware and drivers. We provide extended
+                    support for harm reduction.</p>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024070900-redfin">2024070900-redfin</a> (Pixel 4a (5G), Pixel 5)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024070900">2024070900</a> (Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2024070201 release:</p>
+
+                    <ul>
+                        <li>Settings: extend standard fingerprint enrollment stages with proper support for devices with power button fingerprint scanners (Pixel Fold, Pixel Tablet) which is not present in AOSP (Pixel Fold was still usable, but it had become incredibly hard to successfully register new fingerprints on the Pixel Tablet)</li>
+                        <li>improve warning for 32-bit-only apps by explaining why the warning is shown, how to resolve it for apps that are still developed and that we plan to phase out support for it on 5th/6th generation Pixels where it's still available</li>
+                        <li>show warning for 32-bit-only apps on each launch instead of only once</li>
+                        <li>kernel (Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a): disable 32-bit ABI support to substantially decrease kernel size and attack surface and raise mmap_min_addr to the standard 65536 for 64-bit-only ARM</li>
+                        <li>kernel (5.15): update to latest GKI LTS branch revision including update to 5.15.158</li>
+                        <li>adevtool: update file removal for 8th gen Pixels to skip Family Space related files</li>
+                        <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-122">version 122</a></li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/126.0.6478.122.3">version 126.0.6478.122.3</a></li>
+                    </ul>
+                </article>
+
+                <article id="2024070201">
+                    <h3><a href="#2024070201">2024070201</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024070201">2024070201</a> (Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2024070200 release:</p>
+
+                    <ul>
+                        <li>full 2024-07-05 security patch level</li>
+                        <li>rebased onto AP2A.240705.005 Android Open Source Project release</li>
+                        <li>avoid skipping toggling USB port after unlock in certain edge cases to make sure devices connected while locked are always detected when unlocking</li>
+                        <li>fix upstream bug causing first party app stores using the package install dialog to be blocked when the user isn't allowed to install apps from third party sources</li>
+                        <li>fix notification suppression check in currently unused code to prepare for our per-app clipboard toggle</li>
+                        <li>adevtool: download and use latest Pixel carrier settings from the API for use by our CarrierConfig2 app instead of using the snapshot included in the latest Pixel stock OS release since it lags months behind</li>
+                        <li>Settings: fully fix regression permitting disabling apps when it shouldn't be allowed due to device manager policy</li>
+                        <li>Sandboxed Google Play compatibility layer: stub out reads of hidden system settings in Google's speech services app to avoid uncaught security exceptions</li>
+                        <li>Sandboxed Google Play compatibility layer: don't allow the Play Store to abort pending package installation to avoid it cancelling install/update attempts after 10 minutes of waiting for requested user approval it hasn't been designed to handle</li>
+                        <li>kernel (5.10): update to latest GKI LTS branch revision including update to 5.10.218</li>
+                        <li>kernel (5.15): update to latest GKI LTS branch revision including update to 5.15.155</li>
+                        <li>kernel (6.6): update to latest GKI LTS branch revision including update to 6.6.36</li>
+                    </ul>
+                </article>
+
+                <article id="2024070200">
+                    <h3><a href="#2024070200">2024070200</a></h3>
+
+                    <p>This is an early July security update release based on the July 2024 security
+                    patch backports. This month's release of the Android Open Source Project and
+                    stock Pixel OS will be available later today and we'll quickly release an update
+                    based on it following this one.</p>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024070200">2024070200</a> (Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2024062700 release:</p>
+
+                    <ul>
+                        <li>full 2024-07-01 security patch level</li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/126.0.6478.122.1">version 126.0.6478.122.1</a></li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/126.0.6478.122.2">version 126.0.6478.122.2</a></li>
+                        <li>Info: update to <a href="https://github.com/GrapheneOS/Info/releases/tag/3">version 3</a></li>
+                        <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-121">version 121</a></li>
+                    </ul>
+                </article>
+
+                <article id="2024062700">
+                    <h3><a href="#2024062700">2024062700</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024062700">2024062700</a> (Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2024062000 release:</p>
+
+                    <ul>
+                        <li>add new GrapheneOS Info app through which you can get information about the latest releases of GrapheneOS, links to our community spaces, and details on how to make donations</li>
+                        <li>Pixel 8a: add Let's Encrypt roots to Samsung gnssd CA root store for supl.grapheneos.org</li>
+                        <li>Pixel 8a: configure Samsung gnssd to use TLSv1.2 for SUPL instead of TLSv1.1 (TLSv1.3 would work but the config doesn't offer it)</li>
+                        <li>Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold: fully remove 32-bit ARM support to significantly reduce build time and update download size with no loss of functionality (7th gen Pixels launched with 32-bit app support disabled after several years of the Play Store blocking uploading 32-bit-only apps or installing them on 64-bit devices, and 8th gen Pixels use 2nd gen ARMv9 cores with no 32-bit support)</li>
+                        <li>Settings: fix several cases of UI state being lost when resuming activity after configuration changes, etc. for GrapheneOS settings</li>
+                        <li>kernel (5.10): update to latest GKI LTS branch revision including update to 5.10.216</li>
+                        <li>kernel (6.1): update to latest GKI LTS branch revision including update to 6.1.90</li>
+                        <li>kernel (6.6): update to latest GKI LTS branch revision including update to 6.6.35</li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/126.0.6478.122.0">version 126.0.6478.122.0</a></li>
+                        <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-120">version 120</a></li>
+                    </ul>
+                </article>
+
+                <article id="2024062000">
+                    <h3><a href="#2024062000">2024062000</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024062000">2024062000</a> (Pixel 5a, Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, emulator, generic, other targets)</li>
                     </ul>
 
                     <p>Changes since the 2024061400 release:</p>
 
                     <ul>
+                        <li>remove our USB peripheral security setting on devices supporting our much better USB-C port mode (Pixel 6 and later)</li>
+                        <li>extend USB-C port setting to also handle pogo pins on the Pixel Tablet</li>
+                        <li>kernel (5.10, 5.15, 6.1, 6.6): replace our deny_new_usb feature with a new deny_new_usb2 feature also disabling USB gadgets</li>
+                        <li>extend USB-C port setting to enable deny_new_usb2 as a second layer of defense disabling new USB connections in the kernel (the existing implementation disables new connections and USB data at a hardware level via the USB controller, which disables more attack surface, but we want to keep around the higher level kernel approach too)</li>
+                        <li>Files: fix upstream null pointer exception triggered on resuming activity</li>
+                        <li>Settings: require user authentication for changing auto-reboot, USB peripheral and USB-C port security settings</li>
+                        <li>Settings: avoid prompting for user authentication when selecting the same value as before for GrapheneOS settings requiring it</li>
                         <li>temporarily add back memory tagging exception for Pixel wifi_ext service</li>
+                        <li>simplify implementation of our auto-reboot feature and properly handle the first lock after the user first sets up a lock method</li>
+                        <li>avoid resetting USB-C port after first unlock if it was already connected Before First Unlock (fix for regression caused by upstream changes)</li>
+                        <li>add GrapheneOS Linux kernel port to the 6.6 GKI LTS branch</li>
+                        <li>kernel (5.10): update to latest GKI LTS branch revision including update to 5.10.215</li>
+                        <li>kernel (6.1): update to latest GKI LTS branch revision including update to 6.1.87</li>
+                        <li>kernel (6.1, 6.6): add script for building emulator kernel</li>
+                        <li>kernel (6.1, 6.6): enable forced module signing for x86_64 (emulator builds)</li>
                         <li>System Updater: increase update check interval to 6 hours from 4 hours</li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/126.0.6478.110.0">version 126.0.6478.110.0</a></li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-118">version 118</a></li>
+                        <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-119">version 119</a></li>
+                        <li>fix cast in GrapheneOS package management infrastructure needed for upcoming App Communication Scopes work</li>
                     </ul>
                 </article>
-                -->
 
                 <article id="2024061400">
                     <h3><a href="#2024061400">2024061400</a></h3>
@@ -806,13 +948,6 @@
                     QPR3 Bluetooth module and are already working on resolving it. We'll have a
                     quick follow-up release fixing the Bluetooth regression and other issues
                     discovered during public Alpha and Beta testing.</p>
-
-                    <p>Since Android 14 QPR3 is a major release, the end-of-life Pixel 4a (5G) and
-                    Pixel 5 receiving extended support releases from GrapheneOS will need to be
-                    ported to it with additional work in a future release, which is done as a low
-                    priority. Pixel 4a (5G) and Pixel 5 are end-of-life and shouldn't be used
-                    anymore due to lack of security patches for firmware and drivers. We provide
-                    extended support for harm reduction.</p>
 
                     <p>Tags:</p>
                     <ul>
@@ -906,7 +1041,7 @@
                 <article id="2024060400">
                     <h3><a href="#2024060400">2024060400</a></h3>
 
-                    <p>This is an early June security update release based on the May 2024 security
+                    <p>This is an early June security update release based on the June 2024 security
                     patch backports since this month's release of the Android Open Source Project
                     and stock Pixel OS with Android 14 QPR3 isn't available yet.</p>
 

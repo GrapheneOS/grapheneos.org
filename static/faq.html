@@ -54,7 +54,6 @@
                             <li><a href="#supported-devices">Which devices are supported?</a></li>
                             <li><a href="#recommended-devices">Which devices are recommended?</a></li>
                             <li><a href="#future-devices">Which devices will be supported in the future?</a></li>
-                            <li><a href="#when-devices">When will more devices be supported?</a></li>
                             <li><a href="#legacy-devices">Why are older devices no longer supported?</a></li>
                             <li><a href="#which-legacy-devices">Which devices did GrapheneOS support in the past?</a></li>
                             <li><a href="#device-lifetime">How long will GrapheneOS support my device for?</a></li>
@@ -132,9 +131,9 @@
                     <p><em>Devices sold in partnership with specific carriers may be locked by the
                     carrier, which will prevent installing GrapheneOS. This is primarily an issue
                     with US carriers and isn't common elsewhere in the world. To avoid this, either
-                    don't buy a carrier device or make sure it can be unlocked. It's the same
+                    don't buy a carrier device, or make sure it can be unlocked. It's the same
                     hardware/firmware/software either way but carriers dislike having devices able
-                    to bypass their paywall for tethering, etc. so they disable it for the devices
+                    to bypass their paywall for tethering, etc., so they disable it for the devices
                     they sell as part of contracts.</em></p>
 
                     <p>GrapheneOS has official production support for the following devices:</p>
@@ -154,8 +153,13 @@
                         <li>Pixel 5a (barbet)</li>
                     </ul>
 
+                    <p>The release tags for these devices have official builds and updates
+                    available. These devices meet the stringent privacy and security standards and
+                    have substantial upstream and downstream hardening specific to the
+                    devices.</p>
+
                     <p>The following devices are end-of-life, no longer receive firmware or most
-                    driver security updates and receive extended support from GrapheneOS as part
+                    driver security updates, and receive extended support from GrapheneOS as part
                     of the main releases with all GrapheneOS changes including all of the latest
                     Android Open Source Project changes:</p>
 
@@ -165,9 +169,9 @@
                     </ul>
 
                     <p>The following devices are end-of-life, no longer receive firmware or driver
-                    security updates and receive extended support from GrapheneOS via a legacy
+                    security updates, and receive extended support from GrapheneOS via a legacy
                     branch based on Android 13 with only the Android Open Source Project security
-                    backports, certain other security patches and other minimal changes to keep
+                    backports, certain other security patches, and other minimal changes to keep
                     them working:</p>
 
                     <ul>
@@ -178,11 +182,6 @@
 
                     <p>We provide extended support releases as a stopgap for users to transition
                     to the far more secure current generation devices.</p>
-
-                    <p>The release tags for these devices have official builds and updates
-                    available. These devices meet the stringent privacy and security standards and
-                    have substantial upstream and downstream hardening specific to the
-                    devices.</p>
 
                     <p>Many other devices are supported by GrapheneOS at a source level, and it can be
                     built for them without modifications to the existing GrapheneOS source tree. Device
@@ -224,9 +223,9 @@
                     <p><em>Devices sold in partnership with specific carriers may be locked by the
                     carrier, which will prevent installing GrapheneOS. This is primarily an issue
                     with US carriers and isn't common elsewhere in the world. To avoid this, either
-                    don't buy a carrier device or make sure it can be unlocked. It's the same
+                    don't buy a carrier device, or make sure it can be unlocked. It's the same
                     hardware/firmware/software either way but carriers dislike having devices able
-                    to bypass their paywall for tethering, etc. so they disable it for the devices
+                    to bypass their paywall for tethering, etc., so they disable it for the devices
                     they sell as part of contracts.</em></p>
 
                     <p>We <strong>strongly recommend</strong> only purchasing one of the following
@@ -243,8 +242,6 @@
                         <li>Pixel 7 Pro</li>
                         <li>Pixel 7</li>
                         <li>Pixel 6a</li>
-                        <li>Pixel 6 Pro</li>
-                        <li>Pixel 6</li>
                     </ul>
 
                     <p>8th generation Pixels provide a minimum guarantee of 7 years of support
@@ -272,9 +269,9 @@
                     Pixel Fold is a hybrid phone/tablet. These share the same SoC and are nearly
                     the same as the other 7th generation devices under the hood.</p>
 
-                    <p>Pixel 6, Pixel 6 Pro and Pixel 6a can still be worth buying if you can get a
-                    good deal due to the long support time. They still have over 2 years of their
-                    minimum support guarantee remaining.</p>
+                    <p>Pixel 6a can still be worth buying if you can get a good deal due to the long
+                    support time. It still has just under 3 years of the minimum support guarantee
+                    remaining.</p>
                 </article>
 
                 <article id="future-devices">
@@ -301,12 +298,13 @@
                         <li>Support for using alternate operating systems including full hardware
                         security functionality</li>
                         <li>Complete monthly Android Security Bulletin patches without any regular
-                        delays longer than a week</li>
-                        <li>At least 5 years of updates from launch for phones (Pixels now have 7)
-                        and 7 years for tablets</li>
-                        <li>Vendor code updated to new monthly, quarterly and yearly releases of
-                        AOSP within several months to provide new security improvements (Pixels
-                        receive these in the month they're released)</li>
+                        delays longer than a week for device support code (firmware, drivers and
+                        HALs)</li>
+                        <li>At least 5 years of updates from launch for device support code with
+                        phones (Pixels now have 7) and 7 years with tablets</li>
+                        <li>Device support code updated to new monthly, quarterly and yearly
+                        releases of AOSP within several months to provide new security improvements
+                        (Pixels receive these in the month they're released)</li>
                         <li>Linux 5.15, 6.1 or 6.6 Generic Kernel Image (GKI) support</li>
                         <li>Hardware accelerated virtualization usable by GrapheneOS (ideally pKVM
                         to match Pixels but another usable implementation may be acceptable)</li>
@@ -346,34 +344,16 @@
                     and dedicated towards it. Releases for each supported device need to be robust and
                     stable, with all standard functionality working properly and testing for each of the
                     releases.</p>
-                </article>
 
-                <article id="when-devices">
-                    <h3><a href="#when-devices">When will more devices be supported?</a></h3>
-
-                    <p>Broader device support can only happen after the community (companies,
-                    organizations and individuals) steps up to make substantial, ongoing contributions to
-                    making the existing device support sustainable. Once the existing device support is
-                    more sustainable, early research and development work for other devices can begin.
-                    Once a device is deemed to be a worthwhile target, the project needs maintainers to
-                    develop and maintain support for it including addressing device-specific issues that
-                    are uncovered, which will include issues uncovered in the device support code by
-                    GrapheneOS hardening features.</p>
-
-                    <p>It's not really a matter of time but rather a need for community support for the
-                    project increasing. As an open source project, the way to get something to happen in
-                    GrapheneOS is to contribute to it, and this is particularly true for device support
-                    since it's very self-contained and can be delegated to separate teams for each
-                    device. If you want to see more devices supported sooner, you should get to work on
-                    identifying good devices with full support for alternative operating systems with
-                    verified boot, etc. and then start working on integrating and testing support.</p>
-
-                    <p>It should also be clear that the expectation is for people to buy a device to run
-                    GrapheneOS, rather than GrapheneOS supporting their existing devices. This will only
-                    become more true if GrapheneOS is successful enough to accomplish the goal of having
-                    devices produced based on an SoC reference design with minor improvements for privacy
-                    and security. Broad device support is the opposite of what the project wants to
-                    achieve in the long term.</p>
+                    <p>The expectation is for people to buy a secure device meeting our requirements
+                    to run GrapheneOS. Broad device support would imply mainly supporting very badly
+                    secured devices unable to support our features. It would also take a substantial
+                    amount of resources away from our work on privacy and security, especially since
+                    a lot of it is closely tied to the hardware such as the USB-C port control and
+                    fixing or working around memory corruption bugs uncovered by our features. We
+                    plan to partner with OEMs to have devices produced meeting all our requirements,
+                    providing additional privacy/security features beyond them and ideally shipping
+                    with GrapheneOS rather than massively lowering our standards.</p>
                 </article>
 
                 <article id="legacy-devices">
@@ -862,7 +842,7 @@
                     <ul>
                         <li>
                             <p>The GrapheneOS System Updater app fetches update metadata from
-                            https://releases.grapheneos.org/<var>DEVICE</var>-<var>CHANNEL</var> approximately once every four hours
+                            https://releases.grapheneos.org/<var>DEVICE</var>-<var>CHANNEL</var> approximately once every six hours
                             when connected to a permitted network for updates.</p>
                             <p>Once an update is available, it tries to download
                             https://releases.grapheneos.org/<var>DEVICE</var>-incremental-<var>OLD_VERSION</var>-<var>NEW_VERSION</var>.zip
@@ -897,6 +877,10 @@
                             components from <code>dl.vanadium.app</code>.</p>
                         </li>
                         <li>
+                            <p>Opening the Info app will fetch the latest GrapheneOS release notes
+                            from https://grapheneos.org/releases.atom.</p>
+                        </li>
+                        <li>
                             <p>An HTTPS connection is made to
                             https://time.grapheneos.org/generate_204 to update the time with a
                             millisecond precision X-Time header. As part of future support for
@@ -910,7 +894,9 @@
                             by default, and OEMs can choose the priority order). Network time
                             updates are security sensitive since certificate validation depends on
                             having an accurate time, but the standard NTP / SNTP protocols used
-                            across most OSes have no authentication or encryption.</p>
+                            across most OSes have no authentication. Our servers obtain the time
+                            from 6 independent NTP servers with NTS for authentication where at
+                            least 3 servers need to agree on the time for it to be updated.</p>
 
                             <p>We plan to offer a toggle to use the standard functionality instead of
                             HTTPS-based time updates in order to blend in with other devices.</p>
@@ -1066,7 +1052,7 @@
                             https://remoteprovisioning.googleapis.com/ service. The service splits
                             up the implementation of provisioning to preserve privacy, and our
                             reverse proxy adds to that since it's unable to decrypt the
-                            provisioned keys</p>
+                            provisioned keys.</p>
 
                             <p>A setting is added at <b>Settings&#160;<span aria-label="and
                             then">></span> Network &amp; internet&#160;<span

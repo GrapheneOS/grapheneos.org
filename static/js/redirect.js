@@ -24,6 +24,10 @@ const redirects = new Map([
     ["/usage#system-navigation", "/usage#navigation-mode"],
 
     ["/faq#dns", "/faq#custom-dns"],
+    ["/faq#when-devices", "/faq#future-devices"],
+
+
+    ["/features#usb-c-port-control", "/features#usb-c-port-and-pogo-pins-control"],
 
     ["/hiring#qualitifations", "/hiring#qualifications"],
 
