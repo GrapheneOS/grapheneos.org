@@ -350,6 +350,31 @@ main.normalize {
     margin-block-end: 0;
 }
 
+details {
+    border: 1px solid #74777f /* outline */;
+    border-radius: 12px;
+    padding: 0.5em 0.5em 0;
+}
+
+summary {
+    font-weight: bold;
+    margin: -0.5em -0.5em 0;
+    padding: 0.5em;
+}
+
+summary:hover {
+    cursor: pointer;
+}
+
+details[open] {
+    padding: 0.5em;
+}
+
+details[open] summary {
+    border-bottom: 1px solid #74777f /* outline */;
+    margin-bottom: 0.5em;
+}
+
 /* latin */
 @font-face {
     font-family: Roboto;
@@ -452,7 +477,7 @@ main.normalize {
         color: #c4c6cf; /* on-surface-variant */
     }
 
-    pre {
+    pre, details, details[open] summary {
         border-color: #8e9099; /* outline */
     }
 
