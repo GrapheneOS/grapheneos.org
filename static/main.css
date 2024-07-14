@@ -329,6 +329,27 @@ main.normalize {
     margin: 0;
 }
 
+.notice {
+    border-radius: 12px;
+    border: 1px solid #74777f /* outline */;
+    background-color: #dae2f9 /* secondary container */;
+    color: #121c2b /* on secondary container */;
+    padding: 1em;
+    margin-block: 1em;
+}
+
+.notice-heading {
+    margin-block-start: 0;
+}
+
+.notice-heading::before {
+    content: "ⓘ ";
+}
+
+.notice pre {
+    margin-block-end: 0;
+}
+
 /* latin */
 @font-face {
     font-family: Roboto;
@@ -466,5 +487,11 @@ main.normalize {
 
     var {
         color: #ffb4ab;
+    }
+
+    .notice {
+        border-color: #8e9099 /* outline */;
+        background-color: #3e4758 /* secondary container */;
+        color: #dae2f9 /* on secondary container */;
     }
 }
