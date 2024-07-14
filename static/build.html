@@ -193,6 +193,24 @@
                     <p>Arch Linux, Debian bookworm, Ubuntu 23.04 and Ubuntu 22.04 LTS are the
                     officially supported operating systems for building GrapheneOS.</p>
 
+                    <details>
+                        <summary>Set up Debian GNU/Linux 12 (bookworm)</summary>
+
+                        <p>To build GrapheneOS, install the required packages:</p>
+
+                        <pre>apt install repo yarnpkg python3-venv zip rsync</pre>
+
+                        <p>Your <code>PATH</code> may not contain directories like
+                        <code>/sbin</code>, and many system administration commands will fail. The
+                        <code>adevtool</code> from GrapheneOS requires the <code>debugfs</code>
+                        binary in <code>/sbin</code>. The simplest workaround is to add these
+                        directories to your <code>PATH</code> environment variable (and apply the
+                        change to your current shell):</p>
+
+                        <pre>echo 'export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin' >> ~/.bashrc
+source ~/.bashrc</pre>
+                    </details>
+
                     <p>Dependencies for fetching and verifying the sources:</p>
 
                     <ul>
