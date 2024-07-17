@@ -394,7 +394,9 @@ cd ../..</pre>
                     that the official builds match the sources, since it has signature verification (which
                     is an important part of the verified boot and attestation security model).</p>
 
-                    <p>The below commands need to only be run once to initially create a working environment.</p>
+                    <p>The below commands need to only be run once to initially create a working
+                    environment. (Note: On Debian, <code>yarn</code> is reserved for a binary in
+                    <code>cmdtest</code>; use <code>yarnpkg</code> instead.)</p>
 
                     <pre>yarn install --cwd vendor/adevtool/
 source build/envsetup.sh
