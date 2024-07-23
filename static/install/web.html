@@ -130,14 +130,15 @@
                 <p>Officially supported browsers for the web install method:</p>
 
                 <ul>
-                    <li>Chromium (outside Ubuntu, since they ship a broken Snap package without working WebUSB)</li>
+                    <li>Chromium</li>
                     <li>Vanadium (GrapheneOS)</li>
                     <li>Google Chrome</li>
                     <li>Microsoft Edge</li>
                     <li>Brave (with Brave Shields disabled, since it caps storage usage at a low value to avoid fingerprinting available storage)</li>
                 </ul>
 
-                <p>You should avoid Flatpak and Snap versions of browsers, as they're known to cause issues during the installation process.</p>
+                <p>You should avoid Flatpak and Snap versions of browsers, as they're known to cause issues during the installation process.
+                However some of them can be solved.</p>
 
                 <p>Make sure your browser is up-to-date before proceeding.</p>
 
@@ -193,6 +194,17 @@
 
                 <p>On Arch Linux, install the <code>android-udev</code> package. On Debian and
                 Ubuntu, install the <code>android-sdk-platform-tools-common</code> package.</p>
+            </section>
+            
+            <section id="enabling-webusb-on-snap-packaged-chromium">
+                <h2><a href ="#enabling-webusb-on-snap-packaged-chromium">Enabling WebUSB on snap-packaged Chromium</a></h2>
+
+                <p>Ubuntu and some derived distributions ship Chromium packaged in Snap. This has access to USB disabled by default.
+                You can enable it using this command:</p>
+
+                <pre>sudo snap connect chromium:raw-usb</pre>
+
+                <p>You might need to restart the browser afterwards.</p>
             </section>
 
             <section id="working-around-fwupd-bug-on-linux-distributions">
