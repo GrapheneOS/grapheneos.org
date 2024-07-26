@@ -190,13 +190,13 @@ async function unlockBootloader(setProgress) {
 
 const supportedDevices = ["akita", "husky", "shiba", "felix", "tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble", "sunfish", "coral", "flame"];
 
-const qualcommDevices = ["barbet", "redfin", "bramble", "sunfish", "coral", "flame"];
-
 const legacyQualcommDevices = ["sunfish", "coral", "flame"];
 
-const tensorDevices = ["akita", "husky", "shiba", "felix", "tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole"];
-
 const day1SnapshotCancelDevices = ["akita", "husky", "shiba", "felix", "tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble"];
+
+function hasOptimizedFactoryImage(product) {
+    return !legacyQualcommDevices.includes(product);
+}
 
 async function getLatestRelease() {
     let product = await device.getVariable("product");
@@ -208,7 +208,7 @@ async function getLatestRelease() {
     let metadata = await metadataResp.text();
     let releaseId = metadata.split(" ")[0];
 
-    return [`${product}-factory-${releaseId}.zip`, product];
+    return [`${product}-factory-${releaseId}${hasOptimizedFactoryImage(product) ? "-opt" : ""}.zip`, product];
 }
 
 async function downloadRelease(setProgress) {
@@ -282,27 +282,18 @@ async function flashRelease(setProgress) {
                 setProgress(`${userAction} ${userItem}...`, progress);
             }
         );
-        setProgress("Disabling UART...");
-        // See https://android.googlesource.com/platform/system/core/+/eclair-release/fastboot/fastboot.c#532
-        // for context as to why the trailing space is needed.
-        await device.runCommand("oem uart disable ");
-        if (qualcommDevices.includes(product)) {
+        if (legacyQualcommDevices.includes(product)) {
+            setProgress("Disabling UART...");
+            // See https://android.googlesource.com/platform/system/core/+/eclair-release/fastboot/fastboot.c#532
+            // for context as to why the trailing space is needed.
+            await device.runCommand("oem uart disable ");
             setProgress("Erasing apdp...");
             // Both slots are wiped as even apdp on an inactive slot will modify /proc/cmdline
             await device.runCommand("erase:apdp_a");
             await device.runCommand("erase:apdp_b");
-        }
-        if (legacyQualcommDevices.includes(product)) {
             setProgress("Erasing msadp...");
             await device.runCommand("erase:msadp_a");
             await device.runCommand("erase:msadp_b");
-        }
-        if (tensorDevices.includes(product)) {
-            setProgress("Disabling FIPS...");
-            await device.runCommand("erase:fips");
-            setProgress("Erasing DPM...");
-            await device.runCommand("erase:dpm_a");
-            await device.runCommand("erase:dpm_b");
         }
     } finally {
         setInstallerState({ state: InstallerState.INSTALLING_RELEASE, active: false });
