@@ -793,6 +793,7 @@
                         <li>Settings: drop code for supporting the legacy Settings UI</li>
                         <li>Sandboxed Google Play compatibility layer: avoid infinite wait for GmsCompatConfig update when call to App Store fails</li>
                         <li>enforce stack clash protection for x86_64</li>
+                        <li>enforce minimum 64kiB stack guard size for arm64 due to the standard stack probe size of 64kiB</li>
                         <li>future proof our Bionic libc changes for dynamic 64k pages (hardened_malloc still doesn't support it)</li>
                         <li>flash-all: remove unnecessary reboot after flashing Android Verified Boot (AVB) key</li>
                         <li>kernel (5.10): update to latest GKI LTS branch revision including update to 5.10.222</li>
