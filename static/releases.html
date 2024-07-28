@@ -787,6 +787,7 @@
                     <p>Changes since the 2024071600 release:</p>
 
                     <ul>
+                        <li>avoid isolating eUICC LPA (eSIM activation) app from third party apps to allow carrier activation apps to work (we still block communication with Google Play to avoid sending telemetry data to Google services when sandboxed Google Play is installed)</li>
                         <li>Pixel 8a: fix GNSS configuration to avoid occasional crashes of the service (Pixel 8a is currently the only Samsung GNSS device)</li>
                         <li>Settings: don't allow disabling user installed apps when uninstall is disallowed</li>
                         <li>Settings: modernize privacy and security settings</li>
