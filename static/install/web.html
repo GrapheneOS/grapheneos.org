@@ -459,8 +459,8 @@
 
                     <p>The GrapheneOS factory images flash a non-stock Android Verified Boot key which
                     needs to be erased to fully revert back to a stock device state. Before flashing the
-                    stock factory images and before locking the bootloader, you should erase the custom
-                    Android Verified Boot key to untrust it:</p>
+                    stock factory images, you should boot the device into fastboot mode and make sure the
+                    bootloader is unlocked. Then erase the custom Android Verified Boot key to untrust it:</p>
 
                     <button id="remove-custom-key-button" disabled="">Remove non-stock key</button>
 
