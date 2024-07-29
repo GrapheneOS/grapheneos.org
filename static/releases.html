@@ -812,7 +812,11 @@
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/127.0.6533.64.1">version 127.0.6533.64.1</a></li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-124">version 124</a></li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-125">version 125</a></li>
-                        <li>add support for generating web installer optimized factory images zip for an improved web install approach not requiring fastbootd</li>
+                        <li>fastboot: add support for generating web installer optimized factory images zip for an improved web install approach not requiring fastbootd</li>
+                        <li>integrate generating web installation optimized factory images zip into release signing script</li>
+                        <li>split script/release.sh to remove dependency on build output and the OS source tree (see the new instructions for signing releases)</li>
+                        <li>rename script/release.sh to script/generate-release.sh</li>
+                        <li>add script/generate-releases.sh wrapper script</li>
                     </ul>
                 </article>
                 -->
