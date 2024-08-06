@@ -201,7 +201,7 @@
 
                         <p>To build GrapheneOS, install the required packages:</p>
 
-                        <pre>apt install repo yarnpkg python3-venv zip rsync</pre>
+                        <pre>apt install repo yarnpkg zip rsync</pre>
 
                         <p>Your <code>PATH</code> may not contain directories like
                         <code>/sbin</code>, and many system administration commands will fail. The
@@ -271,8 +271,6 @@ source ~/.bashrc</pre>
                     <p>Additional dependencies for extracting vendor files with adevtool:</p>
 
                     <ul>
-                        <li>Optional: venv module for Python 3</li>
-                        <li>protobuf library for Python 3</li>
                         <li>Node.js 18 LTS</li>
                         <li>yarn</li>
                         <li>e2fsprogs (for the debugfs command used for extracting data from ext4 images)</li>
@@ -406,44 +404,11 @@ source build/envsetup.sh
 lunch sdk_phone64_x86_64-cur-user
 m aapt2</pre>
 
-                    <div class="notice">
-                        <p class="notice-heading">Optional</p>
-
-                        <p>Run the following additional commands once to create a working
-                        environment if your Linux distribution (such as Debian bookworm) doesn't
-                        have the Protobuf library for Python 3 package version (5.)27.2 or later.
-                        This installs the latest library version in a Python 3 virtual
-                        environment.</p>
-
-                        <pre>python3 -m venv venv
-source venv/bin/activate
-pip install protobuf
-deactivate</pre>
-                    </div>
-
-                    <div class="notice">
-                        <p class="notice-heading">Optional</p>
-
-                        <p>If you have installed the Protobuf library in the Python 3 virtual
-                        environment, activate the environment:</p>
-
-                        <pre>source venv/bin/activate</pre>
-                    </div>
-
                     <p>Download, extract and prepare the vendor files:</p>
 
                     <pre>adevtool generate-all -d <var>PIXEL_CODENAME</var></pre>
 
                     <p>Replace <code><var>PIXEL_CODENAME</var></code> with Pixel device codename, which is the same as <a href="#build-targets">build target name</a>.</p>
-
-                    <div class="notice">
-                        <p class="notice-heading">Optional</p>
-
-                        <p>If you have installed the Protobuf library in the Python 3 virtual
-                        environment, deactivate the environment:</p>
-
-                        <pre>deactivate</pre>
-                    </div>
                 </section>
 
                 <section id="setting-up-the-os-build-environment">
