@@ -232,18 +232,19 @@
                 <p>Connect the device to the computer. On Linux, you'll need to do this again if
                 you didn't have the udev rules set up when you connected it.</p>
 
-                <p>Windows 11 recently included a fastboot driver and no longer requires installing
-                a driver for installation on the Pixel 4a (5G) or later. It isn't enough for legacy
-                4th generation Pixels due to missing fastbootd support. Windows 10 or older releases
-                of Windows 11 need a driver installed for the Pixel 4a (5G) or later. You can obtain
-                the driver from Windows Update which will detect it as an optional update when the
+                <p>Current Windows 10 and Windows 11 include a generic driver usable for fastboot
+                and no longer require installing a driver for installation on the Pixel 4a (5G) or
+                later. It isn't enough for legacy 4th generation Pixels due to the driver not
+                handling fastbootd, so you still need the driver for those. Outdated Windows
+                versions will still need the driver for non-obsolete devices too. You can obtain the
+                driver from Windows Update which will detect it as an optional update when the
                 device is booted into the bootloader interface and connected to the computer. Open
                 Windows Update, run a check for updates and then open the "View optional updates"
                 interface. Install the driver for the Android bootloader interface as an optional
                 update, which will show up as "LeMobile Android Device" due to USB ID overlap. An
                 alternative approach to obtaining the Windows fastboot driver is to obtain the <a
-                href="https://developer.android.com/studio/run/win-usb">latest driver for Pixels</a>
-                from Google and then <a href="https://developer.android.com/studio/run/oem-usb#InstallingDriver">manually
+                href="https://developer.android.com/studio/run/win-usb">latest driver for
+                Pixels</a> from Google and then <a href="https://developer.android.com/studio/run/oem-usb#InstallingDriver">manually
                 install it with the Windows Device Manager</a>.</p>
 
                 <p>For the Pixel Tablet, disconnect it from the stand before continuing. The stand
