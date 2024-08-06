@@ -430,18 +430,18 @@ signify -V -m allowed_signers -x allowed_signers.sig -p factory.pub</pre>
                 page</a>. For example, to download the <code><var>VERSION</var></code> release for
                 a device with the codename <code><var>DEVICE_NAME</var></code>:</p>
 
-                <pre>curl -O https://releases.grapheneos.org/<var>DEVICE_NAME</var>-factory-<var>VERSION</var>.zip
-curl -O https://releases.grapheneos.org/<var>DEVICE_NAME</var>-factory-<var>VERSION</var>.zip.sig</pre>
+                <pre>curl -O https://releases.grapheneos.org/<var>DEVICE_NAME</var>-install-<var>VERSION</var>.zip
+curl -O https://releases.grapheneos.org/<var>DEVICE_NAME</var>-install-<var>VERSION</var>.zip.sig</pre>
 
                 <p>Next, verify the factory images using the signature.</p>
 
                 <p>On Linux and macOS:</p>
 
-                <pre>ssh-keygen -Y verify -f allowed_signers -I contact@grapheneos.org -n "factory images" -s <var>DEVICE_NAME</var>-factory-<var>VERSION</var>.zip.sig &lt; <var>DEVICE_NAME</var>-factory-<var>VERSION</var>.zip</pre>
+                <pre>ssh-keygen -Y verify -f allowed_signers -I contact@grapheneos.org -n "factory images" -s <var>DEVICE_NAME</var>-install-<var>VERSION</var>.zip.sig &lt; <var>DEVICE_NAME</var>-install-<var>VERSION</var>.zip</pre>
 
                 <p>On Windows:</p>
 
-                <pre>cmd /c 'ssh-keygen -Y verify -f allowed_signers -I contact@grapheneos.org -n "factory images" -s <var>DEVICE_NAME</var>-factory-<var>VERSION</var>.zip.sig &lt; <var>DEVICE_NAME</var>-factory-<var>VERSION</var>.zip'</pre>
+                <pre>cmd /c 'ssh-keygen -Y verify -f allowed_signers -I contact@grapheneos.org -n "factory images" -s <var>DEVICE_NAME</var>-install-<var>VERSION</var>.zip.sig &lt; <var>DEVICE_NAME</var>-install-<var>VERSION</var>.zip'</pre>
 
                 <p>This will produce the following output when successful:</p>
 
@@ -458,15 +458,15 @@ curl -O https://releases.grapheneos.org/<var>DEVICE_NAME</var>-factory-<var>VERS
 
                 <p>On Linux:</p>
 
-                <pre>bsdtar xvf <var>DEVICE_NAME</var>-factory-<var>VERSION</var>.zip</pre>
+                <pre>bsdtar xvf <var>DEVICE_NAME</var>-install-<var>VERSION</var>.zip</pre>
 
                 <p>On macOS and Windows:</p>
 
-                <pre>tar xvf <var>DEVICE_NAME</var>-factory-<var>VERSION</var>.zip</pre>
+                <pre>tar xvf <var>DEVICE_NAME</var>-install-<var>VERSION</var>.zip</pre>
 
                 <p>Move into the directory:</p>
 
-                <pre>cd <var>DEVICE_NAME</var>-factory-<var>VERSION</var></pre>
+                <pre>cd <var>DEVICE_NAME</var>-install-<var>VERSION</var></pre>
 
                 <p>Flash the images with the flash-all script in the directory.</p>
 
