@@ -2,6 +2,7 @@
 
 const baseUrl = "https://releases.grapheneos.org/";
 const devices = ["akita", "husky", "shiba", "felix", "tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble", "sunfish", "coral", "flame"];
+const legacyFactoryDevices = new Set(["sunfish", "coral", "flame"]);
 const channels = ["stable", "beta"];
 const delayMs = 1000 * 60 * 5;
 
@@ -23,7 +24,8 @@ async function updateReleases() {
             }).then(text => {
                 const metadata = text.trim().split(" ");
 
-                const factoryFilename = `${device}-factory-${metadata[0]}.zip`;
+                const factoryFormat = channel === "stable" || legacyFactoryDevices.has(device) ? "factory" : "install";
+                const factoryFilename = `${device}-${factoryFormat}-${metadata[0]}.zip`;
                 const factoryUrl = baseUrl + factoryFilename;
 
                 const updateFilename = `${device}-ota_update-${metadata[0]}.zip`;
