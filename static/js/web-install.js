@@ -1,6 +1,6 @@
 // @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt MIT
 
-import * as fastboot from "./fastboot/f7069c80/fastboot.min.mjs";
+import * as fastboot from "./fastboot/ffe7e270/fastboot.min.mjs";
 
 const RELEASES_URL = "https://releases.grapheneos.org";
 
@@ -416,7 +416,7 @@ fastboot.setDebugLevel(2);
 
 fastboot.configureZip({
     workerScripts: {
-        inflate: ["/js/fastboot/f7069c80/vendor/z-worker-pako.js", "pako_inflate.min.js"],
+        inflate: ["/js/fastboot/ffe7e270/vendor/z-worker-pako.js", "pako_inflate.min.js"],
     },
 });
 
