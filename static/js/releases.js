@@ -15,7 +15,7 @@ async function updateReleases() {
 
     for (const channel of channels) {
         for (const device of devices) {
-            requests.push(fetch(baseUrl + device + "-" + channel).then(response => {
+            requests.push(fetch(`${baseUrl}${device}-${channel}`).then(response => {
                 if (!response.ok) {
                     return Promise.reject();
                 }
@@ -23,13 +23,13 @@ async function updateReleases() {
             }).then(text => {
                 const metadata = text.trim().split(" ");
 
-                const factoryFilename = device + "-factory-" + metadata[0] + ".zip";
+                const factoryFilename = `${device}-factory-${metadata[0]}.zip`;
                 const factoryUrl = baseUrl + factoryFilename;
 
-                const updateFilename = device + "-ota_update-" + metadata[0] + ".zip";
+                const updateFilename = `${device}-ota_update-${metadata[0]}.zip`;
                 const updateUrl = baseUrl + updateFilename;
 
-                const release = document.getElementById(device + "-" + channel);
+                const release = document.getElementById(`${device}-${channel}`);
                 const links = release.getElementsByTagName("a");
 
                 updateLink(links[1], metadata[0], "#" + metadata[0]);
