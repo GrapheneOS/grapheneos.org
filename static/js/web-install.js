@@ -208,7 +208,7 @@ async function getLatestRelease() {
     let metadata = await metadataResp.text();
     let releaseId = metadata.split(" ")[0];
 
-    return [`${product}-factory-${releaseId}${hasOptimizedFactoryImage(product) ? "-opt" : ""}.zip`, product];
+    return [`${product}-${hasOptimizedFactoryImage(product) ? "install" : "factory"}-${releaseId}.zip`, product];
 }
 
 async function downloadRelease(setProgress) {
