@@ -24,7 +24,7 @@ async function updateReleases() {
             }).then(text => {
                 const metadata = text.trim().split(" ");
 
-                const factoryFormat = channel === "stable" || legacyFactoryDevices.has(device) ? "factory" : "install";
+                const factoryFormat = legacyFactoryDevices.has(device) ? "factory" : "install";
                 const factoryFilename = `${device}-${factoryFormat}-${metadata[0]}.zip`;
                 const factoryUrl = baseUrl + factoryFilename;
 
