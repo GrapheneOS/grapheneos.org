@@ -239,21 +239,21 @@
                     Ubuntu:</p>
 
                     <pre>sudo apt install libarchive-tools
-curl -O https://dl.google.com/android/repository/platform-tools_r35.0.0-linux.zip
-echo '62fc977c1b7622ef8dbd6fe1312987d9b139aa8a0b06e88573c1b60129399d49  platform-tools_r35.0.0-linux.zip' | sha256sum -c
-bsdtar xvf platform-tools_r35.0.0-linux.zip</pre>
+curl -O https://dl.google.com/android/repository/platform-tools_r35.0.2-linux.zip
+echo 'acfdcccb123a8718c46c46c059b2f621140194e5ec1ac9d81715be3d6ab6cd0a  platform-tools_r35.0.2-linux.zip' | sha256sum -c
+bsdtar xvf platform-tools_r35.0.2-linux.zip</pre>
 
                     <p>To download, verify and extract the standalone platform-tools on macOS:</p>
 
-                    <pre>curl -O https://dl.google.com/android/repository/platform-tools_r35.0.0-darwin.zip
-echo 'SHA256 (platform-tools_r35.0.0-darwin.zip) = 85c75ac31556dc95712cf1bdec592098e6c5067dc485356591d85932178bf8cd' | shasum -c
-tar xvf platform-tools_r35.0.0-darwin.zip</pre>
+                    <pre>curl -O https://dl.google.com/android/repository/platform-tools_r35.0.2-darwin.zip
+echo 'SHA256 (platform-tools_r35.0.2-darwin.zip) = 1820078db90bf21628d257ff052528af1c61bb48f754b3555648f5652fa35d78' | shasum -c
+tar xvf platform-tools_r35.0.2-darwin.zip</pre>
 
                     <p>To download, verify and extract the standalone platform-tools on Windows:</p>
 
-                    <pre>curl -O https://dl.google.com/android/repository/platform-tools_r35.0.0-windows.zip
-(Get-FileHash platform-tools_r35.0.0-windows.zip).hash -eq "7ab78a8f8b305ae4d0de647d99c43599744de61a0838d3a47bda0cdffefee87e"
-tar xvf platform-tools_r35.0.0-windows.zip</pre>
+                    <pre>curl -O https://dl.google.com/android/repository/platform-tools_r35.0.2-windows.zip
+(Get-FileHash platform-tools_r35.0.2-windows.zip).hash -eq "ab9dbab873fff677deb2cfd95ea60b9295ebd53b58ec8533e9e1110b2451e540"
+tar xvf platform-tools_r35.0.2-windows.zip</pre>
 
                     <p>Next, add the tools to your <code>PATH</code> in the current shell so they can be
                     used without referencing them by file path, enabling usage by the flashing script.</p>
@@ -279,7 +279,7 @@ tar xvf platform-tools_r35.0.0-windows.zip</pre>
                 <p>Example of the output after following the instructions above for the
                 standalone platform-tools:</p>
 
-                <pre>fastboot version 35.0.0-11411520
+                <pre>fastboot version 35.0.2-12147458
 Installed as /home/username/platform-tools/fastboot</pre>
             </section>
 
