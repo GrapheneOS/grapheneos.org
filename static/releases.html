@@ -794,6 +794,7 @@
 
                     <ul>
                         <li>Settings: enable Safety Center and port all of the relevant GrapheneOS settings to it both to provide the more modern user interface and to prepare for the release of Android 15</li>
+                        <li>require Owner user credential to check whether a duress PIN/password is enabled as hardening against potential UI bugs such as the upstream predictive back gesture issue we patched in the Settings app</li>
                         <li>apply upstream change for 6th generation Pixels making snapuserd available in recovery to avoid a problem in a rare edge case where a factory reset occurs before finishing booting a new update</li>
                         <li>apply minor upstream fixes for Settings which were temporarily only shipped for certain Pixels</li>
                         <li>add fastboot to otatools.zip for optimized factory images generation</li>
