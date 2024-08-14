@@ -943,9 +943,12 @@
                     <p>Some of the features added compared to standard mobile Chromium:</p>
 
                     <ul>
+                        <li>Hardware memory tagging (MTE) enabled for the main allocator</li>
                         <li>Type-based Control Flow Integrity (CFI)</li>
                         <li>Shadow Call Stack</li>
-                        <li>Hardware memory tagging (MTE) enabled for the main allocator</li>
+                        <li>Strong stack protector</li>
+                        <li>Automatic zero-initialized variables</li>
+                        <li>Well-defined signed overflow</li>
                         <li>Strict site isolation and sandboxed iframes</li>
                         <li>JavaScript JIT disabled by default with per-site toggle via drop-down
                         permission menu</li>
@@ -953,8 +956,6 @@
                         Play for autofill support</li>
                         <li>WebGPU disabled for attack surface reduction</li>
                         <li>WebRTC IP handling policy toggle to control peer-to-peer WebRTC mode</li>
-                        <li>Compiler hardening: automatic variable initialization, strong stack
-                        protector, well-defined signed overflow</li>
                         <li>High performance content filtering engine using EasyList + EasyPrivacy
                         with per-site toggle via drop-down permission menu</li>
                         <li>More complete state partitioning without origin trial opt-out</li>
