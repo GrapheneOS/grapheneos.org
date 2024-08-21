@@ -188,11 +188,11 @@ async function unlockBootloader(setProgress) {
     return "Bootloader unlocked.";
 }
 
-const supportedDevices = ["akita", "husky", "shiba", "felix", "tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble", "sunfish", "coral", "flame"];
+const supportedDevices = ["komodo", "caiman", "tokay", "akita", "husky", "shiba", "felix", "tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble", "sunfish", "coral", "flame"];
 
 const legacyQualcommDevices = ["sunfish", "coral", "flame"];
 
-const day1SnapshotCancelDevices = ["akita", "husky", "shiba", "felix", "tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble"];
+const day1SnapshotCancelDevices = ["komodo", "caiman", "tokay", "akita", "husky", "shiba", "felix", "tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble"];
 
 function hasOptimizedFactoryImage(product) {
     return !legacyQualcommDevices.includes(product);
