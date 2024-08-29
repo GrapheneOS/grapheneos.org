@@ -47,6 +47,7 @@
                     <li>
                         <a href="#stable-channel">Stable channel</a>
                         <ul>
+                            <li><a href="#comet-stable">Pixel 9 Pro Fold</a></li>
                             <li><a href="#komodo-stable">Pixel 9 Pro XL</a></li>
                             <li><a href="#caiman-stable">Pixel 9 Pro</a></li>
                             <li><a href="#tokay-stable">Pixel 9</a></li>
@@ -72,6 +73,7 @@
                     <li>
                         <a href="#beta-channel">Beta channel</a>
                         <ul>
+                            <li><a href="#comet-beta">Pixel 9 Pro Fold</a></li>
                             <li><a href="#komodo-beta">Pixel 9 Pro XL</a></li>
                             <li><a href="#caiman-beta">Pixel 9 Pro</a></li>
                             <li><a href="#tokay-beta">Pixel 9</a></li>
@@ -460,6 +462,15 @@
             <section id="stable-channel">
                 <h2><a href="#stable-channel">Stable channel</a></h2>
 
+                <section id="comet-stable">
+                    <h3><a href="#comet-stable">Pixel 9 Pro Fold</a></h3>
+                    <p>Version: <a href="#[[comet-stable-BUILD_NUMBER]]">[[comet-stable-BUILD_NUMBER]]</a></p>
+                    <ul>
+                        <li><a href="https://releases.grapheneos.org/comet-install-[[comet-stable-BUILD_NUMBER]].zip">comet-install-[[comet-stable-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/comet-install-[[comet-stable-BUILD_NUMBER]].zip.sig">comet-install-[[comet-stable-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/comet-ota_update-[[comet-stable-BUILD_NUMBER]].zip">comet-ota_update-[[comet-stable-BUILD_NUMBER]].zip</a></li>
+                    </ul>
+                </section>
                 <section id="komodo-stable">
                     <h3><a href="#komodo-stable">Pixel 9 Pro XL</a></h3>
                     <p>Version: <a href="#[[komodo-stable-BUILD_NUMBER]]">[[komodo-stable-BUILD_NUMBER]]</a></p>
@@ -645,6 +656,15 @@
             <section id="beta-channel">
                 <h2><a href="#beta-channel">Beta channel</a></h2>
 
+                <section id="comet-beta">
+                    <h3><a href="#comet-beta">Pixel 9 Pro Fold</a></h3>
+                    <p>Version: <a href="#[[comet-beta-BUILD_NUMBER]]">[[comet-beta-BUILD_NUMBER]]</a></p>
+                    <ul>
+                        <li><a href="https://releases.grapheneos.org/comet-install-[[comet-beta-BUILD_NUMBER]].zip">comet-install-[[comet-beta-BUILD_NUMBER]].zip</a></li>
+                        <li><a href="https://releases.grapheneos.org/comet-install-[[comet-beta-BUILD_NUMBER]].zip.sig">comet-install-[[comet-beta-BUILD_NUMBER]].zip.sig</a></li>
+                        <li><a href="https://releases.grapheneos.org/comet-ota_update-[[comet-beta-BUILD_NUMBER]].zip">comet-ota_update-[[comet-beta-BUILD_NUMBER]].zip</a></li>
+                    </ul>
+                </section>
                 <section id="komodo-beta">
                     <h3><a href="#komodo-beta">Pixel 9 Pro XL</a></h3>
                     <p>Version: <a href="#[[komodo-beta-BUILD_NUMBER]]">[[komodo-beta-BUILD_NUMBER]]</a></p>
@@ -888,8 +908,7 @@
                         <li>Settings: add per-app memory dynamic code loading restriction toggle (applies to both native code and Android Runtime class loading for Java/Kotlin)</li>
                         <li>Settings: add per-app storage dynamic code loading restriction toggle (applies to both native code and Android Runtime class loading for Java/Kotlin), temporarily without a global toggle until Google phases out the old dynamite module system for Google Play due to many apps temporarily depending on this through it</li>
                         <li>Settings: add per-app WebView JIT restriction toggle</li>
-                        <li>add production support for the Pixel 9, Pixel 9 Pro and Pixel 9 Pro XL</li>
-                        <li>add experimental support for the Pixel 9 Pro Fold (we haven't received our preordered device for testing yet)</li>
+                        <li>add production support for the Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL and Pixel 9 Pro Fold</li>
                         <li>add support for enabling app association restrictions without exemptions (currently for use with Pixel Thermometer)</li>
                         <li>add support for Pixel Thermometer app available from our App Store for the Pixel 8 Pro, Pixel 9 Pro and Pixel 9 Pro XL with strict isolation from other apps</li>
                         <li>add missing feature compatibility matrix definitions (mainly for 9th generation Pixels)</li>
