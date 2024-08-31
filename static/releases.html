@@ -872,7 +872,7 @@
                         <li>Contact Scopes: explicitly set initialization order after ContactsProvider2 to avoid uncaught exceptions from a race</li>
                         <li>kernel (6.1): disable unused hibernation support</li>
                         <li>kernel (6.6): enable random kmalloc caches</li>
-                        <li>kernel (6.6): enable struct randomization in the full mode with a deterministic seed based on kernel commit timestamp</li>
+                        <li>kernel (6.6): enable struct randomization in the full mode with a deterministic seed based on kernel commit timestamp (we plan to also incorporate the device family and eventually make the seed specific to each device model, but it will increase our build/testing workload)</li>
                         <li>kernel (5.10): update to latest GKI LTS branch revision</li>
                         <li>kernel (6.1): update to latest GKI LTS branch revision including update to 6.1.96</li>
                         <li>kernel (6.6): update to latest GKI LTS branch revision including update to 6.6.46</li>
