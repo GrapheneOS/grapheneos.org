@@ -83,6 +83,7 @@
                                 <a href="#kernel">Kernel</a>
                                 <ul>
                                     <li><a href="#kernel-emulator">Emulator</a></li>
+                                    <li><a href="#kernel-9th-generation-pixels">9th generation Pixels</a></li>
                                     <li><a href="#kernel-8th-generation-pixels">8th generation Pixels</a></li>
                                     <li><a href="#kernel-7th-generation-pixels">7th generation Pixels</a></li>
                                     <li><a href="#kernel-6th-generation-pixels">6th generation Pixels</a></li>
@@ -754,6 +755,41 @@ repo sync -j8</pre>
 
                         <p>You can configure the kernel version used for the x86_64 emulator in
                         <code>device/generic/goldfish/board/kernel/x86_64.mk</code>.</p>
+                    </section>
+
+                    <section id="kernel-9th-generation-pixels">
+                        <h4><a href="#kernel-9th-generation-pixels">9th generation Pixels</a></h4>
+
+                        <p>To sync the caimito kernel for the Pixel 9, Pixel 9 Pro and Pixel 9 Pro XL:</p>
+
+                        <pre>mkdir -p android/kernel/caimito
+cd android/kernel/caimito
+repo init -u https://github.com/GrapheneOS/kernel_manifest-caimito.git -b 14-caimito
+repo sync -j8</pre>
+
+                        <p>To build the caimito kernel for the Pixel 9, Pixel 9 Pro and Pixel 9 Pro XL:</p>
+
+                        <pre>./build_caimito.sh --config=use_source_tree_aosp --config=no_download_gki --lto=full</pre>
+
+                        <p>Replace the files in the OS source tree at
+                        <code>device/google/caimito-kernels/6.1/24D1/</code> with your build in
+                        <code>out/caimito/dist/</code>.</p>
+
+                        <p>To sync the comet kernel for the Pixel 9 Pro Fold:</p>
+
+                        <pre>mkdir -p android/kernel/comet
+cd android/kernel/comet
+repo init -u https://github.com/GrapheneOS/kernel_manifest-caimito.git -b 14-caimito
+repo sync -j8</pre>
+
+                        <p>To build the comet kernel for the Pixel 9 Pro Fold:</p>
+
+                        <pre>./build_comet.sh --config=use_source_tree_aosp --config=no_download_gki --lto=full</pre>
+
+                        <p>Replace the files in the OS source tree at
+                        <code>device/google/comet-kernels/6.1/24D1/</code> with your build in
+                        <code>out/comet/dist/</code>.</p>
+
                     </section>
 
                     <section id="kernel-8th-generation-pixels">
