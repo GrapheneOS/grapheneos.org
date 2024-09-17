@@ -880,6 +880,7 @@
                     <ul>
                         <li>Sandboxed Google Play compatibility layer: handle the updated client dynamite module initialization sequence</li>
                         <li>exclude com.android.rkpdapp from backup/restore to avoid breaking key provisioning for attestation including for Auditor (users can clear RemoteProvisioner system app data via Settings if they restored data for it and have this issue)</li>
+                        <li>Pixel 9 Fold Pro: temporarily manually add overlays from the stock Pixel OS to use the correct layout for quick settings, status bar, etc. and to provide the split folded/unfolded auto-rotate settings</li>
                         <li>hardened_malloc: fix microdroid virtual machine compatibility by using armv8a+dotprod+memtag when enabling memory tagging instead of armv9+memtag</li>
                         <li>init: disable auto-reboot setup for microdroid virtual machines
                         <li>expat: backport patches for CVE-2024-28757, CVE-2024-45490, CVE-2024-45491 and CVE-2024-45492</li>
