@@ -878,6 +878,7 @@
                     <p>Changes since the 2024090400 release:</p>
 
                     <ul>
+                        <li>Sandboxed Google Play compatibility layer: handle the updated client dynamite module initialization sequence</li>
                         <li>exclude com.android.rkpdapp from backup/restore to avoid breaking key provisioning for attestation including for Auditor (users can clear RemoteProvisioner system app data via Settings if they restored data for it and have this issue)</li>
                         <li>hardened_malloc: fix microdroid virtual machine compatibility by using armv8a+dotprod+memtag when enabling memory tagging instead of armv9+memtag</li>
                         <li>init: disable auto-reboot setup for microdroid virtual machines
