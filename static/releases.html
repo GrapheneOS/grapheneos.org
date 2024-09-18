@@ -903,7 +903,7 @@
                         <li>Sandboxed Google Play compatibility layer: handle the updated client dynamite module initialization sequence</li>
                         <li>extend standard Android eBPF filter to prevent apps sending multicast packets outside of the VPN tunnel either directly or separately via kernel-generated multicast traffic (IGMP, MLD) when leak blocking is enabled</li>
                         <li>add netfilter-based multicast firewall only permitting sending multicast packets to permitted interfaces for the process to prevent apps sending multicast packets through a disallowed interface such as a VPN tunnel for another profile</li>
-                        <li>exclude com.android.rkpdapp from backup/restore to avoid breaking key provisioning for attestation including for Auditor (users can clear RemoteProvisioner system app data via Settings if they restored data for it and have this issue)</li>
+                        <li>exclude com.android.rkpdapp from backup/restore to avoid breaking key provisioning for hardware key attestation including for Auditor (users can clear RemoteProvisioner system app data via Settings if they restored data for it and have this issue)</li>
                         <li>Pixel 9 Fold Pro: temporarily manually add overlays from the stock Pixel OS to use the correct layout for quick settings, status bar, etc. and to provide the split folded/unfolded auto-rotate settings</li>
                         <li>hardened_malloc: fix microdroid virtual machine compatibility by using armv8a+dotprod+memtag when enabling memory tagging instead of armv9+memtag</li>
                         <li>init: disable auto-reboot setup for microdroid virtual machines</li>
