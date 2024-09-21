@@ -20,6 +20,36 @@ const InstallerState = {
     INSTALLING_RELEASE: 0x2
 };
 
+let wakeLock = null;
+
+const requestWakeLock = async () => {
+    try {
+        wakeLock = await navigator.wakeLock.request("screen");
+        console.log("Wake lock has been set");
+        wakeLock.addEventListener("release", async () => {
+            console.log("Wake lock has been released");
+        });
+    } catch (err) {
+        // if wake lock request fails - usually system related, such as battery
+        throw new Error(`${err.name}, ${err.message}`);
+    }
+};
+
+const releaseWakeLock = async () => {
+    if (wakeLock !== null) {
+        wakeLock.release().then(() => {
+            wakeLock = null;
+        });
+    }
+};
+
+// reacquires the wake lock should the visibility of the document change and the wake lock is released
+document.addEventListener("visibilitychange", async () => {
+    if (wakeLock !== null && document.visibilityState === "visible") {
+        await requestWakeLock();
+    }
+});
+
 // This wraps XHR because getting progress updates with fetch() is overly complicated.
 function fetchBlobWithProgress(url, onProgress) {
     let xhr = new XMLHttpRequest();
@@ -212,6 +242,7 @@ async function getLatestRelease() {
 }
 
 async function downloadRelease(setProgress) {
+    await requestWakeLock();
     await ensureConnected(setProgress);
 
     setProgress("Finding latest release...");
@@ -227,6 +258,7 @@ async function downloadRelease(setProgress) {
         });
     } finally {
         setInstallerState({ state: InstallerState.DOWNLOADING_RELEASE, active: false });
+        await releaseWakeLock();
     }
     setProgress(`Downloaded ${latestZip} release.`, 1.0);
 }
@@ -251,6 +283,7 @@ async function reconnectCallback() {
 }
 
 async function flashRelease(setProgress) {
+    await requestWakeLock();
     await ensureConnected(setProgress);
 
     // Need to do this again because the user may not have clicked download if
@@ -297,6 +330,7 @@ async function flashRelease(setProgress) {
         }
     } finally {
         setInstallerState({ state: InstallerState.INSTALLING_RELEASE, active: false });
+        await releaseWakeLock();
     }
 
     return `Flashed ${latestZip} to device.`;
@@ -365,6 +399,7 @@ function addButtonHook(id, callback) {
         } catch (error) {
             statusCallback(`Error: ${error.message}`);
             statusField.className = "error-text";
+            await releaseWakeLock();
             // Rethrow the error so it shows up in the console
             throw error;
         }
