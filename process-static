@@ -29,9 +29,10 @@ rm -rf nginx-tmp
 cp -a nginx nginx-tmp
 
 rm -rf static-tmp
+python3 scripts/update-android-studio.py
 cp -a static static-tmp
 
-./process-templates static-tmp
+python3 scripts/process-templates.py static-tmp
 
 for file in static-tmp/**/*.@(json|webmanifest); do
     json_verify < "$file" >/dev/null
