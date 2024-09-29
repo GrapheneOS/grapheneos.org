@@ -880,6 +880,8 @@
                     <p>Changes since the 2024091900 release:</p>
 
                     <ul>
+                        <li>extend standard Android eBPF filter to prevent apps sending multicast packets outside of the VPN tunnel either directly or separately via kernel-generated multicast traffic (IGMP, MLD) when leak blocking is enabled (2nd generation implementation with improved app compatibility)</li>
+                        <li>add netfilter-based multicast firewall only permitting sending multicast packets to permitted tunnel interfaces for the process to prevent apps sending multicast packets through a VPN tunnel for another profile (2nd generation implementation with improved IPv6 and app compatibility)</li>
                         <li>Sandboxed Google Play compatibility layer: add stub for Bluetooth AdvertisingSetParameters.setOwnAddressType() API needed for receiving files through Quick Share</li>
                         <li>Sandboxed Google Play compatibility layer: ignore GattServer in BTLeAdvertiser.startAdvertisingSet() needed for receiving files through Quick Share</li>
                         <li>Auditor: add battery optimization exception to help stick with the remote verification schedule despite users rarely ever interacting with the app which results in being placed into semi-restricted standby buckets</li>
