@@ -906,7 +906,7 @@
                         <li>add netfilter-based multicast firewall only permitting sending multicast packets to permitted tunnel interfaces for the process to prevent apps sending multicast packets through a VPN tunnel for another profile (2nd generation implementation with improved IPv6 and app compatibility)</li>
                         <li>Sandboxed Google Play compatibility layer: add stub for Bluetooth AdvertisingSetParameters.setOwnAddressType() API needed for receiving files through Quick Share</li>
                         <li>Sandboxed Google Play compatibility layer: ignore GattServer in BTLeAdvertiser.startAdvertisingSet() needed for receiving files through Quick Share</li>
-                        <li>Auditor: add battery optimization exception to help stick with the remote verification schedule despite users rarely ever interacting with the app which results in being placed into semi-restricted standby buckets</li>
+                        <li>Auditor: add battery optimization exception to avoid delays for the opt-in scheduled remote verification since users rarely interact with the app resulting in it being placed into semi-restricted standby buckets</li>
                         <li>kernel (6.6): update to latest GKI LTS branch revision</li>
                         <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/86">version 86</a></li>
                         <li>App Store: update to <a href="https://github.com/GrapheneOS/Apps/releases/tag/26">version 26</a></li>
