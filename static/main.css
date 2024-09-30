@@ -436,6 +436,49 @@ details[open] summary {
     }
 }
 
+.bootloader-screen-wrapper {
+    background-color: black;
+    max-width: fit-content;
+    border-radius: 24px;
+    border: 1px solid #8e9099 /* outline */;
+}
+
+.bootloader-screen-content {
+    display: block;
+    padding: 2em;
+}
+
+.bootloader-screen-content,
+.bootloader-screen-content samp {
+    color: rgba(255 255 255 / 87%);
+    font: 0.875rem/1.25 Roboto, sans-serif;
+    letter-spacing: 0.015625em;
+}
+
+.bootloader-screen-content ul {
+    list-style-type: none;
+    padding-inline-start: 0;
+}
+
+.bootloader-screen-content p {
+    margin: 0;
+    padding: 0;
+    color: #ff6060;
+}
+
+.bootloader-screen-content .locked {
+    color: rgb(0 175 0);
+}
+
+.bootloader-screen-content .unlocked {
+    color: #ff6060;
+}
+
+.bootloader-screen-content img {
+    display: block;
+    margin: 0 0 0.5em 0.5em;
+}
+
 @media (prefers-color-scheme: dark) {
     body {
         background: #121212;
