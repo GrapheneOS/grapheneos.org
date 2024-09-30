@@ -902,7 +902,7 @@
                     <p>Changes since the 2024091900 release:</p>
 
                     <ul>
-                        <li>extend standard Android eBPF filter to prevent apps sending multicast packets outside of the VPN tunnel either directly or separately via kernel-generated multicast traffic (IGMP, MLD) when leak blocking is enabled (2nd generation implementation with improved app compatibility)</li>
+                        <li>extend standard Android eBPF filter to prevent apps sending multicast packets outside of the VPN tunnel either directly or indirectly via kernel-generated multicast traffic (IGMP, MLD) when leak blocking is enabled (2nd generation implementation with improved app compatibility)</li>
                         <li>add netfilter-based multicast firewall only permitting sending multicast packets to permitted tunnel interfaces for the process to prevent apps sending multicast packets through a VPN tunnel for another profile (2nd generation implementation with improved IPv6 and app compatibility)</li>
                         <li>Sandboxed Google Play compatibility layer: add stub for Bluetooth AdvertisingSetParameters.setOwnAddressType() API needed for receiving files through Quick Share</li>
                         <li>Sandboxed Google Play compatibility layer: ignore GattServer in BTLeAdvertiser.startAdvertisingSet() needed for receiving files through Quick Share</li>
@@ -956,7 +956,7 @@
 
                     <ul>
                         <li>Sandboxed Google Play compatibility layer: handle the updated client dynamite module initialization sequence</li>
-                        <li>extend standard Android eBPF filter to prevent apps sending multicast packets outside of the VPN tunnel either directly or separately via kernel-generated multicast traffic (IGMP, MLD) when leak blocking is enabled</li>
+                        <li>extend standard Android eBPF filter to prevent apps sending multicast packets outside of the VPN tunnel either directly or indirectly via kernel-generated multicast traffic (IGMP, MLD) when leak blocking is enabled</li>
                         <li>add netfilter-based multicast firewall only permitting sending multicast packets to permitted interfaces for the process to prevent apps sending multicast packets through a disallowed interface such as a VPN tunnel for another profile</li>
                         <li>exclude com.android.rkpdapp from backup/restore to avoid breaking key provisioning for hardware key attestation including for Auditor (users can clear RemoteProvisioner system app data via Settings if they restored data for it and have this issue)</li>
                         <li>Pixel 9 Fold Pro: temporarily manually add resource overlays not yet automatically handled by adevtool from the stock Pixel OS to use the correct layout for quick settings, status bar, etc. and to provide the split folded/unfolded auto-rotate settings (this will be replaced by adevtool improvements before the end of the month since we'll need it for more resources in Android 15)</li>
