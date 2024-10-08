@@ -881,7 +881,7 @@
                     <p>Changes since the 2024092900 release:</p>
 
                     <ul>
-                        <li>avoid log viewer breaking after system_server restarts</li>
+                        <li>work around an upstream Android bug causing our Log Viewer feature to stop working after system_server restarts</li>
                         <li>add handling for early boot-time system journal notifications</li>
                         <li>fix an upstream Android Bluetooth use-after-free bug uncovered by GrapheneOS hardware memory tagging that's triggered when obtaining internet access from another device via Bluetooth</li>
                         <li>fix an upstream Android race condition bug in handling of system error files to avoid using the wrong timestamps for system errors and then reporting them as new errors after reboot</li>
