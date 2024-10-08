@@ -883,6 +883,7 @@
                     <ul>
                         <li>avoid log viewer breaking after system_server restarts</li>
                         <li>add handling for early boot-time system journal notifications</li>
+                        <li>fix an upstream Android Bluetooth use-after-free bug uncovered by GrapheneOS hardware memory tagging that's triggered when obtaining internet access from another device via Bluetooth</li>
                         <li>fix an upstream Android race condition bug in handling of system error files to avoid using the wrong timestamps for system errors and then reporting them as new errors after reboot</li>
                         <li>kernel (5.10, 5.15, 6.1, 6.6): backport upstream patch fixing a hole in SELinux W^X enforcement where an </li>
                         <li>kernel (5.10): update to latest GKI LTS branch revision including update to 5.10.226</li>
