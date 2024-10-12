@@ -6,11 +6,6 @@ const legacyFactoryDevices = new Set(["sunfish", "coral", "flame"]);
 const channels = ["stable", "beta", "alpha"];
 const delayMs = 1000 * 60 * 5;
 
-function updateLink(link, text, url) {
-    link.innerText = text;
-    link.setAttribute("href", url);
-}
-
 async function updateReleases() {
     const requests = [];
 
@@ -34,10 +29,10 @@ async function updateReleases() {
                 const release = document.getElementById(`${device}-${channel}`);
                 const links = release.getElementsByTagName("a");
 
-                updateLink(links[1], metadata[0], "#" + metadata[0]);
-                updateLink(links[2], factoryFilename, factoryUrl);
-                updateLink(links[3], factoryFilename + ".sig", factoryUrl + ".sig");
-                updateLink(links[4], updateFilename, updateUrl);
+                links[0].setAttribute("href", "#" + metadata[0]);
+                links[1].setAttribute("href", factoryUrl);
+                links[2].setAttribute("href", factoryUrl + ".sig");
+                links[3].setAttribute("href", updateUrl);
             }));
         }
     }
