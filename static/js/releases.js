@@ -3,7 +3,7 @@
 const baseUrl = "https://releases.grapheneos.org/";
 const devices = ["comet", "komodo", "caiman", "tokay", "akita", "husky", "shiba", "felix", "tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble", "sunfish", "coral", "flame"];
 const legacyFactoryDevices = new Set(["sunfish", "coral", "flame"]);
-const channels = ["stable", "beta"];
+const channels = ["stable", "beta", "alpha"];
 const delayMs = 1000 * 60 * 5;
 
 function updateLink(link, text, url) {
