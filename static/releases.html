@@ -560,7 +560,7 @@
                     <ul>
                         <li>hardened_malloc: preserve hardware memory tagging enforcement flag for slab mappings when releasing free slabs</li>
                         <li>hardened_malloc: improve accuracy of probability hint for hardware memory tagging branches</li>
-                        <li>temporarily revert enforcing minimum 64kiB stack guard size for arm64 since Facebook wrote a buggy stack overflow check for the React Native Hermes runtime that's incompatible with larger gap sizes and beginning to be shipped by apps</li>
+                        <li>temporarily revert enforcing minimum 64kiB stack guard size for arm64 since Facebook recently included a buggy stack overflow check for the React Native Hermes runtime that's incompatible with larger gap sizes and beginning to be shipped by apps</li>
                         <li>Log Viewer: add "bootloader unlocked" and "dev options enabled" flags to header</li>
                         <li>Log Viewer: add "More info" button to native crash reports</li>
                         <li>Log Viewer: include contents of App Not Responding (ANR) stack traces file in ANR error reports</li>
