@@ -34,10 +34,10 @@ async function updateReleases() {
                 const release = document.getElementById(`${device}-${channel}`);
                 const links = release.getElementsByTagName("a");
 
-                updateLink(links[1], metadata[0], "#" + metadata[0]);
-                updateLink(links[2], factoryFilename, factoryUrl);
-                updateLink(links[3], factoryFilename + ".sig", factoryUrl + ".sig");
-                updateLink(links[4], updateFilename, updateUrl);
+                updateLink(links[0], metadata[0], "#" + metadata[0]);
+                updateLink(links[1], factoryFilename, factoryUrl);
+                updateLink(links[2], factoryFilename + ".sig", factoryUrl + ".sig");
+                updateLink(links[3], updateFilename, updateUrl);
             }));
         }
     }
