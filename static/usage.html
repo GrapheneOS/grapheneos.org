@@ -111,10 +111,10 @@
                 vast majority of users prefer the newer gesture navigation approach.</p>
 
                 <p>The system navigation mode can be configured in <b>Settings&#160;<span
-                aria-label="and then">></span> System&#160;<span aria-label="and
-                then">></span> Gestures&#160;<span aria-label="and then">></span> Navigation
-                mode</b>. The same menu is also available in <b>Settings&#160;<span aria-label="and
-                then">></span> Accessibility&#160;<span aria-label="and then">></span> System
+                aria-label="and then">></span> System&#160;<span aria-label="and then">></span>
+                Gestures&#160;<span aria-label="and then">></span> Navigation
+                mode</b>. The same menu is also available in <b>Settings&#160;<span aria-label="and then">></span>
+                Accessibility&#160;<span aria-label="and then">></span> System
                 controls&#160;<span aria-label="and then">></span> Navigation mode</b>.</p>
 
                 <section id="gesture-navigation">
@@ -813,14 +813,14 @@
                 profiles, so it also provides a temporary set of device identifiers across profiles
                 for each boot via the shared randomized values.</p>
 
-                <p>This feature can be disabled via <b>Settings&#160;<span aria-label="and
-                then">></span> Security &amp; privacy&#160;<span aria-label="and then">></span>
+                <p>This feature can be disabled via <b>Settings&#160;<span aria-label="and then">></span>
+                Security &amp; privacy&#160;<span aria-label="and then">></span>
                 Exploit protection&#160;<span aria-label="and then">></span> Secure app spawning</b>
-                if you prefer to have faster cold start app spawning time and lower
-                app process memory usage instead of the substantial security benefits and the
-                removal of the only known remaining direct device identifiers across profiles (i.e.
-                not depending on fingerprinting global configuration, available storage space, etc.
-                or using side channels).</p>
+                if you prefer to have faster cold start app spawning time and lower app process
+                memory usage instead of the substantial security benefits and the removal of the
+                only known remaining direct device identifiers across profiles (i.e. not depending
+                on fingerprinting global configuration, available storage space, etc. or using side
+                channels).</p>
             </section>
 
             <section id="bugs-uncovered-by-security-features">
@@ -848,9 +848,9 @@
 
                 <p>You can enable our exploit protection compatibility mode via
                 <b>Settings&#160;<span aria-label="and then">></span> Apps&#160;<span
-                aria-label="and then">></span> <var>APP</var>&#160;<span aria-label="and
-                then">></span> Exploit protection compatibility mode</b>. The exploit protection
-                compatibility mode toggle will:</p>
+                aria-label="and then">></span> <var>APP</var>&#160;<span aria-label="and then">></span>
+                Exploit protection compatibility mode</b>. The exploit protection compatibility mode
+                toggle will:</p>
                 <ul>
                     <li>Switch from hardened_malloc to Android's standard allocator (Scudo)</li>
                     <li>Reduce address space size from 48 bit to Android's standard 39 bit</li>
@@ -907,15 +907,17 @@
 
                     <p>Wi-Fi and Bluetooth scanning for improving location detection are disabled by
                     default, unlike the stock OS. These can be toggled in <b>Settings&#160;<span
-                    aria-label="and then">></span> Location&#160;<span aria-label="and
-                    then">></span> Location services&#160;<span aria-label="and then">></span> Wi-Fi and
-                    Bluetooth scanning</b>. These features enable scanning even when Wi-Fi or Bluetooth is
-                    disabled, so these need to be kept disabled to fully disable the radios when Wi-Fi and Bluetooth
-                    are disabled. GrapheneOS itself doesn't currently include a supplementary location service based
-                    on Wi-Fi and Bluetooth scanning. These options impact whether apps such as sandboxed Google Play
-                    are able to use the functionality if you grant them the Location permission. GrapheneOS plans to
-                    eventually include an OS service based on local databases rather than a network-based service
-                    giving the user's location to a server whenever location is being used.</p>
+                    aria-label="and then">></span> Location&#160;<span aria-label="and then">></span>
+                    Location services&#160;<span aria-label="and then">></span> Wi-Fi and Bluetooth
+                    scanning</b>. These features enable scanning even when Wi-Fi or Bluetooth is
+                    disabled, so these need to be kept disabled to fully disable the radios when
+                    Wi-Fi and Bluetooth are disabled. GrapheneOS itself doesn't currently include a
+                    supplementary location service based on Wi-Fi and Bluetooth scanning. These
+                    options impact whether apps such as sandboxed Google Play are able to use the
+                    functionality if you grant them the Location permission. GrapheneOS plans to
+                    eventually include an OS service based on local databases rather than a
+                    network-based service giving the user's location to a server whenever location
+                    is being used.</p>
                 </section>
 
                 <section id="wifi-privacy-associated">
@@ -963,8 +965,8 @@
 
                 <p>If you have a reliable LTE connection from your carrier, you can reduce attack
                 surface by disabling 2G, 3G and 5G connectivity in <b>Settings&#160;<span
-                aria-label="and then">></span> Network &amp; internet&#160;<span aria-label="and
-                then">></span> SIMs&#160;<span aria-label="and then">></span> <var>SIM</var>&#160;<span
+                aria-label="and then">></span> Network &amp; internet&#160;<span aria-label="and then">></span>
+                SIMs&#160;<span aria-label="and then">></span> <var>SIM</var>&#160;<span
                 aria-label="and then">></span> Preferred network type</b>. Traditional voice calls will only
                 work in the LTE-only mode if you have either an LTE connection and VoLTE (Voice over LTE) support or
                 a Wi-Fi connection and VoWi-Fi (Voice over Wi-Fi) support. VoLTE / VoWi-Fi works on GrapheneOS for
@@ -1168,10 +1170,9 @@
                 <p>eSIM support on GrapheneOS doesn't require any dependency on Google Play,
                 and never shares data to Google Play even when installed.</p>
 
-                <p>eSIM support can be enabled in <b>Settings&#160;<span aria-label="and
-                then">></span> Network &amp; internet&#160;<span aria-label="and
-                then">></span> eSIM support</b>. The toggle is persistent across every
-                boot.</p>
+                <p>eSIM support can be enabled in <b>Settings&#160;<span aria-label="and then">></span>
+                Network &amp; internet&#160;<span aria-label="and then">></span>
+                eSIM support</b>. The toggle is persistent across every boot.</p>
 
                 <p>By enabling the toggle, the proprietary Google functionality is enabled and
                 will be used by the OS to provision and manage eSIMs.</p>
@@ -1204,11 +1205,11 @@
                 already installed.</p>
 
                 <p>After installation, Android Auto has to be set up from the <b>Settings&#160;<span
-                aria-label="and then">></span> Apps&#160;<span aria-label="and
-                then">></span> Sandboxed Google Play&#160;<span aria-label="and
-                then">></span> Android Auto</b> configuration screen, which contains permission
-                toggles, links to related configuration screens, configuration tips, and links to optional
-                Android Auto dependencies.</p>
+                aria-label="and then">></span> Apps&#160;<span aria-label="and then">></span>
+                Sandboxed Google Play&#160;<span aria-label="and then">></span> Android Auto</b>
+                configuration screen, which contains permission toggles, links to related
+                configuration screens, configuration tips, and links to optional Android Auto
+                dependencies.</p>
 
                 <p>The permission toggles ask for a confirmation before turning on. The
                 confirmation popup explains what access each permission toggle provides.</p>
@@ -1296,9 +1297,9 @@
                 The OS will securely confirm that the domain authorizes the app to handle the
                 domain's URLs. Users can also manually enable an app's link associations via
                 <b>Settings&#160;<span aria-label="and then">></span> Apps&#160;<span
-                aria-label="and then">></span> <var>APP</var>&#160;<span aria-label="and
-                then">></span> Open by default&#160;<span aria-label="and then">></span> Add link</b>. Apps
-                can ask users to enable the associations and send them to this page in the Settings app.</p>
+                aria-label="and then">></span> <var>APP</var>&#160;<span aria-label="and then">></span>
+                Open by default&#160;<span aria-label="and then">></span> Add link</b>. Apps can ask
+                users to enable the associations and send them to this page in the Settings app.</p>
 
                 <p>As an example, the first party YouTube app will have the app links verified by
                 the OS automatically while the NewPipe app requires manually enabling handling
@@ -1372,8 +1373,8 @@
                     <li>Some carriers require you to explicitly opt in to use services such as Wi-Fi calling.
                         Consult your carrier's documentation on the process for this or contact them.</li>
                     <li><b>Reset Mobile Network Settings</b> in <b>Settings&#160;<span
-                        aria-label="and then">></span> System&#160;<span aria-label="and
-                        then">></span> Reset options</b> and then reboot the device.</li>
+                        aria-label="and then">></span> System&#160;<span aria-label="and then">></span>
+                        Reset options</b> and then reboot the device.</li>
                     <li>USA users only: You may need to request your carrier to enable CDMA-less mode if
                         you have issues.</li>
                     <li>Follow your carrier's instructions for setting up APNs, this can be found in
