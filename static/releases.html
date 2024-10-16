@@ -539,6 +539,7 @@
 
                     <ul>
                         <li>Sandboxed Google Play compatibility layer: replace GmsCompatConfig Bluetooth stubs with in-place checks for improved reliability and readability</li>
+                        <li>disable temporary unconditional system crash notifications since we've gotten the initial feedback we needed via the previous release</li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-142">version 142</a></li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-143">version 143</a></li>
                     </ul>
@@ -569,6 +570,7 @@
                         <li>Sandboxed Google Play compatibility layer: add stubs to fully remove the need for the Google Services Frameworks app, which has been removed as a dependency in our app repository for Android 15+ and you can remove it for an existing install of sandboxed Google Play after each Google Play services installation runs at least once on Android 15 which migrates the GSF databases to itself (stock OS still requires this despite nearly fully obsoleting it for Android 15)</li>
                         <li>Pixel 9 Pro Fold: add assorted device-specific Settings and SystemUI changes to better match the stock OS</li>
                         <li>disable Bluetooth auto-on feature by default</li>
+                        <li>temporarily enable system crash notifications unconditionally for the initial release based on Android 15 release</li>
                         <li>kernel (6.6): update to latest GKI LTS branch revision including update to 6.6.56</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/130.0.6723.58.0">version 130.0.6723.58.0</a></li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-141">version 141</a></li>
