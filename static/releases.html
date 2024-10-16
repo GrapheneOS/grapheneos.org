@@ -539,6 +539,7 @@
 
                     <ul>
                         <li>fix upstream Android 15 bug in InputMethodManagerService.resetDefaultImeLocked() causing system_server crash</li>
+                        <li>fix upstream Android 15 bug in KeyguardUpdateMonitor.onPostureChanged() causing SystemUI crash on foldable devices from null pointer exception due to GrapheneOS currently only having fingerprint unlock and not face unlock</li>
                         <li>Messaging: add new permissions needed on Android 15 (READ_CELL_BROADCASTS and RECEIVE_WAP_PUSH) which avoids it prompting to be set as the default app instead of completing certain actions requiring privileges it was missing</li>
                         <li>Settings: port our default enabled per-connection MAC randomization option to the new Compose-based UI in Android 15 so the default mode displays properly and it can be restored back to the default value</li>
                         <li>fix Android 15 port of our toggle for disabling granting our Sensors permission by default</li>
