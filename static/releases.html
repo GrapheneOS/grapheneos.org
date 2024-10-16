@@ -540,6 +540,7 @@
                     <ul>
                         <li>fix upstream Android 15 bug in InputMethodManagerService.resetDefaultImeLocked() causing system_server crash</li>
                         <li>Settings: port our default enabled per-connection MAC randomization option to the new Compose-based UI in Android 15 so the default mode displays properly and it can be restored back to the default value</li>
+                        <li>fix Android 15 port of our toggle for disabling granting our Sensors permission by default</li>
                         <li>Storage Manager, Emergency Info: opt-out of Android 15 edge-to-edge since it's not properly supported yet</li>
                         <li>Sandboxed Google Play compatibility layer: replace GmsCompatConfig Bluetooth stubs with in-place checks for improved reliability and readability</li>
                         <li>ignore the standard stock OS configured Factory Reset Protection since installing GrapheneOS implies the ability to bypass it via the device being unlocked and if we added our own anti-theft system it would not use the same approach using Google account recovery</li>
