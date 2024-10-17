@@ -535,7 +535,7 @@
                     <ul>
                         <li>Settings: enable our per-connection Wi-Fi MAC randomization feature by default for new networks again on Android 15 instead of the standard per-network approach</li>
                         <li>Settings: extend change in the previous release for hiding inaccurate Private Space information</li>
-                        <li>Sandboxed Google Play compatibility layer: add C2DM SEND permission declaration to GmsCompat to fully avoid the need for the Google Services Framework (GSF) app in addition to the already covered READ_GSERVICES and C2DM RECEIVE (avoids Firebase Cloud Messaging regressions for fresh installs of sandboxed Google Play without GSF, but note existing installs still need GSF unless you reinstall it)</li>
+                        <li>Sandboxed Google Play compatibility layer: declare C2DM SEND permission ourselves in addition to the already covered READ_GSERVICES and C2DM RECEIVE to avoid issues with Firebase Cloud Messaging for fresh installs of sandboxed Google Play without the Google Services Framework (GSF) app that's no longer a dependency in our App Store for Android 15</li>
                         <li>Radio Info, Wi-Fi testing (Settings): opt-out of Android 15 edge-to-edge since it's not properly supported yet (upstream bug)</li>
                     </ul>
                 </article>
