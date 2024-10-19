@@ -538,6 +538,8 @@
 
                     <ul>
                         <li>drop existing "Send device name" setting value for all Wi-Fi networks to start from our default of disabled for all users including people who updated to the Beta and Alpha releases already (we already switched the default to off for new networks in <a href="#20241018002024101800</a>)</a></li>
+                        <li>limit removal of shared library updates as part of our system APK verified boot feature to those equal to the OS version since older versions are already dealt with and removing them this way leaves behind stale package state cluttering the UI</li>
+                        <li>run a one-time task to remove leftover Vanadium library state to avoid showing a list of old versions</li>
                     </ul>
                 </article>
                 -->
