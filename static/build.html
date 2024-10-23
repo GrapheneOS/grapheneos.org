@@ -310,18 +310,14 @@ source ~/.bashrc</pre>
                     <section id="development-branch">
                         <h4><a href="#development-branch">Development branch</a></h4>
 
-                        <p>The <code>15</code> branch is our experimental Android 15 support.
-                        Extended support devices aren't supported by the new branch.</p>
+                        <p>The <code>15</code> branch is the main development branch of GrapheneOS
+                        based on the latest release of Android 15. It will follow along with the
+                        latest monthly and quarterly releases of Android 15. The <code>15</code>
+                        branch of GrapheneOS should be used for generic builds including the
+                        emulator, porting to other devices and for non-legacy officially supported
+                        devices.</p>
 
-                        <p>The <code>14</code> branch is the main development branch of GrapheneOS.
-                        It follows along with the latest stable releases of the Android Open Source
-                        Project which currently means the latest monthly release of the
-                        <code>android14-qpr3-release</code>. The <code>14</code> branch of
-                        GrapheneOS should be used for generic builds including the emulator, porting
-                        to other devices and for non-legacy officially supported devices.</p>
-
-                        <p>The <code>14-caimito</code> branch is used for our work-in-progress port
-                        to the Pixel 9, Pixel 9 Pro and Pixel 9 Pro XL.</p>
+                        <p>The <code>14</code> branch is used for the end-of-life Pixel 5a.</p>
 
                         <p>The <code>14-redfin</code> branch is used for the end-of-life Pixel 4a
                         (5G) and Pixel 5.</p>
@@ -333,9 +329,9 @@ source ~/.bashrc</pre>
 
                         <p>To sync the <code>14</code> branch:</p>
 
-                        <pre>mkdir grapheneos-14
-cd grapheneos-14
-repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 14
+                        <pre>mkdir grapheneos-15
+cd grapheneos-15
+repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 15
 repo sync -j8</pre>
 
                         <p>If your network is unreliable and <code>repo sync</code> fails, you can run the
@@ -737,13 +733,13 @@ repo sync -j8</pre>
 
                         <p>Replace the prebuilts in the OS source tree:</p>
 
-                        <pre>ANDROID_BUILD_TOP=~/android/grapheneos-14 ARCH=x86_64 common/update_virt_prebuilts.sh</pre>
+                        <pre>ANDROID_BUILD_TOP=~/android/grapheneos-15 ARCH=x86_64 common/update_virt_prebuilts.sh</pre>
 
                         <p>To sync the 6.1 kernel sources:</p>
 
                         <pre>mkdir -p android/kernel/6.1
 cd android/kernel/6.1
-repo init -u https://github.com/GrapheneOS/kernel_manifest-6.1.git -b 14
+repo init -u https://github.com/GrapheneOS/kernel_manifest-6.1.git -b 15
 repo sync -j8</pre>
 
                         <p>To build the 6.1 kernel image and modules for the emulator:</p>
@@ -752,7 +748,7 @@ repo sync -j8</pre>
 
                         <p>Replace the prebuilts in the OS source tree:</p>
 
-                        <pre>ANDROID_BUILD_TOP=~/android/grapheneos-14 ARCH=x86_64 common/update_virt_prebuilts.sh</pre>
+                        <pre>ANDROID_BUILD_TOP=~/android/grapheneos-15 ARCH=x86_64 common/update_virt_prebuilts.sh</pre>
 
                         <p>You can configure the kernel version used for the x86_64 emulator in
                         <code>device/generic/goldfish/board/kernel/x86_64.mk</code>.</p>
@@ -785,7 +781,7 @@ repo sync -j8</pre>
 
                         <pre>mkdir -p android/kernel/caimito
 cd android/kernel/caimito
-repo init -u https://github.com/GrapheneOS/kernel_manifest-zumapro.git -b 14-caimito
+repo init -u https://github.com/GrapheneOS/kernel_manifest-zumapro.git -b 15
 repo sync -j8</pre>
 
                         <p>To build the caimito kernel for the Pixel 9, Pixel 9 Pro and Pixel 9 Pro XL:</p>
@@ -800,7 +796,7 @@ repo sync -j8</pre>
 
                         <pre>mkdir -p android/kernel/comet
 cd android/kernel/comet
-repo init -u https://github.com/GrapheneOS/kernel_manifest-zumapro.git -b 14-caimito
+repo init -u https://github.com/GrapheneOS/kernel_manifest-zumapro.git -b 15
 repo sync -j8</pre>
 
                         <p>To build the comet kernel for the Pixel 9 Pro Fold:</p>
@@ -820,7 +816,7 @@ repo sync -j8</pre>
 
                         <pre>mkdir -p android/kernel/shusky
 cd android/kernel/shusky
-repo init -u https://github.com/GrapheneOS/kernel_manifest-zuma.git -b 14
+repo init -u https://github.com/GrapheneOS/kernel_manifest-zuma.git -b 15
 repo sync -j8</pre>
 
                         <p>To build the shusky kernel for the Pixel 8 and Pixel 8 Pro:</p>
@@ -835,7 +831,7 @@ repo sync -j8</pre>
 
                         <pre>mkdir -p android/kernel/akita
 cd android/kernel/akita
-repo init -u https://github.com/GrapheneOS/kernel_manifest-zuma.git -b 14
+repo init -u https://github.com/GrapheneOS/kernel_manifest-zuma.git -b 15
 repo sync -j8</pre>
 
                         <p>To build the akita kernel for the Pixel 8a:</p>
@@ -854,7 +850,7 @@ repo sync -j8</pre>
 
                         <pre>mkdir -p android/kernel/pantah
 cd android/kernel/pantah
-repo init -u https://github.com/GrapheneOS/kernel_manifest-gs.git -b 14
+repo init -u https://github.com/GrapheneOS/kernel_manifest-gs.git -b 15
 repo sync -j8</pre>
 
                         <p>To build the pantah kernel for the Pixel 7 and Pixel 7 Pro:</p>
@@ -869,7 +865,7 @@ repo sync -j8</pre>
 
                         <pre>mkdir -p android/kernel/lynx
 cd android/kernel/lynx
-repo init -u https://github.com/GrapheneOS/kernel_manifest-gs.git -b 14
+repo init -u https://github.com/GrapheneOS/kernel_manifest-gs.git -b 15
 repo sync -j8</pre>
 
                         <p>To build the lynx kernel for the Pixel 7a:</p>
@@ -884,7 +880,7 @@ repo sync -j8</pre>
 
                         <pre>mkdir -p android/kernel/tangorpro
 cd android/kernel/tangorpro
-repo init -u https://github.com/GrapheneOS/kernel_manifest-gs.git -b 14
+repo init -u https://github.com/GrapheneOS/kernel_manifest-gs.git -b 15
 repo sync -j8</pre>
 
                         <p>To build the tangorpro kernel for the Pixel Tablet:</p>
@@ -899,7 +895,7 @@ repo sync -j8</pre>
 
                         <pre>mkdir -p android/kernel/felix
 cd android/kernel/felix
-repo init -u https://github.com/GrapheneOS/kernel_manifest-gs.git -b 14
+repo init -u https://github.com/GrapheneOS/kernel_manifest-gs.git -b 15
 repo sync -j8</pre>
 
                         <p>To build the felix kernel for the Pixel Fold:</p>
@@ -918,14 +914,14 @@ repo sync -j8</pre>
 
                         <pre>mkdir -p android/kernel/raviole
 cd android/kernel/raviole
-repo init -u https://github.com/GrapheneOS/kernel_manifest-gs.git -b 14
+repo init -u https://github.com/GrapheneOS/kernel_manifest-gs.git -b 15
 repo sync -j8</pre>
 
                         <p>To sync the bluejay kernel for the Pixel 6a:</p>
 
                         <pre>mkdir -p android/kernel/bluejay
 cd android/kernel/bluejay
-repo init -u https://github.com/GrapheneOS/kernel_manifest-gs.git -b 14
+repo init -u https://github.com/GrapheneOS/kernel_manifest-gs.git -b 15
 repo sync -j8</pre>
 
                         <p>To build the raviole kernel for the Pixel 6 and Pixel 6 Pro:</p>
@@ -949,7 +945,7 @@ repo sync -j8</pre>
 
                         <pre>mkdir -p android/kernel/redbull
 cd android/kernel/redbull
-repo init -u https://github.com/GrapheneOS/kernel_manifest-redbull.git -b 14
+repo init -u https://github.com/GrapheneOS/kernel_manifest-redbull.git -b 15
 repo sync -j8</pre>
 
                         <p>To build the redbull kernel for the Pixel 4a (5G), Pixel 5 and Pixel 5a
