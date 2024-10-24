@@ -561,7 +561,7 @@
                         <li>fix ancient Android bug causing widgets to disappear from the user's home screen when the user stops, which was a major usability issue for secondary users</li>
                         <li>Keyboard: extend fix for upstream layout bug in landscape mode to fully fix it for 3-button navigation in addition to the default gesture navigation</li>
                         <li>Gallery: fix upstream cropping activity bug when both the input and output URI is the same to fix setting profile pictures for user profiles</li>
-                        <li>raise backup service transport (Seedvault) from 10 minutes / 5 minutes to 60 minutes / 30 minutes</li>
+                        <li>raise backup service transport (Seedvault) timeout from 10 minutes / 5 minutes to 60 minutes / 30 minutes to handle very large backups, particularly for the device-to-device mode which includes nearly all app data</li>
                         <li>temporarily revert enforcing minimum 64kiB stack guard size for arm64 since Facebook recently included a buggy stack overflow check for the React Native Hermes runtime that's incompatible with larger gap sizes and beginning to be shipped by apps (revert was not applied for Android 15 port)</li>
                         <li>Sandboxed Google Play compatibility layer: add stubs for update_engine wrapper API to avoid potential Play services crashes if the existing approaches to disable the update service fail</li>
                         <li>Pixel 8, Pixel 8 Pro, Pixel 8a: disable Wi-Fi HAL debug logging to avoid memory corruption caught by hardware memory tagging on GrapheneOS</li>
