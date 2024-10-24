@@ -1150,9 +1150,11 @@
                     without VPN" toggle enabled.</p>
 
                     <p>Android allows DNS queries from the system resolver to leak to the network
-                    provided DNS servers when a VPN app goes down due to a race condition. This is
-                    fully prevented by GrapheneOS through extending the leak blocking to this part
-                    of the system resolver.</p>
+                    provided DNS servers when a VPN app goes down due to a race condition. It also
+                    similarly allows connections to the VPN DNS servers to happen outside of the VPN
+                    tunnel. Both of these are fully prevented by GrapheneOS through extending the
+                    leak blocking to this part of the system resolver, fully preventing unicast DNS
+                    leaks.</p>
 
                     <p>Android allows processes including apps to bypass the VPN entirely whether
                     it's up or down by sending multicast packets either directly or by causing the
