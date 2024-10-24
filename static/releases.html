@@ -555,7 +555,7 @@
                     <p>Changes since the 2024102100 release:</p>
 
                     <ul>
-                        <li>switch back our original stricter approach to DNS leak blocking from our <a href="#2024050900">2024050900</a> release with an additional fix for an Android DNS routing bug causing requests to the VPN DNS servers to be routed incorrectly, which should avoid the compatibility issues experienced with certain VPN apps with this stricter approach when we tried to ship it before</li>
+                        <li>switch back our original stricter approach to DNS leak blocking from our <a href="#2024050900">2024050900</a> release with an additional fix for an Android DNS routing bug causing requests to the VPN DNS servers to be routed incorrectly, which should avoid the compatibility issues experienced with certain VPN apps when we tried to ship it before</li>
                         <li>avoid resetting Network or Sensors back to the global default in a specific case when migrating the state from Android 14 or earlier</li>
                         <li>add an extra one-time migration of Network and Sensors being disabled in Android 14 to Android 15 to work around an issue with the previous migration of the permission state which occurred for some users with some of their apps</li>
                         <li>fix ancient Android bug causing widgets to disappear from the user's home screen when the user stops, which was a major usability issue for secondary users</li>
