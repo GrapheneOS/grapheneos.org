@@ -11,7 +11,7 @@ releases = document.body.cssselect("#changelog article")
 updated = None
 entries = []
 
-for release in releases:
+for release in releases[:20]:
     title = release.attrib["id"]
     try:
         time = datetime.strptime(title, "%Y%m%d%H").isoformat() + "Z"
