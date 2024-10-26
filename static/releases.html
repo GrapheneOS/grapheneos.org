@@ -540,6 +540,16 @@
                     <p>Changes since the 2024102400 release:</p>
 
                     <ul>
+                        <li>kernel (6.6): disable unused hibernation support</li>
+                        <li>kernel (6.6): disable unused TIOCSTI ioctl (already blocked via standard Android ioctl filtering)</li>
+                        <li>kernel (6.6): disable unused cachestat system call</li>
+                        <li>kernel (6.6): enable random kmalloc caches for x86_64 and microdroid too, not only bare metal arm64</li>
+                        <li>kernel (6.6): enable full struct randomization for x86_64 and microdroid too, not only bare metal arm64</li>
+                        <li>kernel (6.6): enable DEBUG_SG for microdroid too, not only bare metal</li>
+                        <li>kernel (6.6): enable FORTIFY_SOURCE for microdroid too, not only bare metal</li>
+                        <li>kernel (6.6): disable BINFMT_MISC for microdroid too, not only bare metal</li>
+                        <li>kernel (6.6): disable RSEQ for microdroid too, not only bare metal</li>
+                        <li>kernel (6.6): use the same KFENCE configuration for microdroid as bare metal</li>
                         <li>System Updater: update minimum and target API level to 35 (Android 15)</li>
                     </ul>
                 </article>
