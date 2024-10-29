@@ -4,9 +4,9 @@
 #
 #    pip-compile --generate-hashes
 #
-cached-property==1.5.2 \
-    --hash=sha256:9fa5755838eecbb2d234c3aa390bd80fbd3ac6b6869109bfc1b499f7bd89a130 \
-    --hash=sha256:df4f613cf7ad9a588cc381aaf4a512d26265ecebd5eb9e1ba12f1319eb85a6a0
+cached-property==2.0.1 \
+    --hash=sha256:484d617105e3ee0e4f1f58725e72a8ef9e93deee462222dbd51cd91230897641 \
+    --hash=sha256:f617d70ab1100b7bcf6e42228f9ddcb78c676ffa167278d9f730d1c2fba69ccb
     # via gixy
 configargparse==1.7 \
     --hash=sha256:d249da6591465c6c26df64a9f73d2536e743be2f244eb3ebe61114af2f94f86b \
