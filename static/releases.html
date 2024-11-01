@@ -565,7 +565,7 @@
                         <li>enable stamp configuration for microdroid kernel builds to set LOCALVERSION based on version control information as expected</li>
                         <li>kernel (6.6): disable unused hibernation support</li>
                         <li>kernel (6.6): disable unused TIOCSTI ioctl (already blocked via standard Android SELinux ioctl filtering)</li>
-                        <li>kernel (6.6): disable unused cachestat system call</li>
+                        <li>kernel (6.6): disable unused cachestat system call (already blocked for apps via standard Android seccomp-bpf policy)</li>
                         <li>kernel (6.6): enable random kmalloc caches for x86_64 and microdroid too, not only bare metal arm64</li>
                         <li>kernel (6.6): enable full struct randomization for x86_64 and microdroid too, not only bare metal arm64</li>
                         <li>kernel (6.6): enable DEBUG_SG for microdroid too, not only bare metal</li>
