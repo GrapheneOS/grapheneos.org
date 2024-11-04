@@ -541,6 +541,7 @@
                     <p>Changes since the 2024103100 release:</p>
 
                     <ul>
+                        <li>fix a bunch of upstream Android bugs breaking SMS and MMS functionality in secondary profiles, which has been an issue for a long time but recently got worse due to certain upstream security patches interacting badly with the buggy SMS and MMS code</li>
                         <li>Sandboxed Google Play compatibility layer: fix flag overrides being partly ignored on recent versions</li>
                         <li>add workaround for rare system_server null pointer exception crash in showShutdownDialog()</li>
                         <li>add missing null handling for extended application error report</li>
