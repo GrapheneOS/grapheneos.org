@@ -1,0 +1,7 @@
+*.css
+*.html
+.github/
+fastboot/
+package-lock.json
+package.json
+static-tmp/

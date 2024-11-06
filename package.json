@@ -8,5 +8,8 @@
     "terser": "^5.36.0",
     "vnu-jar": "^24.10.17"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "prettier": "3.3.3"
+  }
 }
