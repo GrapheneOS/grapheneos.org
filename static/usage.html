@@ -67,7 +67,7 @@
                             <li><a href="#updates-sideloading">Sideloading</a></li>
                         </ul>
                     </li>
-                    <li><a href="#usb-peripherals">USB peripherals (Pixel 5a and earlier)</a></li>
+                    <li><a href="#usb-c-port-and-pogo-pins-control">USB-C port and pogo pins control</a></li>
                     <li><a href="#web-browsing">Web browsing</a></li>
                     <li>
                         <a href="#camera">Camera</a>
@@ -523,26 +523,33 @@
                 </section>
             </section>
 
-            <section id="usb-peripherals">
-                <h2><a href="#usb-peripherals">USB peripherals (Pixel 5a and earlier)</a></h2>
+            <section id="usb-c-port-and-pogo-pins-control">
+                <h2><a href="#usb-c-port-and-pogo-pins-control">USB-C port and pogo pins control</a></h2>
 
-                <p>GrapheneOS defaults to ignoring connected USB peripherals when the device is
-                already booted and the screen is locked. A USB device already connected at boot will
-                still work. The purpose is reducing attack surface for a locked device with active
-                login sessions to user profiles to protect data that's not at rest. This can be
-                controlled in <b>Settings&#160;<span aria-label="and then">></span>
-                Security&#160;<span aria-label="and then">></span> USB peripherals</b>. The options
-                are:</p>
+                <p>Our <b>USB-C port and pogo pins</b> setting protects against attacks through
+                USB-C or pogo pins while the OS is booted. For the majority of devices without pogo
+                pins, the setting is labelled <b>USB-C port</b>.</p>
+
+                <p>The setting is available in <b>Settings&#160;<span aria-label="and then">></span>
+                Security&#160;<span aria-label="and then">></span> Exploit protection</b>.</p>
+
+                <p>The setting has five modes:</p>
 
                 <ul>
-                    <li>Disallow new USB peripherals</li>
-                    <li>Allow new USB peripherals when unlocked (default)</li>
-                    <li>Allow new USB peripherals (like stock Android)</li>
+                    <li>Off</li>
+                    <li>Charging-only</li>
+                    <li>Charging-only when locked</li>
+                    <li>Charging-only when locked, except before first unlock</li>
+                    <li>On</li>
                 </ul>
 
-                <p>This option has no impact on the device acting as a USB peripheral itself when
-                connected to a computer. Android defaults to charge only mode and requires opt-in
-                to the device being used for file transfer, USB tethering, MIDI or PTP.</p>
+                <p>The default is <b>Charging-only when locked</b>, which significantly reduces
+                attack surface when the device is locked. After locking, it blocks any new USB
+                connections immediately and disables USB data once any current connections end.</p>
+
+                <p>For technical details on how this feature works using a combination of hardware
+                and software protection, see the <a href="/features#usb-c-port-and-pogo-pins-control">section
+                on the features page</a>.</p>
             </section>
 
             <section id="web-browsing">

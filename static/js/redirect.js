@@ -21,10 +21,10 @@ const redirects = new Map([
     ["/usage#sandboxed-play-services-installation", "/usage#sandboxed-google-play-installation"],
     ["/usage#sandboxed-play-services-limitations", "/usage#sandboxed-google-play-limitations"],
     ["/usage#google-camera", "/usage#pixel-camera"],
+    ["/usage#usb-peripherals", "/usage#usb-c-port-and-pogo-pins-control"],
 
     ["/faq#dns", "/faq#custom-dns"],
     ["/faq#when-devices", "/faq#future-devices"],
-
 
     ["/features#usb-c-port-control", "/features#usb-c-port-and-pogo-pins-control"],
 
