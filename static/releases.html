@@ -548,7 +548,13 @@
                         <li>Settings: fix multiple cases of missing user profiles handling for added settings</li>
                         <li>Dialer: fix RTT related crash from not using the correct theme configuration</li>
                         <li>Contacts Provider: work around upstream bug causing deadlock with contact scopes</li>
+                        <li>temporarily don't report harmless fingerprint-service.goodix crash</li>
                         <li>temporarily disable hardened_malloc for vendor audio service due to Pixel Tablet bug</li>
+                        <li>Sandboxed Google Play compatibility layer: significantly rework client side compatibility layer to avoid deadlocks and to avoid allowing starting apps with no exported components (i.e. not even a launcher activity)</li>
+                        <li>Sandboxed Google Play compatibility layer: overhaul approach to raising Google Play components to the foreground to avoid it always being considered in the foreground while also solving an issue triggered in a rare edge case at startup</li>
+                        <li>Sandboxed Google Play compatibility layer: stop Play Store from attempting to auto-install some system component packages, such as "Android System SafetyCore" (com.google.android.safetycore) and "Android System Key Verifier" (com.google.android.contactkeys)</li>
+                        <li>Sandboxed Google Play compatibility layer: fix Android Auto voice commands not working in some cases</li>
+                        <li>Sandboxed Google Play compatibility layer: fix one of the Android Auto permission toggle checks for companion devices</li>
                         <li>Sandboxed Google Play compatibility layer: extend opt-in wired Android Auto permission toggle to Bluetooth adapter hardware address access for hands-free audio support</li>
                         <li>kernel (5.10, 5.15, 6.1, 6.6): disable unused TIPC protocol support</li>
                         <li>kernel (5.10): update to latest GKI LTS branch revision</li>
