@@ -582,7 +582,7 @@
                         <li>kernel (5.15): update to latest GKI LTS branch revision including update to 5.15.170</li>
                         <li>kernel (6.1): update to latest GKI LTS branch revision including update to 6.1.115</li>
                         <li>System Updater: show failure notification for update_engine errors</li>
-                        <li>System Updater: add missing UpdateEngine.unbind() to avoid extra callbacks</li>
+                        <li>System Updater: add missing UpdateEngine.unbind() to avoid extra callbacks for progress and error reporting</li>
                         <li>System Updater: avoid treating non-404 errors such as a connection failure as lack of an incremental update</li>
                         <li>System Updater: handle a partially downloaded incremental update being removed from the server by falling back to the full update instead of retrying resuming the incremental download until the next update (this will allow us to remove an incremental for the latest available version to save storage space or work around a potential update_engine bug without it causing download resumption errors)</li>
                         <li>System Updater: delete stale update from a failed download of a previous release slightly earlier</li>
