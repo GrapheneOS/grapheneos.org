@@ -41,6 +41,7 @@ done
 stylelint static-tmp/**/*.css
 find static-tmp -name '*.css' -exec csso {} -o {} \;
 
+npx prettier . --check
 eslint static-tmp/**/!(fastboot.min.m|z-worker-pako.|pako_inflate.min.|)js
 find static-tmp -name '*.js' -exec terser --ecma 2022 --module -cmo {} {} \;
 

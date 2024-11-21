@@ -6,18 +6,18 @@ export default [
     {
         languageOptions: {
             globals: {
-                ...globals.browser
+                ...globals.browser,
             },
             ecmaVersion: 2022,
-            sourceType: "module"
+            sourceType: "module",
         },
         rules: {
             indent: ["error", 4],
             "linebreak-style": ["error", "unix"],
             quotes: ["error", "double"],
             semi: ["error", "always"],
-            "no-unused-vars": ["error", {caughtErrors: "none"}],
-            "no-var": ["error"]
-        }
-    }
+            "no-unused-vars": ["error", { caughtErrors: "none" }],
+            "no-var": ["error"],
+        },
+    },
 ];

@@ -55,8 +55,14 @@ const redirects = new Map([
     ["/releases#blueline-beta", "/faq#legacy-devices"],
 
     // legacy servers
-    ["/articles/grapheneos-servers#apps.grapheneos.org", "/articles/grapheneos-servers#releases.grapheneos.org"],
-    ["/articles/grapheneos-servers#time.grapheneos.org", "/articles/grapheneos-servers#grapheneos.network"],
+    [
+        "/articles/grapheneos-servers#apps.grapheneos.org",
+        "/articles/grapheneos-servers#releases.grapheneos.org",
+    ],
+    [
+        "/articles/grapheneos-servers#time.grapheneos.org",
+        "/articles/grapheneos-servers#grapheneos.network",
+    ],
 
     // preserve links to CLI install guide from when it was /install
     ["/install/#prerequisites", "/install/cli#prerequisites"],
@@ -76,7 +82,10 @@ const redirects = new Map([
     ["/install/#post-installation", "/install/cli#post-installation"],
     ["/install/#booting", "/install/cli#booting"],
     ["/install/#disabling-oem-unlocking", "/install/cli#disabling-oem-unlocking"],
-    ["/install/#replacing-grapheneos-with-the-stock-os", "/install/cli#replacing-grapheneos-with-the-stock-os"],
+    [
+        "/install/#replacing-grapheneos-with-the-stock-os",
+        "/install/cli#replacing-grapheneos-with-the-stock-os",
+    ],
     ["/install/#further-information", "/install/cli#further-information"],
     ["/install/web#connecting-phone", "/install/web#connecting-device"],
     ["/install/cli#connecting-phone", "/install/cli#connecting-device"],

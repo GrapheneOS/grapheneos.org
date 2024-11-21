@@ -12,12 +12,12 @@ const Buttons = {
     DOWNLOAD_RELEASE: "download-release",
     FLASH_RELEASE: "flash-release",
     LOCK_BOOTLOADER: "lock-bootloader",
-    REMOVE_CUSTOM_KEY: "remove-custom-key"
+    REMOVE_CUSTOM_KEY: "remove-custom-key",
 };
 
 const InstallerState = {
     DOWNLOADING_RELEASE: 0x1,
-    INSTALLING_RELEASE: 0x2
+    INSTALLING_RELEASE: 0x2,
 };
 
 let wakeLock = null;
@@ -107,7 +107,7 @@ class BlobStore {
                     let db = event.target.result;
                     db.createObjectStore("files", { keyPath: "name" });
                     /* no index needed for such a small database */
-                }
+                },
             );
         }
     }
@@ -122,7 +122,7 @@ class BlobStore {
     async loadFile(name) {
         try {
             let obj = await this._wrapReq(
-                this.db.transaction("files").objectStore("files").get(name)
+                this.db.transaction("files").objectStore("files").get(name),
             );
             return obj.blob;
         } catch (error) {
@@ -144,9 +144,7 @@ class BlobStore {
             await this.saveFile(filename, blob);
             console.log("File saved");
         } else {
-            console.log(
-                `Loaded ${filename} from blob store, skipping download`
-            );
+            console.log(`Loaded ${filename} from blob store, skipping download`);
         }
 
         return blob;
@@ -199,7 +197,7 @@ async function unlockBootloader(setProgress) {
 
     // Trying to unlock when the bootloader is already unlocked results in a FAIL,
     // so don't try to do it.
-    if (await device.getVariable("unlocked") === "yes") {
+    if ((await device.getVariable("unlocked")) === "yes") {
         return "Bootloader is already unlocked.";
     }
 
@@ -218,11 +216,52 @@ async function unlockBootloader(setProgress) {
     return "Bootloader unlocked.";
 }
 
-const supportedDevices = ["comet", "komodo", "caiman", "tokay", "akita", "husky", "shiba", "felix", "tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble", "sunfish", "coral", "flame"];
+const supportedDevices = [
+    "comet",
+    "komodo",
+    "caiman",
+    "tokay",
+    "akita",
+    "husky",
+    "shiba",
+    "felix",
+    "tangorpro",
+    "lynx",
+    "cheetah",
+    "panther",
+    "bluejay",
+    "raven",
+    "oriole",
+    "barbet",
+    "redfin",
+    "bramble",
+    "sunfish",
+    "coral",
+    "flame",
+];
 
 const legacyQualcommDevices = ["sunfish", "coral", "flame"];
 
-const day1SnapshotCancelDevices = ["comet", "komodo", "caiman", "tokay", "akita", "husky", "shiba", "felix", "tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble"];
+const day1SnapshotCancelDevices = [
+    "comet",
+    "komodo",
+    "caiman",
+    "tokay",
+    "akita",
+    "husky",
+    "shiba",
+    "felix",
+    "tangorpro",
+    "lynx",
+    "cheetah",
+    "panther",
+    "bluejay",
+    "raven",
+    "oriole",
+    "barbet",
+    "redfin",
+    "bramble",
+];
 
 function hasOptimizedFactoryImage(product) {
     return !legacyQualcommDevices.includes(product);
@@ -231,14 +270,19 @@ function hasOptimizedFactoryImage(product) {
 async function getLatestRelease() {
     let product = await device.getVariable("product");
     if (!supportedDevices.includes(product)) {
-        throw new Error(`device model (${product}) is not supported by the GrapheneOS web installer`);
+        throw new Error(
+            `device model (${product}) is not supported by the GrapheneOS web installer`,
+        );
     }
 
     let metadataResp = await fetch(`${RELEASES_URL}/${product}-stable`);
     let metadata = await metadataResp.text();
     let releaseId = metadata.split(" ")[0];
 
-    return [`${product}-${hasOptimizedFactoryImage(product) ? "install" : "factory"}-${releaseId}.zip`, product];
+    return [
+        `${product}-${hasOptimizedFactoryImage(product) ? "install" : "factory"}-${releaseId}.zip`,
+        product,
+    ];
 }
 
 async function downloadRelease(setProgress) {
@@ -246,7 +290,7 @@ async function downloadRelease(setProgress) {
     await ensureConnected(setProgress);
 
     setProgress("Finding latest release...");
-    let [latestZip,] = await getLatestRelease();
+    let [latestZip] = await getLatestRelease();
 
     // Download and cache the zip as a blob
     setInstallerState({ state: InstallerState.DOWNLOADING_RELEASE, active: true });
@@ -265,8 +309,7 @@ async function downloadRelease(setProgress) {
 
 async function reconnectCallback() {
     let statusField = document.getElementById("flash-release-status");
-    statusField.textContent =
-        "To continue flashing, reconnect the device by tapping here:";
+    statusField.textContent = "To continue flashing, reconnect the device by tapping here:";
 
     let reconnectButton = document.getElementById("flash-reconnect-button");
     let progressBar = document.getElementById("flash-release-progress");
@@ -308,13 +351,11 @@ async function flashRelease(setProgress) {
     setProgress("Flashing release...");
     setInstallerState({ state: InstallerState.INSTALLING_RELEASE, active: true });
     try {
-        await device.flashFactoryZip(blob, true, reconnectCallback,
-            (action, item, progress) => {
-                let userAction = fastboot.USER_ACTION_MAP[action];
-                let userItem = item === "avb_custom_key" ? "verified boot key" : item;
-                setProgress(`${userAction} ${userItem}...`, progress);
-            }
-        );
+        await device.flashFactoryZip(blob, true, reconnectCallback, (action, item, progress) => {
+            let userAction = fastboot.USER_ACTION_MAP[action];
+            let userItem = item === "avb_custom_key" ? "verified boot key" : item;
+            setProgress(`${userAction} ${userItem}...`, progress);
+        });
         if (legacyQualcommDevices.includes(product)) {
             setProgress("Disabling UART...");
             // See https://android.googlesource.com/platform/system/core/+/eclair-release/fastboot/fastboot.c#532
@@ -466,7 +507,7 @@ if ("usb" in navigator) {
 }
 
 // This will create an alert box to stop the user from leaving the page during actions
-window.addEventListener("beforeunload", event => {
+window.addEventListener("beforeunload", (event) => {
     if (!safeToLeave()) {
         console.log("User tried to leave the page whilst unsafe to leave!");
         event.returnValue = "";
