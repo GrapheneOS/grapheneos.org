@@ -1049,23 +1049,11 @@
                     without Google Play rather than treating not using it as the exceptional
                     case.</p>
 
-                    <p>Google Play is divided up into 3 separate apps:</p>
-
-                    <ul>
-                        <li>Google Services Framework (GSF)</li>
-                        <li>Google Play services</li>
-                        <li>Google Play Store</li>
-                    </ul>
-
-                    <p>To use sandboxed Google Play, you simply need to install the official releases
-                    of these 3 Google Play apps in the user and work profiles where you want to 
-                    use it. These apps are available in the GrapheneOS App Store. App Store has 
-                    support for dependency installation so you can simply directly install 
-                    Play services and it will install GSF and the Play Store as dependencies.</p>
-
-                    <p>Play services and the Play Store depend on each other, one will not work
-                    properly without the other. Both of them depend on the Google Services
-                    Framework app.</p>
+                    <p>To install sandboxed Google Play, open our App Store, select Google Play
+                    services and install it. This will install both Google Play services and Google
+                    Play Store which are interdependent. Existing installs of sandboxed Google Play
+                    from before Android 15 will also have Google Services Framework installed and it
+                    shouldn't be removed.</p>
 
                     <p>You can obtain updates to these apps from our app repository client or from
                     the Play Store. Updates through the Play Store usually arrive first.</p>
