@@ -720,6 +720,10 @@ cd ../..</pre>
                     <section id="kernel-emulator">
                         <h4><a href="#kernel-emulator">Emulator</a></h4>
 
+                        <p>The default kernel version for the emulator is 6.6. You can change the
+                        kernel version used for the x86_64 emulator target supported by GrapheneOS in
+                        <code>device/generic/goldfish/board/kernel/x86_64.mk</code>.</p>
+
                         <p>To sync the 6.6 kernel sources:</p>
 
                         <pre>mkdir -p android/kernel/6.6
@@ -749,9 +753,6 @@ repo sync -j8</pre>
                         <p>Replace the prebuilts in the OS source tree:</p>
 
                         <pre>ANDROID_BUILD_TOP=~/android/grapheneos-15 ARCH=x86_64 common/update_virt_prebuilts.sh</pre>
-
-                        <p>You can configure the kernel version used for the x86_64 emulator in
-                        <code>device/generic/goldfish/board/kernel/x86_64.mk</code>.</p>
                     </section>
 
                     <section id="kernel-microdroid">
