@@ -766,7 +766,7 @@ repo sync -j8</pre>
 
                         <p>To build the 6.6 kernel image for microdroid:</p>
 
-                        <pre>tools/bazel run //common:kernel_aarch64_microdroid_dist --lto=full --config=stamp</pre>
+                        <pre>tools/bazel run //common:kernel_aarch64_microdroid_dist --config=stamp --lto=full</pre>
 
                         <p>Replace the prebuilt kernel image in the OS source tree at
                         <code>packages/modules/Virtualization/microdroid/kernel/android15-6.6/arm64/kernel-6.6</code> with your image
