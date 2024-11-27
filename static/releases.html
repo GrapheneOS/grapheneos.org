@@ -551,6 +551,7 @@
                         <li>fix upstream bug breaking in-call service components provided by packages only installed in secondary users, which was mainly occurring with user installed Android Auto which unlike the stock OS isn't installed in Owner by default to mask this bug</li>
                         <li>Sandboxed Google Play compatibility layer: make Google text-to-speech app queryable by other apps in the same profile by default as it is on the stock OS since libraries using it don't declare the query explicitly (note apps and their libraries can declare any queries they want including for any app with a launcher activity and there's no approval along with there being other ways to detect apps)</li>
                         <li>Settings: opt-out of Android 15 edge-to-edge for the developer options app picker activity since it's not properly supported yet (upstream bug)</li>
+                        <li>Setup Wizard: avoid incredibly rare edge case crash (uncaught exception) when trying to disable OEM unlocking when it's already disabled and not allowed to be disabled by the carrier</li>
                         <li>kernel (5.10): update to latest GKI LTS branch revision</li>
                         <li>kernel (6.1): update to latest GKI LTS branch revision</li>
                         <li>kernel (6.6): update to latest GKI LTS branch revision including update to 6.6.57</li>
