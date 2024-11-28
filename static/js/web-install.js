@@ -125,7 +125,7 @@ class BlobStore {
                 this.db.transaction("files").objectStore("files").get(name)
             );
             return obj.blob;
-        } catch (error) {
+        } catch {
             return null;
         }
     }
