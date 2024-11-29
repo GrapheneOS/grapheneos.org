@@ -17,6 +17,7 @@ export default [
         },
         rules: {
             "no-var": ["error"],
+            "@stylistic/brace-style": ["error", "1tbs"],
             "@stylistic/indent": ["error", 4],
             "@stylistic/linebreak-style": ["error", "unix"],
             "@stylistic/quotes": ["error", "double"],
