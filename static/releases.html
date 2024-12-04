@@ -553,6 +553,7 @@
                     <ul>
                         <li>Gallery: remove the Delete option for items that represent multiple images since the UI is badly designed and makes it too easy to accidentally delete images, especially since the app doesn't support the Trash API</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/131.0.6778.104.0">version 131.0.6778.104.0</a></li>
+                        <li>switch back to correct APK for Vanadium Config to fix using our full content filter list and to unblock out-of-band updates (this regressed in the <a href="2024112700">2024112700</a> OS release and was noticed with the new Vanadium release)</li>
                         <li>envsetup.sh: reuse BUILD_DATETIME and BUILD_NUMBER from environment to make automation for reproducible builds slightly simpler instead of needing to export them after sourcing envsetup.sh</li>
                     </ul>
                 </article>
