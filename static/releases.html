@@ -73,6 +73,7 @@
                     <li>
                         <a href="#changelog">Changelog</a>
                         <ul>
+                            <!--<li><a href="#2024120702">2024120702</a></li>-->
                             <li><a href="#2024120701">2024120701</a></li>
                             <li><a href="#2024120700">2024120700</a></li>
                             <li><a href="#2024120400">2024120400</a></li>
@@ -539,19 +540,24 @@
                 release notes from before the rebranding of the project in 2018 and 2019.</p>
 
                 <!--
-                <article id="2024120701">
-                    <h3><a href="#2024120701">2024120701</a></h3>
+                <article id="2024120702">
+                    <h3><a href="#2024120702">2024120702</a></h3>
 
-                    <p>This release is based on Android 15 QPR1, the first quarterly release of Android 15.</p>
+                    <p>This release is specific to 9th generation Pixels and is being published to
+                    provide a proper fix for the GPU driver regression we ran into with Android 15
+                    QPR1 so we can switch back to the standard GrapheneOS Linux 6.1 GKI LTS
+                    branch.</p>
 
                     <p>Tags:</p>
                     <ul>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024120701">2024120701</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, emulator, generic, other targets)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2024120702">2024120702</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, emulator, generic, other targets)</li>
                     </ul>
 
                     <p>Changes since the 2024120701 release:</p>
 
                     <ul>
+                        <li>kernel (Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold): switch back to standard GrapheneOS 6.1 kernel based on 6.1.118 instead of the tag based on 6.1.84 for AOSP and the stock OS which was used as a workaround for a Mali GPU kernel driver bug in the previous OS release</li>
+                        <li>kernel (Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold): switch to Mali GPU kernel driver from Android 15 QPR2 Beta 1 which includes a fix for the massive mmap bug which caused lag and both app/system wide stalls/crashes with a newer LTS kernel revision</li>
                     </ul>
                 </article>
                 -->
