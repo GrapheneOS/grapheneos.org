@@ -560,9 +560,10 @@
                     <h3><a href="#2024120701">2024120701</a></h3>
 
                     <p>This release is specific to 9th generation Pixels and is being published to
-                    provide a temporary workaround for a major Mali GPU driver issue introduced in
-                    Android 15 QPR1. The issue was caught during our Alpha channel testing and
-                    resulted in the last release being cancelled for 9th generation Pixels.</p>
+                    provide a temporary workaround for a major Mali GPU kernel driver issue
+                    introduced in Android 15 QPR1. The issue was caught during our Alpha channel
+                    testing and resulted in the last release being cancelled for 9th generation
+                    Pixels.</p>
 
                     <p>Tags:</p>
                     <ul>
@@ -572,7 +573,7 @@
                     <p>Changes since the 2024120700 release:</p>
 
                     <ul>
-                        <li>kernel (Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold): temporarily switch to a dedicated GKI kernel branch based on the much older revision used by the stock OS and AOSP to resolve major Mali GPU driver regressions, which can then be narrowed down further after we have an initial workaround for the crashes/stalls caused by the driver changes</li>
+                        <li>kernel (Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold): temporarily switch to a dedicated GKI kernel branch based on the much older revision used by the stock OS and AOSP (6.1.84 instead of 6.1.118) to resolve major Mali GPU kernel driver regressions, which can then be narrowed down further after we have an initial workaround for the crashes/stalls caused by the driver changes</li>
                     </ul>
                 </article>
 
