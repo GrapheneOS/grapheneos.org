@@ -551,8 +551,9 @@
                     <p>Changes since the 2024120702 release:</p>
 
                     <ul>
+                        <li>delay activation of the Allow button(s) for runtime permission dialogs by 1 second to make it much harder to accidentally grant access</li>
+                        <li>delay activation of the Allow button for the Android Debug Bridge USB authorization dialog by 1 second to make it much harder to accidentally grant access</li>
                         <li>prevent crashes caused by upstream Android bugs when a Mock Location provider is added or removed by avoiding ever removing location providers at runtime by keeping them around as disabled providers</li>
-                        <li>delay activation of the Allow button for the Android Debug Bridge USB authorization dialog in order to avoid easily accidentally approving it</li>
                         <li>Sandboxed Google Play compatibility layer: fix Android Auto Bluetooth audio regressions from Android 15 QPR1</li>
                         <li>CarrierConfig2 (app created by GrapheneOS to replace Google CarrierSettings): add support for new ICCID MVNO type in Android 15 QPR1</li>
                         <li>CarrierConfig2 (app created by GrapheneOS to replace Google CarrierSettings): add support for new ApnItem fields Android 15 QPR1</li>
