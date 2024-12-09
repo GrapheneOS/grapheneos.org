@@ -563,6 +563,8 @@
                         <li>CarrierConfig2 (app created by GrapheneOS to replace Google CarrierSettings): add support for new ICCID MVNO type in Android 15 QPR1</li>
                         <li>CarrierConfig2 (app created by GrapheneOS to replace Google CarrierSettings): add support for new ApnItem fields Android 15 QPR1</li>
                         <li>CarrierConfig2 (app created by GrapheneOS to replace Google CarrierSettings): change user-facing carrier settings version string prefix to match Google Carrier Settings to avoid confusion when comparing to the stock OS</li>
+                        Lw
+                        <li>stop temporarily always enabling system crash notifications since initial Android 15 QPR1 is completed</li>
                         <li>kernel (5.10): update to latest GKI LTS branch revision including update to 5.10.228</li>
                         <li>adevtool: update carrier_settings and carrier_list protobuf parsers for Android 15 QPR1</li>
                     </ul>
@@ -626,6 +628,7 @@
                     <ul>
                         <li>full 2024-12-05 security patch level</li>
                         <li>rebased onto AP4A.241205.013 Android Open Source Project release (December quarterly release of Android 15)</li>
+                        <li>temporarily always enable system crash notifications to help users find Android 15 QPR1 regressions</li>
                         <li>kernel (5.10): update to latest GKI LTS branch revision including update to 5.10.227</li>
                         <li>kernel (6.6): update to latest GKI LTS branch revision</li>
                         <li>kernel (6.1): add back one of the two f2fs defragmentation patches we reverted now that it's backported in Android 15 QPR1, since the other change was the source of the major regression rather than this one and it now has broad testing upstream without the broken change we still have reverted</li>
