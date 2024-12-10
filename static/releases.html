@@ -551,6 +551,7 @@
                     <p>Changes since the 2024120900 release:</p>
 
                     <ul>
+                        <li>fix upstream bug causing the Microphone (RECORD_AUDIO) permission to be required for for local audio routing via REMOTE_SUBMIX instead of only the MODIFY_AUDIO_ROUTING permission with this explicit purpose (this caused Android Auto to require the Microphone permnission for routing audio on both the stock OS and GrapheneOS, but it impacts GrapheneOS more due to permissions not being granted by default to Android Auto)</li>
                         <li>Dialer: add proper dark mode support for dialogs</li>
                     </ul>
                 </article>
