@@ -45,6 +45,30 @@
             It also avoids an unnecessary dependency on Google Play services and Google's
             Play Integrity servers.</p>
 
+            <p>The standard hardware attestation API can be used to verify the authencity/integrity
+            of the hardware, firmware, OS and the app running on it. It provides a verified boot key
+            fingerprint for the OS for permitting secure aftermarket operating systems. The app id,
+            signing key fingerprint(s) and version code of the app enabling hardware attestation are
+            included in the signed public key certificate for the generated key. This enables the
+            app's service to make sure the app is genuine and unmodified along with chaining trust
+            through the OS to the app which can sign messages with the attested hardware keystore
+            key to prove they come from their app running on top of a verified OS, firmware and
+            hardware. The only practical way to bypass hardware attestation is through exploiting
+            the hardware keystore to obtain attestation signing keys, which is protected against by
+            the ability to revoke keys that are being misused. Play Integrity API strong integrity
+            level is directly based on the hardware key attestation API, but apps using it directly
+            can support aftermarket operating systems, check the hardware attested OS patch level
+            and other provided information. The hardware attestation API also supports pinning-based
+            security instead of only root-based security where keys can be leaked and used to fake
+            attestations. Apps can use pinning to establish a much higher security pairing with a
+            specific device to obtain fresh attestations with a very high level security based on
+            the security of the device's own hardware keystore rather than the overall ecosystem.
+            Hardware attestation also doesn't require using any Google service beyond regularly
+            fetching the list of revoked keys for root-based attestation. The app's service doesn't
+            have to go down or start permitting anything if the Google services becomes unavailable
+            or blocks the app from using it for one reason or another. Using hardware attestation is
+            therefore more reliable and lower risk for apps.</p>
+
             <p>Devices have been required to ship with hardware attestation support since Android
             8. You can use hardware attestation on devices running Android 8 or later when the
             <code>ro.product.first_api_level</code> system property isn't set to 25 or below,
