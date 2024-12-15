@@ -552,7 +552,8 @@
                     <p>Changes since the 2024121200 release:</p>
 
                     <ul>
-                        <li>add back our fix for an upstream Android null pointer exception system_server crash with InputMethodManagerService triggered when ending user sessions because it turns out to still be required after Android 15 QPR1</li>
+                        <li>add back our fix for an upstream Android bug causing null pointer exception system_server crash in InputMethodManagerService triggered when ending user sessions because it turns out to still be required after Android 15 QPR1</li>
+                        <li>fix upstream Android bug causing null pointer exception system_server crash in NotificationManagerService</li>
                         <li>kernel (5.10): update to latest GKI LTS branch revision including update to 5.10.230</li>
                         <li>kernel (5.15): update to latest GKI LTS branch revision including update to 5.15.173</li>
                         <li>kernel (6.1): update to latest GKI LTS branch revision including update to 6.1.119</li>
