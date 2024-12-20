@@ -137,6 +137,7 @@
                             <li><a href="#user-installed-apps-can-be-disabled">User installed apps
                             can be disabled</a></li>
                             <li><a href="#improved-vpn-leak-blocking">Improved VPN leak blocking</a></li>
+                            <li><a href="#log-viewer-and-crash-reporting">Log viewer and user-facing crash reporting</a></li>
                             <li><a href="#other-features">Other features</a></li>
                         </ul>
                     </li>
@@ -1207,6 +1208,52 @@
                     <p>Finding and resolving all forms of VPN leaks is one of our top priorities at
                     the moment and we don't currently consider this to be a complete feature due to
                     less severe additional issues we've discovered.</p>
+                </section>
+
+                <section id="log-viewer-and-crash-reporting">
+                    <h3><a href="#log-viewer-and-crash-reporting">Log viewer and user-facing crash reporting</a></h3>
+
+                    <p>GrapheneOS adds a user-facing log viewer to the Settings app for Android's
+                    standard in-memory logging system. The feature acts as a substitute for
+                    automated crash reporting which is not implemented by GrapheneOS for privacy
+                    reasons. Instead, users are in control of what's captured and shared Our log
+                    viewer supports filtering the output based on log level, log buffers and text
+                    search. Users can copy, share or save the currently shown logs to a file. A
+                    description can be added to document why the logs were captured.</p>
+
+                    <p>Overall system logs can be accessed at <b>Settings&#160;<span aria-label="and then">></span>
+                    System&#160;<span aria-label="and then">></span> View logs</b>. Per-app logs can
+                    be accessed at <b>Settings&#160;<span aria-label="and then">></span>
+                    Apps&#160;<span aria-label="and then">></span> App name&#160;<span
+                    aria-label="and then">></span> View logs</b>.</p>
+
+                    <p>We implement user-facing crash reporting tied to our log viewer for OS and
+                    app crashes, greatly improving upon the very limited user-facing crash reporting
+                    available in Android. This helps users report crashes to the OS or app
+                    developers without requiring invasive automated crash reporting where users
+                    don't control the data that's sent to developers.</p>
+
+                    <p>Our user-facing crash reporting has special support for memory corruption
+                    caught by hardened_malloc and hardware memory tagging informing users that
+                    memory corruption was detected. Users choose how to proceed and whether it makes
+                    sense to enable our compatibility toggles for the app if they don't believe it
+                    was an exploit but rather an app bug they need to work around. It's a careful
+                    balance between not encouraging users to disable security features protecting
+                    user installed apps from exploits and making it easy to work around app bugs. We
+                    don't allow disabling these exploit protection features for the base OS
+                    including base OS apps, but too many user installed apps have latent memory
+                    corruption bugs and we need to provide the option to work around them.</p>
+
+                    <p>Users can enable more system crash reporting via <b>Settings&#160;<span aria-label="and then">></span>
+                    Security &amp; privacy&#160;<span aria-label="and then">></span>
+                    More security &amp; privacy&#160;<span aria-label="and then">></span>
+                    Notify about system process crashes</b>. We don't enable reporting all kernel or
+                    system process crashes by default since we can't manage triaging and
+                    investigating every single Android OS bug causing a crash. We're focused on the
+                    memory corruption crashes caught by hardware memory tagging so those are always
+                    reported. Fixing every Android bug ourselves is not something we can hope to
+                    accomplish so we focus our resources on the ones found by our improvements which
+                    also have a higher chance of being security bugs.</p>
                 </section>
 
                 <section id="other-features">
