@@ -407,13 +407,28 @@
                             only JIT compilation in the base OS is the V8 JavaScript JIT which is
                             disabled by default for the Vanadium browser with per-site exception
                             support.</li>
-                            <li>Prevention of dynamic native code execution via either memory or
-                            storage for the base OS including nearly all the base OS apps. For the
-                            OS itself, only the processes involved in the OS package management
-                            system can write data to storage that can be executed and only the
-                            media DRM sandbox can do in-memory dynamic native code execution. The
-                            Vanadium browser and WebView are excluded in order to support the JS
-                            JIT compiler.</li>
+                            <li>Dynamic code loading for both native code or Java/Kotlin classes is
+                            blocked for nearly the entire base OS to prevent base OS processes. This
+                            works alongside verified boot to prevent base OS processes from running
+                            attacker controlled native code or Java/Kotlin code. The only exceptions
+                            from the policy for the base OS are in-memory code loading for the media
+                            DRM sandbox and the Vanadium JIT compiler being permitted. Vanadium has
+                            JIT compilation disabled by default for every site and for apps using
+                            the WebView with the exception of our PDF Viewer app. Vanadium disables
+                            the JIT compiler by default with a per-site and per-app toggle for it
+                            and per-process enforcement of blocking dynamic code loading implemented
+                            with seccomp-bpf based on the per-site/per-app JIT compiler toggle.</li>
+                            <li>Dynamic code loading for both native code or Java/Kotlin classes can
+                            be disabled for user installed apps via 3 exploit protection toggles:
+                            Dynamic code loading from memory, Dynamic code loading from storage and
+                            WebView JIT. This can also be used to opt-out of the WebView JIT for our
+                            PDF Viewer and dynamic code loading from memory for the Vanadium browser
+                            to disable support for the per-site opt-in to JIT compilation. In order
+                            to make the dynamic code loading toggles more usable, we show a user
+                            facing notification when an app has dynamic code loading from memory or
+                            storage blocked, including a file path being shown when it's blocked
+                            from storage. This allows users to disable it for all their apps and
+                            then enable them for the ones requiring it.</li>
                             <li>Filesystem access hardening</li>
                         </ul>
                     </section>
