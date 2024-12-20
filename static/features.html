@@ -131,6 +131,7 @@
                             <li><a href="#auditor">Auditor app and attestation service</a></li>
                             <li><a href="#grapheneos-camera">GrapheneOS Camera</a></li>
                             <li><a href="#grapheneos-pdf-viewer">GrapheneOS PDF Viewer</a></li>
+                            <li><a href="#setup-wizard">GrapheneOS Setup Wizard</a></li>
                             <li><a href="#encrypted-backups">Encrypted backups</a></li>
                             <li><a href="#location-data-access-indicator">Location data access
                             indicator</a></li>
@@ -1137,6 +1138,22 @@
                     <p><a href="https://github.com/GrapheneOS/PdfViewer">GrapheneOS PDF Viewer</a>
                     is a sandboxed, hardened PDF viewer using HiDPI rendering with features like
                     pinch to zoom, text selection, viewing encrypted PDFs, etc.</p>
+                </section>
+
+                <section id="setup-wizard">
+                    <h3><a href="#setup-wizard">Setup Wizard</a></h3>
+
+                    <p>We have our own Setup Wizard for the initial setup of the device and for user
+                    profiles. It's very similar to the Setup Wizard in the stock Pixel OS but has
+                    more emphasis on security. It detects an unlocked bootloader at the start and
+                    warns the user about it with a button for rebooting to fastboot mode in order to
+                    lock the device. Skipping the warning requires waiting for a timer to prevent
+                    quickly skipping through it and missing the important information. Our setup
+                    wizard also disables OEM unlocking by default at the end of the process with a
+                    toggle to opt-out of it being disabled, which is a small but useful reduction in
+                    attack surface. We plan to include our improvements to lock method options in
+                    our Setup Wizard including 2-factor fingerprint authentication along with
+                    generating random diceware passphrases and PINs automatically.</p>
                 </section>
 
                 <section id="encrypted-backups">
