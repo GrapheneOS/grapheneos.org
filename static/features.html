@@ -110,6 +110,7 @@
                             <li><a href="#supports-longer-passwords">Supports longer
                             passwords</a></li>
                             <li><a href="#auto-reboot">Auto reboot</a></li>
+                            <li><a href="#clearing-sensitive-data-from-memory">Clearing sensitive data from memory</a></li>
                             <li><a href="#duress">Duress PIN/Password</a></li>
                             <li><a href="#more-secure-fingerprint-unlock">More secure fingerprint
                             unlock</a></li>
@@ -817,6 +818,37 @@
                     <p>The feature is implemented in the init process, preventing it from being
                     bypassed through system process crashes since an init crash causes a kernel
                     panic which leads to a reboot.</p>
+                </section>
+
+                <section id="clearing-sensitive-data-from-memory">
+                    <h3><a href="#clearing-sensitive-data-from-memory">Clearing sensitive data from memory</a></h3>
+
+                    <p>As documented in our section on <a href="#exploit-mitigations">our added
+                    exploit mitigations</a>, GrapheneOS adds zeroing of freed memory to both the
+                    standard userspace and kernel allocators. These features have the secondary
+                    benefit of clearing sensitive data from memory as soon as possible in addition
+                    to defending against exploits. Android implements regular compaction of frozen
+                    cached apps and apps currently running in the background based on triggering a
+                    full compacting garbage collection (GC) and then requesting that malloc frees as
+                    much memory as it can back to the OS. This pairs well with zeroing features and
+                    results in freed data getting cleared faster for Java/Kotlin and also the C, C++
+                    and Rust libraries used by them where low-level allocators get held onto until
+                    the high level objects are freed.</p>
+
+                    <p>When the device is locked, we trigger full compacting garbage collection (GC)
+                    for the SystemUI and system_server processes to release all of the memory that's
+                    no longer used back to the OS. Due to GrapheneOS enabling kernel page allocator
+                    zeroing, this results in all the no longer referenced data in objects being
+                    cleared. We based our approach on Android's standard approach to running a full
+                    compacting GC for these two processes after the device is unlocked to clear
+                    remnants of the user's PIN/password and keys derived from it. This is a nice way
+                    to clear some data immediately after locking prior to our
+                    <a href="#auto-reboot">auto-reboot</a> feature kicking in to clear all of the OS
+                    memory.</p>
+
+                    <p>GrapheneOS modifies some of the ways the device can be rebooted to proceed
+                    with the normal reboot process where memory gets freed and cleared by the kernel
+                    page and slab allocator zeroing features enabled by GrapheneOS.</p>
                 </section>
 
                 <section id="duress">
