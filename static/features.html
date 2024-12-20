@@ -1323,6 +1323,11 @@
                         re-enabled.</li>
                         <li>Enable the "Always-on VPN" and "Block connections without VPN" toggles
                         for VPNs by default.</li>
+                        <li>Permission prompts and the Android Debug Bridge USB authorization prompt
+                        have the allow action disabled by default with a 1 second delay before it
+                        becomes active. This protects against accidental presses, especially since
+                        an app can trick the user into doing it by having them push a button where
+                        the system dialog will be displayed.</li>
                     </ul>
                 </section>
             </section>
