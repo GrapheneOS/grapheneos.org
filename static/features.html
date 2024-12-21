@@ -1010,11 +1010,14 @@
                         <li>High performance content filtering engine using EasyList + EasyPrivacy
                         with per-site toggle via drop-down permission menu</li>
                         <li>More complete state partitioning without origin trial opt-out</li>
-                        <li>High entropy client hints are replaced with the placeholder values used
-                        for Chromium's standard reduced user agent to avoid leaking information on
-                        the hardware/OS through headers</li>
-                        <li>Reduced user agent is enabled for the Vanadium WebView rather than only
-                        the browser (client hint changes will be added too, but aren't yet)</li>
+                        <li>Standard Android 16 user agent reduction is enabled early for the
+                        WebView to replace the major OS version, device model and browser
+                        minor/build/patch version with standard placeholder values</li>
+                        <li>High entropy client hints are replaced with the standard placeholder
+                        values used in Chromium's reduced user agent for both the browser and
+                        WebView to close a loophole where Chromium is still sharing the major OS
+                        version, device model and browser minor/build/patch version with any server
+                        requesting it via client hints</li>
                         <li>Battery API always shows the battery as charging and at 100% capacity</li>
                         <li>Trivial subdomain hiding disabled</li>
                         <li>Consistent browser behavior across users without usage of feature flags
