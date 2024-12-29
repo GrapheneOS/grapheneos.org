@@ -552,6 +552,7 @@
                     <p>Changes since the 2024121200 release:</p>
 
                     <ul>
+                        <li>add support for limiting charging the battery to 80% with support for bypass charging similar to the new Android 15 QPR1 stock Pixel OS feature, although unlike the stock Pixel OS our implementation still works while using a secondary user (the limit is currently hard-wired to 80% due to that being what's properly supported throughout the OS, but we can eventually make it configurable)</li>
                         <li>switch to the new upstream default of 4 threads for compiling apps at boot from our previous 2 threads which we set to replace the previous upstream default of a single thread</li>
                         <li>add back our fix for an upstream Android bug causing null pointer exception system_server crash in InputMethodManagerService triggered when ending user sessions because it turns out to still be required after Android 15 QPR1</li>
                         <li>fix upstream Android bug causing null pointer exception system_server crash in NotificationManagerService</li>
