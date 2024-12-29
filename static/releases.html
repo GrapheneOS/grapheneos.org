@@ -552,6 +552,7 @@
                     <p>Changes since the 2024121200 release:</p>
 
                     <ul>
+                        <li>switch to the new upstream default of 4 threads for compiling apps at boot from our previous 2 threads which we set to replace the previous upstream default of a single thread</li>
                         <li>add back our fix for an upstream Android bug causing null pointer exception system_server crash in InputMethodManagerService triggered when ending user sessions because it turns out to still be required after Android 15 QPR1</li>
                         <li>fix upstream Android bug causing null pointer exception system_server crash in NotificationManagerService</li>
                         <li>Contacts: improve dark theme color contrast</li>
