@@ -561,6 +561,8 @@
                         <li>use 2 threads instead of 1 for background compilation of apps</li>
                         <li>switch to the new upstream default of 4 threads for compiling apps during boot instead of our previous 2 threads which we set to replace the previous upstream default of a single thread</li>
                         <li>Settings: add back battery optimization settings link to Battery screen which was removed by Android a long time ago</li>
+                        <li>Settings: don't disable App info > Battery usage item while its summary is loading</li>
+                        <li>Settings: temporarily stop showing battery usage info in App info item summary due to an upstream regression causing it to take more than 5 seconds to load in many cases</li>
                         <li>add back our fix for an upstream Android bug causing null pointer exception system_server crash in InputMethodManagerService triggered when ending user sessions because it turns out to still be required after Android 15 QPR1</li>
                         <li>fix upstream Android bug causing null pointer exception system_server crash in NotificationManagerService</li>
                         <li>Contacts: improve dark theme color contrast</li>
