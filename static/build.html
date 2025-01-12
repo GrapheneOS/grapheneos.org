@@ -794,7 +794,7 @@ repo sync -j8</pre>
 
                         <p>To build the caimito kernel for the Pixel 9, Pixel 9 Pro and Pixel 9 Pro XL:</p>
 
-                        <pre>./build_caimito.sh --config=no_download_gki --config=no_download_gki_fips140 --lto=full</pre>
+                        <pre>./build_caimito.sh --config=no_download_gki --config=no_download_gki_fips140 --lto=full --disable_slab_canary</pre>
 
                         <p>Replace the files in the OS source tree at
                         <code>device/google/caimito-kernels/6.1/grapheneos/</code> with your build in
@@ -809,7 +809,7 @@ repo sync -j8</pre>
 
                         <p>To build the comet kernel for the Pixel 9 Pro Fold:</p>
 
-                        <pre>./build_comet.sh --config=no_download_gki --config=no_download_gki_fips140 --lto=full</pre>
+                        <pre>./build_comet.sh --config=no_download_gki --config=no_download_gki_fips140 --lto=full --disable_slab_canary</pre>
 
                         <p>Replace the files in the OS source tree at
                         <code>device/google/comet-kernels/6.1/grapheneos/</code> with your build in
@@ -829,7 +829,7 @@ repo sync -j8</pre>
 
                         <p>To build the shusky kernel for the Pixel 8 and Pixel 8 Pro:</p>
 
-                        <pre>./build_shusky.sh --config=no_download_gki --lto=full</pre>
+                        <pre>./build_shusky.sh --config=no_download_gki --lto=full --disable_slab_canary</pre>
 
                         <p>Replace the files in the OS source tree at
                         <code>device/google/shusky-kernels/5.15/grapheneos/</code> with your build in
@@ -844,7 +844,7 @@ repo sync -j8</pre>
 
                         <p>To build the akita kernel for the Pixel 8a:</p>
 
-                        <pre>./build_akita.sh --config=no_download_gki --lto=full</pre>
+                        <pre>./build_akita.sh --config=no_download_gki --lto=full --disable_slab_canary</pre>
 
                         <p>Replace the files in the OS source tree at
                         <code>device/google/akita-kernels/5.15/grapheneos/</code> with your build in
