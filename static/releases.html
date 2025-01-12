@@ -554,9 +554,9 @@
                     <p>Changes since the 2025010700 release:</p>
 
                     <ul>
-                        <li>kernel (Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9a): enable hardware memory tagging for the main kernel allocators via the upstream Hardware Tag-Based KASAN implementation (which is intended for production usage, unlike the other KASAN modes)</li>
-                        <li>kernel (Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9a): switch KASAN fault handling from report to panic to use it as a hardening feature instead of only a bug finding tool</li>
-                        <li>kernel (Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9a): switch KASAN hardware memory tagging mode from synchronous to asymmetric for the initial deployment to reduce the performance cost and match our existing hardware memory tagging usage in userspace (synchronous mode is potentially more useful in the kernel than it is for userspace which is something we can investigate and potentially offer as an option)</li>
+                        <li>kernel (Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold): enable hardware memory tagging for the main kernel allocators via the upstream Hardware Tag-Based KASAN implementation (which is intended for production usage, unlike the other KASAN modes)</li>
+                        <li>kernel (Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold): switch KASAN fault handling from report to panic to use it as a hardening feature instead of only a bug finding tool</li>
+                        <li>kernel (Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold): switch KASAN hardware memory tagging mode from synchronous to asymmetric for the initial deployment to reduce the performance cost and match our existing hardware memory tagging usage in userspace (synchronous mode is potentially more useful in the kernel than it is for userspace which is something we can investigate and potentially offer as an option)</li>
                         <li>Updater: require TLSv1.3 instead of TLSv1.2 or TLSv1.3</li>
                         <li>kernel (6.6): update to latest GKI LTS branch revision</li>
                         <li>Seedvault: update to a newer revision (will be replaced with a better backup implementation in the future)</li>
