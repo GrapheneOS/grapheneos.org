@@ -576,11 +576,11 @@
                         <li>kernel (Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold): switch KASAN fault handling from report to panic to use it as a hardening feature instead of only a bug finding tool</li>
                         <li>kernel (Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold): switch KASAN hardware memory tagging mode from synchronous to asymmetric for the initial deployment to reduce the performance cost and match our existing hardware memory tagging usage in userspace (synchronous mode is potentially more useful in the kernel than it is for userspace which is something we can investigate and potentially offer as an option)</li>
                         <li>kernel (Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold): disable our slab canary feature since it's incompatible with the kernel's hardware memory tagging and will be fully obsolete after we've made basic improvements to the upstream hardware memory tagging implementation</li>
-                        <li>Updater: require TLSv1.3 instead of either TLSv1.2 or TLSv1.3</li>
                         <li>kernel (5.10): update to latest GKI LTS branch revision including update to 5.10.233</li>
                         <li>kernel (5.15): update to latest GKI LTS branch revision including update to 5.15.176</li>
                         <li>kernel (5.15): merge latest GKI tag to incorporate important security and other patches including the patch for CVE-2024-56556 which are not included in the latest kernel.org release (5.15.176) or the latest GKI LTS branch revision</li>
                         <li>kernel (6.6): update to latest GKI LTS branch revision</li>
+                        <li>Updater: require TLSv1.3 instead of either TLSv1.2 or TLSv1.3</li>
                         <li>Seedvault: update to a newer revision (will be replaced with a better backup implementation in the future)</li>
                         <li>System UI Tuner: opt-out of Android 15 edge-to-edge since it's not properly supported yet (upstream bug)</li>
                         <li>make eng builds more consistent with user/userdebug builds by extending the GrapheneOS additions of the ro.control_privapp_permissions=enforce, net.tethering.noprovisioning=true and ro.sys.time_detector_update_diff=50 system properties to all build variants</li>
