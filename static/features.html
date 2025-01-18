@@ -365,6 +365,13 @@
                                     larger address space (48-bit instead of 39-bit) with
                                     significantly higher entropy Address Space Layout
                                     Randomization (33-bit instead of 24-bit).</li>
+                                    <li>Basic hardware memory tagging is used in the main kernel
+                                    memory allocators (slab, page_alloc, non-executable vmalloc) to
+                                    provide probabilistic detection of all use-after-free and
+                                    inter-object overflows along with deterministic detection of
+                                    use-after-free until the memory is allocated again (we plan to
+                                    add deterministic detection of small/linear overflows like
+                                    hardened_malloc)</li>
                                     <li>Random canaries with a leading zero are added to the
                                     kernel heap (slub) to block C string overflows, absorb small
                                     overflows and detect linear overflows or other heap corruption
