@@ -555,6 +555,7 @@
                     <p>Changes since the 2025011500 release:</p>
 
                     <ul>
+                        <li>disable standard Android feature holding a 10 minute screen wake lock after the screen brightness is raised at least 2 times within 5 minutes since this is confusing for users and it's far better if keep awake is done explicitly</li>
                         <li>always show KASAN kernel crash notifications instead of only when system crash reporting is enabled by users</li>
                         <li>Messaging: port to target API 35 (Android 15) and begin under the hood overhaul</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/132.0.6834.79.0">version 132.0.6834.79.0</a></li>
