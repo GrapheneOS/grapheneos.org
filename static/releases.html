@@ -574,7 +574,7 @@
                         <li>disable standard Android feature holding a 10 minute screen wake lock after the screen brightness is raised at least 2 times within 5 minutes since this is confusing for users and it's far better if keep awake is done explicitly</li>
                         <li>always show Linux kernel crash notifications from hardware memory tagging (Hardware Tag-Based KASAN) instead of only when system crash reporting is enabled by users</li>
                         <li>Messaging: begin under the hood overhaul including fully porting to target API 35 (Android 15)</li>
-                        <li>recovery: remove spurious warning after update installation fails on A/B update devices</li>
+                        <li>recovery: remove spurious warning after sideloading an update fails on A/B update devices</li>
                         <li>change build username and hostname to match the stock Pixel OS format instead of setting both to grapheneos due to bad actors using it to ban using GrapheneOS</li>
                         <li>return green as the value of ro.boot.verifiedbootstate for user installed apps (not the base OS or system apps) due to bad actors using it to ban using GrapheneOS</li>
                         <li>SettingsIntelligence: don't show preference summaries in search results since it doesn't work properly for ones depending on dynamic string formatting and isn't done by SettingsIntelligenceGoogle on the stock Pixel OS</li>
