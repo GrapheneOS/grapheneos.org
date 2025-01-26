@@ -561,6 +561,7 @@
                         <li>Messaging: begin under the hood overhaul including fully porting to target API 35 (Android 15)</li>
                         <li>recovery: remove spurious warning after update installation fails on A/B update devices</li>
                         <li>change build username to build-user and build hostname to build-host instead of setting both to grapheneos due to bad actors using it to ban using GrapheneOS</li>
+                        <li>return green as the value of ro.boot.verifiedbootstate outside of specific parts of the base OS due to bad actors using it to ban using GrapheneOS</li>
                         <li>SettingsIntelligence: don't show preference summaries in search results since it doesn't work properly for ones depending on dynamic string formatting and isn't done by SettingsIntelligenceGoogle on the stock Pixel OS</li>
                         <li>Contact Scopes: fix spoofing of OP_GET_CONTACTS for apps not requesting WRITE_CONTACTS</li>
                         <li>Sandboxed Google Play compatibility layer: improve infrastructure</li>
@@ -570,7 +571,6 @@
                         <li>Sandboxed Google Play compatibility layer: add shortcut to the per-app Play Integrity API menu for contacting the app developer by leaving a review through the Play Store page</li>
                         <li>Sandboxed Google Play compatibility layer: add menu for viewing all apps which have used the Play Integrity API with a shortcut in the per-app Play Integrity API menu</li>
                         <li>Sandboxed Google Play compatibility layer: show optional notification upon detection of Play Integrity usage providing a shortcut to the per-app Play Integrity API menu and another for hiding further notifications for the app which is also available as a toggle in the per-menu</li>
-                        <li>return green as the value of ro.boot.verifiedbootstate outside of specific parts of the base OS due to bad actors using it to ban using GrapheneOS</li>
                         <li>hardened_malloc: update libdivide to 5.2.0</li>
                         <li>TalkBack (screen reader): update dependencies</li>
                         <li>TalkBack (screen reader): make builds fully reproducible by removing the use of __DATE__ and __TIME__ by brltty along with making the liblouis translation table zip use deterministic file order and timestamps</li>
