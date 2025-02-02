@@ -574,7 +574,7 @@
 
                     <ul>
                         <li>reimplement our fix for an upstream audio routing regression in Android 15 QPR1 impacting sandboxed Android Auto and likely other apps to avoid blocking another subset of apps from changing audio routing when granted permission</li>
-                        <li>Sandboxed Google Play compatibility layer: add support for enabling Google's credential service including making it function as an unprivileged service rather than a system one (this fixes signing in with Google in certain apps)</li>
+                        <li>Sandboxed Google Play compatibility layer: add support for enabling Google's credential service via Settings > Passwords, passkeys &amp; accounts by making it function as an unprivileged service (non-Chromium-based apps tend to require this to use Google as the passkey service and it's needed by certain apps for their Sign in with Google option despite Android intending to fully support other credential services)</li>
                         <li>Sandboxed Google Play compatibility layer: allow disabling all Play Integrity API notifications instead of only disabling them per-app</li>
                         <li>Sandboxed Google Play compatibility layer: override Play services update owner value to the GrapheneOS App Store to fully handle updates for it ourselves</li>
                         <li>work around upstream Android issue caused by an optimization which was adding a 10 second delay to certain setting changes before they kick in for background system packages</li>
