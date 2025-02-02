@@ -573,7 +573,7 @@
                     <p>Changes since the 2025012700 release:</p>
 
                     <ul>
-                        <li>replace our fix for an upstream audio routing regression in Android 15 QPR1 to avoid keeping around other issues preventing apps from recording which have been permitted to record</li>
+                        <li>reimplement our fix for an upstream audio routing regression in Android 15 QPR1 impacting sandboxed Android Auto and likely other apps to avoid blocking another subset of apps from changing audio routing when granted permission</li>
                         <li>Sandboxed Google Play compatibility layer: add support for enabling Google's credential service including making it function as an unprivileged service rather than a system one (this fixes signing in with Google in certain apps)</li>
                         <li>Sandboxed Google Play compatibility layer: allow disabling all Play Integrity API notifications instead of only disabling them per-app</li>
                         <li>Sandboxed Google Play compatibility layer: override Play services update owner value to the GrapheneOS App Store to fully handle updates for it ourselves</li>
