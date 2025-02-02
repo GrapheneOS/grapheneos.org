@@ -107,6 +107,7 @@
                             <li><a href="#closed-device-identifier-leaks">Closed device identifier leaks</a></li>
                             <li><a href="#privacy-by-default">Privacy by default</a></li>
                             <li><a href="#pin-scrambling">PIN scrambling</a></li>
+                            <li><a href="#two-factor-fingerprint-unlock">two-factor fingerprint unlock</a></li>
                             <li><a href="#supports-longer-passwords">Supports longer
                             passwords</a></li>
                             <li><a href="#auto-reboot">Auto reboot</a></li>
@@ -808,6 +809,18 @@
                     difficulty of figuring out the PIN being entered by a user either due to
                     physical proximity or a side channel. PIN scrambling is applied to both the
                     lock screen and SIM PIN/PUK.</p>
+                </section>
+
+                <section id="Two-factor-fingerprint-unlock">
+                    <h3><a href="#Two-factor-fingerprint-unlock">Two-factor fingerprint unlock</a></h3>
+
+                    <p>GrapheneOS adds the option to require entering a 2nd factor PIN after
+                    successfully authenticating with a fingerprint on the lockscreen in order to
+                    complete unlocking the device. Since Android/iOS use biometric unlock as a
+                    secondary unlock mechanism for convenience, this allows users to make use of a
+                    strong passphrase as their primary unlock method with the convenience of a
+                    fingerprint and short PIN for secondary unlock. Failure to enter the correct PIN
+                    counts towards the standard attempt limit.</p>
                 </section>
 
                 <section id="supports-longer-passwords">
