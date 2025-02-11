@@ -562,6 +562,7 @@
                     <ul>
                         <li>kernel (5.10, 5.15, 6.1, 6.6): zero memory in early boot in case it wasn't zeroed by the OS as part of a clean reboot or shutdown since there isn't fully encrypted RAM with a per-boot key yet (this is implemented by Pixel boot firmware since April 2024 for booting into fastboot mode but not booting into the OS since they only partially implemented our January 2024 reset attack protection proposal)</li>
                         <li>kernel (6.1): add back revert for upstream Linux kernel fix which was reapplied in our <a href="2025020200">2025020200</a> release without any reports of issues for days because it has been found to break DisplayPort alternate mode on 9th generation Pixels</li>
+                        <li>kernel (6.1): update to latest GKI LTS branch revision including update to 6.1.128</li>
                         <li>kernel (6.6): update to latest GKI LTS branch revision including update to 6.6.76</li>
                         <li>kernel (Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold): backport Wi-Fi driver patch from Android 15 QPR2 Beta 3 in an attempt to avoid a rare invalid read-after-free detected by hardware memory tagging</li>
                         <li>Launcher: add 4x5 grid option</li>
