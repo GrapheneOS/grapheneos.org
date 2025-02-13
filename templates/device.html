@@ -8,7 +8,11 @@
         </tr>
         <tr id="{{codename}}-stable">
             <td>Stable</td>
+{% if not "extended" in name %}
             <td><a href="#[[{{codename}}-stable-BUILD_NUMBER]]">[[{{codename}}-stable-BUILD_NUMBER]]</a></td>
+{% else %}
+            <td>[[{{codename}}-stable-BUILD_NUMBER]]</td>
+{% endif %}
             <td>
                 <ul>
                     <li><a href="https://releases.grapheneos.org/{{codename}}-{{install | default("install")}}-[[{{codename}}-stable-BUILD_NUMBER]].zip">Install zip</a></li>
@@ -19,7 +23,11 @@
         </tr>
         <tr id="{{codename}}-beta">
             <td>Beta</td>
+{% if not "extended" in name %}
             <td><a href="#[[{{codename}}-beta-BUILD_NUMBER]]">[[{{codename}}-beta-BUILD_NUMBER]]</a></td>
+{% else %}
+            <td>[[{{codename}}-beta-BUILD_NUMBER]]</td>
+{% endif %}
             <td>
                 <ul>
                     <li><a href="https://releases.grapheneos.org/{{codename}}-{{install | default("install")}}-[[{{codename}}-beta-BUILD_NUMBER]].zip">Install zip</a></li>
@@ -30,7 +38,11 @@
         </tr>
         <tr id="{{codename}}-alpha">
             <td>Alpha</td>
+{% if not "extended" in name %}
             <td><a href="#[[{{codename}}-alpha-BUILD_NUMBER]]">[[{{codename}}-alpha-BUILD_NUMBER]]</a></td>
+{% else %}
+            <td>[[{{codename}}-alpha-BUILD_NUMBER]]</td>
+{% endif %}
             <td>
                 <ul>
                     <li><a href="https://releases.grapheneos.org/{{codename}}-{{install | default("install")}}-[[{{codename}}-alpha-BUILD_NUMBER]].zip">Install zip</a></li>
