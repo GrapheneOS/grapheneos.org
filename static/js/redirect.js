@@ -27,6 +27,7 @@ const redirects = new Map([
     ["/faq#when-devices", "/faq#future-devices"],
 
     ["/features#usb-c-port-control", "/features#usb-c-port-and-pogo-pins-control"],
+    ["/features#Two-factor-fingerprint-unlock", "/features#two-factor-fingerprint-unlock"],
 
     ["/hiring#qualitifations", "/hiring#qualifications"],
 
