@@ -308,17 +308,17 @@ Installed as /home/username/platform-tools/fastboot</pre>
             <section id="working-around-fwupd-bug-on-linux-distributions">
                 <h2><a href="#working-around-fwupd-bug-on-linux-distributions">Working around fwupd bug on Linux distributions</a></h2>
 
-                <p>Some Debian, Ubuntu, and derivative distributions have an outdated fwupd package 
-                with a bug breaking connecting to Android's bootloader interface (fastboot) while 
-                fwupd is running since it tries to connect to arbitrary devices. This section can 
-                be skipped on Arch Linux and other distributions with fwupd 1.9.10 or later since 
+                <p>Some Debian, Ubuntu, and derivative distributions have an outdated fwupd package
+                with a bug breaking connecting to Android's bootloader interface (fastboot) while
+                fwupd is running since it tries to connect to arbitrary devices. This section can
+                be skipped on Arch Linux and other distributions with fwupd 1.9.10 or later since
                 we reported the bug and it was fixed. This never impacted Android or ChromeOS.</p>
 
                 <p>Check your fwupd version with the following command:</p>
 
                 <pre>apt-cache policy fwupd</pre>
 
-                <p>If you have a fwupd version earlier than 1.9.10, you can stop fwupd with the 
+                <p>If you have a fwupd version earlier than 1.9.10, you can stop fwupd with the
                 following command:</p>
 
                 <pre>sudo systemctl stop fwupd.service</pre>
