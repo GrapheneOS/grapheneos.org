@@ -387,6 +387,15 @@
                                     released retains data indefinitely until the memory is handed
                                     out for other uses and gets partially or fully overwritten by
                                     new data.</li>
+                                    <li>In early boot, all the memory not being used by the OS is
+                                    zeroed to get rid of any data leftover from a previous boot in
+                                    case zero-on-free didn't have the opportunity to clear it as
+                                    part of a clean reboot/shutdown. All the devices we support have
+                                    a reset attack protection feature we proposed zeroing memory for
+                                    firmware-based boot modes, but we need to finish it up by adding
+                                    it for the OS boot modes ourselves. Fully encrypted RAM with a
+                                    per-boot key cycled on reboots will eventually obsolete these
+                                    features for newer devices.</li>
                                     <li>Kernel stack allocations are zeroed to make most
                                     uninitialized data usage vulnerabilities harmless.</li>
                                     <li>Assorted attack surface reduction through disabling
