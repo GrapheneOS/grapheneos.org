@@ -428,13 +428,6 @@ Installed as /home/username/platform-tools/fastboot</pre>
                     <li><a href="https://github.com/GrapheneOS/releases.grapheneos.org/blob/main/static/allowed_signers">GitHub</a></li>
                 </ul>
 
-                <p>The current public key is signed with the previous signify key. If you already
-                have the previous signify public key (factory.pub) and want to verify the new key
-                with it:</p>
-
-                <pre>curl -O https://releases.grapheneos.org/allowed_signers.sig
-signify -V -m allowed_signers -x allowed_signers.sig -p factory.pub</pre>
-
                 <p>When the current signing key is replaced, the new key will be signed with it.</p>
 
                 <p>Download the factory images for the device from <a href="/releases">the releases
