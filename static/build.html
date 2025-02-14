@@ -758,7 +758,7 @@ repo sync -j8</pre>
                     <section id="kernel-microdroid">
                         <h4><a href="#kernel-microdroid">Microdroid</a></h4>
 
-                        <p>To sync the 6.6 kernel sources:</p>
+                        <p>To sync the kernel sources:</p>
 
                         <pre>mkdir -p android/kernel/6.6
 cd android/kernel/6.6
@@ -785,10 +785,10 @@ repo sync -j8</pre>
                     <section id="kernel-9th-generation-pixels">
                         <h4><a href="#kernel-9th-generation-pixels">9th generation Pixels</a></h4>
 
-                        <p>To sync the caimito kernel for the Pixel 9, Pixel 9 Pro and Pixel 9 Pro XL:</p>
+                        <p>To sync the kernel sources:</p>
 
-                        <pre>mkdir -p android/kernel/caimito
-cd android/kernel/caimito
+                        <pre>mkdir -p android/kernel/pixel
+cd android/kernel/pixel
 repo init -u https://github.com/GrapheneOS/kernel_manifest-pixel.git -b 15
 repo sync -j8</pre>
 
@@ -800,13 +800,6 @@ repo sync -j8</pre>
                         <code>device/google/caimito-kernels/6.1/grapheneos/</code> with your build in
                         <code>out/caimito/dist/</code>.</p>
 
-                        <p>To sync the comet kernel for the Pixel 9 Pro Fold:</p>
-
-                        <pre>mkdir -p android/kernel/comet
-cd android/kernel/comet
-repo init -u https://github.com/GrapheneOS/kernel_manifest-pixel.git -b 15
-repo sync -j8</pre>
-
                         <p>To build the comet kernel for the Pixel 9 Pro Fold:</p>
 
                         <pre>./build_comet.sh --config=no_download_gki --config=no_download_gki_fips140 --lto=full</pre>
@@ -814,16 +807,15 @@ repo sync -j8</pre>
                         <p>Replace the files in the OS source tree at
                         <code>device/google/comet-kernels/6.1/grapheneos/</code> with your build in
                         <code>out/comet/dist/</code>.</p>
-
                     </section>
 
                     <section id="kernel-8th-generation-pixels">
                         <h4><a href="#kernel-8th-generation-pixels">8th generation Pixels</a></h4>
 
-                        <p>To sync the shusky kernel for the Pixel 8 and Pixel 8 Pro:</p>
+                        <p>To sync the kernel sources:</p>
 
-                        <pre>mkdir -p android/kernel/shusky
-cd android/kernel/shusky
+                        <pre>mkdir -p android/kernel/zuma
+cd android/kernel/zuma
 repo init -u https://github.com/GrapheneOS/kernel_manifest-zuma.git -b 15
 repo sync -j8</pre>
 
@@ -834,13 +826,6 @@ repo sync -j8</pre>
                         <p>Replace the files in the OS source tree at
                         <code>device/google/shusky-kernels/5.15/grapheneos/</code> with your build in
                         <code>out/shusky/dist/</code>.</p>
-
-                        <p>To sync the akita kernel for the Pixel 8a:</p>
-
-                        <pre>mkdir -p android/kernel/akita
-cd android/kernel/akita
-repo init -u https://github.com/GrapheneOS/kernel_manifest-zuma.git -b 15
-repo sync -j8</pre>
 
                         <p>To build the akita kernel for the Pixel 8a:</p>
 
@@ -854,10 +839,10 @@ repo sync -j8</pre>
                     <section id="kernel-7th-generation-pixels">
                         <h4><a href="#kernel-7th-generation-pixels">7th generation Pixels</a></h4>
 
-                        <p>To sync the pantah kernel for the Pixel 7 and Pixel 7 Pro:</p>
+                        <p>To sync the kernel sources:</p>
 
-                        <pre>mkdir -p android/kernel/pantah
-cd android/kernel/pantah
+                        <pre>mkdir -p android/kernel/gs
+cd android/kernel/gs
 repo init -u https://github.com/GrapheneOS/kernel_manifest-gs.git -b 15
 repo sync -j8</pre>
 
@@ -869,13 +854,6 @@ repo sync -j8</pre>
                         <code>device/google/pantah-kernels/5.10/grapheneos/</code> with your build in
                         <code>out/mixed/dist/</code>.</p>
 
-                        <p>To sync the lynx kernel for the Pixel 7a:</p>
-
-                        <pre>mkdir -p android/kernel/lynx
-cd android/kernel/lynx
-repo init -u https://github.com/GrapheneOS/kernel_manifest-gs.git -b 15
-repo sync -j8</pre>
-
                         <p>To build the lynx kernel for the Pixel 7a:</p>
 
                         <pre>BUILD_AOSP_KERNEL=1 LTO=full ./build_lynx.sh</pre>
@@ -884,13 +862,6 @@ repo sync -j8</pre>
                         <code>device/google/lynx-kernels/5.10/grapheneos/</code> with your build in
                         <code>out/mixed/dist/</code>.</p>
 
-                        <p>To sync the tangorpro kernel for the Pixel Tablet:</p>
-
-                        <pre>mkdir -p android/kernel/tangorpro
-cd android/kernel/tangorpro
-repo init -u https://github.com/GrapheneOS/kernel_manifest-gs.git -b 15
-repo sync -j8</pre>
-
                         <p>To build the tangorpro kernel for the Pixel Tablet:</p>
 
                         <pre>BUILD_AOSP_KERNEL=1 LTO=full ./build_tangorpro.sh</pre>
@@ -898,13 +869,6 @@ repo sync -j8</pre>
                         <p>Replace the files in the OS source tree at
                         <code>device/google/tangorpro-kernels/5.10/grapheneos/</code> with your build in
                         <code>out/mixed/dist/</code>.</p>
-
-                        <p>To sync the felix kernel for the Pixel Fold:</p>
-
-                        <pre>mkdir -p android/kernel/felix
-cd android/kernel/felix
-repo init -u https://github.com/GrapheneOS/kernel_manifest-gs.git -b 15
-repo sync -j8</pre>
 
                         <p>To build the felix kernel for the Pixel Fold:</p>
 
@@ -918,17 +882,10 @@ repo sync -j8</pre>
                     <section id="kernel-6th-generation-pixels">
                         <h4><a href="#kernel-6th-generation-pixels">6th generation Pixels</a></h4>
 
-                        <p>To sync the raviole kernel for the Pixel 6 and Pixel 6 Pro:</p>
+                        <p>To sync the kernel sources:</p>
 
-                        <pre>mkdir -p android/kernel/raviole
-cd android/kernel/raviole
-repo init -u https://github.com/GrapheneOS/kernel_manifest-gs.git -b 15
-repo sync -j8</pre>
-
-                        <p>To sync the bluejay kernel for the Pixel 6a:</p>
-
-                        <pre>mkdir -p android/kernel/bluejay
-cd android/kernel/bluejay
+                        <pre>mkdir -p android/kernel/gs
+cd android/kernel/gs
 repo init -u https://github.com/GrapheneOS/kernel_manifest-gs.git -b 15
 repo sync -j8</pre>
 
@@ -949,7 +906,7 @@ repo sync -j8</pre>
                     <section id="kernel-5th-generation-pixels">
                         <h4><a href="#kernel-5th-generation-pixels">5th generation Pixels</a></h4>
 
-                        <p>For 5th generation Pixels:</p>
+                        <p>To sync the kernel sources:</p>
 
                         <pre>mkdir -p android/kernel/redbull
 cd android/kernel/redbull
@@ -969,6 +926,8 @@ repo sync -j8</pre>
 
                     <section id="kernel-4th-generation-pixels">
                         <h4><a href="#kernel-4th-generation-pixels">4th generation Pixels</a></h4>
+
+                        <p>To sync the kernel sources:</p>
 
                         <pre>mkdir -p android/kernel/coral
 cd android/kernel/coral
