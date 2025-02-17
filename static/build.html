@@ -547,7 +547,7 @@ m aapt2</pre>
 
                     <p>You should set a passphrase for the signing keys to keep them at rest until you
                     need to sign a release with them. The GrapheneOS scripts (<code>make_key</code> and
-                    <code>encrypt-keys.sh</code>) encrypt the signing keys using scrypt for key derivation
+                    <code>encrypt-keys</code>) encrypt the signing keys using scrypt for key derivation
                     and AES256 as the cipher. If you use swap, make sure it's encrypted, ideally with an
                     ephemeral key rather a persistent key to support hibernation. Even with an ephemeral
                     key, swap will reduce the security gained from encrypting the keys since it breaks the
@@ -590,9 +590,9 @@ cd ../..</pre>
                         <p>You can (re-)encrypt your signing keys using the <code>encrypt-keys</code> script,
                         which will prompt for the old passphrase (if any) and new passphrase:</p>
 
-                        <pre>script/encrypt-keys.sh keys/raven</pre>
+                        <pre>script/encrypt-keys keys/raven</pre>
 
-                        <p>The <code>script/decrypt-keys.sh</code> script can be used to remove encryption,
+                        <p>The <code>script/decrypt-keys</code> script can be used to remove encryption,
                         which is not recommended. The script exists primarily for internal usage to decrypt
                         the keys in tmpfs to perform signing.</p>
                     </section>
