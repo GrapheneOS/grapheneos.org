@@ -561,6 +561,7 @@
                     <p>Changes since the 2025021100 release:</p>
 
                     <ul>
+                        <li>add our own network location implementation with support for using the Apple Wi-Fi positioning service API either directly or through a GrapheneOS proxy (will be extended with support for cell towers, a service backed by a GrapheneOS Wi-Fi / cell tower database which we've already begun building and offline support through downloading a subset of our database)</li>
                         <li>add support for "5G only" and "4G or 5G only" modes in addition to our existing "4G only" mode</li>
                         <li>enable support for blocking callers not in Contacts</li>
                         <li>resolve regression for secondary user SMS in Android 15 QPR1 by enabling partial upstream fix since we dropped this part of our fix for the issues but the upstream fix wasn't actually active</li>
