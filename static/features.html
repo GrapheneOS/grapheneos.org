@@ -297,6 +297,13 @@
                         toggle end up continuing to allow new USB connections in the OS until all
                         connections end instead of the two-phase approach we use for our two
                         Charging-only when locked modes.</p>
+
+                        <p>The highest security <b>Off</b> mode disables charging in addition to
+                        data to remove the remaining attack surface from the USB controller and OS
+                        supporting charging including the USB-PD protocol. There's no risk of the
+                        device not being able to be charged since the overall feature doesn't apply
+                        while the device is powered off, booted into the firmware-based fastboot
+                        mode or the charging, recovery and fastbootd modes.</p>
                     </section>
 
                     <section id="exploit-mitigations">
