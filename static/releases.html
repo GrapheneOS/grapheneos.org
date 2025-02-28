@@ -568,6 +568,7 @@
                         <li>fix ancient upstream bug causing system_server crashes when flushing an inactive location provider which was uncovered by us adding our own network location provider</li>
                         <li>exclude network location provider from the GrapheneOS location indicatorsince it's meant to be shown for apps requesting location rather than showing users when the OS location services listen for GNSS satellite broadcasts and scan nearby networks</li>
                         <li>Sandboxed Google Play compatibility layer: fix issues in our requestLocationSettingsDialog() implementation which were uncovered by providing our own network location provider (this is part of our reimplementation of the Google Play location service used when rerouting Google Play location requests to the OS is enabled which is the default)</li>
+                        <li>Network Location: incorporate altitude into trilateration when available to replace basic altitude support based on averages which wasn't taken into account for the latitude/longitude estimation (i.e. it now operates in 3D instead of 2D)</li>
                         <li>Network Location: add TLS key pinning for gs-loc.apple.grapheneos.org</li>
                         <li>kernel (6.6): update to latest GKI LTS branch revision</li>
                     </ul>
