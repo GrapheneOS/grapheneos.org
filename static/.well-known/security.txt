@@ -4,21 +4,21 @@ Hash: SHA256
 Contact: mailto:security@grapheneos.org
 Canonical: https://grapheneos.org/.well-known/security.txt
 Encryption: data:application/x-age-public-key,age1dcftzgq00ykgwvxl5te6d5clqgx75h2g54c0u8gjc43mcnea7p7q3ma0yx
-Expires: 2025-03-01T00:00:00Z
+Expires: 2026-03-01T00:00:00Z
 Preferred-Languages: en
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCAAdFiEEZe7+AiEI4rcIy/z3+ecS5Zr18ioFAmXzf7gACgkQ+ecS5Zr1
-8iqqhA/+ON8kxEfBeEtqcZBKGc57357Ps2csOWRejR4bjpbs22P1+MHg8G/WZr6p
-r4CfZLLkZHm6bWQhUM3PCy/kuPtiAQJASZHT0SKnbZzfg1xxoivNX9Nagk8Sy6aD
-RK7VKv052pfwdet22bs9qspyGtmeXUnoOCtwiD6IAbuZd+4Gg+OR95VLgNlyg4oh
-q+UHwK8d4KEG3obbxUMM5u1TNZBrTBBXoc9zTB2I4Bs1Wd+VD411An/yRo9vV0mg
-otWFI2/xZqCSfMFOaTOJl4Evl0gU6PF+A5v7/g3L/IOaOp+r8NAO0O7WmDpSkefg
-l61ChHHPtz4ufK2gl4i2NKSrx+95JulXhL3QeVHKB3dev54/zYJmL/kTa3iENf09
-zPeq3JVlywqZq3nbMZazlaE/Rz7ZQ0jDO92p6RDl8J2vZKJ2aAELvQLSSpXJlLwH
-f/tMdKjPI2lJ4FwiPzdrD9V5cppnTRWmIdJZPtBy6pqwFCmu+a0vQzGsKqd9cd+A
-7GA3eXYfVfSoFV2IgD+KzSIC9RAvifKY5rj1MMuZE+ic8X23W77gHDuGQmRq/iuP
-SQ1DjOvfdL2+nyVoif43Zf6TWjO/Uj5SEVv0ofeJmF7UkjGKwIm5ziPOcjgy7tmw
-cwRnux63tFszNUeqIezGoK2kTDd5gU2Wljsxp4ZGN2URUB75CKA=
-=9Qah
+iQIzBAEBCAAdFiEEZe7+AiEI4rcIy/z3+ecS5Zr18ioFAmfDGl4ACgkQ+ecS5Zr1
+8iquHQ//e/Wy0rv3YlGTzzE1bM+h45JKyd+vxYdRmUVM4ic0rLpx+v1vQdIDKUtZ
+Bax7wE1dMRu02Tpo8vxoEB5QgilxgLtZIi0y3K68/lQJM1BIl20ieL0YfeB9YZt7
+TZeAbuIMaq0YyzxexTE2GKQQI4qKAIJpMvEnvxmZ2c9dmOiP6T6TYVsYBmiSe7op
+YUQZ1j6yElVXiBA9FJg1vpaWqPFeSEmi8X0c0ef5tdNKCai1c2/arhELK4msB3ih
+0Wd7MIukudGvH7Xjfb+H8EZ53OTg/3pAhNdf5E7apwlgNPdp/XPK3Uen+8o0wV4r
+cQRNBD0gGA8kyEtYfcgndFo5kVkptOZB4OLx7A9wxjDsfMYduknuTGyniZH2DBlH
+S/H0aWaoLSO2FCFT7OIkXxYTjXdbKZwgtPf5ba6gCpDL/aXrjIPeqHtmo/l2ruhx
+sc6TYiSHBQuFqQg+X2/49GxDap6k13an5ZiRPUw5CoJl3r3Ztg6ZKu4EiFmLjJ5K
+AliaN0hjwqxH0AbMc95DLUZ1oRNpk17dlcXl/Fgk7ZI/6GWEqOhEkzf3je9GrZJR
+53OTDvcarq+rS8kcZ/bSxoBLaZNcNes3kcinaCnGCTjFPgoy2f6CtuuA37KwMc0V
+TMGaKqRMUCj+lJtdM2HuY0FvWMWjrDKdPrprUx8/umrAa0XPX2k=
+=WcPV
 -----END PGP SIGNATURE-----
