@@ -581,7 +581,7 @@
                     <p>Changes since the 2025022700 release:</p>
 
                     <ul>
-                        <li>restrict 5G only mode to carriers with 5G standalone support to avoid setting the option silently failing</li>
+                        <li>restrict "5G only" mode to carriers with 5G standalone support to avoid setting the option silently failing</li>
                         <li>fix ancient upstream bug causing system_server crashes when flushing an inactive location provider which was uncovered by us adding our own network location provider</li>
                         <li>exclude network location provider from the GrapheneOS location indicator since it's meant to be shown for apps requesting location rather than showing users when the OS location services listen for GNSS satellite broadcasts and scan nearby networks</li>
                         <li>Sandboxed Google Play compatibility layer: fix issues in our requestLocationSettingsDialog() implementation which were uncovered by providing our own network location provider (this is part of our reimplementation of the Google Play location service used when rerouting Google Play location requests to the OS is enabled which is the default)</li>
