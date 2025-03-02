@@ -113,10 +113,12 @@ class BlobStore {
     }
 
     async saveFile(name, blob) {
-        this.db.transaction(["files"], "readwrite").objectStore("files").add({
-            name: name,
-            blob: blob,
-        });
+        await this._wrapReq(
+            this.db.transaction(["files"], "readwrite").objectStore("files").add({
+                name: name,
+                blob: blob,
+            })
+        );
     }
 
     async loadFile(name) {
