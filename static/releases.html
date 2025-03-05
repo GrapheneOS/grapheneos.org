@@ -573,6 +573,11 @@
                     <p>Changes since the 2025030300 release:</p>
 
                     <ul>
+                        <li>full 2025-03-05 security patch level</li>
+                        <li>rebased onto BP1A.250305.020.T2 Android Open Source Project release (initial Android 15 QPR2 release)</li>
+                        <li>Settings: replace our approach to making the Unrestricted mode due to changes in Android 15 QPR2</li>
+                        <li>drop 7 downstream GrapheneOS patches for upstream Android bugs which should no longer be required due to upstream fixes in Android 15 QPR2</li>
+                        <li>Launcher: drop code for migrating invalid legacy shortcuts created by a previous upstream Android bug since it was extremely rare and we've had the workaround since our <a href="#2023101100>2023101100</a> release so it's unlikely anyone with the issue hasn't updated and can always just be worked around clearing the launcher data</li>
                     </ul>
                 </article>
                 -->
