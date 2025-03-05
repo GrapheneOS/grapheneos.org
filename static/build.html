@@ -84,10 +84,7 @@
                                 <ul>
                                     <li><a href="#kernel-emulator">Emulator</a></li>
                                     <li><a href="#kernel-microdroid">Microdroid</a></li>
-                                    <li><a href="#kernel-9th-generation-pixels">9th generation Pixels</a></li>
-                                    <li><a href="#kernel-8th-generation-pixels">8th generation Pixels</a></li>
-                                    <li><a href="#kernel-7th-generation-pixels">7th generation Pixels</a></li>
-                                    <li><a href="#kernel-6th-and-7th-generation-pixels">6th and 7th generation Pixels</a></li>
+                                    <li><a href="#kernel-6th-through-9th-generation-pixels">6th through 9th generation Pixels</a></li>
                                     <li><a href="#kernel-5th-generation-pixels">5th generation Pixels</a></li>
                                     <li><a href="#kernel-4th-generation-pixels">4th generation Pixels</a></li>
                                 </ul>
@@ -310,12 +307,12 @@ source ~/.bashrc</pre>
                     <section id="development-branch">
                         <h4><a href="#development-branch">Development branch</a></h4>
 
-                        <p>The <code>15</code> branch is the main development branch of GrapheneOS
-                        based on the latest release of Android 15. It will follow along with the
-                        latest monthly and quarterly releases of Android 15. The <code>15</code>
-                        branch of GrapheneOS should be used for generic builds including the
-                        emulator, porting to other devices and for non-legacy officially supported
-                        devices.</p>
+                        <p>The <code>15-qpr2</code> branch is the main development branch of
+                        GrapheneOS based on the latest release of Android 15 QPR2. It will follow
+                        along with the latest monthly and quarterly releases of Android 15 QPR2. The
+                        <code>15-qpr2</code> branch of GrapheneOS should be used for generic builds
+                        including the emulator, porting to other devices and for non-legacy
+                        officially supported devices.</p>
 
                         <p>The <code>14</code> branch is used for the end-of-life Pixel 5a.</p>
 
@@ -327,11 +324,11 @@ source ~/.bashrc</pre>
                         <p>The <code>13-coral</code> branch is used for the end-of-life Pixel 4
                         and Pixel 4 XL.</p>
 
-                        <p>To sync the <code>15</code> branch:</p>
+                        <p>To sync the <code>15-qpr2</code> branch:</p>
 
-                        <pre>mkdir grapheneos-15
-cd grapheneos-15
-repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 15
+                        <pre>mkdir grapheneos-15-qpr2
+cd grapheneos-15-qpr2
+repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 15-qpr2
 repo sync -j8</pre>
 
                         <p>If your network is unreliable and <code>repo sync</code> fails, you can run the
@@ -782,8 +779,8 @@ repo sync -j8</pre>
                         <code>out/kernel_x86_64_microdroid/dist/bzImage</code>.</p>
                     </section>
 
-                    <section id="kernel-9th-generation-pixels">
-                        <h4><a href="#kernel-9th-generation-pixels">9th generation Pixels</a></h4>
+                    <section id="kernel-6th-through-9th-generation-pixels">
+                        <h4><a href="#kernel-6th-through-9th-generation-pixels">6th through 9th generation Pixels</a></h4>
 
                         <p>To sync the kernel sources:</p>
 
@@ -799,57 +796,9 @@ repo sync -j8</pre>
                             <li>komodo: caimito</li>
                             <li>caiman: caimito</li>
                             <li>tokay: caimito</li>
-                        </ul>
-
-                        <p>To build the kernel and modules:</p>
-
-                        <pre>./build_<var>codename</var>.sh --config=no_download_gki --config=no_download_gki_fips140 --lto=full</pre>
-
-                        <p>Replace the files in the OS source tree at
-                        <code>device/google/<var>codename</var>-kernels/6.1/grapheneos/</code> with your build in
-                        <code>out/<var>codename</var>/dist/</code>.</p>
-                    </section>
-
-                    <section id="kernel-8th-generation-pixels">
-                        <h4><a href="#kernel-8th-generation-pixels">8th generation Pixels</a></h4>
-
-                        <p>To sync the kernel sources:</p>
-
-                        <pre>mkdir -p android/kernel/zuma
-cd android/kernel/zuma
-repo init -u https://github.com/GrapheneOS/kernel_manifest-zuma.git -b 15
-repo sync -j8</pre>
-
-                        <p>Select the correct kernel codename for the device model:</p>
-
-                        <ul>
                             <li>akita: akita</li>
                             <li>husky: shusky</li>
                             <li>shiba: shusky</li>
-                        </ul>
-
-                        <p>To build the kernel and modules:</p>
-
-                        <pre>./build_<var>codename</var>.sh --config=no_download_gki --lto=full</pre>
-
-                        <p>Replace the files in the OS source tree at
-                        <code>device/google/<var>codename</var>-kernels/5.15/grapheneos/</code> with your build in
-                        <code>out/<var>codename</var>/dist/</code>.</p>
-                    </section>
-
-                    <section id="kernel-6th-and-7th-generation-pixels">
-                        <h4><a href="#kernel-6th-and-7th-generation-pixels">6th and 7th generation Pixels</a></h4>
-
-                        <p>To sync the kernel sources:</p>
-
-                        <pre>mkdir -p android/kernel/gs
-cd android/kernel/gs
-repo init -u https://github.com/GrapheneOS/kernel_manifest-gs.git -b 15
-repo sync -j8</pre>
-
-                        <p>Select the correct kernel codename for the device model:</p>
-
-                        <ul>
                             <li>felix: felix</li>
                             <li>tangorpro: tangorpro</li>
                             <li>lynx: lynx</li>
@@ -862,11 +811,11 @@ repo sync -j8</pre>
 
                         <p>To build the kernel and modules:</p>
 
-                        <pre>BUILD_AOSP_KERNEL=1 LTO=full ./build_<var>codename</var>.sh</pre>
+                        <pre>./build_<var>codename</var>.sh --config=no_download_gki --config=no_download_gki_fips140 --lto=full</pre>
 
                         <p>Replace the files in the OS source tree at
-                        <code>device/google/<var>codename</var>-kernels/5.10/grapheneos/</code> with your build in
-                        <code>out/mixed/dist/</code>.</p>
+                        <code>device/google/<var>codename</var>-kernels/6.1/grapheneos/</code> with your build in
+                        <code>out/<var>codename</var>/dist/</code>.</p>
                     </section>
 
                     <section id="kernel-5th-generation-pixels">

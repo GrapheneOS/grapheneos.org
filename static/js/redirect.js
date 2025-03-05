@@ -36,8 +36,11 @@ const redirects = new Map([
     ["/install/web#fastboot-as-non-root", "/install/web#flashing-as-non-root"],
 
     ["/build#enabling-updatable-apex-components", "/build#apex-components"],
-    ["/build#kernel-6th-generation-pixels", "/build#kernel-6th-and-7th-generation-pixels"],
-    ["/build#kernel-7th-generation-pixels", "/build#kernel-6th-and-7th-generation-pixels"],
+    ["/build#kernel-6th-generation-pixels", "/build#kernel-6th-through-9th-generation-pixels"],
+    ["/build#kernel-7th-generation-pixels", "/build#kernel-6th-through-9th-generation-pixels"],
+    ["/build#kernel-6th-and-7th-generation-pixels", "/build#kernel-6th-through-9th-generation-pixels"],
+    ["/build#kernel-8th-generation-pixels", "/build#kernel-6th-through-9th-generation-pixels"],
+    ["/build#kernel-9th-generation-pixels", "/build#kernel-6th-through-9th-generation-pixels"],
 
     // legacy devices
     ["/releases#marlin-stable", "/faq#legacy-devices"],
