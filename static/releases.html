@@ -578,6 +578,7 @@
                         <li>Settings: replace our approach to making the Unrestricted mode due to changes in Android 15 QPR2</li>
                         <li>drop 7 downstream GrapheneOS patches for upstream Android bugs which should no longer be required due to upstream fixes in Android 15 QPR2</li>
                         <li>Launcher: drop code for migrating invalid legacy shortcuts created by a previous upstream Android bug since it was extremely rare and we've had the workaround since our <a href="#2023101100>2023101100</a> release so it's unlikely anyone with the issue hasn't updated and can always just be worked around clearing the launcher data</li>
+                        <li>kernel (Pixel 7a): temporarily disable RANDSTRUCT due to a Qualcomm Wi-Fi driver incompatibility (only the Pixel 7a uses Qualcomm Wi-Fi and RANDSTRUCT wasn't enabled before Android 15 QPR2 for 6th/7th/8th gen Pixels since they weren't on 6.1 yet)</li>
                     </ul>
                 </article>
                 -->
