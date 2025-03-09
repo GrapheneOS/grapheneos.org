@@ -572,6 +572,8 @@
                     <ul>
                         <li>Android Debug Bridge: fix upstream fdsan crash from closing invalid file descriptor by fixing usage of epoll</li>
                         <li>Sandboxed Google Play compatibility layer: fix issue breaking RPC transactions which impacts the Terminal app</li>
+                        <li>Sandboxed Google Play compatibility layer: add implementation of isGoogleLocationAccuracyEnabled() always returning true to fix compatibility with apps checking for it</li>
+                        <li>Sandboxed Google Play compatibility layer: fix definition of IStatusCallback.onCompletion() to slightly improve performance</li>
                         <li>allow Terminal app to use WebView JIT since it requires WebAssembly</li>
                         <li>kernel (6.6): update to latest GKI LTS branch revision including update to 6.6.80</li>
                     </ul>
