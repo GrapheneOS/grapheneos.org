@@ -578,7 +578,7 @@
 
                     <ul>
                         <li>SystemUI: re-enable migrate_clocks_to_blueprint and communal_hub flags with workarounds for upstream issues when using standard AOSP UI components instead of Pixel OS components</li>
-                        <li>Android Debug Bridge: fix upstream fdsan crash from closing invalid file descriptor by fixing usage of epoll</li>
+                        <li>Android Debug Bridge: fix upstream crash caused by a race condition that sometimes unregistered a closed file descriptor from epoll</li>
                         <li>Sandboxed Google Play compatibility layer: fix issue breaking RPC transactions which impacts the Terminal app</li>
                         <li>Sandboxed Google Play compatibility layer: add implementation of isGoogleLocationAccuracyEnabled() always returning true to fix compatibility with apps checking for it</li>
                         <li>Sandboxed Google Play compatibility layer: fix definition of IStatusCallback.onCompletion() to slightly improve performance</li>
