@@ -572,6 +572,7 @@
                     <ul>
                         <li>Bluetooth: backport fix for empty adapter name handling in Android 15 QPR2 to avoid crashes when the name is set to an empty value or whitespace</li>
                         <li>Terminal (virtual machine management app): backport a large set of improvements including terminal tabs, GUI support with opt-in GPU hardware acceleration (ANGLE-based VirGL until GPU virtualization support is available), speaker/microphone support and fixes for a bunch of bugs including overly aggressive timeouts</li>
+                        <li>Settings: add Terminal app toggle to System category when developer options are enabled (requirement will be dropped when it's no longer experimental) so it can be enabled in other users (it's still currently only possible to use 1 instance at a time due to conflicting use of an internal network specific to virtual machine management)</li>
                         <li>Seedvault: update to 15-5.3 (will be replaced with a better backup implementation in the future)</li>
                     </ul>
                 </article>
