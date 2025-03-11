@@ -27,10 +27,12 @@ async function updateReleases() {
                 const updateUrl = baseUrl + updateFilename;
 
                 const release = document.getElementById(`${device}-${channel}`);
-                const links = release.getElementsByTagName("a");
+                const links = release.querySelectorAll("a, span");
 
                 links[0].textContent = metadata[0];
-                links[0].setAttribute("href", "#" + metadata[0]);
+                if (links[0].nodeName == "A") {
+                    links[0].setAttribute("href", "#" + metadata[0]);
+                }
                 links[1].setAttribute("href", factoryUrl);
                 links[2].setAttribute("href", factoryUrl + ".sig");
                 links[3].setAttribute("href", updateUrl);
