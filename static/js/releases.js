@@ -29,6 +29,7 @@ async function updateReleases() {
                 const release = document.getElementById(`${device}-${channel}`);
                 const links = release.getElementsByTagName("a");
 
+                links[0].textContent = metadata[0];
                 links[0].setAttribute("href", "#" + metadata[0]);
                 links[1].setAttribute("href", factoryUrl);
                 links[2].setAttribute("href", factoryUrl + ".sig");
