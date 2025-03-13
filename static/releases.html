@@ -570,6 +570,7 @@
                     <p>Changes since the 2025030900 release:</p>
 
                     <ul>
+                        <li>Sandboxed Google Play compatibility layer: overhaul location rerouting implementation to provide much better compatibility for apps depending on network-based location with or without the OS network location service enabled by using GNSS as a fallback for low power network location requests when the OS network location service is disabled</li>
                         <li>fix Storage Scopes related null pointer exception in the permissions manager</li>
                         <li>Bluetooth: backport fix for empty adapter name handling in Android 15 QPR2 to avoid crashes when the name is set to an empty value or whitespace</li>
                         <li>Terminal (virtual machine management app): backport a large set of improvements including terminal tabs, GUI support with opt-in GPU hardware acceleration (ANGLE-based VirGL until GPU virtualization support is available), speaker/microphone support and fixes for a bunch of bugs including overly aggressive timeouts</li>
