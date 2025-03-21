@@ -103,6 +103,7 @@
                             <li><a href="#broad-carrier-support">Broad carrier support without invasive carrier access</a></li>
                             <li><a href="#lte-only-mode">LTE-only mode</a></li>
                             <li><a href="#wifi-privacy">Wi-Fi privacy</a></li>
+                            <li><a href="#network-location">Network Location</a></li>
                             <li><a href="#private-screenshots">Private screenshots</a></li>
                             <li><a href="#closed-device-identifier-leaks">Closed device identifier leaks</a></li>
                             <li><a href="#privacy-by-default">Privacy by default</a></li>
@@ -718,6 +719,35 @@
                     <p>See our <a href="/usage#wifi-privacy">usage guide section on Wi-Fi privacy
                     for more general information</a> rather than only our improvements to the
                     standard Wi-Fi privacy approach.</p>
+                </section>
+
+                <section id="network-location">
+                    <h3><a href="#network-location">Network Location</a></h3>
+
+                    <p>GrapheneOS provides the ability to use network location as an opt-in feature.</p>
+
+                    <p>The setting can be found at Settings > Location > Location services > Network location.
+                    The available options are using Apple's network location service, or a GrapheneOS proxy
+                    to that service.</p>
+
+                    <p>To use this feature, you need to make sure that you either have Wi-Fi enabled, or 
+                    that Wi-Fi scanning is enabled at Settings > Location > Location services > Wi-Fi scanning. 
+                    Enabling the Wi-Fi scanning setting will allow you to use network location even 
+                    if you disable the global Wi-Fi toggle.</p>
+
+                    <p>Enabling the network location feature will make getting a location lock indoors 
+                    and in cities with tall buildings much faster, or possible when it would have 
+                    previously been impossible. Additionally, network location improves app compatibility 
+                    for apps that expect a fast location lock from the network location provider 
+                    which they won't get when it's off and GNSS is being used instead.</p>
+
+                    <p>The feature works by sending nearby Wi-Fi network identifiers to the service, 
+                    which returns positioning data for those networks and other nearby ones to store 
+                    in a temporary in-memory cache. Your location is estimated using a robust on-device 
+                    multilateration algorithm.</p>
+
+                    <p>In the future, GrapheneOS plans to provide an option for offline network location 
+                    using downloaded data instead of having to send data to a service.</p>
                 </section>
 
                 <section id="private-screenshots">
