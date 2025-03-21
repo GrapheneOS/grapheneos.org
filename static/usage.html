@@ -1044,7 +1044,9 @@
                 requests are rerouted to a reimplementation of the Play geolocation service
                 provided by GrapheneOS. You can disable rerouting and use the standard Play
                 services geolocation service instead if you want the Google network location
-                service and related features.</p>
+                service and related features. This shouldn't be needed outisde of testing or
+                obscure use cases, since GrapheneOS provides its own opt-in 
+                <a href="/features#network-location">Network Location</a> feature.</p>
 
                 <p>Our compatibility layer includes full support for the Play Store. Play Store
                 services are fully available including in-app purchases, Play Asset Delivery, Play
@@ -1107,30 +1109,30 @@
                     <p>By default, apps using Google Play geolocation are redirected to our own
                     implementation on top of the standard OS geolocation service. You don't need to
                     grant any permissions to Google Play or change any settings for working location
-                    in apps using Google Play geolocation due to our rerouting feature. If you want
-                    to use Google's network location service to provide location estimates without
-                    satellite reception, you can disable the "Reroute location requests to OS APIs"
-                    toggle and grant what it requires to provide network location. You will need to
-                    grant "Allow all the time" Location access to Google Play services along with
-                    the Nearby Devices permission for it to have all the access it needs. You need
-                    to use the "Google Location Accuracy" link from the sandboxed Google Play
-                    configuration menu to access the Google Play services menu for opting into their
-                    network location service, otherwise this is all pointless. It will send the
-                    nearby Wi-Fi and cellular networks provided via the Location and Nearby Devices
-                    permissions to their service to retrieve a location estimate. In order to fully
-                    take advantage of Wi-Fi and Bluetooth scanning, you also need to enable the
-                    scanning toggles in <b>Settings&#160;<span aria-label="and then">></span>
-                    Location &#160;<span aria-label="and then">></span> Location services</b> which
-                    are disabled by default and control whether apps with the required permissions can
-                    scan when Wi-Fi and Bluetooth are otherwise disabled.</p>
+                    in apps using Google Play geolocation due to our rerouting feature.</p>
+
+                    <p>This is not recommended unless you're testing something or have an obscure 
+                    use case since our <a href="/features#network-location">network location</a> 
+                    feature can be used instead, but if you want to use Google's network location 
+                    service to provide location estimates without satellite reception, you can 
+                    follow these steps:</p>
+
+                    <ol>
+                        <li>Disable the "Reroute location requests to OS APIs" toggle.</li>
+                        <li>Grant "Allow all the time" Location access to Google Play services along with the 
+                        Nearby Devices permission for it to have all the access it needs. </li>
+                        <li>Use the "Google Location Accuracy" link from the sandboxed Google Play configuration 
+                        menu to access the Google Play services menu for opting into their network location service.</li>
+                        <li>To take advantage of Wi-Fi and Bluetooth scanning, you also need to enable the scanning 
+                        toggles in <b>Settings&#160;<span aria-label="and then">></span> 
+                        Location &#160;<span aria-label="and then">></span> Location services</b> 
+                        which are disabled by default and control whether apps with the required permissions 
+                        can scan when Wi-Fi and Bluetooth are otherwise disabled.</li>
+                    </ol>
 
                     <p>Re-routing location to the OS geolocation service will use more power than
-                    using the Google Play geolocation service since we do not provide a
-                    network-based location service and implement it via GNSS / A-GPS only. In the
-                    future, we plan on providing a pseudo-network geolocation service for the OS
-                    by using a local database of cell towers, and the location redirection feature
-                    can also make use of this future OS implementation for network location
-                    requests once it's available.</p>
+                    using the Google Play geolocation service unless you enable our opt-in 
+                    <a href="/features#network-location">network location</a> feature.</p>
 
                     <p>The Google Location Accuracy and Google settings activities would normally
                     be integrated into the OS but we don't include any of the standard Google Play
