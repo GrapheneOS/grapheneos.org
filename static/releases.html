@@ -576,6 +576,8 @@
                         <li>Network Location: rewrite position estimation in Rust with a new algorithm based on Expectation-Maximization (EM) always using 3D (altitude) to provide much better accuracy, robustness and performance (this new 3D implementation performs better than the previous implementation in the 2D mode we were stuck using due to 3D being far too CPU intensive)</li>
                         <li>Network Location: improve distance estimation including tuning it separately for 2.4GHz vs. 5GHz/6GHz and take distance variance into account for position estimation</li>
                         <li>Network Location: add support for 6GHz Wi-Fi networks via Reduced Neighbor Report (RNR)</li>
+                        <li>Network Location: increase requested closest APs from 5 to 15</li>
+                        <li>Network Location: request data for up to 5 APs at a time (maximum permitted by Apple's service) instead of only 1 to improve networking efficiency</li>
                         <li>backport upstream brightness fluctuation fix from Android 16 Beta 3.1</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/134.0.6998.135.0">version 134.0.6998.135.0</a></li>
                     </ul>
