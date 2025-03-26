@@ -595,7 +595,7 @@
                         <li>Network Location: increase the number of closest APs we explicitly request data for from 5 to 15</li>
                         <li>Network Location: request data for up to 4 APs at a time (maximum permitted by Apple's service for the modern mode) instead of only 1 to improve networking efficiency</li>
                         <li>Network Location: make our requests more closely match a current macOS release to avoid future compatibility issues and to get Apple's service to provide more than only 2.4GHz networks as nearby networks in response to queries</li>
-                        <li>Network Location: throttle requesting 100 additional nearby results down to 8 additional results when a decent amount of additional results were returned from a request for up to 100 in the past 10 seconds</li>
+                        <li>Network Location: reduce requesting data for 100 additional nearby Wi-Fi APs down to 8 APs when a decent amount of additional results were returned from a recent request for up to 100 in the past 10 seconds</li>
                         <li>backport upstream brightness fluctuation fix from Android 16 Beta 3.1</li>
                         <li>Sandboxed Google Play compatibility layer: fix Location Accuracy link with Play services 25.09 and later so we can ship it as an update for users with sandboxed Google Play installed</li>
                         <li>Sandboxed Google Play compatibility layer: remove no longer supported "Configure Play Store updates" settings since we always handle updates ourselves via our App Store now</li>
