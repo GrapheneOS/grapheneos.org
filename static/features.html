@@ -724,23 +724,42 @@
                 <section id="network-location">
                     <h3><a href="#network-location">Network location</a></h3>
 
-                    <p>GrapheneOS provides the ability to use network location as an opt-in
-                    feature.</p>
+                    <p>GrapheneOS provides network-based location as an opt-in feature with our own
+                    implementation. Similar to the services provided by Apple and Google, it offers
+                    location detection based on nearby networks rather than solely relying on using
+                    satellite-based location (GNSS) with technologies to accelerate it (A-GNSS). It
+                    makes getting a location indoors and in cities with tall buildings much faster
+                    or possible when it wouldn't have worked via GNSS. Certain apps also have the
+                    expectation of network-based location being available and don't account for the
+                    time needed to get a GNSS-based estimate or inability to get one everywhere so
+                    this feature provides improved compatibility with apps.</p>
 
-                    <p>Enabling the network location feature will make getting a location lock
-                    indoors and in cities with tall buildings much faster, or possible when it would
-                    have previously been impossible. Additionally, network location improves app
-                    compatibility for apps that expect a fast location lock from the network
-                    location provider which they won't get when it's off and GNSS is being used
-                    instead.</p>
+                    <p>Unlike Google's service and similar to Apple's service, our feature provides
+                    local position estimation based on retrieving location data for nearby networks
+                    from a service. It caches the information from the service in-memory for up to
+                    15 minutes from when it was last used so it can function offline after getting
+                    the initial data. It only needs to send a network identifier for each network it
+                    wants to use for position estimation. Google's service does server-side position
+                    estimation which requires repeatedly sending distance estimates for each network
+                    to the service for each position estimate update. The approach we use doesn't
+                    require providing any information to the service once the nearby networks are in
+                    the cache or sending distance estimates. The service also provides it with extra
+                    data covering a fairly large area from the initial position with a reasonable
+                    density of networks so it can keep functioning if internet access is lost.</p>
 
-                    <p>The feature works by sending nearby Wi-Fi network identifiers to the service,
-                    which returns positioning data for those networks and other nearby ones to store
-                    in a temporary in-memory cache. Your location is estimated using a robust
-                    on-device multilateration algorithm.</p>
+                    <p>Our network-based location feature is currently entirely based on Wi-Fi
+                    Access Points (APs). It will be extended with support for cell towers in the
+                    near future to provide better support for rural locations like the Apple and
+                    Google services. Apple and Google also use Bluetooth beacons but it's a very
+                    niche feature only relevant to certain malls, stores, etc. which are usually
+                    covered well enough by Wi-Fi support for decent position estimates.</p>
 
-                    <p>In the future, GrapheneOS plans to provide an option for offline network
-                    location using downloaded data instead of having to send data to a service.</p>
+                    <p>Users can currently choose between using our proxy to Apple's service or
+                    directly using Apple's service. We're in the process of building our own
+                    database and service based on data from multiple sources including Apple's
+                    service. Unlike the Apple and Google services, our service will provide support
+                    for fully offline usage based on database downloads rather than requiring
+                    sending network identifiers to the service to fetch data for them.</p>
 
                     <p>For details on how to use the network location feature, see the
                     <a href="/usage#network-location">usage section</a>.</p>
