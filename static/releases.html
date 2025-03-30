@@ -574,6 +574,8 @@
                     <p>Changes since the 2025032500 release:</p>
 
                     <ul>
+                        <li>Network Location: switch to making at most a single request to the service per position estimation by requesting up to 40 Wi-Fi APs at once</li>
+                        <li>Network Location: optimize making requests to the service for Wi-Fi AP data</li>
                         <li>fix upstream system_server crash from null pointer exception in F2fsUtils</li>
                         <li>add infrastructure for more restricted access to global and per-user settings instead of allowing all system apps to read them and all privileged systems apps with the WRITE_SECURE_SETTINGS privileged permission to write them</li>
                         <li>further restrict access to all global and per-user settings added by GrapheneOS with our new infrastructure</li>
