@@ -579,6 +579,7 @@
                         <li>fix upstream system_server crash from null pointer exception in F2fsUtils</li>
                         <li>add infrastructure for more restricted access to global and per-user settings instead of allowing all system apps to read them and all privileged systems apps with the WRITE_SECURE_SETTINGS privileged permission to write them</li>
                         <li>further restrict access to all global and per-user settings added by GrapheneOS with our new infrastructure</li>
+                        <li>prevent privileged system apps from writing the standard Android ADD_USERS_WHEN_LOCKED and ENABLE_EPHEMERAL_FEATURE settings we disable each boot for attack surface reduction</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/135.0.7049.38.0">version 135.0.7049.38.0</a></li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-155">version 155</a></li>
                     </ul>
