@@ -574,6 +574,7 @@
                     <p>Changes since the 2025032500 release:</p>
 
                     <ul>
+                        <li>Sandboxed Google Play compatibility layer: remove StatsManager from hidden services and replace that approach with stubbing out all of the methods since Play services recently introduced new code using it that's missing a null check and triggers a null pointer exception which has blocked us from pushing out the newer versions of Play services beyond our Alpha channel</li>
                         <li>Network Location: switch to making at most a single request to the service per position estimation by requesting up to 40 Wi-Fi APs at once</li>
                         <li>Network Location: optimize making requests to the service for Wi-Fi AP data</li>
                         <li>Network Location: optimize Rust JNI bindings to the point that it no longer causes a noticeable overhead without introducing unsafe code (it could be optimized further with unsafe code to use more of the standard JNI optimizations but does not appear to be needed)</li>
