@@ -584,6 +584,8 @@
                         <li>add infrastructure for more restricted access to global and per-user settings instead of allowing all system apps to read them and all privileged systems apps with the WRITE_SECURE_SETTINGS privileged permission to write them</li>
                         <li>further restrict access to all global and per-user settings added by GrapheneOS with our new infrastructure</li>
                         <li>make the value of the ADD_USERS_WHEN_LOCKED and ENABLE_EPHEMERAL_FEATURE settings we disable at boot explicitly immutable instead</li>
+                        <li>kernel (6.1): update to latest GKI LTS branch revision including update to 6.1.131</li>
+                        <li>kernel (6.1): drop revert for upstream USB fix causing DisplayPort alternate mode regression due to another upstream patch attempting to fix it</li>
                         <li>kernel (6.6): update to latest GKI LTS branch revision</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/135.0.7049.38.0">version 135.0.7049.38.0</a></li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-155">version 155</a></li>
@@ -1003,7 +1005,7 @@
                         <li>work around upstream Android issue caused by an optimization which was adding a 10 second delay to certain setting changes before they kick in for background system packages</li>
                         <li>kernel (5.15): update to latest GKI LTS branch revision</li>
                         <li>kernel (6.1): update to latest GKI LTS branch revision including update to 6.1.126</li>
-                        <li>kernel (6.1): drop revert for upstream USB fix to test if it's still needed due to lots of other backported changes</li>
+                        <li>kernel (6.1): drop revert for upstream USB fix causing DisplayPort alternate mode regression to test if it's still needed due to lots of other backported changes</li>
                         <li>kernel (6.6): update to latest GKI LTS branch revision including update to 6.6.74</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/133.0.6943.39.0">version 133.0.6943.39.0</a></li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/133.0.6943.39.1">version 133.0.6943.39.1</a></li>
