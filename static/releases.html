@@ -598,7 +598,7 @@
                         <li>fix upstream system_server crash from null pointer exception in F2fsUtils</li>
                         <li>add infrastructure for more restricted access to global and per-user settings instead of allowing all system apps to read them and all privileged systems apps with the WRITE_SECURE_SETTINGS privileged permission to write them</li>
                         <li>further restrict access to all global and per-user settings added by GrapheneOS with our new infrastructure</li>
-                        <li>make the value of the ADD_USERS_WHEN_LOCKED and ENABLE_EPHEMERAL_FEATURE settings we disable at boot explicitly immutable instead</li>
+                        <li>replace disabling the unused ADD_USERS_WHEN_LOCKED and ENABLE_EPHEMERAL_FEATURE settings at boot with a new approach of making settings immutable in the code, which we can expand in the future to other problematic settings not used by GrapheneOS</li>
                         <li>kernel (6.1): update to latest GKI LTS branch revision including update to 6.1.131</li>
                         <li>kernel (6.1): drop revert for upstream USB fix causing DisplayPort alternate mode regression due to another upstream patch attempting to fix it</li>
                         <li>kernel (6.6): update to latest GKI LTS branch revision</li>
