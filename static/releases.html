@@ -576,6 +576,7 @@
                     <p>Changes since the 2025040700 release:</p>
 
                     <ul>
+                        <li>fix upstream RecoverySystem.verifyPackage(...) vulnerability (this was not directly exploitable due to there being 2 layers of update package signature verification and downgrade protection, but the first layer of protection should work properly to avoid a vulnerability in the 2nd layer being exploited)</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/135.0.7049.79.0">version 135.0.7049.79.0</a></li>
                     </ul>
                 </article>
