@@ -577,7 +577,7 @@
 
                     <ul>
                         <li>full 2025-04-05 security patch level</li>
-                        <li>rebased onto BP1A.250405.007 Android Open Source Project release</li>
+                        <li>rebased onto BP1A.250405.007.D1 Android Open Source Project release</li>
                         <li>remove code for Qualcomm XTRA (PSDS) privacy improvements since we no longer have any devices with Qualcomm GNSS and we can add it back in the future if we need it again rather than porting it forward under the assumption we'll be using it</li>
                         <li>fix upstream RecoverySystem.verifyPackage(...) vulnerability (this was not directly exploitable due to there being 2 layers of update package signature verification and downgrade protection, but the first layer of protection should work properly to avoid a vulnerability in the 2nd layer being exploited)</li>
                         <li>kernel (6.1): update to latest GKI LTS branch revision</li>
