@@ -131,6 +131,7 @@
                     <p>Smartphone and tablet targets:</p>
 
                     <ul>
+                        <li>tegu (Pixel 9a) — experimental</li>
                         <li>comet (Pixel 9 Pro Fold)</li>
                         <li>komodo (Pixel 9 Pro XL)</li>
                         <li>caiman (Pixel 9 Pro)</li>
@@ -305,6 +306,11 @@ source ~/.bashrc</pre>
                         <code>15-qpr2</code> branch of GrapheneOS should be used for generic builds
                         including the emulator, porting to other devices and for non-legacy
                         officially supported devices.</p>
+
+                        <p>The <code>15-qpr1-tegu</code> branch is a device branch for the Pixel 9a
+                        based on the upstream Pixel 9a device branch which is still based on Android
+                        15 QPR1 with security backports from after the main QPR1 development branch
+                        ended rather than Android 15 QPR2.</p>
 
                         <p>To sync the <code>15-qpr2</code> branch:</p>
 
@@ -774,6 +780,7 @@ repo sync -j8</pre>
                         <p>Select the correct kernel codename for the device model:</p>
 
                         <ul>
+                            <li>tegu: tegu</li>
                             <li>comet: comet</li>
                             <li>komodo: caimito</li>
                             <li>caiman: caimito</li>
