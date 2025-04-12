@@ -217,7 +217,7 @@ async function unlockBootloader(setProgress) {
         }
     }
 
-    return "Bootloader unlocked.";
+    return "Bootloader unlocking triggered successfully.";
 }
 
 const supportedDevices = ["comet", "komodo", "caiman", "tokay", "akita", "husky", "shiba", "felix", "tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble", "sunfish", "coral", "flame"];
@@ -366,10 +366,7 @@ async function lockBootloader(setProgress) {
         }
     }
 
-    // We can't explicitly validate the bootloader lock state because it reboots
-    // to recovery after locking. Assume that the device would've replied with
-    // FAIL if if it wasn't locked.
-    return "Bootloader locked.";
+    return "Bootloader locking triggered successfully.";
 }
 
 function addButtonHook(id, callback) {
