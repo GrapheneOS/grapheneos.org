@@ -85,8 +85,6 @@
                                     <li><a href="#kernel-emulator">Emulator</a></li>
                                     <li><a href="#kernel-microdroid">Microdroid</a></li>
                                     <li><a href="#kernel-6th-through-9th-generation-pixels">6th through 9th generation Pixels</a></li>
-                                    <li><a href="#kernel-5th-generation-pixels">5th generation Pixels</a></li>
-                                    <li><a href="#kernel-4th-generation-pixels">4th generation Pixels</a></li>
                                 </ul>
                             </li>
                             <li><a href="#browser-and-webview">Browser and WebView</a></li>
@@ -133,6 +131,7 @@
                     <p>Smartphone and tablet targets:</p>
 
                     <ul>
+                        <li>tegu (Pixel 9a) — experimental</li>
                         <li>comet (Pixel 9 Pro Fold)</li>
                         <li>komodo (Pixel 9 Pro XL)</li>
                         <li>caiman (Pixel 9 Pro)</li>
@@ -148,12 +147,6 @@
                         <li>bluejay (Pixel 6a)</li>
                         <li>raven (Pixel 6 Pro)</li>
                         <li>oriole (Pixel 6)</li>
-                        <li>barbet (Pixel 5a) (legacy extended support)</li>
-                        <li>redfin (Pixel 5) (legacy extended support)</li>
-                        <li>bramble (Pixel 4a (5G)) (legacy extended support)</li>
-                        <li>sunfish (Pixel 4a) (legacy extended support)</li>
-                        <li>coral (Pixel 4 XL) (legacy extended support)</li>
-                        <li>flame (Pixel 4) (legacy extended support)</li>
                     </ul>
 
                     <p>These are all fully supported production-ready targets supporting all the
@@ -314,15 +307,10 @@ source ~/.bashrc</pre>
                         including the emulator, porting to other devices and for non-legacy
                         officially supported devices.</p>
 
-                        <p>The <code>14</code> branch is used for the end-of-life Pixel 5a.</p>
-
-                        <p>The <code>14-redfin</code> branch is used for the end-of-life Pixel 4a
-                        (5G) and Pixel 5.</p>
-
-                        <p>The <code>13</code> branch is used for the end-of-life Pixel 4a.</p>
-
-                        <p>The <code>13-coral</code> branch is used for the end-of-life Pixel 4
-                        and Pixel 4 XL.</p>
+                        <p>The <code>15-qpr1-tegu</code> branch is a device branch for the Pixel 9a
+                        based on the upstream Pixel 9a device branch which is still based on Android
+                        15 QPR1 with security backports from after the main QPR1 development branch
+                        ended rather than Android 15 QPR2.</p>
 
                         <p>To sync the <code>15-qpr2</code> branch:</p>
 
@@ -792,6 +780,7 @@ repo sync -j8</pre>
                         <p>Select the correct kernel codename for the device model:</p>
 
                         <ul>
+                            <li>tegu: tegu</li>
                             <li>comet: comet</li>
                             <li>komodo: caimito</li>
                             <li>caiman: caimito</li>
@@ -816,51 +805,6 @@ repo sync -j8</pre>
                         <p>Replace the files in the OS source tree at
                         <code>device/google/<var>codename</var>-kernels/6.1/grapheneos/</code> with your build in
                         <code>out/<var>codename</var>/dist/</code>.</p>
-                    </section>
-
-                    <section id="kernel-5th-generation-pixels">
-                        <h4><a href="#kernel-5th-generation-pixels">5th generation Pixels</a></h4>
-
-                        <p>To sync the kernel sources:</p>
-
-                        <pre>mkdir -p android/kernel/redbull
-cd android/kernel/redbull
-repo init -u https://github.com/GrapheneOS/kernel_manifest-redbull.git -b 15
-repo sync -j8</pre>
-
-                        <p>To build the redbull kernel for the Pixel 4a (5G), Pixel 5 and Pixel 5a
-                        kernel:</p>
-
-                        <pre>BUILD_CONFIG=private/msm-google/build.config.redbull.vintf build/build.sh</pre>
-
-                        <p>Replace the files in the OS source tree at
-                        <code>device/google/redbull-kernel/</code> (userdebug/eng) and
-                        <code>device/google/redbull-kernel/vintf/</code> (user) with your build in
-                        <code>out/android-msm-pixel-4.19/dist/</code>.</p>
-                    </section>
-
-                    <section id="kernel-4th-generation-pixels">
-                        <h4><a href="#kernel-4th-generation-pixels">4th generation Pixels</a></h4>
-
-                        <p>To sync the kernel sources:</p>
-
-                        <pre>mkdir -p android/kernel/coral
-cd android/kernel/coral
-repo init -u https://github.com/GrapheneOS/kernel_manifest-coral.git -b 13
-repo sync -j8</pre>
-
-                        <p>To build the coral kernel for the Pixel 4 and Pixel 4 XL:</p>
-
-                        <pre>KBUILD_BUILD_VERSION=1 KBUILD_BUILD_USER=build-user KBUILD_BUILD_HOST=build-host KBUILD_BUILD_TIMESTAMP="Thu 01 Jan 1970 12:00:00 AM UTC" BUILD_CONFIG=private/msm-google/build.config.floral build/build.sh</pre>
-
-                        <p>To build the sunfish kernel for the Pixel 4a:</p>
-
-                        <pre>KBUILD_BUILD_VERSION=1 KBUILD_BUILD_USER=build-user KBUILD_BUILD_HOST=build-host KBUILD_BUILD_TIMESTAMP="Thu 01 Jan 1970 12:00:00 AM UTC" BUILD_CONFIG=private/msm-google/build.config.sunfish build/build.sh</pre>
-
-                        <p>Replace the files in the OS source tree at
-                        <code>device/google/coral-kernel/</code> or
-                        <code>device/google/sunfish-kernel/</code> with your build in
-                        <code>out/android-msm-pixel-4.14/dist/</code>.</p>
                     </section>
                 </section>
 
@@ -1087,10 +1031,10 @@ export PATH="$HOME/android/sdk/cmdline-tools/latest/bin:$PATH"</pre>
                 copy of it. For example:</p>
 
                 <pre>cd ~/android
-curl -O https://dl.google.com/dl/android/studio/ide-zips/2024.2.2.15/android-studio-2024.2.2.15-linux.tar.gz
-echo '595fe446f11d74cdd9a4f4dae6224ab9828789a31873b8786d76d6ab29094e17  android-studio-2024.2.2.15-linux.tar.gz' | sha256sum -c
-tar xvf android-studio-2024.2.2.15-linux.tar.gz
-rm android-studio-2024.2.2.15-linux.tar.gz
+curl -O https://dl.google.com/dl/android/studio/ide-zips/2024.3.1.14/android-studio-2024.3.1.14-linux.tar.gz
+echo '54d5c4adf6f83e1963709c06abceb795d87fde2f1f31d262ae5c28944224f9f2  android-studio-2024.3.1.14-linux.tar.gz' | sha256sum -c
+tar xvf android-studio-2024.3.1.14-linux.tar.gz
+rm android-studio-2024.3.1.14-linux.tar.gz
 mv android-studio studio</pre>
 
                 <p>Add the Android Studio executables to your <code>PATH</code>:</p>

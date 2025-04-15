@@ -14,7 +14,7 @@ body {
     line-height: 1.5;
     letter-spacing: 0.009375rem;
     background-color: #fafafa; /* grey50 */
-    color: rgba(0 0 0 / 87%); /* 87% black */
+    color: rgb(0 0 0 / 87%); /* 87% black */
     margin: 0;
     padding: 0;
     overflow-y: scroll;
@@ -34,7 +34,7 @@ a:hover {
 }
 
 h1 a, h1 a:visited, h2 a, h2 a:visited, h3 a, h3 a:visited, h4 a, h4 a:visited, h5 a, h5 a:visited, h6 a, h6 a:visited {
-    color: rgba(0 0 0 / 87%); /* 87% black */
+    color: rgb(0 0 0 / 87%); /* 87% black */
 }
 
 h1 {
@@ -188,7 +188,7 @@ button:hover, .button:hover {
 
 button:focus, .button:focus {
     background-color: #2f73b4; /* button pressed on Android */
-    box-shadow: 0 2px 4px -1px rgba(0 0 0 / 20%), 0 4px 5px 0 rgba(0 0 0 / 14%), 0 1px 10px 0 rgba(0 0 0 / 12%);
+    box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
 }
 
 button:disabled {
@@ -439,7 +439,7 @@ details[open] summary {
 @media (prefers-color-scheme: dark) {
     body {
         background: #121212;
-        color: rgba(255 255 255 / 87%); /* 87% white */
+        color: rgb(255 255 255 / 87%); /* 87% white */
     }
 
     a {
@@ -451,7 +451,7 @@ details[open] summary {
     }
 
     h1 a, h1 a:visited, h2 a, h2 a:visited, h3 a, h3 a:visited, h4 a, h4 a:visited, h5 a, h5 a:visited, h6 a, h6 a:visited {
-        color: rgba(255 255 255 / 87%); /* 87% white */
+        color: rgb(255 255 255 / 87%); /* 87% white */
     }
 
     button, .button, .button:visited {

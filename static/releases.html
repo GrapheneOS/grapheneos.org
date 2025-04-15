@@ -47,6 +47,7 @@
                     <li>
                         <a href="#devices">Devices</a>
                         <ul>
+                            <li><a href="#tegu">Pixel 9a (experimental)</a></li>
                             <li><a href="#comet">Pixel 9 Pro Fold</a></li>
                             <li><a href="#komodo">Pixel 9 Pro XL</a></li>
                             <li><a href="#caiman">Pixel 9 Pro</a></li>
@@ -73,6 +74,11 @@
                     <li>
                         <a href="#changelog">Changelog</a>
                         <ul>
+                            <li><a href="#2025041100">2025041100</a></li>
+                            <li><a href="#2025040700">2025040700</a></li>
+                            <li><a href="#2025040400">2025040400</a></li>
+                            <li><a href="#2025032500">2025032500</a></li>
+                            <li><a href="#2025032100">2025032100</a></li>
                             <li><a href="#2025031400">2025031400</a></li>
                             <li><a href="#2025031300">2025031300</a></li>
                             <li><a href="#2025030900">2025030900</a></li>
@@ -483,6 +489,9 @@
             <section id="devices">
                 <h2><a href="#devices">Devices</a></h2>
 
+                {% with codename="tegu", name="Pixel 9a (experimental)" %}
+                    {% include "device.html" %}
+                {% endwith %}
                 {% with codename="comet", name="Pixel 9 Pro Fold" %}
                     {% include "device.html" %}
                 {% endwith %}
@@ -561,24 +570,156 @@
                 release notes from before the rebranding of the project in 2018 and 2019.</p>
 
                 <!--
-                <article id="2025031400">
-                    <h3><a href="#2025031400">2025031400</a></h3>
+                <article id="2025041100">
+                    <h3><a href="#2025041100">2025041100</a></h3>
 
                     <p>Tags:</p>
                     <ul>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2025031400">2025031400</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, emulator, generic, other targets)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2025041100">2025041100</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2025041100 release:</p>
+
+                    <ul>
+                    </ul>
+                </article>
+                -->
+
+                <article id="2025041100">
+                    <h3><a href="#2025041100">2025041100</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2025041100">2025041100</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2025040700 release:</p>
+
+                    <ul>
+                        <li>full 2025-04-05 security patch level</li>
+                        <li>rebased onto BP1A.250405.007.D1 Android Open Source Project release</li>
+                        <li>remove code for Qualcomm XTRA (PSDS) privacy improvements since we no longer have any devices with Qualcomm GNSS and we can add it back in the future if we need it again rather than porting it forward under the assumption we'll be using it</li>
+                        <li>fix upstream RecoverySystem.verifyPackage(...) vulnerability (this was not directly exploitable due to there being 2 layers of update package signature verification and downgrade protection, but the first layer of protection should work properly to avoid a vulnerability in the 2nd layer being exploited)</li>
+                        <li>Android Debug Bridge: more complete fix for upstream use-after-free bug for network-based connections which is being caught by our always enabled hardware memory tagging support for the base OS in hardened_malloc</li>
+                        <li>kernel (6.1): update to latest GKI LTS branch revision</li>
+                        <li>kernel (6.6): update to latest GKI LTS branch revision including update to 6.6.83</li>
+                        <li>Seedvault: update to 15-5.5 (will be replaced with a better backup implementation in the future)</li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/135.0.7049.79.0">version 135.0.7049.79.0</a></li>
+                        <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/88">version 88</a></li>
+                        <li>PDF Viewer: update to <a href="https://github.com/GrapheneOS/PdfViewer/releases/tag/27">version 27</a></li>
+                        <li>PDF Viewer: update to <a href="https://github.com/GrapheneOS/PdfViewer/releases/tag/28">version 28</a></li>
+                    </ul>
+                </article>
+
+                <article id="2025040700">
+                    <h3><a href="#2025040700">2025040700</a></h3>
+
+                    <p>This is an early April security update release based on the April 2025
+                    security patch backports since the monthly Android Open Source Project and stock
+                    Pixel OS release scheduled for this month hasn't been published yet. </p>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2025040700">2025040700</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2025040400 release:</p>
+
+                    <ul>
+                        <li>full 2025-04-01 security patch level</li>
+                    </ul>
+                </article>
+
+                <article id="2025040400">
+                    <h3><a href="#2025040400">2025040400</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2025040400">2025040400</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2025032500 release:</p>
+
+                    <ul>
+                        <li>Sandboxed Google Play compatibility layer: remove StatsManager from hidden services and replace that approach with stubbing out all of the methods since Play services recently introduced new code using it that's missing a null check and triggers a null pointer exception which has blocked us from pushing out the newer versions of Play services beyond our App Store's Alpha channel</li>
+                        <li>Network Location: switch to making at most a single request to the service per position estimation by requesting up to 40 Wi-Fi APs at once</li>
+                        <li>Network Location: optimize making requests to the service for Wi-Fi AP data</li>
+                        <li>Network Location: optimize Rust JNI bindings to the point that it no longer causes a noticeable overhead without introducing unsafe code (it could be optimized further with unsafe code to cache more JNI binding work but the difference is insignificant so we don't plan to do it)</li>
+                        <li>Network Location: use correct Accept header value to more closely match macOS to avoid future compatibility issues</li>
+                        <li>fix upstream system_server crash from null pointer exception in F2fsUtils</li>
+                        <li>add infrastructure for more restricted access to global and per-user settings instead of allowing all system apps to read them and all privileged systems apps with the WRITE_SECURE_SETTINGS privileged permission to write them</li>
+                        <li>further restrict access to all global and per-user settings added by GrapheneOS with our new infrastructure</li>
+                        <li>replace disabling the unused ADD_USERS_WHEN_LOCKED and ENABLE_EPHEMERAL_FEATURE settings at boot with a new approach of making settings immutable in the code, which we can expand in the future to other problematic settings not used by GrapheneOS</li>
+                        <li>kernel (6.1): update to latest GKI LTS branch revision including update to 6.1.131</li>
+                        <li>kernel (6.1): drop revert for upstream USB fix causing DisplayPort alternate mode regression due to another upstream patch successfully fixing it</li>
+                        <li>kernel (6.6): update to latest GKI LTS branch revision</li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/135.0.7049.38.0">version 135.0.7049.38.0</a></li>
+                        <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-155">version 155</a></li>
+                        <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-156">version 156</a></li>
+                    </ul>
+                </article>
+
+                <article id="2025032500">
+                    <h3><a href="#2025032500">2025032500</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2025032500">2025032500</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2025032100 release:</p>
+
+                    <ul>
+                        <li>Network Location: rewrite position estimation in Rust (from Kotlin) with a new algorithm based on Expectation-Maximization (EM) always using 3D (altitude) to provide much better accuracy, robustness and performance (this new 3D implementation performs better than the previous implementation in the 2D mode we were stuck using due to 3D being far too CPU intensive)</li>
+                        <li>Network Location: improve RSSI-based (signal strength) distance estimation including tuning it separately for 2.4GHz vs. 5GHz/6GHz and take distance variance into account for position estimation (Wi-Fi Round-Trip-Time support will be added in the future for Access Points supporting it)</li>
+                        <li>Network Location: add support for 6GHz Wi-Fi networks via Reduced Neighbor Report (RNR)</li>
+                        <li>Network Location: increase the number of closest APs we explicitly request data for from 5 to 15</li>
+                        <li>Network Location: request data for up to 4 APs at a time instead of only 1 to improve networking efficiency</li>
+                        <li>Network Location: make our requests more closely match a current macOS release to avoid future compatibility issues and to get Apple's service to provide more than only 2.4GHz networks as nearby networks in response to queries</li>
+                        <li>Network Location: reduce requesting data for 100 additional nearby Wi-Fi APs down to 8 APs when a decent amount of additional results were returned from a recent request for up to 100 in the past 10 seconds</li>
+                        <li>backport upstream brightness fluctuation fix from Android 16 Beta 3.1</li>
+                        <li>Sandboxed Google Play compatibility layer: fix Location Accuracy link with Play services 25.09 and later so we can ship it as an update for users with sandboxed Google Play installed</li>
+                        <li>Sandboxed Google Play compatibility layer: remove no longer supported "Configure Play Store updates" settings since we always handle updates ourselves via our App Store now</li>
+                        <li>fix an upstream screenshot process crash in ScrollCaptureController</li>
+                        <li>Terminal (virtual machine management app): backport upstream improvements including detecting an outdated image to providing an upgrade path and removing the artificial cap on disk resize</li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/134.0.6998.135.0">version 134.0.6998.135.0</a></li>
+                        <li>only block installing out-of-band APEX updates on production (user) builds since it's useful for development</li>
+                        <li>add support for testing Android 16 Beta 3 feature flags for development builds</li>
+                        <li>begin porting our changes to work with Android 16 feature flags</li>
+                    </ul>
+                </article>
+
+                <article id="2025032100">
+                    <h3><a href="#2025032100">2025032100</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2025032100">2025032100</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, emulator, generic, other targets)</li>
                     </ul>
 
                     <p>Changes since the 2025031400 release:</p>
 
                     <ul>
+                        <li>Sandboxed Google Play compatibility layer: improve support for overriding Gservices flags to avoid situations where our overrides aren't used leading to compatibility issues (this should fix a recent Play services crash that's being reported)</li>
+                        <li>Sandboxed Google Play compatibility layer: improve support for overriding phenotype flags and fix flag overrides not being applied in some cases</li>
+                        <li>fix 2 upstream lockscreen layout bugs with split shade used on folding phones (for the inner screen) and tablets</li>
+                        <li>fix upstream lockscreen layout bug with placement of alarm and Do Not Disturb information</li>
+                        <li>fix upstream lockscreen layout bug hiding date text when media is playing</li>
                         <li>enable support for the new desktop mode as an additional developer option toggle (Pixel Tablet already has this as the main toggle)</li>
-                        <li>System Updater: raise download buffer size to 16384 from 8192</li>
+                        <li>Terminal (virtual machine management app): backport upstream improvements</li>
+                        <li>System Updater: raise download buffer size</li>
                         <li>System Updater: delete update package immediately after completion</li>
                         <li>System Updater: fall back to downloading and installing a full update if an incremental (delta) update fails initialization which occurs when a firmware or OS image has been corrupted (extremely rare edge case due to verified boot)</li>
+                        <li>System Updater: retry faster if installation fails</li>
+                        <li>System Updater: improve error checking to provide better error messages</li>
+                        <li>System Updater: close update package zip file earlier</li>
+                        <li>Network Location: require TLSv1.3 for GrapheneOS services instead of either TLSv1.2 or TLSv1.3</li>
+                        <li>kernel (6.6): update to latest GKI LTS branch revision</li>
+                        <li>Seedvault: update to 15-5.4 (will be replaced with a better backup implementation in the future)</li>
+                        <li>stop disabling inclusion of device diagnostics functionality now that it's available in the Android Open Source Project</li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/134.0.6998.108.0">version 134.0.6998.108.0</a></li>
                     </ul>
                 </article>
-                -->
 
                 <article id="2025031400">
                     <h3><a href="#2025031400">2025031400</a></h3>
@@ -930,7 +1071,7 @@
                         <li>work around upstream Android issue caused by an optimization which was adding a 10 second delay to certain setting changes before they kick in for background system packages</li>
                         <li>kernel (5.15): update to latest GKI LTS branch revision</li>
                         <li>kernel (6.1): update to latest GKI LTS branch revision including update to 6.1.126</li>
-                        <li>kernel (6.1): drop revert for upstream USB fix to test if it's still needed due to lots of other backported changes</li>
+                        <li>kernel (6.1): drop revert for upstream USB fix causing DisplayPort alternate mode regression to test if it's still needed due to lots of other backported changes</li>
                         <li>kernel (6.6): update to latest GKI LTS branch revision including update to 6.6.74</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/133.0.6943.39.0">version 133.0.6943.39.0</a></li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/133.0.6943.39.1">version 133.0.6943.39.1</a></li>

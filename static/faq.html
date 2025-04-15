@@ -157,6 +157,12 @@
                         <li>Pixel 6 (oriole)</li>
                     </ul>
 
+                    <p>GrapheneOS has experimental support for the following devices:</p>
+
+                    <ul>
+                        <li>Pixel 9a (tegu)</li>
+                    </ul>
+
                     <p>The release tags for these devices have official builds and updates
                     available. These devices meet the stringent privacy and security standards and
                     have substantial upstream and downstream hardening specific to the
@@ -239,6 +245,7 @@
                     guarantee from launch for full security updates and other improvements:</p>
 
                     <ul>
+                        <li><strong>Pixel 9a</strong> — minimum 7 years support and hardware memory tagging support</li>
                         <li><strong>Pixel 9 Pro Fold</strong> — minimum 7 years support and hardware memory tagging support</li>
                         <li><strong>Pixel 9 Pro XL</strong> — minimum 7 years support and hardware memory tagging support</li>
                         <li><strong>Pixel 9 Pro</strong> — minimum 7 years support and hardware memory tagging support</li>
@@ -265,18 +272,9 @@
                     launch. 7th generation Pixels are a year newer so they have an extra year of
                     their guarantee remaining.</p>
 
-                    <p>The Pixel 7 and Pixel 7 Pro are all around improvements over the Pixel 6
-                    and Pixel 6 Pro with a significantly better GPU and cellular radio along with
-                    an incremental CPU upgrade. The 7th generation Pixels are far more similar to
-                    the previous generation than any prior Pixels.</p>
-
-                    <p>Pixel 7a is nearly the same as the Pixel 7 other than having slow wireless
-                    charging and weaker dust/water protection. Pixel 7a offers the best value when
-                    buying a new device.</p>
-
-                    <p>The Pixel Tablet is a tablet variant of the 7th generation devices and the
-                    Pixel Fold is a hybrid phone/tablet. These share the same SoC and are nearly
-                    the same as the other 7th generation devices under the hood.</p>
+                    <p>The Pixel Tablet and Pixel Fold are tablet and hybrid phone/tablet variants
+                    of the 7th generation devices. These share the same SoC and are nearly the same
+                    as the other 7th generation devices under the hood.</p>
                 </article>
 
                 <article id="future-devices">
@@ -343,6 +341,8 @@
                         <li>Reset attack mitigation for firmware-based boot modes such as fastboot
                         mode zeroing memory left over from the OS and delaying opening up attack
                         surface such as USB functionality until that's completed</li>
+                        <li>Debugging features such as JTAG or serial debugging must be inaccessible
+                        while the device is locked</li>
                     </ul>
 
                     <p>In order to support a device, the appropriate resources also need to be available
@@ -439,6 +439,11 @@
                             <th>Device</th>
                             <th>OEM minimum support end</th>
                             <th>OEM minimum support length</th>
+                        </tr>
+                        <tr>
+                            <td>Google Pixel 9a</td>
+                            <td>April 2032</td>
+                            <td>7 years</td>
                         </tr>
                         <tr>
                             <td>Google Pixel 9 Pro Fold</td>
@@ -1381,7 +1386,8 @@
                     implementations. The only apps we can recommend is the official WireGuard
                     app and the official Mullvad app. Mullvad's app is tested on GrapheneOS with
                     hardware memory tagging, unlike the official WireGuard app which has invalid
-                    memory accesses detected by memory tagging if it's enabled.</p>
+                    memory accesses detected by memory tagging if it's enabled. We recommend using
+                    one of these VPN apps instead of the built-in IPSec VPN support.</p>
 
                     <p>VPN configurations created with the built-in support can be set as the
                     always-on VPN in the configuration panel. This will keep the VPN running,
