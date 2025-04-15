@@ -8,7 +8,7 @@
         </tr>
         <tr id="{{codename}}-stable">
             <td>Stable</td>
-{% if "extended" in name or "experimental" in name %}
+{% if split %}
             <td><span>[[{{codename}}-stable-BUILD_NUMBER]]</span></td>
 {% else %}
             <td><a href="#[[{{codename}}-stable-BUILD_NUMBER]]">[[{{codename}}-stable-BUILD_NUMBER]]</a></td>
@@ -23,7 +23,7 @@
         </tr>
         <tr id="{{codename}}-beta">
             <td>Beta</td>
-{% if "extended" in name or "experimental" in name %}
+{% if split %}
             <td><span>[[{{codename}}-beta-BUILD_NUMBER]]</span></td>
 {% else %}
             <td><a href="#[[{{codename}}-beta-BUILD_NUMBER]]">[[{{codename}}-beta-BUILD_NUMBER]]</a></td>
@@ -38,7 +38,7 @@
         </tr>
         <tr id="{{codename}}-alpha">
             <td>Alpha</td>
-{% if "extended" in name or "experimental" in name %}
+{% if split %}
             <td><span>[[{{codename}}-alpha-BUILD_NUMBER]]</span></td>
 {% else %}
             <td><a href="#[[{{codename}}-alpha-BUILD_NUMBER]]">[[{{codename}}-alpha-BUILD_NUMBER]]</a></td>

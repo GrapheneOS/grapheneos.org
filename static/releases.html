@@ -489,7 +489,7 @@
             <section id="devices">
                 <h2><a href="#devices">Devices</a></h2>
 
-                {% with codename="tegu", name="Pixel 9a (experimental)" %}
+                {% with codename="tegu", name="Pixel 9a (experimental)", split=True %}
                     {% include "device.html" %}
                 {% endwith %}
                 {% with codename="comet", name="Pixel 9 Pro Fold" %}
@@ -537,22 +537,22 @@
                 {% with codename="oriole", name="Pixel 6" %}
                     {% include "device.html" %}
                 {% endwith %}
-                {% with codename="barbet", name="Pixel 5a (legacy extended support)" %}
+                {% with codename="barbet", name="Pixel 5a (legacy extended support)", split=True %}
                     {% include "device.html" %}
                 {% endwith %}
-                {% with codename="redfin", name="Pixel 5 (legacy extended support)" %}
+                {% with codename="redfin", name="Pixel 5 (legacy extended support)", split=True %}
                     {% include "device.html" %}
                 {% endwith %}
-                {% with codename="bramble", name="Pixel 4a (5G) (legacy extended support) " %}
+                {% with codename="bramble", name="Pixel 4a (5G) (legacy extended support) ", split=True %}
                     {% include "device.html" %}
                 {% endwith %}
-                {% with codename="sunfish", name="Pixel 4a (legacy extended support)", install="factory" %}
+                {% with codename="sunfish", name="Pixel 4a (legacy extended support)", install="factory", split=True %}
                     {% include "device.html" %}
                 {% endwith %}
-                {% with codename="coral", name="Pixel 4 XL (legacy extended support)", install="factory" %}
+                {% with codename="coral", name="Pixel 4 XL (legacy extended support)", install="factory", split=True %}
                     {% include "device.html" %}
                 {% endwith %}
-                {% with codename="flame", name="Pixel 4 (legacy extended support)", install="factory" %}
+                {% with codename="flame", name="Pixel 4 (legacy extended support)", install="factory", split=True %}
                     {% include "device.html" %}
                 {% endwith %}
             </section>
