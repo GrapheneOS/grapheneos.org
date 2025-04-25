@@ -139,6 +139,11 @@
                     <li>Brave (with Brave Shields disabled, since it caps storage usage at a low value to avoid fingerprinting available storage)</li>
                 </ul>
 
+                <p>On Android, disable desktop mode for the browser since it currently prevents our
+                web installer from detecting Android and handling needing to request permission to
+                reconnect to the device after each reboot. Desktop mode is enabled by default on
+                large tablets with at least 8GB of RAM such as the Pixel Tablet.</p>
+
                 <p>You should avoid Flatpak and Snap versions of browsers, as they're known to cause issues during the installation process.</p>
 
                 <p>Make sure your browser is up-to-date before proceeding.</p>
