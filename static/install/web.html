@@ -54,7 +54,7 @@
                     <li><a href="#prerequisites">Prerequisites</a></li>
                     <li><a href="#enabling-oem-unlocking">Enabling OEM unlocking</a></li>
                     <li><a href="#flashing-as-non-root">Flashing as non-root</a></li>
-                    <li><a href="#working-around-fwupd-bug-on-linux-distributions">Working around fwupd bug on Linux distributions</a></li>
+                    <li><a href="#working-around-fwupd-bugs-on-linux-distributions">Working around fwupd bugs on Linux distributions</a></li>
                     <li><a href="#booting-into-the-bootloader-interface">Booting into the bootloader interface</a></li>
                     <li><a href="#connecting-device">Connecting the device</a></li>
                     <li><a href="#unlocking-the-bootloader">Unlocking the bootloader</a></li>
@@ -202,21 +202,16 @@
                 Ubuntu, install the <code>android-sdk-platform-tools-common</code> package.</p>
             </section>
 
-            <section id="working-around-fwupd-bug-on-linux-distributions">
-                <h2><a href="#working-around-fwupd-bug-on-linux-distributions">Working around fwupd bug on Linux distributions</a></h2>
+            <section id="working-around-fwupd-bugs-on-linux-distributions">
+                <h2><a href="#working-around-fwupd-bug-on-linux-distributions">Working around fwupd bugs on Linux distributions</a></h2>
 
-                <p>Some Debian, Ubuntu, and derivative distributions have an outdated fwupd package
-                with a bug breaking connecting to Android's bootloader interface (fastboot) while
-                fwupd is running since it tries to connect to arbitrary devices. This section can
-                be skipped on Arch Linux and other distributions with fwupd 1.9.10 or later since
-                we reported the bug and it was fixed. This never impacted Android or ChromeOS.</p>
+                <p>The fwupd software often used on Linux distributions for updating firmware is
+                known to incorrectly connect to arbitrary devices using the fastboot protocol which
+                will block using them for the intended purpose. This can result in receiving an
+                error about the USB device already being in use (claimed) when trying to connect to
+                it for the intended purpose.</p>
 
-                <p>Check your fwupd version with the following command:</p>
-
-                <pre>apt-cache policy fwupd</pre>
-
-                <p>If you have a fwupd version earlier than 1.9.10, you can stop fwupd with the
-                following command:</p>
+                <p>You can stop fwupd with the following command:</p>
 
                 <pre>sudo systemctl stop fwupd.service</pre>
 

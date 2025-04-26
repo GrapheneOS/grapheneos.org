@@ -35,6 +35,9 @@ const redirects = new Map([
     ["/install/cli#obtaining-signify", "/install/cli#obtaining-openssh"],
     ["/install/web#fastboot-as-non-root", "/install/web#flashing-as-non-root"],
 
+    ["/install/cli#working-around-fwupd-bug-on-linux-distributions", "/install/cli#working-around-fwupd-bugs-on-linux-distributions"],
+    ["/install/web#working-around-fwupd-bug-on-linux-distributions", "/install/web#working-around-fwupd-bugs-on-linux-distributions"],
+
     ["/build#enabling-updatable-apex-components", "/build#apex-components"],
     ["/build#kernel-6th-generation-pixels", "/build#kernel-6th-through-9th-generation-pixels"],
     ["/build#kernel-7th-generation-pixels", "/build#kernel-6th-through-9th-generation-pixels"],
