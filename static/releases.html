@@ -582,6 +582,7 @@
                     <p>Changes since the 2025042500 release:</p>
 
                     <ul>
+                        <li>extend security state manager service to support the official Auditor release (based on the signing key) obtaining additional security state (currently the configuration for auto-reboot, USB-C port and pogo pins control, OEM unlocking and user count)</li>
                         <li>Auditor: add default enabled data saver exemption</li>
                         <li>kernel (Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold): switch to synchronous mode for the Hardware Tag-Based KASAN implementation to improve security and error reporting (we'll continue using asymmetric mode in userspace where it works better)</li>
                         <li>kernel (6.1): update to latest GKI LTS branch revision</li>
