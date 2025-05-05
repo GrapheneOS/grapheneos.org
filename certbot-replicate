@@ -11,7 +11,6 @@ for replica in ${replicas[@]}; do
     echo
 
     rsync -rpcvl --delete --fsync --preallocate /etc/letsencrypt/ $replica:/etc/letsencrypt &&
-        rsync -rpcvl --delete --fsync --preallocate /var/cache/certbot-ocsp-fetcher/ $replica:/var/cache/certbot-ocsp-fetcher &&
         ssh root@$replica nginx -s reload ||
         status=1
 done
