@@ -91,6 +91,7 @@
                         <a href="#sandboxed-google-play">Sandboxed Google Play</a>
                         <ul>
                             <li><a href="#sandboxed-google-play-installation">Installation</a></li>
+                            <li><a href="#sandboxed-google-play-location-sharing">Location sharing</a></li>
                             <li><a href="#sandboxed-google-play-configuration">Configuration</a></li>
                             <li><a href="#sandboxed-google-play-limitations">Limitations</a></li>
                         </ul>
@@ -1145,6 +1146,20 @@
                     Play Store system settings are only included for convenience since they can be
                     accessed the same way as any other app via <b>Settings&#160;<span
                     aria-label="and then">></span> Apps</b>.</p>
+                </section>
+
+                <section id="sandboxed-google-play-location-sharing">
+                    <h3><a href="#sandboxed-google-play-location-sharing">Location sharing</a></h3>
+
+                    <p>Location sharing in Google Maps is implemented in Google Play services. It
+                    requires enabling both the Location permission with "Allow all the time" and the
+                    Physical activity permission for Google Play services. Our location rerouting
+                    feature reimplementing the Google Play location service using the OS location
+                    service does not apply to Google Play services itself, so Google Play services
+                    won't use the OS network location service. You can use the instructions above
+                    for enabling network location via Google Play if you want this. You could
+                    continue using rerouting for other apps or disable it to avoid needing 2
+                    separate network location services enabled.</p>
                 </section>
 
                 <section id="sandboxed-google-play-limitations">
