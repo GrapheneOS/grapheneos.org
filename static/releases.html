@@ -588,7 +588,7 @@
                     <p>Changes since the 2025052800 release:</p>
 
                     <ul>
-                        <li>Media Provider: expand our existing protection against CVE-2024-50089 which was rejected for the Linux kernel and still not fixed for Android in userspace (we added generic hardening in 2022 as a prerequisite for Storage Scopes which along with fixing information leaks blocked exploiting this issue for the common cases of not granting permissions, granting media permissions or using our Storage Scopes feature but we didn't fully cover "All files access" or the legacy API level equivalent)</li>
+                        <li>Media Provider: expand our existing protection against CVE-2024-50089 which is still not addressed upstream (we added generic hardening in 2022 as a prerequisite for Storage Scopes which along with fixing information leaks blocked exploiting this issue for the common cases of not granting permissions, granting media permissions or using our Storage Scopes feature but we didn't fully cover "All files access" or the legacy API level equivalent)</li>
                         <li>System Updater: prevent disabling overall notifications due to lack of a use case and many users doing it by accident, but continue allowing disabling the individual notification channels other than the reboot notification</li>
                         <li>kernel (6.6): update to latest GKI LTS branch revision including update to 6.6.92</li>
                         <li>Messaging: update to <a href="https://github.com/GrapheneOS/Messaging/releases/tag/8">version 8</a></li>
