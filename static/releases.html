@@ -591,6 +591,7 @@
 
                     <ul>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/137.0.7151.72.0">version 137.0.7151.72.0</a></li>
+                        <li>remove Chunghwa Telecom and Netlock Certificate Authorities (CAs) based on <a href="https://security.googleblog.com/2025/05/sustaining-digital-certificate-security-chrome-root-store-changes.html">the decision by the Chrome Root Store</a> (this does not impact Vanadium since it uses a more sophisticated browser root store rather than the OS root store and will distrust certificates from these CAs not added to Certificate Transparency logs before 2025-08-01 to avoid website compatibility issues)</li>
                     </ul>
                 </article>
                 -->
@@ -612,7 +613,6 @@
                     <ul>
                         <li>full 2025-06-01 security patch level</li>
                         <li>System Updater: temporarily revert notification protection due to upstream Android UI issues for this feature with privileged apps (we still plan to do this but it will need to wait until we resolve the OS issue)</li>
-                        <li>remove Chunghwa Telecom and Netlock Certificate Authorities (CAs) based on <a href="https://security.googleblog.com/2025/05/sustaining-digital-certificate-security-chrome-root-store-changes.html">the decision by the Chrome Root Store</a> (this does not impact Vanadium since it uses a more sophisticated browser root store rather than the OS root store and will distrust certificates from these CAs not added to Certificate Transparency logs before 2025-08-01 to avoid website compatibility issues)</li>
                     </ul>
                 </article>
 
