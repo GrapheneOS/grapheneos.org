@@ -590,6 +590,7 @@
                     <p>Changes since the 2025060200 release:</p>
 
                     <ul>
+                        <li>expand our code for checking Google Play Store source stamp signatures to checking each split APK in order to prepare it for future security-relevant usage including optionally marking apps as installed from the Play Store after verifying the source stamp (this is currently used for stripping Play Store inserted checks for apps being installed from the Play Store which had looser security requirements)</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/137.0.7151.72.0">version 137.0.7151.72.0</a></li>
                         <li>remove Chunghwa Telecom and Netlock Certificate Authorities (CAs) based on <a href="https://security.googleblog.com/2025/05/sustaining-digital-certificate-security-chrome-root-store-changes.html">the decision by the Chrome Root Store</a> (this does not impact Vanadium since it uses a more sophisticated browser root store rather than the OS root store and will distrust certificates from these CAs not added to Certificate Transparency logs before 2025-08-01 to avoid website compatibility issues)</li>
                     </ul>
