@@ -607,6 +607,14 @@
                 <article id="2025063000">
                     <h3><a href="#2025063000">2025063000</a></h3>
 
+                    <p>This is the initial official release of GrapheneOS based on Android 16 after
+                    the June 10th release of Android 16. Device support for Pixels was removed from
+                    the Android Open Source Project for Android 16 and had to be reimplemented which
+                    is why it took so much longer than usual. Please join our <a
+                    href="/contact#community-chat">testing chat room</a> if you're interesting in
+                    testing this experimental release. We'll be making a series of releases this
+                    week to fix several known issues and other issues.</p>
+
                     <p>Tags:</p>
                     <ul>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2025063000">2025063000</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, emulator, generic, other targets)</li>
@@ -615,10 +623,11 @@
                     <p>Changes since the 2025062700 release:</p>
 
                     <ul>
-                        <li>full Android 16 port (we previously shipped some parts of Android 16 backported to Android 15 QPR2 to provide the 2025-06-05 Pixel patch level</li>
-                        <li>don't disable external ports at boot on debug builds for internal development for debugging early boot failures</li>
+                        <li>full Android 16 port (we previously shipped some parts of Android 16 backported to Android 15 QPR2 to provide the 2025-06-05 and then 2025-07-01 Pixel patch level)</li>
+                        <li>migrate to using adevtool to handle a much larger portion of device support since the Android Open Source Project no longer includes device support for Pixels</li>
                         <li>adevtool: add new arcslib infrastructure for extracting resource overlays from the stock Pixel OS</li>
                         <li>adevtool: use fixed build number and build date for state regeneration to reduce diffs</li>
+                        <li>don't disable external ports at boot on debug builds for internal development for debugging early boot failures</li>
                     </ul>
                 </article>
                 -->
