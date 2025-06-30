@@ -299,23 +299,18 @@ source ~/.bashrc</pre>
                     <section id="development-branch">
                         <h4><a href="#development-branch">Development branch</a></h4>
 
-                        <p>The <code>15-qpr2</code> branch is the main development branch of
-                        GrapheneOS based on the latest release of Android 15 QPR2. It will follow
-                        along with the latest monthly and quarterly releases of Android 15 QPR2. The
-                        <code>15-qpr2</code> branch of GrapheneOS should be used for generic builds
-                        including the emulator, porting to other devices and for non-legacy
-                        officially supported devices.</p>
+                        <p>The <code>16</code> branch is the main development branch of GrapheneOS
+                        based on the latest release of Android 16. It will follow along with the
+                        latest monthly and quarterly releases of Android 16. The <code>16</code>
+                        branch of GrapheneOS should be used for generic builds including the
+                        emulator, porting to other devices and for non-legacy officially supported
+                        devices.</p>
 
-                        <p>The <code>15-qpr1-tegu</code> branch is a device branch for the Pixel 9a
-                        based on the upstream Pixel 9a device branch which is still based on Android
-                        15 QPR1 with security backports from after the main QPR1 development branch
-                        ended rather than Android 15 QPR2.</p>
+                        <p>To sync the <code>16</code> branch:</p>
 
-                        <p>To sync the <code>15-qpr2</code> branch:</p>
-
-                        <pre>mkdir grapheneos-15-qpr2
-cd grapheneos-15-qpr2
-repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 15-qpr2
+                        <pre>mkdir grapheneos-16
+cd grapheneos-16
+repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 16
 repo sync -j8</pre>
 
                         <p>If your network is unreliable and <code>repo sync</code> fails, you can run the
@@ -712,7 +707,7 @@ cd ../..</pre>
 
                         <pre>mkdir -p android/kernel/6.6
 cd android/kernel/6.6
-repo init -u https://github.com/GrapheneOS/kernel_manifest-6.6.git -b 15-qpr2
+repo init -u https://github.com/GrapheneOS/kernel_manifest-6.6.git -b 16
 repo sync -j8</pre>
 
                         <p>To build the 6.6 kernel image and modules for the emulator:</p>
@@ -727,7 +722,7 @@ repo sync -j8</pre>
 
                         <pre>mkdir -p android/kernel/6.1
 cd android/kernel/6.1
-repo init -u https://github.com/GrapheneOS/kernel_manifest-6.1.git -b 15-qpr2
+repo init -u https://github.com/GrapheneOS/kernel_manifest-6.1.git -b 16
 repo sync -j8</pre>
 
                         <p>To build the 6.1 kernel image and modules for the emulator:</p>
@@ -746,7 +741,7 @@ repo sync -j8</pre>
 
                         <pre>mkdir -p android/kernel/6.6
 cd android/kernel/6.6
-repo init -u https://github.com/GrapheneOS/kernel_manifest-6.6.git -b 15-qpr2
+repo init -u https://github.com/GrapheneOS/kernel_manifest-6.6.git -b 16
 repo sync -j8</pre>
 
                         <p>To build the arm64 kernel image for microdroid:</p>
@@ -773,7 +768,7 @@ repo sync -j8</pre>
 
                         <pre>mkdir -p android/kernel/pixel
 cd android/kernel/pixel
-repo init -u https://github.com/GrapheneOS/kernel_manifest-pixel.git -b 15-qpr2
+repo init -u https://github.com/GrapheneOS/kernel_manifest-pixel.git -b 16
 repo sync -j8</pre>
 
                         <p>Select the correct kernel codename for the device model:</p>
