@@ -598,7 +598,9 @@
                     <p>Changes since the 2025063000 release:</p>
 
                     <ul>
+                        <li>Exynos 5400 modem Pixels (Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold): temporarily disable hardened_malloc and hardware memory tagging for shared_modem_platform executable due to an upstream write-after-free bug</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/138.0.7204.63.0">version 138.0.7204.63.0</a></li>
+                        <li>add debug build functionality for toggling off hardened_malloc usage for vendor processes to make narrowing down issues quicker</li>
                     </ul>
                 </article>
                 -->
