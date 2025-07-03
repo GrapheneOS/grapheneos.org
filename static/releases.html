@@ -601,6 +601,7 @@
 
                     <ul>
                         <li>fix upstream Android 16 issue causing very large Binder transactions due to the size scaling based on the number of apps installed across all users including base OS apps/li>
+                        <li>reduce virtual memory reserved for Binder buffers back to 1MiB now that we have a direct fix for the upstream issue causing more to be required</li>
                         <li>revert our fix for a screenshot process crash that's now fixed upstream in Android 16</li>
                     </ul>
                 </article>
