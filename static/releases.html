@@ -600,6 +600,7 @@
 
                     <ul>
                         <li>increase virtual memory reserved for Binder buffers from 1MiB to 8MiB due to Android 16 having a very large Binder transaction scaling up based on the number of profiles which can go beyond the total size limit and break fully booting the OS, which occurred for a tiny number of our Alpha testers</li>
+                        <li>fix issues with display of the end session button to avoid it being wrongly displayed for Owner or not displayed for secondary users (we may remove this part of the upstream end session UI or make it optional since the functionality is also in the power menu)</li>
                         <li>update Pixel USB HAL to Android 16 (this was omitted in the initial port due to needing special handling for our USB-C port and pogo pins control feature)</li>
                         <li>always use UTC as the time zone for build date properties</li>
                         <li>kernel (6.6): update to latest GKI LTS branch revision</li>
