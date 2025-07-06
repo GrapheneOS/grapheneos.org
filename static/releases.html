@@ -619,7 +619,7 @@
                     <ul>
                         <li>partially revert upstream changes in Android 16 breaking parts of the lockscreen layout including the date and media info</li>
                         <li>Pixel 8 Pro, Pixel 9 Pro, Pixel 9 Pro XL: add back feature declaration for Pixel Thermometer support lost in our Android 16 device port migration which prevented fresh installs of the app</li>
-                        <li>Terminal (virtual machine management app): disable VM console feature since it isn't supported by the stable release of Android 16 outside of debug builds (the feature can be enabled once the core OS supports it in production builds)</li>
+                        <li>Terminal (virtual machine management app): disable VM console feature since it isn't supported by the stable release of Android 16 outside of debug builds and trying to use it breaks installing the new images (the feature can be enabled once the core OS supports it in production builds)</li>
                         <li>update Pixel HAL compatibility matrix version numbers for Android 16</li>
                         <li>add lockscreen synchronization failsafe to protect against unknown vulnerabilities</li>
                         <li>improve code quality and add unit tests for our strict CVE-2024-50089 protection</li>
