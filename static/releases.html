@@ -621,7 +621,7 @@
 
                     <ul>
                         <li>update to BP2A.250705.008 vendor files (July 2025 Pixel monthly release)</li>
-                        <li>disable temporary unconditional system crash notifications since we've gotten the initial feedback we needed since releasing our port to Android 16</li>
+                        <li>disable temporary unconditional system crash notifications since we've gotten the initial feedback we needed since releasing our port to Android 16 (users can enable this themselves via Settings > Security and privacy > More security and privacy > Notify about system process crashes)</li>
                         <li>NFC: always show standard confirmation dialog before opening a URL instead of it only being enabled for a small subset of users</li>
                         <li>temporarily remove NFC auto-turn-off feature since it can cause NFC HAL or system_server crashes in rare edge cases and we need to entirely reimplement it inside of the NFC APEX module to avoid the problems</li>
                     </ul>
