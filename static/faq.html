@@ -1208,10 +1208,12 @@
                     on 4G and higher), VoNR (5G) and VoWi-Fi are largely implemented by the OS via
                     TCP/IP rather than by the cellular layer itself. This means there will be
                     connections by the OS to carrier servers instead of being handled by cellular.
-                    GrapheneOS modifies carrier configuration so that toggles for disabling VoLTE,
-                    VoNR and VoWi-Fi are always available. We plan to provide more toggles to
-                    control these things in the future beyond making all the standard toggles
-                    available.</p>
+                    Most of these services (RCS, SMS over LTE, VVM, VoLTE, VoNR, and VoWi-Fi)
+                    operate through the IP Multimedia Subsystem (IMS) and involve connections to
+                    the <code>3gppnetwork.org</code> domains. GrapheneOS modifies carrier
+                    configuration so that toggles for disabling VoLTE, VoNR and VoWi-Fi are always
+                    available. We plan to provide more toggles to control these things in the
+                    future beyond making all the standard toggles available.</p>
                 </article>
 
                 <article id="privacy-policy">
