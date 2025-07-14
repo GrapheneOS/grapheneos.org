@@ -2,7 +2,7 @@
   "dependencies": {
     "@stylistic/eslint-plugin": "^5.1.0",
     "csso-cli": "^4.0.2",
-    "eslint": "^9.30.1",
+    "eslint": "^9.31.0",
     "html-minifier-terser": "^7.2.0",
     "stylelint": "^16.21.1",
     "stylelint-config-standard": "^38.0.0",
