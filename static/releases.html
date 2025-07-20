@@ -606,6 +606,7 @@
                     <p>Changes since the 2025071900 release:</p>
 
                     <ul>
+                        <li>temporarily disable asynchronous pre-reboot app optimization (dexopt) added in Android 16 to avoid the Finalizing step completing before apps are recompiled which can then result in it causing a very long initial boot (this will not apply to updating to this release but rather only updating to future releases from this one and onwards)</li>
                         <li>MediaMetadata: fix upstream Android bug by using shared bitmaps to avoid serialized metadata going beyond the Binder transaction size limit and causing system service failures including Bluetooth service crashes (this issue existed prior to Androiid 16)</li>
                         <li>AppCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_AppCompatConfig/releases/tag/4">version 4</a></li>
                     </ul>
