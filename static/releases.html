@@ -606,6 +606,7 @@
                     <p>Changes since the 2025071900 release:</p>
 
                     <ul>
+                        <li>MediaMetadata: fix upstream Android bug by using shared bitmaps to avoid serialized metadata going beyond the Binder transaction size limit and causing system service failures including Bluetooth service crashes (this issue existed prior to Androiid 16)</li>
                         <li>AppCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_AppCompatConfig/releases/tag/4">version 4</a></li>
                     </ul>
                 </article>
