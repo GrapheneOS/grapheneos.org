@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@stylistic/eslint-plugin": "^5.2.1",
+    "@stylistic/eslint-plugin": "^5.2.2",
     "csso-cli": "^4.0.2",
     "eslint": "^9.31.0",
     "html-minifier-terser": "^7.2.0",
