@@ -606,6 +606,7 @@
                     <p>Changes since the 2025071900 release:</p>
 
                     <ul>
+                        <li>add workaround for upstream Android asynchronous dexopt bug causing concurrent installs of the same package to be handled incorrectly which then causes crashes when attempting to uninstall</li>
                         <li>temporarily disable asynchronous pre-reboot app optimization (dexopt) added in Android 16 to avoid the Finalizing step completing before apps are recompiled which can then result in it causing a very long initial boot (this will not apply to updating to this release but rather only updating to future releases from this one and onwards)</li>
                         <li>MediaMetadata: fix upstream Android bug by using shared bitmaps to avoid serialized metadata going beyond the Binder transaction size limit and causing system service failures including Bluetooth service crashes (this issue existed prior to Androiid 16)</li>
                         <li>Sandboxed Google Play compatibility layer: revert change for dropping phenotype flag overrides before applying new ones since it can cause flag values to be set inconsistently due to a race</li>
