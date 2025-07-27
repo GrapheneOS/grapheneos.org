@@ -598,6 +598,10 @@
                 <article id="2025071900">
                     <h3><a href="#2025071900">2025071900</a></h3>
 
+                    <p>This release resolves 2 upstream Android VPN leaks discovered by GrapheneOS
+                    and our community testers. We aren't aware of any other Android VPN leaks which
+                    cannot be avoided by disabling Private DNS.</p>
+
                     <p>Tags:</p>
                     <ul>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2025071900">2025071900</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, emulator, generic, other targets)</li>
@@ -606,6 +610,8 @@
                     <p>Changes since the 2025071900 release:</p>
 
                     <ul>
+                        <li>prevent using SO_BINDTODEVICE to bypass VPN lockdown mode (leak protection) to resolve another upstream Android VPN leak discovered by GrapheneOS testers where code specifies a specific interface via a special system call to bypass the VPN</li>
+                        <li>prevent using NsdService#connect for components restricted by VPN lockdown mode to prevent a very limited upstream Android local network VPN leak</li>
                         <li>add workaround for upstream Android asynchronous dexopt bug causing concurrent installs of the same package to be handled incorrectly which then causes crashes when attempting to uninstall</li>
                         <li>temporarily disable asynchronous pre-reboot app optimization (dexopt) added in Android 16 to avoid the Finalizing step completing before apps are recompiled which can then result in it causing a very long initial boot (this will not apply to updating to this release but rather only updating to future releases from this one and onwards)</li>
                         <li>MediaMetadata: fix upstream Android bug by using shared bitmaps to avoid serialized metadata going beyond the Binder transaction size limit and causing system service failures including Bluetooth service crashes (this issue existed prior to Androiid 16)</li>
