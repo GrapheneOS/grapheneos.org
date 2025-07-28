@@ -607,6 +607,8 @@
                     <p>Changes since the 2025071900 release:</p>
 
                     <ul>
+                        <li>add missing multi-user handling to the package information query used by both of the new VPN leak protections which was discovered during Alpha channel testing from app crashes in secondary users for apps not installed in the Owner user</li>
+                        <li>fix implementation of INsdServiceConnector stub used as part of our NsdService#connect VPN leak protection to avoid an edge case resulting in app crashes found during Alpha channel testing</li>
                         <li>include additional overlays from the stock Pixel OS for Settings animations and Settings/SystemUI strings mostly related to documentation</li>
                     </ul>
                 </article>
