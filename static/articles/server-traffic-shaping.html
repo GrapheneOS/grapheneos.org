@@ -146,12 +146,18 @@
                 <p>For a server with 2000mbit of bandwidth provisioned, you could start by trying
                 it with 99.75% of the provisioned bandwidth:</p>
 
-                <pre>tc qdisc replace dev eth0 root cake bandwidth 1995mbit besteffort</pre>
+                <pre>tc qdisc replace dev eth0 root cake bandwidth 1995mbit besteffort dual-dsthost</pre>
 
                 <p>On a server, setting it to use 100% of the provisioned bandwidth may work fine
                 in practice. Unlike a local network connected to a consumer ISP, you shouldn't
                 need to sacrifice anywhere close to the typically recommended 5-10% of your
                 bandwidth for traffic shaping.</p>
+
+                <p>The flow isolation mode is set to <code>dual-dsthost</code> for fairness over
+                destination addresses and then over individual flows. The default of
+                <code>triple-isolate</code> uses a hash based on both destination and source
+                addresses for host isolation which is counterproductive for this server use
+                case.</p>
 
                 <p>This also sets <code>besteffort</code> for the common case where the server
                 doesn't have appropriate Quality of Service markings set up via Diffserv. Fair
@@ -184,6 +190,7 @@
 
                 <pre>[CAKE]
 Bandwidth=1995M
+FlowIsolationMode=dual-dst-host
 PriorityQueueingPreset=besteffort</pre>
             </section>
 
@@ -239,6 +246,7 @@ PriorityQueueingPreset=besteffort</pre>
                 <pre>[CAKE]
 Bandwidth=1995M
 PriorityQueueingPreset=besteffort
+FlowIsolationMode=dual-dst-host
 SplitGSO=false</pre>
             </section>
 
