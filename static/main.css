@@ -259,6 +259,11 @@ footer a, footer a:visited {
     list-style-type: none;
 }
 
+.warning-text {
+    /* Material 3 reference pallete: Yellow 30 */
+    color: #6f3a01;
+}
+
 .error-text {
     /* Baseline Material error color */
     color: #b00020;
@@ -487,6 +492,11 @@ details[open] summary {
 
     footer img {
         filter: invert(87%);
+    }
+
+    .warning-text {
+        /* Material 3 reference pallete: Yellow 80 */
+        color: #fcbd00;
     }
 
     .error-text {
