@@ -396,7 +396,15 @@ function addButtonHook(id, callback) {
                 statusCallback(finalStatus);
             }
         } catch (error) {
-            statusCallback(`Error: ${error.message}`);
+            let errorMessage;
+            if (typeof(error) === "object" && error.message != null && error.message !== "") {
+                errorMessage = error.message;
+            } else {
+                // sometimes non-error objects are thrown
+                // display its string representation instead of "Error: undefined"
+                errorMessage = error.toString();
+            }
+            statusCallback(`Error: ${errorMessage}`);
             statusField.className = "error-text";
             await releaseWakeLock();
             // Rethrow the error so it shows up in the console
