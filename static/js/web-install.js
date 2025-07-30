@@ -59,13 +59,19 @@ function fetchBlobWithProgress(url, onProgress) {
 
     return new Promise((resolve, reject) => {
         xhr.onload = () => {
-            resolve(xhr.response);
+            if (xhr.status !== 200) {
+                reject(`${xhr.status} ${xhr.statusText}`);
+            } else {
+                resolve(xhr.response);
+            }
         };
         xhr.onprogress = (event) => {
             onProgress(event.loaded / event.total);
         };
         xhr.onerror = () => {
-            reject(`${xhr.status} ${xhr.statusText}`);
+            // onerror is called on network errors
+            // status and statusText are populated with default values
+            reject("Network request failed");
         };
     });
 }
