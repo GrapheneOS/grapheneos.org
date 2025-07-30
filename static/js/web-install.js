@@ -95,13 +95,27 @@ class BlobStore {
             request.oncomplete = () => {
                 resolve(request.result);
             };
-            request.onerror = (event) => {
-                reject(event);
+            request.onerror = () => {
+                reject(request.error);
             };
 
             if (onUpgrade !== null) {
                 request.onupgradeneeded = onUpgrade;
             }
+        });
+    }
+
+    async _wrapTransaction(transaction) {
+        return new Promise((resolve, reject) => {
+            transaction.oncomplete = () => {
+                resolve(transaction.result);
+            };
+            transaction.onerror = () => {
+                reject(transaction.error);
+            };
+            transaction.onabort = () => {
+                reject(transaction.error);
+            };
         });
     }
 
@@ -119,12 +133,12 @@ class BlobStore {
     }
 
     async saveFile(name, blob) {
-        await this._wrapReq(
-            this.db.transaction(["files"], "readwrite").objectStore("files").add({
-                name: name,
-                blob: blob,
-            })
-        );
+        const transaction = this.db.transaction(["files"], "readwrite");
+        const request = transaction.objectStore("files").add({
+            name: name,
+            blob: blob,
+        });
+        await Promise.all([this._wrapTransaction(transaction), this._wrapReq(request)]);
     }
 
     async loadFile(name) {
@@ -403,7 +417,10 @@ function addButtonHook(id, callback) {
             }
         } catch (error) {
             let errorMessage;
-            if (typeof(error) === "object" && error.message != null && error.message !== "") {
+            if (error instanceof DOMException && error.name === "QuotaExceededError") {
+                // provide a more descriptive message than "Error: QuotaExceededError"
+                errorMessage = "storage quota has been exceeded, you might not have enough space on your drive, or you're using incognito mode";
+            } else if (typeof(error) === "object" && error.message != null && error.message !== "") {
                 errorMessage = error.message;
             } else {
                 // sometimes non-error objects are thrown
