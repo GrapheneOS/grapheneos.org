@@ -491,6 +491,16 @@ if ("usb" in navigator) {
     addButtonHook(Buttons.FLASH_RELEASE, flashRelease);
     addButtonHook(Buttons.LOCK_BOOTLOADER, lockBootloader);
     addButtonHook(Buttons.REMOVE_CUSTOM_KEY, eraseNonStockKey);
+
+    if (navigator.storage && navigator.storage.estimate) {
+        navigator.storage.estimate().then(estimate => {
+            // Currently factory images are ~1700MiB
+            // Show a warning if the estimated space is below 2000MiB
+            if (estimate.quota !== 0 && estimate.quota < 2000 * 1024 * 1024) {
+                document.getElementById("quota-warning-text").hidden = false;
+            }
+        });
+    }
 } else {
     console.log("WebUSB unavailable");
     for (const btnId in Buttons) {
