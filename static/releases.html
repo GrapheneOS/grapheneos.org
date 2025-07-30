@@ -608,6 +608,11 @@
                     <p>Changes since the 2025072800 release:</p>
 
                     <ul>
+                        <li>extend our workaround for the upstream Android asynchronous dexopt optimization issue to handle original-package package renaming which we used to rename Vanadium's package name from org.chromium.chrome to app.vanadium.browser years ago and users on 6th gen Pixels with installs prior to it could have a crash caused by our fix for the upstream issue</li>
+                        <li>add a temporary workaround for AOSP Dialer still using a legacy approach to notifications which interactions badly with notification grouping</li>
+                        <li>remove support for switching to a pseudo-locale when developer options are enabled since it can cause major issues</li>
+                        <li>Sandboxed Google Play compatibility layer: add stub for BluetoothDevice.getBondState() to avoid Android Auto crash</li>
+                        <li>Settings: fix upstream Android null pointer exception in UserAspectRatioDetails.launchApplication()</li>
                         <li>System Updater: update minimum and target API level to 36 (Android 16)</li>
                     </ul>
                 </article>
