@@ -462,6 +462,16 @@ if ("usb" in navigator) {
     addButtonHook(Buttons.REMOVE_CUSTOM_KEY, eraseNonStockKey);
 } else {
     console.log("WebUSB unavailable");
+    for (const btnId in Buttons) {
+        const elementId = Buttons[btnId];
+        const statusContainer = document.getElementById(`${elementId}-status-container`);
+        const statusField = document.getElementById(`${elementId}-status`);
+        if (statusContainer !== null) {
+            statusContainer.hidden = false;
+        }
+        statusField.className = "error-text";
+        statusField.innerHTML = "Unavailable, as your browser doesn't support WebUSB. Please read the <a href=\"#prerequisites\">prerequisites</a>.";
+    }
 }
 
 // This will create an alert box to stop the user from leaving the page during actions
