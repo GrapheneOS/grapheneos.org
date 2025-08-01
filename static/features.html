@@ -1311,7 +1311,9 @@
                     it's up or down by sending multicast packets either directly or by causing the
                     kernel to send the packets on their behalf through the standard multicast group
                     management system calls. GrapheneOS extends Android's standard eBPF filtering
-                    with full support for blocking all forms of multicast packet bypasses.</p>
+                    with full support for blocking all forms of multicast packet bypasses. We also
+                    disallow using the system Network Service Discovery Manager for connecting to
+                    mDNS-based services when VPN lockdown is enabled.</p>
 
                     <p>Android VPN configuration is split up for each profile which means work
                     profiles, Private Spaces and secondary users have their own VPN configuration
@@ -1322,6 +1324,10 @@
                     profile. GrapheneOS addresses this by extending the standard netfilter
                     configuration with a multicast firewall preventing sending packets through a VPN
                     tunnel which a process isn't supposed to be able to access.</p>
+
+                    <p>GrapheneOS closes a hole in Android's eBPF-based firewall system which made
+                    it possible to bypass the VPN by specifying a specific interface with a special
+                    system call.</p>
 
                     <p>Finding and resolving all forms of VPN leaks is one of our top priorities at
                     the moment and we don't currently consider this to be a complete feature due to
