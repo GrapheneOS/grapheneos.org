@@ -434,16 +434,16 @@
                             disabled by default for the Vanadium browser with per-site exception
                             support.</li>
                             <li>Dynamic code loading for both native code or Java/Kotlin classes is
-                            blocked for nearly the entire base OS to prevent base OS processes. This
-                            works alongside verified boot to prevent base OS processes from running
-                            attacker controlled native code or Java/Kotlin code. The only exceptions
-                            from the policy for the base OS are in-memory code loading for the media
-                            DRM sandbox and the Vanadium JIT compiler being permitted. Vanadium has
-                            JIT compilation disabled by default for every site and for apps using
-                            the WebView with the exception of our PDF Viewer app. Vanadium disables
-                            the JIT compiler by default with a per-site and per-app toggle for it
-                            and per-process enforcement of blocking dynamic code loading implemented
-                            with seccomp-bpf based on the per-site/per-app JIT compiler toggle.</li>
+                            blocked for nearly the entire base OS. This works alongside verified
+                            boot to prevent base OS processes from running attacker controlled
+                            native code or Java/Kotlin code. The only exceptions from the policy for
+                            the base OS are in-memory code loading for the media DRM sandbox and the
+                            Vanadium JIT compiler being permitted. Vanadium has JIT compilation
+                            disabled by default for every site and for apps using the WebView with
+                            the exception of our PDF Viewer app. Vanadium disables the JIT compiler
+                            by default with a per-site and per-app toggle for it and per-process
+                            enforcement of blocking dynamic code loading implemented with
+                            seccomp-bpf based on the per-site/per-app JIT compiler toggle.</li>
                             <li>Dynamic code loading for both native code or Java/Kotlin classes can
                             be disabled for user installed apps via 3 exploit protection toggles:
                             Dynamic code loading from memory, Dynamic code loading from storage and
