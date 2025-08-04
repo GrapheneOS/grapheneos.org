@@ -601,6 +601,18 @@
                 <article id="2025073000">
                     <h3><a href="#2025073000">2025073000</a></h3>
 
+                    <p>This is an early August security update release based on the August 2025
+                    security patch backports since the monthly Android Open Source Project and stock
+                    Pixel OS release scheduled for this month hasn't been published yet.</p>
+
+                    <p>Android Security Bulletin tags have not yet been pushed to the Android Open
+                    Source Project this month but we've had access to the signed partner bulletin
+                    zip with the same patches for a month. There are only 3 patches in the August
+                    2025-08-01 bulletin and one of those doesn't impact Android 16. Of the 2 marked
+                    as impacting Android 16, the critical severity issue was already fixed in the
+                    initial Android 16 release. Therefore, there's only a single High severity patch
+                    to Android 16 for the Android Open Source Project for August.</p>
+
                     <p>Tags:</p>
                     <ul>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2025073000">2025073000</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, emulator, generic, other targets)</li>
@@ -609,6 +621,7 @@
                     <p>Changes since the 2025073000 release:</p>
 
                     <ul>
+                        <li>full 2025-08-01 security patch level</li>
                         <li>add opt-in service for geocoding (translating location names to coordinates) and reverse geocoding (translating coordinations to location names) with the option of either a GrapheneOS proxy to Nomanatim or direct use of Nominatim which will improve compatibility with a tiny subset of apps depending on the OS providing this without an alternative (the service is open source with open data so our proxy is temporary and will be replaced with a self-hosted service, but we need to determine if we want to use Nominatim or Photon along with dealing with the high hardware requirements far beyond what our current network servers can provide)</li>
                         <li>add a workaround for bug in sonycast.sdk.ScMediaRouteProvider used by Tidal and other apps causing occasional NsdService related crashes in combination with VPN lockdown due to us fixing NsdService related VPN leaks</li>
                         <li>override pseudo locales with their respective base locales in the Android Runtime since they're currently broken and break using the device (we already disabled enabling pseudo locales in the previous release but a couple users enabled this developer option and need a release fixing it to use their device)</li>
