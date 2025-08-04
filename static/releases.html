@@ -609,6 +609,7 @@
                     <p>Changes since the 2025073000 release:</p>
 
                     <ul>
+                        <li>add opt-in service for geocoding (translating location names to coordinates) and reverse geocoding (translating coordinations to location names) with the option of either a GrapheneOS proxy to Nomanatim or direct use of Nominatim which will improve compatibility with a tiny subset of apps depending on the OS providing this without an alternative (the service is open source with open data so our proxy is temporary and will be replaced with a self-hosted service, but we need to determine if we want to use Nominatim or Photon along with dealing with the high hardware requirements far beyond what our current network servers can provide)</li>
                         <li>add a workaround for bug in sonycast.sdk.ScMediaRouteProvider used by Tidal and other apps causing occasional NsdService related crashes in combination with VPN lockdown due to us fixing NsdService related VPN leaks</li>
                         <li>override pseudo locales with their respective base locales in the Android Runtime since they're currently broken and break using the device (we already disabled enabling pseudo locales in the previous release but a couple users enabled this developer option and need a release fixing it to use their device)</li>
                         <li>kernel (6.1): update to latest GKI LTS branch revision including update to 6.1.147</li>
