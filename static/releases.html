@@ -613,6 +613,7 @@
                     <ul>
                         <li>reduce time update threshold to 50ms from Android's default 2000ms instead of allowing the clock to get up to 2s out-of-date (this change was lost during one of the major release ports when Android significantly changed the code and moved where this is configured)</li>
                         <li>Pixel 8a: fix inclusion of PSDS overlay since our port to Android 16 which was breaking using our PSDS proxy until we worked around it server-side with a redirect from broadcom.psds.grapheneos.org to samsung.psds.grapheneos.org for the Samsung PSDS download path</li>
+                        <li>Samsung GNSS devices (Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a): switch to TLSv1.3-only for SUPL instead of TLSv1.2-only now that it's supported by gnssd</li>
                         <li>change User-Agent for geocoder to "GrapheneOS geocoder $USER_AGENT_VERSION" where the version is currently 1 and can be incremented if there are significant changes to how we make requests (this was previously using the default Android User-Agent sending more information than necessary)</li>
                         <li>Camera: update to <a href="https://github.com/GrapheneOS/Camera/releases/tag/84">version 84</a></li>
                         <li>Camera: update to <a href="https://github.com/GrapheneOS/Camera/releases/tag/85">version 85</a></li>
