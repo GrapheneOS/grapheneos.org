@@ -611,6 +611,7 @@
                     <p>Changes since the 2025080600 release:</p>
 
                     <ul>
+                        <li>limit MediaMetadata object size to avoid Binder failures to resolve the rest of an upstream Android denial of service issue triggered in real world use by LibreTube (this extends our previous fix in our <a href="#2025072700">2025072700</a> release)</li>
                         <li>reduce time update threshold to 50ms from Android's default 2000ms instead of allowing the clock to get up to 2s out-of-date (this change was lost during one of the major release ports when Android significantly changed the code and moved where this is configured)</li>
                         <li>Pixel 8a: fix inclusion of PSDS overlay since our port to Android 16 which was breaking using our PSDS proxy until we worked around it server-side with a redirect from broadcom.psds.grapheneos.org to samsung.psds.grapheneos.org for the Samsung PSDS download path</li>
                         <li>Samsung GNSS devices (Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a): switch to TLSv1.3-only for SUPL instead of TLSv1.2-only now that it's supported by gnssd</li>
