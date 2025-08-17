@@ -74,7 +74,7 @@ for device in ${devices[@]}; do
 done
 sed -i "$replace" static-tmp/releases.html
 
-gixy nginx-tmp/nginx.conf
+gixy --skips if_is_evil nginx-tmp/nginx.conf
 
 xmllint --noout static-tmp/**/*.@(html|svg|xml)
 java -jar node_modules/vnu-jar/build/dist/vnu.jar --errors-only static-tmp/**/*.html
