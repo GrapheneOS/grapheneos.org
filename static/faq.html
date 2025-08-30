@@ -1788,20 +1788,20 @@
                 stones leading towards that goal including adopting virtualization-based
                 isolation.</p>
 
-                <p>The initial phase for the long-term roadmap of moving away from the current
-                foundation will be to deploy and integrate a hypervisor like Xen to leverage it for
-                reinforcing existing security boundaries. Linux would be running inside the virtual
-                machines at this point, inside and outside of the sandboxes being reinforced. In the
-                longer term, Linux inside the sandboxes can be replaced with a compatibility layer
-                like gVisor, which would need to be ported to arm64 and given a new backend alongside
-                the existing KVM backend. Over the longer term, i.e. many years from now, Linux can
-                fade away completely and so can the usage of virtualization. The anticipation is that
-                many other projects are going to be interested in this kind of migration, so it's not
-                going to be solely a GrapheneOS project, as demonstrated by the current existence of
-                the gVisor project and various other projects working on virtualization deployments
-                for mobile. Having a hypervisor with verified boot still intact will also provide a
-                way to achieve some of the goals based on extensions to Trusted Execution Environment
-                (TEE) functionality even without having GrapheneOS hardware.</p>
+                <p>The initial phase for the long-term roadmap of moving away from the current 
+                foundation will be to deploy and integrate [pKVM](https://source.android.com/docs/core/virtualization/architecture) and CrosVM,
+                reinforcing existing security boundaries. The Android Open Source Project has been 
+                making significant progress on this front, so our next milestone is to securely deploy 
+                Android apps using this virtualization setup. In the longer term, Linux inside the 
+                sandboxes can be replaced with a compatibility layer like gVisor, which would need 
+                to be given a new backend alongside the existing KVM backend. Over the longer term, 
+                i.e. many years from now, Linux and the usage of virtualization can fade away completely. 
+                The anticipation is that many other projects are going to be interested in this kind of migration,
+                so it's not going to be solely a GrapheneOS project; this is demonstrated by the current 
+                existence and development of gVisor and pKVM, as well as various other projects working on
+                virtualization deployments for mobile. Having a hypervisor with verified boot still 
+                intact will also provide a way to achieve some of the goals based on extensions to 
+                Trusted Execution Environment (TEE) functionality even without having GrapheneOS hardware.</p>
 
                 <p>Hardware and firmware security are core parts of the project, but it's currently
                 limited to research and submitting suggestions and bug reports upstream. In the long
