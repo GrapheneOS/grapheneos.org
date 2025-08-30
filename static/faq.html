@@ -60,6 +60,18 @@
                         </ul>
                     </li>
                     <li>
+                        <a href="#common-misconceptions">Common Misconceptions</a>
+                        <ul>
+                            <li><a href="#privacy-focused">GrapheneOS is a security focused project, not a privacy focused project?</a></li>
+                            <li><a href="#broken-notifications">Notifications are broken?</a></li>
+                            <li><a href="#google-pay">Google Pay can't work with GrapheneOS?</a></li>
+                            <li><a href="#play-integrity">GrapheneOS isn’t secure enough to pass 
+                            Play Integrity Attestation?</a></li>
+                            <li><a href="#custom-rom">GrapheneOS is a custom ROM?</a></li>
+                        </ul>
+                    </li>
+                    <li>
+
                         <a href="#security-and-privacy">Security and privacy</a>
                         <ul>
                             <li><a href="#encryption">How is disk encryption implemented?</a></li>
@@ -492,6 +504,58 @@
                 </article>
             </section>
 
+
+              <section id="common-misconceptions">
+                <h2><a href="#common-misconceptions">Common Misconceptions</a></h2>
+
+                 <article id="privacy-focused">
+                    <h3><a href="#privacy-focused">GrapheneOS is a security focused project, not a privacy focused project?</a></h3>
+
+                    <p>GrapheneOS is a privacy project above everything else. Our work on security is 
+                    to protect privacy, so it's not a separate thing.</p>
+                 </article>
+                      
+                <article id="broken-notifications">
+                    <h3><a href="#broken-notifications">Notifications are broken?</a></h3>
+
+                    <p>For apps that require installing Sandboxed Google Play for notifications, battery 
+                    optimization needs to be disabled for Google Play Services in order to prevent the 
+                    background process from getting killed.</p>
+                </article>
+                     
+                 <article id="google-pay">
+                    <h3><a href="#google-pay">Google Pay can't work with GrapheneOS?</a></h3>
+
+                    <p>GrapheneOS supports all technical aspects required for Google Pay to work. The 
+                    only reason it doesn't work, is because Google doesn't allow it; they use
+                    a strict whitelist approach for OS compatibility.</p>
+
+                    <p>Garmin Pay is an alternative to the Apple and Google duopoly via a Garmin 
+                    smartwatch, or Google Pay can be used on a Pixel/Galaxy Watch which also pair 
+                    fine with GrapheneOS.</p>
+                </article>
+
+                <article id="play-integrity">
+                    <h3><a href="#play-integrity">GrapheneOS isn’t secure enough to pass
+                    Play Integrity Attestation?</a></h3>
+
+                    <p>GrapheneOS is considerably more secure than the Stock Pixel OS and every 
+                    other Android-based OS. The purpose of the Play Integrity API is not to protect
+                    the end user, but <a href="/articles/attestation-compatibility-guide#apps-banning-grapheneos">rather to protect Google's monopolistic business interests</a>.</p>
+                </article>
+                        
+                <article id="custom-rom">
+                    <h3><a href="#custom-rom">GrapheneOS is a custom ROM?</a></h3>
+
+                    <p>GrapheneOS isn't a ROM. It is a production quality OS which only supports 
+                    devices with official support for running an alternate OS. ROM means read-only 
+                    memory. There are ROMs included on the device such as the boot ROM for the SoC. 
+                    It means firmware that can't be updated (written). All the firmware and OS images 
+                    are verified from hardware, but they aren't ROMs.</p>
+                </article> 
+                  
+            </section>
+                    
             <section id="security-and-privacy">
                 <h2><a href="#security-and-privacy">Security and privacy</a></h2>
 
