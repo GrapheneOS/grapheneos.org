@@ -62,7 +62,7 @@
                     <li>
                         <a href="#common-misconceptions">Common Misconceptions</a>
                         <ul>
-                            <li><a href="#notifications">Notifications are broken?</a></li>
+                            <li><a href="#broken-notifications">Notifications are broken?</a></li>
                             <li><a href="#google-pay">Google Pay isn’t supported?</a></li>
                             <li><a href="#play-integrity">GrapheneOS isn’t secure enough to pass 
                             Play Integrity Attestation?</a></li>
@@ -525,8 +525,17 @@
               <section id="common-misconceptions">
                 <h2><a href="#common-misconceptions">Common Misconceptions</a></h2>
 
-                <article id="encryption">
-                    <h3><a href="#notifications">Notifications are broken?</a></h3>
+                <article id="broken-notifications">
+                    <h3><a href="#broken-notifications">Notifications are broken?</a></h3>
+
+                    <p>For apps that require installing Sandboxed Google Play for notifications, battery 
+                    optimization needs to be disabled for Google Play Services in order to prevent the 
+                    background process from getting killed.  </p>
+
+
+                </article>
+             <article id="google-pay">
+                    <h3><a href="#google-pay">Google Pay isn’t supported?</a></h3>
 
                     <p>Many apps require installing Sandboxed Google Play for notifications, and 
                     some apps that don't require Google Play Services for notifications lack battery 
@@ -539,7 +548,7 @@
 
 
                 </article>
-                            <li><a href="#google-pay">Google Pay isn’t supported?</a></li>
+                        
                             <li><a href="#play-integrity">GrapheneOS isn’t secure enough to pass 
                             Play Integrity Attestation?</a></li>
                             <li><a href="#custom-rom">GrapheneOS is a custom ROM?</a></li>
