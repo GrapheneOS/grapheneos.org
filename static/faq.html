@@ -1385,9 +1385,16 @@
                     <p>If you're using a VPN, we recommended against having a Private DNS server
                     configured. If you want to filter traffic while using a VPN, use a VPN service
                     app able to do both such as RethinkDNS. Private DNS also interacts strangely
-                    with multiple profiles since each profile has their own VPN configuration but
-                    Private DNS is global. <strong>We strongly recommend fully disabling Private DNS
-                    when using a VPN on any secondary profile until it's overhauled.</strong></p>
+                    with multiple profiles since each profile and Private Space has their own VPN 
+                    configuration but Private DNS is global. <strong>We strongly recommend fully
+                    disabling Private DNS when using a VPN on any secondary profile until it's 
+                    overhauled.</strong></p>
+
+                    <p>Because Private Spaces and secondary users have their own VPN configuration,
+                    traffic routed through the device's hotspot is not directed via the handset/user
+                    profile VPN and any external device must have its own VPN connection if you want
+                    to use a VPN.</p>
+                    
                 </article>
 
                 <article id="network-monitoring">
