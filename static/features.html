@@ -1142,10 +1142,11 @@
                         Vanadium)</li>
                     </ul>
 
-                    <p>Configurable features such as JS JIT disabling and content filtering are
-                    currently exclusive to the Vanadium browser. Vanadium WebView is currently
-                    excluded from these changes until it has an app setting configuration menu
-                    similar to the standard site setting configuration menu.</p>
+                    <p>Features impacting compatibility where there needs to be a toggle available
+                    such as content filtering are mostly only available for the browser itself and
+                    not the WebView library. JavaScript JIT is enabled by default for the WebView in
+                    user installed apps with both a global toggle to change the default to disabled
+                    and a per-app toggle for overridding the default.</p>
 
                     <p>Extension support isn't planned due to being at odds with site isolation and
                     anti-fingerprinting. We plan to implement more features as part of the browser
