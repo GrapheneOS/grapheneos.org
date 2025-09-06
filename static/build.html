@@ -762,10 +762,8 @@ repo sync -j8</pre>
 
                         <p>To sync the kernel sources:</p>
 
-                        <pre>mkdir -p android/kernel/pixel
-cd android/kernel/pixel
-repo init -u https://github.com/GrapheneOS/kernel_manifest-pixel.git -b 16
-repo sync -j8</pre>
+                        <pre>git clone https://gitlab.com/grapheneos/kernel_pixel.git -b 16 --recurse-submodules
+cd kernel_pixel</pre>
 
                         <p>Select the correct kernel codename for the device model:</p>
 
@@ -790,7 +788,7 @@ repo sync -j8</pre>
 
                         <p>To build the kernel and modules:</p>
 
-                        <pre>./build_<var>codename</var>.sh --lto=full</pre>
+                        <pre>KLEAF_REPO_MANIFEST=aosp_manifest.xml ./build_<var>codename</var>.sh --lto=full</pre>
 
                         <p>Replace the files in the OS source tree at
                         <code>device/google/<var>codename</var>-kernels/6.1/grapheneos/</code> with your build in
