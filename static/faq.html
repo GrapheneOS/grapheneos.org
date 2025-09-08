@@ -1187,11 +1187,10 @@
                     including both control plane and user plane A-GNSS being implemented inside
                     the baseband. For Qualcomm baseband devices, SUPL is only enabled if the APN
                     configuration for the carrier includes <code>supl</code> as an APN type.
-                    Pixels with a Samsung baseband have a separate Broadcom GNSS chip without
-                    integration between them so SUPL is done by the OS with regular networking
-                    (can use Wi-Fi and VPN) and SUPL is used regardless of the carrier's APN type
-                    configuration. GrapheneOS upgrades the Broadcom SUPL implementation to only
-                    using TLSv1.2 instead of using TLSv1.1 and older with TLSv1.2 disabled.</p>
+                    Pixels with a Samsung baseband have a separate Broadcom or Samsung GNSS chip
+                    without integration between them so SUPL is done by the OS with regular
+                    networking (can use Wi-Fi and VPN) and SUPL is used regardless of the carrier's
+                    APN type configuration.</p>
 
                     <p>MMS, RCS, SMS over LTE, VVM (Visual Voicemail), VoLTE (carrier-based calls
                     on 4G and higher), VoNR (5G) and VoWi-Fi are largely implemented by the OS via
