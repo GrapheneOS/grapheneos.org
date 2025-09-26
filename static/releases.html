@@ -613,6 +613,18 @@
                 <article id="2025092500">
                     <h3><a href="#2025092500">2025092500</a></h3>
 
+                    <p>This release adds official support for using RCS in Google Messages. Using
+                    this requires granting the Phone permission to Play services to provide carrier
+                    information to it, granting the required permissions to Google Messages and then
+                    setting Google Messages as the current carrier messaging app. Setting as an app
+                    as the carrier messaging app provides it with device identifier access which is
+                    documented in our FAQ. However, Google Messages is a special case where part of
+                    the implementation is in Play services. We've dealt with this by special casing
+                    the device identifier permission check to detect when the user has granted this
+                    access to the official Google Messages app which then also provides the official
+                    Play services app with the same access. This doesn't provide any extra access in
+                    practice since Google Messages shares the information with Play services.</p>
+
                     <p>Tags:</p>
                     <ul>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2025092500">2025092500</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, emulator, generic, other targets)</li>
@@ -621,6 +633,8 @@
                     <p>Changes since the 2025092500 release:</p>
 
                     <ul>
+                        <li>Sandboxed Google Play compatibility layer: add request for the unprivileged <code>READ_PHONE_NUMBERS</code> permission to Play services since it's needed for RCS activation but is not requested since they request the privileged permission instead</li>
+                        <li>Sandboxed Google Play compatibility layer: when users have granted device identifier access to the official Google Messages app by setting it as the default SMS/MMS/RCS app</li>
                     </ul>
 
 
