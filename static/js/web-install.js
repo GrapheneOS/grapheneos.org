@@ -92,9 +92,6 @@ class BlobStore {
             request.onsuccess = () => {
                 resolve(request.result);
             };
-            request.oncomplete = () => {
-                resolve(request.result);
-            };
             request.onerror = () => {
                 reject(request.error);
             };
@@ -108,7 +105,7 @@ class BlobStore {
     async _wrapTransaction(transaction) {
         return new Promise((resolve, reject) => {
             transaction.oncomplete = () => {
-                resolve(transaction.result);
+                resolve();
             };
             transaction.onerror = () => {
                 reject(transaction.error);
