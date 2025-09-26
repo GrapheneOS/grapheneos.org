@@ -489,7 +489,9 @@ if ("usb" in navigator) {
     addButtonHook(Buttons.LOCK_BOOTLOADER, lockBootloader);
     addButtonHook(Buttons.REMOVE_CUSTOM_KEY, eraseNonStockKey);
 
-    if (navigator.storage && navigator.storage.estimate) {
+    // Brave always returns 2048MiB even with shields down
+    const isBraveBrowser = navigator.userAgentData && navigator.userAgentData.brands.find(obj=>obj.brand === "Brave") != null;
+    if (navigator.storage && navigator.storage.estimate && !isBraveBrowser) {
         navigator.storage.estimate().then(estimate => {
             // Currently factory images are ~1700MiB
             // Show a warning if the estimated space is below 2000MiB
