@@ -650,9 +650,10 @@
                     <code>READ_PRIVILEGED_PHONE_STATE</code> whitelisted can access these hardware
                     identifiers. Apps targeting Android 10 will receive a
                     <code>SecurityException</code> and older apps will receive an empty value for
-                    compatibility. The default SMS app is a special case that's given access to the
-                    IMEI, which is normally the GrapheneOS fork of the AOSP Messaging app unless
-                    users explicitly change it to another app.</p>
+                    compatibility. The currently enabled carrier-based messaging app for SMS/MMS/RCS
+                    is a special case that's given access to certain device identifiers including
+                    the IMEI. This is normally the GrapheneOS fork of AOSP Messaging but can be
+                    changed to another app by the user.</p>
 
                     <p>Since these restrictions became standard, GrapheneOS only makes a small change to
                     remove a legacy form of access to the serial number by legacy apps, which was still
