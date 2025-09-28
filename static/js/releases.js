@@ -7,41 +7,42 @@ const channels = ["stable", "beta", "alpha"];
 const delayMs = 1000 * 60 * 5;
 
 async function updateReleases() {
-    const requests = [];
-
-    for (const channel of channels) {
+    try {
+        const response = await fetch(baseUrl + "overview.json");
+        if (!response.ok) {
+            return;
+        }
+        const overview = await response.json();
         for (const device of devices) {
-            requests.push(fetch(`${baseUrl}${device}-${channel}`).then(response => {
-                if (!response.ok) {
-                    return Promise.reject();
-                }
-                return response.text();
-            }).then(text => {
-                const metadata = text.trim().split(" ");
+            const releases = overview[device];
+            if (releases === undefined) {
+                continue;
+            }
+            for (const channel of channels) {
+                const release = releases[channel];
 
                 const factoryFormat = legacyFactoryDevices.has(device) ? "factory" : "install";
-                const factoryFilename = `${device}-${factoryFormat}-${metadata[0]}.zip`;
+                const factoryFilename = `${device}-${factoryFormat}-${release}.zip`;
                 const factoryUrl = baseUrl + factoryFilename;
 
-                const updateFilename = `${device}-ota_update-${metadata[0]}.zip`;
+                const updateFilename = `${device}-ota_update-${release}.zip`;
                 const updateUrl = baseUrl + updateFilename;
 
-                const release = document.getElementById(`${device}-${channel}`);
-                const links = release.querySelectorAll("a, span");
+                const section = document.getElementById(`${device}-${channel}`);
+                const links = section.querySelectorAll("a, span");
 
-                links[0].textContent = metadata[0];
+                links[0].textContent = release;
                 if (links[0].nodeName == "A") {
-                    links[0].setAttribute("href", "#" + metadata[0]);
+                    links[0].setAttribute("href", "#" + release);
                 }
                 links[1].setAttribute("href", factoryUrl);
                 links[2].setAttribute("href", factoryUrl + ".sig");
                 links[3].setAttribute("href", updateUrl);
-            }));
+            }
         }
+    } finally {
+        setTimeout(updateReleases, delayMs);
     }
-
-    await Promise.allSettled(requests);
-    setTimeout(updateReleases, delayMs);
 }
 
 setTimeout(updateReleases, delayMs);
