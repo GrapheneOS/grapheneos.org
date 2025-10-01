@@ -530,3 +530,60 @@ details[open] summary {
         color: #dae2f9 /* on secondary container */;
     }
 }
+
+#menu-toggle, label[for="menu-toggle"] {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    label[for="menu-toggle"] {
+        position: absolute;
+        right: 0%;
+        top: 0%;
+        height: 3rem;
+        width: 3rem;
+        margin: 0.4rem;
+        display: block;
+        cursor: pointer;
+    }
+
+    #site-menu ul {
+        display: block;
+        max-height: 3.8rem;
+        height: 100%;
+        transition: max-height 0.3s ease-in-out;
+        overflow: hidden;
+    }
+
+    #site-menu:has(#menu-toggle:checked) ul {
+        max-height: 800px;
+    }
+
+    #site-menu ul li a {
+        width: 100%;
+    }
+
+    #site-menu:has(#menu-toggle:checked)label[for="menu-toggle"]::before {
+        transform: translateY(0.85rem) rotate(135deg);
+    }
+
+    #site-menu:has(#menu-toggle:checked) label[for="menu-toggle"]::after {
+        transform: translateY(-0.85rem) rotate(-135deg);
+    }
+
+    #site-menu:has(#menu-toggle:checked) label[for="menu-toggle"] span {
+        transform: scale(0);
+    }
+
+    label[for="menu-toggle"]::after,
+    label[for="menu-toggle"]::before,
+    label[for="menu-toggle"] span {
+        background-color: #64b5f6; /* blue300 */
+        border-radius: 3px;
+        content: "";
+        display: block;
+        height: 0.3rem;
+        margin: 0.55rem 0;
+        transition: all 0.2s ease-in-out;
+    }
+}
