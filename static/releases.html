@@ -629,6 +629,7 @@
                     <p>Changes since the 2025100300 release:</p>
 
                     <ul>
+                        <li>raise security patch level to 2025-10-05 since it's already provided without applying any additional patches</li>
                         <li>System Updater, Setup Wizard: integrate support for recommending opting into security preview releases during the initial Owner user setup and for existing users via a persistent notification which is disabled after making an explicit choice on whether to use security preview releases (this is necessary to inform all users about the option with an explicit choice)</li>
                         <li>Settings: add support for forcing VoWiFi availability</li>
                         <li>Settings: improve the carrier configuration override by improving the summaries, adding detailed descriptions and using clarifying the options force features to be available since there are also toggles for directly enabling/disabling the features in the main SIM settings screen</li>
@@ -652,6 +653,8 @@
                     <p>CVE-2025-48595 was fixed in the regular GrapheneOS 2025100300 release and is no longer listed.</p>
 
                     <p>CVE-2025-48611 patch was retracted.</p>
+
+                    <p>2025100901 provides at least the full 2025-11-01 patch level and the Android 2025-11-05 patch level (Pixel Update Bulletin could have fixes we don't get early) but will remain marked as providing 2025-10-05.</p>
 
                     <p>We're allowed to provide an early release with these patches and to list the CVEs but must wait until the embargo ends to publish sources or details on the patches. We strongly disagree with broadly distributing patches to OEMs 3-4 months before the official publication date. It further delays getting patches to users and sophisticated attackers will have no issue getting the patches from one of many people at Android OEMs with early access. It should be limited to at most 7 days. The lack of actual secrecy has been acknowledged through Android limiting the embargo to source code and details which allows us to fix these early. We're doing it with separate opt-in releases to keep the regular releases properly open source instead of delayed open source. We plan to integrate this choice into the initial setup wizard. The positive side is that we can now provide patches to people who truly need them without even the previous 1 month embargo delay.</p>
                 </article>
