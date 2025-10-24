@@ -626,6 +626,9 @@
                     <p>Changes since the 2025102300 release:</p>
 
                     <ul>
+                        <li>Sandboxed Google Play compatibility layer: add shim implementation of GmsFontProvider to prevent crashes of apps depending on Play services when it's missing or disabled (restores support for using Pixel Camera without Play services)</li>
+                        <li>Sandboxed Google Play compatibility layer: extend shim for background service starts to address edge cases where a foreground service is required</li>
+                        <li>Sandboxed Google Play compatibility layer: fix NoOpPrewarmService chain crash in Pixel Camera caused by lack of privileged OS integration</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/142.0.7444.48.0">version 142.0.7444.48.0</a></li>
                     </ul>
 
