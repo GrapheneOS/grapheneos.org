@@ -201,10 +201,8 @@
 
                         <p>Your <code>PATH</code> may not contain directories like
                         <code>/sbin</code>, and many system administration commands will fail. The
-                        <code>adevtool</code> from GrapheneOS requires the <code>debugfs</code>
-                        binary in <code>/sbin</code>. The simplest workaround is to add these
-                        directories to your <code>PATH</code> environment variable (and apply the
-                        change to your current shell):</p>
+                        simplest workaround is to add these directories to your <code>PATH</code>
+                        environment variable (and apply the change to your current shell):</p>
 
                         <pre>echo 'export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin' >> ~/.bashrc
 source ~/.bashrc</pre>
@@ -268,7 +266,6 @@ source ~/.bashrc</pre>
                     <ul>
                         <li>Node.js 22 LTS</li>
                         <li>yarn</li>
-                        <li>e2fsprogs (for the debugfs command used for extracting data from ext4 images)</li>
                     </ul>
 
                     <p>Additional Vanadium (Chromium) build dependencies not provided by the source tree:</p>
@@ -382,14 +379,11 @@ cd ../..</pre>
                     that the official builds match the sources, since it has signature verification (which
                     is an important part of the verified boot and attestation security model).</p>
 
-                    <p>The below commands need to only be run once to initially create a working
+                    <p>The below command needs to only be run once to initially create a working
                     environment. (Note: On Debian, <code>yarn</code> is reserved for a binary in
                     <code>cmdtest</code>; use <code>yarnpkg</code> instead.)</p>
 
-                    <pre>yarn install --cwd vendor/adevtool/
-source build/envsetup.sh
-lunch sdk_phone64_x86_64-cur-user
-m arsclib</pre>
+                    <pre>yarn install --cwd vendor/adevtool/</pre>
 
                     <p>Download, extract and prepare the vendor files:</p>
 
