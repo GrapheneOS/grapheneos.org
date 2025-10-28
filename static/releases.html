@@ -627,6 +627,7 @@
                     <p>Changes since the 2025102600 release:</p>
 
                     <ul>
+                        <li>Sandboxed Google Play compatibility layer: temporarily limit system service override infrastructure added for GmsFontProvider shim to Pixel Camera to work around certain banking apps detecting it as tampering (we can change the approach to avoid this to enable it for all apps using the Google Play client libraries again, especially since we want to expand it to improve app compatibility without Play services installed)</li>
                         <li>kernel (6.1): update to latest GKI LTS branch revision</li>
                         <li>kernel (6.6): update to latest GKI LTS branch revision including update to 6.6.112</li>
                         <li>kernel (6.12): update to latest GKI LTS branch revision including update to 6.12.53</li>
