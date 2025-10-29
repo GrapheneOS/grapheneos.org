@@ -56,8 +56,9 @@
                                 </ul>
                             </li>
                             <li><a href="#updating-and-switching-branches-or-tags">Updating and switching branches or tags</a></li>
-                            <li><a href="#extracting-vendor-files-for-pixel-devices">Extracting vendor files for Pixel devices</a></li>
                             <li><a href="#setting-up-the-os-build-environment">Setting up the OS build environment</a></li>
+                            <li><a href="#extracting-vendor-files-for-pixel-devices">Extracting vendor files for Pixel devices</a></li>
+                            <li><a href="#selecting-build-target">Selecting build target</a></li>
                             <li><a href="#reproducible-builds">Reproducible builds</a></li>
                             <li><a href="#building">Building</a></li>
                             <li><a href="#faster-builds-for-development-use-only">Faster builds for development use only</a></li>
@@ -365,6 +366,17 @@ cd ../..</pre>
                     GrapheneOS only provides a stable history via tags.</p>
                 </section>
 
+                <section id="setting-up-the-os-build-environment">
+                    <h3><a href="#setting-up-the-os-build-environment">Setting up the OS build environment</a></h3>
+
+                    <p>The build has to be done from bash or zsh as envsetup.sh is not compatible with other
+                    shells.</p>
+
+                    <p>Set up the build environment:</p>
+
+                    <pre>source build/envsetup.sh</pre>
+                </section>
+
                 <section id="extracting-vendor-files-for-pixel-devices">
                     <h3><a href="#extracting-vendor-files-for-pixel-devices">Extracting vendor files for Pixel devices</a></h3>
 
@@ -392,15 +404,8 @@ cd ../..</pre>
                     <p>Replace <code><var>PIXEL_CODENAME</var></code> with Pixel device codename, which is the same as <a href="#build-targets">build target name</a>.</p>
                 </section>
 
-                <section id="setting-up-the-os-build-environment">
-                    <h3><a href="#setting-up-the-os-build-environment">Setting up the OS build environment</a></h3>
-
-                    <p>The build has to be done from bash or zsh as envsetup.sh is not compatible with other
-                    shells.</p>
-
-                    <p>Set up the build environment:</p>
-
-                    <pre>source build/envsetup.sh</pre>
+                <section id="selecting-build-target">
+                    <h3><a href="#selecting-build-target">Selecting build target</a></h3>
 
                     <p>Select the desired build target (<code>husky</code> is the Pixel 8 Pro):</p>
 
