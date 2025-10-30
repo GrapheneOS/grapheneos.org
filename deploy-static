@@ -18,6 +18,7 @@ remote=root@${servers[0]}
 
 rsync -pcv --chmod=F755 --fsync --preallocate certbot-replicate $remote:/usr/local/bin/
 rsync -pcv --chmod=F644 --fsync --preallocate replicate.conf $remote:/etc/systemd/system/certbot-renew.service.d/
+rsync -pcv --chmod=F644 --fsync --preallocate mirrors $remote:/etc/mirrors
 
 # use last modified timestamps from 0.grapheneos.org
 rsync -rptcv --chmod=D755,F644 --delete --fsync --preallocate $remote:/srv/grapheneos.org/ static-production
