@@ -1,0 +1,75 @@
+#!/bin/bash
+
+set -o errexit -o nounset -o pipefail
+
+. servers.sh
+
+sha256() {
+    echo -n /
+    echo $1 | cut -d / -f 4-
+    if [[ -n ${2-} ]]; then
+        curl -s "$1" --connect-to $(echo $1 | cut -d / -f 3):443:$2:443
+    else
+        curl -s "$1"
+    fi | sha256sum | cut -d ' ' -f 1
+}
+
+echo Broadcom
+
+echo
+echo gllto.glpals.com
+sha256 https://gllto.glpals.com/7day/v5/latest/lto2.dat
+sha256 https://gllto.glpals.com/rtistatus4.dat
+sha256 https://gllto.glpals.com/rto/v1/latest/rto.dat
+sha256 https://gllto.glpals.com/rto/v2/latest/rto.dat
+
+echo
+echo agnss.goog
+sha256 https://agnss.goog/lto2.dat
+sha256 https://agnss.goog/rtistatus.dat
+sha256 https://agnss.goog/rto.dat
+sha256 https://agnss.goog/pad/xto/prod/rto/2/rto.dat
+
+for server in ${servers[@]}; do
+    echo
+    echo broadcom.psds.grapheneos.org via $server
+    sha256 https://broadcom.psds.grapheneos.org/lto2.dat $server
+    sha256 https://broadcom.psds.grapheneos.org/rtistatus.dat $server
+    sha256 https://broadcom.psds.grapheneos.org/rto.dat $server
+    sha256 https://broadcom.psds.grapheneos.org/pad/xto/prod/rto/2/rto.dat $server
+done
+
+echo
+echo Samsung
+
+echo
+echo 1.ssiloc.com
+sha256 https://1.ssiloc.com/p4/42F3
+
+for server in ${servers[@]}; do
+    echo
+
+    echo 1.ssiloc.com via $server
+    sha256 https://samsung.psds.grapheneos.org/p4/42F3 $server
+done
+
+echo
+echo Qualcomm
+
+echo
+echo path1.xtracloud.net
+sha256 https://path1.xtracloud.net/xtra3Mgrbeji.bin
+
+echo
+echo path2.xtracloud.net
+sha256 https://path2.xtracloud.net/xtra3Mgrbeji.bin
+
+echo
+echo path3.xtracloud.net
+sha256 https://path3.xtracloud.net/xtra3Mgrbeji.bin
+
+for server in ${servers[@]}; do
+    echo
+    echo qualcomm.psds.grapheneos.org via $server
+    sha256 https://qualcomm.psds.grapheneos.org/xtra3Mgrbeji.bin $server
+done
