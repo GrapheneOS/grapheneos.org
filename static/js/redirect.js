@@ -66,6 +66,7 @@ const redirects = new Map([
     // legacy servers
     ["/articles/grapheneos-servers#apps.grapheneos.org", "/articles/grapheneos-servers#releases.grapheneos.org"],
     ["/articles/grapheneos-servers#time.grapheneos.org", "/articles/grapheneos-servers#grapheneos.network"],
+    ["/articles/grapheneos-servers#grapheneos.network", "/articles/grapheneos-servers#grapheneos.org"],
 
     // preserve links to CLI install guide from when it was /install
     ["/install/#prerequisites", "/install/cli#prerequisites"],
