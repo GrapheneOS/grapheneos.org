@@ -62,7 +62,12 @@
                         <a href="#updates">Updates</a>
                         <ul>
                             <li><a href="#updates-settings">Settings</a></li>
-                            <li><a href="#updates-security">Security</a></li>
+                            <li>
+                                <a href="#updates-security">Security</a>
+                                <ul>
+                                    <li><a href="#security-preview-releases">Security preview releases</a></li>
+                                </ul>     
+                             </li>
                             <li><a href="#updates-disabling">Disabling</a></li>
                             <li><a href="#updates-sideloading">Sideloading</a></li>
                         </ul>
@@ -478,6 +483,40 @@
                     certain device but GrapheneOS rejects any update with a serialno constraint for both
                     over-the-air updates (Updater app) and sideloaded updates (recovery).</p>
                 </section>
+                
+                    <section id="security-preview-releases">
+                                <h4><a href="#security-review-releases">Security preview releases</a></h4>
+    
+                                <p>The new security update system Android is using provides around 3 months of 
+                                early access to OEMs with permission to make binary-only releases from the beginning. 
+                                Our security preview releases provide early access to Android Security Bulletin 
+                                patches prior to the official disclosure. We recommend enabling this. As far as 
+                                we know, GrapheneOS is the first to take advantage of this and ship the patches 
+                                early. Even the stock Pixel OS isn't doing this yet.</p>
+    
+                                <p>You can enable security preview releases via <b>Settings&#160;<span aria-label="and then">></span>
+                                System&#160;<span aria-label="and then">></span> System update&#160;<span aria-label="and then">></span> 
+                                Enable security preview releases</b>.</p>
+    
+                                <p>The only difference between our regular releases and security preview releases 
+                                are the future Android Security Bulletin patches being applied with any conflicts 
+                                resolved. The downside of security preview releases is we cannot provide the sources 
+                                for the patches until the official disclosure date.</p>
+    
+                                <p>We're maintaining the upcoming Android security patches in a private repository 
+                                where we've resolved the conflicts. Each of our security preview releases is tagged 
+                                in this private repository. Our plan is to publish what we used once the embargo ends, 
+                                so it will still be open source, but delayed.</p>
+    
+                                <p>Security preview releases are disabled by default for all existing installs and 
+                                fresh installs. Fresh installs have the setup wizard at the start where a page for 
+                                this was included with it toggled on by default, but it is off until you reach that 
+                                point and accept enabling it.</p>
+    
+                                <p>The security preview releases have a 1 second newer build date than the regular 
+                                releases so you can't go back to the regular release from the security preview 
+                                release made alongside it, but you can switch to the next regular release.</p>
+                        </section>
 
                 <section id="updates-disabling">
                     <h3><a href="#updates-disabling">Disabling</a></h3>
