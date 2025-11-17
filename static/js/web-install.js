@@ -250,6 +250,16 @@ function hasOptimizedFactoryImage(product) {
     return !legacyQualcommDevices.includes(product);
 }
 
+function getReleaseVariant() {
+    const radioButtons = document.getElementsByName("release-variant");
+    for (const radio of radioButtons) {
+        if (radio.checked) {
+            return radio.value;
+        }
+    }
+    return "stable"; // default to stable
+}
+
 async function getLatestRelease() {
     let product = await device.getVariable("product");
     if (!supportedDevices.includes(product)) {
@@ -260,7 +270,18 @@ async function getLatestRelease() {
     let metadata = await metadataResp.text();
     let releaseId = metadata.split(" ")[0];
 
-    return [`${product}-${hasOptimizedFactoryImage(product) ? "install" : "factory"}-${releaseId}.zip`, product];
+    // Check if user selected security preview variant
+    const variant = getReleaseVariant();
+    if (variant === "preview") {
+        // Replace last two digits (00) with 01 for security preview
+        if (releaseId.endsWith("00")) {
+            releaseId = releaseId.slice(0, -2) + "01";
+        } else {
+            throw new Error("Unable to determine security preview release ID from stable release");
+        }
+    }
+
+    return [`${product}-${hasOptimizedFactoryImage(product) ? "install" : "factory"}-${releaseId}.zip`, product, variant];
 }
 
 async function downloadRelease(setProgress) {
@@ -268,21 +289,22 @@ async function downloadRelease(setProgress) {
     await ensureConnected(setProgress);
 
     setProgress("Finding latest release...");
-    let [latestZip,] = await getLatestRelease();
+    let [latestZip, , variant] = await getLatestRelease();
+    const variantLabel = variant === "preview" ? "security preview" : "stable";
 
     // Download and cache the zip as a blob
     setInstallerState({ state: InstallerState.DOWNLOADING_RELEASE, active: true });
-    setProgress(`Downloading ${latestZip}...`);
+    setProgress(`Downloading ${latestZip} (${variantLabel})...`);
     await blobStore.init();
     try {
         await blobStore.download(`${RELEASES_URL}/${latestZip}`, (progress) => {
-            setProgress(`Downloading ${latestZip}...`, progress);
+            setProgress(`Downloading ${latestZip} (${variantLabel})...`, progress);
         });
     } finally {
         setInstallerState({ state: InstallerState.DOWNLOADING_RELEASE, active: false });
         await releaseWakeLock();
     }
-    setProgress(`Downloaded ${latestZip} release.`, 1.0);
+    setProgress(`Downloaded ${latestZip} ${variantLabel} release.`, 1.0);
 }
 
 async function reconnectCallback() {
@@ -311,7 +333,8 @@ async function flashRelease(setProgress) {
     // Need to do this again because the user may not have clicked download if
     // it was cached
     setProgress("Finding latest release...");
-    let [latestZip, product] = await getLatestRelease();
+    let [latestZip, product, variant] = await getLatestRelease();
+    const variantLabel = variant === "preview" ? "security preview" : "stable";
     await blobStore.init();
     let blob = await blobStore.loadFile(latestZip);
     if (blob === null) {
@@ -355,7 +378,7 @@ async function flashRelease(setProgress) {
         await releaseWakeLock();
     }
 
-    return `Flashed ${latestZip} to device.`;
+    return `Flashed ${latestZip} (${variantLabel}) to device.`;
 }
 
 async function eraseNonStockKey(setProgress) {
