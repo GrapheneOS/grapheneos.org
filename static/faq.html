@@ -1916,18 +1916,6 @@
                 upstream Android security vulnerabilities discovered by GrapheneOS despite us not
                 actively seeking them out speaks to the results of our review and testing.</p>
 
-                <p>Other AOSP-based OS projects including DivestOS and ProtonAOSP using lots of
-                our code results in it getting additional review from outside our project. There
-                have been multiple app compatibility issues fixed as a result of this
-                collaboration. In another case, DivestOS using the GrapheneOS Camera app led to
-                the discovery that we were using incorrect units for the auto-focus region used
-                for QR scanning in our Camera and Auditor apps. This was only a very minor issue
-                reducing the quality of the focus in our apps, but it uncovered a serious bug on
-                certain older devices where memory corruption in the camera service can be
-                triggered by setting an overly large focus region in an app. The devices are
-                unmaintained by the vendors, so this was only reported to the CameraX
-                developers.</p>
-
                 <p>GrapheneOS code is not just open source but well documented and organized in
                 order to make it much easier to review. Every change we make to Android Open
                 Source Project repositories is maintained as a clean patch set on top of the
