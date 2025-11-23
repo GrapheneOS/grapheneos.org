@@ -14,11 +14,11 @@ fi
 
 . servers.sh
 
-remote=root@bhs0.grapheneos.org
+remote=root@bhs.grapheneos.org
 
 rsync -pcv --chmod=F644 --fsync --preallocate mirrors $remote:/etc/mirrors
 
-# use last modified timestamps from bhs0.grapheneos.org
+# use last modified timestamps from bhs.grapheneos.org
 rsync -rptcv --chmod=D755,F644 --delete --fsync --preallocate $remote:/srv/grapheneos.org/ static-production
 rsync -pcv --chmod=D755,F644 --fsync --preallocate static-production/sitemap.xml{,.gz,.br} static-tmp/
 rsync -rpcv --chmod=D755,F644 --delete --fsync --preallocate static-tmp/ static-production
