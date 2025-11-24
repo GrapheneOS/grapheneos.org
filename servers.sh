@@ -1,1 +1,1 @@
-servers=({bhs,fra,gra,las,sea,sin,syd}.grapheneos.org)
+servers=({bhs,fra,las,sea,sin,syd}.grapheneos.org)
