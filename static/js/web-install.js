@@ -240,7 +240,7 @@ async function unlockBootloader(setProgress) {
     return "Bootloader unlocking triggered successfully.";
 }
 
-const supportedDevices = ["tegu", "comet", "komodo", "caiman", "tokay", "akita", "husky", "shiba", "felix", "tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble", "sunfish", "coral", "flame"];
+const supportedDevices = ["rango", "mustang", "blazer", "frankel", "tegu", "comet", "komodo", "caiman", "tokay", "akita", "husky", "shiba", "felix", "tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble", "sunfish", "coral", "flame"];
 
 const legacyQualcommDevices = ["sunfish", "coral", "flame"];
 

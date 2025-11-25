@@ -63,7 +63,7 @@ done
 sed -i "$replace" static-tmp/**/*.html nginx-tmp/nginx.conf nginx-tmp/snippets/preload.conf
 
 replace=
-devices=(tegu comet komodo caiman tokay akita husky shiba felix tangorpro lynx cheetah panther bluejay raven oriole barbet redfin bramble sunfish coral flame)
+devices=(rango mustang blazer frankel tegu comet komodo caiman tokay akita husky shiba felix tangorpro lynx cheetah panther bluejay raven oriole barbet redfin bramble sunfish coral flame)
 channels=(stable beta alpha)
 for device in ${devices[@]}; do
     for channel in ${channels[@]}; do
