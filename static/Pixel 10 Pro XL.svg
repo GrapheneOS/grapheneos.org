@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="767"
+   height="1616"
+   version="1.1"
+   viewBox="0 0 767 1616"
+   id="svg10"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs10">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath10">
+      <rect
+         x="27.5"
+         y="-465.48001"
+         width="707"
+         height="1560.5"
+         rx="102.5"
+         ry="102.5"
+         fill="#dddddd"
+         id="rect10"
+         style="display:none" />
+      <path
+         id="lpe_path-effect10"
+         class="powerclip"
+         d="M -5,-497.98001 H 772 V 1127.52 H -5 Z m 135,32.5 c -56.785,0 -102.5,45.715 -102.5,102.5 v 1355.5 C 27.5,1049.305 73.215,1095.02 130,1095.02 h 502 c 56.785,0 102.5,-45.715 102.5,-102.50001 v -1355.5 c 0,-56.785 -45.715,-102.5 -102.5,-102.5 z" />
+    </clipPath>
+  </defs>
+  <metadata
+     id="metadata1">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(0,493.48)"
+     id="g10">
+    <g
+       id="g3"
+       clip-path="url(#clipPath10)">
+      <path
+         x="727"
+         y="-52.48"
+         width="40"
+         height="115"
+         rx="10"
+         ry="10"
+         fill="#393d46"
+         id="rect1"
+         d="m 737,-52.48 h 20 c 5.54,0 10,4.46 10,10 v 95 c 0,5.54 -4.46,10 -10,10 h -20 c -5.54,0 -10,-4.46 -10,-10 v -95 c 0,-5.54 4.46,-10 10,-10 z" />
+      <path
+         x="727"
+         y="137.52"
+         width="40"
+         height="205"
+         rx="10"
+         fill="#393d46"
+         id="rect2"
+         d="m 737,137.52 h 20 c 5.54,0 10,4.46 10,10 v 185 c 0,5.54 -4.46,10 -10,10 h -20 c -5.54,0 -10,-4.46 -10,-10 v -185 c 0,-5.54 4.46,-10 10,-10 z" />
+      <path
+         x="5"
+         y="-487.98001"
+         width="752"
+         height="1605.5"
+         rx="120"
+         ry="120"
+         fill="#111111"
+         stroke="#a9abab"
+         stroke-width="10"
+         id="rect3"
+         d="m 125,-487.98001 h 512 c 66.48,0 120,53.52 120,120 v 1365.5 C 757,1064 703.48,1117.52 637,1117.52 H 125 C 58.52,1117.52 5,1064 5,997.51999 v -1365.5 c 0,-66.48 53.52,-120 120,-120 z" />
+    </g>
+    <g
+       fill="none"
+       stroke="#393d46"
+       stroke-width="10"
+       id="g8">
+      <path
+         d="M 1.5442e-8,-242.48 H 10"
+         id="path3" />
+      <path
+         d="m 752,-242.48 h 10"
+         id="path4" />
+      <path
+         d="m 377,-487.48 h 10"
+         id="path5" />
+      <path
+         d="M 1.5442e-8,965.02 H 10"
+         id="path6" />
+      <path
+         d="m 752,965.02 h 10"
+         id="path7" />
+      <path
+         d="m 462,1117.5 h 10"
+         id="path8" />
+    </g>
+    <circle
+       cx="381"
+       cy="-409.98001"
+       r="22.5"
+       fill="#111111"
+       id="circle8" />
+    <circle
+       cx="381"
+       cy="-409.98001"
+       r="12.5"
+       fill="#8844ff"
+       fill-opacity="0.13333"
+       id="circle9" />
+    <circle
+       cx="381"
+       cy="-409.98001"
+       r="7.5"
+       fill="#0044ff"
+       fill-opacity="0.26667"
+       id="circle10" />
+  </g>
+</svg>
