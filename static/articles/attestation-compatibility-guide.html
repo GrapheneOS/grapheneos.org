@@ -1,105 +1,91 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
+
     <head>
-        <meta charset="utf-8"/>
+        <meta charset="utf-8" />
         <title>Attestation compatibility guide | Articles | GrapheneOS</title>
-        <meta name="description" content="Guide on using remote attestation in a way that's compatible with GrapheneOS."/>
-        <meta name="theme-color" content="#212121"/>
-        <meta name="color-scheme" content="dark light"/>
-        <meta name="msapplication-TileColor" content="#ffffff"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-        <meta name="twitter:site" content="@GrapheneOS"/>
-        <meta name="twitter:creator" content="@GrapheneOS"/>
-        <meta property="og:title" content="GrapheneOS attestation compatibility guide"/>
-        <meta property="og:description" content="Guide on using remote attestation in a way that's compatible with GrapheneOS."/>
-        <meta property="og:type" content="website"/>
-        <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
-        <meta property="og:image:width" content="512"/>
-        <meta property="og:image:height" content="512"/>
-        <meta property="og:image:alt" content="GrapheneOS logo"/>
-        <meta property="og:site_name" content="GrapheneOS"/>
-        <meta property="og:url" content="https://grapheneos.org/articles/attestation-compatibility-guide"/>
-        <link rel="canonical" href="https://grapheneos.org/articles/attestation-compatibility-guide"/>
-        <link rel="icon" href="/favicon.ico"/>
-        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
-        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-        [[css|/main.css]]
-        <link rel="manifest" href="/manifest.webmanifest"/>
-        <link rel="license" href="/LICENSE.txt"/>
-        <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
+        <meta name="description"
+            content="Guide on using remote attestation in a way that's compatible with GrapheneOS." />
+        <meta name="theme-color" content="#212121" />
+        <meta name="color-scheme" content="dark light" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta name="twitter:site" content="@GrapheneOS" />
+        <meta name="twitter:creator" content="@GrapheneOS" />
+        <meta property="og:title" content="GrapheneOS attestation compatibility guide" />
+        <meta property="og:description"
+            content="Guide on using remote attestation in a way that's compatible with GrapheneOS." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://grapheneos.org/opengraph.png" />
+        <meta property="og:image:width" content="512" />
+        <meta property="og:image:height" content="512" />
+        <meta property="og:image:alt" content="GrapheneOS logo" />
+        <meta property="og:site_name" content="GrapheneOS" />
+        <meta property="og:url" content="https://grapheneos.org/articles/attestation-compatibility-guide" />
+        <link rel="canonical" href="https://grapheneos.org/articles/attestation-compatibility-guide" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" /> [[css|/main.css]]
+        <link rel="manifest" href="/manifest.webmanifest" />
+        <link rel="license" href="/LICENSE.txt" />
+        <link rel="me" href="https://grapheneos.social/@GrapheneOS" />
     </head>
-    <body>
-        {% include "header.html" %}
-        <main id="attestation-compatibility-guide">
+
+    <body> {% include "header.html" %} <main id="attestation-compatibility-guide">
             <h1><a href="#attestation-compatibility-guide">Attestation compatibility guide</a></h1>
-
-            <p>Apps using the Play Integrity API or
-            <a href="https://developer.android.com/training/safetynet/deprecation-timeline">obsolete</a>
-            SafetyNet Attestation API to check the authenticity/integrity of the OS can support
-            GrapheneOS by using the standard Android hardware attestation API instead and
-            permitting our official release signing keys. Android's
-            <a href="https://developer.android.com/training/articles/security-key-attestation">hardware
-            attestation API</a> provides a much stronger form of attestation than the Play
-            Integrity API with the ability to whitelist the keys of alternate operating systems.
-            It also avoids an unnecessary dependency on Google Play services and Google's
-            Play Integrity servers.</p>
-
-            <p>The standard hardware attestation API can be used to verify the authenticity/integrity
-            of the hardware, firmware, OS and the app running on it. It provides a verified boot key
-            fingerprint for the OS for permitting secure aftermarket operating systems. The app id,
-            signing key fingerprint(s) and version code of the app enabling hardware attestation are
-            included in the signed public key certificate for the generated key. This enables the
-            app's service to make sure the app is genuine and unmodified along with chaining trust
-            through the OS to the app which can sign messages with the attested hardware keystore
-            key to prove they come from their app running on top of a verified OS, firmware and
-            hardware. The only practical way to bypass hardware attestation is through exploiting
-            the hardware keystore to obtain attestation signing keys, which is protected against by
-            the ability to revoke keys that are being misused. Play Integrity API strong integrity
-            level is directly based on the hardware key attestation API, but apps using it directly
-            can support aftermarket operating systems, check the hardware attested OS patch level
-            and other provided information. The hardware attestation API also supports pinning-based
-            security instead of only root-based security where keys can be leaked and used to fake
-            attestations. Apps can use pinning to establish a much higher security pairing with a
-            specific device to obtain fresh attestations with a very high level security based on
-            the security of the device's own hardware keystore rather than the overall ecosystem.
-            Hardware attestation also doesn't require using any Google service beyond regularly
-            fetching the list of revoked keys for root-based attestation. The app's service doesn't
-            have to go down or start permitting anything if the Google services becomes unavailable
-            or blocks the app from using it for one reason or another. Using hardware attestation is
-            therefore more reliable and lower risk for apps.</p>
-
-            <p>Devices have been required to ship with hardware attestation support since Android
-            8. You can use hardware attestation on devices running Android 8 or later when the
-            <code>ro.product.first_api_level</code> system property isn't set to 25 or below,
-            which indicates they launched with Android 8 or later with hardware attestation
-            support as a mandatory feature. On older devices, you can continue using the Play
-            Integrity API. Some low quality devices shipped broken implementations of hardware
-            attestation despite the requirement to have it working for CDD/CTS certification and
-            the Play Integrity API currently still passes on those devices wrongly claiming them
-            to be CTS certified. If you don't want to fail on those devices, then you can start
-            with hardware attestation and fall back to the Play Integrity API or do both and
-            accept either passing as success.</p>
-
-            <p>Google provides a <a href="https://github.com/google/android-key-attestation">key
-            attestation library</a> with examples. Our <a href="https://github.com/GrapheneOS/Auditor">MIT
-            / Apache 2 licensed Auditor app</a> can be used as a reference implementation for
-            verifying hardware-based attestations. There are some subtleties in the verification
-            process such as making sure only the 2nd certificate in the chain (the one signing the
-            certificate for the key generated by your app) has an attestation extension to prevent
-            making a fake attestation by extending the chain. You can reuse our code and simply
-            omit support for an app generated attestation signing key (attest key) and the other
-            pinning support.</p>
-
-            <p>After verifying the signature of the attestation certificate chain and extracting
-            the attestation metadata, you can enforce that <code>verifiedBootState</code> is
-            either <code>Verified</code> or <code>SelfSigned</code>. For the
-            <code>SelfSigned</code> case, you can check that <code>verifiedBootKey</code> matches
-            one of the official GrapheneOS verified boot keys. These are the base16-encoded
-            verified boot key fingerprints for the official GrapheneOS releases:</p>
-
+            <p>Apps using the Play Integrity API or <a
+                    href="https://developer.android.com/training/safetynet/deprecation-timeline">obsolete</a> SafetyNet
+                Attestation API to check the authenticity/integrity of the OS can support GrapheneOS by using the
+                standard Android hardware attestation API instead and permitting our official release signing keys.
+                Android's <a href="https://developer.android.com/training/articles/security-key-attestation">hardware
+                    attestation API</a> provides a much stronger form of attestation than the Play Integrity API with
+                the ability to whitelist the keys of alternate operating systems. It also avoids an unnecessary
+                dependency on Google Play services and Google's Play Integrity servers.</p>
+            <p>The standard hardware attestation API can be used to verify the authenticity/integrity of the hardware,
+                firmware, OS and the app running on it. It provides a verified boot key fingerprint for the OS for
+                permitting secure aftermarket operating systems. The app id, signing key fingerprint(s) and version code
+                of the app enabling hardware attestation are included in the signed public key certificate for the
+                generated key. This enables the app's service to make sure the app is genuine and unmodified along with
+                chaining trust through the OS to the app which can sign messages with the attested hardware keystore key
+                to prove they come from their app running on top of a verified OS, firmware and hardware. The only
+                practical way to bypass hardware attestation is through exploiting the hardware keystore to obtain
+                attestation signing keys, which is protected against by the ability to revoke keys that are being
+                misused. Play Integrity API strong integrity level is directly based on the hardware key attestation
+                API, but apps using it directly can support aftermarket operating systems, check the hardware attested
+                OS patch level and other provided information. The hardware attestation API also supports pinning-based
+                security instead of only root-based security where keys can be leaked and used to fake attestations.
+                Apps can use pinning to establish a much higher security pairing with a specific device to obtain fresh
+                attestations with a very high level security based on the security of the device's own hardware keystore
+                rather than the overall ecosystem. Hardware attestation also doesn't require using any Google service
+                beyond regularly fetching the list of revoked keys for root-based attestation. The app's service doesn't
+                have to go down or start permitting anything if the Google services becomes unavailable or blocks the
+                app from using it for one reason or another. Using hardware attestation is therefore more reliable and
+                lower risk for apps.</p>
+            <p>Devices have been required to ship with hardware attestation support since Android 8. You can use
+                hardware attestation on devices running Android 8 or later when the
+                <code>ro.product.first_api_level</code> system property isn't set to 25 or below, which indicates they
+                launched with Android 8 or later with hardware attestation support as a mandatory feature. On older
+                devices, you can continue using the Play Integrity API. Some low quality devices shipped broken
+                implementations of hardware attestation despite the requirement to have it working for CDD/CTS
+                certification and the Play Integrity API currently still passes on those devices wrongly claiming them
+                to be CTS certified. If you don't want to fail on those devices, then you can start with hardware
+                attestation and fall back to the Play Integrity API or do both and accept either passing as success.</p>
+            <p>Google provides a <a href="https://github.com/google/android-key-attestation">key attestation library</a>
+                with examples. Our <a href="https://github.com/GrapheneOS/Auditor">MIT / Apache 2 licensed Auditor
+                    app</a> can be used as a reference implementation for verifying hardware-based attestations. There
+                are some subtleties in the verification process such as making sure only the 2nd certificate in the
+                chain (the one signing the certificate for the key generated by your app) has an attestation extension
+                to prevent making a fake attestation by extending the chain. You can reuse our code and simply omit
+                support for an app generated attestation signing key (attest key) and the other pinning support.</p>
+            <p>After verifying the signature of the attestation certificate chain and extracting the attestation
+                metadata, you can enforce that <code>verifiedBootState</code> is either <code>Verified</code> or
+                <code>SelfSigned</code>. For the <code>SelfSigned</code> case, you can check that
+                <code>verifiedBootKey</code> matches one of the official GrapheneOS verified boot keys. These are the
+                base16-encoded verified boot key fingerprints for the official GrapheneOS releases:</p>
             <ul>
-                <li><code>55a2d44103e56d5ec65496399c417987ba77730e6488fc60ba058d09fc3caee3</code>: Pixel 10 Pro Fold</li>
+                <li><code>55a2d44103e56d5ec65496399c417987ba77730e6488fc60ba058d09fc3caee3</code>: Pixel 10 Pro Fold
+                </li>
                 <li><code>141d7fc32af7958a416f2661b37cf6f27bfb376fb5ce616aeaa27a82c7a04f74</code>: Pixel 10 Pro XL</li>
                 <li><code>4e8ee8f717754052198ca6d2d3aaa232e2461b4293c0d6f297e519cc778de093</code>: Pixel 10 Pro</li>
                 <li><code>3f7415ea26f5df5b14ea6d153256071a7a1af9ce7b0970b7311cc463c7ea02c7</code>: Pixel 10</li>
@@ -120,62 +106,63 @@
                 <li><code>439b76524d94c40652ce1bf0d8243773c634d2f99ba3160d8d02aa5e29ff925c</code>: Pixel 6 Pro</li>
                 <li><code>f0a890375d1405e62ebfd87e8d3f475f948ef031bbf9ddd516d5f600a23677e8</code>: Pixel 6</li>
             </ul>
-
-            <p>The <code>verifiedBootKey</code> field is binary data so you either need to encode
-            it as base16 to compare with these or convert these to binary. An easy approach is
-            storing the permitted key fingerprints in a set and enforcing that the verified boot
-            key is in the permitted set when <code>verifiedBootState</code> is
-            <code>SelfSigned</code>.</p>
-
-            <p>GrapheneOS regularly adds support for new devices so you should have a process for
-            regularly adding the new verified boot key fingerprints from this page.</p>
-
-            <p>The hardware attestation API also provides other useful information signed by the
-            hardware including the OS patch level, in a way that even an attacker exploiting the
-            OS after boot to gain root cannot trivially bypass. It's a better feature than the
-            Play Integrity API which has to be designed for the lowest common denominator.</p>
-
-            <p>GrapheneOS users are strongly encouraged to share this documentation with app
-            developers enforcing only being able to use the stock OS. Send an email to the
-            developers and leave a review of the app with a link to this information. Share it
-            with other users and create pressure to support GrapheneOS rather than locking users
-            into the stock OS without a valid security reason. GrapheneOS not only upholds the
-            app security model but substantially reinforces it, so it cannot be justified with
-            reasoning based on security, anti-fraud, etc.</p>
-
+            <p>The <code>verifiedBootKey</code> field is binary data so you either need to encode it as base16 to
+                compare with these or convert these to binary. An easy approach is storing the permitted key
+                fingerprints in a set and enforcing that the verified boot key is in the permitted set when
+                <code>verifiedBootState</code> is <code>SelfSigned</code>.</p>
+            <p>GrapheneOS regularly adds support for new devices so you should have a process for regularly adding the
+                new verified boot key fingerprints from this page.</p>
+            <p>The hardware attestation API also provides other useful information signed by the hardware including the
+                OS patch level, in a way that even an attacker exploiting the OS after boot to gain root cannot
+                trivially bypass. It's a better feature than the Play Integrity API which has to be designed for the
+                lowest common denominator.</p>
+            <p>GrapheneOS users are strongly encouraged to share this documentation with app developers enforcing only
+                being able to use the stock OS. Send an email to the developers and leave a review of the app with a
+                link to this information. Share it with other users and create pressure to support GrapheneOS rather
+                than locking users into the stock OS without a valid security reason. GrapheneOS not only upholds the
+                app security model but substantially reinforces it, so it cannot be justified with reasoning based on
+                security, anti-fraud, etc.</p>
             <article id="apps-banning-grapheneos">
                 <h2><a href="#apps-banning-grapheneos">Apps banning GrapheneOS</a></h2>
-
-                <p>This is a list of the apps banning GrapheneOS with the Play Integrity API with
-                links to their Play Store pages for leaving feedback:</p>
-
+                <p>This is a list of the apps banning GrapheneOS with the Play Integrity API with links to their Play
+                    Store pages for leaving feedback:</p>
                 <ul>
-                    <li><a href="https://play.google.com/store/apps/details?id=au.gov.mygov.mygovapp" rel="nofollow">myGov</a> (Australian government app)</li>
-                    <li><a href="https://play.google.com/store/apps/details?id=br.gov.meugovbr" rel="nofollow">gov.br</a> (Brazilian government app)</li>
-                    <li><a href="https://play.google.com/store/apps/details?id=ch.ticketcorner.mobile.app.Android" rel="nofollow">Ticketcorner</a></li>
-                    <li><a href="https://play.google.com/store/apps/details?id=com.authy.authy" rel="nofollow">Authy</a></li>
-                    <li><a href="https://play.google.com/store/apps/details?id=com.chyrpe.chyrpe" rel="nofollow">Chyrpe Dating</a></li>
-                    <li><a href="https://play.google.com/store/apps/details?id=com.ebay.mobile" rel="nofollow">eBay</a></li>
-                    <li><a href="https://play.google.com/store/apps/details?id=com.mcdonalds.mobileapp" rel="nofollow">McDonald's</a> (International app used for many but not all countries not including the US)</li>
-                    <li><a href="https://play.google.com/store/apps/details?id=com.ridedott.rider" rel="nofollow">Dott</a></li>
-                    <li><a href="https://play.google.com/store/apps/details?id=com.swisssign.swissid.mobile" rel="nofollow">SwissID</a></li>
-                    <li><a href="https://play.google.com/store/apps/details?id=de.tk.tkapp" rel="nofollow">TK-App</a> (German health insurance app which uses it for fingerprint login)</li>
-                    <li><a href="https://play.google.com/store/apps/details?id=it.pagopa.io.app" rel="nofollow">IO</a> (Italian government app which uses it for the digital wallet feature)</li>
-                    <li><a href="https://play.google.com/store/apps/details?id=sg.ndi.sp" rel="nofollow">Singpass</a></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=au.gov.mygov.mygovapp"
+                            rel="nofollow">myGov</a> (Australian government app)</li>
+                    <li><a href="https://play.google.com/store/apps/details?id=br.gov.meugovbr"
+                            rel="nofollow">gov.br</a> (Brazilian government app)</li>
+                    <li><a href="https://play.google.com/store/apps/details?id=ch.ticketcorner.mobile.app.Android"
+                            rel="nofollow">Ticketcorner</a></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=com.authy.authy" rel="nofollow">Authy</a>
+                    </li>
+                    <li><a href="https://play.google.com/store/apps/details?id=com.chyrpe.chyrpe" rel="nofollow">Chyrpe
+                            Dating</a></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=com.ebay.mobile" rel="nofollow">eBay</a>
+                    </li>
+                    <li><a href="https://play.google.com/store/apps/details?id=com.mcdonalds.mobileapp"
+                            rel="nofollow">McDonald's</a> (International app used for many but not all countries not
+                        including the US)</li>
+                    <li><a href="https://play.google.com/store/apps/details?id=com.ridedott.rider"
+                            rel="nofollow">Dott</a></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=com.swisssign.swissid.mobile"
+                            rel="nofollow">SwissID</a></li>
+                    <li><a href="https://play.google.com/store/apps/details?id=de.tk.tkapp" rel="nofollow">TK-App</a>
+                        (German health insurance app which uses it for fingerprint login)</li>
+                    <li><a href="https://play.google.com/store/apps/details?id=it.pagopa.io.app" rel="nofollow">IO</a>
+                        (Italian government app which uses it for the digital wallet feature)</li>
+                    <li><a href="https://play.google.com/store/apps/details?id=sg.ndi.sp" rel="nofollow">Singpass</a>
+                    </li>
                 </ul>
-
-                <p>In addition to leaving feedback for these apps on the Play Store, file support
-                requests and leave feedback on third party review sites. Ask them to stop banning
-                GrapheneOS and explain that it's a much more secure OS than what they permit which
-                does not lose any of the standard security model. Explain that they can use the
-                hardware key attestation API to verify that a device is running GrapheneOS to permit
-                it alongside an OS licensing Google apps as they do with the Play Integrity API
-                already. Make sure to push back against false claims that it has something to do
-                with compatibility or security issues. The only reason they aren't permitting it is
-                because we do not license Google Mobile Services (GMS) and these apps are enforcing
-                Google's business interests rather than security.</p>
+                <p>In addition to leaving feedback for these apps on the Play Store, file support requests and leave
+                    feedback on third party review sites. Ask them to stop banning GrapheneOS and explain that it's a
+                    much more secure OS than what they permit which does not lose any of the standard security model.
+                    Explain that they can use the hardware key attestation API to verify that a device is running
+                    GrapheneOS to permit it alongside an OS licensing Google apps as they do with the Play Integrity API
+                    already. Make sure to push back against false claims that it has something to do with compatibility
+                    or security issues. The only reason they aren't permitting it is because we do not license Google
+                    Mobile Services (GMS) and these apps are enforcing Google's business interests rather than security.
+                </p>
             </article>
-        </main>
-        {% include "footer.html" %}
-    </body>
+        </main> {% include "footer.html" %} </body>
+
 </html>

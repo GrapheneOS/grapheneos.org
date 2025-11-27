@@ -1,65 +1,58 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
+
     <head>
-        <meta charset="utf-8"/>
+        <meta charset="utf-8" />
         <title>Sitewide advertising industry opt-out | Articles | GrapheneOS</title>
-        <meta name="description" content="Using ads.txt / app-ads.txt to disallow buying or selling ads for a domain."/>
-        <meta name="theme-color" content="#212121"/>
-        <meta name="color-scheme" content="dark light"/>
-        <meta name="msapplication-TileColor" content="#ffffff"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-        <meta name="twitter:site" content="@GrapheneOS"/>
-        <meta name="twitter:creator" content="@GrapheneOS"/>
-        <meta property="og:title" content="Sitewide advertising industry opt-out"/>
-        <meta property="og:description" content="Using ads.txt / app-ads.txt to disallow buying or selling ads for a domain."/>
-        <meta property="og:type" content="website"/>
-        <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
-        <meta property="og:image:width" content="512"/>
-        <meta property="og:image:height" content="512"/>
-        <meta property="og:image:alt" content="GrapheneOS logo"/>
-        <meta property="og:site_name" content="GrapheneOS"/>
-        <meta property="og:url" content="https://grapheneos.org/articles/sitewide-advertising-industry-opt-out"/>
-        <link rel="canonical" href="https://grapheneos.org/articles/sitewide-advertising-industry-opt-out"/>
-        <link rel="icon" href="/favicon.ico"/>
-        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
-        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-        [[css|/main.css]]
-        <link rel="manifest" href="/manifest.webmanifest"/>
-        <link rel="license" href="/LICENSE.txt"/>
-        <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
+        <meta name="description"
+            content="Using ads.txt / app-ads.txt to disallow buying or selling ads for a domain." />
+        <meta name="theme-color" content="#212121" />
+        <meta name="color-scheme" content="dark light" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta name="twitter:site" content="@GrapheneOS" />
+        <meta name="twitter:creator" content="@GrapheneOS" />
+        <meta property="og:title" content="Sitewide advertising industry opt-out" />
+        <meta property="og:description"
+            content="Using ads.txt / app-ads.txt to disallow buying or selling ads for a domain." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://grapheneos.org/opengraph.png" />
+        <meta property="og:image:width" content="512" />
+        <meta property="og:image:height" content="512" />
+        <meta property="og:image:alt" content="GrapheneOS logo" />
+        <meta property="og:site_name" content="GrapheneOS" />
+        <meta property="og:url" content="https://grapheneos.org/articles/sitewide-advertising-industry-opt-out" />
+        <link rel="canonical" href="https://grapheneos.org/articles/sitewide-advertising-industry-opt-out" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" /> [[css|/main.css]]
+        <link rel="manifest" href="/manifest.webmanifest" />
+        <link rel="license" href="/LICENSE.txt" />
+        <link rel="me" href="https://grapheneos.social/@GrapheneOS" />
     </head>
-    <body>
-        {% include "header.html" %}
-        <main id="sitewide-advertising-industry-opt-out">
+
+    <body> {% include "header.html" %} <main id="sitewide-advertising-industry-opt-out">
             <h1><a href="#sitewide-advertising-industry-opt-out">Sitewide advertising industry opt-out</a></h1>
-
-            <p>The <a href="https://iabtechlab.com/wp-content/uploads/2021/03/ads.txt-1.0.3.pdf">ads.txt specification</a>
-            provides a way to list the authorized sellers of ads for a domain. The
-            <a href="https://iabtechlab.com/wp-content/uploads/2019/03/app-ads.txt-v1.0-final-.pdf">app-ads.txt specification</a>
-            extends this to cover apps tied to the domain. As a domain owner, this is a valuable
-            way to crack down on fraudulent usage of your domain including by adware.</p>
-
-            <p>For domains without any third party advertising including those without any ads at
-            all, you should serve both <code>/ads.txt</code> and <code>/app-ads.txt</code> from a
-            web server with the placeholder record defined by the specification:</p>
-
+            <p>The <a href="https://iabtechlab.com/wp-content/uploads/2021/03/ads.txt-1.0.3.pdf">ads.txt
+                    specification</a> provides a way to list the authorized sellers of ads for a domain. The <a
+                    href="https://iabtechlab.com/wp-content/uploads/2019/03/app-ads.txt-v1.0-final-.pdf">app-ads.txt
+                    specification</a> extends this to cover apps tied to the domain. As a domain owner, this is a
+                valuable way to crack down on fraudulent usage of your domain including by adware.</p>
+            <p>For domains without any third party advertising including those without any ads at all, you should serve
+                both <code>/ads.txt</code> and <code>/app-ads.txt</code> from a web server with the placeholder record
+                defined by the specification:</p>
             <pre>placeholder.example.com, placeholder, DIRECT, placeholder</pre>
+            <p>The placeholder record formally disallows buying and selling ads on behalf of the domain including for
+                any subdomains. This prevents fraudulently buying / selling ads for your domain anywhere that ads.txt /
+                app-ads.txt are enforced.</p>
+            <p>It's in the interest of most ad tech companies to enforce these standards due to losses from ad fraud so
+                adoption is increasingly widespread.</p>
+            <p>Browser extension malware injecting ads into sites is very common and this is a way for sites to hurt
+                those malware developers where it hurts: their pocketbook.</p>
+            <p>These standards have a limited scope and were primarily created to address the cost of ad fraud for the
+                advertising industry, but they do offer value for domain owners to protect their reputation and
+                discourage adware.</p>
+        </main> {% include "footer.html" %} </body>
 
-            <p>The placeholder record formally disallows buying and selling ads on behalf of the
-            domain including for any subdomains. This prevents fraudulently buying / selling ads
-            for your domain anywhere that ads.txt / app-ads.txt are enforced.</p>
-
-            <p>It's in the interest of most ad tech companies to enforce these standards due to
-            losses from ad fraud so adoption is increasingly widespread.</p>
-
-            <p>Browser extension malware injecting ads into sites is very common and this is a way
-            for sites to hurt those malware developers where it hurts: their pocketbook.</p>
-
-            <p>These standards have a limited scope and were primarily created to address the cost
-            of ad fraud for the advertising industry, but they do offer value for domain owners to
-            protect their reputation and discourage adware.</p>
-        </main>
-        {% include "footer.html" %}
-    </body>
 </html>

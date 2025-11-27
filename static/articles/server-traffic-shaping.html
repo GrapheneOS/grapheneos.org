@@ -1,267 +1,202 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
+
     <head>
-        <meta charset="utf-8"/>
+        <meta charset="utf-8" />
         <title>Server traffic shaping | Articles | GrapheneOS</title>
-        <meta name="description" content="Implementing server traffic shaping on Linux with CAKE."/>
-        <meta name="theme-color" content="#212121"/>
-        <meta name="color-scheme" content="dark light"/>
-        <meta name="msapplication-TileColor" content="#ffffff"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-        <meta name="twitter:site" content="@GrapheneOS"/>
-        <meta name="twitter:creator" content="@GrapheneOS"/>
-        <meta property="og:title" content="Server traffic shaping"/>
-        <meta property="og:description" content="Implementing server traffic shaping on Linux with CAKE."/>
-        <meta property="og:type" content="website"/>
-        <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
-        <meta property="og:image:width" content="512"/>
-        <meta property="og:image:height" content="512"/>
-        <meta property="og:image:alt" content="GrapheneOS logo"/>
-        <meta property="og:site_name" content="GrapheneOS"/>
-        <meta property="og:url" content="https://grapheneos.org/articles/server-traffic-shaping"/>
-        <link rel="canonical" href="https://grapheneos.org/articles/server-traffic-shaping"/>
-        <link rel="icon" href="/favicon.ico"/>
-        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
-        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-        [[css|/main.css]]
-        <link rel="manifest" href="/manifest.webmanifest"/>
-        <link rel="license" href="/LICENSE.txt"/>
-        <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
+        <meta name="description" content="Implementing server traffic shaping on Linux with CAKE." />
+        <meta name="theme-color" content="#212121" />
+        <meta name="color-scheme" content="dark light" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta name="twitter:site" content="@GrapheneOS" />
+        <meta name="twitter:creator" content="@GrapheneOS" />
+        <meta property="og:title" content="Server traffic shaping" />
+        <meta property="og:description" content="Implementing server traffic shaping on Linux with CAKE." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://grapheneos.org/opengraph.png" />
+        <meta property="og:image:width" content="512" />
+        <meta property="og:image:height" content="512" />
+        <meta property="og:image:alt" content="GrapheneOS logo" />
+        <meta property="og:site_name" content="GrapheneOS" />
+        <meta property="og:url" content="https://grapheneos.org/articles/server-traffic-shaping" />
+        <link rel="canonical" href="https://grapheneos.org/articles/server-traffic-shaping" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" /> [[css|/main.css]]
+        <link rel="manifest" href="/manifest.webmanifest" />
+        <link rel="license" href="/LICENSE.txt" />
+        <link rel="me" href="https://grapheneos.social/@GrapheneOS" />
     </head>
-    <body>
-        {% include "header.html" %}
-        <main id="server-traffic-shaping">
+
+    <body> {% include "header.html" %} <main id="server-traffic-shaping">
             <h1><a href="#server-traffic-shaping">Server traffic shaping</a></h1>
-
-            <p>This article covers implementing server traffic shaping on Linux with CAKE. The aim
-            is to provide fair usage of bandwidth between clients and consistently low latency
-            for dedicated and virtual servers provided by companies like OVH and others.</p>
-
-            <p>Traffic shaping is generally discussed in the context of a router shaping traffic
-            for a local network with assorted clients connected. It also has a lot to offer on a
-            server where you don't control the network. If you control your own infrastructure
-            from the server to the ISP, you probably want to do this on the routers instead.</p>
-
-            <p>This article was motivated by the serious lack of up-to-date information on this
-            topic elsewhere. It's very easy to implement on modern Linux kernels and the results
-            are impressive from extremely simple test cases to heavily loaded servers.</p>
-
+            <p>This article covers implementing server traffic shaping on Linux with CAKE. The aim is to provide fair
+                usage of bandwidth between clients and consistently low latency for dedicated and virtual servers
+                provided by companies like OVH and others.</p>
+            <p>Traffic shaping is generally discussed in the context of a router shaping traffic for a local network
+                with assorted clients connected. It also has a lot to offer on a server where you don't control the
+                network. If you control your own infrastructure from the server to the ISP, you probably want to do this
+                on the routers instead.</p>
+            <p>This article was motivated by the serious lack of up-to-date information on this topic elsewhere. It's
+                very easy to implement on modern Linux kernels and the results are impressive from extremely simple test
+                cases to heavily loaded servers.</p>
             <section id="problem">
                 <h2><a href="#problem">Problem</a></h2>
-
-                <p>A server will generally be provisioned with a specific amount of bandwidth
-                enforced by a router in close proximity. This router acts as the bottleneck and
-                ends up being in charge of most of the queuing and congestion decisions. Unless
-                that's under your control, the best you can hope for is that the router is
-                configured to use <code>fq_codel</code> as the queuing discipline (qdisc) to
-                provide fair queuing between streams and low latency by preventing a substantial
-                backlog of data.</p>
-
-                <p>Unfortunately, the Linux kernel still defaults to <code>pfifo_fast</code>
-                instead of the much saner <code>fq_codel</code> algorithm. This is changed by a
-                configuration file shipped with systemd, so <em>most</em> distributions using
-                systemd as init end up with a sane default. Debian removes that configuration and
-                doesn't set a sane default itself, and is widely used. Many server providers like
-                OVH do not appear to consistently use modern queue disciplines like
-                <code>fq_codel</code> within their networks, particularly at artificial
-                bottlenecks implementing rate limiting based on product tiers.</p>
-
-                <p>If the bottleneck doesn't use fair queuing, division of bandwidth across
-                streams is very arbitrary and latency suffers under congestion. These issues are
-                often referred to as bufferbloat, and <code>fq_codel</code> is quite good at
-                resolving it.</p>
-
-                <p>The <code>fq_codel</code> algorithm is far from perfect. It has issues with
-                hash collisions and more importantly only does fair queuing between streams.
-                Buffer bloat also isn't the only relevant issue. Clients with multiple connections
-                receive more bandwidth and a client can open a large number of connections to
-                maximize their bandwidth usage at the expense of others. Fair queuing is important
-                beyond as a solution to bufferbloat and there's more to fair queuing than doing it
-                only based on streams.</p>
-
-                <p>Traditionally, web browsers open a bunch of HTTP/1.1 connections to each server
-                which ends up giving them an unfair amount of bandwidth. HTTP/2 is much friendlier
-                since it uses a single connection to each server for the entire browser. Download
-                managers take this to the extreme and intentionally use many connections to bypass
-                server limits and game the division of resources between clients.</p>
+                <p>A server will generally be provisioned with a specific amount of bandwidth enforced by a router in
+                    close proximity. This router acts as the bottleneck and ends up being in charge of most of the
+                    queuing and congestion decisions. Unless that's under your control, the best you can hope for is
+                    that the router is configured to use <code>fq_codel</code> as the queuing discipline (qdisc) to
+                    provide fair queuing between streams and low latency by preventing a substantial backlog of data.
+                </p>
+                <p>Unfortunately, the Linux kernel still defaults to <code>pfifo_fast</code> instead of the much saner
+                    <code>fq_codel</code> algorithm. This is changed by a configuration file shipped with systemd, so
+                    <em>most</em> distributions using systemd as init end up with a sane default. Debian removes that
+                    configuration and doesn't set a sane default itself, and is widely used. Many server providers like
+                    OVH do not appear to consistently use modern queue disciplines like <code>fq_codel</code> within
+                    their networks, particularly at artificial bottlenecks implementing rate limiting based on product
+                    tiers.</p>
+                <p>If the bottleneck doesn't use fair queuing, division of bandwidth across streams is very arbitrary
+                    and latency suffers under congestion. These issues are often referred to as bufferbloat, and
+                    <code>fq_codel</code> is quite good at resolving it.</p>
+                <p>The <code>fq_codel</code> algorithm is far from perfect. It has issues with hash collisions and more
+                    importantly only does fair queuing between streams. Buffer bloat also isn't the only relevant issue.
+                    Clients with multiple connections receive more bandwidth and a client can open a large number of
+                    connections to maximize their bandwidth usage at the expense of others. Fair queuing is important
+                    beyond as a solution to bufferbloat and there's more to fair queuing than doing it only based on
+                    streams.</p>
+                <p>Traditionally, web browsers open a bunch of HTTP/1.1 connections to each server which ends up giving
+                    them an unfair amount of bandwidth. HTTP/2 is much friendlier since it uses a single connection to
+                    each server for the entire browser. Download managers take this to the extreme and intentionally use
+                    many connections to bypass server limits and game the division of resources between clients.</p>
             </section>
-
             <section id="solution">
                 <h2><a href="#solution">Solution</a></h2>
-
-                <p>Linux 4.19 and later makes it easy to solve all of these problems. The CAKE
-                queuing discipline provides sophisticated fair queuing based on destination and
-                source addresses with finer-grained fairness for individual streams.</p>
-
-                <p> Unfortunately, simply enabling it as your queuing discipline isn't enough
-                since it's highly unlikely that your server is the network bottleneck. You need to
-                configure it with a bandwidth limit based on the provisioned bandwidth to move the
-                bottleneck under your control where you can control how traffic is queued.</p>
+                <p>Linux 4.19 and later makes it easy to solve all of these problems. The CAKE queuing discipline
+                    provides sophisticated fair queuing based on destination and source addresses with finer-grained
+                    fairness for individual streams.</p>
+                <p> Unfortunately, simply enabling it as your queuing discipline isn't enough since it's highly unlikely
+                    that your server is the network bottleneck. You need to configure it with a bandwidth limit based on
+                    the provisioned bandwidth to move the bottleneck under your control where you can control how
+                    traffic is queued.</p>
             </section>
-
             <section id="results">
                 <h2><a href="#results">Results</a></h2>
-
-                <p>We've used an 100mbit OVH server for as a test platform for a case where
-                clients can easily max out the server bandwidth on their own. As a very simple
-                example, consider 2 clients with more than 100mbit of bandwidth each downloading a
-                large file. These are (rounded) real world results with CAKE:</p>
-
+                <p>We've used an 100mbit OVH server for as a test platform for a case where clients can easily max out
+                    the server bandwidth on their own. As a very simple example, consider 2 clients with more than
+                    100mbit of bandwidth each downloading a large file. These are (rounded) real world results with
+                    CAKE:</p>
                 <ul>
                     <li>client A with 1 connection gets 50mbit</li>
                     <li>client B with 10 connections gets 5mbit each adding up to 50mbit</li>
                 </ul>
-
-                <p>CAKE with <code>flows</code> instead of the default <code>triple-isolate</code> to
-                mimic <code>fq_codel</code> at a bottleneck:</p>
-
+                <p>CAKE with <code>flows</code> instead of the default <code>triple-isolate</code> to mimic
+                    <code>fq_codel</code> at a bottleneck:</p>
                 <ul>
                     <li>client A with 1 connection gets 9mbit</li>
                     <li>client B with 10 connections gets 9mbit each adding up to 90mbit</li>
                 </ul>
-
-                <p>The situation without traffic shaping is a mess. Latency takes a serious hit
-                that's very noticeable via SSH. Bandwidth is consistently allocated very unevenly
-                and ends up fluctuating substantially between test runs. The connections tend to
-                settle near a rate, often significantly lower or higher than the fair 9mbit
-                amount. It's generally something like this, but the range varies a lot:</p>
-
+                <p>The situation without traffic shaping is a mess. Latency takes a serious hit that's very noticeable
+                    via SSH. Bandwidth is consistently allocated very unevenly and ends up fluctuating substantially
+                    between test runs. The connections tend to settle near a rate, often significantly lower or higher
+                    than the fair 9mbit amount. It's generally something like this, but the range varies a lot:</p>
                 <ul>
                     <li>client A with 1 connection gets ~6mbit to ~14mbit</li>
-                    <li>client B with 10 connections gets ~6mbit to ~14mbit each adding up to ~86mbit
-                    to ~94mbit</li>
+                    <li>client B with 10 connections gets ~6mbit to ~14mbit each adding up to ~86mbit to ~94mbit</li>
                 </ul>
-
-                <p>CAKE continues working as expected with a far higher number of connections. It
-                technically has a higher CPU cost than <code>fq_codel</code>, but that's much more
-                of a concern for low end router hardware. It hardly matters on a server, even one
-                that's under heavy CPU load. The improvement in user experience is substantial and
-                it's very noticeable in web page load speeds when a server is under load.</p>
+                <p>CAKE continues working as expected with a far higher number of connections. It technically has a
+                    higher CPU cost than <code>fq_codel</code>, but that's much more of a concern for low end router
+                    hardware. It hardly matters on a server, even one that's under heavy CPU load. The improvement in
+                    user experience is substantial and it's very noticeable in web page load speeds when a server is
+                    under load.</p>
             </section>
-
             <section id="implementation">
                 <h2><a href="#implementation">Implementation</a></h2>
-
-                <p>For a server with 2000mbit of bandwidth provisioned, you could start by trying
-                it with 99.75% of the provisioned bandwidth:</p>
-
+                <p>For a server with 2000mbit of bandwidth provisioned, you could start by trying it with 99.75% of the
+                    provisioned bandwidth:</p>
                 <pre>tc qdisc replace dev eth0 root cake bandwidth 1995mbit besteffort dual-dsthost</pre>
-
-                <p>On a server, setting it to use 100% of the provisioned bandwidth may work fine
-                in practice. Unlike a local network connected to a consumer ISP, you shouldn't
-                need to sacrifice anywhere close to the typically recommended 5-10% of your
-                bandwidth for traffic shaping.</p>
-
-                <p>The flow isolation mode is set to <code>dual-dsthost</code> for fairness over
-                destination addresses and then over individual flows. The default of
-                <code>triple-isolate</code> uses a hash based on both destination and source
-                addresses for host isolation which is counterproductive for this server use
-                case.</p>
-
-                <p>This also sets <code>besteffort</code> for the common case where the server
-                doesn't have appropriate Quality of Service markings set up via Diffserv. Fair
-                scheduling is already great at providing low latency by cycling through the hosts
-                and streams without needing this kind of configuration. The defaults for Diffserv
-                traffic classes like real-time video are set up to yield substantial bandwidth in
-                exchange for lower latency. It's easy to set this up wrong and it usually won't
-                make much sense on a server. You might want to set up marking low priority traffic
-                like system updates, but it will already get a tiny share of the overall traffic
-                on a loaded server due to fair scheduling between hosts and streams.</p>
-
+                <p>On a server, setting it to use 100% of the provisioned bandwidth may work fine in practice. Unlike a
+                    local network connected to a consumer ISP, you shouldn't need to sacrifice anywhere close to the
+                    typically recommended 5-10% of your bandwidth for traffic shaping.</p>
+                <p>The flow isolation mode is set to <code>dual-dsthost</code> for fairness over destination addresses
+                    and then over individual flows. The default of <code>triple-isolate</code> uses a hash based on both
+                    destination and source addresses for host isolation which is counterproductive for this server use
+                    case.</p>
+                <p>This also sets <code>besteffort</code> for the common case where the server doesn't have appropriate
+                    Quality of Service markings set up via Diffserv. Fair scheduling is already great at providing low
+                    latency by cycling through the hosts and streams without needing this kind of configuration. The
+                    defaults for Diffserv traffic classes like real-time video are set up to yield substantial bandwidth
+                    in exchange for lower latency. It's easy to set this up wrong and it usually won't make much sense
+                    on a server. You might want to set up marking low priority traffic like system updates, but it will
+                    already get a tiny share of the overall traffic on a loaded server due to fair scheduling between
+                    hosts and streams.</p>
                 <p>You can use the <code>tc -s qdisc</code> command to monitor CAKE:</p>
-
                 <pre>tc -s qdisc show dev eth0</pre>
-
                 <p>If you want to keep an eye on how it changes over time:</p>
-
                 <pre>watch -n 1 tc -s qdisc show dev eth0</pre>
-
-                <p>This is very helpful for figuring out if you've successfully moved the
-                bottleneck to the server. If the bandwidth is being fully used, it should
-                consistently have a backlog of data where it's applying the queuing discipline.
-                The backlog shouldn't be draining to near zero under full bandwidth usage as that
-                indicates the bottleneck is the server application itself or a different network
-                bottleneck.</p>
-
-                <p>If you use systemd-network, you can add a CAKE configuration section to the
-                network configuration file instead of manually running the <code>tc</code> command
-                with a <code>Type=oneshot</code> service on boot:</p>
-
+                <p>This is very helpful for figuring out if you've successfully moved the bottleneck to the server. If
+                    the bandwidth is being fully used, it should consistently have a backlog of data where it's applying
+                    the queuing discipline. The backlog shouldn't be draining to near zero under full bandwidth usage as
+                    that indicates the bottleneck is the server application itself or a different network bottleneck.
+                </p>
+                <p>If you use systemd-network, you can add a CAKE configuration section to the network configuration
+                    file instead of manually running the <code>tc</code> command with a <code>Type=oneshot</code>
+                    service on boot:</p>
                 <pre>[CAKE]
 Bandwidth=1995M
 FlowIsolationMode=dual-dst-host
 PriorityQueueingPreset=besteffort</pre>
             </section>
-
             <section id="quicker-backpressure-propagation">
                 <h2><a href="#quicker-backpressure-propagation">Quicker backpressure propagation</a></h2>
-
-                <p>The Linux kernel can be tuned to more quickly propagate TCP backpressure up to
-                applications while still maximizing bandwidth usage. This is incredibly useful for
-                interactive applications aiming to send the freshest possible copy of data and for
-                protocols like HTTP/2 multiplexing streams/messages with different priorities over
-                the same TCP connection. This can also substantially reduce memory usage for TCP
-                by reducing buffer sizes closer to the optimal amount for maximizing bandwidth
-                use without wasting memory. The downside to quicker backpressure propagation is
-                increased CPU usage from additional system calls and context switches.</p>
-
-                <p>The Linux kernel automatically adjusts the size of the write queue to maximize
-                bandwidth usage. The write queue is divided into unacknowledged bytes (TCP window
-                size) and unsent bytes. As acknowledgements of transmitted data are received, it
-                frees up space for the application to queue more data. The queue of unsent bytes
-                provides the leeway needed to wake the application and obtain more data. This can
-                be reduced using <code>net.ipv4.tcp_notsent_lowat</code> to reduce the default and
-                the <code>TCP_NOTSENT_LOWAT</code> socket option to override it per-socket.</p>
-
-                <p>A reasonable choice for internet-based workloads concerned about latency and
-                particularly prioritization within TCP connections but unwilling to sacrifice
-                throughput is 128kiB. To configure this, set the following in
-                <code>/etc/sysctl.d/local.conf</code> or another sysctl configuration file and
-                load it with <code>sysctl --system</code>:</p>
-
+                <p>The Linux kernel can be tuned to more quickly propagate TCP backpressure up to applications while
+                    still maximizing bandwidth usage. This is incredibly useful for interactive applications aiming to
+                    send the freshest possible copy of data and for protocols like HTTP/2 multiplexing streams/messages
+                    with different priorities over the same TCP connection. This can also substantially reduce memory
+                    usage for TCP by reducing buffer sizes closer to the optimal amount for maximizing bandwidth use
+                    without wasting memory. The downside to quicker backpressure propagation is increased CPU usage from
+                    additional system calls and context switches.</p>
+                <p>The Linux kernel automatically adjusts the size of the write queue to maximize bandwidth usage. The
+                    write queue is divided into unacknowledged bytes (TCP window size) and unsent bytes. As
+                    acknowledgements of transmitted data are received, it frees up space for the application to queue
+                    more data. The queue of unsent bytes provides the leeway needed to wake the application and obtain
+                    more data. This can be reduced using <code>net.ipv4.tcp_notsent_lowat</code> to reduce the default
+                    and the <code>TCP_NOTSENT_LOWAT</code> socket option to override it per-socket.</p>
+                <p>A reasonable choice for internet-based workloads concerned about latency and particularly
+                    prioritization within TCP connections but unwilling to sacrifice throughput is 128kiB. To configure
+                    this, set the following in <code>/etc/sysctl.d/local.conf</code> or another sysctl configuration
+                    file and load it with <code>sysctl --system</code>:</p>
                 <pre>net.ipv4.tcp_notsent_lowat = 131072</pre>
-
-                <p>Using values as low as 16384 can make sense to further improve latency and
-                prioritization. However, it's more likely to negatively impact throughput and will
-                further increase CPU usage. Use at least 128k or the default of not limiting the
-                automatic unsent buffer size unless you're going to do substantial testing to make
-                sure there's not a negative impact for the workload.</p>
-
-                <p>If you decide to use <code>tcp_notsent_lowat</code>, be aware that newer Linux
-                kernels (Linux 5.0+ with a further improvement for Linux 5.10+) are recommended to
-                substantially reduce system calls / context switches by not triggering the
-                application to provide more data until over half the unsent byte buffer is
-                empty.</p>
+                <p>Using values as low as 16384 can make sense to further improve latency and prioritization. However,
+                    it's more likely to negatively impact throughput and will further increase CPU usage. Use at least
+                    128k or the default of not limiting the automatic unsent buffer size unless you're going to do
+                    substantial testing to make sure there's not a negative impact for the workload.</p>
+                <p>If you decide to use <code>tcp_notsent_lowat</code>, be aware that newer Linux kernels (Linux 5.0+
+                    with a further improvement for Linux 5.10+) are recommended to substantially reduce system calls /
+                    context switches by not triggering the application to provide more data until over half the unsent
+                    byte buffer is empty.</p>
             </section>
-
             <section id="high-link-speed">
                 <h2><a href="#high-link-speed">High link speed</a></h2>
-
-                <p>By default, CAKE splits General Segmentation Offload (GSO) super-packets to
-                reduce latency at the expense of CPU efficiency and throughput. This can create a
-                bottleneck at high link speeds. We've had to disable this on the 2Gbit GrapheneOS
-                update servers.</p>
-
+                <p>By default, CAKE splits General Segmentation Offload (GSO) super-packets to reduce latency at the
+                    expense of CPU efficiency and throughput. This can create a bottleneck at high link speeds. We've
+                    had to disable this on the 2Gbit GrapheneOS update servers.</p>
                 <pre>[CAKE]
 Bandwidth=1995M
 PriorityQueueingPreset=besteffort
 FlowIsolationMode=dual-dst-host
 SplitGSO=false</pre>
             </section>
-
             <section id="future">
                 <h2><a href="#future">Future</a></h2>
-
-                <p>Ideally, data centers would deploy CAKE throughout their networks with the
-                default <code>triple-isolate</code> flow isolation. This may mean they need to use
-                more powerful hardware for routing. If the natural bottlenecks used CAKE, setting
-                up traffic shaping on the server wouldn't be necessary. This doesn't seem likely
-                any time soon. Deploying <code>fq_codel</code> is much more realistic and tackles
-                buffer bloat but not the issue of fairness between hosts rather than only
-                streams.</p>
+                <p>Ideally, data centers would deploy CAKE throughout their networks with the default
+                    <code>triple-isolate</code> flow isolation. This may mean they need to use more powerful hardware
+                    for routing. If the natural bottlenecks used CAKE, setting up traffic shaping on the server wouldn't
+                    be necessary. This doesn't seem likely any time soon. Deploying <code>fq_codel</code> is much more
+                    realistic and tackles buffer bloat but not the issue of fairness between hosts rather than only
+                    streams.</p>
             </section>
-        </main>
-        {% include "footer.html" %}
-    </body>
+        </main> {% include "footer.html" %} </body>
+
 </html>

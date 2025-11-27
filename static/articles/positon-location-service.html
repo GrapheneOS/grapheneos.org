@@ -1,89 +1,75 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
+
     <head>
-        <meta charset="utf-8"/>
+        <meta charset="utf-8" />
         <title>Positon location service | Articles | GrapheneOS</title>
-        <meta name="description" content="Information about the Positon location service."/>
-        <meta name="theme-color" content="#212121"/>
-        <meta name="color-scheme" content="dark light"/>
-        <meta name="msapplication-TileColor" content="#ffffff"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-        <meta name="twitter:site" content="@GrapheneOS"/>
-        <meta name="twitter:creator" content="@GrapheneOS"/>
-        <meta property="og:title" content="Positon location service"/>
-        <meta property="og:description" content="Information about the Positon location service."/>
-        <meta property="og:type" content="website"/>
-        <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
-        <meta property="og:image:width" content="512"/>
-        <meta property="og:image:height" content="512"/>
-        <meta property="og:image:alt" content="GrapheneOS logo"/>
-        <meta property="og:site_name" content="GrapheneOS"/>
-        <meta property="og:url" content="https://grapheneos.org/articles/positon-location-service"/>
-        <link rel="canonical" href="https://grapheneos.org/articles/positon-location-service"/>
-        <link rel="icon" href="/favicon.ico"/>
-        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
-        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-        [[css|/main.css]]
-        <link rel="manifest" href="/manifest.webmanifest"/>
-        <link rel="license" href="/LICENSE.txt"/>
-        <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
+        <meta name="description" content="Information about the Positon location service." />
+        <meta name="theme-color" content="#212121" />
+        <meta name="color-scheme" content="dark light" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta name="twitter:site" content="@GrapheneOS" />
+        <meta name="twitter:creator" content="@GrapheneOS" />
+        <meta property="og:title" content="Positon location service" />
+        <meta property="og:description" content="Information about the Positon location service." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://grapheneos.org/opengraph.png" />
+        <meta property="og:image:width" content="512" />
+        <meta property="og:image:height" content="512" />
+        <meta property="og:image:alt" content="GrapheneOS logo" />
+        <meta property="og:site_name" content="GrapheneOS" />
+        <meta property="og:url" content="https://grapheneos.org/articles/positon-location-service" />
+        <link rel="canonical" href="https://grapheneos.org/articles/positon-location-service" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" /> [[css|/main.css]]
+        <link rel="manifest" href="/manifest.webmanifest" />
+        <link rel="license" href="/LICENSE.txt" />
+        <link rel="me" href="https://grapheneos.social/@GrapheneOS" />
     </head>
-    <body>
-        {% include "header.html" %}
-        <main id="positon-location-service">
+
+    <body> {% include "header.html" %} <main id="positon-location-service">
             <h1><a href="#positon-location-service">Positon location service</a></h1>
+            <p>The Positon location service is a proprietary and highly privacy invasive service created by developers
+                tied to /e/OS with their funding. There's a deliberate effort to hide that it's tied to them in order to
+                convince other projects to adopt it, as opposed to using the similar service they host for /e/OS itself.
+                Using the service requires uploading sensitive location data to obtain location estimates, similar to
+                the Apple and Google location services. As with the Apple and Google services, it's a centralized
+                proprietary service with fully proprietary data. Unlike those services, the people behind it have a
+                history of publishing notoriously insecure software such as the /e/OS operating system itself which
+                massively rolls back standard security, lags years behind on security updates and covers all of that up.
+                They blatantly scam their users with false privacy/security claims for /e/OS, and nothing different
+                should be expected from a location service from the same group of people. Multiple people involved in it
+                are also actively participating in harassment targeting privacy/security researchers and engineers
+                including but not limited to GrapheneOS team members.</p>
+            <p>The people behind the Positon location service have repeatedly talked about the importance they see in
+                centralizing the whole open source community around using their service while locking out alternatives
+                to it through proprietary data. They have spread fear, uncertainty and doubt about making services using
+                open mapping data through claiming that it's a privacy hazard for people to have access to maps of Wi-Fi
+                networks publicly broadcasting their SSID despite that data already being available through many
+                commercial providers including publicly queryable databases such as Wigle. Anyone can drive around
+                building these maps and many companies have already built them, with the data available for sale, as
+                Positon shows with them obtaining access to it. The real privacy hazard is sending your location in real
+                time to a service, particularly a poorly secured one from people known to cover up and downplay
+                vulnerabilities. Positon has been built to grab as much market share as possible early on before actual
+                open options can emerge and gather the necessary data.</p>
+            <p>The people involved in Positon have only ever cared about their careers, power and influence. They've
+                consistently been on a side against real privacy and security, but rather focused on monetizing people's
+                demand for it and grabbing as much market share as they can as quickly as they can with endless false
+                marketing and attacks on projects like GrapheneOS. They see GrapheneOS as a huge threat to them due to
+                us striving to bring people real privacy and security at no cost, which is far easier to obtain and use.
+                This invalidates the business model of their companies like Murena. They consistently use their
+                non-profits mainly as a way to earn money and promote their for-profit initiatives.</p>
+            <p>The service claims to be free of charge, but a core goal is turning it into a way to get data from users
+                to build their own database that's largely not going to be available for use by others. Using it is
+                helping them build a future business at the expense of user privacy, little different from the Apple and
+                Google services. This is not what the open source community needs from a location service. The claims of
+                no strings attached and the implication that it's open are nonsense. Storing as little data as possible
+                would mean using local database for the region, not a network-based service. They're opposed to doing a
+                local service well rather than it being their long term goal. They explicitly aim to lock out other
+                alternatives and deter local location detection via Wi-Fi.</p>
+        </main> {% include "footer.html" %} </body>
 
-            <p>The Positon location service is a proprietary and highly privacy invasive service
-            created by developers tied to /e/OS with their funding. There's a deliberate effort to
-            hide that it's tied to them in order to convince other projects to adopt it, as opposed
-            to using the similar service they host for /e/OS itself. Using the service requires
-            uploading sensitive location data to obtain location estimates, similar to the Apple and
-            Google location services. As with the Apple and Google services, it's a centralized
-            proprietary service with fully proprietary data. Unlike those services, the people
-            behind it have a history of publishing notoriously insecure software such as the /e/OS
-            operating system itself which massively rolls back standard security, lags years behind
-            on security updates and covers all of that up. They blatantly scam their users with
-            false privacy/security claims for /e/OS, and nothing different should be expected from a
-            location service from the same group of people. Multiple people involved in it are also
-            actively participating in harassment targeting privacy/security researchers and
-            engineers including but not limited to GrapheneOS team members.</p>
-
-            <p>The people behind the Positon location service have repeatedly talked about the
-            importance they see in centralizing the whole open source community around using their
-            service while locking out alternatives to it through proprietary data. They have spread
-            fear, uncertainty and doubt about making services using open mapping data through
-            claiming that it's a privacy hazard for people to have access to maps of Wi-Fi networks
-            publicly broadcasting their SSID despite that data already being available through many
-            commercial providers including publicly queryable databases such as Wigle. Anyone can
-            drive around building these maps and many companies have already built them, with the
-            data available for sale, as Positon shows with them obtaining access to it. The real
-            privacy hazard is sending your location in real time to a service, particularly a poorly
-            secured one from people known to cover up and downplay vulnerabilities. Positon has been
-            built to grab as much market share as possible early on before actual open options can
-            emerge and gather the necessary data.</p>
-
-            <p>The people involved in Positon have only ever cared about their careers, power and
-            influence. They've consistently been on a side against real privacy and security, but
-            rather focused on monetizing people's demand for it and grabbing as much market share as
-            they can as quickly as they can with endless false marketing and attacks on projects
-            like GrapheneOS. They see GrapheneOS as a huge threat to them due to us striving to
-            bring people real privacy and security at no cost, which is far easier to obtain and
-            use. This invalidates the business model of their companies like Murena. They
-            consistently use their non-profits mainly as a way to earn money and promote their
-            for-profit initiatives.</p>
-
-            <p>The service claims to be free of charge, but a core goal is turning it into a way to
-            get data from users to build their own database that's largely not going to be available
-            for use by others. Using it is helping them build a future business at the expense of
-            user privacy, little different from the Apple and Google services. This is not what the
-            open source community needs from a location service. The claims of no strings attached
-            and the implication that it's open are nonsense. Storing as little data as possible
-            would mean using local database for the region, not a network-based service. They're
-            opposed to doing a local service well rather than it being their long term goal. They
-            explicitly aim to lock out other alternatives and deter local location detection via
-            Wi-Fi.</p>
-        </main>
-        {% include "footer.html" %}
-    </body>
 </html>
