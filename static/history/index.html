@@ -1,99 +1,78 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
+
     <head>
-        <meta charset="utf-8"/>
+        <meta charset="utf-8" />
         <title>History | GrapheneOS</title>
-        <meta name="description" content="History of the GrapheneOS project."/>
-        <meta name="theme-color" content="#212121"/>
-        <meta name="color-scheme" content="dark light"/>
-        <meta name="msapplication-TileColor" content="#ffffff"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-        <meta name="twitter:site" content="@GrapheneOS"/>
-        <meta name="twitter:creator" content="@GrapheneOS"/>
-        <meta property="og:title" content="GrapheneOS history"/>
-        <meta property="og:description" content="History of the GrapheneOS project."/>
-        <meta property="og:type" content="website"/>
-        <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
-        <meta property="og:image:width" content="512"/>
-        <meta property="og:image:height" content="512"/>
-        <meta property="og:image:alt" content="GrapheneOS logo"/>
-        <meta property="og:site_name" content="GrapheneOS"/>
-        <meta property="og:url" content="https://grapheneos.org/history/"/>
-        <link rel="canonical" href="https://grapheneos.org/history/"/>
-        <link rel="icon" href="/favicon.ico"/>
-        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
-        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-        [[css|/main.css]]
-        <link rel="manifest" href="/manifest.webmanifest"/>
-        <link rel="license" href="/LICENSE.txt"/>
-        <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
+        <meta name="description" content="History of the GrapheneOS project." />
+        <meta name="theme-color" content="#212121" />
+        <meta name="color-scheme" content="dark light" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta name="twitter:site" content="@GrapheneOS" />
+        <meta name="twitter:creator" content="@GrapheneOS" />
+        <meta property="og:title" content="GrapheneOS history" />
+        <meta property="og:description" content="History of the GrapheneOS project." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://grapheneos.org/opengraph.png" />
+        <meta property="og:image:width" content="512" />
+        <meta property="og:image:height" content="512" />
+        <meta property="og:image:alt" content="GrapheneOS logo" />
+        <meta property="og:site_name" content="GrapheneOS" />
+        <meta property="og:url" content="https://grapheneos.org/history/" />
+        <link rel="canonical" href="https://grapheneos.org/history/" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" /> [[css|/main.css]]
+        <link rel="manifest" href="/manifest.webmanifest" />
+        <link rel="license" href="/LICENSE.txt" />
+        <link rel="me" href="https://grapheneos.social/@GrapheneOS" />
     </head>
-    <body>
-        {% with current_page="history" %}
-            {% include "header.html" %}
-        {% endwith %}
-        <main id="history">
+
+    <body> {% with current_page="history" %} {% include "header.html" %} {% endwith %} <main id="history">
             <h1><a href="#history">History</a></h1>
-
-            <p>GrapheneOS was founded by Daniel Micay in late 2014. It started as a solo project
-            incorporating his previous open source privacy/security work. The project initially
-            created a port of OpenBSD malloc to Android's Bionic libc and a port of the PaX kernel
-            patches to the kernels for the supported devices. It quickly expanded to having a
-            large set of homegrown privacy and security improvements, particularly low-level
-            hardening work on the compiler toolchain and Bionic. Work began on landing code
-            upstream in AOSP and other upstream projects. A substantial portion of these early
-            changes were either successfully landed upstream or heavily influenced the upstream
-            changes which replaced them. The project was able to move very quickly in these days
-            because there was so much low hanging fruit to address and it wasn't yet trying to
-            produce a highly robust, production quality OS.</p>
-
-            <p>In late 2015, a company was incorporated which became the primary sponsor of the
-            project. GrapheneOS was <a href="/history/copperheados">previously known as
-            CopperheadOS</a> while it was sponsored by this company. The intention was to use the
-            company to build a business around GrapheneOS selling support, contract work and
-            customized proprietary variants of the OS. The company was supposed to serve the needs
-            of the open source project, rather than vice versa. It was explicitly agreed that
-            GrapheneOS would remain independently owned and controlled by Daniel Micay. This
-            company failed to live up the promises and is no longer associated in any way with
-            GrapheneOS. The company ended up holding back the open source project and taking far
-            more from it than was provided to it.</p>
-
-            <p>In 2018, the company was hijacked by the CEO who attempted to take over the project
-            through coercion, but they were rebuked. They seized the infrastructure and stole the
-            donations, but the project successfully moved on without them and has been fully
-            revived. Since then, they've taken to fraudulently claiming ownership and authorship
-            of our work, which has no basis in fact. They've tried to retroactively change the
-            terms of their involvement and rewrite the history of the project. These claims are
-            easily disproven through the public record and by people involved with the open source
-            project and the former sponsor. This former sponsor has engaged in a campaign of
-            misinformation and harassment of contributors to the project. Be aware that they are
-            actively trying to sabotage GrapheneOS and are engaging in many forms of attacks
-            against the project, the developers, contributors and supporters. Meanwhile, they
-            continue profiting from our open source work which they falsely claim as their own
-            creation.</p>
-
-            <p>After splitting from the former sponsor, the project was rebranded to
-            AndroidHardening and then to GrapheneOS and it has continued down the original path of
-            being an independent open source project. It will never again be closely tied to any
-            particular sponsor or company.</p>
-
-            <p>GrapheneOS now has multiple full-time and part-time developers supported by
-            donations and multiple companies collaborating with the project.</p>
-
-            <p>GrapheneOS Foundation was created as a non-profit organization in Canada in March
-            2023 to handle the intake and distribution of donations.</p>
-
+            <p>GrapheneOS was founded by Daniel Micay in late 2014. It started as a solo project incorporating his
+                previous open source privacy/security work. The project initially created a port of OpenBSD malloc to
+                Android's Bionic libc and a port of the PaX kernel patches to the kernels for the supported devices. It
+                quickly expanded to having a large set of homegrown privacy and security improvements, particularly
+                low-level hardening work on the compiler toolchain and Bionic. Work began on landing code upstream in
+                AOSP and other upstream projects. A substantial portion of these early changes were either successfully
+                landed upstream or heavily influenced the upstream changes which replaced them. The project was able to
+                move very quickly in these days because there was so much low hanging fruit to address and it wasn't yet
+                trying to produce a highly robust, production quality OS.</p>
+            <p>In late 2015, a company was incorporated which became the primary sponsor of the project. GrapheneOS was
+                <a href="/history/copperheados">previously known as CopperheadOS</a> while it was sponsored by this
+                company. The intention was to use the company to build a business around GrapheneOS selling support,
+                contract work and customized proprietary variants of the OS. The company was supposed to serve the needs
+                of the open source project, rather than vice versa. It was explicitly agreed that GrapheneOS would
+                remain independently owned and controlled by Daniel Micay. This company failed to live up the promises
+                and is no longer associated in any way with GrapheneOS. The company ended up holding back the open
+                source project and taking far more from it than was provided to it.</p>
+            <p>In 2018, the company was hijacked by the CEO who attempted to take over the project through coercion, but
+                they were rebuked. They seized the infrastructure and stole the donations, but the project successfully
+                moved on without them and has been fully revived. Since then, they've taken to fraudulently claiming
+                ownership and authorship of our work, which has no basis in fact. They've tried to retroactively change
+                the terms of their involvement and rewrite the history of the project. These claims are easily disproven
+                through the public record and by people involved with the open source project and the former sponsor.
+                This former sponsor has engaged in a campaign of misinformation and harassment of contributors to the
+                project. Be aware that they are actively trying to sabotage GrapheneOS and are engaging in many forms of
+                attacks against the project, the developers, contributors and supporters. Meanwhile, they continue
+                profiting from our open source work which they falsely claim as their own creation.</p>
+            <p>After splitting from the former sponsor, the project was rebranded to AndroidHardening and then to
+                GrapheneOS and it has continued down the original path of being an independent open source project. It
+                will never again be closely tied to any particular sponsor or company.</p>
+            <p>GrapheneOS now has multiple full-time and part-time developers supported by donations and multiple
+                companies collaborating with the project.</p>
+            <p>GrapheneOS Foundation was created as a non-profit organization in Canada in March 2023 to handle the
+                intake and distribution of donations.</p>
             <section id="releases">
                 <h2><a href="#releases">Releases</a></h2>
-
-                <p>A history of releases for the current incarnation of GrapheneOS is available
-                via the <a href="/releases#changelog">releases changelog</a>.</p>
-
-                <p>An archive of changelogs for the earlier releases is available via the
-                <a href="/history/legacy-changelog">legacy changelog page</a>.</p>
+                <p>A history of releases for the current incarnation of GrapheneOS is available via the <a
+                        href="/releases#changelog">releases changelog</a>.</p>
+                <p>An archive of changelogs for the earlier releases is available via the <a
+                        href="/history/legacy-changelog">legacy changelog page</a>.</p>
             </section>
-        </main>
-        {% include "footer.html" %}
-    </body>
+        </main> {% include "footer.html" %} </body>
+
 </html>
