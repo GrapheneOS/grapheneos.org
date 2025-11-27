@@ -7,47 +7,47 @@
             <th>Downloads</th>
         </tr>
         <tr id="{{codename}}-stable">
-            <td>Stable</td>
-{% if split %}
-            <td><span>[[{{codename}}-stable-BUILD_NUMBER]]</span></td>
-{% else %}
-            <td><a href="#[[{{codename}}-stable-BUILD_NUMBER]]">[[{{codename}}-stable-BUILD_NUMBER]]</a></td>
-{% endif %}
-            <td>
+            <td>Stable</td> {% if split %} <td><span>[[{{codename}}-stable-BUILD_NUMBER]]</span></td> {% else %} <td><a
+                    href="#[[{{codename}}-stable-BUILD_NUMBER]]">[[{{codename}}-stable-BUILD_NUMBER]]</a></td> {% endif
+            %} <td>
                 <ul>
-                    <li><a href="https://releases.grapheneos.org/{{codename}}-{{install | default("install")}}-[[{{codename}}-stable-BUILD_NUMBER]].zip">Install zip</a></li>
-                    <li><a href="https://releases.grapheneos.org/{{codename}}-{{install | default("install")}}-[[{{codename}}-stable-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
-                    <li><a href="https://releases.grapheneos.org/{{codename}}-ota_update-[[{{codename}}-stable-BUILD_NUMBER]].zip">Signed update package</a></li>
+                    <li><a href="https://releases.grapheneos.org/{{codename}}-{{install | default("
+                            install")}}-[[{{codename}}-stable-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/{{codename}}-{{install | default("
+                            install")}}-[[{{codename}}-stable-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a
+                            href="https://releases.grapheneos.org/{{codename}}-ota_update-[[{{codename}}-stable-BUILD_NUMBER]].zip">Signed
+                            update package</a></li>
                 </ul>
             </td>
         </tr>
         <tr id="{{codename}}-beta">
-            <td>Beta</td>
-{% if split %}
-            <td><span>[[{{codename}}-beta-BUILD_NUMBER]]</span></td>
-{% else %}
-            <td><a href="#[[{{codename}}-beta-BUILD_NUMBER]]">[[{{codename}}-beta-BUILD_NUMBER]]</a></td>
-{% endif %}
+            <td>Beta</td> {% if split %} <td><span>[[{{codename}}-beta-BUILD_NUMBER]]</span></td> {% else %} <td><a
+                    href="#[[{{codename}}-beta-BUILD_NUMBER]]">[[{{codename}}-beta-BUILD_NUMBER]]</a></td> {% endif %}
             <td>
                 <ul>
-                    <li><a href="https://releases.grapheneos.org/{{codename}}-{{install | default("install")}}-[[{{codename}}-beta-BUILD_NUMBER]].zip">Install zip</a></li>
-                    <li><a href="https://releases.grapheneos.org/{{codename}}-{{install | default("install")}}-[[{{codename}}-beta-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
-                    <li><a href="https://releases.grapheneos.org/{{codename}}-ota_update-[[{{codename}}-beta-BUILD_NUMBER]].zip">Signed update package</a></li>
+                    <li><a href="https://releases.grapheneos.org/{{codename}}-{{install | default("
+                            install")}}-[[{{codename}}-beta-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/{{codename}}-{{install | default("
+                            install")}}-[[{{codename}}-beta-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a
+                            href="https://releases.grapheneos.org/{{codename}}-ota_update-[[{{codename}}-beta-BUILD_NUMBER]].zip">Signed
+                            update package</a></li>
                 </ul>
             </td>
         </tr>
         <tr id="{{codename}}-alpha">
-            <td>Alpha</td>
-{% if split %}
-            <td><span>[[{{codename}}-alpha-BUILD_NUMBER]]</span></td>
-{% else %}
-            <td><a href="#[[{{codename}}-alpha-BUILD_NUMBER]]">[[{{codename}}-alpha-BUILD_NUMBER]]</a></td>
-{% endif %}
+            <td>Alpha</td> {% if split %} <td><span>[[{{codename}}-alpha-BUILD_NUMBER]]</span></td> {% else %} <td><a
+                    href="#[[{{codename}}-alpha-BUILD_NUMBER]]">[[{{codename}}-alpha-BUILD_NUMBER]]</a></td> {% endif %}
             <td>
                 <ul>
-                    <li><a href="https://releases.grapheneos.org/{{codename}}-{{install | default("install")}}-[[{{codename}}-alpha-BUILD_NUMBER]].zip">Install zip</a></li>
-                    <li><a href="https://releases.grapheneos.org/{{codename}}-{{install | default("install")}}-[[{{codename}}-alpha-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
-                    <li><a href="https://releases.grapheneos.org/{{codename}}-ota_update-[[{{codename}}-alpha-BUILD_NUMBER]].zip">Signed update package</a></li>
+                    <li><a href="https://releases.grapheneos.org/{{codename}}-{{install | default("
+                            install")}}-[[{{codename}}-alpha-BUILD_NUMBER]].zip">Install zip</a></li>
+                    <li><a href="https://releases.grapheneos.org/{{codename}}-{{install | default("
+                            install")}}-[[{{codename}}-alpha-BUILD_NUMBER]].zip.sig">Install zip signature</a></li>
+                    <li><a
+                            href="https://releases.grapheneos.org/{{codename}}-ota_update-[[{{codename}}-alpha-BUILD_NUMBER]].zip">Signed
+                            update package</a></li>
                 </ul>
             </td>
         </tr>
