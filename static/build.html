@@ -1,45 +1,40 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
+
     <head>
-        <meta charset="utf-8"/>
+        <meta charset="utf-8" />
         <title>Build | GrapheneOS</title>
-        <meta name="description" content="Building instructions for GrapheneOS, a security and privacy focused mobile OS with Android app compatibility."/>
-        <meta name="theme-color" content="#212121"/>
-        <meta name="color-scheme" content="dark light"/>
-        <meta name="msapplication-TileColor" content="#ffffff"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-        <meta name="twitter:site" content="@GrapheneOS"/>
-        <meta name="twitter:creator" content="@GrapheneOS"/>
-        <meta property="og:title" content="GrapheneOS build documentation"/>
-        <meta property="og:description" content="Building instructions for GrapheneOS, a security and privacy focused mobile OS with Android app compatibility."/>
-        <meta property="og:type" content="website"/>
-        <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
-        <meta property="og:image:width" content="512"/>
-        <meta property="og:image:height" content="512"/>
-        <meta property="og:image:alt" content="GrapheneOS logo"/>
-        <meta property="og:site_name" content="GrapheneOS"/>
-        <meta property="og:url" content="https://grapheneos.org/build"/>
-        <link rel="canonical" href="https://grapheneos.org/build"/>
-        <link rel="icon" href="/favicon.ico"/>
-        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
-        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-        [[css|/main.css]]
-        <link rel="manifest" href="/manifest.webmanifest"/>
-        <link rel="license" href="/LICENSE.txt"/>
-        <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
-        [[js|/js/redirect.js]]
+        <meta name="description"
+            content="Building instructions for GrapheneOS, a security and privacy focused mobile OS with Android app compatibility." />
+        <meta name="theme-color" content="#212121" />
+        <meta name="color-scheme" content="dark light" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta name="twitter:site" content="@GrapheneOS" />
+        <meta name="twitter:creator" content="@GrapheneOS" />
+        <meta property="og:title" content="GrapheneOS build documentation" />
+        <meta property="og:description"
+            content="Building instructions for GrapheneOS, a security and privacy focused mobile OS with Android app compatibility." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://grapheneos.org/opengraph.png" />
+        <meta property="og:image:width" content="512" />
+        <meta property="og:image:height" content="512" />
+        <meta property="og:image:alt" content="GrapheneOS logo" />
+        <meta property="og:site_name" content="GrapheneOS" />
+        <meta property="og:url" content="https://grapheneos.org/build" />
+        <link rel="canonical" href="https://grapheneos.org/build" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" /> [[css|/main.css]]
+        <link rel="manifest" href="/manifest.webmanifest" />
+        <link rel="license" href="/LICENSE.txt" />
+        <link rel="me" href="https://grapheneos.social/@GrapheneOS" /> [[js|/js/redirect.js]]
     </head>
-    <body>
-        {% with current_page="build" %}
-            {% include "header.html" %}
-        {% endwith %}
-        <main id="build">
+
+    <body> {% with current_page="build" %} {% include "header.html" %} {% endwith %} <main id="build">
             <h1><a href="#build">Build</a></h1>
-
-            <p>This is a guide on building, modifying and contributing to GrapheneOS as a
-            developer.</p>
-
+            <p>This is a guide on building, modifying and contributing to GrapheneOS as a developer.</p>
             <nav id="table-of-contents">
                 <h2><a href="#table-of-contents">Table of contents</a></h2>
                 <ul>
@@ -55,13 +50,17 @@
                                     <li><a href="#stable-release">Stable release</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#updating-and-switching-branches-or-tags">Updating and switching branches or tags</a></li>
-                            <li><a href="#setting-up-the-os-build-environment">Setting up the OS build environment</a></li>
-                            <li><a href="#extracting-vendor-files-for-pixel-devices">Extracting vendor files for Pixel devices</a></li>
+                            <li><a href="#updating-and-switching-branches-or-tags">Updating and switching branches or
+                                    tags</a></li>
+                            <li><a href="#setting-up-the-os-build-environment">Setting up the OS build environment</a>
+                            </li>
+                            <li><a href="#extracting-vendor-files-for-pixel-devices">Extracting vendor files for Pixel
+                                    devices</a></li>
                             <li><a href="#selecting-build-target">Selecting build target</a></li>
                             <li><a href="#reproducible-builds">Reproducible builds</a></li>
                             <li><a href="#building">Building</a></li>
-                            <li><a href="#faster-builds-for-development-use-only">Faster builds for development use only</a></li>
+                            <li><a href="#faster-builds-for-development-use-only">Faster builds for development use
+                                    only</a></li>
                             <li>
                                 <a href="#generating-release-signing-keys">Generating release signing keys</a>
                                 <ul>
@@ -70,7 +69,8 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="#generating-signed-factory-images-and-full-update-packages">Generating signed factory images and full update packages</a>
+                                <a href="#generating-signed-factory-images-and-full-update-packages">Generating signed
+                                    factory images and full update packages</a>
                                 <ul>
                                     <li><a href="#generating-delta-updates">Generating delta updates</a></li>
                                 </ul>
@@ -85,7 +85,8 @@
                                 <ul>
                                     <li><a href="#kernel-emulator">Emulator</a></li>
                                     <li><a href="#kernel-microdroid">Microdroid</a></li>
-                                    <li><a href="#kernel-6th-through-9th-generation-pixels">6th through 9th generation Pixels</a></li>
+                                    <li><a href="#kernel-6th-through-9th-generation-pixels">6th through 9th generation
+                                            Pixels</a></li>
                                 </ul>
                             </li>
                             <li><a href="#browser-and-webview">Browser and WebView</a></li>
@@ -96,7 +97,8 @@
                     <li><a href="#stable-release-manifest">Stable release manifest</a></li>
                     <li><a href="#standalone-sdk">Standalone SDK</a></li>
                     <li><a href="#android-studio">Android Studio</a></li>
-                    <li><a href="#updating-gradle-and-gradle-wrapper-for-standalone-apps">Updating Gradle and Gradle wrapper for standalone apps</a></li>
+                    <li><a href="#updating-gradle-and-gradle-wrapper-for-standalone-apps">Updating Gradle and Gradle
+                            wrapper for standalone apps</a></li>
                     <li><a href="#obtaining-upstream-manifests">Obtaining upstream manifests</a></li>
                     <li>
                         <a href="#testing">Testing</a>
@@ -122,15 +124,11 @@
                     </li>
                 </ul>
             </nav>
-
             <article id="building-grapheneos">
                 <h2><a href="#building-grapheneos">Building GrapheneOS</a></h2>
-
                 <section id="build-targets">
                     <h3><a href="#build-targets">Build targets</a></h3>
-
                     <p>Smartphone and tablet targets:</p>
-
                     <ul>
                         <li>tegu (Pixel 9a)</li>
                         <li>comet (Pixel 9 Pro Fold)</li>
@@ -149,389 +147,279 @@
                         <li>raven (Pixel 6 Pro)</li>
                         <li>oriole (Pixel 6)</li>
                     </ul>
-
-                    <p>These are all fully supported production-ready targets supporting all the
-                    baseline security features and receiving full monthly security updates
-                    covering all firmware, kernel drivers, driver libraries / services and other
-                    device-specific code. A fully signed user build for these devices is a proper
-                    GrapheneOS release. Newer generation devices have stronger hardware / firmware
-                    security and hardware-based OS security features and are better development
-                    devices for that reason. It's not possible to work on everything via past
-                    generation devices. The best development devices are the Pixel 6 and 7 series.
-                    </p>
-
+                    <p>These are all fully supported production-ready targets supporting all the baseline security
+                        features and receiving full monthly security updates covering all firmware, kernel drivers,
+                        driver libraries / services and other device-specific code. A fully signed user build for these
+                        devices is a proper GrapheneOS release. Newer generation devices have stronger hardware /
+                        firmware security and hardware-based OS security features and are better development devices for
+                        that reason. It's not possible to work on everything via past generation devices. The best
+                        development devices are the Pixel 6 and 7 series. </p>
                     <p>SDK emulator target:</p>
-
                     <ul>
                         <li>sdk_phone64_x86_64</li>
                     </ul>
-
-                    <p>These emulator targets don't receive full monthly security updates, don't
-                    provide all of the baseline security features and are intended for development
-                    usage.</p>
-
-                    <p><strong>We recommend using the sdk_phone64_x86_64 target in either the
-                    userdebug or eng variant for most development work.</strong></p>
-
-                    <p>Providing proper support for a device or generic device family requires
-                    providing an up-to-date kernel and device support code including driver
-                    libraries, firmware and device SELinux policy extensions. Other than some
-                    special cases like the emulator, the generic targets rely on the device support
-                    code present on the device. Shipping all of this is necessary for full security
-                    updates and is tied to enabling verified boot / attestation. Device-specific
-                    driver changes are required to support GrapheneOS features such as the
-                    hardware-level USB-C port control. There's also a lot of device-specific work to
-                    work around or resolve memory corruption bugs uncovered by our features. Most
-                    devices are also missing a lot of standard hardware-based security features we
-                    use such as hardware memory tagging so those features will inherently not be
-                    possible to port to a device not capable of it.</p>
+                    <p>These emulator targets don't receive full monthly security updates, don't provide all of the
+                        baseline security features and are intended for development usage.</p>
+                    <p><strong>We recommend using the sdk_phone64_x86_64 target in either the userdebug or eng variant
+                            for most development work.</strong></p>
+                    <p>Providing proper support for a device or generic device family requires providing an up-to-date
+                        kernel and device support code including driver libraries, firmware and device SELinux policy
+                        extensions. Other than some special cases like the emulator, the generic targets rely on the
+                        device support code present on the device. Shipping all of this is necessary for full security
+                        updates and is tied to enabling verified boot / attestation. Device-specific driver changes are
+                        required to support GrapheneOS features such as the hardware-level USB-C port control. There's
+                        also a lot of device-specific work to work around or resolve memory corruption bugs uncovered by
+                        our features. Most devices are also missing a lot of standard hardware-based security features
+                        we use such as hardware memory tagging so those features will inherently not be possible to port
+                        to a device not capable of it.</p>
                 </section>
-
                 <section id="build-dependencies">
                     <h3><a href="#build-dependencies">Build dependencies</a></h3>
-
-                    <p>Arch Linux, Debian bookworm, Ubuntu 24.10 and Ubuntu 24.04 LTS are the
-                    officially supported operating systems for building GrapheneOS.</p>
-
+                    <p>Arch Linux, Debian bookworm, Ubuntu 24.10 and Ubuntu 24.04 LTS are the officially supported
+                        operating systems for building GrapheneOS.</p>
                     <details>
                         <summary>Set up Debian GNU/Linux 12 (bookworm)</summary>
-
                         <p>To build GrapheneOS, install the required packages:</p>
-
                         <pre>apt install repo yarnpkg zip rsync</pre>
-
-                        <p>Your <code>PATH</code> may not contain directories like
-                        <code>/sbin</code>, and many system administration commands will fail. The
-                        simplest workaround is to add these directories to your <code>PATH</code>
-                        environment variable (and apply the change to your current shell):</p>
-
+                        <p>Your <code>PATH</code> may not contain directories like <code>/sbin</code>, and many system
+                            administration commands will fail. The simplest workaround is to add these directories to
+                            your <code>PATH</code> environment variable (and apply the change to your current shell):
+                        </p>
                         <pre>echo 'export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin' >> ~/.bashrc
 source ~/.bashrc</pre>
                     </details>
-
                     <p>Dependencies for fetching and verifying the sources:</p>
-
                     <ul>
                         <li>repo</li>
                         <li>python3 (for repo)</li>
                         <li>git (both for repo and manual usage)</li>
-                        <li>gnupg (for verifying AOSP releases and also used internally by repo for self-update verification)</li>
+                        <li>gnupg (for verifying AOSP releases and also used internally by repo for self-update
+                            verification)</li>
                         <li>openssh (for verifying GrapheneOS releases)</li>
-                        <li>136GiB+ storage for a standard sync with history, 90GiB+ storage for a
-                            lightweight sync</li>
+                        <li>136GiB+ storage for a standard sync with history, 90GiB+ storage for a lightweight sync</li>
                     </ul>
-
                     <p>Baseline build dependencies:</p>
-
                     <ul>
                         <li>x86_64 Linux build environment</li>
-                        <li>32GiB of memory or more. Link-Time Optimization (LTO) creates huge peaks
-                            during linking and is mandatory for Control Flow Integrity (CFI). Linking
-                            Vanadium (Chromium) and the Linux kernel with LTO + CFI are the most memory
-                            demanding tasks.</li>
-                        <li>100GiB+ of additional free storage space for a typical build of the entire
-                        OS for a multiarch device</li>
+                        <li>32GiB of memory or more. Link-Time Optimization (LTO) creates huge peaks during linking and
+                            is mandatory for Control Flow Integrity (CFI). Linking Vanadium (Chromium) and the Linux
+                            kernel with LTO + CFI are the most memory demanding tasks.</li>
+                        <li>100GiB+ of additional free storage space for a typical build of the entire OS for a
+                            multiarch device</li>
                     </ul>
-
-                    <p>You can either obtain <code>repo</code> as a distribution package or the
-                    self-updating standalone version from the Android Open Source Project. The
-                    self-updating variant avoids dealing with out-of-date distribution packages and
-                    depends on GPG to verify updates.</p>
-
-                    <p>The Android Open Source Project build system is designed to provide reliable and
-                    reproducible builds. To accomplish this, it provides a prebuilt toolchain and other
-                    utilities fulfilling most of the build dependency requirements itself. These prebuilt
-                    tools have reproducible builds themselves. It runs the build process within a loose
-                    sandbox to avoid accidental dependencies on the host system. The process of moving to
-                    a fully self-contained build process with minimal external dependencies is gradual and
-                    there are still dependencies that need to be installed on the host system.</p>
-
-                    <p>Additional Android Open Source Project build dependencies not provided by the
-                    source tree:</p>
-
+                    <p>You can either obtain <code>repo</code> as a distribution package or the self-updating standalone
+                        version from the Android Open Source Project. The self-updating variant avoids dealing with
+                        out-of-date distribution packages and depends on GPG to verify updates.</p>
+                    <p>The Android Open Source Project build system is designed to provide reliable and reproducible
+                        builds. To accomplish this, it provides a prebuilt toolchain and other utilities fulfilling most
+                        of the build dependency requirements itself. These prebuilt tools have reproducible builds
+                        themselves. It runs the build process within a loose sandbox to avoid accidental dependencies on
+                        the host system. The process of moving to a fully self-contained build process with minimal
+                        external dependencies is gradual and there are still dependencies that need to be installed on
+                        the host system.</p>
+                    <p>Additional Android Open Source Project build dependencies not provided by the source tree:</p>
                     <ul>
                         <li>diff (diffutils)</li>
-                        <li>freetype2, fontconfig and any OpenType/TrueType font (such as DejaVu
-                            but anything works) for OpenJDK despite it being a headless variant
-                            without GUI support</li>
-                        <li>hostname (inetutils) is used for detecting namespace support for build
-                            sandboxing</li>
+                        <li>freetype2, fontconfig and any OpenType/TrueType font (such as DejaVu but anything works) for
+                            OpenJDK despite it being a headless variant without GUI support</li>
+                        <li>hostname (inetutils) is used for detecting namespace support for build sandboxing</li>
                         <li>openssl</li>
                         <li>rsync</li>
                         <li>unzip</li>
                         <li>zip</li>
                     </ul>
-
                     <p>Additional dependencies for extracting vendor files with adevtool:</p>
-
                     <ul>
                         <li>Node.js 24 LTS</li>
                         <li>yarn</li>
                     </ul>
-
                     <p>Additional Vanadium (Chromium) build dependencies not provided by the source tree:</p>
-
                     <ul>
                         <li>gperf</li>
                         <li>32-bit glibc</li>
                         <li>32-bit gcc runtime library</li>
                     </ul>
-
                     <p>Additional dependencies for signing factory images releases:</p>
-
                     <ul>
                         <li>ssh-keygen (OpenSSH)</li>
                     </ul>
                 </section>
-
                 <section id="downloading-source-code">
                     <h3><a href="#downloading-source-code">Downloading source code</a></h3>
-
-                    <p>Since this is syncing the sources for the entire operating system and application
-                    layer, it will use a lot of bandwidth and storage space.</p>
-
-                    <p>You likely want to use the most recent stable tag, not the development branch, even
-                    for developing a feature. It's easier to port between stable tags that are known to
-                    work properly than dealing with a moving target.</p>
-
+                    <p>Since this is syncing the sources for the entire operating system and application layer, it will
+                        use a lot of bandwidth and storage space.</p>
+                    <p>You likely want to use the most recent stable tag, not the development branch, even for
+                        developing a feature. It's easier to port between stable tags that are known to work properly
+                        than dealing with a moving target.</p>
                     <section id="development-branch">
                         <h4><a href="#development-branch">Development branch</a></h4>
-
-                        <p>The <code>16-qpr1</code> branch is the main development branch of
-                        GrapheneOS based on Android 16 QPR1. The <code>16-qpr1</code> branch of
-                        GrapheneOS should be used for generic builds including the emulator, porting
-                        to other devices and for non-legacy officially supported devices.</p>
-
+                        <p>The <code>16-qpr1</code> branch is the main development branch of GrapheneOS based on Android
+                            16 QPR1. The <code>16-qpr1</code> branch of GrapheneOS should be used for generic builds
+                            including the emulator, porting to other devices and for non-legacy officially supported
+                            devices.</p>
                         <p>To sync the <code>16-qpr1</code> branch:</p>
-
                         <pre>mkdir grapheneos-16-qpr1
 cd grapheneos-16-qpr1
 repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 16-qpr1
 repo sync -j8</pre>
-
                         <p>If your network is unreliable and <code>repo sync</code> fails, you can run the
-                        <code>repo sync</code> command again to continue from where it was interrupted. It
-                        handles connection failures robustly and you shouldn't start over from scratch.</p>
+                            <code>repo sync</code> command again to continue from where it was interrupted. It handles
+                            connection failures robustly and you shouldn't start over from scratch.</p>
                     </section>
-
                     <section id="stable-release">
                         <h4><a href="#stable-release">Stable release</a></h4>
-
-                        <p>Pick a specific release for a device from the <a href="/releases">releases page</a>
-                        and download the source tree. Note that some devices use different Android Open Source
-                        Project branches so they can end up with different tags. Make sure to use the correct
-                        tag for a device. For devices without official support, use the latest tag marked as
-                        being appropriate for generic / other devices in the release notes.</p>
-
+                        <p>Pick a specific release for a device from the <a href="/releases">releases page</a> and
+                            download the source tree. Note that some devices use different Android Open Source Project
+                            branches so they can end up with different tags. Make sure to use the correct tag for a
+                            device. For devices without official support, use the latest tag marked as being appropriate
+                            for generic / other devices in the release notes.</p>
                         <pre>mkdir grapheneos-<var>TAG_NAME</var>
 cd grapheneos-<var>TAG_NAME</var>
 repo init -u https://github.com/GrapheneOS/platform_manifest.git -b refs/tags/<var>TAG_NAME</var></pre>
-
                         <p>Obtain SSH public key for verifying tags:</p>
-
                         <pre>curl https://grapheneos.org/allowed_signers > ~/.ssh/grapheneos_allowed_signers</pre>
-
                         <p>Verify the manifest:</p>
-
-<pre>cd .repo/manifests
+                        <pre>cd .repo/manifests
 git config gpg.ssh.allowedSignersFile ~/.ssh/grapheneos_allowed_signers
 git verify-tag $(git describe)
 cd ../..</pre>
-
                         <p>Complete the source tree download:</p>
-
                         <pre>repo sync -j8</pre>
-
-                        <p>The manifest for the latest stable release refers to the revisions in other
-                        repositories via commit hashes rather than tag names. This avoids the need to use a
-                        script to verify tag signatures across all the repositories, since they simply point
-                        to the same commits with the same hashes.</p>
-
-                        <p>Note that the repo command itself takes care of updating itself and uses GPG to
-                        verify by default.</p>
+                        <p>The manifest for the latest stable release refers to the revisions in other repositories via
+                            commit hashes rather than tag names. This avoids the need to use a script to verify tag
+                            signatures across all the repositories, since they simply point to the same commits with the
+                            same hashes.</p>
+                        <p>Note that the repo command itself takes care of updating itself and uses GPG to verify by
+                            default.</p>
                     </section>
                 </section>
-
                 <section id="updating-and-switching-branches-or-tags">
-                    <h3><a href="#updating-and-switching-branches-or-tags">Updating and switching branches or tags</a></h3>
-
-                    <p>To update the source tree, run the <code>repo init</code> command again to select
-                    the branch or tag and then run <code>repo sync -j8</code> again. You may need to add
-                    <code>--force-sync</code> if a repository switched from one source to another,
-                    such as when GrapheneOS forks an additional Android Open Source Project repository.
-                    You don't need to start over to switch between different branches or tags. You may
-                    need to run <code>repo init</code> again to continue down the same branch since
-                    GrapheneOS only provides a stable history via tags.</p>
+                    <h3><a href="#updating-and-switching-branches-or-tags">Updating and switching branches or tags</a>
+                    </h3>
+                    <p>To update the source tree, run the <code>repo init</code> command again to select the branch or
+                        tag and then run <code>repo sync -j8</code> again. You may need to add <code>--force-sync</code>
+                        if a repository switched from one source to another, such as when GrapheneOS forks an additional
+                        Android Open Source Project repository. You don't need to start over to switch between different
+                        branches or tags. You may need to run <code>repo init</code> again to continue down the same
+                        branch since GrapheneOS only provides a stable history via tags.</p>
                 </section>
-
                 <section id="setting-up-the-os-build-environment">
                     <h3><a href="#setting-up-the-os-build-environment">Setting up the OS build environment</a></h3>
-
-                    <p>The build has to be done from bash or zsh as envsetup.sh is not compatible with other
-                    shells.</p>
-
+                    <p>The build has to be done from bash or zsh as envsetup.sh is not compatible with other shells.</p>
                     <p>Set up the build environment:</p>
-
                     <pre>source build/envsetup.sh</pre>
                 </section>
-
                 <section id="extracting-vendor-files-for-pixel-devices">
-                    <h3><a href="#extracting-vendor-files-for-pixel-devices">Extracting vendor files for Pixel devices</a></h3>
-
-                    <p>This section is specific to Pixel devices. The emulator and generic targets don't
-                    require extra vendor files.</p>
-
-                    <p>Many of these components are already open source, but not everything is set up to
-                    be built by the Android Open Source Project build system. Switching to building these
-                    components from source will be an incremental effort. In many cases, the vendor files
-                    simply need to be ignored and AOSP will already provide them instead. Firmware cannot
-                    generally be built from source even when sources are available, other than to verify
-                    that the official builds match the sources, since it has signature verification (which
-                    is an important part of the verified boot and attestation security model).</p>
-
-                    <p>The below command needs to only be run once to initially create a working
-                    environment. (Note: On Debian, <code>yarn</code> is reserved for a binary in
-                    <code>cmdtest</code>; use <code>yarnpkg</code> instead.)</p>
-
+                    <h3><a href="#extracting-vendor-files-for-pixel-devices">Extracting vendor files for Pixel
+                            devices</a></h3>
+                    <p>This section is specific to Pixel devices. The emulator and generic targets don't require extra
+                        vendor files.</p>
+                    <p>Many of these components are already open source, but not everything is set up to be built by the
+                        Android Open Source Project build system. Switching to building these components from source
+                        will be an incremental effort. In many cases, the vendor files simply need to be ignored and
+                        AOSP will already provide them instead. Firmware cannot generally be built from source even when
+                        sources are available, other than to verify that the official builds match the sources, since it
+                        has signature verification (which is an important part of the verified boot and attestation
+                        security model).</p>
+                    <p>The below command needs to only be run once to initially create a working environment. (Note: On
+                        Debian, <code>yarn</code> is reserved for a binary in <code>cmdtest</code>; use
+                        <code>yarnpkg</code> instead.)</p>
                     <pre>yarn --cwd vendor/adevtool/ install</pre>
-
                     <p>Download, extract and prepare the vendor files:</p>
-
                     <pre>adevtool generate-all -d <var>PIXEL_CODENAME</var></pre>
-
-                    <p>Replace <code><var>PIXEL_CODENAME</var></code> with Pixel device codename, which is the same as <a href="#build-targets">build target name</a>.</p>
+                    <p>Replace <code><var>PIXEL_CODENAME</var></code> with Pixel device codename, which is the same as
+                        <a href="#build-targets">build target name</a>.</p>
                 </section>
-
                 <section id="selecting-build-target">
                     <h3><a href="#selecting-build-target">Selecting build target</a></h3>
-
                     <p>Select the desired build target (<code>husky</code> is the Pixel 8 Pro):</p>
-
                     <pre>lunch husky-cur-user</pre>
-
-                    <p>For a development build, you may want to replace <code>user</code> with
-                    <code>userdebug</code> in order to have better debugging support. Production builds
-                    should be <code>user</code> builds as they are significantly more secure and don't
-                    make additional performance sacrifices to improve debugging.</p>
-
-                    <p>Set <code>OFFICIAL_BUILD=true</code> to include the Updater app. You
-                    <strong>must</strong> change the URL in
-                    <code>packages/apps/Updater/res/values/config.xml</code> to your own update server
-                    URL. Using the official update server with a build signed with different keys will not
-                    work and will essentially perform a denial of service attack on our update service. If
-                    you try to use the official URL, the app will download an official update and will
-                    detect it as corrupted or tampered. It will delete the update and try to download it
-                    over and over again since it will never be signed with your key.</p>
-
+                    <p>For a development build, you may want to replace <code>user</code> with <code>userdebug</code> in
+                        order to have better debugging support. Production builds should be <code>user</code> builds as
+                        they are significantly more secure and don't make additional performance sacrifices to improve
+                        debugging.</p>
+                    <p>Set <code>OFFICIAL_BUILD=true</code> to include the Updater app. You <strong>must</strong> change
+                        the URL in <code>packages/apps/Updater/res/values/config.xml</code> to your own update server
+                        URL. Using the official update server with a build signed with different keys will not work and
+                        will essentially perform a denial of service attack on our update service. If you try to use the
+                        official URL, the app will download an official update and will detect it as corrupted or
+                        tampered. It will delete the update and try to download it over and over again since it will
+                        never be signed with your key.</p>
                     <pre>export OFFICIAL_BUILD=true</pre>
                 </section>
-
                 <section id="reproducible-builds">
                     <h3><a href="#reproducible-builds">Reproducible builds</a></h3>
-
                     <p>To reproduce a past build, you need to export <code>BUILD_DATETIME</code> and
-                    <code>BUILD_NUMBER</code> to the values set for the past build. These can be obtained
-                    from <code>out/build_date.txt</code> and <code>out/build_number.txt</code> in a build
-                    output directory and the <code>ro.build.date.utc</code> and
-                    <code>ro.build.version.incremental</code> properties which are also included in the
-                    over-the-air zip metadata rather than just the OS itself.</p>
-
-                    <p>The signing process for release builds is done after completing builds and replaces
-                    the dm-verity trees, apk signatures, etc. and can only be reproduced with access to
-                    the same private keys. If you want to compare to production builds signed with
-                    different keys you need to stick to comparing everything other than the
-                    signatures.</p>
-
-                    <p>Additionally, set <code>OFFICIAL_BUILD=true</code> per the instructions above to
-                    reproduce the official builds. Note that if you do not change the URL to your own
-                    domain, you <strong>must</strong> disable the Updater app before connecting the device
-                    to the internet, or you will be performing a denial of service attack on our official
-                    update server.</p>
+                        <code>BUILD_NUMBER</code> to the values set for the past build. These can be obtained from
+                        <code>out/build_date.txt</code> and <code>out/build_number.txt</code> in a build output
+                        directory and the <code>ro.build.date.utc</code> and <code>ro.build.version.incremental</code>
+                        properties which are also included in the over-the-air zip metadata rather than just the OS
+                        itself.</p>
+                    <p>The signing process for release builds is done after completing builds and replaces the dm-verity
+                        trees, apk signatures, etc. and can only be reproduced with access to the same private keys. If
+                        you want to compare to production builds signed with different keys you need to stick to
+                        comparing everything other than the signatures.</p>
+                    <p>Additionally, set <code>OFFICIAL_BUILD=true</code> per the instructions above to reproduce the
+                        official builds. Note that if you do not change the URL to your own domain, you
+                        <strong>must</strong> disable the Updater app before connecting the device to the internet, or
+                        you will be performing a denial of service attack on our official update server.</p>
                 </section>
-
                 <section id="building">
                     <h3><a href="#building">Building</a></h3>
-
-                    <p>Incremental builds (i.e. starting from the old build) usually work for development
-                    and are the normal way to develop changes. However, there are cases where changes are
-                    not properly picked up by the build system. For production builds, you should remove
-                    the remnants of any past builds before starting, particularly if there were
-                    non-trivial changes:</p>
-
+                    <p>Incremental builds (i.e. starting from the old build) usually work for development and are the
+                        normal way to develop changes. However, there are cases where changes are not properly picked up
+                        by the build system. For production builds, you should remove the remnants of any past builds
+                        before starting, particularly if there were non-trivial changes:</p>
                     <pre>rm -r out</pre>
-
                     <p>Next, start the build process with the <code>m</code> command:</p>
-
                     <pre>m target-files-package</pre>
-
                     <p>For the Pixel 6, Pixel 6 Pro and Pixel 6a you currently need <code>m
-                    vendorbootimage target-files-package</code> instead of
-                    <code>target-files-package</code>.</p>
-
-                    <p>For the Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8,
-                    Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL and Pixel 9 Pro Fold
-                    you currently need <code>m vendorbootimage vendorkernelbootimage
+                    vendorbootimage target-files-package</code> instead of <code>target-files-package</code>.</p>
+                    <p>For the Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a,
+                        Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL and Pixel 9 Pro Fold you currently need <code>m vendorbootimage vendorkernelbootimage
                     target-files-package</code> instead of <code>target-files-package</code>.</p>
-
-                    <p>The <code>-j</code> parameter can be passed to <code>m</code> to set a specific
-                    number of jobs such as <code>-j4</code> to use 4 jobs. By default, the build system
-                    sets the number of jobs to <code>NumCPU() + 2</code> where <code>NumCPU()</code> is the
-                    number of available logical CPUs.</p>
-
+                    <p>The <code>-j</code> parameter can be passed to <code>m</code> to set a specific number of jobs
+                        such as <code>-j4</code> to use 4 jobs. By default, the build system sets the number of jobs to
+                        <code>NumCPU() + 2</code> where <code>NumCPU()</code> is the number of available logical CPUs.
+                    </p>
                     <p><strong>For an emulator build, always use the development build approach below.</strong></p>
                 </section>
-
                 <section id="faster-builds-for-development-use-only">
-                    <h3><a href="#faster-builds-for-development-use-only">Faster builds for development use only</a></h3>
-
-                    <p>The normal production build process involves building a target files package to be
-                    resigned with secure release keys and then converted into factory images and/or an
-                    update zip via the sections below. If you have a dedicated development device with no
-                    security requirements, you can save time by using the default build target rather than
-                    target-files-package. Leave the bootloader unlocked and flashing the raw images that
-                    are signed with the default public test keys.</p>
-
+                    <h3><a href="#faster-builds-for-development-use-only">Faster builds for development use only</a>
+                    </h3>
+                    <p>The normal production build process involves building a target files package to be resigned with
+                        secure release keys and then converted into factory images and/or an update zip via the sections
+                        below. If you have a dedicated development device with no security requirements, you can save
+                        time by using the default build target rather than target-files-package. Leave the bootloader
+                        unlocked and flashing the raw images that are signed with the default public test keys.</p>
                     <p>To build the default build target:</p>
-
                     <pre>m</pre>
-
-                    <p>Technically, you could generate test key signed update packages. However, there's
-                    no point of sideloading update packages when the bootloader is unlocked and there's no
-                    value in a locked bootloader without signing the build using release keys, since
-                    verified boot will be meaningless and the keys used to verify sideloaded updates are
-                    also public. The only reason to use update packages or a locked bootloader without
-                    signing the build with release keys would be testing that functionality and it makes a
-                    lot more sense to test it with proper signing keys rather than the default public test
-                    keys.</p>
+                    <p>Technically, you could generate test key signed update packages. However, there's no point of
+                        sideloading update packages when the bootloader is unlocked and there's no value in a locked
+                        bootloader without signing the build using release keys, since verified boot will be meaningless
+                        and the keys used to verify sideloaded updates are also public. The only reason to use update
+                        packages or a locked bootloader without signing the build with release keys would be testing
+                        that functionality and it makes a lot more sense to test it with proper signing keys rather than
+                        the default public test keys.</p>
                 </section>
-
                 <section id="generating-release-signing-keys">
                     <h3><a href="#generating-release-signing-keys">Generating release signing keys</a></h3>
-
-                    <p>Keys need to be generated for resigning completed builds from the publicly
-                    available test keys.  The keys must then be reused for subsequent builds and cannot be
-                    changed without flashing the generated factory images again which will perform a
-                    factory reset. Note that the keys are used for a lot more than simply verifying
-                    updates and verified boot.</p>
-
-                    <p>The sample certificate subject (<code>CN=GrapheneOS</code>) should be replaced with
-                    your own information.</p>
-
-                    <p>You should set a passphrase for the signing keys to keep them at rest until you
-                    need to sign a release with them. The GrapheneOS scripts (<code>make_key</code> and
-                    <code>encrypt-keys</code>) encrypt the signing keys using scrypt for key derivation
-                    and AES256 as the cipher. If you use swap, make sure it's encrypted, ideally with an
-                    ephemeral key rather a persistent key to support hibernation. Even with an ephemeral
-                    key, swap will reduce the security gained from encrypting the keys since it breaks the
-                    guarantee that they become at rest as soon as the signing process is finished.
-                    Consider disabling swap, at least during the signing process.</p>
-
-                    <p>The encryption passphrase for all the keys generated for a device needs to
-                    match for compatibility with the GrapheneOS scripts.</p>
-
-                    <p>To generate keys for tegu (you should use unique keys per device
-                    variant):</p>
-
+                    <p>Keys need to be generated for resigning completed builds from the publicly available test keys.
+                        The keys must then be reused for subsequent builds and cannot be changed without flashing the
+                        generated factory images again which will perform a factory reset. Note that the keys are used
+                        for a lot more than simply verifying updates and verified boot.</p>
+                    <p>The sample certificate subject (<code>CN=GrapheneOS</code>) should be replaced with your own
+                        information.</p>
+                    <p>You should set a passphrase for the signing keys to keep them at rest until you need to sign a
+                        release with them. The GrapheneOS scripts (<code>make_key</code> and <code>encrypt-keys</code>)
+                        encrypt the signing keys using scrypt for key derivation and AES256 as the cipher. If you use
+                        swap, make sure it's encrypted, ideally with an ephemeral key rather a persistent key to support
+                        hibernation. Even with an ephemeral key, swap will reduce the security gained from encrypting
+                        the keys since it breaks the guarantee that they become at rest as soon as the signing process
+                        is finished. Consider disabling swap, at least during the signing process.</p>
+                    <p>The encryption passphrase for all the keys generated for a device needs to match for
+                        compatibility with the GrapheneOS scripts.</p>
+                    <p>To generate keys for tegu (you should use unique keys per device variant):</p>
                     <pre>mkdir -p keys/tegu
 cd keys/tegu
 CN=GrapheneOS
@@ -546,225 +434,157 @@ CN=GrapheneOS
 openssl genrsa 4096 | openssl pkcs8 -topk8 -scrypt -out avb.pem
 ../../external/avb/avbtool.py extract_public_key --key avb.pem --output avb_pkmd.bin
 cd ../..</pre>
-
-                    <p>The <code>avb_pkmd.bin</code> file isn't needed for generating a signed release but
-                    rather to set the public key used by the device to enforce verified boot.</p>
-
+                    <p>The <code>avb_pkmd.bin</code> file isn't needed for generating a signed release but rather to set
+                        the public key used by the device to enforce verified boot.</p>
                     <p>Generate an OpenSSH key for signing factory images:</p>
-
                     <pre>ssh-keygen -t ed25519 -f keys/tegu/id_ed25519</pre>
-
-                    <p>The passphrase for the SSH key should also match the other keys, although we
-                    don't currently handle it automatically in the encrypt/decrypt scripts.</p>
-
+                    <p>The passphrase for the SSH key should also match the other keys, although we don't currently
+                        handle it automatically in the encrypt/decrypt scripts.</p>
                     <section id="encrypting-keys">
                         <h4><a href="#encrypting-keys">Encrypting keys</a></h4>
-
-                        <p>You can (re-)encrypt your signing keys using the <code>encrypt-keys</code> script,
-                        which will prompt for the old passphrase (if any) and new passphrase:</p>
-
+                        <p>You can (re-)encrypt your signing keys using the <code>encrypt-keys</code> script, which will
+                            prompt for the old passphrase (if any) and new passphrase:</p>
                         <pre>script/encrypt-keys keys/tegu</pre>
-
-                        <p>The <code>script/decrypt-keys</code> script can be used to remove encryption,
-                        which is not recommended. The script exists primarily for internal usage to decrypt
-                        the keys in tmpfs to perform signing.</p>
+                        <p>The <code>script/decrypt-keys</code> script can be used to remove encryption, which is not
+                            recommended. The script exists primarily for internal usage to decrypt the keys in tmpfs to
+                            perform signing.</p>
                     </section>
-
                     <section id="apex-components">
                         <h4><a href="#apex-components">APEX components</a></h4>
-
-                        <p>GrapheneOS currently doesn't use out-of-band updates to APEX
-                        components, so these are all signed with the OS releasekey and verified
-                        boot key to avoid needing many extra pairs of keys. Each APEX needs an APK
-                        signing key and verified boot signing key. If you want to ship out-of-band
-                        updates to APEX components, you'll need to deal with this and you should
-                        make a separate pair of keys for each one.</p>
-
-                        <p>Consult the upstream documentation on generating these keys. It will
-                        likely be covered here in the future, especially if non-flattened APEX
-                        components become unavoidable.</p>
+                        <p>GrapheneOS currently doesn't use out-of-band updates to APEX components, so these are all
+                            signed with the OS releasekey and verified boot key to avoid needing many extra pairs of
+                            keys. Each APEX needs an APK signing key and verified boot signing key. If you want to ship
+                            out-of-band updates to APEX components, you'll need to deal with this and you should make a
+                            separate pair of keys for each one.</p>
+                        <p>Consult the upstream documentation on generating these keys. It will likely be covered here
+                            in the future, especially if non-flattened APEX components become unavoidable.</p>
                     </section>
                 </section>
-
                 <section id="generating-signed-factory-images-and-full-update-packages">
-                    <h3><a href="#generating-signed-factory-images-and-full-update-packages">Generating signed factory images and full update packages</a></h3>
-
+                    <h3><a href="#generating-signed-factory-images-and-full-update-packages">Generating signed factory
+                            images and full update packages</a></h3>
                     <p>Build and package up the tools needed to generate over-the-air update packages:</p>
-
                     <pre>m otatools-package</pre>
-
                     <p>Copy build artifacts to releases directory:</p>
-
                     <pre>script/finalize.sh</pre>
-
                     <p>Generate a signed release build with the generate-release.sh script:</p>
-
                     <pre>script/generate-release.sh tegu <var>BUILD_NUMBER</var></pre>
-
                     <p>The factory images and update package will be in
-                    <code>releases/<var>BUILD_NUMBER</var>/release-tegu-<var>BUILD_NUMBER</var></code>.
-                    The update zip performs a full OS installation so it can be used to update from
-                    any previous version. More efficient incremental updates are used for official
-                    over-the-air GrapheneOS updates and can be generated by keeping around past
-                    signed <code>target_files</code> zips and generating incremental updates from
-                    those to the most recent signed <code>target_files</code> zip.</p>
-
-                    <p>See the <a href="/install/">install page</a> for information on how to use the
-                    factory images. See the <a href="/usage#updates-sideloading">usage guide section on
-                    sideloading updates</a> for information on how to use the update packages.</p>
-
-                    <p>Running <code>script/generate-release.sh</code> also generates channel
-                    metadata for the update server. If you configured the Updater client URL and set
-                    the build to include it (see the information on <code>OFFICIAL_BUILD</code>
-                    above), you can push signed over-the-air updates via the update system. Simply
-                    upload the update package to the update server along with the channel metadata
-                    for the release channel, and it will be pushed out to the update client. The
-                    <code><var>DEVICE</var>-beta</code> and <code><var>DEVICE</var>-stable</code>
-                    metadata provide the Beta and Stable release channels used by the update client.
-                    The <code><var>DEVICE</var>-testing</code> metadata provides an internal testing
-                    channel for the OS developers, which can be temporarily enabled using <code>adb
-                    shell setprop sys.update.channel testing</code>. The name is arbitrary and you
-                    can also use any other name for internal testing channels.</p>
-
-                    <p>For GrapheneOS itself, the testing channel is used to push out updates to developer
-                    devices, followed by a sample future release to test that the release which is about
-                    to be pushed out to the Beta channel is able to update to a future release. Once it's
-                    tested internally, the release is pushed out to the Beta channel, and finally to the
-                    Stable channel after public testing. A similar approach is recommended for derivatives
-                    of GrapheneOS.</p>
-
+                        <code>releases/<var>BUILD_NUMBER</var>/release-tegu-<var>BUILD_NUMBER</var></code>. The update
+                        zip performs a full OS installation so it can be used to update from any previous version. More
+                        efficient incremental updates are used for official over-the-air GrapheneOS updates and can be
+                        generated by keeping around past signed <code>target_files</code> zips and generating
+                        incremental updates from those to the most recent signed <code>target_files</code> zip.</p>
+                    <p>See the <a href="/install/">install page</a> for information on how to use the factory images.
+                        See the <a href="/usage#updates-sideloading">usage guide section on sideloading updates</a> for
+                        information on how to use the update packages.</p>
+                    <p>Running <code>script/generate-release.sh</code> also generates channel metadata for the update
+                        server. If you configured the Updater client URL and set the build to include it (see the
+                        information on <code>OFFICIAL_BUILD</code> above), you can push signed over-the-air updates via
+                        the update system. Simply upload the update package to the update server along with the channel
+                        metadata for the release channel, and it will be pushed out to the update client. The
+                        <code><var>DEVICE</var>-beta</code> and <code><var>DEVICE</var>-stable</code> metadata provide
+                        the Beta and Stable release channels used by the update client. The
+                        <code><var>DEVICE</var>-testing</code> metadata provides an internal testing channel for the OS
+                        developers, which can be temporarily enabled using <code>adb
+                    shell setprop sys.update.channel testing</code>. The name is arbitrary and you can also use any
+                        other name for internal testing channels.</p>
+                    <p>For GrapheneOS itself, the testing channel is used to push out updates to developer devices,
+                        followed by a sample future release to test that the release which is about to be pushed out to
+                        the Beta channel is able to update to a future release. Once it's tested internally, the release
+                        is pushed out to the Beta channel, and finally to the Stable channel after public testing. A
+                        similar approach is recommended for derivatives of GrapheneOS.</p>
                     <section id="generating-delta-updates">
                         <h4><a href="#generating-delta-updates">Generating delta updates</a></h4>
-
-                        <p>Incremental updates shipping only the changes between two versions can be generated
-                        as a much more efficient way of shipping updates than a full update package containing
-                        the entire operating system. The GrapheneOS Updater app will automatically use a delta
-                        update if one exists for going directly from the currently installed version to the
-                        latest release. In order to generate a delta update, the original signed target files
-                        package for both the source version and target version are needed. The
-                        <code>script/generate-delta.sh</code> script provides a wrapper script for generating
-                        delta updates by passing the device, source version build number and target version
-                        build number. For example:</p>
-
+                        <p>Incremental updates shipping only the changes between two versions can be generated as a much
+                            more efficient way of shipping updates than a full update package containing the entire
+                            operating system. The GrapheneOS Updater app will automatically use a delta update if one
+                            exists for going directly from the currently installed version to the latest release. In
+                            order to generate a delta update, the original signed target files package for both the
+                            source version and target version are needed. The <code>script/generate-delta.sh</code>
+                            script provides a wrapper script for generating delta updates by passing the device, source
+                            version build number and target version build number. For example:</p>
                         <pre>script/generate-delta.sh tegu 2025110600 2025110800</pre>
-
-                        <p>The script assumes that the releases are organized in the following directory
-                        structure:</p>
-
+                        <p>The script assumes that the releases are organized in the following directory structure:</p>
                         <pre>releases
 ├── 2025110600
 │   └── release-tegu-2025110600
 └── 2025110800
     └── release-tegu-2025110800</pre>
-
-                        <p>Incremental updates are uploaded alongside the update packages and update metadata
-                        on the static web server used as an update server. The update client will
-                        automatically check for an incremental update and use it if available. No additional
-                        metadata is needed to make incremental updates work.</p>
+                        <p>Incremental updates are uploaded alongside the update packages and update metadata on the
+                            static web server used as an update server. The update client will automatically check for
+                            an incremental update and use it if available. No additional metadata is needed to make
+                            incremental updates work.</p>
                     </section>
                 </section>
             </article>
-
             <article id="prebuilt-code">
                 <h2><a href="#prebuilt-code">Prebuilt code</a></h2>
-
-                <p>Like the Android Open Source Project, GrapheneOS contains some code that's built
-                separately and then bundled into the source tree as binaries. This section will be
-                gradually expanded to cover building all of it.</p>
-
+                <p>Like the Android Open Source Project, GrapheneOS contains some code that's built separately and then
+                    bundled into the source tree as binaries. This section will be gradually expanded to cover building
+                    all of it.</p>
                 <section id="kernel">
                     <h3><a href="#kernel">Kernel</a></h3>
-
-                    <p>The Linux kernel is built separately using an AOSP kernel build system
-                    wrapping the upstream Linux kernel build system. Since it's a separate build
-                    system from the rest of the OS, the kernels are built separately. Many of the
-                    repositories are shared with the rest of the OS including the repositories
-                    providing the prebuilt toolchain for reproducible builds not depending on the
-                    tools from the host OS.</p>
-
-                    <p>Additional Linux kernel build dependencies for 4th and 5th generation
-                    Pixels not provided by the source tree:</p>
-
+                    <p>The Linux kernel is built separately using an AOSP kernel build system wrapping the upstream
+                        Linux kernel build system. Since it's a separate build system from the rest of the OS, the
+                        kernels are built separately. Many of the repositories are shared with the rest of the OS
+                        including the repositories providing the prebuilt toolchain for reproducible builds not
+                        depending on the tools from the host OS.</p>
+                    <p>Additional Linux kernel build dependencies for 4th and 5th generation Pixels not provided by the
+                        source tree:</p>
                     <ul>
                         <li>libgcc (for the host, not the target)</li>
                         <li>binutils (for the host, not the target)</li>
                     </ul>
-
                     <section id="kernel-emulator">
                         <h4><a href="#kernel-emulator">Emulator</a></h4>
-
-                        <p>The default kernel version for the emulator is 6.6. You can change the
-                        kernel version used for the x86_64 emulator target supported by GrapheneOS in
-                        <code>device/generic/goldfish/board/kernel/x86_64.mk</code>.</p>
-
+                        <p>The default kernel version for the emulator is 6.6. You can change the kernel version used
+                            for the x86_64 emulator target supported by GrapheneOS in
+                            <code>device/generic/goldfish/board/kernel/x86_64.mk</code>.</p>
                         <p>To sync the 6.6 kernel sources:</p>
-
                         <pre>mkdir -p android/kernel/6.6
 cd android/kernel/6.6
 repo init -u https://github.com/GrapheneOS/kernel_manifest-6.6.git -b 16-qpr1
 repo sync -j8</pre>
-
                         <p>To build the 6.6 kernel image and modules for the emulator:</p>
-
                         <pre>ARCH=x86_64 common/build_virt.sh</pre>
-
                         <p>Replace the prebuilts in the OS source tree:</p>
-
                         <pre>ANDROID_BUILD_TOP=~/android/grapheneos-15 ARCH=x86_64 common/update_virt_prebuilts.sh</pre>
-
                         <p>To sync the 6.1 kernel sources:</p>
-
                         <pre>mkdir -p android/kernel/6.1
 cd android/kernel/6.1
 repo init -u https://github.com/GrapheneOS/kernel_manifest-6.1.git -b 16-qpr1
 repo sync -j8</pre>
-
                         <p>To build the 6.1 kernel image and modules for the emulator:</p>
-
                         <pre>ARCH=x86_64 common/build_virt.sh</pre>
-
                         <p>Replace the prebuilts in the OS source tree:</p>
-
                         <pre>ANDROID_BUILD_TOP=~/android/grapheneos-15 ARCH=x86_64 common/update_virt_prebuilts.sh</pre>
                     </section>
-
                     <section id="kernel-microdroid">
                         <h4><a href="#kernel-microdroid">Microdroid</a></h4>
-
                         <p>To sync the kernel sources:</p>
-
                         <pre>mkdir -p android/kernel/6.6
 cd android/kernel/6.6
 repo init -u https://github.com/GrapheneOS/kernel_manifest-6.6.git -b 16-qpr1
 repo sync -j8</pre>
-
                         <p>To build the arm64 kernel image for microdroid:</p>
-
                         <pre>tools/bazel run //common:kernel_aarch64_microdroid_dist --config=stamp --lto=full</pre>
-
                         <p>Replace the prebuilt kernel image in the OS source tree at
-                        <code>packages/modules/Virtualization/microdroid/kernel/android15-6.6/arm64/kernel-6.6</code> with your image
-                        <code>out/kernel_aarch64_microdroid/dist/Image</code>.</p>
-
+                            <code>packages/modules/Virtualization/microdroid/kernel/android15-6.6/arm64/kernel-6.6</code>
+                            with your image <code>out/kernel_aarch64_microdroid/dist/Image</code>.</p>
                         <p>To build the x86_64 kernel image for microdroid:</p>
-
                         <pre>tools/bazel run //common:kernel_x86_64_microdroid_dist --config=stamp --lto=full</pre>
-
                         <p>Replace the prebuilt kernel image in the OS source tree at
-                        <code>packages/modules/Virtualization/microdroid/kernel/android15-6.6/x86_64/kernel-6.6</code> with your image
-                        <code>out/kernel_x86_64_microdroid/dist/bzImage</code>.</p>
+                            <code>packages/modules/Virtualization/microdroid/kernel/android15-6.6/x86_64/kernel-6.6</code>
+                            with your image <code>out/kernel_x86_64_microdroid/dist/bzImage</code>.</p>
                     </section>
-
                     <section id="kernel-6th-through-9th-generation-pixels">
-                        <h4><a href="#kernel-6th-through-9th-generation-pixels">6th through 9th generation Pixels</a></h4>
-
+                        <h4><a href="#kernel-6th-through-9th-generation-pixels">6th through 9th generation Pixels</a>
+                        </h4>
                         <p>To sync the kernel sources:</p>
-
                         <pre>git clone https://gitlab.com/grapheneos/kernel_pixel.git -b 16-qpr1 --recurse-submodules
 cd kernel_pixel</pre>
-
                         <p>Select the correct kernel codename for the device model:</p>
-
                         <ul>
                             <li>tegu: tegu</li>
                             <li>comet: comet</li>
@@ -783,186 +603,130 @@ cd kernel_pixel</pre>
                             <li>raven: raviole</li>
                             <li>oriole: raviole</li>
                         </ul>
-
                         <p>To build the kernel and modules:</p>
-
                         <pre>KLEAF_REPO_MANIFEST=aosp_manifest.xml ./build_<var>codename</var>.sh --lto=full</pre>
-
                         <p>Replace the files in the OS source tree at
-                        <code>device/google/<var>codename</var>-kernels/6.1/grapheneos/</code> with your build in
-                        <code>out/<var>codename</var>/dist/</code>.</p>
+                            <code>device/google/<var>codename</var>-kernels/6.1/grapheneos/</code> with your build in
+                            <code>out/<var>codename</var>/dist/</code>.</p>
                     </section>
                 </section>
-
                 <section id="browser-and-webview">
                     <h3><a href="#browser-and-webview">Browser and WebView</a></h3>
-
-                    <p>Vanadium is a hardened fork of Chromium developed by GrapheneOS and used to provide
-                    the WebView and <em>optionally</em> the standalone browser app. It tracks the Chromium
-                    release cycles along with having additional updates for downstream changes to the
-                    privacy and security hardening patches, so it's updated at a different schedule than
-                    the monthly Android releases.</p>
-
-                    <p>The browser and the WebView are independent applications built from the Chromium
-                    source tree. The GrapheneOS browser build is located at external/vanadium and the
-                    WebView is at external/chromium-webview.</p>
-
-                    <p>See <a href="https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/android_build_instructions.md">
-                    Chromium's Android build instructions</a> for details on obtaining the
-                    prerequisites.</p>
-
+                    <p>Vanadium is a hardened fork of Chromium developed by GrapheneOS and used to provide the WebView
+                        and <em>optionally</em> the standalone browser app. It tracks the Chromium release cycles along
+                        with having additional updates for downstream changes to the privacy and security hardening
+                        patches, so it's updated at a different schedule than the monthly Android releases.</p>
+                    <p>The browser and the WebView are independent applications built from the Chromium source tree. The
+                        GrapheneOS browser build is located at external/vanadium and the WebView is at
+                        external/chromium-webview.</p>
+                    <p>See <a
+                            href="https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/android_build_instructions.md">
+                            Chromium's Android build instructions</a> for details on obtaining the prerequisites.</p>
                     <pre>git clone https://github.com/GrapheneOS/Vanadium.git
 cd Vanadium
 git checkout <var>CORRECT_BRANCH_OR_TAG</var></pre>
-
                     <p>Generate a signing key for Vanadium if this is the initial build:</p>
-
                     <pre>keytool -genkey -v -keystore vanadium.keystore -storetype pkcs12 -alias vanadium -keyalg RSA -keysize 4096 -sigalg SHA512withRSA -validity 10000 -dname "cn=GrapheneOS"</pre>
-
                     <p>You will be prompted to enter a password which will be requested by the
-                    <code>generate-release.sh</code> script for signing releases. You should back up
-                    the generated keystore with your other keys.</p>
-
+                        <code>generate-release.sh</code> script for signing releases. You should back up the generated
+                        keystore with your other keys.</p>
                     <p>Fetch the Chromium sources:</p>
-
                     <pre>fetch --nohooks android</pre>
-
-                    <p>Sync to the latest stable release for Android (replace <code><var>VERSION</var></code> with
-                    the correct value):</p>
-
+                    <p>Sync to the latest stable release for Android (replace <code><var>VERSION</var></code> with the
+                        correct value):</p>
                     <pre>cd src
 git fetch --tags
 git checkout <var>VERSION</var></pre>
-
                     <p>Apply the GrapheneOS patches on top of the tagged release:</p>
-
                     <pre>git am --whitespace=nowarn --keep-non-patch ../patches/*.patch</pre>
-
                     <p>Sync submodules and obtain build dependencies:</p>
-
                     <pre>gclient sync -D --with_branch_heads --with_tags --jobs 32</pre>
-
                     <p>Then, configure the build in the <code>src</code> directory:</p>
-
                     <pre>gn args out/Default</pre>
-
-                    <p>Copy the GrapheneOS configuration from <code>../args.gn</code> and save/exit the
-                    editor. Modify <code>target_cpu</code> as needed if the target is not arm64. For
-                    x86_64, the correct value for <code>target_cpu</code> is <code>x64</code>, but note
-                    that the Android source tree refers to it as x86_64.</p>
-
-                    <p>You need to set <code>trichrome_certdigest</code> to the correct value for your
-                    generated signing key. You can obtain this with the following command:</p>
-
+                    <p>Copy the GrapheneOS configuration from <code>../args.gn</code> and save/exit the editor. Modify
+                        <code>target_cpu</code> as needed if the target is not arm64. For x86_64, the correct value for
+                        <code>target_cpu</code> is <code>x64</code>, but note that the Android source tree refers to it
+                        as x86_64.</p>
+                    <p>You need to set <code>trichrome_certdigest</code> to the correct value for your generated signing
+                        key. You can obtain this with the following command:</p>
                     <pre>keytool -export-cert -alias vanadium -keystore vanadium.keystore | sha256sum</pre>
-
                     <p>Build the components:</p>
-
                     <pre>chrt -b 0 autoninja -C out/Default/ trichrome_webview_64_32_apk trichrome_chrome_64_32_apk trichrome_library_64_32_apk vanadium_config_apk</pre>
-
                     <p>Sign the apks:</p>
-
                     <pre>../generate-release.sh out</pre>
-
-                    <p>The apks need to be copied from <code>out/Default/apks/release/*.apk</code>
-                    into the Android source tree at
-                    <code>external/vanadium/prebuilt/arm64/</code> with arm64
-                    substituted with the correct value for other architectures (arm, x86, x86_64).</p>
-
+                    <p>The apks need to be copied from <code>out/Default/apks/release/*.apk</code> into the Android
+                        source tree at <code>external/vanadium/prebuilt/arm64/</code> with arm64 substituted with the
+                        correct value for other architectures (arm, x86, x86_64).</p>
                     <p>WebView provider apps need to be whitelisted in
-                    <code>frameworks/base/core/res/res/xml/config_webview_packages.xml</code>. By default,
-                    only the Vanadium WebView is whitelisted.</p>
+                        <code>frameworks/base/core/res/res/xml/config_webview_packages.xml</code>. By default, only the
+                        Vanadium WebView is whitelisted.</p>
                 </section>
-
                 <section id="prebuilt-apps">
                     <h3><a href="#prebuilt-apps">Prebuilt apps</a></h3>
-
-                    <p>The official releases of our App Store, Auditor, Camera and PdfViewer apps are
-                    bundled as apks into external/ repositories. The no-code AppCompatConfig and
-                    GmsCompatConfig apps are done the same way. These are built and signed with the
-                    standard <code>gradle</code> Android plugin build system.</p>
-
-                    <p>The TalkBack screen reader is built from our talkback fork repository and
-                    included as a prebuilt signed with the OS releasekey. It may be presigned in
-                    the future similar to our standalone apps if we decide to do out-of-band
-                    releases.</p>
+                    <p>The official releases of our App Store, Auditor, Camera and PdfViewer apps are bundled as apks
+                        into external/ repositories. The no-code AppCompatConfig and GmsCompatConfig apps are done the
+                        same way. These are built and signed with the standard <code>gradle</code> Android plugin build
+                        system.</p>
+                    <p>The TalkBack screen reader is built from our talkback fork repository and included as a prebuilt
+                        signed with the OS releasekey. It may be presigned in the future similar to our standalone apps
+                        if we decide to do out-of-band releases.</p>
                 </section>
             </article>
-
             <article id="update-server">
                 <h2><a href="#update-server">Update server</a></h2>
-
-                <p>GrapheneOS uses a static web server as the update server. The release signing
-                script generates the necessary metadata alongside the release files. You simply need
-                to host these files at the URL configured in
-                <code>packages/apps/Updater/res/values/config.xml</code>. See above for details on
-                including the Updater app in a release. These are the relevant files:</p>
-
+                <p>GrapheneOS uses a static web server as the update server. The release signing script generates the
+                    necessary metadata alongside the release files. You simply need to host these files at the URL
+                    configured in <code>packages/apps/Updater/res/values/config.xml</code>. See above for details on
+                    including the Updater app in a release. These are the relevant files:</p>
                 <pre><var>DEVICE</var>-ota_update-<var>BUILD_NUMBER</var>.zip
 <var>DEVICE</var>-factory-<var>BUILD_NUMBER</var>.zip
 <var>DEVICE</var>-factory-<var>BUILD_NUMBER</var>.zip.sig
 <var>DEVICE</var>-testing
 <var>DEVICE</var>-beta
 <var>DEVICE</var>-stable</pre>
-
-                <p>Generally, you should start by uploading the ota_update, factory images and testing
-                channel metadata.</p>
-
-                <p>The <code>testing</code> release channel is an example of an internal release
-                channel not configurable via the update client GUI. Internal release channels can have
-                arbitrary names. You can override the release channel configured in the update client
-                via ADB with the following command:</p>
-
+                <p>Generally, you should start by uploading the ota_update, factory images and testing channel metadata.
+                </p>
+                <p>The <code>testing</code> release channel is an example of an internal release channel not
+                    configurable via the update client GUI. Internal release channels can have arbitrary names. You can
+                    override the release channel configured in the update client via ADB with the following command:</p>
                 <pre>adb shell setprop sys.update.channel <var>CHANNEL_NAME</var></pre>
-
                 <p>Replace <code><var>CHANNEL_NAME</var></code> with the name of the release channel, such as
-                <code>testing</code>.</p>
-
-                <p>After pushing out and testing the new release via the internal release channel,
-                it's recommended to build a sample future release and push that out as another update
-                via an internal testing channel. This is important to test that the changes in your
-                latest release have not broken the future upgrade path.</p>
-
-                <p>Finally, once the release has gone through internal testing, upload the metadata
-                for the beta channel. Once the release has gone through beta testing, upload the
-                metadata for the stable channel.</p>
-
-                <p>Delta update packages should simply be uploaded alongside the rest of the releases.
-                The update client will check for the presence of a delta update from the current
-                version on the device to the newer release in the selected release channel. There is
-                no additional metadata to include alongside the delta update package.</p>
+                    <code>testing</code>.</p>
+                <p>After pushing out and testing the new release via the internal release channel, it's recommended to
+                    build a sample future release and push that out as another update via an internal testing channel.
+                    This is important to test that the changes in your latest release have not broken the future upgrade
+                    path.</p>
+                <p>Finally, once the release has gone through internal testing, upload the metadata for the beta
+                    channel. Once the release has gone through beta testing, upload the metadata for the stable channel.
+                </p>
+                <p>Delta update packages should simply be uploaded alongside the rest of the releases. The update client
+                    will check for the presence of a delta update from the current version on the device to the newer
+                    release in the selected release channel. There is no additional metadata to include alongside the
+                    delta update package.</p>
             </article>
-
             <article id="stable-release-manifest">
                 <h2><a href="#stable-release-manifest">Stable release manifest</a></h2>
-
-                <p>Manifests for stable releases are generated with <code>repo manifest -r</code>
-                after tagging the release across all the repositories in a temporary branch and
-                syncing to it. This provides a manifest referencing the commits by hashes instead of
-                just tags to lock in the revisions. This makes verification of the releases simpler,
-                since only the manifest tag needs to be verified rather than tags for each
-                repository. This also means the whole release can be verified using the GrapheneOS
-                signing key despite referencing many upstream repositories that are not forked by the
-                GrapheneOS project.</p>
+                <p>Manifests for stable releases are generated with <code>repo manifest -r</code> after tagging the
+                    release across all the repositories in a temporary branch and syncing to it. This provides a
+                    manifest referencing the commits by hashes instead of just tags to lock in the revisions. This makes
+                    verification of the releases simpler, since only the manifest tag needs to be verified rather than
+                    tags for each repository. This also means the whole release can be verified using the GrapheneOS
+                    signing key despite referencing many upstream repositories that are not forked by the GrapheneOS
+                    project.</p>
             </article>
-
             <article id="standalone-sdk">
                 <h2><a href="#standalone-sdk">Standalone SDK</a></h2>
-
-                <p>It can be useful to set up a standalone installation of the SDK separate from
-                the Android Open Source Project tree. This is how the prebuilt apps are built, rather
-                than using the older branch of the SDK in the OS source tree.</p>
-
-                <p>Android Studio can also be set up to use an existing SDK and will recognize it and use
-                it automatically if Android Studio is installed with an SDK installation already
-                available and set up in the environment. You'll also likely want a working
-                command-line SDK environment even if you do heavily use Android Studio.</p>
-
-                <p>Using the official releases of the SDK is recommended for simplicity, although with
-                a lot of effort you can build everything yourself. Distribution packages are generally
-                quite out-of-date and should be avoided. To set up a minimal SDK installation at
-                <code>~/android/sdk</code> without Android Studio:</p>
-
+                <p>It can be useful to set up a standalone installation of the SDK separate from the Android Open Source
+                    Project tree. This is how the prebuilt apps are built, rather than using the older branch of the SDK
+                    in the OS source tree.</p>
+                <p>Android Studio can also be set up to use an existing SDK and will recognize it and use it
+                    automatically if Android Studio is installed with an SDK installation already available and set up
+                    in the environment. You'll also likely want a working command-line SDK environment even if you do
+                    heavily use Android Studio.</p>
+                <p>Using the official releases of the SDK is recommended for simplicity, although with a lot of effort
+                    you can build everything yourself. Distribution packages are generally quite out-of-date and should
+                    be avoided. To set up a minimal SDK installation at <code>~/android/sdk</code> without Android
+                    Studio:</p>
                 <pre>mkdir -p ~/android/sdk/bootstrap
 cd ~/android/sdk/bootstrap
 curl -O https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip
@@ -971,109 +735,75 @@ unzip commandlinetools-linux-11076708_latest.zip
 cmdline-tools/bin/sdkmanager 'cmdline-tools;latest' --sdk_root=$HOME/android/sdk
 cd ..
 rm -r bootstrap</pre>
-
-                <p>Set <code>ANDROID_HOME</code> to point at the SDK installation in your current
-                shell and shell profile configuration. You also need to add the
-                <code>cmdline-tools</code> binaries to your <code>PATH</code>. For example:</p>
-
+                <p>Set <code>ANDROID_HOME</code> to point at the SDK installation in your current shell and shell
+                    profile configuration. You also need to add the <code>cmdline-tools</code> binaries to your
+                    <code>PATH</code>. For example:</p>
                 <pre>export ANDROID_HOME="$HOME/android/sdk"
 export PATH="$HOME/android/sdk/cmdline-tools/latest/bin:$PATH"</pre>
-
                 <p>Install platform-tools for tools like adb and fastboot:</p>
-
                 <pre>sdkmanager platform-tools</pre>
-
                 <p>Add the <code>platform-tools</code> executables to your <code>PATH</code>:</p>
-
                 <pre>export PATH="$HOME/android/sdk/platform-tools:$PATH"</pre>
-
-                <p>For running the Compatibility Test Suite you'll also need the build-tools for
-                aapt:</p>
-
+                <p>For running the Compatibility Test Suite you'll also need the build-tools for aapt:</p>
                 <pre>sdkmanager 'build-tools;36.0.0'</pre>
-
                 <p>Add the <code>build-tools</code> executables to your <code>PATH</code>:</p>
-
                 <pre>export PATH="$HOME/android/sdk/build-tools/36.0.0:$PATH"</pre>
-
                 <p>For working with native code, you need the NDK:</p>
-
                 <pre>sdkmanager 'ndk;29.0.14206865'</pre>
-
                 <p>Add the <code>ndk-bundle</code> executables to your <code>PATH</code>:</p>
-
                 <pre>export PATH="$HOME/android/sdk/ndk/27.2.12479018:$PATH"</pre>
-
                 <p>You should update the sdk before use from this point onwards:</p>
-
                 <pre>sdkmanager --update</pre>
             </article>
-
             <article id="android-studio">
                 <h2><a href="#android-studio">Android Studio</a></h2>
-
-                <p>You can install Android Studio alongside the standalone SDK and it will detect it
-                via the <code>ANDROID_HOME</code> environment variable rather than installing another
-                copy of it. For example:</p>
-
+                <p>You can install Android Studio alongside the standalone SDK and it will detect it via the
+                    <code>ANDROID_HOME</code> environment variable rather than installing another copy of it. For
+                    example:</p>
                 <pre>cd ~/android
 curl -O https://dl.google.com/dl/android/studio/ide-zips/2025.2.1.8/android-studio-2025.2.1.8-linux.tar.gz
 echo '7aa6a2e46eb4387def1f4ea22b8b4a2b68021efa85065347c41187439fd25096  android-studio-2025.2.1.8-linux.tar.gz' | sha256sum -c
 tar xvf android-studio-2025.2.1.8-linux.tar.gz
 rm android-studio-2025.2.1.8-linux.tar.gz
 mv android-studio studio</pre>
-
                 <p>Add the Android Studio executables to your <code>PATH</code>:</p>
-
                 <pre>export PATH="$PATH:$HOME/android/studio/bin"</pre>
-
                 <p>You can start it with <code>studio.sh</code>.</p>
             </article>
-
             <article id="updating-gradle-and-gradle-wrapper-for-standalone-apps">
-                <h2><a href="#updating-gradle-and-gradle-wrapper-for-standalone-apps">Updating Gradle and Gradle wrapper for standalone apps</a></h2>
-
-                <p>Obtain the latest Gradle version and binary-only zip checksum from
-                <a href="https://gradle.org/release-checksums/">the Gradle releases page</a>.</p>
-
-                <p>Use the Gradle wrapper script to update Gradle to the latest version. You should run this twice rather than only once to upgrade the Gradle wrapper with the new Gradle version. For example, with Gradle 8.10.2:</p>
-
+                <h2><a href="#updating-gradle-and-gradle-wrapper-for-standalone-apps">Updating Gradle and Gradle wrapper
+                        for standalone apps</a></h2>
+                <p>Obtain the latest Gradle version and binary-only zip checksum from <a
+                        href="https://gradle.org/release-checksums/">the Gradle releases page</a>.</p>
+                <p>Use the Gradle wrapper script to update Gradle to the latest version. You should run this twice
+                    rather than only once to upgrade the Gradle wrapper with the new Gradle version. For example, with
+                    Gradle 8.10.2:</p>
                 <pre>./gradlew wrapper --gradle-version=8.10.2 --gradle-distribution-sha256-sum=31c55713e40233a8303827ceb42ca48a47267a0ad4bab9177123121e71524c26
 ./gradlew wrapper --gradle-version=8.10.2 --gradle-distribution-sha256-sum=31c55713e40233a8303827ceb42ca48a47267a0ad4bab9177123121e71524c26</pre>
             </article>
-
             <article id="testing">
                 <h2><a href="#testing">Testing</a></h2>
-
-                <p>This section will be expanded to cover various test suites and testing procedures
-                rather than only the current very minimal coverage of the Compatibility Test Suite
-                (CTS).</p>
-
+                <p>This section will be expanded to cover various test suites and testing procedures rather than only
+                    the current very minimal coverage of the Compatibility Test Suite (CTS).</p>
                 <section id="emulator">
                     <h3><a href="#emulator">Emulator</a></h3>
-
-                    <p>To test a build for the emulator, run <code>emulator</code> within the build
-                    environment. The emulator will use CPU hardware acceleration via KVM along with
-                    optional graphics acceleration via the host GPU if these are available. The
-                    emulator does not work on Wayland due to the AOSP provided Qt build missing the
-                    Wayland platform plugin.</p>
+                    <p>To test a build for the emulator, run <code>emulator</code> within the build environment. The
+                        emulator will use CPU hardware acceleration via KVM along with optional graphics acceleration
+                        via the host GPU if these are available. The emulator does not work on Wayland due to the AOSP
+                        provided Qt build missing the Wayland platform plugin.</p>
                 </section>
-
                 <section id="compatibility-test-suite">
                     <h3><a href="#compatibility-test-suite">Compatibility Test Suite</a></h3>
-
                     <section id="compatibility-test-suite-download">
                         <h4><a href="#compatibility-test-suite-download">Download</a></h4>
-
-                        <p>Testing with the Compatibility Test Suite (CTS) can be done by either building the
-                        test suite from source or using the official releases.</p>
-                        <p>Official releases of the CTS can be downloaded from
-                        <a href="https://source.android.com/docs/compatibility/cts/downloads">the Compatibility
-                        Suite Downloads page</a>. You should download the CTS for the relevant release
-                        (Android 12) and architecture (ARM). There's a separate zip for the main CTS, the
-                        manual portion (CTS Verifier) and the CTS for Instant Apps. The latest release of the
-                        CTS Media Files also needs to be downloaded from that section.</p>
-
+                        <p>Testing with the Compatibility Test Suite (CTS) can be done by either building the test suite
+                            from source or using the official releases.</p>
+                        <p>Official releases of the CTS can be downloaded from <a
+                                href="https://source.android.com/docs/compatibility/cts/downloads">the Compatibility
+                                Suite Downloads page</a>. You should download the CTS for the relevant release (Android
+                            12) and architecture (ARM). There's a separate zip for the main CTS, the manual portion (CTS
+                            Verifier) and the CTS for Instant Apps. The latest release of the CTS Media Files also needs
+                            to be downloaded from that section.</p>
                         <pre>mkdir -p ~/android/cts/{arm,x86}
 cd ~/android/cts/arm
 curl -O https://dl.google.com/dl/android/cts/android-cts-12_r1-linux_x86-arm.zip
@@ -1094,29 +824,24 @@ curl -O https://dl.google.com/dl/android/cts/android-cts-media-1.5.zip
 unzip android-cts-media-1.5.zip
 rm android-cts-media-1.5.zip</pre>
                     </section>
-
                     <section id="compatibility-test-suite-setup">
                         <h4><a href="#compatibility-test-suite-setup">Setup</a></h4>
-                        <p>You'll need a device attached to your computer with ADB enabled along with the
-                        Android SDK installed. The build-tools and platform-tools packages need to be
-                        installed and the binaries need to be added to your PATH. See the
-                        <a href="#standalone-sdk">standalone SDK installation instructions</a> above.</p>
-
+                        <p>You'll need a device attached to your computer with ADB enabled along with the Android SDK
+                            installed. The build-tools and platform-tools packages need to be installed and the binaries
+                            need to be added to your PATH. See the <a href="#standalone-sdk">standalone SDK installation
+                                instructions</a> above.</p>
                         <p>Copy media onto the device:</p>
                         <pre>cd android-cts-media-1.5
 ./copy_images.sh
 ./copy_media.sh</pre>
-
-                        <p>You also need to do some basic setup for the device. It's possible for changes from
-                        a baseline install to cause interference, so it can be a good idea to factory reset
-                        the device if assorted changes have been made. The device needs to be running a user
-                        build for the security model to be fully intact in order to pass all the security
-                        tests. A userdebug build is expected to fail some of the tests. GrapheneOS also makes
-                        various changes intentionally deviating from the requirements expected by the CTS, so
-                        there will always be some expected failures. A few of the tests are also known to be
-                        quite flaky or broken even with the stock OS and/or AOSP. These will be documented
-                        here at some point.</p>
-
+                        <p>You also need to do some basic setup for the device. It's possible for changes from a
+                            baseline install to cause interference, so it can be a good idea to factory reset the device
+                            if assorted changes have been made. The device needs to be running a user build for the
+                            security model to be fully intact in order to pass all the security tests. A userdebug build
+                            is expected to fail some of the tests. GrapheneOS also makes various changes intentionally
+                            deviating from the requirements expected by the CTS, so there will always be some expected
+                            failures. A few of the tests are also known to be quite flaky or broken even with the stock
+                            OS and/or AOSP. These will be documented here at some point.</p>
                         <ul>
                             <li>Must be connected to a WiFi network with IPv6 internet access</li>
                             <li>Must have a working SIM card with mobile data with IPv6 internet access</li>
@@ -1124,23 +849,19 @@ rm android-cts-media-1.5.zip</pre>
                             <li>Enable Bluetooth</li>
                             <li>Enable NFC</li>
                             <li>Open / close Chromium to deal with initial setup</li>
-                            <li>Prop up with a good object to focus on and good lighting for Camera tests.
-                            Both the front and rear cameras will be used, so ensure this is true for both the
-                            front and the rear cameras.</li>
+                            <li>Prop up with a good object to focus on and good lighting for Camera tests. Both the
+                                front and rear cameras will be used, so ensure this is true for both the front and the
+                                rear cameras.</li>
                             <li>Bluetooth beacons for Bluetooth tests</li>
                             <li>Must have a great GPS/GNSS signal for location tests</li>
                             <li>SIM card with carrier privilege rules</li>
-                            <li>Secure element applet installed on the embedded secure element or SIM
-                                card</li>
-                            <li>At least one Wi-Fi RTT access point powered up but not connected to any
-                                network</li>
+                            <li>Secure element applet installed on the embedded secure element or SIM card</li>
+                            <li>At least one Wi-Fi RTT access point powered up but not connected to any network</li>
                             <li>The screen lock must be disabled.</li>
                         </ul>
                     </section>
-
                     <section id="compatibility-test-suite-run-modules">
                         <h4><a href="#compatibility-test-suite-run-modules">Run modules</a></h4>
-
                         <p>Run the test harness:</p>
                         <pre>./android-cts/tools/cts-tradefed</pre>
                         <p>Note that <code>_JAVA_OPTIONS</code> being set will break the version detection.</p>
@@ -1150,130 +871,107 @@ rm android-cts-media-1.5.zip</pre>
                         <pre>run cts --skip-device-info --module <var>CTS_MODULE_NAME</var></pre>
                         <p>To speed up initialization after running some initial tests:</p>
                         <pre>run cts --skip-device-info --skip-preconditions --module <var>CTS_MODULE_NAME</var></pre>
-                        <p>It's possible to run the whole standard CTS plan with a single command, but running
-                        specific modules is recommended, especially if you don't have everything set up for
-                        the entire test suite.</p>
+                        <p>It's possible to run the whole standard CTS plan with a single command, but running specific
+                            modules is recommended, especially if you don't have everything set up for the entire test
+                            suite.</p>
                     </section>
                 </section>
             </article>
-
             <article id="obtaining-upstream-manifests">
                 <h2><a href="#obtaining-upstream-manifests">Obtaining upstream manifests</a></h2>
-
-                <p>The Android Open Source Project has branches and/or tags for the releases of many
-                different components. There are tags and/or branches for the OS, device kernels,
-                mainline components (APEX), the NDK, Android Studio, the platform-tools distribution
-                packages, the CTS, androidx components, etc. You should obtain the sources via
-                manifests using the repo tool, either using the manifest for a tag / branch in
-                platform/manifest.git or a manifest provided elsewhere. Different projects use
-                different subsets of the repositories. Many of the repositories only exist as an
-                archive for older releases and aren't referenced in current manifests.</p>
-
-                <p>Some components don't have the infrastructure set up to generate and push their own
-                branches and tags to AOSP. In other cases, it's simply not obvious to an outsider
-                which one should be used. As long as the component is built on the standard Android
-                project CI infrastructure, it's possible to obtain the manifests to build it based on
-                the build number, which is generally incorporated into the build. For example, even
-                without a platform-tools tag, you can obtain the build number from <code>adb
+                <p>The Android Open Source Project has branches and/or tags for the releases of many different
+                    components. There are tags and/or branches for the OS, device kernels, mainline components (APEX),
+                    the NDK, Android Studio, the platform-tools distribution packages, the CTS, androidx components,
+                    etc. You should obtain the sources via manifests using the repo tool, either using the manifest for
+                    a tag / branch in platform/manifest.git or a manifest provided elsewhere. Different projects use
+                    different subsets of the repositories. Many of the repositories only exist as an archive for older
+                    releases and aren't referenced in current manifests.</p>
+                <p>Some components don't have the infrastructure set up to generate and push their own branches and tags
+                    to AOSP. In other cases, it's simply not obvious to an outsider which one should be used. As long as
+                    the component is built on the standard Android project CI infrastructure, it's possible to obtain
+                    the manifests to build it based on the build number, which is generally incorporated into the build.
+                    For example, even without a platform-tools tag, you can obtain the build number from <code>adb
                 version</code> or <code>fastboot version</code>. Their version output uses the format
-                <code><var>VERSION</var>-<var>BUILD_NUMBER</var></code> such as <code>30.0.3-6597393</code> for the
-                version <code>30.0.3</code> where the official release had the build number
-                <code>6597393</code>. You can obtain the manifest properties with the appropriate
-                repository revisions from ci.android.com with a URL like this:
-                <a href="https://ci.android.com/builds/submitted/6597393/sdk/latest/view/repo.prop">
-                https://ci.android.com/builds/submitted/6597393/sdk/latest/view/repo.prop</a></p>
-
-                <p>The platform-tools tags exist because the GrapheneOS project requested them. The
-                same could be done for other projects, but it's not strictly necessarily as long as
-                it's possible to obtain the build number to request the information from the Android
-                project CI server.</p>
-
-                <p>As another kind of example, <code>prebuilts/clang</code>,
-                <code>prebuilts/build-tools</code>, etc. have a manifest file committed alongside the
-                prebuilts. Other AOSP toolchain prebuilts reference a build number.</p>
+                    <code><var>VERSION</var>-<var>BUILD_NUMBER</var></code> such as <code>30.0.3-6597393</code> for the
+                    version <code>30.0.3</code> where the official release had the build number <code>6597393</code>.
+                    You can obtain the manifest properties with the appropriate repository revisions from ci.android.com
+                    with a URL like this: <a
+                        href="https://ci.android.com/builds/submitted/6597393/sdk/latest/view/repo.prop">
+                        https://ci.android.com/builds/submitted/6597393/sdk/latest/view/repo.prop</a></p>
+                <p>The platform-tools tags exist because the GrapheneOS project requested them. The same could be done
+                    for other projects, but it's not strictly necessarily as long as it's possible to obtain the build
+                    number to request the information from the Android project CI server.</p>
+                <p>As another kind of example, <code>prebuilts/clang</code>, <code>prebuilts/build-tools</code>, etc.
+                    have a manifest file committed alongside the prebuilts. Other AOSP toolchain prebuilts reference a
+                    build number.</p>
             </article>
-
             <article id="development-guidelines">
                 <h2><a href="#development-guidelines">Development guidelines</a></h2>
-
                 <section id="programming-languages">
                     <h3><a href="#programming-languages">Programming languages</a></h3>
-
-                    <p>The following programming languages are acceptable for <strong>completely
-                        new</strong> GrapheneOS projects:</p>
+                    <p>The following programming languages are acceptable for <strong>completely new</strong> GrapheneOS
+                        projects:</p>
                     <ul>
-                        <li>Kotlin for apps and any services closely tied to the apps, now that it's not
-                            only officially supported by the Android SDK and Android Studio but also the
-                            default language with Kotlin exclusive enhancements to the APIs</li>
-                        <li>Web applications must be entirely static HTML/CSS/JavaScript. TypeScript would
-                            make sense at a larger scale but there are no plans for any large web
-                            applications.</li>
-                        <li>Rust with <code>no_std</code> for low-level code used in a hypervisor, kernel,
-                            daemon, system library, etc. Keep in mind that low-level code is to be avoided
-                            whenever a higher-level language is better suited to the job. In general,
-                            the project aims to avoid creating more low-level code manually dealing with
-                            memory ownership and lifetimes in the first place.</li>
-                        <li>C in rare cases for very small and particularly low-level projects without
-                            opportunities to reduce the trusted computing base for memory corruption to
-                            any significant degree with Rust, such as for the hardened_malloc project</li>
-                        <li>arm64 assembly in extremely rare cases where C or Rust aren't usable with
-                            compiler intrinsics</li>
-                        <li>Python 3 for small (less than 500 lines) development-related scripts that are
-                            not exposed to untrusted input. It's never acceptable to use it for
-                            client-side code on devices or for servers. It isn't used on the servers even
-                            for non-application-server code.</li>
-                        <li>Bash for tiny (less than 200 lines) build scripts without any non-trivial
-                            logic where Python would be an annoyance.</li>
+                        <li>Kotlin for apps and any services closely tied to the apps, now that it's not only officially
+                            supported by the Android SDK and Android Studio but also the default language with Kotlin
+                            exclusive enhancements to the APIs</li>
+                        <li>Web applications must be entirely static HTML/CSS/JavaScript. TypeScript would make sense at
+                            a larger scale but there are no plans for any large web applications.</li>
+                        <li>Rust with <code>no_std</code> for low-level code used in a hypervisor, kernel, daemon,
+                            system library, etc. Keep in mind that low-level code is to be avoided whenever a
+                            higher-level language is better suited to the job. In general, the project aims to avoid
+                            creating more low-level code manually dealing with memory ownership and lifetimes in the
+                            first place.</li>
+                        <li>C in rare cases for very small and particularly low-level projects without opportunities to
+                            reduce the trusted computing base for memory corruption to any significant degree with Rust,
+                            such as for the hardened_malloc project</li>
+                        <li>arm64 assembly in extremely rare cases where C or Rust aren't usable with compiler
+                            intrinsics</li>
+                        <li>Python 3 for small (less than 500 lines) development-related scripts that are not exposed to
+                            untrusted input. It's never acceptable to use it for client-side code on devices or for
+                            servers. It isn't used on the servers even for non-application-server code.</li>
+                        <li>Bash for tiny (less than 200 lines) build scripts without any non-trivial logic where Python
+                            would be an annoyance.</li>
                     </ul>
-
-                    <p>Much of the work is done on existing projects, and the existing languages should be
-                    used unless there are already clear stable API boundaries where a different language
-                    could be used without causing a substantial maintenance burden. The following
-                    languages are typical from most to least common: Java, C++, C, JavaScript, arm64
-                    assembly, POSIX shell, Bash.</p>
+                    <p>Much of the work is done on existing projects, and the existing languages should be used unless
+                        there are already clear stable API boundaries where a different language could be used without
+                        causing a substantial maintenance burden. The following languages are typical from most to least
+                        common: Java, C++, C, JavaScript, arm64 assembly, POSIX shell, Bash.</p>
                 </section>
-
                 <section id="code-style">
                     <h3><a href="#code-style">Code style</a></h3>
-
-                    <p>For existing projects, use the official upstream code style. Avoid using legacy
-                    conventions that they're moving away from themselves. Follow the code style they use
-                    for new additions. Some projects have different code styles for different directories
-                    or files depending on their sources, in which case respect the per-file style.</p>
-
-                    <p>For new projects, follow the official code style for the language. Treat the
-                    standard library APIs as defining the naming style for usage of the language, i.e. C
-                    uses <code>variable_or_function_name</code>, <code>type_name</code>,
-                    <code>MACRO_NAME</code> while JavaScript uses <code>variable_or_function_name</code>,
-                    <code>ClassName</code> and <code>CONSTANT_NAME</code>. For Python, follow PEP8 and the
-                    same goes for other languages with official styles whether defined in a document or by
-                    the default mode for the official formatting tool like <code>rustfmt</code>.</p>
-
-                    <p>For cases where there isn't an official or prevailing code style for other things,
-                    avoid tabs, use 4-space indents, <code>function_name</code>,
-                    <code>variable_name</code>, <code>TypeName</code> and <code>CONSTANT_NAME</code>.
-                    Prefer single-line comment syntax other than rare cases where it makes sense to add a
-                    tiny comment within a line of code. In languages with the optional braces misfeature
-                    (C, C++, Java), always use them. Open braces on the same line as function definitions
-                    / statements. Wrap lines at 100 columns except in rare cases where it would be far
-                    uglier to wrap the line.</p>
-
-                    <p>For JavaScript, all code should be contained within ES6 modules. This means every
-                    script element should use <code>type="module"</code>. Modules provide proper
-                    namespacing with explicit imports and exports. Modules automatically use strict mode,
-                    so <code>"use strict";</code> is no longer needed. By default, modules are also
-                    deferred until after the DOM is ready, i.e. they have an implicit <code>defer</code>
-                    attribute. This should be relied upon rather than unnecessarily listening for an event
-                    to determine if the DOM is ready for use. It can make sense to use <code>async</code>
-                    to run the code earlier if the JavaScript is essential to the content and benefits
-                    from being able to start tasks before the DOM is ready, such as retrieving important
-                    content or checking if there's a login session. Always end lines with semicolons
-                    (since automatic insertion is poorly designed) and always use <code>const</code> to
-                    declare variables, unless they are reassigned in which case they should be declared
-                    with <code>let</code> but never use <code>var</code> as it is effectively broken. Try
-                    to prefer loops with <code>for..of</code>. JavaScript must pass verification with
-                    <code>eslint</code> using the following <code>eslint.config.js</code> configuration:</p>
-
+                    <p>For existing projects, use the official upstream code style. Avoid using legacy conventions that
+                        they're moving away from themselves. Follow the code style they use for new additions. Some
+                        projects have different code styles for different directories or files depending on their
+                        sources, in which case respect the per-file style.</p>
+                    <p>For new projects, follow the official code style for the language. Treat the standard library
+                        APIs as defining the naming style for usage of the language, i.e. C uses
+                        <code>variable_or_function_name</code>, <code>type_name</code>, <code>MACRO_NAME</code> while
+                        JavaScript uses <code>variable_or_function_name</code>, <code>ClassName</code> and
+                        <code>CONSTANT_NAME</code>. For Python, follow PEP8 and the same goes for other languages with
+                        official styles whether defined in a document or by the default mode for the official formatting
+                        tool like <code>rustfmt</code>.</p>
+                    <p>For cases where there isn't an official or prevailing code style for other things, avoid tabs,
+                        use 4-space indents, <code>function_name</code>, <code>variable_name</code>,
+                        <code>TypeName</code> and <code>CONSTANT_NAME</code>. Prefer single-line comment syntax other
+                        than rare cases where it makes sense to add a tiny comment within a line of code. In languages
+                        with the optional braces misfeature (C, C++, Java), always use them. Open braces on the same
+                        line as function definitions / statements. Wrap lines at 100 columns except in rare cases where
+                        it would be far uglier to wrap the line.</p>
+                    <p>For JavaScript, all code should be contained within ES6 modules. This means every script element
+                        should use <code>type="module"</code>. Modules provide proper namespacing with explicit imports
+                        and exports. Modules automatically use strict mode, so <code>"use strict";</code> is no longer
+                        needed. By default, modules are also deferred until after the DOM is ready, i.e. they have an
+                        implicit <code>defer</code> attribute. This should be relied upon rather than unnecessarily
+                        listening for an event to determine if the DOM is ready for use. It can make sense to use
+                        <code>async</code> to run the code earlier if the JavaScript is essential to the content and
+                        benefits from being able to start tasks before the DOM is ready, such as retrieving important
+                        content or checking if there's a login session. Always end lines with semicolons (since
+                        automatic insertion is poorly designed) and always use <code>const</code> to declare variables,
+                        unless they are reassigned in which case they should be declared with <code>let</code> but never
+                        use <code>var</code> as it is effectively broken. Try to prefer loops with <code>for..of</code>.
+                        JavaScript must pass verification with <code>eslint</code> using the following
+                        <code>eslint.config.js</code> configuration:</p>
                     <pre>import js from "@eslint/js";
 import globals from "globals";
 import stylistic from "@stylistic/eslint-plugin";
@@ -1301,72 +999,56 @@ export default [
         }
     }
 ];</pre>
-
-                    <p>Cookies are only used for login sessions. Every cookie must have the
-                    <code>__Host</code> prefix to guarantee that it has the <code>Secure</code>
-                    attribute and <code>Path=/</code>. The <code>HttpOnly</code> and
-                    <code>SameSite=Strict</code> flags should also always be included. These kinds
-                    of cookies can provide secure login sessions in browsers with fully working
-                    <code>SameSite=Strict</code> support.</p>
-
-                    <p>CSRF mitigation should be implemented via enforcing the presence of
-                    Sec-Fetch-Site with the value same-origin. Services using only POST can also do
-                    this via the more backwards compatible Origin header.</p>
-
-                    <p>For web content, use dashes as user-facing word separators rather than underscores.
-                    Page titles should follow the scheme "Page | Directory | Higher-level directory |
-                    Site" for usability with a traditional title as the Open Graph title.</p>
-
-                    <p>HTML must pass verification with <code>validatornu</code> and <code>xmllint</code>.
-                    Ensuring that it parses as XML with <code>xmllint</code> catches many common mistakes
-                    and typos that are missed by HTML validation due to the ridiculously permissive nature
-                    of HTML. This enforces closing every tag, using proper escaping and so on. XHTML does
-                    not really exist anymore and we simply use XML parsing as an enforced coding standard
-                    and lint pass. It can also be useful to make it compatible with XML-based tooling.</p>
-
-                    <p>Avoid designing around class inheritance unless it's a rare case where it's an
-                    extremely good fit or the language sucks (Java) and it's the least bad approach, but
-                    still try to avoid it.</p>
-
-                    <p>Use concise but self-explanatory variable names. Prefer communicating information
-                    via naming rather than using comments whenever possible. Don't name variables
-                    <code>i</code>, <code>j</code>, <code>k</code>, etc. like C programmers. It's okay to
-                    use things like <code>x</code> and <code>y</code> for parameters if the function is
-                    genuinely that generic and operates on arbitrary values. In general, try to scope
-                    variables into the most limited scope (in C or C++, be careful about this when
-                    references are taken).</p>
-
-                    <p>Write code that's clean and self-explanatory. Use comments to explain or justify
-                    non-obvious things, but try to avoid needing them in the first place. In most cases,
-                    they should just be communicating non-local information such as explaining why an
-                    invariant is true based on the code elsewhere (consider a runtime check to make sure
-                    it's true, or an assertion if performance would be an issue). Docstrings at the top of
-                    top-level functions, modules, etc. are a different story and shouldn't be avoided.</p>
+                    <p>Cookies are only used for login sessions. Every cookie must have the <code>__Host</code> prefix
+                        to guarantee that it has the <code>Secure</code> attribute and <code>Path=/</code>. The
+                        <code>HttpOnly</code> and <code>SameSite=Strict</code> flags should also always be included.
+                        These kinds of cookies can provide secure login sessions in browsers with fully working
+                        <code>SameSite=Strict</code> support.</p>
+                    <p>CSRF mitigation should be implemented via enforcing the presence of Sec-Fetch-Site with the value
+                        same-origin. Services using only POST can also do this via the more backwards compatible Origin
+                        header.</p>
+                    <p>For web content, use dashes as user-facing word separators rather than underscores. Page titles
+                        should follow the scheme "Page | Directory | Higher-level directory | Site" for usability with a
+                        traditional title as the Open Graph title.</p>
+                    <p>HTML must pass verification with <code>validatornu</code> and <code>xmllint</code>. Ensuring that
+                        it parses as XML with <code>xmllint</code> catches many common mistakes and typos that are
+                        missed by HTML validation due to the ridiculously permissive nature of HTML. This enforces
+                        closing every tag, using proper escaping and so on. XHTML does not really exist anymore and we
+                        simply use XML parsing as an enforced coding standard and lint pass. It can also be useful to
+                        make it compatible with XML-based tooling.</p>
+                    <p>Avoid designing around class inheritance unless it's a rare case where it's an extremely good fit
+                        or the language sucks (Java) and it's the least bad approach, but still try to avoid it.</p>
+                    <p>Use concise but self-explanatory variable names. Prefer communicating information via naming
+                        rather than using comments whenever possible. Don't name variables <code>i</code>,
+                        <code>j</code>, <code>k</code>, etc. like C programmers. It's okay to use things like
+                        <code>x</code> and <code>y</code> for parameters if the function is genuinely that generic and
+                        operates on arbitrary values. In general, try to scope variables into the most limited scope (in
+                        C or C++, be careful about this when references are taken).</p>
+                    <p>Write code that's clean and self-explanatory. Use comments to explain or justify non-obvious
+                        things, but try to avoid needing them in the first place. In most cases, they should just be
+                        communicating non-local information such as explaining why an invariant is true based on the
+                        code elsewhere (consider a runtime check to make sure it's true, or an assertion if performance
+                        would be an issue). Docstrings at the top of top-level functions, modules, etc. are a different
+                        story and shouldn't be avoided.</p>
                 </section>
-
                 <section id="library-usage">
                     <h3><a href="#library-usage">Library usage</a></h3>
-
-                    <p>Make extensive usage of well designed standard library modules. For apps, treat
-                    Jetpack (androidx) as part of the standard library and make good use of it. For Java,
-                    Guava can also be treated as part of the standard library.</p>
-
-                    <p>Libraries outside of the standard library should be used very cautiously. They
-                    should be well maintained, stable, well tested and widely used. Libraries implemented
-                    with memory unsafe languages should generally be avoided (one exception: SQLite).</p>
-
-                    <p>Generally, frameworks and libraries existing solely to provide different paradigms
-                    and coding patterns are to be avoided. They increase barrier to entry for developers,
-                    generally only increase complexity unless used at very large scales (and may not even
-                    make things simpler in those cases) and come and go as fads. This is only okay when
-                    it's part of the standard libraries or libraries that are considered standard
-                    (androidx, Guava) by GrapheneOS and should still be approached cautiously. Only use it
-                    if it truly makes the correct approach simpler. Ignore fads and figure out if it
-                    actually makes sense to use, otherwise just stick to the old fashioned way if the
-                    fancy alternatives aren't genuinely better.</p>
+                    <p>Make extensive usage of well designed standard library modules. For apps, treat Jetpack
+                        (androidx) as part of the standard library and make good use of it. For Java, Guava can also be
+                        treated as part of the standard library.</p>
+                    <p>Libraries outside of the standard library should be used very cautiously. They should be well
+                        maintained, stable, well tested and widely used. Libraries implemented with memory unsafe
+                        languages should generally be avoided (one exception: SQLite).</p>
+                    <p>Generally, frameworks and libraries existing solely to provide different paradigms and coding
+                        patterns are to be avoided. They increase barrier to entry for developers, generally only
+                        increase complexity unless used at very large scales (and may not even make things simpler in
+                        those cases) and come and go as fads. This is only okay when it's part of the standard libraries
+                        or libraries that are considered standard (androidx, Guava) by GrapheneOS and should still be
+                        approached cautiously. Only use it if it truly makes the correct approach simpler. Ignore fads
+                        and figure out if it actually makes sense to use, otherwise just stick to the old fashioned way
+                        if the fancy alternatives aren't genuinely better.</p>
                 </section>
             </article>
-        </main>
-        {% include "footer.html" %}
-    </body>
+        </main> {% include "footer.html" %} </body>
+
 </html>

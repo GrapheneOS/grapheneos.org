@@ -1,53 +1,45 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
+
     <head>
-        <meta charset="utf-8"/>
+        <meta charset="utf-8" />
         <title>Source code | GrapheneOS</title>
-        <meta name="description" content="Source code for GrapheneOS."/>
-        <meta name="theme-color" content="#212121"/>
-        <meta name="color-scheme" content="dark light"/>
-        <meta name="msapplication-TileColor" content="#ffffff"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-        <meta name="twitter:site" content="@GrapheneOS"/>
-        <meta name="twitter:creator" content="@GrapheneOS"/>
-        <meta property="og:title" content="GrapheneOS source code"/>
-        <meta property="og:description" content="Source code for GrapheneOS."/>
-        <meta property="og:type" content="website"/>
-        <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
-        <meta property="og:image:width" content="512"/>
-        <meta property="og:image:height" content="512"/>
-        <meta property="og:image:alt" content="GrapheneOS logo"/>
-        <meta property="og:site_name" content="GrapheneOS"/>
-        <meta property="og:url" content="https://grapheneos.org/source"/>
-        <link rel="canonical" href="https://grapheneos.org/source"/>
-        <link rel="icon" href="/favicon.ico"/>
-        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
-        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-        [[css|/main.css]]
-        <link rel="manifest" href="/manifest.webmanifest"/>
-        <link rel="license" href="/LICENSE.txt"/>
-        <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
+        <meta name="description" content="Source code for GrapheneOS." />
+        <meta name="theme-color" content="#212121" />
+        <meta name="color-scheme" content="dark light" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta name="twitter:site" content="@GrapheneOS" />
+        <meta name="twitter:creator" content="@GrapheneOS" />
+        <meta property="og:title" content="GrapheneOS source code" />
+        <meta property="og:description" content="Source code for GrapheneOS." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://grapheneos.org/opengraph.png" />
+        <meta property="og:image:width" content="512" />
+        <meta property="og:image:height" content="512" />
+        <meta property="og:image:alt" content="GrapheneOS logo" />
+        <meta property="og:site_name" content="GrapheneOS" />
+        <meta property="og:url" content="https://grapheneos.org/source" />
+        <link rel="canonical" href="https://grapheneos.org/source" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" /> [[css|/main.css]]
+        <link rel="manifest" href="/manifest.webmanifest" />
+        <link rel="license" href="/LICENSE.txt" />
+        <link rel="me" href="https://grapheneos.social/@GrapheneOS" />
     </head>
-    <body>
-        {% with current_page="source" %}
-            {% include "header.html" %}
-        {% endwith %}
-        <main id="source">
+
+    <body> {% with current_page="source" %} {% include "header.html" %} {% endwith %} <main id="source">
             <h1><a href="#source">Source code</a></h1>
-
-            <p>GrapheneOS is an <a href="https://opensource.org/osd">open source</a> project with
-            an open development process.</p>
-
-            <p>The GrapheneOS sources are hosted in the
-            <a href="https://github.com/GrapheneOS">GrapheneOS organization on GitHub</a>. Since
-            there are many repositories, this page aims to provide a guide for it. See the
-            <a href="/contact#reporting-issues">reporting issues section on the contact page</a>
-            for an comparable overview of where issues should be filed.</p>
-
+            <p>GrapheneOS is an <a href="https://opensource.org/osd">open source</a> project with an open development
+                process.</p>
+            <p>The GrapheneOS sources are hosted in the <a href="https://github.com/GrapheneOS">GrapheneOS organization
+                    on GitHub</a>. Since there are many repositories, this page aims to provide a guide for it. See the
+                <a href="/contact#reporting-issues">reporting issues section on the contact page</a> for an comparable
+                overview of where issues should be filed.</p>
             <nav id="table-of-contents">
                 <h2><a href="#table-of-contents">Table of contents</a></h2>
-
                 <ul>
                     <li><a href="#grapheneos">GrapheneOS</a></li>
                     <li><a href="#standalone-apps">Standalone apps</a></li>
@@ -56,31 +48,23 @@
                     <li><a href="#archive">Archive</a></li>
                 </ul>
             </nav>
-
             <section id="grapheneos">
                 <h2><a href="#grapheneos">GrapheneOS</a></h2>
-
-                <p>The operating system source tree includes hundreds of repositories. Many of
-                these are only used for debugging, testing or development and are not actually
-                part of what gets used for building a production release. The manifest repository
-                references all of these. Most of these are used unmodified from the Android Open
-                Source Project (AOSP). A few dozen of the repositories including most of the core
-                OS are either forked from AOSP or are unique to GrapheneOS.</p>
-
-                <p>The operating system has a unified build system, but some components like
-                Chromium are too complex to fit into it so they're included as prebuilts instead
-                of porting them to the AOSP build system. This is also done for developer
-                convenience and bootstrapping, to avoid needing to build all the native /
-                cross-compilation toolchains for each host and target platform combination, etc.
-                The prebuilts can all be built from source if desired. The build instructions will
-                be expanded to cover all of this in the future.</p>
-
-                <p>For a full list of the repositories in the OS source tree, look at the
-                <a href="https://github.com/GrapheneOS/platform_manifest/blob/13/default.xml">default.xml
-                list in the manifest repository</a>.</p>
-
+                <p>The operating system source tree includes hundreds of repositories. Many of these are only used for
+                    debugging, testing or development and are not actually part of what gets used for building a
+                    production release. The manifest repository references all of these. Most of these are used
+                    unmodified from the Android Open Source Project (AOSP). A few dozen of the repositories including
+                    most of the core OS are either forked from AOSP or are unique to GrapheneOS.</p>
+                <p>The operating system has a unified build system, but some components like Chromium are too complex to
+                    fit into it so they're included as prebuilts instead of porting them to the AOSP build system. This
+                    is also done for developer convenience and bootstrapping, to avoid needing to build all the native /
+                    cross-compilation toolchains for each host and target platform combination, etc. The prebuilts can
+                    all be built from source if desired. The build instructions will be expanded to cover all of this in
+                    the future.</p>
+                <p>For a full list of the repositories in the OS source tree, look at the <a
+                        href="https://github.com/GrapheneOS/platform_manifest/blob/13/default.xml">default.xml list in
+                        the manifest repository</a>.</p>
                 <p>GrapheneOS forks of AOSP source tree repositories:</p>
-
                 <ul>
                     <li><a href="https://github.com/GrapheneOS/device_common">device_common</a></li>
                     <li><a href="https://github.com/GrapheneOS/device_generic_goldfish">device_generic_goldfish</a></li>
@@ -91,9 +75,13 @@
                     <li><a href="https://github.com/GrapheneOS/device_google_felix">device_google_felix</a></li>
                     <li><a href="https://github.com/GrapheneOS/device_google_gs-common">device_google_gs-common</a></li>
                     <li><a href="https://github.com/GrapheneOS/device_google_gs101">device_google_gs101</a></li>
-                    <li><a href="https://github.com/GrapheneOS/device_google_gs101-sepolicy">device_google_gs101-sepolicy</a></li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/device_google_gs101-sepolicy">device_google_gs101-sepolicy</a>
+                    </li>
                     <li><a href="https://github.com/GrapheneOS/device_google_gs201">device_google_gs201</a></li>
-                    <li><a href="https://github.com/GrapheneOS/device_google_gs201-sepolicy">device_google_gs201-sepolicy</a></li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/device_google_gs201-sepolicy">device_google_gs201-sepolicy</a>
+                    </li>
                     <li><a href="https://github.com/GrapheneOS/device_google_lynx">device_google_lynx</a></li>
                     <li><a href="https://github.com/GrapheneOS/device_google_pantah">device_google_pantah</a></li>
                     <li><a href="https://github.com/GrapheneOS/device_google_raviole">device_google_raviole</a></li>
@@ -101,141 +89,297 @@
                     <li><a href="https://github.com/GrapheneOS/device_google_tangorpro">device_google_tangorpro</a></li>
                     <li><a href="https://github.com/GrapheneOS/device_google_tegu">device_google_tegu</a></li>
                     <li><a href="https://github.com/GrapheneOS/device_google_zuma">device_google_zuma</a></li>
-                    <li><a href="https://github.com/GrapheneOS/device_google_zuma-sepolicy">device_google_zuma-sepolicy</a></li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/device_google_zuma-sepolicy">device_google_zuma-sepolicy</a>
+                    </li>
                     <li><a href="https://github.com/GrapheneOS/device_google_zumapro">device_google_zumapro</a></li>
-                    <li><a href="https://github.com/GrapheneOS/device_google_zumapro-sepolicy">device_google_zumapro-sepolicy</a></li>
-                    <li><a href="https://github.com/GrapheneOS/kernel_configs">kernel_configs</a>: Base and recommended kernel configurations. The base configurations are enforced by the VTS and are modified to permit GrapheneOS changes.</li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/device_google_zumapro-sepolicy">device_google_zumapro-sepolicy</a>
+                    </li>
+                    <li><a href="https://github.com/GrapheneOS/kernel_configs">kernel_configs</a>: Base and recommended
+                        kernel configurations. The base configurations are enforced by the VTS and are modified to
+                        permit GrapheneOS changes.</li>
                     <li><a href="https://github.com/GrapheneOS/platform_art">platform_art</a></li>
                     <li><a href="https://github.com/GrapheneOS/platform_bionic">platform_bionic</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_bootable_recovery">platform_bootable_recovery</a></li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_bootable_recovery">platform_bootable_recovery</a>
+                    </li>
                     <li><a href="https://github.com/GrapheneOS/platform_build">platform_build</a></li>
                     <li><a href="https://github.com/GrapheneOS/platform_build_release">platform_build_release</a></li>
                     <li><a href="https://github.com/GrapheneOS/platform_build_soong">platform_build_soong</a></li>
                     <li><a href="https://github.com/GrapheneOS/platform_development">platform_development</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_external_boringssl">platform_external_boringssl</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_external_conscrypt">platform_external_conscrypt</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_external_selinux">platform_external_selinux</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_frameworks_base">platform_frameworks_base</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_frameworks_libs_systemui">platform_frameworks_libs_systemui</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_frameworks_native">platform_frameworks_native</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_frameworks_opt_net_wifi">platform_frameworks_opt_net_wifi</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_frameworks_opt_telephony">platform_frameworks_opt_telephony</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_hardware_google_pixel">platform_hardware_google_pixel</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_hardware_google_pixel-sepolicy">platform_hardware_google_pixel-sepolicy</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_hardware_interfaces">platform_hardware_interfaces</a></li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_external_boringssl">platform_external_boringssl</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_external_conscrypt">platform_external_conscrypt</a>
+                    </li>
+                    <li><a href="https://github.com/GrapheneOS/platform_external_selinux">platform_external_selinux</a>
+                    </li>
+                    <li><a href="https://github.com/GrapheneOS/platform_frameworks_base">platform_frameworks_base</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_frameworks_libs_systemui">platform_frameworks_libs_systemui</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_frameworks_native">platform_frameworks_native</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_frameworks_opt_net_wifi">platform_frameworks_opt_net_wifi</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_frameworks_opt_telephony">platform_frameworks_opt_telephony</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_hardware_google_pixel">platform_hardware_google_pixel</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_hardware_google_pixel-sepolicy">platform_hardware_google_pixel-sepolicy</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_hardware_interfaces">platform_hardware_interfaces</a>
+                    </li>
                     <li><a href="https://github.com/GrapheneOS/platform_libcore">platform_libcore</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_manifest">platform_manifest</a>: Manifest for OS repositories</li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_apps_Calendar">platform_packages_apps_Calendar</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_apps_CellBroadcastReceiver">platform_packages_apps_CellBroadcastReceiver</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_apps_Contacts">platform_packages_apps_Contacts</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_apps_DeskClock">platform_packages_apps_DeskClock</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_apps_Dialer">platform_packages_apps_Dialer</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_apps_DocumentsUI">platform_packages_apps_DocumentsUI</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_apps_EmergencyInfo">platform_packages_apps_EmergencyInfo</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_apps_Gallery2">platform_packages_apps_Gallery2</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_apps_Launcher3">platform_packages_apps_Launcher3</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_apps_Nfc">platform_packages_apps_Nfc</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_apps_Settings">platform_packages_apps_Settings</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_apps_SettingsIntelligence">platform_packages_apps_SettingsIntelligence</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_apps_StorageManager">platform_packages_apps_StorageManager</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_apps_ThemePicker">platform_packages_apps_ThemePicker</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_apps_WallpaperPicker2">platform_packages_apps_WallpaperPicker2</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_inputmethods_LatinIME">platform_packages_inputmethods_LatinIME</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_modules_adb">platform_packages_modules_adb</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_modules_AppSearch">platform_packages_modules_AppSearch</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_modules_Bluetooth">platform_packages_modules_Bluetooth</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_modules_common">platform_packages_modules_common</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_modules_ConfigInfrastructure">platform_packages_modules_ConfigInfrastructure</a></li>
-                    <li><a href="https://gitlab.com/grapheneos/platform_packages_modules_Connectivity">platform_packages_modules_Connectivity</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_modules_DnsResolver">platform_packages_modules_DnsResolver</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_modules_HealthFitness">platform_packages_modules_HealthFitness</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_modules_NetworkStack">platform_packages_modules_NetworkStack</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_modules_Permission">platform_packages_modules_Permission</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_modules_RemoteKeyProvisioning">platform_packages_modules_RemoteKeyProvisioning</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_modules_Uwb">platform_packages_modules_Uwb</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_modules_Virtualization">platform_packages_modules_Virtualization</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_modules_Wifi">platform_packages_modules_Wifi</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_providers_ContactsProvider">platform_packages_providers_ContactsProvider</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_providers_DownloadProvider">platform_packages_providers_DownloadProvider</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_providers_MediaProvider">platform_packages_providers_MediaProvider</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_services_Mms">platform_packages_services_Mms</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_services_Telecomm">platform_packages_services_Telecomm</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_services_Telephony">platform_packages_services_Telephony</a></li>
+                    <li><a href="https://github.com/GrapheneOS/platform_manifest">platform_manifest</a>: Manifest for OS
+                        repositories</li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_apps_Calendar">platform_packages_apps_Calendar</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_apps_CellBroadcastReceiver">platform_packages_apps_CellBroadcastReceiver</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_apps_Contacts">platform_packages_apps_Contacts</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_apps_DeskClock">platform_packages_apps_DeskClock</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_apps_Dialer">platform_packages_apps_Dialer</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_apps_DocumentsUI">platform_packages_apps_DocumentsUI</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_apps_EmergencyInfo">platform_packages_apps_EmergencyInfo</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_apps_Gallery2">platform_packages_apps_Gallery2</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_apps_Launcher3">platform_packages_apps_Launcher3</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_apps_Nfc">platform_packages_apps_Nfc</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_apps_Settings">platform_packages_apps_Settings</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_apps_SettingsIntelligence">platform_packages_apps_SettingsIntelligence</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_apps_StorageManager">platform_packages_apps_StorageManager</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_apps_ThemePicker">platform_packages_apps_ThemePicker</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_apps_WallpaperPicker2">platform_packages_apps_WallpaperPicker2</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_inputmethods_LatinIME">platform_packages_inputmethods_LatinIME</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_modules_adb">platform_packages_modules_adb</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_modules_AppSearch">platform_packages_modules_AppSearch</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_modules_Bluetooth">platform_packages_modules_Bluetooth</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_modules_common">platform_packages_modules_common</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_modules_ConfigInfrastructure">platform_packages_modules_ConfigInfrastructure</a>
+                    </li>
+                    <li><a
+                            href="https://gitlab.com/grapheneos/platform_packages_modules_Connectivity">platform_packages_modules_Connectivity</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_modules_DnsResolver">platform_packages_modules_DnsResolver</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_modules_HealthFitness">platform_packages_modules_HealthFitness</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_modules_NetworkStack">platform_packages_modules_NetworkStack</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_modules_Permission">platform_packages_modules_Permission</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_modules_RemoteKeyProvisioning">platform_packages_modules_RemoteKeyProvisioning</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_modules_Uwb">platform_packages_modules_Uwb</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_modules_Virtualization">platform_packages_modules_Virtualization</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_modules_Wifi">platform_packages_modules_Wifi</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_providers_ContactsProvider">platform_packages_providers_ContactsProvider</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_providers_DownloadProvider">platform_packages_providers_DownloadProvider</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_providers_MediaProvider">platform_packages_providers_MediaProvider</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_services_Mms">platform_packages_services_Mms</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_services_Telecomm">platform_packages_services_Telecomm</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_services_Telephony">platform_packages_services_Telephony</a>
+                    </li>
                     <li><a href="https://github.com/GrapheneOS/platform_system_core">platform_system_core</a></li>
                     <li><a href="https://github.com/GrapheneOS/platform_system_extras">platform_system_extras</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_system_librustutils">platform_system_librustutils</a></li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_system_librustutils">platform_system_librustutils</a>
+                    </li>
                     <li><a href="https://github.com/GrapheneOS/platform_system_logging">platform_system_logging</a></li>
                     <li><a href="https://github.com/GrapheneOS/platform_system_netd">platform_system_netd</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_system_sepolicy">platform_system_sepolicy</a></li>
+                    <li><a href="https://github.com/GrapheneOS/platform_system_sepolicy">platform_system_sepolicy</a>
+                    </li>
                     <li><a href="https://github.com/GrapheneOS/platform_system_vold">platform_system_vold</a></li>
                     <li><a href="https://github.com/GrapheneOS/platform_tools_metalava">platform_tools_metalava</a></li>
                 </ul>
-
-                <p>GrapheneOS forks of AOSP kernel prebuilt repositories with the builds replaced with the GrapheneOS kernels built from the source repositories listed in the next section:</p>
-
+                <p>GrapheneOS forks of AOSP kernel prebuilt repositories with the builds replaced with the GrapheneOS
+                    kernels built from the source repositories listed in the next section:</p>
                 <ul>
-                    <li><a href="https://github.com/GrapheneOS/device_google_raviole-kernels_6.1">device_google_raviole-kernels_6.1</a>: Pixel 6 and Pixel 6 Pro kernel prebuilts.</li>
-                    <li><a href="https://github.com/GrapheneOS/device_google_bluejay-kernels_6.1">device_google_bluejay-kernels_6.1</a>: Pixel 6a kernel prebuilts.</li>
-                    <li><a href="https://github.com/GrapheneOS/device_google_pantah-kernels_6.1">device_google_pantah-kernels_6.1</a>: Pixel 7 and Pixel 7 Pro kernel prebuilts.</li>
-                    <li><a href="https://github.com/GrapheneOS/device_google_lynx-kernels_6.1">device_google_lynx-kernels_6.1</a>: Pixel 7a kernel prebuilts.</li>
-                    <li><a href="https://github.com/GrapheneOS/device_google_tangorpro-kernels_6.1">device_google_tangorpro-kernels_6.1</a>: Pixel Tablet kernel prebuilts.</li>
-                    <li><a href="https://github.com/GrapheneOS/device_google_felix-kernels_6.1">device_google_felix-kernels_6.1</a>: Pixel Fold kernel prebuilts.</li>
-                    <li><a href="https://github.com/GrapheneOS/device_google_shusky-kernels_6.1">device_google_shusky-kernels_6.1</a>: Pixel 8 and Pixel 8 Pro kernel prebuilts.</li>
-                    <li><a href="https://github.com/GrapheneOS/device_google_akita-kernels_6.1">device_google_akita-kernels_6.1</a>: Pixel 8a kernel prebuilts.</li>
-                    <li><a href="https://github.com/GrapheneOS/device_google_caimito-kernels_6.1">device_google_caimito-kernels_6.1</a>: Pixel 9, Pixel 9 Pro and Pixel 9 Pro XL kernel prebuilts.</li>
-                    <li><a href="https://github.com/GrapheneOS/device_google_comet-kernels_6.1">device_google_comet-kernels_6.1</a>: Pixel 9 Pro Fold kernel prebuilts.</li>
-                    <li><a href="https://github.com/GrapheneOS/device_google_tegu-kernels_6.1">device_google_tegu-kernels_6.1</a>: Pixel 9a kernel prebuilts.</li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/device_google_raviole-kernels_6.1">device_google_raviole-kernels_6.1</a>:
+                        Pixel 6 and Pixel 6 Pro kernel prebuilts.</li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/device_google_bluejay-kernels_6.1">device_google_bluejay-kernels_6.1</a>:
+                        Pixel 6a kernel prebuilts.</li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/device_google_pantah-kernels_6.1">device_google_pantah-kernels_6.1</a>:
+                        Pixel 7 and Pixel 7 Pro kernel prebuilts.</li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/device_google_lynx-kernels_6.1">device_google_lynx-kernels_6.1</a>:
+                        Pixel 7a kernel prebuilts.</li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/device_google_tangorpro-kernels_6.1">device_google_tangorpro-kernels_6.1</a>:
+                        Pixel Tablet kernel prebuilts.</li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/device_google_felix-kernels_6.1">device_google_felix-kernels_6.1</a>:
+                        Pixel Fold kernel prebuilts.</li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/device_google_shusky-kernels_6.1">device_google_shusky-kernels_6.1</a>:
+                        Pixel 8 and Pixel 8 Pro kernel prebuilts.</li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/device_google_akita-kernels_6.1">device_google_akita-kernels_6.1</a>:
+                        Pixel 8a kernel prebuilts.</li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/device_google_caimito-kernels_6.1">device_google_caimito-kernels_6.1</a>:
+                        Pixel 9, Pixel 9 Pro and Pixel 9 Pro XL kernel prebuilts.</li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/device_google_comet-kernels_6.1">device_google_comet-kernels_6.1</a>:
+                        Pixel 9 Pro Fold kernel prebuilts.</li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/device_google_tegu-kernels_6.1">device_google_tegu-kernels_6.1</a>:
+                        Pixel 9a kernel prebuilts.</li>
                 </ul>
-
                 <p>GrapheneOS forks of AOSP kernel repositories:</p>
-
                 <ul>
-                    <li><a href="https://github.com/GrapheneOS/kernel_manifest-6.1">kernel_manifest-6.1</a>: Kernel manifest for the Generic Linux 6.1 kernel.</li>
-                    <li><a href="https://github.com/GrapheneOS/kernel_common-6.1">kernel_common-6.1</a>: Linux 6.1 LTS branch.</li>
-                    <li><a href="https://github.com/GrapheneOS/kernel_manifest-6.6">kernel_manifest-6.6</a>: Kernel manifest for the Generic Linux 6.6 kernel.</li>
-                    <li><a href="https://github.com/GrapheneOS/kernel_common-6.6">kernel_common-6.6</a>: Linux 6.6 LTS branch.</li>
-                    <li><a href="https://github.com/GrapheneOS/kernel_manifest-6.12">kernel_manifest-6.12</a>: Kernel manifest for the Generic Linux 6.12 kernel.</li>
-                    <li><a href="https://github.com/GrapheneOS/kernel_common-6.12">kernel_common-6.12</a>: Linux 6.12 LTS branch.</li>
-
-                    <li><a href="https://gitlab.com/grapheneos/kernel_pixel">kernel_pixel</a>: Monolithic repository for Pixel kernels.</li>
+                    <li><a href="https://github.com/GrapheneOS/kernel_manifest-6.1">kernel_manifest-6.1</a>: Kernel
+                        manifest for the Generic Linux 6.1 kernel.</li>
+                    <li><a href="https://github.com/GrapheneOS/kernel_common-6.1">kernel_common-6.1</a>: Linux 6.1 LTS
+                        branch.</li>
+                    <li><a href="https://github.com/GrapheneOS/kernel_manifest-6.6">kernel_manifest-6.6</a>: Kernel
+                        manifest for the Generic Linux 6.6 kernel.</li>
+                    <li><a href="https://github.com/GrapheneOS/kernel_common-6.6">kernel_common-6.6</a>: Linux 6.6 LTS
+                        branch.</li>
+                    <li><a href="https://github.com/GrapheneOS/kernel_manifest-6.12">kernel_manifest-6.12</a>: Kernel
+                        manifest for the Generic Linux 6.12 kernel.</li>
+                    <li><a href="https://github.com/GrapheneOS/kernel_common-6.12">kernel_common-6.12</a>: Linux 6.12
+                        LTS branch.</li>
+                    <li><a href="https://gitlab.com/grapheneos/kernel_pixel">kernel_pixel</a>: Monolithic repository for
+                        Pixel kernels.</li>
                 </ul>
-
                 <p>Repositories added by GrapheneOS:</p>
-
                 <ul>
                     <li><a href="https://github.com/GrapheneOS/adevtool">adevtool</a></li>
                     <li><a href="https://github.com/GrapheneOS/branding">branding</a></li>
                     <li><a href="https://github.com/GrapheneOS/hardened_malloc">hardened_malloc</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_external_AppStore">platform_external_AppStore</a>: App Store prebuilt</li>
-                    <li><a href="https://github.com/GrapheneOS/platform_external_Auditor">platform_external_Auditor</a>: Auditor app prebuilt</li>
-                    <li><a href="https://github.com/GrapheneOS/platform_external_Camera">platform_external_Camera</a>: Camera app prebuilt</li>
-                    <li><a href="https://github.com/GrapheneOS/platform_external_GmsCompatConfig">platform_external_GmsCompatConfig</a></li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_external_AppStore">platform_external_AppStore</a>:
+                        App Store prebuilt</li>
+                    <li><a href="https://github.com/GrapheneOS/platform_external_Auditor">platform_external_Auditor</a>:
+                        Auditor app prebuilt</li>
+                    <li><a href="https://github.com/GrapheneOS/platform_external_Camera">platform_external_Camera</a>:
+                        Camera app prebuilt</li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_external_GmsCompatConfig">platform_external_GmsCompatConfig</a>
+                    </li>
                     <li><a href="https://github.com/GrapheneOS/platform_external_Info">platform_external_Info</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_external_Messaging">platform_external_Messaging</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_external_PdfViewer">platform_external_PdfViewer</a>: PDF Viewer app prebuilt</li>
-                    <li><a href="https://github.com/GrapheneOS/platform_external_talkback">platform_external_talkback</a>: TalkBack app (GrapheneOS fork) prebuilt</li>
-                    <li><a href="https://gitlab.com/grapheneos/platform_external_vanadium">platform_external_vanadium</a>: Vanadium browser, WebView and library prebuilts</li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_apps_AppCompatConfig">platform_packages_apps_AppCompatConfig</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_apps_CarrierConfig2">platform_packages_apps_CarrierConfig2</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_apps_ExactCalculator">platform_packages_apps_ExactCalculator</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat">platform_packages_apps_GmsCompat</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_apps_LogViewer">platform_packages_apps_LogViewer</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_apps_NetworkLocation">platform_packages_apps_NetworkLocation</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_apps_Seedvault">platform_packages_apps_Seedvault</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_apps_SetupWizard2">platform_packages_apps_SetupWizard2</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_apps_Updater">platform_packages_apps_Updater</a>: OS update client</li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_external_Messaging">platform_external_Messaging</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_external_PdfViewer">platform_external_PdfViewer</a>:
+                        PDF Viewer app prebuilt</li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_external_talkback">platform_external_talkback</a>:
+                        TalkBack app (GrapheneOS fork) prebuilt</li>
+                    <li><a
+                            href="https://gitlab.com/grapheneos/platform_external_vanadium">platform_external_vanadium</a>:
+                        Vanadium browser, WebView and library prebuilts</li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_apps_AppCompatConfig">platform_packages_apps_AppCompatConfig</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_apps_CarrierConfig2">platform_packages_apps_CarrierConfig2</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_apps_ExactCalculator">platform_packages_apps_ExactCalculator</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat">platform_packages_apps_GmsCompat</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_apps_LogViewer">platform_packages_apps_LogViewer</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_apps_NetworkLocation">platform_packages_apps_NetworkLocation</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_apps_Seedvault">platform_packages_apps_Seedvault</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_apps_SetupWizard2">platform_packages_apps_SetupWizard2</a>
+                    </li>
+                    <li><a
+                            href="https://github.com/GrapheneOS/platform_packages_apps_Updater">platform_packages_apps_Updater</a>:
+                        OS update client</li>
                     <li><a href="https://github.com/GrapheneOS/script">script</a></li>
                     <li><a href="https://github.com/GrapheneOS/vendor_state">vendor_state</a></li>
                 </ul>
             </section>
-
             <section id="standalone-apps">
                 <h2><a href="#standalone-apps">Standalone apps</a></h2>
-
-                <p>These are standalone app projects developed by GrapheneOS and included in the
-                OS. This does not include the many apps included by AOSP without modifications by
-                GrapheneOS or with only minor modifications.</p>
-
+                <p>These are standalone app projects developed by GrapheneOS and included in the OS. This does not
+                    include the many apps included by AOSP without modifications by GrapheneOS or with only minor
+                    modifications.</p>
                 <ul>
                     <li><a href="https://github.com/GrapheneOS/AppStore">App Store</a></li>
                     <li><a href="https://github.com/GrapheneOS/Auditor">Auditor</a></li>
@@ -243,48 +387,57 @@
                     <li><a href="https://github.com/GrapheneOS/Info">Info</a></li>
                     <li><a href="https://github.com/GrapheneOS/Messaging">Messaging</a></li>
                     <li><a href="https://github.com/GrapheneOS/PdfViewer">PDF Viewer</a></li>
-                    <li><a href="https://github.com/GrapheneOS/talkback">talkback</a>: GrapheneOS fork of the open source TalkBack screen reader</li>
-                    <li><a href="https://github.com/GrapheneOS/Vanadium">Vanadium</a>: Privacy and security focused Chromium-based browser and WebView</li>
+                    <li><a href="https://github.com/GrapheneOS/talkback">talkback</a>: GrapheneOS fork of the open
+                        source TalkBack screen reader</li>
+                    <li><a href="https://github.com/GrapheneOS/Vanadium">Vanadium</a>: Privacy and security focused
+                        Chromium-based browser and WebView</li>
                 </ul>
             </section>
-
             <section id="services">
                 <h2><a href="#services">Services</a></h2>
-
                 <ul>
-                    <li><a href="https://github.com/GrapheneOS/infrastructure">infrastructure</a>: Shared server infrastructure</li>
-                    <li><a href="https://github.com/GrapheneOS/AttestationServer">AttestationServer</a>: attestation.app remote attestation server</li>
-                    <li><a href="https://github.com/GrapheneOS/grapheneos.org">grapheneos.org</a>: Servers for our website, HTTP/HTTPS connectivity checks, HTTPS network time, NTP (for Qualcomm XTRA), Broadcom PSDS cache, Samsung PSDS cache, Qualcomm PSDS (XTRA) cache, SUPL proxy, attestation key provisioning proxy, Vanadium component update check/download proxy, network location proxy and geocoding proxy</li>
-                    <li><a href="https://github.com/GrapheneOS/releases.grapheneos.org">releases.grapheneos.org</a>: OS update and app repository servers</li>
-                    <li><a href="https://github.com/GrapheneOS/apps.grapheneos.org">apps.grapheneos.org</a>: Application repository</li>
-                    <li><a href="https://github.com/GrapheneOS/mail.grapheneos.org">mail.grapheneos.org</a>: Mail server</li>
-                    <li><a href="https://github.com/GrapheneOS/matrix.grapheneos.org">matrix.grapheneos.org</a>: Matrix and Element Web server</li>
-                    <li><a href="https://github.com/GrapheneOS/ns1.grapheneos.org">ns1.grapheneos.org</a>: Authoritative DNS servers</li>
-                    <li><a href="https://github.com/GrapheneOS/discuss.grapheneos.org">discuss.grapheneos.org</a>: Discussion forum server</li>
-                    <li><a href="https://github.com/GrapheneOS/grapheneos.social">grapheneos.social</a>: Mastodon instance</li>
+                    <li><a href="https://github.com/GrapheneOS/infrastructure">infrastructure</a>: Shared server
+                        infrastructure</li>
+                    <li><a href="https://github.com/GrapheneOS/AttestationServer">AttestationServer</a>: attestation.app
+                        remote attestation server</li>
+                    <li><a href="https://github.com/GrapheneOS/grapheneos.org">grapheneos.org</a>: Servers for our
+                        website, HTTP/HTTPS connectivity checks, HTTPS network time, NTP (for Qualcomm XTRA), Broadcom
+                        PSDS cache, Samsung PSDS cache, Qualcomm PSDS (XTRA) cache, SUPL proxy, attestation key
+                        provisioning proxy, Vanadium component update check/download proxy, network location proxy and
+                        geocoding proxy</li>
+                    <li><a href="https://github.com/GrapheneOS/releases.grapheneos.org">releases.grapheneos.org</a>: OS
+                        update and app repository servers</li>
+                    <li><a href="https://github.com/GrapheneOS/apps.grapheneos.org">apps.grapheneos.org</a>: Application
+                        repository</li>
+                    <li><a href="https://github.com/GrapheneOS/mail.grapheneos.org">mail.grapheneos.org</a>: Mail server
+                    </li>
+                    <li><a href="https://github.com/GrapheneOS/matrix.grapheneos.org">matrix.grapheneos.org</a>: Matrix
+                        and Element Web server</li>
+                    <li><a href="https://github.com/GrapheneOS/ns1.grapheneos.org">ns1.grapheneos.org</a>: Authoritative
+                        DNS servers</li>
+                    <li><a href="https://github.com/GrapheneOS/discuss.grapheneos.org">discuss.grapheneos.org</a>:
+                        Discussion forum server</li>
+                    <li><a href="https://github.com/GrapheneOS/grapheneos.social">grapheneos.social</a>: Mastodon
+                        instance</li>
                 </ul>
             </section>
-
             <section id="utilities">
                 <h2><a href="#utilities">Utilities</a></h2>
-
                 <ul>
-                    <li><a href="https://github.com/GrapheneOS/tls-pinning">tls-pinning</a>: Utilities for setting up conservative non-leaf TLS pinning with backup pins</li>
-                    <li><a href="https://github.com/GrapheneOS/branding-tools">branding-tools</a>: Scripting for generating branding</li>
+                    <li><a href="https://github.com/GrapheneOS/tls-pinning">tls-pinning</a>: Utilities for setting up
+                        conservative non-leaf TLS pinning with backup pins</li>
+                    <li><a href="https://github.com/GrapheneOS/branding-tools">branding-tools</a>: Scripting for
+                        generating branding</li>
                 </ul>
             </section>
-
             <section id="archive">
                 <h2><a href="#archive">Archive</a></h2>
-
-                <p>An archive of legacy repositories is available via the
-                <a href="https://github.com/GrapheneOS-Archive">GrapheneOS Archive</a>
-                organization. This only covers repositories archives after renaming the project to
-                GrapheneOS. Earlier code is mostly not available via GitHub anymore due to
-                <a href="/history/#history">the unfortunate events</a> leading to the rename of
-                the project.</p>
+                <p>An archive of legacy repositories is available via the <a
+                        href="https://github.com/GrapheneOS-Archive">GrapheneOS Archive</a> organization. This only
+                    covers repositories archives after renaming the project to GrapheneOS. Earlier code is mostly not
+                    available via GitHub anymore due to <a href="/history/#history">the unfortunate events</a> leading
+                    to the rename of the project.</p>
             </section>
-        </main>
-        {% include "footer.html" %}
-    </body>
+        </main> {% include "footer.html" %} </body>
+
 </html>

@@ -1,52 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: https://ogp.me/ns#">
+
     <head>
-        <meta charset="utf-8"/>
+        <meta charset="utf-8" />
         <title>Donate | GrapheneOS</title>
-        <meta name="description" content="Donating to support development of GrapheneOS."/>
-        <meta name="theme-color" content="#212121"/>
-        <meta name="color-scheme" content="dark light"/>
-        <meta name="msapplication-TileColor" content="#ffffff"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-        <meta name="twitter:site" content="@GrapheneOS"/>
-        <meta name="twitter:creator" content="@GrapheneOS"/>
-        <meta property="og:title" content="GrapheneOS donations"/>
-        <meta property="og:description" content="Donating to support development of GrapheneOS."/>
-        <meta property="og:type" content="website"/>
-        <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
-        <meta property="og:image:width" content="512"/>
-        <meta property="og:image:height" content="512"/>
-        <meta property="og:image:alt" content="GrapheneOS logo"/>
-        <meta property="og:site_name" content="GrapheneOS"/>
-        <meta property="og:url" content="https://grapheneos.org/donate"/>
-        <link rel="canonical" href="https://grapheneos.org/donate"/>
-        <link rel="icon" href="/favicon.ico"/>
-        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
-        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-        [[css|/main.css]]
-        <link rel="manifest" href="/manifest.webmanifest"/>
-        <link rel="license" href="/LICENSE.txt"/>
-        <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
+        <meta name="description" content="Donating to support development of GrapheneOS." />
+        <meta name="theme-color" content="#212121" />
+        <meta name="color-scheme" content="dark light" />
+        <meta name="msapplication-TileColor" content="#ffffff" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta name="twitter:site" content="@GrapheneOS" />
+        <meta name="twitter:creator" content="@GrapheneOS" />
+        <meta property="og:title" content="GrapheneOS donations" />
+        <meta property="og:description" content="Donating to support development of GrapheneOS." />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://grapheneos.org/opengraph.png" />
+        <meta property="og:image:width" content="512" />
+        <meta property="og:image:height" content="512" />
+        <meta property="og:image:alt" content="GrapheneOS logo" />
+        <meta property="og:site_name" content="GrapheneOS" />
+        <meta property="og:url" content="https://grapheneos.org/donate" />
+        <link rel="canonical" href="https://grapheneos.org/donate" />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" /> [[css|/main.css]]
+        <link rel="manifest" href="/manifest.webmanifest" />
+        <link rel="license" href="/LICENSE.txt" />
+        <link rel="me" href="https://grapheneos.social/@GrapheneOS" />
     </head>
-    <body>
-        {% with current_page="donate" %}
-            {% include "header.html" %}
-        {% endwith %}
-        <main id="donate">
+
+    <body> {% with current_page="donate" %} {% include "header.html" %} {% endwith %} <main id="donate">
             <h1><a href="#donate">Donate</a></h1>
-
-            <p>GrapheneOS is an open source project supported via donations from individuals,
-            companies and other organizations. Donations are used for paying developers,
-            purchasing hardware (workstations, test devices, debugging cables/boards, etc.),
-            paying for infrastructure (domains, virtual/dedicated servers) and paying legal
-            fees.</p>
-
+            <p>GrapheneOS is an open source project supported via donations from individuals, companies and other
+                organizations. Donations are used for paying developers, purchasing hardware (workstations, test
+                devices, debugging cables/boards, etc.), paying for infrastructure (domains, virtual/dedicated servers)
+                and paying legal fees.</p>
             <p>The multiple ways to donate are listed in the sections on this page.</p>
-
             <nav id="table-of-contents">
                 <h2><a href="#table-of-contents">Table of contents</a></h2>
-
                 <ul>
                     <li><a href="#github">GitHub Sponsors (credit card)</a></li>
                     <li><a href="#bitcoin">Bitcoin</a></li>
@@ -61,374 +53,276 @@
                     <li><a href="#e-transfer">Interac e-Transfer</a></li>
                 </ul>
             </nav>
-
             <section id="github">
                 <h2><a href="#github">GitHub Sponsors (credit card)</a></h2>
-
-                <p>GrapheneOS can be sponsored with recurring or one-time donations via credit
-                cards through <a href="https://github.com/sponsors/thestinger">GitHub
-                Sponsors</a>. There are standard tiers from $5 to $5,000 or you can donate a custom
-                amount.</p>
+                <p>GrapheneOS can be sponsored with recurring or one-time donations via credit cards through <a
+                        href="https://github.com/sponsors/thestinger">GitHub Sponsors</a>. There are standard tiers from
+                    $5 to $5,000 or you can donate a custom amount.</p>
             </section>
-
             <section id="bitcoin">
                 <h2><a href="#bitcoin">Bitcoin</a></h2>
-
-                <p>Bitcoin can be used to make donations to the non-profit GrapheneOS
-                Foundation.</p>
-
+                <p>Bitcoin can be used to make donations to the non-profit GrapheneOS Foundation.</p>
                 <p>You can send Bitcoin donations to the following Bech32 (Segwit) address:</p>
-
                 <div class="coin-address">
-                    <a href="bitcoin:bc1q9qw3g8tdxf3dugkv2z8cahd3axehph0mhsqk96?label=GrapheneOS%20Foundation&amp;message=Donation%20to%20GrapheneOS%20Foundation" rel="nofollow">
-                        <img src="/donate-bitcoin.png?1" alt="Bitcoin donation QR code"/>
+                    <a href="bitcoin:bc1q9qw3g8tdxf3dugkv2z8cahd3axehph0mhsqk96?label=GrapheneOS%20Foundation&amp;message=Donation%20to%20GrapheneOS%20Foundation"
+                        rel="nofollow">
+                        <img src="/donate-bitcoin.png?1" alt="Bitcoin donation QR code" />
                         <p>bc1q9qw3g8tdxf3dugkv2z8cahd3axehph0mhsqk96</p>
                     </a>
                 </div>
-
-                <p>Alternatively, you can donate to the following Bech32m (Taproot) address if
-                your wallet supports it (preferred):</p>
-
+                <p>Alternatively, you can donate to the following Bech32m (Taproot) address if your wallet supports it
+                    (preferred):</p>
                 <div class="coin-address">
-                    <a href="bitcoin:bc1prqf5hks5dnd4j87wxw3djn20559yhj7wvvcv6fqxpwlg96udkzgqtamhry?label=GrapheneOS%20Foundation&amp;message=Donation%20to%20GrapheneOS%20Foundation" rel="nofollow">
-                        <img src="/donate-bitcoin-taproot.png?1" alt="Bitcoin Taproot donation QR code"/>
+                    <a href="bitcoin:bc1prqf5hks5dnd4j87wxw3djn20559yhj7wvvcv6fqxpwlg96udkzgqtamhry?label=GrapheneOS%20Foundation&amp;message=Donation%20to%20GrapheneOS%20Foundation"
+                        rel="nofollow">
+                        <img src="/donate-bitcoin-taproot.png?1" alt="Bitcoin Taproot donation QR code" />
                         <p>bc1prqf5hks5dnd4j87wxw3djn20559yhj7wvvcv6fqxpwlg96udkzgqtamhry</p>
                     </a>
                 </div>
-
-                <p>You can donate to the following BIP47 payment code (stealth address) or PayNym
-                if your wallet supports it:</p>
-
+                <p>You can donate to the following BIP47 payment code (stealth address) or PayNym if your wallet
+                    supports it:</p>
                 <div class="coin-address">
-                    <a href="bitcoin:PM8TJKmhJNQX6UTFagyuBk8UGmwKM6yDovEokpHBscPgP3Ac7WdK5zaQKh5XLSawyxiGYZS2a7HkAoeL6oHg7Ahn1VXX888yRG4PwF1dojouPtW7tEHT" rel="nofollow">
-                        <img src="/donate-bitcoin-bip47.png" alt="Bitcoin BIP47 payment code QR code"/>
-                        <p>PM8TJKmhJNQX6UTFagyuBk8UGmwKM6yDovEokpHBscPgP3Ac7WdK5zaQKh5XLSawyxiGYZS2a7HkAoeL6oHg7Ahn1VXX888yRG4PwF1dojouPtW7tEHT</p>
+                    <a href="bitcoin:PM8TJKmhJNQX6UTFagyuBk8UGmwKM6yDovEokpHBscPgP3Ac7WdK5zaQKh5XLSawyxiGYZS2a7HkAoeL6oHg7Ahn1VXX888yRG4PwF1dojouPtW7tEHT"
+                        rel="nofollow">
+                        <img src="/donate-bitcoin-bip47.png" alt="Bitcoin BIP47 payment code QR code" />
+                        <p>PM8TJKmhJNQX6UTFagyuBk8UGmwKM6yDovEokpHBscPgP3Ac7WdK5zaQKh5XLSawyxiGYZS2a7HkAoeL6oHg7Ahn1VXX888yRG4PwF1dojouPtW7tEHT
+                        </p>
                     </a>
                 </div>
-
                 <p>PayNym: <var>+GrapheneOS</var></p>
             </section>
-
             <section id="monero">
                 <h2><a href="#monero">Monero</a></h2>
-
-                <p>Monero can be used to make donations to the non-profit GrapheneOS
-                Foundation.</p>
-
+                <p>Monero can be used to make donations to the non-profit GrapheneOS Foundation.</p>
                 <p>You can send Monero donations to the following address:</p>
-
                 <div class="coin-address">
-                    <a href="monero:862CebHaBpFPgYoNC6zw4U8rsXrDjD8s5LMJNS7yVCRHMUKr9dDi7adMSLUMjkDYJ85xahQTCJHHyK5RCvvRJu9x7iSzN9D?recipient_name=GrapheneOS%20Foundation&amp;tx_description=Donation%20to%20GrapheneOS%20Foundation" rel="nofollow">
-                        <img src="/donate-monero.png?1" alt="Monero donation QR code"/>
-                        <p>862CebHaBpFPgYoNC6zw4U8rsXrDjD8s5LMJNS7yVCRHMUKr9dDi7adMSLUMjkDYJ85xahQTCJHHyK5RCvvRJu9x7iSzN9D</p>
+                    <a href="monero:862CebHaBpFPgYoNC6zw4U8rsXrDjD8s5LMJNS7yVCRHMUKr9dDi7adMSLUMjkDYJ85xahQTCJHHyK5RCvvRJu9x7iSzN9D?recipient_name=GrapheneOS%20Foundation&amp;tx_description=Donation%20to%20GrapheneOS%20Foundation"
+                        rel="nofollow">
+                        <img src="/donate-monero.png?1" alt="Monero donation QR code" />
+                        <p>862CebHaBpFPgYoNC6zw4U8rsXrDjD8s5LMJNS7yVCRHMUKr9dDi7adMSLUMjkDYJ85xahQTCJHHyK5RCvvRJu9x7iSzN9D
+                        </p>
                     </a>
                 </div>
             </section>
-
             <section id="zcash">
                 <h2><a href="#zcash">Zcash</a></h2>
-
-                <p>Zcash can be used to make donations to the non-profit GrapheneOS
-                Foundation.</p>
-
+                <p>Zcash can be used to make donations to the non-profit GrapheneOS Foundation.</p>
                 <p>You can send Zcash donations to the following transparent address:</p>
-
                 <div class="coin-address">
-                    <a href="zcash:t1SJABjX8rqgzqgrzLW5dUw7ikSDZ2snD8A?label=GrapheneOS%20Foundation&amp;message=Donation%20to%20GrapheneOS%20Foundation" rel="nofollow">
-                        <img src="/donate-zcash-transparent.png?1" alt="Transparent Zcash donation QR code"/>
+                    <a href="zcash:t1SJABjX8rqgzqgrzLW5dUw7ikSDZ2snD8A?label=GrapheneOS%20Foundation&amp;message=Donation%20to%20GrapheneOS%20Foundation"
+                        rel="nofollow">
+                        <img src="/donate-zcash-transparent.png?1" alt="Transparent Zcash donation QR code" />
                         <p>t1SJABjX8rqgzqgrzLW5dUw7ikSDZ2snD8A</p>
                     </a>
                 </div>
             </section>
-
             <section id="ethereum">
                 <h2><a href="#ethereum">Ethereum</a></h2>
-
-                <p>Ethereum can be used to make donations to the non-profit GrapheneOS
-                Foundation.</p>
-
+                <p>Ethereum can be used to make donations to the non-profit GrapheneOS Foundation.</p>
                 <p>You can send Ethereum donations to the following address:</p>
-
                 <div class="coin-address">
                     <a href="ethereum:0xC822A62E5Ab443E0001f30cEB9B2336D0524fC61" rel="nofollow">
-                        <img src="/donate-ethereum.png?1" alt="Ethereum donation QR code"/>
+                        <img src="/donate-ethereum.png?1" alt="Ethereum donation QR code" />
                         <p>0xC822A62E5Ab443E0001f30cEB9B2336D0524fC61</p>
                     </a>
                 </div>
-
                 <p><strong>We aren't looking for donations of tokens, only Ethereum itself.</strong></p>
             </section>
-
             <section id="cardano">
                 <h2><a href="#cardano">Cardano</a></h2>
-
-                <p>Cardano can be used to make donations to the non-profit GrapheneOS
-                Foundation.</p>
-
+                <p>Cardano can be used to make donations to the non-profit GrapheneOS Foundation.</p>
                 <p>You can send Cardano donations to the following address:</p>
-
                 <div class="coin-address">
-                    <a href="web+cardano:addr1q9v89vfwyfssveug5zf2w7leafz8ethq490gvq0ghag883atfnucytpnq2t38dj7cnyngs6ne05cdwu9gseevgmt3ggq2a2wt6" rel="nofollow">
-                        <img src="/donate-cardano.png?1" alt="Cardano donation QR code"/>
-                        <p>addr1q9v89vfwyfssveug5zf2w7leafz8ethq490gvq0ghag883atfnucytpnq2t38dj7cnyngs6ne05cdwu9gseevgmt3ggq2a2wt6</p>
+                    <a href="web+cardano:addr1q9v89vfwyfssveug5zf2w7leafz8ethq490gvq0ghag883atfnucytpnq2t38dj7cnyngs6ne05cdwu9gseevgmt3ggq2a2wt6"
+                        rel="nofollow">
+                        <img src="/donate-cardano.png?1" alt="Cardano donation QR code" />
+                        <p>addr1q9v89vfwyfssveug5zf2w7leafz8ethq490gvq0ghag883atfnucytpnq2t38dj7cnyngs6ne05cdwu9gseevgmt3ggq2a2wt6
+                        </p>
                     </a>
                 </div>
-
                 <p>We own the <var>$grapheneos</var> handle with this address so you can also send to the handle.</p>
-
                 <p><strong>We aren't looking for donations of tokens, only Cardano itself.</strong></p>
             </section>
-
             <section id="litecoin">
                 <h2><a href="#litecoin">Litecoin</a></h2>
-
-                <p>Litecoin can be used to make donations to the non-profit GrapheneOS
-                Foundation.</p>
-
+                <p>Litecoin can be used to make donations to the non-profit GrapheneOS Foundation.</p>
                 <p>You can send Litecoin donations to the following Bech32 (Segwit) address:</p>
-
                 <div class="coin-address">
-                    <a href="litecoin:ltc1qzssmqueth6zjzr95rkluy5xdx9q4lk8vyrvea9?label=GrapheneOS%20Foundation&amp;message=Donation%20to%20GrapheneOS%20Foundation" rel="nofollow">
-                        <img src="/donate-litecoin.png" alt="Litecoin donation QR code"/>
+                    <a href="litecoin:ltc1qzssmqueth6zjzr95rkluy5xdx9q4lk8vyrvea9?label=GrapheneOS%20Foundation&amp;message=Donation%20to%20GrapheneOS%20Foundation"
+                        rel="nofollow">
+                        <img src="/donate-litecoin.png" alt="Litecoin donation QR code" />
                         <p>ltc1qzssmqueth6zjzr95rkluy5xdx9q4lk8vyrvea9</p>
                     </a>
                 </div>
             </section>
-
             <section id="wise">
                 <h2><a href="#wise">Wise</a></h2>
-
                 <p>If you have a Wise account, you can donate directly via Wise using <a
-                href="https://wise.com/pay/business/grapheneosfoundation">our Wise Quick Pay
-                link</a> rather than using the bank account details. This enables sending donations
-                from anywhere Wise is available. If the currency you're using isn't listed due to
-                not being one of the currencies where we accept local bank transfers, please select
-                CAD or USD so we can avoid another conversion.</p>
+                        href="https://wise.com/pay/business/grapheneosfoundation">our Wise Quick Pay link</a> rather
+                    than using the bank account details. This enables sending donations from anywhere Wise is available.
+                    If the currency you're using isn't listed due to not being one of the currencies where we accept
+                    local bank transfers, please select CAD or USD so we can avoid another conversion.</p>
             </section>
-
             <section id="local-bank-transfer">
                 <h2><a href="#local-bank-transfer">Local Bank Transfer</a></h2>
-
-                <p>You can donate to the non-profit GrapheneOS Foundation via local bank transfers
-                to our Wise account in the EU/SEPA, UK, US, Australia, New Zealand, Canada,
-                Hungary and Turkey.</p>
-
+                <p>You can donate to the non-profit GrapheneOS Foundation via local bank transfers to our Wise account
+                    in the EU/SEPA, UK, US, Australia, New Zealand, Canada, Hungary and Turkey.</p>
                 <section id="wise-sepa">
                     <h2><a href="#wise-sepa">EU/SEPA (EUR)</a></h2>
-
                     <dl>
                         <dt>Account holder</dt>
                         <dd>GrapheneOS Foundation</dd>
-
                         <dt>IBAN</dt>
                         <dd>BE20 9677 1140 7056</dd>
-
                         <dt>BIC</dt>
                         <dd>TRWIBEB1XXX</dd>
-
                         <dt>Bank name</dt>
                         <dd>Wise Europe SA</dd>
-
                         <dt>Wise and Bank address</dt>
-                        <dd>Rue du Trône 100, 3rd floor<br/>Brussels<br/>1050<br/>Belgium</dd>
+                        <dd>Rue du Trône 100, 3rd floor<br />Brussels<br />1050<br />Belgium</dd>
                     </dl>
                 </section>
-
                 <section id="wise-uk">
                     <h2><a href="#wise-uk">UK (GBP)</a></h2>
-
                     <dl>
                         <dt>Account holder</dt>
                         <dd>GrapheneOS Foundation</dd>
-
                         <dt>Account number</dt>
                         <dd>49883070</dd>
-
                         <dt>IBAN</dt>
                         <dd>GB68 TRWI 2314 7049 8830 70</dd>
-
                         <dt>Sort code</dt>
                         <dd>23-14-70</dd>
-
                         <dt>Bank name</dt>
                         <dd>Wise Payments Limited</dd>
-
                         <dt>Wise and Bank address</dt>
-                        <dd>56 Shoreditch High Street<br/>London<br/>E1 6JJ<br/>United Kingdom</dd>
+                        <dd>56 Shoreditch High Street<br />London<br />E1 6JJ<br />United Kingdom</dd>
                     </dl>
                 </section>
-
                 <section id="wise-us">
                     <h2><a href="#wise-us">US (USD)</a></h2>
-
                     <dl>
                         <dt>Account holder</dt>
                         <dd>GrapheneOS Foundation</dd>
-
                         <dt>Account number</dt>
                         <dd>8313560023</dd>
-
                         <dt>Routing number</dt>
                         <dd>026073150</dd>
-
                         <dt>Account type</dt>
                         <dd>Checking</dd>
-
                         <dt>Wise address</dt>
-                        <dd>30 W. 26th Street, Sixth Floor<br/>New York NY<br/>10010<br/>United States</dd>
-
+                        <dd>30 W. 26th Street, Sixth Floor<br />New York NY<br />10010<br />United States</dd>
                         <dt>Bank name</dt>
                         <dd>Community Federal Savings Bank</dd>
-
                         <dt>Bank address</dt>
-                        <dd>89-16 Jamaica Ave<br/>Woodhaven NY<br/>11421<br/>United States</dd>
+                        <dd>89-16 Jamaica Ave<br />Woodhaven NY<br />11421<br />United States</dd>
                     </dl>
                 </section>
-
                 <section id="wise-australia">
                     <h2><a href="#wise-australia">Australia (AUD)</a></h2>
-
                     <dl>
                         <dt>Account holder</dt>
                         <dd>GrapheneOS Foundation</dd>
-
                         <dt>Account number</dt>
                         <dd>213524417</dd>
-
                         <dt>BSB code</dt>
                         <dd>774-001</dd>
-
                         <dt>Bank name</dt>
                         <dd>Wise Australia Pty Ltd</dd>
-
                         <dt>Wise address</dt>
-                        <dd>Suite 1, Level 11, 66 Goulburn Street<br/>Sydney<br/>2000<br/>Australia</dd>
+                        <dd>Suite 1, Level 11, 66 Goulburn Street<br />Sydney<br />2000<br />Australia</dd>
                     </dl>
                 </section>
-
                 <section id="wise-new-zealand">
                     <h2><a href="#wise-new-zealand">New Zealand (NZD)</a></h2>
-
                     <dl>
                         <dt>Account holder</dt>
                         <dd>GrapheneOS Foundation</dd>
-
                         <dt>Account number</dt>
                         <dd>04-2021-0151878-36</dd>
-
                         <dt>Wise address</dt>
-                        <dd>56 Shoreditch High Street<br/>London<br/>E1 6JJ<br/>United Kingdom</dd>
-
+                        <dd>56 Shoreditch High Street<br />London<br />E1 6JJ<br />United Kingdom</dd>
                         <dt>Bank name</dt>
                         <dd>JPMorgan Chase</dd>
-
                         <dt>Bank address</dt>
-                        <dd>Head Office, Pwc Tower<br/>Auckland<br/>1010<br/>New Zealand</dd>
+                        <dd>Head Office, Pwc Tower<br />Auckland<br />1010<br />New Zealand</dd>
                     </dl>
                 </section>
-
                 <section id="wise-canada">
                     <h2><a href="#wise-canada">Canada (CAD)</a></h2>
-
                     <dl>
                         <dt>Account holder</dt>
                         <dd>GrapheneOS Foundation</dd>
-
                         <dt>Account number</dt>
                         <dd>200110745303</dd>
-
                         <dt>Transit number</dt>
                         <dd>16001</dd>
-
                         <dt>Institution number</dt>
                         <dd>621</dd>
-
                         <dt>Wise address</dt>
-                        <dd>99 Bank Street, Suite 1420<br/>Ottawa ON<br/>K1P 1H4<br/>Canada</dd>
-
+                        <dd>99 Bank Street, Suite 1420<br />Ottawa ON<br />K1P 1H4<br />Canada</dd>
                         <dt>Bank name</dt>
                         <dd>Peoples Trust</dd>
-
                         <dt>Bank address</dt>
-                        <dd>595 Burrard Street<br/>Vancouver BC<br/>V7X 1L7<br/>Canada</dd>
+                        <dd>595 Burrard Street<br />Vancouver BC<br />V7X 1L7<br />Canada</dd>
                     </dl>
                 </section>
-
                 <section id="wise-hungary">
                     <h2><a href="#wise-hungary">Hungary (HUF)</a></h2>
-
                     <dl>
                         <dt>Account holder</dt>
                         <dd>GrapheneOS Foundation</dd>
-
                         <dt>Account number</dt>
                         <dd>12600016-11020392-99827322</dd>
-
                         <dt>Bank name</dt>
                         <dd>Wise Europe SA</dd>
-
                         <dt>Wise and Bank address</dt>
-                        <dd>Rue du Trône 100, 3rd floor<br/>Brussels<br/>1050<br/>Belgium</dd>
+                        <dd>Rue du Trône 100, 3rd floor<br />Brussels<br />1050<br />Belgium</dd>
                     </dl>
                 </section>
-
                 <section id="wise-turkey">
                     <h2><a href="#wise-turkey">Turkey (TRY)</a></h2>
-
                     <dl>
                         <dt>Account holder</dt>
                         <dd>GrapheneOS Foundation</dd>
-
                         <dt>IBAN</dt>
                         <dd>TR43 0010 3000 0000 0057 4294 70</dd>
-
                         <dt>Wise address</dt>
                         <dd>56 Shoreditch High Street, London, E1 6JJ, United Kingdom</dd>
-
                         <dt>Bank name</dt>
                         <dd>Fibabanka A.Ş.</dd>
-
                         <dt>Bank address</dt>
-                        <dd>Büyükdere Cad. 129<br/>Esentepe Mah.<br/>Sisli<br/>Istanbul<br/>Turkey</dd>
+                        <dd>Büyükdere Cad. 129<br />Esentepe Mah.<br />Sisli<br />Istanbul<br />Turkey</dd>
                     </dl>
                 </section>
             </section>
-
             <section id="paypal">
                 <h2><a href="#paypal">PayPal</a></h2>
-
-                <p>PayPal can be used to make one-time, monthly or yearly donations to the
-                non-profit GrapheneOS Foundation.</p>
-
-                <p>If possible, use the donation link for your currency. If it's not listed,
-                please use the CAD donation link.</p>
-
+                <p>PayPal can be used to make one-time, monthly or yearly donations to the non-profit GrapheneOS
+                    Foundation.</p>
+                <p>If possible, use the donation link for your currency. If it's not listed, please use the CAD donation
+                    link.</p>
                 <p>Donation links:</p>
-
                 <ul>
-                    <li><a href="https://www.paypal.com/donate/?hosted_button_id=T8KRPYKU5QVNE">Canadian dollar (CAD)</a></li>
-                    <li><a href="https://www.paypal.com/donate/?hosted_button_id=2S2BP8V4E7PXU">United States dollar (USD)</a></li>
+                    <li><a href="https://www.paypal.com/donate/?hosted_button_id=T8KRPYKU5QVNE">Canadian dollar
+                            (CAD)</a></li>
+                    <li><a href="https://www.paypal.com/donate/?hosted_button_id=2S2BP8V4E7PXU">United States dollar
+                            (USD)</a></li>
                     <li><a href="https://www.paypal.com/donate/?hosted_button_id=5SNPWEDS53HW4">Euro (EUR)</a></li>
-                    <li><a href="https://www.paypal.com/donate/?hosted_button_id=N498QNB7NPKU8">British pound (GBP)</a></li>
+                    <li><a href="https://www.paypal.com/donate/?hosted_button_id=N498QNB7NPKU8">British pound (GBP)</a>
+                    </li>
                 </ul>
-
-                <p>PayPal charges a base fee of 30 cents and 2.9% of the donation amount within
-                Canada. There's an additional 0.8% fee for donations from the US and 1% for other
-                countries. Currency conversion adds an additional 4% fee as opposed to the usual
-                PayPal conversion fee of 3%.</p>
+                <p>PayPal charges a base fee of 30 cents and 2.9% of the donation amount within Canada. There's an
+                    additional 0.8% fee for donations from the US and 1% for other countries. Currency conversion adds
+                    an additional 4% fee as opposed to the usual PayPal conversion fee of 3%.</p>
             </section>
-
             <section id="e-transfer">
                 <h2><a href="#e-transfer">Interac e-Transfer</a></h2>
-
-                <p>If you have a Canadian bank account, you can send Canadian dollar donations to
-                the non-profit GrapheneOS Foundation via Interac e-Transfer to
-                <var>contact@grapheneos.org</var>. The email address has Interac e-Transfer
-                Autodeposit support enabled so no security question is necessary. If your bank
-                doesn't support Autodeposit, set the answer to the security question to
-                GrapheneOS.</p>
+                <p>If you have a Canadian bank account, you can send Canadian dollar donations to the non-profit
+                    GrapheneOS Foundation via Interac e-Transfer to <var>contact@grapheneos.org</var>. The email address
+                    has Interac e-Transfer Autodeposit support enabled so no security question is necessary. If your
+                    bank doesn't support Autodeposit, set the answer to the security question to GrapheneOS.</p>
             </section>
-        </main>
-        {% include "footer.html" %}
-    </body>
+        </main> {% include "footer.html" %} </body>
+
 </html>
