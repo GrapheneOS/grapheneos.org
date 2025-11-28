@@ -636,9 +636,8 @@
 
                     <p>As of Android 12, the user is notified when an app reads clipboard content
                     which was set by a different app. This notice is enabled by default and can be
-                    toggled under <b>Settings&#160;<span aria-label="and then">></span>
-                    Security &amp; privacy&#160;<span aria-label="and then">></span> Privacy controls&#160;<span
-                    aria-label="and then">></span> Show clipboard access</b>.</p>
+                    toggled under <b>Settings&#160;>
+                    Security &amp; privacy&#160;> Privacy controls&#160;> Show clipboard access</b>.</p>
                 </article>
 
                 <article id="hardware-identifiers">
@@ -898,9 +897,9 @@
                             HTTPS-based time updates in order to blend in with other devices.</p>
 
                             <p>Network time can be disabled with the toggle at
-                            <b>Settings&#160;<span aria-label="and then">></span>
-                            System&#160;<span aria-label="and then">></span> Date &amp;
-                            time&#160;<span aria-label="and then">></span> Set time automatically</b>.
+                            <b>Settings&#160;>
+                            System&#160;> Date &amp;
+                            time&#160;> Set time automatically</b>.
                             Unlike AOSP or the stock OS on the supported devices, GrapheneOS stops making
                             network time connections when using network time is disabled rather than just
                             not setting the clock based on it. The time zone is still obtained directly
@@ -931,8 +930,8 @@
                             portals without the user turning off their VPN.</p>
 
                             <p>You can change the connectivity check URLs via the
-                            <b>Settings&#160;<span aria-label="and then">></span> Network &amp;
-                            internet&#160;<span aria-label="and then">></span> Internet
+                            <b>Settings&#160;> Network &amp;
+                            internet&#160;> Internet
                             connectivity check</b> setting. At the moment, it can be toggled between
                             the <b>GrapheneOS server</b> (default), the <b>Standard (Google) server</b>
                             used by billions of other Android devices or <b>Off</b>.</p>
@@ -1051,8 +1050,8 @@
                             reverse proxy adds to that since it's unable to decrypt the
                             provisioned keys.</p>
 
-                            <p>A setting is added at <b>Settings&#160;<span aria-label="and then">></span>
-                            Network &amp; internet&#160;<span aria-label="and then">></span>
+                            <p>A setting is added at <b>Settings&#160;>
+                            Network &amp; internet&#160;>
                             Attestation key provisioning</b> for switching to directly using the
                             Google service if you prefer.</p>
 
@@ -1134,8 +1133,7 @@
                     as part of Widevine provisioning. This is another form of key provisioning for
                     per-app keys that are used when playing DRM protected media. DRM support is
                     enabled in the OS by default but we don't include any apps using it by default,
-                    since it's disabled in Vanadium. A setting is added at <b>Settings&#160;<span
-                    aria-label="and then">></span> Network &amp; Internet&#160;<span aria-label="and then">></span>
+                    since it's disabled in Vanadium. A setting is added at <b>Settings&#160;> Network &amp; Internet&#160;>
                     Widevine provisioning</b> for switching to directly using the Google service if
                     you prefer.</p>
 
@@ -1162,7 +1160,7 @@
                     configuration but most leave it at the default of supl.google.com. By default,
                     GrapheneOS overrides the carrier/fallback SUPL server and uses the
                     supl.grapheneos.org proxy. GrapheneOS adds a toggle for configuring SUPL in
-                    <b>Settings&#160;<span aria-label="and then">></span> Location</b> where you
+                    <b>Settings&#160;> Location</b> where you
                     can choose between the default <b>GrapheneOS proxy</b> supl.grapheneos.org,
                     the <b>Standard server</b> (carrier/fallback) or turning it <b>Off</b>
                     completely. GrapheneOS also disables sending IMSI and phone number as part of
@@ -1270,8 +1268,8 @@
 
                     <p>It isn't possible to directly override the DNS servers provided by the
                     network via DHCP. Instead, use the Private DNS feature in
-                    <b>Settings&#160;<span aria-label="and then">></span> Network &amp;
-                    internet&#160;<span aria-label="and then">></span> Private DNS</b> to set the
+                    <b>Settings&#160;> Network &amp;
+                    internet&#160;> Private DNS</b> to set the
                     hostname of a DNS-over-TLS server. It needs to have a valid certificate such as a
                     free certificate from Let's Encrypt. The OS will look up the Private DNS hostname
                     via the network provided DNS servers and will then force all other DNS requests
@@ -1346,8 +1344,8 @@
                 <article id="vpn-support">
                     <h3><a href="#vpn-support">What kind of VPN and Tor support is available?</a></h3>
 
-                    <p>VPNs can be configured under <b>Settings&#160;<span aria-label="and then">></span>
-                    Network &amp; internet&#160;<span aria-label="and then">></span> VPN</b>.
+                    <p>VPNs can be configured under <b>Settings&#160;>
+                    Network &amp; internet&#160;> VPN</b>.
                     Support for the following protocols is included: IKEv2/IPSec MSCHAPv2,
                     IKEv2/IPSec PSK and IKEv2/IPSec RSA. Apps can also provide userspace VPN
                     implementations. The only apps we can recommend are the official WireGuard
@@ -1379,8 +1377,7 @@
                     VPN service by the user. Apps cannot normally access network stats and cannot
                     directly request access to them. However, app-based stats can be explicitly
                     granted by users as part of access to app usage stats in
-                    <b>Settings&#160;<span aria-label="and then">></span> Apps&#160;<span
-                    aria-label="and then">></span> Special app access&#160;<span aria-label="and then">></span>
+                    <b>Settings&#160;> Apps&#160;> Special app access&#160;>
                     Usage access</b>.</p>
 
                     <p>This was previously part of the GrapheneOS privacy improvements, but became a
@@ -1618,7 +1615,7 @@
                     interfere with this use case at all. If you've changed it to a stricter value
                     such as completely disallowing USB-C data, it can be changed back to the default
                     "Charging-only when locked" value in
-                    <b>Settings&#160;<span aria-label="and then">></span> Security&#160;<span aria-label="and then">></span> Exploit protection&#160;<span aria-label="and then">></span> USB-C port</b>.</p>
+                    <b>Settings&#160;> Security&#160;> Exploit protection&#160;> USB-C port</b>.</p>
 
                     <p>To use an external drive, plug it into the phone and use the system file
                     manager to copy files to and from it.</p>
@@ -1629,8 +1626,7 @@
                     to transfer files between macOS and Android. After plugging in the phone to the
                     computer, there will be a notification showing the current USB mode with
                     charging as the default. Pressing the notification acts as a shortcut to
-                    <b>Settings&#160;<span aria-label="and then">></span> Connected devices&#160;<span
-                    aria-label="and then">></span> USB</b>. You can enable <b>File Transfer</b> (MTP)
+                    <b>Settings&#160;> Connected devices&#160;> USB</b>. You can enable <b>File Transfer</b> (MTP)
                     or <b>PTP</b> with this menu. It will provide read/write access to the entire
                     profile home directory, i.e. the top-level directory named after the device in
                     the system file manager which does not include internal app data. Due to needing
