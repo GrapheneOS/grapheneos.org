@@ -4660,7 +4660,7 @@
                     <ul>
                         <li>replace auto-reboot implementation with a new more hardened implementation based on a timer in the init process (since init crashing reboots the device, unlike system_server) which also avoids rebooting when the device hasn't been unlocked since boot</li>
                         <li>reduce default auto-reboot timer from 72 hours to 18 hours</li>
-                        <li>add log viewer available at <b>Settings&#160;<span aria-label="and then">></span> System&#160;<span aria-label="and then">></span> View logs</b> to avoid needing developer options for making useful bug reports and inspecting the device for issues</li>
+                        <li>add log viewer available at <b>Settings&#160;> System&#160;> View logs</b> to avoid needing developer options for making useful bug reports and inspecting the device for issues</li>
                         <li>reimplement our user-facing crash reporting infrastructure with our new log viewer app</li>
                         <li>Settings: add links to log viewer in app info and system settings</li>
                         <li>show report button in sandboxed Google Play crash report UI</li>
@@ -5060,7 +5060,7 @@
                     <ul>
                         <li>add infrastructure for hardware memory tagging support</li>
                         <li>hardened_malloc: add support for hardware memory tagging launched with the ARMv9 cores on the Pixel 8 and Pixel 8 Pro</li>
-                        <li>Settings: enable memory tagging toggle at <b>Settings&#160;<span aria-label="and then">></span> Security&#160;<span aria-label="and then">></span> More security settings&#160;<span aria-label="and then">></span> Advanced memory protection</b> beta on supported devices (Pixel 8 and Pixel 8 Pro)</li>
+                        <li>Settings: enable memory tagging toggle at <b>Settings&#160;> Security&#160;> More security settings&#160;> Advanced memory protection</b> beta on supported devices (Pixel 8 and Pixel 8 Pro)</li>
                         <li>Pixel 8, Pixel 8 Pro: enable memory tagging support for everything built by GrapheneOS (other than Vanadium, since Chromium currently disables it) and also user installed apps without native libraries (will be expanded to Vanadium later along with the option to use it for all user installed apps)</li>
                         <li>Pixel 8, Pixel 8 Pro: use asymmetric memory tagging mode on all cores to provide much higher security than asynchronous mode without much more overhead unlike the very expensive synchronous mode without any clear security benefits over asymmetric</li>
                         <li>enable parallel compilation of non-precompiled bytecode to native code for first-boot and first-boot-after-update with 2 processes for now (can be increased later)</li>
@@ -6193,7 +6193,7 @@
                     <p>Changes since the 2023020600 release:</p>
 
                     <ul>
-                        <li>add toggle to <b>Settings&#160;<span aria-label="and then">></span> Location</b> for force disabling SUPL as a carrier-independent replacement for editing APN configuration since editing APN configuration is unintuitive, not fully respected on Tensor SoC devices and users with no carrier should be able to disable it without using airplane mode</li>
+                        <li>add toggle to <b>Settings&#160;> Location</b> for force disabling SUPL as a carrier-independent replacement for editing APN configuration since editing APN configuration is unintuitive, not fully respected on Tensor SoC devices and users with no carrier should be able to disable it without using airplane mode</li>
                         <li>Vanadium: update Chromium base to 110.0.5481.64</li>
                         <li>GmsCompatConfig: update max supported version of Play Store</li>
                         <li>Apps: update to <a href="https://github.com/GrapheneOS/Apps/releases/tag/15">version 15</a></li>
@@ -7624,7 +7624,7 @@
                     <p>Changes since the 2022062200 release:</p>
 
                     <ul>
-                        <li>add opt-in support for forwarding notifications to the active user from users in the background with information censored in the same way as on the lockscreen (can be enabled in <b>Settings&#160;<span aria-label="and then">></span> System&#160;<span aria-label="and then">></span> Multiple users</b> for each user you want to forward their notifications)</li>
+                        <li>add opt-in support for forwarding notifications to the active user from users in the background with information censored in the same way as on the lockscreen (can be enabled in <b>Settings&#160;> System&#160;> Multiple users</b> for each user you want to forward their notifications)</li>
                         <li>set correct tile label for our battery share quick tile</li>
                         <li>Vanadium: update Chromium base to 103.0.5060.70</li>
                         <li>Vanadium: disable reporting support (Report-To, report-uri) again</li>
@@ -7854,7 +7854,7 @@
 
                     <ul>
                         <li>Sandboxed Google Play compatibility layer (GmsCompat): significantly improve compatibility of the default enabled geolocation API rerouting feature</li>
-                        <li>remove timestamp from screenshot EXIF metadata by default and add a toggle to <b>Settings&#160;<span aria-label="and then">></span> Privacy</b> for enabling it</li>
+                        <li>remove timestamp from screenshot EXIF metadata by default and add a toggle to <b>Settings&#160;> Privacy</b> for enabling it</li>
                         <li>work around slow unlock animation</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro): update GKI base to ASB-2022-05-05_12-5.10</li>
                         <li>Dialer: add fixes for Bluetooth audio call redirection and BLE devices</li>
@@ -8163,7 +8163,7 @@
 
                     <ul>
                         <li>ThemePicker: add toggle for using wallpaper-extracted colors as the color scheme (Monet)</li>
-                        <li>add toggle for exec-based spawning in <b>Settings&#160;<span aria-label="and then">></span> Security</b></li>
+                        <li>add toggle for exec-based spawning in <b>Settings&#160;> Security</b></li>
                         <li>GrapheneOS Keyboard: enable spellchecking for Czech and Dutch languages</li>
                         <li>Vanadium: update Chromium base to 99.0.4844.88</li>
                         <li>Camera: update to <a href="https://github.com/GrapheneOS/Camera/releases/tag/17">version 17</a></li>
@@ -8494,7 +8494,7 @@
 
                     <ul>
                         <li>Pixel 3, Pixel 3 XL: add GmsCompat app which was meant to be added by the previous release</li>
-                        <li>Pixel 6, Pixel 6 Pro: revert accidental enabling of dark mode by default, which we plan to do by default in the future across devices once the Contacts and Messaging apps are updated to support it (you can set your own preference in <b>Settings&#160;<span aria-label="and then">></span> Display&#160;<span aria-label="and then">></span> Dark theme</b>)</li>
+                        <li>Pixel 6, Pixel 6 Pro: revert accidental enabling of dark mode by default, which we plan to do by default in the future across devices once the Contacts and Messaging apps are updated to support it (you can set your own preference in <b>Settings&#160;> Display&#160;> Dark theme</b>)</li>
                     </ul>
                 </article>
 
@@ -9556,7 +9556,7 @@
 
                     <ul>
                         <li>kernel (Pixel 4a (5G), Pixel 5): rebuild with updated techpack/camera submodule</li>
-                        <li>add back support for fully disabling native debugging (ptrace) support in <b>Settings&#160;<span aria-label="and then">></span> Security</b></li>
+                        <li>add back support for fully disabling native debugging (ptrace) support in <b>Settings&#160;> Security</b></li>
                         <li>kernel (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5): enable support for native debugging (ptrace) toggle via Yama</li>
                         <li>Settings: add back extra field with bootloader version</li>
                         <li>Settings: only allow disabling Vanadium WebView library via developer tools since disabling it breaks app compatibility and almost always results in crashes rather than user friendly errors, including for base OS components using it</li>
@@ -9961,9 +9961,7 @@
                     <h3><a href="#2020.11.05.18">2020.11.05.18</a></h3>
 
                     <p>While waiting for this release to become available, you can manually add a
-                    battery optimization exemption for the Clock app via <b>Settings&#160;<span
-                    aria-label="and then">></span> Apps &amp; notifications&#160;<span
-                    aria-label="and then">></span> Special app access&#160;<span aria-label="and then">></span>
+                    battery optimization exemption for the Clock app via <b>Settings&#160;> Apps &amp; notifications&#160;> Special app access&#160;>
                     Battery optimization</b> where you can select <b>All apps</b>, scroll
                     down to the Clock app and manually add an exemption. Should get this added upstream.</p>
 
