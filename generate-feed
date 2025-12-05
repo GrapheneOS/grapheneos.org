@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 
-from datetime import datetime
-
 import lxml.html
+
+from datetime import datetime
 from lxml import etree
 
 document = lxml.html.parse("static-tmp/releases.html").getroot()
