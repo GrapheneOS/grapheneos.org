@@ -1247,7 +1247,8 @@ rm android-cts-media-1.5.zip</pre>
                     <code>MACRO_NAME</code> while JavaScript uses <code>variable_or_function_name</code>,
                     <code>ClassName</code> and <code>CONSTANT_NAME</code>. For Python, follow PEP8 and the
                     same goes for other languages with official styles whether defined in a document or by
-                    the default mode for the official formatting tool like <code>rustfmt</code>.</p>
+                    the default mode for the official formatting tool like
+                    <a href="https://github.com/rust-lang/rustfmt">rustfmt</a>.</p>
 
                     <p>For cases where there isn't an official or prevailing code style for other things,
                     avoid tabs, use 4-space indents, <code>function_name</code>,
@@ -1272,7 +1273,8 @@ rm android-cts-media-1.5.zip</pre>
                     declare variables, unless they are reassigned in which case they should be declared
                     with <code>let</code> but never use <code>var</code> as it is effectively broken. Try
                     to prefer loops with <code>for..of</code>. JavaScript must pass verification with
-                    <code>eslint</code> using the following <code>eslint.config.js</code> configuration:</p>
+                    <a href="https://github.com/eslint/eslint">ESLint</a> using the following
+                    <code>eslint.config.js</code> configuration:</p>
 
                     <pre>import js from "@eslint/js";
 import globals from "globals";
@@ -1317,7 +1319,8 @@ export default [
                     Page titles should follow the scheme "Page | Directory | Higher-level directory |
                     Site" for usability with a traditional title as the Open Graph title.</p>
 
-                    <p>HTML must pass verification with <code>validatornu</code> and <code>xmllint</code>.
+                    <p>HTML must pass verification with <a href="https://github.com/validator/validator">vnu</a>
+                    and <a href="https://gitlab.gnome.org/GNOME/libxml2/-/blob/master/xmllint.c">xmllint</a>.
                     Ensuring that it parses as XML with <code>xmllint</code> catches many common mistakes
                     and typos that are missed by HTML validation due to the ridiculously permissive nature
                     of HTML. This enforces closing every tag, using proper escaping and so on. XHTML does
