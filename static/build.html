@@ -601,6 +601,13 @@ cd ../..</pre>
 
                     <pre>script/generate-release.sh tegu <var>BUILD_NUMBER</var></pre>
 
+                    <p>If this results in an error similar to
+                    <code>Disk quota exceeded while populating file system</code>,
+                    the first thing to check is whether <code>/tmp</code> has enough space
+                    (more than 15GB).  The installation instructions include information about
+                    <a href="/install/cli.html#TMPDIR">using a different directory for temporary
+                    files</a>.</p>
+
                     <p>The factory images and update package will be in
                     <code>releases/<var>BUILD_NUMBER</var>/release-tegu-<var>BUILD_NUMBER</var></code>.
                     The update zip performs a full OS installation so it can be used to update from
