@@ -45,19 +45,174 @@
                 <h2><a href="#table-of-contents">Table of contents</a></h2>
 
                 <ul>
+                    <li><a href="#ns1.grapheneos.org">GrapheneOS DNS servers</a></li>
+                    <li><a href="#ns1.staging.grapheneos.org">Staging GrapheneOS DNS server</a></li>
                     <li><a href="#grapheneos.org">GrapheneOS website and network servers</a></li>
                     <li><a href="#staging.grapheneos.org">Staging GrapheneOS website and network servers</a></li>
                     <li><a href="#releases.grapheneos.org">GrapheneOS release servers</a></li>
-                    <li><a href="#mail.grapheneos.org">GrapheneOS mail server</a></li>
-                    <li><a href="#discuss.grapheneos.org">GrapheneOS discussion forum server</a></li>
-                    <li><a href="#grapheneos.social">GrapheneOS Mastodon server</a></li>
-                    <li><a href="#matrix.grapheneos.org">GrapheneOS Matrix server</a></li>
-                    <li><a href="#ns1.grapheneos.org">GrapheneOS DNS servers</a></li>
-                    <li><a href="#ns1.staging.grapheneos.org">Staging GrapheneOS DNS server</a></li>
                     <li><a href="#attestation.app">Attestation website and service</a></li>
                     <li><a href="#staging.attestation.app">Staging attestation website and service</a></li>
+                    <li><a href="#mail.grapheneos.org">GrapheneOS mail server</a></li>
+                    <li><a href="#discuss.grapheneos.org">GrapheneOS discussion forum server</a></li>
+                    <li><a href="#matrix.grapheneos.org">GrapheneOS Matrix server</a></li>
+                    <li><a href="#grapheneos.social">GrapheneOS Mastodon server</a></li>
                 </ul>
             </nav>
+
+            <section id="ns1.grapheneos.org">
+                <h2><a href="#ns1.grapheneos.org">GrapheneOS DNS servers</a></h2>
+
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/ns1.grapheneos.org">Repository</a></li>
+                    <li><a href="https://github.com/GrapheneOS/ns1.grapheneos.org/issues">Issue tracker</a></li>
+                </ul>
+
+                <p>Specs:</p>
+
+                <ul>
+                    <li>11x Vultr vhp-1c-1gb-amd</li>
+                    <li>1 core</li>
+                    <li>1 GB memory</li>
+                    <li>25 GB NVMe SSD storage</li>
+                </ul>
+
+                <ul>
+                    <li>4x BuyVM Slice 1024</li>
+                    <li>1 core</li>
+                    <li>1 GB memory</li>
+                    <li>20 GB NVMe SSD storage</li>
+                    <li>1000 Mbit/s bandwidth</li>
+                </ul>
+
+                <p>Domains:</p>
+
+                <ul>
+                    <li>ns1.attestation.app</li>
+                    <li>ns1.grapheneos.app</li>
+                    <li>ns1.grapheneos.ca</li>
+                    <li>ns1.grapheneos.com</li>
+                    <li>ns1.grapheneos.dev</li>
+                    <li>ns1.grapheneos.foundation</li>
+                    <li>ns1.grapheneos.info</li>
+                    <li>ns1.grapheneos.net</li>
+                    <li>ns1.grapheneos.network</li>
+                    <li>ns1.grapheneos.online</li>
+                    <li>ns1.grapheneos.org</li>
+                    <li>ns1.grapheneos.ovh</li>
+                    <li>ns1.grapheneos.page</li>
+                    <li>ns1.grapheneos.social</li>
+                    <li>ns1.seamlessupdate.app</li>
+                    <li>ns1.vanadium.app</li>
+                    <li>ns2.attestation.app</li>
+                    <li>ns2.grapheneos.app</li>
+                    <li>ns2.grapheneos.ca</li>
+                    <li>ns2.grapheneos.com</li>
+                    <li>ns2.grapheneos.dev</li>
+                    <li>ns2.grapheneos.foundation</li>
+                    <li>ns2.grapheneos.info</li>
+                    <li>ns2.grapheneos.net</li>
+                    <li>ns2.grapheneos.network</li>
+                    <li>ns2.grapheneos.online</li>
+                    <li>ns2.grapheneos.org</li>
+                    <li>ns2.grapheneos.ovh</li>
+                    <li>ns2.grapheneos.page</li>
+                    <li>ns2.grapheneos.social</li>
+                    <li>ns2.seamlessupdate.app</li>
+                    <li>ns2.vanadium.app</li>
+                </ul>
+
+                <p>IPs:</p>
+
+                <ul>
+                    <li>23.149.124.1 (anycast), 65.20.91.33 (bom.ns1.grapheneos.org) — Vultr Mumbai</li>
+                    <li>2602:f4d9::1 (anycast), 2401:c080:2400:1814:5400:05ff:fec5:d503 (bom.ns1.grapheneos.org) — Vultr Mumbai</li>
+                    <li>23.149.124.1 (anycast), 80.240.20.200 (fra.ns1.grapheneos.org) — Vultr Frankfurt</li>
+                    <li>2602:f4d9::1 (anycast), 2a05:f480:1800:2acd:5400:05ff:fec2:23a1 (fra.ns1.grapheneos.org) — Vultr Frankfurt</li>
+                    <li>23.149.124.1 (anycast), 140.82.23.46 (lax.ns1.grapheneos.org) — Vultr Los Angeles</li>
+                    <li>2602:f4d9::1 (anycast), 2001:19f0:6000:2dcd:5400:05ff:fec1:97db (lax.ns1.grapheneos.org) — Vultr Los Angeles</li>
+                    <li>23.149.124.1 (anycast), 192.248.159.52 (lon.ns1.grapheneos.org) — Vultr London</li>
+                    <li>2602:f4d9::1 (anycast), 2001:19f0:7400:8669:5400:05ff:fec3:f3f8 (lon.ns1.grapheneos.org) — Vultr London</li>
+                    <li>23.149.124.1 (anycast), 45.32.173.220 (mia.ns1.grapheneos.org) — Vultr Miami</li>
+                    <li>2602:f4d9::1 (anycast), 2001:19f0:9002:2981:5400:05ff:fec1:65c4 (mia.ns1.grapheneos.org) — Vultr Miami</li>
+                    <li>23.149.124.1 (anycast), 66.135.8.22 (nyc.ns1.grapheneos.org) — Vultr New York City</li>
+                    <li>2602:f4d9::1 (anycast), 2001:19f0:1000:c0d4:5400:05ff:fec1:7c21 (nyc.ns1.grapheneos.org) — Vultr New York City</li>
+                    <li>23.149.124.1 (anycast), 216.238.118.134 (sao.ns1.grapheneos.org) — Vultr São Paulo</li>
+                    <li>2602:f4d9::1 (anycast), 2001:19f0:b800:14a9:5400:05ff:feca:f136 (sao.ns1.grapheneos.org) — Vultr São Paulo</li>
+                    <li>23.149.124.1 (anycast), 66.42.74.68 (sea.ns1.grapheneos.org) — Vultr Seattle</li>
+                    <li>2602:f4d9::1 (anycast), 2001:19f0:8001:0438:5400:05ff:fec1:9dbd (sea.ns1.grapheneos.org) — Vultr Seattle</li>
+                    <li>23.149.124.1 (anycast), 139.180.154.140 (sin.ns1.grapheneos.org) — Vultr Singapore</li>
+                    <li>2602:f4d9::1 (anycast), 2401:c080:1400:4890:5400:05ff:fec2:23b0 (sin.ns1.grapheneos.org) — Vultr Singapore</li>
+                    <li>23.149.124.1 (anycast), 45.63.28.82 (syd.ns1.grapheneos.org) — Vultr Sydney</li>
+                    <li>2602:f4d9::1 (anycast), 2401:c080:1800:141d:5400:05ff:fec5:d41b (syd.ns1.grapheneos.org) — Vultr Sydney</li>
+                    <li>23.149.124.1 (anycast), 66.42.42.15 (tyo.ns1.grapheneos.org) — Vultr Tokyo</li>
+                    <li>2602:f4d9::1 (anycast), 2001:19f0:7001:5695:5400:05ff:fec4:e394 (tyo.ns1.grapheneos.org) — Vultr Tokyo</li>
+                    <li>23.149.125.1 (anycast), 198.251.90.93 (fallback anycast), 107.189.3.168 (brn.ns2.grapheneos.org) — BuyVM Bern</li>
+                    <li>2602:f4d9:1::1 (anycast), 2605:6400:30:ec25:102c:af6d:5be:1eb8 (brn.ns2.grapheneos.org) — BuyVM Bern</li>
+                    <li>23.149.125.1 (anycast), 198.251.90.93 (fallback anycast), 205.185.124.155 (las.ns2.grapheneos.org) — BuyVM Las Vegas</li>
+                    <li>2602:f4d9:1::1 (anycast), 2605:6400:20:1c8f:a0c9:372d:482e:945b (las.ns2.grapheneos.org) — BuyVM Las Vegas</li>
+                    <li>23.149.125.1 (anycast), 198.251.90.93 (fallback anycast), 2605:6400:40:ffbd:14e7:d270:fd75:600c (mia.ns2.grapheneos.org) — BuyVM Miami</li>
+                    <li>2602:f4d9:1::1 (anycast), 2605:6400:20:1c8f:a0c9:372d:482e:945b (mia.ns2.grapheneos.org) — BuyVM Miami</li>
+                    <li>23.149.125.1 (anycast), 198.251.90.93 (fallback anycast), 198.98.53.141 (nyc.ns2.grapheneos.org) — BuyVM New York City</li>
+                    <li>2602:f4d9:1::1 (anycast), 2605:6400:10:102e:95bc:89ef:2e7f:49bb (nyc.ns2.grapheneos.org) — BuyVM New York City</li>
+                </ul>
+
+                <p>Ports:</p>
+
+                <ul>
+                    <li>TCP 22 ssh</li>
+                    <li>TCP 53 domain</li>
+                    <li>UDP 53 domain</li>
+                    <li>TCP 80 http</li>
+                    <li>TCP 443 https</li>
+                    <li>TCP 853 domain-s</li>
+                </ul>
+            </section>
+
+            <section id="ns1.staging.grapheneos.org">
+                <h2><a href="#ns1.staging.grapheneos.org">Staging GrapheneOS DNS server</a></h2>
+
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/ns1.grapheneos.org">Repository</a></li>
+                    <li><a href="https://github.com/GrapheneOS/ns1.grapheneos.org/issues">Issue tracker</a></li>
+                </ul>
+
+                <p>Specs:</p>
+
+                <ul>
+                    <li>BuyVM Slice 1024</li>
+                    <li>1 core</li>
+                    <li>1 GB memory</li>
+                    <li>20 GB NVMe SSD storage</li>
+                    <li>1000 Mbit/s bandwidth</li>
+                </ul>
+
+                <p>Domains:</p>
+
+                <ul>
+                    <li>ns1.staging.attestation.app</li>
+                    <li>ns2.staging.attestation.app</li>
+                    <li>ns1.staging.grapheneos.org</li>
+                    <li>ns2.staging.grapheneos.org</li>
+                </ul>
+
+                <p>IPs:</p>
+
+                <ul>
+                    <li>198.98.56.238 — BuyVM New York City</li>
+                    <li>2605:6400:10:c41:de92:c534:326a:711a — BuyVM New York City</li>
+                </ul>
+
+                <p>Ports:</p>
+
+                <ul>
+                    <li>TCP 22 ssh</li>
+                    <li>TCP 53 domain</li>
+                    <li>UDP 53 domain</li>
+                    <li>TCP 80 http</li>
+                    <li>TCP 443 https</li>
+                    <li>TCP 853 domain-s</li>
+                </ul>
+            </section>
 
             <section id="grapheneos.org">
                 <h2><a href="#grapheneos.org">GrapheneOS website and network services</a></h2>
@@ -266,6 +421,87 @@
                 </ul>
             </section>
 
+            <section id="attestation.app">
+                <h2><a href="#attestation.app">Attestation website and service</a></h2>
+
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/AttestationServer">Repository</a></li>
+                    <li><a href="https://github.com/GrapheneOS/AttestationServer/issues">Issue tracker</a></li>
+                </ul>
+
+                <p>Specs:</p>
+
+                <ul>
+                    <li>netcup RS 1000 G12 Ultra</li>
+                    <li>6 dedicated cores (EPYC 9645)</li>
+                    <li>12288 MiB memory</li>
+                    <li>512 GiB NVMe SSD storage</li>
+                    <li>2500 Mbit/s bandwidth</li>
+                </ul>
+
+                <p>Domains:</p>
+
+                <ul>
+                    <li>attestation.app</li>
+                    <li>www.attestation.app</li>
+                </ul>
+
+                <p>IPs:</p>
+
+                <ul>
+                    <li>159.195.67.50 — netcup Nuremberg</li>
+                    <li>2a0a:4cc0:c2:1cf3::1 — netcup Nuremberg</li>
+                </ul>
+
+                <p>Ports:</p>
+
+                <ul>
+                    <li>TCP 22 ssh</li>
+                    <li>TCP 80 http</li>
+                    <li>TCP 443 https</li>
+                </ul>
+            </section>
+
+            <section id="staging.attestation.app">
+                <h2><a href="#staging.attestation.app">Staging attestation website and service</a></h2>
+
+                <ul>
+                    <li><a href="https://github.com/GrapheneOS/AttestationServer">Repository</a></li>
+                    <li><a href="https://github.com/GrapheneOS/AttestationServer/issues">Issue tracker</a></li>
+                </ul>
+
+                <p>Specs:</p>
+
+                <ul>
+                    <li>BuyVM Slice 1024</li>
+                    <li>1 core</li>
+                    <li>1 GB memory</li>
+                    <li>20 GB NVMe SSD storage</li>
+                    <li>1000 Mbit/s bandwidth</li>
+                </ul>
+
+                <p>Domains:</p>
+
+                <ul>
+                    <li>staging.attestation.app</li>
+                </ul>
+
+                <p>IPs:</p>
+
+                <ul>
+                    <li>198.98.57.157 — BuyVM New York City</li>
+                    <li>2605:6400:10:aa9:1c0f:44d3:da15:c0ec — BuyVM New York City</li>
+                </ul>
+
+                <p>Ports:</p>
+
+                <ul>
+                    <li>TCP 22 ssh</li>
+                    <li>TCP 80 http</li>
+                    <li>TCP 443 https</li>
+                </ul>
+            </section>
+
             <section id="mail.grapheneos.org">
                 <h2><a href="#mail.grapheneos.org">GrapheneOS mail server</a></h2>
 
@@ -369,47 +605,6 @@
                 </ul>
             </section>
 
-            <section id="grapheneos.social">
-                <h2><a href="#grapheneos.social">GrapheneOS Mastodon server</a></h2>
-
-                <ul>
-                    <li><a href="https://github.com/GrapheneOS/grapheneos.social">Repository</a></li>
-                    <li><a href="https://github.com/GrapheneOS/grapheneos.social/issues">Issue tracker</a></li>
-                </ul>
-
-                <p>Specs:</p>
-
-                <ul>
-                    <li>netcup RS 1000 G12 Ultra</li>
-                    <li>6 dedicated cores (EPYC 9645)</li>
-                    <li>12288 MiB memory</li>
-                    <li>512 GiB NVMe SSD storage</li>
-                    <li>2500 Mbit/s bandwidth</li>
-                </ul>
-
-                <p>Domains:</p>
-
-                <ul>
-                    <li>grapheneos.social</li>
-                    <li>www.grapheneos.social</li>
-                </ul>
-
-                <p>IPs:</p>
-
-                <ul>
-                    <li>152.53.168.159 — netcup Manassas</li>
-                    <li>2a0a:4cc0:2000:a62d::1 — netcup Manassas</li>
-                </ul>
-
-                <p>Ports:</p>
-
-                <ul>
-                    <li>TCP 22 ssh</li>
-                    <li>TCP 80 http</li>
-                    <li>TCP 443 https</li>
-                </ul>
-            </section>
-
             <section id="matrix.grapheneos.org">
                 <h2><a href="#matrix.grapheneos.org">GrapheneOS Matrix server</a></h2>
 
@@ -455,167 +650,12 @@
                 </ul>
             </section>
 
-            <section id="ns1.grapheneos.org">
-                <h2><a href="#ns1.grapheneos.org">GrapheneOS DNS servers</a></h2>
+            <section id="grapheneos.social">
+                <h2><a href="#grapheneos.social">GrapheneOS Mastodon server</a></h2>
 
                 <ul>
-                    <li><a href="https://github.com/GrapheneOS/ns1.grapheneos.org">Repository</a></li>
-                    <li><a href="https://github.com/GrapheneOS/ns1.grapheneos.org/issues">Issue tracker</a></li>
-                </ul>
-
-                <p>Specs:</p>
-
-                <ul>
-                    <li>11x Vultr vhp-1c-1gb-amd</li>
-                    <li>1 core</li>
-                    <li>1 GB memory</li>
-                    <li>25 GB NVMe SSD storage</li>
-                </ul>
-
-                <ul>
-                    <li>4x BuyVM Slice 1024</li>
-                    <li>1 core</li>
-                    <li>1 GB memory</li>
-                    <li>20 GB NVMe SSD storage</li>
-                    <li>1000 Mbit/s bandwidth</li>
-                </ul>
-
-                <p>Domains:</p>
-
-                <ul>
-                    <li>ns1.attestation.app</li>
-                    <li>ns1.grapheneos.app</li>
-                    <li>ns1.grapheneos.ca</li>
-                    <li>ns1.grapheneos.com</li>
-                    <li>ns1.grapheneos.dev</li>
-                    <li>ns1.grapheneos.foundation</li>
-                    <li>ns1.grapheneos.info</li>
-                    <li>ns1.grapheneos.net</li>
-                    <li>ns1.grapheneos.network</li>
-                    <li>ns1.grapheneos.online</li>
-                    <li>ns1.grapheneos.org</li>
-                    <li>ns1.grapheneos.ovh</li>
-                    <li>ns1.grapheneos.page</li>
-                    <li>ns1.grapheneos.social</li>
-                    <li>ns1.seamlessupdate.app</li>
-                    <li>ns1.vanadium.app</li>
-                    <li>ns2.attestation.app</li>
-                    <li>ns2.grapheneos.app</li>
-                    <li>ns2.grapheneos.ca</li>
-                    <li>ns2.grapheneos.com</li>
-                    <li>ns2.grapheneos.dev</li>
-                    <li>ns2.grapheneos.foundation</li>
-                    <li>ns2.grapheneos.info</li>
-                    <li>ns2.grapheneos.net</li>
-                    <li>ns2.grapheneos.network</li>
-                    <li>ns2.grapheneos.online</li>
-                    <li>ns2.grapheneos.org</li>
-                    <li>ns2.grapheneos.ovh</li>
-                    <li>ns2.grapheneos.page</li>
-                    <li>ns2.grapheneos.social</li>
-                    <li>ns2.seamlessupdate.app</li>
-                    <li>ns2.vanadium.app</li>
-                </ul>
-
-                <p>IPs:</p>
-
-                <ul>
-                    <li>23.149.124.1 (anycast), 65.20.91.33 (bom.ns1.grapheneos.org) — Vultr Mumbai</li>
-                    <li>2602:f4d9::1 (anycast), 2401:c080:2400:1814:5400:05ff:fec5:d503 (bom.ns1.grapheneos.org) — Vultr Mumbai</li>
-                    <li>23.149.124.1 (anycast), 80.240.20.200 (fra.ns1.grapheneos.org) — Vultr Frankfurt</li>
-                    <li>2602:f4d9::1 (anycast), 2a05:f480:1800:2acd:5400:05ff:fec2:23a1 (fra.ns1.grapheneos.org) — Vultr Frankfurt</li>
-                    <li>23.149.124.1 (anycast), 140.82.23.46 (lax.ns1.grapheneos.org) — Vultr Los Angeles</li>
-                    <li>2602:f4d9::1 (anycast), 2001:19f0:6000:2dcd:5400:05ff:fec1:97db (lax.ns1.grapheneos.org) — Vultr Los Angeles</li>
-                    <li>23.149.124.1 (anycast), 192.248.159.52 (lon.ns1.grapheneos.org) — Vultr London</li>
-                    <li>2602:f4d9::1 (anycast), 2001:19f0:7400:8669:5400:05ff:fec3:f3f8 (lon.ns1.grapheneos.org) — Vultr London</li>
-                    <li>23.149.124.1 (anycast), 45.32.173.220 (mia.ns1.grapheneos.org) — Vultr Miami</li>
-                    <li>2602:f4d9::1 (anycast), 2001:19f0:9002:2981:5400:05ff:fec1:65c4 (mia.ns1.grapheneos.org) — Vultr Miami</li>
-                    <li>23.149.124.1 (anycast), 66.135.8.22 (nyc.ns1.grapheneos.org) — Vultr New York City</li>
-                    <li>2602:f4d9::1 (anycast), 2001:19f0:1000:c0d4:5400:05ff:fec1:7c21 (nyc.ns1.grapheneos.org) — Vultr New York City</li>
-                    <li>23.149.124.1 (anycast), 216.238.118.134 (sao.ns1.grapheneos.org) — Vultr São Paulo</li>
-                    <li>2602:f4d9::1 (anycast), 2001:19f0:b800:14a9:5400:05ff:feca:f136 (sao.ns1.grapheneos.org) — Vultr São Paulo</li>
-                    <li>23.149.124.1 (anycast), 66.42.74.68 (sea.ns1.grapheneos.org) — Vultr Seattle</li>
-                    <li>2602:f4d9::1 (anycast), 2001:19f0:8001:0438:5400:05ff:fec1:9dbd (sea.ns1.grapheneos.org) — Vultr Seattle</li>
-                    <li>23.149.124.1 (anycast), 139.180.154.140 (sin.ns1.grapheneos.org) — Vultr Singapore</li>
-                    <li>2602:f4d9::1 (anycast), 2401:c080:1400:4890:5400:05ff:fec2:23b0 (sin.ns1.grapheneos.org) — Vultr Singapore</li>
-                    <li>23.149.124.1 (anycast), 45.63.28.82 (syd.ns1.grapheneos.org) — Vultr Sydney</li>
-                    <li>2602:f4d9::1 (anycast), 2401:c080:1800:141d:5400:05ff:fec5:d41b (syd.ns1.grapheneos.org) — Vultr Sydney</li>
-                    <li>23.149.124.1 (anycast), 66.42.42.15 (tyo.ns1.grapheneos.org) — Vultr Tokyo</li>
-                    <li>2602:f4d9::1 (anycast), 2001:19f0:7001:5695:5400:05ff:fec4:e394 (tyo.ns1.grapheneos.org) — Vultr Tokyo</li>
-                    <li>23.149.125.1 (anycast), 198.251.90.93 (fallback anycast), 107.189.3.168 (brn.ns2.grapheneos.org) — BuyVM Bern</li>
-                    <li>2602:f4d9:1::1 (anycast), 2605:6400:30:ec25:102c:af6d:5be:1eb8 (brn.ns2.grapheneos.org) — BuyVM Bern</li>
-                    <li>23.149.125.1 (anycast), 198.251.90.93 (fallback anycast), 205.185.124.155 (las.ns2.grapheneos.org) — BuyVM Las Vegas</li>
-                    <li>2602:f4d9:1::1 (anycast), 2605:6400:20:1c8f:a0c9:372d:482e:945b (las.ns2.grapheneos.org) — BuyVM Las Vegas</li>
-                    <li>23.149.125.1 (anycast), 198.251.90.93 (fallback anycast), 2605:6400:40:ffbd:14e7:d270:fd75:600c (mia.ns2.grapheneos.org) — BuyVM Miami</li>
-                    <li>2602:f4d9:1::1 (anycast), 2605:6400:20:1c8f:a0c9:372d:482e:945b (mia.ns2.grapheneos.org) — BuyVM Miami</li>
-                    <li>23.149.125.1 (anycast), 198.251.90.93 (fallback anycast), 198.98.53.141 (nyc.ns2.grapheneos.org) — BuyVM New York City</li>
-                    <li>2602:f4d9:1::1 (anycast), 2605:6400:10:102e:95bc:89ef:2e7f:49bb (nyc.ns2.grapheneos.org) — BuyVM New York City</li>
-                </ul>
-
-                <p>Ports:</p>
-
-                <ul>
-                    <li>TCP 22 ssh</li>
-                    <li>TCP 53 domain</li>
-                    <li>UDP 53 domain</li>
-                    <li>TCP 80 http</li>
-                    <li>TCP 443 https</li>
-                    <li>TCP 853 domain-s</li>
-                </ul>
-            </section>
-
-            <section id="ns1.staging.grapheneos.org">
-                <h2><a href="#ns1.staging.grapheneos.org">Staging GrapheneOS DNS server</a></h2>
-
-                <ul>
-                    <li><a href="https://github.com/GrapheneOS/ns1.grapheneos.org">Repository</a></li>
-                    <li><a href="https://github.com/GrapheneOS/ns1.grapheneos.org/issues">Issue tracker</a></li>
-                </ul>
-
-                <p>Specs:</p>
-
-                <ul>
-                    <li>BuyVM Slice 1024</li>
-                    <li>1 core</li>
-                    <li>1 GB memory</li>
-                    <li>20 GB NVMe SSD storage</li>
-                    <li>1000 Mbit/s bandwidth</li>
-                </ul>
-
-                <p>Domains:</p>
-
-                <ul>
-                    <li>ns1.staging.attestation.app</li>
-                    <li>ns2.staging.attestation.app</li>
-                    <li>ns1.staging.grapheneos.org</li>
-                    <li>ns2.staging.grapheneos.org</li>
-                </ul>
-
-                <p>IPs:</p>
-
-                <ul>
-                    <li>198.98.56.238 — BuyVM New York City</li>
-                    <li>2605:6400:10:c41:de92:c534:326a:711a — BuyVM New York City</li>
-                </ul>
-
-                <p>Ports:</p>
-
-                <ul>
-                    <li>TCP 22 ssh</li>
-                    <li>TCP 53 domain</li>
-                    <li>UDP 53 domain</li>
-                    <li>TCP 80 http</li>
-                    <li>TCP 443 https</li>
-                    <li>TCP 853 domain-s</li>
-                </ul>
-            </section>
-
-            <section id="attestation.app">
-                <h2><a href="#attestation.app">Attestation website and service</a></h2>
-
-                <ul>
-                    <li><a href="https://github.com/GrapheneOS/AttestationServer">Repository</a></li>
-                    <li><a href="https://github.com/GrapheneOS/AttestationServer/issues">Issue tracker</a></li>
+                    <li><a href="https://github.com/GrapheneOS/grapheneos.social">Repository</a></li>
+                    <li><a href="https://github.com/GrapheneOS/grapheneos.social/issues">Issue tracker</a></li>
                 </ul>
 
                 <p>Specs:</p>
@@ -631,55 +671,15 @@
                 <p>Domains:</p>
 
                 <ul>
-                    <li>attestation.app</li>
-                    <li>www.attestation.app</li>
+                    <li>grapheneos.social</li>
+                    <li>www.grapheneos.social</li>
                 </ul>
 
                 <p>IPs:</p>
 
                 <ul>
-                    <li>159.195.67.50 — netcup Nuremberg</li>
-                    <li>2a0a:4cc0:c2:1cf3::1 — netcup Nuremberg</li>
-                </ul>
-
-                <p>Ports:</p>
-
-                <ul>
-                    <li>TCP 22 ssh</li>
-                    <li>TCP 80 http</li>
-                    <li>TCP 443 https</li>
-                </ul>
-            </section>
-
-            <section id="staging.attestation.app">
-                <h2><a href="#staging.attestation.app">Staging attestation website and service</a></h2>
-
-                <ul>
-                    <li><a href="https://github.com/GrapheneOS/AttestationServer">Repository</a></li>
-                    <li><a href="https://github.com/GrapheneOS/AttestationServer/issues">Issue tracker</a></li>
-                </ul>
-
-                <p>Specs:</p>
-
-                <ul>
-                    <li>BuyVM Slice 1024</li>
-                    <li>1 core</li>
-                    <li>1 GB memory</li>
-                    <li>20 GB NVMe SSD storage</li>
-                    <li>1000 Mbit/s bandwidth</li>
-                </ul>
-
-                <p>Domains:</p>
-
-                <ul>
-                    <li>staging.attestation.app</li>
-                </ul>
-
-                <p>IPs:</p>
-
-                <ul>
-                    <li>198.98.57.157 — BuyVM New York City</li>
-                    <li>2605:6400:10:aa9:1c0f:44d3:da15:c0ec — BuyVM New York City</li>
+                    <li>152.53.168.159 — netcup Manassas</li>
+                    <li>2a0a:4cc0:2000:a62d::1 — netcup Manassas</li>
                 </ul>
 
                 <p>Ports:</p>
