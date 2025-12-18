@@ -657,7 +657,7 @@
                         <li>fix upstream system_server crash in NotificationHistory.getPooledStringsToWrite()</li>
                         <li>Launcher: add a workaround for upstream QuickstepModelDelegate.getContainer() crash</li>
                         <li>set initial port security state at an earlier boot stage to improve debugging on production builds where the port state has been changed from the default "Charging-only when locked" to "Charging-only when locked, except before first unlock" or "On"</li>
-                        <li>use default desktop mode configuration</li>
+                        <li>use default desktop mode configuration since our changes are no longer needed to enable features and caused crashes for at least 1 user which were addressed with an out-of-band release prior to this one</li>
                         <li>kernel (6.1): update to latest GKI LTS branch revision</li>
                         <li>kernel (6.1): add back recent dma-buf changes now that an upstream use-after-free bug is resolved</li>
                         <li>kernel (6.6): update to latest GKI LTS branch revision including update to 6.6.118</li>
