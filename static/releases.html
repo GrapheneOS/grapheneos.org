@@ -630,6 +630,13 @@
                     <ul>
                         <li>remove poorly designed upstream end session button on the lockscreen (it remains available in the power menu)</li>
                         <li>enable feature flag for new upstream end session button in the user switcher</li>
+                        <li>switch to vendor files from 2nd December 2025 release (BP4A.251205.006.E1) for devices with it available</li>
+                        <li>enable lockscreen widget support</li>
+                        <li>fix upstream system_server crash in NotificationHistoryProtoHelper</li>
+                        <li>Wi-Fi HAL: ignore debug logging requests on all Pixels with MTE support to avoid upstream memory corruption bug</li>
+                        <li>Sandboxed Google Play compatibility layer: add support for redirecting Google Play location service requests from within Google Play services which means the GrapheneOS provided network location will work for Play services features when redirecting to the OS is enabled as it is by default</li>
+                        <li>Sandboxed Google Play compatibility layer: force redirecting Google Play location service requests from within Google Play services and Android Auto when the Location permission is disabled for better error handling</li>
+                        <li>Sandboxed Google Play compatibility layer: fix a compatibility issue with the Chromium test suite</li>
                         <li>Network Location: improve position estability accuracy and stability</li>
                         <li>Network Location: prevent potential division by zero exception</li>
                         <li>Network Location: improve experimental Wi-Fi RTT support which is still disabled in production/li>
@@ -638,6 +645,11 @@
                         <li>kernel (6.6): disable CONFIG_TLS to reduce attack surface</li>
                         <li>kernel (6.12): update to latest GKI LTS branch revision including update to 6.12.62</li>
                         <li>kernel (6.12): disable CONFIG_TLS to reduce attack surface</li>
+                        <li>include configuration for thermometer on 10th gen Pixels</li>
+                        <li>adevtool: auto-detect filesystem image type (ext4 vs. EROFS)</li>
+                        <li>adevtool: add support for canary builds</li>
+                        <li>adevtool: improve performance</li>
+                        <li>remove obsolete workaround for using a prebuilt recovery extension</li>
                     </ul>
 
                     <p>All of the Android 16 security patches from the current January 2026, February 2026, March 2026, April 2026, May 2026 and June 2026 Android Security Bulletins are included in the 2025121701 security preview release. List of additional fixed CVEs:</p>
