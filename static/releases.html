@@ -660,7 +660,7 @@
                         <li>switch to vendor files from 2nd December 2025 release (BP4A.251205.006.E1) for devices with it available</li>
                         <li>enable lockscreen widget support</li>
                         <li>fix upstream system_server crash in NotificationHistoryProtoHelper</li>
-                        <li>Wi-Fi HAL: ignore debug logging requests on all Pixels with MTE support to avoid upstream memory corruption bug</li>
+                        <li>Wi-Fi HAL: ignore debug logging requests on all Pixels with MTE support to avoid a crash from detecting an invalid memory access in the upstream code</li>
                         <li>Sandboxed Google Play compatibility layer: add support for redirecting Google Play location service requests from within Google Play services itself which means the GrapheneOS provided network location will work for internal Play services features such as Google Maps location sharing when redirecting to the OS is enabled (which is the default) and the Location permission is granted to it</li>
                         <li>Sandboxed Google Play compatibility layer: force redirecting Google Play location service requests from within Google Play services and Android Auto when the Location permission is disabled for better error handling (neither properly handles the Location permission not being granted since it's always granted on any Google Mobile Services OS in practice instead of being explicitly opt-in)</li>
                         <li>Sandboxed Google Play compatibility layer: fix a compatibility issue with the Chromium test suite</li>
