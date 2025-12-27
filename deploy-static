@@ -53,7 +53,7 @@ for server in ${servers[@]}; do
 
     echo "root $target;" > nginx-tmp/root_grapheneos.org.conf
     rsync -rpcv --chmod=D755,F644 --delete --fsync --preallocate nginx-tmp/{ffdhe2048.txt,nginx.conf,mime.types,root_grapheneos.org.conf,snippets} $remote:/etc/nginx/
-    ssh $remote nginx -s reload
+    ssh $remote systemctl reload nginx
 
     echo
     echo active is now $target
