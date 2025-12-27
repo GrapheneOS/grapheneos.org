@@ -393,7 +393,9 @@ cd ../..</pre>
                     environment. (Note: On Debian, <code>yarn</code> is reserved for a binary in
                     <code>cmdtest</code>; use <code>yarnpkg</code> instead.)</p>
 
-                    <pre>yarn --cwd vendor/adevtool/ install</pre>
+                    <pre># If using the system package and yarn complains about MODULE_NOT_FOUND, uninstall then reinstall yarn via npm
+# For example, `sudo apt purge yarnpkg && npm install yarn`
+yarn --cwd vendor/adevtool/ install</pre>
 
                     <p>Download, extract and prepare the vendor files:</p>
 
