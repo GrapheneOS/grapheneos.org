@@ -636,6 +636,8 @@
                         <li>fix an issue in our infrastructure for spoofing permission self-checks breaking automatically reading SMS one-time codes for certain apps</li>
                         <li>add workaround for upstream KeySetManagerService system_server crash causing a user to be stuck on an old OS version due to it causing a boot failure when booting a the new OS version after updating</li>
                         <li>wipe DPM partition on 10th gen Pixels as part of installation as we do on earlier Pixels since it's always meant to be zeroed on production devices</li>
+                        <li>Settings: disable indexing of the unsupported "Parental controls" setting which is not currently available in AOSP</li>
+                        <li>Settings: disable redundant indexing of widgets on lockscreen contents which is already indexed another way</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/143.0.7499.192.0">version 143.0.7499.192.0</a></li>
                     </ul>
 
