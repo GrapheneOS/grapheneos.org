@@ -629,6 +629,10 @@
                     <p>Changes since the 2025122500 release:</p>
 
                     <ul>
+                        <li>add an extra layer of USB port protection on 10th gen Pixels based on upstream functionality to replace our USB gadget control which was causing compatibility issues with the Pixel 10 USB drivers</li>
+                        <li>allow SystemUI to access NFC service on 10th gen Pixels to fix the NFC quick tile</li>
+                        <li>disable the upstream Android USB data protection feature since it conflicts with our more advanced approach and causes issues</li>
+                        <li>issue CHARGING_ONLY_IMMEDIATE port control command in more cases</li>
                         <li>fix an issue in our infrastructure for spoofing permission self-checks breaking automatically reading SMS one-time codes for certain apps</li>
                         <li>add workaround for upstream KeySetManagerService system_server crash causing a user to be stuck on an old OS version due to it causing a boot failure when booting a the new OS version after updating</li>
                         <li>wipe DPM partition on 10th gen Pixels as part of installation as we do on earlier Pixels since it's always meant to be zeroed on production devices</li>
