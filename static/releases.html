@@ -637,7 +637,8 @@
                         <li>add workaround for upstream WindowContext.finalize() system_server crash</li>
                         <li>disable buggy upstream disable_frozen_process_wakelocks feature causing system_server crashes for some users</li>
                         <li>Sandboxed Google Play compatibility layer: fix phenotype flags not working in Play services clients</li>
-                        <li>Sandboxed Google Play compatibility layer: add MEDIA_CONTENT_CONTROL as a requested permission for Android Auto as part of our toggles for it to avoid needing to grant the far more invasive notification access permission/li>
+                        <li>Sandboxed Google Play compatibility layer: add MEDIA_CONTENT_CONTROL as a requested permission for Android Auto as part of our toggles for it to avoid needing to grant the far more invasive notification access permission</li>
+                        <li>Sandboxed Google Play compatibility layer: extend opt-in Android Auto Bluetooth support to allow A2dpService.setConnectionPolicy() to fix Bluetooth functionality (previously worked around with a GmsCompatConfig update avoiding a crash)</li>
                         <li>switch to new upstream PackageInstallerUI implementation added in Android 16 QPR2 and port our changes to it</li>
                         <li>update SQLite to 3.50.6 LTS release</li>
                         <li>add an extra layer of USB port protection on 10th gen Pixels based on upstream functionality to replace our USB gadget control which was causing compatibility issues with the Pixel 10 USB drivers</li>
