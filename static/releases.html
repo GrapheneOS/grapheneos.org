@@ -633,6 +633,7 @@
                     <ul>
                         <li>reimplement the standard Android USB data signal API with our hardware + software USB blocking functionality to preserve support for the device admin and lockdown mode features for fully toggling off USB while upgrading it to use hardware blocking (this was omitted in the previous Alpha-only release)</li>
                         <li>fix regression in the last release causing sandboxed Google Play breakage in a subset of secondary users caused by the phenotype flag changes in the previous release</li>
+                        <li>Sandboxed Google Play compatibility layer: add stub for ContentResolver.acquireUnstableProvider()</li>
                         <li>fix the Terminal virtual machine management app not working in a secondary user Private Space (GrapheneOS adds the ability to use the Terminal app in secondary users and also adds the ability to use Private Space in secondary users, so the combination of those things resulted in this being possible but the upstream code was incompatible with it)</li>
                         <li>Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold: add high EMF (PWM) mode opt-in to the Settings app</li>
                     </ul>
