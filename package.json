@@ -6,7 +6,7 @@
     "html-minifier-terser": "^7.2.0",
     "stylelint": "^16.26.1",
     "stylelint-config-standard": "^39.0.1",
-    "terser": "^5.44.1",
+    "terser": "^5.45.0",
     "vnu-jar": "^26.1.11"
   },
   "type": "module"
