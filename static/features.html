@@ -355,11 +355,11 @@
                                     allocations to block C string overflows, absorb small overflows
                                     and detect linear overflows or other heap corruption when the
                                     canary value is checked (primarily on free)</li>
-                                    <li>Hardware memory tagging for slab allocations (128k and
-                                    below) providing probabilistic detection of all use-after-free
-                                    and inter-object overflows along with deterministic detection
-                                    of all small/linear overflows and use-after-free until it has
-                                    been reused once and gone through the quarantines twice</li>
+                                    <li>Hardware memory tagging (supported on 8th generation Pixels and 
+                                    above) for slab allocations (128k and below) providing probabilistic 
+                                    detection of all use-after-free and inter-object overflows along with 
+                                    deterministic detection of all small/linear overflows and use-after-free 
+                                    until it has been reused once and gone through the quarantines twice</li>
                                 </ul>
                             </li>
                             <li>On ARMv9, Branch Target Identification (BTI) and Pointer
@@ -1076,7 +1076,8 @@
                     <p>Some of the features added compared to standard mobile Chromium:</p>
 
                     <ul>
-                        <li>Hardware memory tagging (MTE) enabled for the main allocator</li>
+                        <li>Hardware memory tagging (MTE) enabled for the main allocator (supported
+                        on 8th generation pixels and above)</li>
                         <li>Type-based Control Flow Integrity (CFI)</li>
                         <li>Strong stack protector</li>
                         <li>Automatic zero-initialized variables</li>
