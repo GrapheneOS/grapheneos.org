@@ -635,6 +635,7 @@
                     <ul>
                         <li>Sandboxed Google Play compatibility layer: add special case for sandboxed Play services making it so users granting the SMS permission enables reading SMS addressed to apps using the Google Play services client library (Android 16 QPR2 prevented using the SMS permission to read SMS addressed to other apps so a special case is needed for apps which use Google Play services to handle SMS-based authentication)</li>
                         <li>Sandboxed Google Play compatibility layer: prevent sandboxed Play Store attempting to install the "Device configuration" package which is not used on GrapheneOS and serves no purpose</li>
+                        <li>add workaround for upstream system_server startUserInBackgroundTemporarily crash</li>
                         <li>fix GrapheneOS support for recording permission usage history for a broader set of permissions</li>
                         <li>Dialer: set CallStyle for call notifications to improve the user interface and replace our temporary workaround of disabling notification grouping for it</li>
                         <li>Network Location: rename "GrapheneOS proxy" option to "GrapheneOS Apple proxy" for clarity</li>
