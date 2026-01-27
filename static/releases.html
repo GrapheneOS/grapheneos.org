@@ -633,6 +633,7 @@
                     <p>Changes since the 2026012100 release:</p>
 
                     <ul>
+                        <li>FusedLocationProvider: restore pre-16-QPR1 GNSS usage policy of using GNSS for both balanced and high power requests instead of only high power requests since many GrapheneOS users don't enable network location and network location may not always be accessible such as temporarily not having internet access</li>
                         <li>Sandboxed Google Play compatibility layer: add special case for sandboxed Play services making it so users granting the SMS permission enables reading SMS addressed to apps using the Google Play services client library (Android 16 QPR2 prevented using the SMS permission to read SMS addressed to other apps so a special case is needed for apps which use Google Play services to handle SMS-based authentication)</li>
                         <li>Sandboxed Google Play compatibility layer: prevent sandboxed Play Store attempting to install the "Device configuration" package which is not used on GrapheneOS and serves no purpose</li>
                         <li>add workaround for upstream system_server startUserInBackgroundTemporarily crash</li>
