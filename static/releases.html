@@ -636,6 +636,7 @@
                         <li>FusedLocationProvider: restore pre-16-QPR1 GNSS usage policy of using GNSS for both balanced and high power requests instead of only high power requests since many GrapheneOS users don't enable network location and network location may not always be accessible such as temporarily not having internet access</li>
                         <li>Sandboxed Google Play compatibility layer: add special case for sandboxed Play services making it so users granting the SMS permission enables reading SMS addressed to apps using the Google Play services client library (Android 16 QPR2 prevented using the SMS permission to read SMS addressed to other apps so a special case is needed for apps which use Google Play services to handle SMS-based authentication)</li>
                         <li>Sandboxed Google Play compatibility layer: prevent sandboxed Play Store attempting to install the "Device configuration" package which is not used on GrapheneOS and serves no purpose</li>
+                        <li>Sandboxed Google Play compatibility layer: update Android Auto configuration UI to Material 3 Expressive</li>
                         <li>add workaround for upstream system_server startUserInBackgroundTemporarily crash</li>
                         <li>fix GrapheneOS support for recording permission usage history for a broader set of permissions</li>
                         <li>Dialer: set CallStyle for call notifications to improve the user interface and replace our temporary workaround of disabling notification grouping for it</li>
@@ -643,6 +644,8 @@
                         <li>Network Location: add "Apple China" server choice required for China data due to China's laws about mapping the country (currently no proxy due to poor connectivity to and from China causing reliability issues with connecting to Apple's servers in China from ours but we plan to offer it as an option in the future)</li>
                         <li>Pixel 8a, 9th gen Pixels and 10th gen Pixels: disable NTP usage in Samsung gnssd which isn't as useful on GrapheneOS due to reducing the system time update threshold from 2000ms to 50ms along with avoiding us needing to redirect this to our own NTP service as we did for Qualcomm xtra-daemon</li>
                         <li>update code for disabling reporting of harmless fingerprint-service.goodix crash</li>
+                        <li>improve user interface for Network/Sensors permissions in the permission manager</li>
+                        <li>fix minor Material 3 Expressive styling issues for the Contact Scopes and Storage Scopes configuration UI</li>
                         <li>adevtool: raise minimal supported Node.js version to 24</li>
                         <li>adevtool: disallow running adevtool as root</li>
                         <li>adevtool: check for presence of prebuilts dirs at startup</li>
