@@ -8,17 +8,13 @@ configargparse==1.7.1 \
     --hash=sha256:79c2ddae836a1e5914b71d58e4b9adbd9f7779d4e6351a637b7d2d9b6c46d3d9 \
     --hash=sha256:8b586a31f9d873abd1ca527ffbe58863c99f36d896e2829779803125e83be4b6
     # via gixy-ng
-crossplane==0.5.8 \
-    --hash=sha256:b193bd8b963a041d5414ea18dcbb1c55b5424fee3d73bfa1809124605b322101 \
-    --hash=sha256:ede8e83c9e3a58dfc37c69f5ee065d4b3adc44ae42749ced496962a0e7f545b7
-    # via gixy-ng
 cssselect==1.4.0 \
     --hash=sha256:c0ec5c0191c8ee39fcc8afc1540331d8b55b0183478c50e9c8a79d44dbceb1d8 \
     --hash=sha256:fdaf0a1425e17dfe8c5cf66191d211b357cf7872ae8afc4c6762ddd8ac47fc92
     # via -r requirements.in
-gixy-ng==0.2.27 \
-    --hash=sha256:4d8c00818c9dc22d14a1c0f49fa16d0a0edac68934d3d9e9293f409316e1c817 \
-    --hash=sha256:5ab053cfb1b3fbd59f2fb048c1a48baa8f63c96bfd1cc6f497e35a5184f51558
+gixy-ng==0.2.30 \
+    --hash=sha256:683e5afc6ef058d5ab0aa77677430e2709a61c50ab8dbcf8598308f1edb13cbb \
+    --hash=sha256:babadb1c878d81d76709fdbfae00d59c3c621ef686beb25ad4e543fa7cf6cd69
     # via -r requirements.in
 jinja2==3.1.6 \
     --hash=sha256:0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d \
@@ -257,3 +253,7 @@ markupsafe==3.0.3 \
     --hash=sha256:f9e130248f4462aaa8e2552d547f36ddadbeaa573879158d721bbd33dfe4743a \
     --hash=sha256:fed51ac40f757d41b7c48425901843666a6677e3e8eb0abcff09e4ba6e664f50
     # via jinja2
+ngxparse==0.5.16 \
+    --hash=sha256:33746d1693d93903ab0c2b37ba16b8a4743a2767b1959dc125a2417d253b7e3b \
+    --hash=sha256:880309135b1d6eb064684d03b3d66e112a3c44e6e2d8e6722d1f289953898be3
+    # via gixy-ng
