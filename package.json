@@ -7,7 +7,7 @@
     "stylelint": "^17.1.0",
     "stylelint-config-standard": "^40.0.0",
     "terser": "^5.45.0",
-    "vnu-jar": "^26.1.11"
+    "vnu-jar": "^26.2.2"
   },
   "type": "module"
 }
