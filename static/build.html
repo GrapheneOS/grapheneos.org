@@ -86,6 +86,7 @@
                                     <li><a href="#kernel-emulator">Emulator</a></li>
                                     <li><a href="#kernel-microdroid">Microdroid</a></li>
                                     <li><a href="#kernel-6th-through-9th-generation-pixels">6th through 9th generation Pixels</a></li>
+                                    <li><a href="#kernel-10th-generation-pixels">10th generation Pixels</a></li>
                                 </ul>
                             </li>
                             <li><a href="#browser-and-webview">Browser and WebView</a></li>
@@ -132,6 +133,10 @@
                     <p>Smartphone and tablet targets:</p>
 
                     <ul>
+                        <li>rango (Pixel 10 Pro Fold)</li>
+                        <li>mustang (Pixel 10 Pro XL)</li>
+                        <li>blazer (Pixel 10 Pro)</li>
+                        <li>frankel (Pixel 10)</li>
                         <li>tegu (Pixel 9a)</li>
                         <li>comet (Pixel 9 Pro Fold)</li>
                         <li>komodo (Pixel 9 Pro XL)</li>
@@ -764,8 +769,34 @@ cd kernel_pixel</pre>
                         <pre>KLEAF_REPO_MANIFEST=aosp_manifest.xml ./build_<var>codename</var>.sh --lto=full</pre>
 
                         <p>Replace the files in the OS source tree at
-                        <code>device/google/<var>codename</var>-kernels/6.1/grapheneos/</code> with your build in
-                        <code>out/<var>codename</var>/dist/</code>.</p>
+                        <code>device/google/<var>codename</var>-kernels/6.1/grapheneos/</code> with
+                        your build in <code>out/<var>codename</var>/dist/</code>.</p>
+                    </section>
+
+                    <section id="kernel-10th-generation-pixels">
+                        <h4><a href="#kernel-10th-generation-pixels">10th generation Pixels</a></h4>
+
+                        <p>To sync the kernel sources:</p>
+
+                        <pre>git clone https://gitlab.com/grapheneos/kernel_pixel_muzel.git -b 16-qpr2 --recurse-submodules
+cd kernel_pixel_muzel</pre>
+
+                        <p>Select the correct kernel codename for the device model:</p>
+
+                        <ul>
+                            <li>rango: rango</li>
+                            <li>mustang: muzel</li>
+                            <li>blazer: muzel</li>
+                            <li>frankel: muzel</li>
+                        </ul>
+
+                        <p>To build the kernel and modules:</p>
+
+                        <pre>./build_<var>codename</var>.sh --lto=full --repo_manifest="$(realpath .)":"$(realpath aosp_manifest.xml)</pre>
+
+                        <p>Replace the files in the OS source tree at
+                        <code>device/google/laguna-kernels/6.6/grapheneos/<var>codename</var></code>
+                        with your build in <code>out/<var>codename</var>/dist/</code>.</p>
                     </section>
                 </section>
 
