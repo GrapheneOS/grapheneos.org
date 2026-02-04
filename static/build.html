@@ -711,6 +711,8 @@ repo sync -j8</pre>
                     <section id="kernel-microdroid">
                         <h4><a href="#kernel-microdroid">Microdroid</a></h4>
 
+                        <p>The kernel branch for the emulator is currently 6.6.</p>
+
                         <p>To sync the kernel sources:</p>
 
                         <pre>mkdir -p android/kernel/6.6
@@ -718,7 +720,7 @@ cd android/kernel/6.6
 repo init -u https://github.com/GrapheneOS/kernel_manifest-6.6.git -b 16-qpr2
 repo sync -j8</pre>
 
-                        <p>To build the arm64 kernel image for microdroid:</p>
+                        <p>To build the arm64 kernel image:</p>
 
                         <pre>tools/bazel run //common:kernel_aarch64_microdroid_dist --config=stamp --lto=full</pre>
 
@@ -726,13 +728,13 @@ repo sync -j8</pre>
                         <code>packages/modules/Virtualization/microdroid/kernel/android15-6.6/arm64/kernel-6.6</code> with your image
                         <code>out/kernel_aarch64_microdroid/dist/Image</code>.</p>
 
-                        <p>To build the x86_64 kernel image for microdroid:</p>
+                        <p>To build the x86_64 kernel image:</p>
 
                         <pre>tools/bazel run //common:kernel_x86_64_microdroid_dist --config=stamp --lto=full</pre>
 
                         <p>Replace the prebuilt kernel image in the OS source tree at
-                        <code>packages/modules/Virtualization/microdroid/kernel/android15-6.6/x86_64/kernel-6.6</code> with your image
-                        <code>out/kernel_x86_64_microdroid/dist/bzImage</code>.</p>
+                        <code>packages/modules/Virtualization/microdroid/kernel/android15-6.6/x86_64/kernel-6.6</code>
+                        with your image <code>out/kernel_x86_64_microdroid/dist/bzImage</code>.</p>
                     </section>
 
                     <section id="kernel-6th-through-9th-generation-pixels">
