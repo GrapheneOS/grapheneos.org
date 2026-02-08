@@ -100,7 +100,13 @@
                     <li><a href="#android-auto">Android Auto</a></li>
                     <li><a href="#banking-apps">Banking apps</a></li>
                     <li><a href="#app-link-verification">App link verification</a></li>
-                    <li><a href="#carrier-functionality">Carrier functionality</a></li>
+                    <li>
+                        <a href="#carrier-functionality">Carrier functionality</a>
+                        <ul>
+                            <li><a href="#carrier-settings-overrides">Carrier settings overrides</a></li>
+                            <li><a href="#cross-sim-calling">Cross-SIM calling</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
 
@@ -1422,6 +1428,30 @@
                 via USB, Ethernet, Bluetooth and Wi-Fi and the ability to disable 2G (only on 6th
                 generation Pixel devices onwards) actions which would not necessarily have been
                 possible on the stock operating system.</p>
+
+                <section id="carrier-settings-overrides">
+                    <h3><a href="#carrier-settings-overrides">Carrier settings overrides</a></h3>
+                    <p>GrapheneOS has support for overriding a subset of carrier settings such as 
+                    VoLTE, Wi-FI calling and cross-SIM calling availability. This is useful when 
+                    the stock OS has missing or incomplete configurations for some carriers. These 
+                    overrides are saved per SIM and can be configured under <b>Settings&#160;> 
+                    Network &amp; internet&#160;> SIMs&#160;> <var>SIM</var>&#160;> Carrier 
+                    settings overrides</b>.</p>
+                </section>
+
+                <section id="cross-sim-calling">
+                    <h3><a href="#cross-sim-calling">Cross-SIM calling</a></h3>
+                    <p>For dual SIM setups, GrapheneOS has support for cross-SIM calling (backup
+                    calling) which allows you to make calls using a SIM via the mobile data provided 
+                    by another SIM similarly to Wi-Fi calling. This requires Automatic data 
+                    switching to be enabled in <b>Settings&#160;> Network &amp; internet&#160;> SIMs
+                    </b>. This is useful when the primary SIM has no connectivity and you have a 
+                    second SIM with data, e.g. roaming outside of your country with a travel 
+                    eSIM.</p>
+                    
+                    <p>Cross-SIM calling is active when "Backup Calling" is added to the mobile 
+                    operator name.</p>
+                </section>
             </section>
         </main>
         {% include "footer.html" %}
