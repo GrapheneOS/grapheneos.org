@@ -60,7 +60,7 @@ for file in static-tmp/**/*.css static-tmp/js/*.js static-tmp/**/!(bimi|favicon)
     replace+=";s@\[\[integrity|/${file#*/}\]\]@${sri_hash}@g"
     replace+=";s@\[\[path|/${file#*/}\]\]@/${dest#*/}@g"
 done
-sed -i "$replace" static-tmp/**/*.html nginx-tmp/nginx.conf nginx-tmp/snippets/preload.conf
+sed -i "$replace" static-tmp/**/*.html nginx-tmp/nginx.conf nginx-tmp/preload.conf
 
 replace=
 devices=(rango mustang blazer frankel tegu comet komodo caiman tokay akita husky shiba felix tangorpro lynx cheetah panther bluejay raven oriole barbet redfin bramble sunfish coral flame)

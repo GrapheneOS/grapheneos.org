@@ -52,7 +52,7 @@ for server in ${servers[@]}; do
     ssh $remote "ln -snf $target /srv/grapheneos.org && sync /srv/grapheneos.org"
 
     echo "root $target;" > nginx-tmp/root_grapheneos.org.conf
-    rsync -rpcv --chmod=D755,F644 --delete --fsync --preallocate nginx-tmp/{ffdhe2048.txt,nginx.conf,mime.types,root_grapheneos.org.conf,snippets} $remote:/etc/nginx/
+    rsync -pcv --chmod=644 --fsync --preallocate nginx-tmp/{ffdhe2048.txt,nginx.conf,mime.types,preload.conf,root_grapheneos.org.conf,security-headers.conf,security-headers-base.conf} $remote:/etc/nginx/
     ssh $remote systemctl reload nginx
 
     echo
