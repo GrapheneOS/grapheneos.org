@@ -1204,14 +1204,16 @@
                     networking (can use Wi-Fi and VPN) and SUPL is used regardless of the carrier's
                     APN type configuration.</p>
 
-                    <p>MMS, RCS, SMS over LTE, VVM (Visual Voicemail), VoLTE (carrier-based calls
+                    <p>Connections made to the IP Multimedia Subsystem (IMS), for services such as
+                    RCS, SMS over LTE, VVM (Visual Voicemail), VoLTE (carrier-based calls
                     on 4G and higher), VoNR (5G) and VoWi-Fi are largely implemented by the OS via
                     TCP/IP rather than by the cellular layer itself. This means there will be
                     connections by the OS to carrier servers instead of being handled by cellular.
                     GrapheneOS modifies carrier configuration so that toggles for disabling VoLTE,
                     VoNR and VoWi-Fi are always available. We plan to provide more toggles to
                     control these things in the future beyond making all the standard toggles
-                    available.</p>
+                    available. This involves connections to the <code>3gppnetwork.org</code>
+                    domains.</p>
                 </article>
 
                 <article id="privacy-policy">
