@@ -422,7 +422,7 @@
                 versions of the OS which will minimize bandwidth usage since incrementals will always
                 be available.</p>
 
-                <p>The updater works while the device is locked / idle, including before the first
+                <p>The updater works while the device is locked and idle, including before the first
                 unlock since it's explicitly designed to be able to run before decryption of user
                 data.</p>
 
@@ -462,7 +462,7 @@
 
                     <p>The "Notification settings" option is a shortcut to the System Updater notification
                     settings which allows you to control notification settings from System Updater such as
-                    notification dot, lock screen, and noisy / silent notifications. These notifications
+                    notification dot, lock screen, and noisy or silent notifications. These notifications
                     include updater errors, progress, already up to date, and reboot prompts. By default all
                     notifications are enabled.</p>
                 </section>
@@ -472,7 +472,7 @@
 
                     <p>The update server isn't a trusted party since updates are signed and verified along
                     with downgrade attacks being prevented. The update protocol doesn't send identifiable
-                    information to the update server and works well over a VPN / Tor. GrapheneOS isn't
+                    information to the update server and works well over a VPN or Tor. GrapheneOS isn't
                     able to comply with a government order to build, sign and ship a malicious update to a
                     specific user's device based on information like the IMEI, serial number, etc. The
                     update server only ends up knowing the IP address used to connect to it and the
@@ -639,7 +639,7 @@
                 a WebView implementation (GeckoView is not a WebView implementation), so it has to be
                 used alongside the Chromium-based WebView rather than instead of Chromium, which means
                 having the remote attack surface of two separate browser engines instead of only one.
-                Firefox / Gecko also bypass or cripple a fair bit of the upstream and GrapheneOS
+                Firefox/Gecko also bypass or cripple a fair bit of the upstream and GrapheneOS
                 hardening work for apps. Worst of all, Firefox does not have internal sandboxing
                 on Android. This is despite the fact that Chromium semantic sandbox layer on
                 Android is implemented via the OS <code>isolatedProcess</code> feature, which is a
@@ -666,7 +666,7 @@
                     <h3><a href="#grapheneos-camera-app">GrapheneOS Camera app</a></h3>
 
                     <p>GrapheneOS includes our own modern camera app focused on privacy and
-                    security. It includes modes for capturing images, videos and QR / barcode
+                    security. It includes modes for capturing images, videos and QR and barcode
                     scanning along with additional modes based on CameraX vendor extensions
                     (Portrait, HDR, Night, Face Retouch and Auto) on <a
                     href="https://developer.android.com/training/camera/supported-devices">devices
@@ -685,7 +685,7 @@
                     images.</p>
 
                     <p>Our Camera app provides the system media intents used by other apps to
-                    capture images / record videos via the OS provided camera implementation.
+                    capture images and record videos via the OS provided camera implementation.
                     These intents can only be provided by a system app since Android 11, so the
                     quality of the system camera is quite important.</p>
 
@@ -727,7 +727,7 @@
                     setting determines the timeout before it switches back the default mode. The
                     exposure compensation slider on the left allows manually tuning exposure and
                     will automatically adjust shutter speed, aperture and ISO without disrupting
-                    lightweight HDR+ support. Further configuration / tuning will be provided in
+                    lightweight HDR+ support. Further configuration and tuning will be provided in
                     the future.</p>
 
                     <p>The QR scanning mode only scans within the scanning square marked on the
@@ -991,7 +991,7 @@
                 surface by disabling 2G, 3G and 5G connectivity in <b>Settings&#160;> Network &amp; internet&#160;>
                 SIMs&#160;> <var>SIM</var>&#160;> Preferred network type</b>. Traditional voice calls will only
                 work in the LTE-only mode if you have either an LTE connection and VoLTE (Voice over LTE) support or
-                a Wi-Fi connection and VoWi-Fi (Voice over Wi-Fi) support. VoLTE / VoWi-Fi works on GrapheneOS for
+                a Wi-Fi connection and VoWi-Fi (Voice over Wi-Fi) support. VoLTE and VoWi-Fi works on GrapheneOS for
                 most carriers unless they restrict it to carrier phones. Some carriers may be missing VoWi-Fi due to
                 us not including their proprietary apps. Please note that AT&amp;T users may see "5Ge" being used
                 when LTE Only mode is enabled as AT&amp;T intentionally mislabel LTE services as "5Ge" to mislead
@@ -999,8 +999,8 @@
 
                 <p>This feature is not intended to improve the confidentiality of traditional calls and
                 texts, but it might somewhat raise the bar for some forms of interception. It's not a
-                substitute for end-to-end encrypted calls / texts or even transport layer encryption.
-                LTE does provide basic network authentication / encryption, but it's for the network
+                substitute for end-to-end encrypted calls and texts or even transport layer encryption.
+                LTE does provide basic network authentication and encryption, but it's for the network
                 itself. The intention of the LTE-only feature is only hardening against remote
                 exploitation by disabling an enormous amount of both legacy code (2G, 3G) and bleeding
                 edge code (5G).</p>
@@ -1037,7 +1037,7 @@
                 layer.</p>
 
                 <p>The vast majority of Play services functionality works perfectly including
-                dynamically downloaded / updated modules (dynamite modules) and functionality
+                dynamically downloaded and updated modules (dynamite modules) and functionality
                 provided by modular app components such as Google Play Games. By default, location
                 requests are rerouted to a reimplementation of the Play geolocation service
                 provided by GrapheneOS. You can disable rerouting and use the standard Play
@@ -1048,7 +1048,7 @@
 
                 <p>Our compatibility layer includes full support for the Play Store. Play Store
                 services are fully available including in-app purchases, Play Asset Delivery, Play
-                Feature Delivery and app / content license checks. It can install, update and
+                Feature Delivery and app and content license checks. It can install, update and
                 uninstall apps with the standard approach requiring that the user authorizes it as
                 an app source and consents to each action. It will use the standard Android 12+
                 unattended update feature to do automatic updates for apps where it was the last
@@ -1167,7 +1167,7 @@
                     default as part of the baseline compatibility layer, but is supported as an
                     extension of it with dedicated toggles for the functionality that's not
                     possible to implement another way. The same applies to other highly invasive
-                    OS integration / control or privileged access to hardware. Our compatibility
+                    OS integration/control or privileged access to hardware. Our compatibility
                     layer is a very actively developed work in progress and most of the remaining
                     unavailable functionality is quickly becoming supported. In the future, we can
                     also support redirection for more APIs such as FIDO2 rather than only the
@@ -1242,7 +1242,7 @@
                 <p>In order to work, Android Auto has to be granted baseline permissions for wired
                 or wireless Android Auto. Wired Android Auto requires far less access than wireless
                 Android Auto does. Baseline permissions are controlled by the "Allow permissions
-                for wired / wireless Android Auto" toggles.</p>
+                for wired/wireless Android Auto" toggles.</p>
 
                 <p>For some cars, baseline permissions for wireless Android Auto are needed even
                 when using wired Android Auto. Therefore, if wired Android Auto is unable to
