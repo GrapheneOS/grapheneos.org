@@ -285,7 +285,7 @@
                         <li>PXN, SMEP or equivalent</li>
                         <li>PAN, SMAP or equivalent</li>
                         <li>Isolated radios (cellular, Wi-Fi, Bluetooth, NFC, etc.), GPU, SSD,
-                        media encode / decode, image processor and other components</li>
+                        media encode and decode, image processor and other components</li>
                         <li>Support for A/B updates of both the firmware and OS images with
                         automatic rollback if the initial boot fails one or more times</li>
                         <li>Verified boot with rollback protection for firmware</li>
@@ -549,7 +549,7 @@
                     with metadata encryption. All data, file names and other metadata is always
                     stored encrypted. This is often referred to as file-based encryption but it
                     makes more sense to call it filesystem-based encryption. It's implemented by
-                    the Linux kernel as part of the ext4 / f2fs implementation rather than running
+                    the Linux kernel as part of the ext4 and f2fs implementation rather than running
                     a block-based encryption layer. The advantage of filesystem-based encryption
                     is the ability to use fine-grained keys rather than a single global key that's
                     always in memory once the device is booted.</p>
@@ -716,7 +716,7 @@
 
                     <p>Examples of the global OS configuration available to apps are time zone,
                     network country code and other similar global settings. Per-profile examples
-                    are dark mode and language. Similar to extension and browser configuration /
+                    are dark mode and language. Similar to extension and browser configuration and
                     state being fingerprinted by web sites, an app could use a combination of
                     these things in an attempt to identify the installation. All of these things
                     vary at runtime and can be changed, but some are fairly unlikely to change in
@@ -782,7 +782,7 @@
                     GrapheneOS also avoids trust in the cellular network in other ways including providing
                     a secure network time update implementation rather than trusting the cellular network
                     for this. Time is sensitive and can be used to bypass security checks depending on
-                    certificate / key expiry.</p>
+                    certificate and key expiry.</p>
 
                     <p>Cellular networks use inherently insecure protocols and have many trusted parties.
                     Even if interception of the connection or some other man-in-the-middle attack along
@@ -796,9 +796,9 @@
                     recommend apps taking a decent approach in this area.</p>
 
                     <p>Legacy calls and texts should be avoided as they're not secure and trust the
-                    carrier / network along with having weak security against other parties. Trying to
+                    carrier and network along with having weak security against other parties. Trying to
                     detect some forms of interception rather than dealing with the root of the problem
-                    (unencrypted communications / data transfer) would be foolish and doomed to
+                    (unencrypted communications and unencrypted data transfer) would be foolish and doomed to
                     failure.</p>
 
                     <p>GrapheneOS does not add gimmicks without a proper threat model and
@@ -874,7 +874,7 @@
                             https://releases.grapheneos.org/<var>DEVICE</var>-incremental-<var>OLD_VERSION</var>-<var>NEW_VERSION</var>.zip
                             for a delta update, and then falls back to
                             https://releases.grapheneos.org/<var>DEVICE</var>-ota_update-<var>NEW_VERSION</var>.zip.</p>
-                            <p>No query / data is sent to the server, so the only information given to it
+                            <p>No query or data is sent to the server, so the only information given to it
                             are the variables in these 3 URLs (device, channel, current version) which is
                             necessary to obtain the update.</p>
                             <p>Users are in control of which types of networks the Updater app will use
@@ -919,7 +919,7 @@
                             not available (GNSS can also be used as a time source but is disabled
                             by default, and OEMs can choose the priority order). Network time
                             updates are security sensitive since certificate validation depends on
-                            having an accurate time, but the standard NTP / SNTP protocols used
+                            having an accurate time, but the standard NTP and SNTP protocols used
                             across most OSes have no authentication. Our servers obtain the time
                             from 6 independent NTP servers with NTS for authentication where at
                             least 3 servers need to agree on the time for it to be updated.</p>
@@ -952,7 +952,7 @@
 
                             <pre>Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.32 Safari/537.36</pre>
 
-                            <p>No query / data is sent to the servers and the response is unused beyond
+                            <p>No query or data is sent to the servers and the response is unused beyond
                             checking the response code.</p>
 
                             <p>Connectivity checks are performed for each network connection and
@@ -1117,7 +1117,7 @@
                         </li>
                         <li>
                             <p>DNS resolution for other connections involving connections to the
-                            network / user provided DNS resolvers</p>
+                            network/user provided DNS resolvers</p>
                         </li>
                     </ul>
 
@@ -1455,7 +1455,7 @@
                     <p>Apps and web sites can detect that ad-blocking is being used and can
                     determine what's being blocked. This can be used as part of fingerprinting
                     users. Using a widely used service like AdGuard with a standard block list is
-                    much less of an issue than a custom set of subscriptions / rules, but it still
+                    much less of an issue than a custom set of subscriptions and rules, but it still
                     stands out compared to the default of not doing it.</p>
                 </article>
 
@@ -1638,7 +1638,7 @@
                     <h3><a href="#file-transfer">How do I transfer files to another device?</a></h3>
 
                     <p>Files can be transferred to another device using an external drive, USB file
-                    transfer via MTP / PTP or an app-based mechanism.</p>
+                    transfer via MTP and PTP, or an app-based mechanism.</p>
 
                     <p>The only difference on GrapheneOS is that by default the USB-C port and pogo
                     pins block new connections as soon as the device is locked by default and
@@ -1651,7 +1651,7 @@
                     <p>To use an external drive, plug it into the phone and use the system file
                     manager to copy files to and from it.</p>
 
-                    <p>Transferring files to an attached computer is done with MTP / PTP. Users on
+                    <p>Transferring files to an attached computer is done with MTP and PTP. Users on
                     a Mac computer will need to install <a
                     href="https://openmtp.ganeshrvel.com/">OpenMTP</a> or another MTP app to be able
                     to transfer files between macOS and Android. After plugging in the phone to the
@@ -2003,7 +2003,7 @@
             <article id="company">
                 <h2><a href="#company">Will GrapheneOS create a company?</a></h2>
 
-                <p>No, GrapheneOS will remain a non-profit open source project / organization. It
+                <p>No, GrapheneOS will remain a non-profit open source project and organization. It
                 will remain an independent organization not strongly associated with any specific
                 company. We partner with a variety of companies and other organizations, and we're
                 interested in more partnerships in the future. Keeping it as an non-profit avoids

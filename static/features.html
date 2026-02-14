@@ -89,7 +89,7 @@
                                     mitigations</a></li>
                                     <li><a href="#improved-sandboxing">Improved
                                     sandboxing</a></li>
-                                    <li><a href="#anti-persistence">Anti-persistence /
+                                    <li><a href="#anti-persistence">Anti-persistence and
                                     detection</a></li>
                                 </ul>
                             </li>
@@ -413,9 +413,9 @@
                                     including many which we played a part in developing and
                                     landing upstream as part of our linux-hardened project (which
                                     we intend to revive as a more active project again).</li>
-                                    <li>Forced kernel module signing with per-build RSA 4096 /
-                                    SHA256 keys and lockdown mode set to forced confidentiality
-                                    mode help to enforce a low-level boundary between the kernel
+                                    <li>Forced kernel module signing with per-build RSA 4096 and
+                                    SHA256 keys, and lockdown mode set to forced confidentiality
+                                    mode, help to enforce a low-level boundary between the kernel
                                     and userspace even if mistakes are made in SELinux policy or
                                     there's a deep userspace compromise.</li>
                                     <li>Additional consistency/integrity checks are enabled for
@@ -474,7 +474,7 @@
                     </section>
 
                     <section id="anti-persistence">
-                        <h4><a href="#anti-persistence">Anti-persistence / detection</a></h4>
+                        <h4><a href="#anti-persistence">Anti-persistence and detection</a></h4>
 
                         <ul>
                             <li>Enhanced <a href="https://source.android.com/docs/security/features/verifiedboot">verified boot</a>
@@ -1279,7 +1279,7 @@
                     all location data accesses through any APIs. Normally, the stock OS only shows
                     it for GNSS location requests, also known as high power location requests, and
                     doesn't normally show it for network location and other APIs gated by the
-                    Location permission / global block toggle.</p>
+                    Location permission and global block toggle.</p>
 
                     <p>The indicator works the same way as the Camera and Microphone ones, showing
                     a bright green icon when location access occurs which then gets minimized to a
@@ -1401,10 +1401,10 @@
                         features being enabled.</li>
                         <li>Authenticated encryption for network time updates via a first-party server to
                         prevent attackers from changing the time and enabling attacks based on bypassing
-                        certificate / key expiry, etc.</li>
+                        certificate and key expiry, etc.</li>
                         <li>Proper support for disabling network time updates rather than just not using
                         the results</li>
-                        <li>Hardened local build / signing infrastructure</li>
+                        <li>Hardened local build and signing infrastructure</li>
                         <li><a href="/usage#updates">Seamless automatic OS update system</a> that just
                         works and stays out of the way in the background without disrupting device
                         usage, with full support for the standard automatic rollback if the first boot
@@ -1425,11 +1425,11 @@
                         <li>Secure-by-default Android 12 PendingIntent security check (FLAG_IMMUTABLE)
                         instead of crash-by-default improving older app compatibility and security.</li>
                         <li>Fixed UART debugging enabled warning on official release builds.</li>
-                        <li>Engineering / Prototype ("EVT", "PVT" or "DVT") device warning as these
+                        <li>Engineering/Prototype ("EVT", "PVT" or "DVT") device warning as these
                         devices typically have relaxed security controls for development, mainly
                         the secure boot state property <code>ro.boot.secure_boot</code> not set
                         to <code>PRODUCTION</code>.</li>
-                        <li>Enable bootloader, radio, and boot partition version / fingerprint
+                        <li>Enable bootloader, radio, and boot partition version and fingerprint
                         checks.</li>
                         <li>Remove code automatically granting the location permission to system
                         browsers.</li>
