@@ -96,11 +96,17 @@
                             <li><a href="#sandboxed-google-play-limitations">Limitations</a></li>
                         </ul>
                     </li>
-                    <li><a href="#esim-support">eSIM support</a></li>
+                    <li><a href="#esim-management">eSIM management</a></li>
                     <li><a href="#android-auto">Android Auto</a></li>
                     <li><a href="#banking-apps">Banking apps</a></li>
                     <li><a href="#app-link-verification">App link verification</a></li>
-                    <li><a href="#carrier-functionality">Carrier functionality</a></li>
+                    <li>
+                        <a href="#carrier-functionality">Carrier functionality</a>
+                        <ul>
+                            <li><a href="#carrier-settings-overrides">Carrier settings overrides</a></li>
+                            <li><a href="#cross-sim-calling">Cross-SIM calling</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
 
@@ -112,12 +118,11 @@
                 like it. Our experience is that when armed with the appropriate knowledge, the
                 vast majority of users prefer the newer gesture navigation approach.</p>
 
-                <p>The system navigation mode can be configured in <b>Settings&#160;<span
-                aria-label="and then">></span> System&#160;<span aria-label="and then">></span>
-                Gestures&#160;<span aria-label="and then">></span> Navigation
-                mode</b>. The same menu is also available in <b>Settings&#160;<span aria-label="and then">></span>
-                Accessibility&#160;<span aria-label="and then">></span> System
-                controls&#160;<span aria-label="and then">></span> Navigation mode</b>.</p>
+                <p>The system navigation mode can be configured in <b>Settings&#160;> System&#160;>
+                Gestures&#160;> Navigation
+                mode</b>. The same menu is also available in <b>Settings&#160;>
+                Accessibility&#160;> System
+                controls&#160;> Navigation mode</b>.</p>
 
                 <section id="gesture-navigation">
                     <h3><a href="#gesture-navigation">Gesture navigation</a></h3>
@@ -377,9 +382,8 @@
                 already.</p>
 
                 <p>GrapheneOS disables showing the characters as passwords are typed by default. You
-                can enable this in <b>Settings&#160;<span aria-label="and then">></span>
-                Security &amp; privacy&#160;<span aria-label="and then">></span> Privacy&#160;<span
-                aria-label="and then">></span> Show passwords</b>.</p>
+                can enable this in <b>Settings&#160;>
+                Security &amp; privacy&#160;> Privacy&#160;> Show passwords</b>.</p>
 
                 <p>Third party accessibility services can be installed and activated. This
                 includes the ones made by Google. Most of these will work but some may have a hard
@@ -426,8 +430,7 @@
                 <section id="updates-settings">
                     <h3><a href="#updates-settings">Settings</a></h3>
 
-                    <p>The settings are available in the Settings app in <b>System&#160;<span
-                    aria-label="and then">></span> System update</b>.</p>
+                    <p>The settings are available in the Settings app in <b>System&#160;> System update</b>.</p>
 
                     <p>The "Check for updates" option will manually trigger an update check as soon as
                     possible. It will still wait for the configuration conditions listed below to be
@@ -485,7 +488,7 @@
                     <p>It's highly recommended to leave automatic updates enabled and to configure
                     the permitted networks if the bandwidth usage is a problem on your mobile data
                     connection. However, it's possible to turn off the update client by going to
-                    <b>Settings&#160;<span aria-label="and then">></span> Apps</b>, enabling Show
+                    <b>Settings&#160;> Apps</b>, enabling Show
                     system via the menu, selecting System Updater and disabling the app. If you do
                     this, you'll need to remember to enable it again to start receiving updates.</p>
                 </section>
@@ -532,8 +535,8 @@
                 USB-C or pogo pins while the OS is booted. For the majority of devices without pogo
                 pins, the setting is labelled <b>USB-C port</b>.</p>
 
-                <p>The setting is available in <b>Settings&#160;<span aria-label="and then">></span>
-                Security&#160;<span aria-label="and then">></span> Exploit protection</b>.</p>
+                <p>The setting is available in <b>Settings&#160;>
+                Security&#160;> Exploit protection</b>.</p>
 
                 <p>The setting has five modes:</p>
 
@@ -651,11 +654,9 @@
             <section id="camera">
                 <h2><a href="#camera">Camera</a></h2>
 
-                <p>GrapheneOS has the same camera capabilities and quality as the stock OS. It
-                will match the stock OS when comparing the same app on each OS. GrapheneOS uses
-                our own modern Camera app rather than the standard AOSP Camera app. GrapheneOS
-                Camera is far better than any of the portable open source camera alternatives and
-                even most proprietary camera apps including paid apps. On Pixels, Pixel Camera
+                <p>GrapheneOS has the same camera capabilities and quality as the stock OS. It will
+                match the stock OS when comparing the same app on each OS. GrapheneOS uses our own
+                modern Camera app rather than the standard AOSP Camera app. On Pixels, Pixel Camera
                 can be used as an alternative with more features. The section below has a detailed
                 guide on using GrapheneOS Camera and the following section explains the remaining
                 advantages of Pixel Camera on Pixels.</p>
@@ -747,7 +748,7 @@
                     stored via the Media Store API so media/storage permissions aren't required.
                     The Microphone permission is needed for video recording by default but not
                     when including audio is disabled. Location permission is only needed if you
-                    explicitly enabling location tagging, which is an experimental feature.</p>
+                    explicitly enabling location tagging.</p>
 
                     <p>By default, EXIF metadata is stripped for captured images and only includes
                     the orientation. Stripping metadata for videos is planned but not supported
@@ -822,9 +823,9 @@
                 profiles, so it also provides a temporary set of device identifiers across profiles
                 for each boot via the shared randomized values.</p>
 
-                <p>This feature can be disabled via <b>Settings&#160;<span aria-label="and then">></span>
-                Security &amp; privacy&#160;<span aria-label="and then">></span>
-                Exploit protection&#160;<span aria-label="and then">></span> Secure app spawning</b>
+                <p>This feature can be disabled via <b>Settings&#160;>
+                Security &amp; privacy&#160;>
+                Exploit protection&#160;> Secure app spawning</b>
                 if you prefer to have faster cold start app spawning time and lower app process
                 memory usage instead of the substantial security benefits and the removal of the
                 only known remaining direct device identifiers across profiles (i.e. not depending
@@ -856,8 +857,7 @@
                 application when it violates the rules.</p>
 
                 <p>You can enable our exploit protection compatibility mode via
-                <b>Settings&#160;<span aria-label="and then">></span> Apps&#160;<span
-                aria-label="and then">></span> <var>APP</var>&#160;<span aria-label="and then">></span>
+                <b>Settings&#160;> Apps&#160;> <var>APP</var>&#160;>
                 Exploit protection compatibility mode</b>. The exploit protection compatibility mode
                 toggle will:</p>
                 <ul>
@@ -915,9 +915,8 @@
                     to delete the saved network afterwards.</p>
 
                     <p>Wi-Fi and Bluetooth scanning for improving location detection are disabled by
-                    default, unlike the stock OS. These can be toggled in <b>Settings&#160;<span
-                    aria-label="and then">></span> Location&#160;<span aria-label="and then">></span>
-                    Location services&#160;<span aria-label="and then">></span> Wi-Fi and Bluetooth
+                    default, unlike the stock OS. These can be toggled in <b>Settings&#160;> Location&#160;>
+                    Location services&#160;> Wi-Fi and Bluetooth
                     scanning</b>. These features enable scanning even when Wi-Fi or Bluetooth is
                     disabled, so these need to be kept disabled to fully disable the radios when
                     Wi-Fi and Bluetooth are disabled. GrapheneOS itself doesn't currently include a
@@ -933,10 +932,8 @@
                     <h3><a href="#wifi-privacy-associated">Associated with an Access Point (AP)</a></h3>
 
                     <p>Associated MAC randomization is performed by default. This can be controlled
-                    per-network in <b>Settings&#160;<span aria-label="and then">></span> Network
-                    &amp; internet&#160;<span aria-label="and then">></span> Internet&#160;<span
-                    aria-label="and then">></span> <var>NETWORK</var>&#160;<span
-                    aria-label="and then">></span> Privacy</b>.</p>
+                    per-network in <b>Settings&#160;> Network
+                    &amp; internet&#160;> Internet&#160;> <var>NETWORK</var>&#160;> Privacy</b>.</p>
 
                     <p>In the stock OS, the default is to use a unique persistent random MAC address for
                     each network. It has 2 options available: "Use randomized MAC (default)" and "Use
@@ -975,15 +972,13 @@
                 <p>For more information on the network location feature and how it works, see the
                 <a href="/features#network-location">features section</a>.</p>
 
-                <p>The setting can be found at <b>Settings&#160;<span aria-label="and then">></span>
-                Location&#160;<span aria-label="and then">></span> Location services&#160;<span
-                aria-label="and then">></span> Network location</b>. The available options are using
+                <p>The setting can be found at <b>Settings&#160;>
+                Location&#160;> Location services&#160;> Network location</b>. The available options are using
                 Apple's network location service, or a GrapheneOS proxy to that service.</p>
 
                 <p>To use this feature, you need to make sure that you either have Wi-Fi enabled, or that
-                Wi-Fi scanning is enabled at <b>Settings&#160;<span aria-label="and then">></span>
-                Location&#160;<span aria-label="and then">></span> Location services&#160;<span
-                aria-label="and then">></span> Wi-Fi scanning</b>, or you have cell reception (far less accurate).
+                Wi-Fi scanning is enabled at <b>Settings&#160;>
+                Location&#160;> Location services&#160;> Wi-Fi scanning</b>, or you have cell reception (far less accurate).
                 Enabling the Wi-Fi scanning setting will allow you to use Wi-Fi-based network location even if
                 you disable the global Wi-Fi toggle.</p>
             </section>
@@ -992,10 +987,8 @@
                 <h2><a href="#lte-only-mode">LTE-only mode</a></h2>
 
                 <p>If you have a reliable LTE connection from your carrier, you can reduce attack
-                surface by disabling 2G, 3G and 5G connectivity in <b>Settings&#160;<span
-                aria-label="and then">></span> Network &amp; internet&#160;<span aria-label="and then">></span>
-                SIMs&#160;<span aria-label="and then">></span> <var>SIM</var>&#160;<span
-                aria-label="and then">></span> Preferred network type</b>. Traditional voice calls will only
+                surface by disabling 2G, 3G and 5G connectivity in <b>Settings&#160;> Network &amp; internet&#160;>
+                SIMs&#160;> <var>SIM</var>&#160;> Preferred network type</b>. Traditional voice calls will only
                 work in the LTE-only mode if you have either an LTE connection and VoLTE (Voice over LTE) support or
                 a Wi-Fi connection and VoWi-Fi (Voice over Wi-Fi) support. VoLTE / VoWi-Fi works on GrapheneOS for
                 most carriers unless they restrict it to carrier phones. Some carriers may be missing VoWi-Fi due to
@@ -1107,8 +1100,7 @@
                     <h3><a href="#sandboxed-google-play-configuration">Configuration</a></h3>
 
                     <p>The compatibility layer has a configuration menu available at
-                    <b>Settings&#160;<span aria-label="and then">></span> Apps&#160;<span
-                    aria-label="and then">></span> Sandboxed Google Play</b>.</p>
+                    <b>Settings&#160;> Apps&#160;> Sandboxed Google Play</b>.</p>
 
                     <p>By default, apps using Google Play geolocation are redirected to our own
                     implementation on top of the standard OS geolocation service. You don't need to
@@ -1128,8 +1120,8 @@
                         <li>Use the "Google Location Accuracy" link from the sandboxed Google Play configuration
                         menu to access the Google Play services menu for opting into their network location service.</li>
                         <li>To take advantage of Wi-Fi and Bluetooth scanning, you also need to enable the scanning
-                        toggles in <b>Settings&#160;<span aria-label="and then">></span>
-                        Location &#160;<span aria-label="and then">></span> Location services</b>
+                        toggles in <b>Settings&#160;>
+                        Location &#160;> Location services</b>
                         which are disabled by default and control whether apps with the required permissions
                         can scan when Wi-Fi and Bluetooth are otherwise disabled.</li>
                     </ol>
@@ -1145,8 +1137,7 @@
                     <p>The menu also provides links to this usage guide, Play services system
                     settings, Play Store system settings and Google settings. The Play services and
                     Play Store system settings are only included for convenience since they can be
-                    accessed the same way as any other app via <b>Settings&#160;<span
-                    aria-label="and then">></span> Apps</b>.</p>
+                    accessed the same way as any other app via <b>Settings&#160;> Apps</b>.</p>
                 </section>
 
                 <section id="sandboxed-google-play-location-sharing">
@@ -1190,19 +1181,20 @@
                 </section>
             </section>
 
-            <section id="esim-support">
-                <h3><a href="#esim-support">eSIM support</a></h3>
+            <section id="esim-management">
+                <h2><a href="#esim-management">eSIM management</a></h2>
                 <p>By default, GrapheneOS has always shipped with baseline support for eSIM,
                 where users can use any eSIMs installed previously on the device. However, in
                 order to manage and add eSIMs, proprietary Google functionality is needed. This
                 is fully disabled by default.</p>
 
-                <p>eSIM support on GrapheneOS doesn't require any dependency on Google Play,
-                and never shares data to Google Play even when installed. It won't connect to a
-                Google service unless the carrier uses one themselves.</p>
+                <p>Even though proprietary functionality is needed, eSIM management on GrapheneOS 
+                doesn't require any dependency on Google Play, and it never shares data to Google 
+                Play even when installed. It won't connect to a Google service unless the carrier 
+                uses one themselves.</p>
 
-                <p>eSIM support can be enabled in <b>Settings&#160;<span aria-label="and then">></span>
-                Network &amp; internet&#160;<span aria-label="and then">></span>
+                <p>eSIM management can be enabled in <b>Settings&#160;>
+                Network &amp; internet&#160;>
                 eSIM support</b>. The toggle is persistent across every boot.</p>
 
                 <p>Note that if the eSIM installation process does not progress past the
@@ -1232,12 +1224,13 @@
                 depends on sandboxed Google Play, you'll be prompted to install it if it's not
                 already installed.</p>
 
-                <p>After installation, Android Auto has to be set up from the <b>Settings&#160;<span
-                aria-label="and then">></span> Apps&#160;<span aria-label="and then">></span>
-                Sandboxed Google Play&#160;<span aria-label="and then">></span> Android Auto</b>
+                <p>After installation, Android Auto has to be set up from the <b>Settings&#160;> Apps&#160;>
+                Sandboxed Google Play&#160;> Android Auto</b>
                 configuration screen, which contains permission toggles, links to related
                 configuration screens, configuration tips, and links to optional Android Auto
-                dependencies.</p>
+                dependencies. To set up Android Auto in Private Space, go to <b>Settings&#160;>
+                Security and privacy&#160;> Private Space&#160;> Sandboxed Google Play&#160;>
+                Android Auto</b>.</p>
 
                 <p>The permission toggles ask for a confirmation before turning on. The
                 confirmation popup explains what access each permission toggle provides.</p>
@@ -1280,8 +1273,8 @@
                 <p>Many of these apps have their own crude anti-tampering mechanisms trying to
                 prevent inspecting or modifying the app in a weak attempt to hide their code and API
                 from security researchers. GrapheneOS allows users to disable <b>Native code
-                debugging</b> via a toggle in <b>Settings&#160;<span aria-label="and then">></span>
-                Security &amp; privacy&#160;<span aria-label="and then">></span> Exploit protection</b>
+                debugging</b> via a toggle in <b>Settings&#160;>
+                Security &amp; privacy&#160;> Exploit protection</b>
                 to improve the app sandbox and this can interfere with apps debugging their
                 own code to add a barrier to analyzing the app. You should try enabling this again if you've
                 disabled it and are encountering compatibility issues with these kinds of apps.</p>
@@ -1324,9 +1317,8 @@
                 verified by the OS by marking them with <code>autoVerify</code> in their manifest.
                 The OS will securely confirm that the domain authorizes the app to handle the
                 domain's URLs. Users can also manually enable an app's link associations via
-                <b>Settings&#160;<span aria-label="and then">></span> Apps&#160;<span
-                aria-label="and then">></span> <var>APP</var>&#160;<span aria-label="and then">></span>
-                Open by default&#160;<span aria-label="and then">></span> Add link</b>. Apps can ask
+                <b>Settings&#160;> Apps&#160;> <var>APP</var>&#160;>
+                Open by default&#160;> Add link</b>. Apps can ask
                 users to enable the associations and send them to this page in the Settings app.</p>
 
                 <p>As an example, the first party YouTube app will have the app links verified by
@@ -1400,16 +1392,13 @@
                 <ul>
                     <li>Some carriers require you to explicitly opt in to use services such as Wi-Fi calling.
                         Consult your carrier's documentation on the process for this or contact them.</li>
-                    <li><b>Reset Mobile Network Settings</b> in <b>Settings&#160;<span
-                        aria-label="and then">></span> System&#160;<span aria-label="and then">></span>
+                    <li><b>Reset Mobile Network Settings</b> in <b>Settings&#160;> System&#160;>
                         Reset options</b> and then reboot the device.</li>
                     <li>USA users only: You may need to request your carrier to enable CDMA-less mode if
                         you have issues.</li>
                     <li>Follow your carrier's instructions for setting up APNs, this can be found in
-                        <b>Settings&#160;<span aria-label="and then">></span> Network &amp;
-                        internet&#160;<span aria-label="and then">></span> SIMs&#160;<span
-                        aria-label="and then">></span> <var>SIM</var>&#160;<span
-                        aria-label="and then">></span> Access Point Names</b></li>
+                        <b>Settings&#160;> Network &amp;
+                        internet&#160;> SIMs&#160;> <var>SIM</var>&#160;> Access Point Names</b></li>
                     <li>If calls do not work and you have <a href="#lte-only-mode">LTE-only mode</a> enabled,
                         try toggling it off. If "Allow 2G" is disabled, try toggling it back on. Your carrier
                         may not properly support VoLTE.</li>
@@ -1418,9 +1407,8 @@
 
                 <p>Some carriers may restrict functionality, such as VoLTE, on imported Pixel
                 devices as they only whitelist the IMEI ranges of Pixel device SKUs which were sold
-                locally. You can check your SKU on GrapheneOS by going to <b>Settings&#160;<span
-                aria-label="and then">></span> About phone&#160;<span aria-label="and then">></span>
-                Model&#160;<span aria-label="and then">></span> Hardware SKU</b> and using the <a
+                locally. You can check your SKU on GrapheneOS by going to <b>Settings&#160;> About phone&#160;>
+                Model&#160;> Hardware SKU</b> and using the <a
                 href="https://support.google.com/pixelphone/answer/7158570">official Google
                 documentation</a>. You should check if such functionality works on the stock OS to troubleshoot.
                 It is not possible to change the IMEI on a production device and GrapheneOS cannot add support for
@@ -1440,6 +1428,30 @@
                 via USB, Ethernet, Bluetooth and Wi-Fi and the ability to disable 2G (only on 6th
                 generation Pixel devices onwards) actions which would not necessarily have been
                 possible on the stock operating system.</p>
+
+                <section id="carrier-settings-overrides">
+                    <h3><a href="#carrier-settings-overrides">Carrier settings overrides</a></h3>
+                    <p>GrapheneOS has support for overriding a subset of carrier settings such as 
+                    VoLTE, Wi-FI calling and cross-SIM calling availability. This is useful when 
+                    the stock OS has missing or incomplete configurations for some carriers. These 
+                    overrides are saved per SIM and can be configured under <b>Settings&#160;> 
+                    Network &amp; internet&#160;> SIMs&#160;> <var>SIM</var>&#160;> Carrier 
+                    settings overrides</b>.</p>
+                </section>
+
+                <section id="cross-sim-calling">
+                    <h3><a href="#cross-sim-calling">Cross-SIM calling</a></h3>
+                    <p>For dual SIM setups, GrapheneOS has support for cross-SIM calling (backup
+                    calling) which allows you to make calls using a SIM via the mobile data provided 
+                    by another SIM similarly to Wi-Fi calling. This requires Automatic data 
+                    switching to be enabled in <b>Settings&#160;> Network &amp; internet&#160;> SIMs
+                    </b>. This is useful when the primary SIM has no connectivity and you have a 
+                    second SIM with data, e.g. roaming outside of your country with a travel 
+                    eSIM.</p>
+                    
+                    <p>Cross-SIM calling is active when "Backup Calling" is added to the mobile 
+                    operator name.</p>
+                </section>
             </section>
         </main>
         {% include "footer.html" %}

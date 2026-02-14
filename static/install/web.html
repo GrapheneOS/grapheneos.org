@@ -175,12 +175,11 @@
 
                 <p>OEM unlocking needs to be enabled from within the operating system.</p>
 
-                <p>Enable the developer options menu by going to <b>Settings&#160;<span
-                aria-label="and then">></span> About phone/tablet</b> and repeatedly
+                <p>Enable the developer options menu by going to <b>Settings&#160;> About phone/tablet</b> and repeatedly
                 pressing the <b>Build number</b> menu entry until developer mode is enabled.</p>
 
-                <p>Next, go to <b>Settings&#160;<span aria-label="and then">></span>
-                System&#160;<span aria-label="and then">></span> Developer options</b> and
+                <p>Next, go to <b>Settings&#160;>
+                System&#160;> Developer options</b> and
                 toggle on the <b>OEM unlocking</b> setting. On device model variants (SKUs) which
                 support being sold as locked devices by carriers, enabling <b>OEM unlocking</b>
                 requires internet access so that the stock OS can check if the device was sold as
@@ -387,45 +386,7 @@
                     GrapheneOS, a rollback index based on the security patch level is loaded from
                     the secure element to provide rollback protection.</p>
 
-                    <section id="verified-boot-key-hash">
-                        <h3><a href="#verified-boot-key-hash">Verified boot key hash</a></h3>
-
-                        <p>When loading an alternate OS, the device shows a yellow notice on boot
-                        with the ID of the alternate OS based on the sha256 of the verified boot
-                        public key. 4th and 5th generation Pixels only show the first 32 bits of
-                        the hash so you can't use this approach. 6th generation Pixels onwards
-                        show the full hash and you can compare it against the official GrapheneOS
-                        verified boot key hashes below:</p>
-
-                        <ul>
-                            <li>Pixel 9a: <code>0508de44ee00bfb49ece32c418af1896391abde0f05b64f41bc9a2dfb589445b</code></li>
-                            <li>Pixel 9 Pro Fold: <code>af4d2c6e62be0fec54f0271b9776ff061dd8392d9f51cf6ab1551d346679e24c</code></li>
-                            <li>Pixel 9 Pro XL: <code>55d3c2323db91bb91f20d38d015e85112d038f6b6b5738fe352c1a80dba57023</code></li>
-                            <li>Pixel 9 Pro: <code>f729cab861da1b83fdfab402fc9480758f2ae78ee0b61c1f2137dd1ab7076e86</code></li>
-                            <li>Pixel 9: <code>9e6a8f3e0d761a780179f93acd5721ba1ab7c8c537c7761073c0a754b0e932de</code></li>
-                            <li>Pixel 8a: <code>096b8bd6d44527a24ac1564b308839f67e78202185cbff9cfdcb10e63250bc5e</code></li>
-                            <li>Pixel 8 Pro: <code>896db2d09d84e1d6bb747002b8a114950b946e5825772a9d48ba7eb01d118c1c</code></li>
-                            <li>Pixel 8: <code>cd7479653aa88208f9f03034810ef9b7b0af8a9d41e2000e458ac403a2acb233</code></li>
-                            <li>Pixel Fold: <code>ee0c9dfef6f55a878538b0dbf7e78e3bc3f1a13c8c44839b095fe26dd5fe2842</code></li>
-                            <li>Pixel Tablet: <code>94df136e6c6aa08dc26580af46f36419b5f9baf46039db076f5295b91aaff230</code></li>
-                            <li>Pixel 7a: <code>508d75dea10c5cbc3e7632260fc0b59f6055a8a49dd84e693b6d8899edbb01e4</code></li>
-                            <li>Pixel 7 Pro: <code>bc1c0dd95664604382bb888412026422742eb333071ea0b2d19036217d49182f</code></li>
-                            <li>Pixel 7: <code>3efe5392be3ac38afb894d13de639e521675e62571a8a9b3ef9fc8c44fd17fa1</code></li>
-                            <li>Pixel 6a: <code>08c860350a9600692d10c8512f7b8e80707757468e8fbfeea2a870c0a83d6031</code></li>
-                            <li>Pixel 6 Pro: <code>439b76524d94c40652ce1bf0d8243773c634d2f99ba3160d8d02aa5e29ff925c</code></li>
-                            <li>Pixel 6: <code>f0a890375d1405e62ebfd87e8d3f475f948ef031bbf9ddd516d5f600a23677e8</code></li>
-                        </ul>
-
-                        <p>Checking this is useful after installation, but you don't need to check
-                        it manually for verified boot to work. The verified boot public key
-                        flashed to the secure element can only be changed when the device is
-                        unlocked. Unlocking the device performs the same wiping of the secure
-                        element as a factory reset and prevents data from being recovered even if
-                        the SSD was cloned and your passphrase(s) are obtained because the
-                        encryption keys can no longer be derived anymore. The verified boot key is
-                        also one of the inputs for deriving the encryption keys in addition to the
-                        user's lock method(s) and random token(s) on the secure element.</p>
-                    </section>
+                    {% include "verified_boot_key_hash.html" %}
 
                     <section id="hardware-based-attestation">
                         <h3><a href="#hardware-based-attestation">Hardware-based attestation</a></h3>

@@ -47,6 +47,10 @@
                     <li>
                         <a href="#devices">Devices</a>
                         <ul>
+                            <li><a href="#rango">Pixel 10 Pro Fold</a></li>
+                            <li><a href="#mustang">Pixel 10 Pro XL</a></li>
+                            <li><a href="#blazer">Pixel 10 Pro</a></li>
+                            <li><a href="#frankel">Pixel 10</a></li>
                             <li><a href="#tegu">Pixel 9a</a></li>
                             <li><a href="#comet">Pixel 9 Pro Fold</a></li>
                             <li><a href="#komodo">Pixel 9 Pro XL</a></li>
@@ -63,17 +67,24 @@
                             <li><a href="#bluejay">Pixel 6a</a></li>
                             <li><a href="#raven">Pixel 6 Pro</a></li>
                             <li><a href="#oriole">Pixel 6</a></li>
-                            <li><a href="#barbet">Pixel 5a (legacy extended support)</a></li>
-                            <li><a href="#redfin">Pixel 5 (legacy extended support)</a></li>
-                            <li><a href="#bramble">Pixel 4a (5G) (legacy extended support)</a></li>
-                            <li><a href="#sunfish">Pixel 4a (legacy extended support)</a></li>
-                            <li><a href="#coral">Pixel 4 XL (legacy extended support)</a></li>
-                            <li><a href="#flame">Pixel 4 (legacy extended support)</a></li>
                         </ul>
                     </li>
                     <li>
                         <a href="#changelog">Changelog</a>
                         <ul>
+                            <li><a href="#2026021200">2026021200</a></li>
+                            <li><a href="#2026020600">2026020600</a></li>
+                            <li><a href="#2026020400">2026020400</a></li>
+                            <li><a href="#2026012800">2026012800</a></li>
+                            <li><a href="#2026012100">2026012100</a></li>
+                            <li><a href="#2026011300">2026011300</a></li>
+                            <li><a href="#2026011000">2026011000</a></li>
+                            <li><a href="#2026010800">2026010800</a></li>
+                            <li><a href="#2025122500">2025122500</a></li>
+                            <li><a href="#2025121700">2025121700</a></li>
+                            <li><a href="#2025121200">2025121200</a></li>
+                            <li><a href="#2025121000">2025121000</a></li>
+                            <li><a href="#2025120400">2025120400</a></li>
                             <li><a href="#2025112100">2025112100</a></li>
                             <li><a href="#2025111800">2025111800</a></li>
                             <li><a href="#2025110800">2025110800</a></li>
@@ -540,6 +551,18 @@
             <section id="devices">
                 <h2><a href="#devices">Devices</a></h2>
 
+                {% with codename="rango", name="Pixel 10 Pro Fold" %}
+                    {% include "device.html" %}
+                {% endwith %}
+                {% with codename="mustang", name="Pixel 10 Pro XL" %}
+                    {% include "device.html" %}
+                {% endwith %}
+                {% with codename="blazer", name="Pixel 10 Pro" %}
+                    {% include "device.html" %}
+                {% endwith %}
+                {% with codename="frankel", name="Pixel 10"  %}
+                    {% include "device.html" %}
+                {% endwith %}
                 {% with codename="tegu", name="Pixel 9a" %}
                     {% include "device.html" %}
                 {% endwith %}
@@ -588,24 +611,6 @@
                 {% with codename="oriole", name="Pixel 6" %}
                     {% include "device.html" %}
                 {% endwith %}
-                {% with codename="barbet", name="Pixel 5a (legacy extended support)", split=True %}
-                    {% include "device.html" %}
-                {% endwith %}
-                {% with codename="redfin", name="Pixel 5 (legacy extended support)", split=True %}
-                    {% include "device.html" %}
-                {% endwith %}
-                {% with codename="bramble", name="Pixel 4a (5G) (legacy extended support) ", split=True %}
-                    {% include "device.html" %}
-                {% endwith %}
-                {% with codename="sunfish", name="Pixel 4a (legacy extended support)", install="factory", split=True %}
-                    {% include "device.html" %}
-                {% endwith %}
-                {% with codename="coral", name="Pixel 4 XL (legacy extended support)", install="factory", split=True %}
-                    {% include "device.html" %}
-                {% endwith %}
-                {% with codename="flame", name="Pixel 4 (legacy extended support)", install="factory", split=True %}
-                    {% include "device.html" %}
-                {% endwith %}
             </section>
 
             <section id="changelog">
@@ -621,31 +626,476 @@
                 release notes from before the rebranding of the project in 2018 and 2019.</p>
 
                 <!--
-                <article id="2025112100">
-                    <h3><a href="#2025112100">2025112100</a></h3>
+                <article id="2026021200">
+                    <h3><a href="#2026021200">2026021200</a></h3>
 
                     <p>Tags:</p>
                     <ul>
-                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2025112100">2025112100</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, emulator, generic, other targets)</li>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2026021200">2026021200</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2026020600 release:</p>
+
+                    <ul>
+                        <li>Setup Wizard: add opt-in toggles for network-based location and always available Wi-Fi scanning to the Location services page</li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/145.0.7632.75.0">version 145.0.7632.75.0</a></li>
+                    </ul>
+
+                    <p>All of the Android 16 security patches from the current March 2026, April 2026, May 2026, June 2026, July 2026 and August 2026 Android Security Bulletins are included in the 2026021201 security preview release. List of additional fixed CVEs:</p>
+
+                    <ul>
+                        <li>Critical: CVE-2026-0039, CVE-2026-0040, CVE-2026-0041, CVE-2026-0042, CVE-2026-0043, CVE-2026-0044, CVE-2026-0047, CVE-2026-0049, CVE-2026-0052</li>
+                        <li>High: CVE-2025-22424, CVE-2025-22426, CVE-2025-32348, CVE-2025-48600, CVE-2025-48615, CVE-2025-48617, CVE-2025-48630, CVE-2025-48641, CVE-2025-48642, CVE-2025-48644, CVE-2025-48645, CVE-2025-48646, CVE-2025-48649, CVE-2025-48652, CVE-2025-48653, CVE-2025-48654, CVE-2026-0011, CVE-2026-0014, CVE-2026-0015, CVE-2026-0016, CVE-2026-0017, CVE-2026-0018, CVE-2026-0020, CVE-2026-0021, CVE-2026-0022, CVE-2026-0023, CVE-2026-0024, CVE-2026-0025, CVE-2026-0033, CVE-2026-0034, CVE-2026-0035, CVE-2026-0036, CVE-2026-0048, CVE-2026-0050, CVE-2026-0053, CVE-2026-0054, CVE-2026-0055, CVE-2026-0056</li>
+                    </ul>
+
+                    <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
+                </article>
+                -->
+
+                <article id="2026021200">
+                    <h3><a href="#2026021200">2026021200</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2026021200">2026021200</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2026020600 release:</p>
+
+                    <ul>
+                        <li>Sandboxed Google Play compatibility layer: add toggle for granting Play services access to ICC auth in order to support RCS with carriers requiring it for RCS in Google Messages including T-Mobile</li>
+                        <li>Launcher: fix rare upstream crash when switching users</li>
+                        <li>Dialer: add new opt-in implementation of call recording using the same framework APIs as Google Dialer with the goal of improving functionality (handover support) and robustness (currently an opt-in setting for testing and then it will replace the previous implementation)</li>
+                        <li>kernel (6.1, 6.6, 6.12): re-enable standard forced module signing with a workaround to make pKVM compatible with it</li>
+                        <li>kernel (6.1): update to latest GKI LTS branch revision including update to 6.1.162</li>
+                        <li>kernel (6.6): update to latest GKI LTS branch revision including update to 6.6.123</li>
+                        <li>kernel (6.12): update to latest GKI LTS branch revision including update to 6.12.69</li>
+                        <li>change default quick tile configuration for the new UI (replacing cast, wallet and device controls with camera, microphone and NFC toggles by default)</li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/145.0.7632.45.1">version 145.0.7632.45.1</a></li>
+                        <li>update release signing to handle AOSP APEX changes</li>
+                        <li>migrate otatools.zip changes to Android's modern build system (soong)</li>
+                    </ul>
+
+                    <p>All of the Android 16 security patches from the current March 2026, April 2026, May 2026, June 2026, July 2026 and August 2026 Android Security Bulletins are included in the 2026021201 security preview release. List of additional fixed CVEs:</p>
+
+                    <ul>
+                        <li>Critical: CVE-2026-0039, CVE-2026-0040, CVE-2026-0041, CVE-2026-0042, CVE-2026-0043, CVE-2026-0044, CVE-2026-0047, CVE-2026-0049, CVE-2026-0052</li>
+                        <li>High: CVE-2025-22424, CVE-2025-22426, CVE-2025-32348, CVE-2025-48600, CVE-2025-48615, CVE-2025-48617, CVE-2025-48630, CVE-2025-48641, CVE-2025-48642, CVE-2025-48644, CVE-2025-48645, CVE-2025-48646, CVE-2025-48649, CVE-2025-48652, CVE-2025-48653, CVE-2025-48654, CVE-2026-0011, CVE-2026-0014, CVE-2026-0015, CVE-2026-0016, CVE-2026-0017, CVE-2026-0018, CVE-2026-0020, CVE-2026-0021, CVE-2026-0022, CVE-2026-0023, CVE-2026-0024, CVE-2026-0025, CVE-2026-0033, CVE-2026-0034, CVE-2026-0035, CVE-2026-0036, CVE-2026-0048, CVE-2026-0050, CVE-2026-0053, CVE-2026-0054, CVE-2026-0055, CVE-2026-0056</li>
+                    </ul>
+
+                    <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
+                </article>
+
+                <article id="2026020600">
+                    <h3><a href="#2026020600">2026020600</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2026020600">2026020600</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2026020400 release:</p>
+
+                    <ul>
+                        <li>raise declared Android security patch level to 2026-02-05 which has been provided since we moved to Android 16 QPR2 in December (was meant to be declared in the previous release)</li>
+                        <li>add cross-SIM calling support (making calls using a SIM via the mobile data provided by another SIM similarly to Wi-Fi calling); requires Automatic data switching in SIM settings, and existing installs may need to toggle Automatic data switching off and on to enable cross-SIM calling</li>
+                        <li>extend our carrier override feature with a toggle for forcing the availability of cross-SIM calling support</li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/145.0.7632.45.0">version 145.0.7632.45.0</a></li>
+                    </ul>
+
+                    <p>All of the Android 16 security patches from the current March 2026, April 2026, May 2026, June 2026, July 2026 and August 2026 Android Security Bulletins are included in the 2026020601 security preview release. List of additional fixed CVEs:</p>
+
+                    <ul>
+                        <li>Critical: CVE-2026-0039, CVE-2026-0040, CVE-2026-0041, CVE-2026-0042, CVE-2026-0043, CVE-2026-0044, CVE-2026-0047, CVE-2026-0049, CVE-2026-0052</li>
+                        <li>High: CVE-2025-22424, CVE-2025-22426, CVE-2025-32348, CVE-2025-48600, CVE-2025-48615, CVE-2025-48617, CVE-2025-48630, CVE-2025-48641, CVE-2025-48642, CVE-2025-48644, CVE-2025-48645, CVE-2025-48646, CVE-2025-48649, CVE-2025-48652, CVE-2025-48653, CVE-2025-48654, CVE-2026-0011, CVE-2026-0014, CVE-2026-0015, CVE-2026-0016, CVE-2026-0017, CVE-2026-0018, CVE-2026-0020, CVE-2026-0021, CVE-2026-0022, CVE-2026-0023, CVE-2026-0024, CVE-2026-0025, CVE-2026-0033, CVE-2026-0034, CVE-2026-0035, CVE-2026-0036, CVE-2026-0048, CVE-2026-0050</li>
+                    </ul>
+
+                    <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
+                </article>
+
+                <article id="2026020400">
+                    <h3><a href="#2026020400">2026020400</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2026020400">2026020400</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2026012800 release:</p>
+
+                    <ul>
+                        <li>raise declared Android security patch level to February 2026 which has been provided since we moved to Android 16 QPR2 in December (currently declared as 2026-02-01 even though 2026-02-05 has been provided since Android 16 QPR2 but it wasn't worth restarting the builds)</li>
+                        <li>update to February 2026 Pixel driver/firmware code providing the 2026-02-05 Pixel security patch level</li>
+                        <li>Dialer: fix call recording button state after fragment re-creation to avoid showing call recording as active when it isn't</li>
+                        <li>kernel (6.1): update to latest GKI LTS branch revision</li>
+                        <li>kernel (6.6): update to latest GKI LTS branch revision including update to 6.6.121</li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/145.0.7632.26.0">version 145.0.7632.26.0</a></li>
+                        <li>switch to 64-bit-only Vanadium releases for devices without 32-bit support (7th gen Pixels and later)</li>
+                        <li>App Store: update to <a href="https://github.com/GrapheneOS/Apps/releases/tag/34">version 34</a></li>
+                        <li>App Store: update to <a href="https://github.com/GrapheneOS/Apps/releases/tag/35">version 35</a></li>
+                        <li>switch from 6.6 kernel branch to 6.12 kernel branch for emulator builds (used for development) to match AOSP since Android 16 QPR2</li>
+                    </ul>
+
+                    <p>All of the Android 16 security patches from the current March 2026, April 2026, May 2026 and June 2026 Android Security Bulletins are included in the 2026020401 security preview release. List of additional fixed CVEs:</p>
+
+                    <ul>
+                        <li>Critical: CVE-2026-0039, CVE-2026-0040, CVE-2026-0041, CVE-2026-0042, CVE-2026-0043, CVE-2026-0044, CVE-2026-0047, CVE-2026-0049</li>
+                        <li>High: CVE-2025-22424, CVE-2025-22426, CVE-2025-32348, CVE-2025-48600, CVE-2025-48615, CVE-2025-48617, CVE-2025-48630, CVE-2025-48641, CVE-2025-48642, CVE-2025-48644, CVE-2025-48645, CVE-2025-48646, CVE-2025-48649, CVE-2025-48652, CVE-2025-48653, CVE-2025-48654, CVE-2026-0011, CVE-2026-0014, CVE-2026-0015, CVE-2026-0016, CVE-2026-0017, CVE-2026-0018, CVE-2026-0020, CVE-2026-0021, CVE-2026-0022, CVE-2026-0023, CVE-2026-0024, CVE-2026-0025, CVE-2026-0033, CVE-2026-0034, CVE-2026-0035, CVE-2026-0036, CVE-2026-0048, CVE-2026-0050</li>
+                    </ul>
+
+                    <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
+                </article>
+
+                <article id="2026012800">
+                    <h3><a href="#2026012800">2026012800</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2026012800">2026012800</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2026012100 release:</p>
+
+                    <ul>
+                        <li>FusedLocationProvider: restore pre-16-QPR1 GNSS usage policy of using GNSS for both balanced and high power requests instead of only high power requests since many GrapheneOS users don't enable network location and network location may not always be accessible such as temporarily not having internet access</li>
+                        <li>Sandboxed Google Play compatibility layer: add special case for sandboxed Play services making it so users granting the SMS permission enables reading SMS addressed to apps using the Google Play services client library (Android 16 QPR2 prevented using the SMS permission to read SMS addressed to other apps so a special case is needed for apps which use Google Play services to handle SMS-based authentication)</li>
+                        <li>Sandboxed Google Play compatibility layer: prevent sandboxed Play Store attempting to install the "Device configuration" package which is not used on GrapheneOS and serves no purpose</li>
+                        <li>avoid compatibility issues with misguided anti-tampering checks in a tiny subset of apps by changing the initial call stack for secure app spawning (exec spawning) to match the standard zygote-based spawning so these apps no longer detect secure spawning as an altered call stack indicating tampering</li>
+                        <li>Settings: require device restart after changing the secure app spawning setting</li>
+                        <li>Sandboxed Google Play compatibility layer: update Android Auto configuration UI to Material 3 Expressive</li>
+                        <li>add workaround for upstream system_server startUserInBackgroundTemporarily crash</li>
+                        <li>fix GrapheneOS support for recording permission usage history for a broader set of permissions</li>
+                        <li>Dialer: set CallStyle for call notifications to improve the user interface and replace our temporary workaround of disabling notification grouping for it</li>
+                        <li>Network Location: rename "GrapheneOS proxy" option to "GrapheneOS Apple proxy" for clarity</li>
+                        <li>Network Location: add "Apple China" server choice required for China data due to China's laws about mapping the country (currently no proxy due to poor connectivity to and from China causing reliability issues with connecting to Apple's servers in China from ours but we plan to offer it as an option in the future)</li>
+                        <li>Pixel 8a, 9th gen Pixels and 10th gen Pixels: disable NTP usage in Samsung gnssd which isn't as useful on GrapheneOS due to reducing the system time update threshold from 2000ms to 50ms along with avoiding us needing to redirect this to our own NTP service as we did for Qualcomm xtra-daemon</li>
+                        <li>update code for disabling reporting of harmless fingerprint-service.goodix crash</li>
+                        <li>improve user interface for Network/Sensors permissions in the permission manager</li>
+                        <li>fix minor Material 3 Expressive styling issues for the Contact Scopes and Storage Scopes configuration UI</li>
+                        <li>adevtool: raise minimal supported Node.js version to 24</li>
+                        <li>adevtool: disallow running adevtool as root</li>
+                        <li>adevtool: check for presence of prebuilts dirs at startup</li>
+                        <li>kernel (6.12): update to latest GKI LTS branch revision including update to 6.12.67</li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/144.0.7559.109.0">version 144.0.7559.109.0</a></li>
+                    </ul>
+
+                    <p>All of the Android 16 security patches from the current February 2026, March 2026, April 2026, May 2026 and June 2026 Android Security Bulletins are included in the 2026012801 security preview release. List of additional fixed CVEs:</p>
+
+                    <ul>
+                        <li>Critical: CVE-2026-0039, CVE-2026-0040, CVE-2026-0041, CVE-2026-0042, CVE-2026-0043, CVE-2026-0044, CVE-2026-0047, CVE-2026-0049</li>
+                        <li>High: CVE-2025-22424, CVE-2025-22426, CVE-2025-32348, CVE-2025-48600, CVE-2025-48615, CVE-2025-48617, CVE-2025-48630, CVE-2025-48641, CVE-2025-48642, CVE-2025-48644, CVE-2025-48645, CVE-2025-48646, CVE-2025-48649, CVE-2025-48652, CVE-2025-48653, CVE-2025-48654, CVE-2026-0011, CVE-2026-0014, CVE-2026-0015, CVE-2026-0016, CVE-2026-0017, CVE-2026-0018, CVE-2026-0020, CVE-2026-0021, CVE-2026-0022, CVE-2026-0023, CVE-2026-0024, CVE-2026-0025, CVE-2026-0033, CVE-2026-0034, CVE-2026-0035, CVE-2026-0036, CVE-2026-0048, CVE-2026-0050</li>
+                    </ul>
+
+                    <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
+                </article>
+
+                <article id="2026012100">
+                    <h3><a href="#2026012100">2026012100</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2026012100">2026012100</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2026011300 release:</p>
+
+                    <ul>
+                        <li>fix an upstream infinite loop bug in ProtoFieldFilter.skipBytes() causing an upstream system_server issue leading to the OS being unusable in early boot for a tiny subset of users since Android 16 QPR2 (there are a bunch of reports of these symptoms with the stock Pixel OS)</li>
+                        <li>libpng: backport security patches</li>
+                        <li>remove unused INTERNET permission from Pixel Camera Services since GrapheneOS doesn't support the Pixel Connected Cameras feature</li>
+                        <li>kernel (6.1): update to latest GKI LTS branch revision including update to 6.1.161</li>
+                        <li>kernel (6.6): update to latest GKI LTS branch revision</li>
+                        <li>kernel (6.12): update to latest GKI LTS branch revision including update to 6.12.66</li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/144.0.7559.59.0">version 144.0.7559.59.0</a></li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/144.0.7559.59.1">version 144.0.7559.59.1</a></li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/144.0.7559.76.0">version 144.0.7559.76.0</a></li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/144.0.7559.76.1">version 144.0.7559.76.1</a></li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/144.0.7559.90.0">version 144.0.7559.90.0</a></li>
+                    </ul>
+
+                    <p>All of the Android 16 security patches from the current February 2026, March 2026, April 2026, May 2026 and June 2026 Android Security Bulletins are included in the 2026012101 security preview release. List of additional fixed CVEs:</p>
+
+                    <ul>
+                        <li>Critical: CVE-2026-0039, CVE-2026-0040, CVE-2026-0041, CVE-2026-0042, CVE-2026-0043, CVE-2026-0044</li>
+                        <li>High: CVE-2025-22424, CVE-2025-22426, CVE-2025-32348, CVE-2025-48561, CVE-2025-48615, CVE-2025-48617, CVE-2025-48630, CVE-2025-48641, CVE-2025-48642, CVE-2025-48644, CVE-2025-48645, CVE-2025-48646, CVE-2025-48649, CVE-2025-48652, CVE-2025-48653, CVE-2025-48654, CVE-2026-0011, CVE-2026-0014, CVE-2026-0015, CVE-2026-0016, CVE-2026-0017, CVE-2026-0018, CVE-2026-0020, CVE-2026-0021, CVE-2026-0022, CVE-2026-0023, CVE-2026-0024, CVE-2026-0025, CVE-2026-0033, CVE-2026-0034, CVE-2026-0036</li>
+                        <li>Unclassified: CVE-2026-0035</li>
+                    </ul>
+
+                    <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
+                </article>
+
+                <article id="2026011300">
+                    <h3><a href="#2026011300">2026011300</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2026011300">2026011300</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2026011000 release:</p>
+
+                    <ul>
+                        <li>update to January 2026 Pixel driver/firmware code for the subset of devices with a January 2026 release</li>
+                        <li>allow user to set any account as the default contacts account (since Android 16 QPR1, this was restricted to Google accounts for the stock Pixel OS and nothing permitted at all for AOSP)</li>
+                        <li>kernel (6.1): update to latest GKI LTS branch revision including update to 6.1.159</li>
+                        <li>kernel (6.6): update to latest GKI LTS branch revision</li>
+                        <li>kernel (6.12): update to latest GKI LTS branch revision</li>
+                    </ul>
+
+                    <p>All of the Android 16 security patches from the current February 2026, March 2026, April 2026, May 2026 and June 2026 Android Security Bulletins are included in the 2026011301 security preview release. List of additional fixed CVEs:</p>
+
+                    <ul>
+                        <li>High: CVE-2025-32348, CVE-2025-48561, CVE-2025-48615, CVE-2025-48617, CVE-2025-48630, CVE-2025-48641, CVE-2025-48642, CVE-2025-48644, CVE-2025-48645, CVE-2025-48646, CVE-2025-48649, CVE-2025-48652, CVE-2025-48653, CVE-2025-48654, CVE-2026-0014, CVE-2026-0015, CVE-2026-0016, CVE-2026-0017, CVE-2026-0018, CVE-2026-0020, CVE-2026-0021, CVE-2026-0022, CVE-2026-0023, CVE-2026-0024, CVE-2026-0025, CVE-2026-0033, CVE-2026-0034, CVE-2026-0035, CVE-2026-0036</li>
+                    </ul>
+
+                    <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
+                </article>
+
+                <article id="2026011000">
+                    <h3><a href="#2026011000">2026011000</a></h3>
+
+                    <p>Support for 10th gen Pixels is no longer considered experimental.</p>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2026011000">2026011000</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2026010800 release:</p>
+
+                    <ul>
+                        <li>reimplement the standard Android USB data signal API with our hardware + software USB blocking functionality to preserve support for the device admin and lockdown mode features for fully toggling off USB while upgrading it to use hardware blocking (this was omitted in the previous Alpha-only release)</li>
+                        <li>fix regression in the last release causing sandboxed Google Play breakage in a subset of secondary users caused by the phenotype flag changes in the previous release</li>
+                        <li>Sandboxed Google Play compatibility layer: add stub for ContentResolver.acquireUnstableProvider()</li>
+                        <li>fix the Terminal virtual machine management app not working in a secondary user Private Space (GrapheneOS adds the ability to use the Terminal app in secondary users and also adds the ability to use Private Space in secondary users, so the combination of those things resulted in this being possible but the upstream code was incompatible with it)</li>
+                        <li>Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold: add high EMF (PWM) mode opt-in to the Settings app</li>
+                    </ul>
+
+                    <p>All of the Android 16 security patches from the current February 2026, March 2026, April 2026, May 2026 and June 2026 Android Security Bulletins are included in the 2026011001 security preview release. List of additional fixed CVEs:</p>
+
+                    <ul>
+                        <li>High: CVE-2025-32348, CVE-2025-48561, CVE-2025-48615, CVE-2025-48617, CVE-2025-48630, CVE-2025-48641, CVE-2025-48642, CVE-2025-48644, CVE-2025-48645, CVE-2025-48646, CVE-2025-48649, CVE-2025-48652, CVE-2025-48653, CVE-2025-48654, CVE-2026-0014, CVE-2026-0015, CVE-2026-0016, CVE-2026-0017, CVE-2026-0018, CVE-2026-0020, CVE-2026-0021, CVE-2026-0022, CVE-2026-0023, CVE-2026-0024, CVE-2026-0025, CVE-2026-0033, CVE-2026-0034, CVE-2026-0035</li>
+                    </ul>
+
+                    <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
+                </article>
+
+                <article id="2026010800">
+                    <h3><a href="#2026010800">2026010800</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2026010800">2026010800</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2025122500 release:</p>
+
+                    <ul>
+                        <li>raise declared Android security patch level to 2026-01-05 which has been provided since we moved to Android 16 QPR2 in December due to Pixels shipping CVE-2025-54957 in December</li>
+                        <li>re-enable the system keyboard package at boot if the package is disabled (does not change keyboard settings)</li>
+                        <li>switch to the system keyboard when device boots to the Safe Mode</li>
+                        <li>add "Reboot to Safe Mode" power menu button in Before First Unlock state to make Safe Mode much more discoverable for working around app issues such as a broken third party keyboard</li>
+                        <li>add workaround for upstream UsageStatsDatabase OOM system_server crash</li>
+                        <li>add workaround for upstream WindowContext.finalize() system_server crash</li>
+                        <li>disable buggy upstream disable_frozen_process_wakelocks feature causing system_server crashes for some users</li>
+                        <li>Sandboxed Google Play compatibility layer: fix phenotype flags not working in Play services clients</li>
+                        <li>Sandboxed Google Play compatibility layer: add MEDIA_CONTENT_CONTROL as a requested permission for Android Auto as part of our toggles for it to avoid needing to grant the far more invasive notification access permission</li>
+                        <li>Sandboxed Google Play compatibility layer: extend opt-in Android Auto Bluetooth support to allow A2dpService.setConnectionPolicy() to fix Bluetooth functionality (previously worked around with a GmsCompatConfig update avoiding a crash)</li>
+                        <li>switch to new upstream PackageInstallerUI implementation added in Android 16 QPR2 and port our changes to it</li>
+                        <li>update SQLite to 3.50.6 LTS release</li>
+                        <li>add an extra layer of USB port protection on 10th gen Pixels based on upstream functionality to replace our USB gadget control which was causing compatibility issues with the Pixel 10 USB drivers</li>
+                        <li>allow SystemUI to access NFC service on 10th gen Pixels to fix the NFC quick tile</li>
+                        <li>disable the upstream Android USB data protection feature since it conflicts with our more advanced approach and causes issues</li>
+                        <li>issue CHARGING_ONLY_IMMEDIATE port control command in more cases</li>
+                        <li>fix an issue in our infrastructure for spoofing permission self-checks breaking automatically reading SMS one-time codes for certain apps</li>
+                        <li>add workaround for upstream KeySetManagerService system_server crash causing a user to be stuck on an old OS version due to it causing a boot failure when booting a the new OS version after updating</li>
+                        <li>wipe DPM partition on 10th gen Pixels as part of installation as we do on earlier Pixels since it's always meant to be zeroed on production devices</li>
+                        <li>Settings: disable indexing of the unsupported "Parental controls" setting which is not currently available in AOSP</li>
+                        <li>Settings: disable redundant indexing of widgets on lockscreen contents which is already indexed another way</li>
+                        <li>skip all pseudo kernel crash reports caused by device reboot to avoid various false positive crash reports</li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/143.0.7499.192.0">version 143.0.7499.192.0</a></li>
+                    </ul>
+
+                    <p>All of the Android 16 security patches from the current February 2026, March 2026, April 2026, May 2026 and June 2026 Android Security Bulletins are included in the 2026010801 security preview release. List of additional fixed CVEs:</p>
+
+                    <ul>
+                        <li>High: CVE-2025-32348, CVE-2025-48561, CVE-2025-48615, CVE-2025-48630, CVE-2025-48641, CVE-2025-48642, CVE-2025-48644, CVE-2025-48645, CVE-2025-48646, CVE-2025-48649, CVE-2025-48652, CVE-2025-48653, CVE-2026-0014, CVE-2026-0015, CVE-2026-0016, CVE-2026-0017, CVE-2026-0018, CVE-2026-0020, CVE-2026-0021, CVE-2026-0022, CVE-2026-0023, CVE-2026-0024, CVE-2026-0025</li>
+                    </ul>
+
+                    <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
+                </article>
+
+                <article id="2025122500">
+                    <h3><a href="#2025122500">2025122500</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2025122500">2025122500</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2025121700 release:</p>
+
+                    <ul>
+                        <li>restore support for bypassing carriers disallowing choosing the cellular network mode (this was lost in a recent major version migration such as the port to Android 16 QPR1 but we aren't sure exactly when it regressed)</li>
+                        <li>remove poorly designed upstream end session button on the lockscreen (it remains available in the power menu)</li>
+                        <li>enable feature flag for new upstream end session button in the user switcher</li>
+                        <li>switch to vendor files from 2nd December 2025 release (BP4A.251205.006.E1) for devices with it available</li>
+                        <li>enable lockscreen widget support</li>
+                        <li>fix upstream system_server crash in NotificationHistoryProtoHelper</li>
+                        <li>Wi-Fi HAL: ignore debug logging requests on all Pixels with MTE support to avoid a crash from detecting an invalid memory access in the upstream code</li>
+                        <li>Sandboxed Google Play compatibility layer: add support for redirecting Google Play location service requests from within Google Play services itself which means the GrapheneOS provided network location will work for internal Play services features such as Google Maps location sharing when redirecting to the OS is enabled (which is the default) and the Location permission is granted to it</li>
+                        <li>Sandboxed Google Play compatibility layer: force redirecting Google Play location service requests from within Google Play services and Android Auto when the Location permission is disabled for better error handling (neither properly handles the Location permission not being granted since it's always granted on any Google Mobile Services OS in practice instead of being explicitly opt-in)</li>
+                        <li>Sandboxed Google Play compatibility layer: fix a compatibility issue with the Chromium test suite</li>
+                        <li>Network Location: improve position estability accuracy and stability</li>
+                        <li>Network Location: prevent potential division by zero exception</li>
+                        <li>Network Location: improve experimental Wi-Fi RTT support which is still disabled in production</li>
+                        <li>kernel (6.1): update to latest GKI LTS branch revision</li>
+                        <li>kernel (6.6): update to latest GKI LTS branch revision including update to 6.6.119</li>
+                        <li>kernel (6.6): disable CONFIG_TLS to reduce attack surface</li>
+                        <li>kernel (6.12): update to latest GKI LTS branch revision including update to 6.12.63</li>
+                        <li>kernel (6.12): disable CONFIG_TLS to reduce attack surface</li>
+                        <li>include configuration for thermometer on 10th gen Pixels</li>
+                        <li>adevtool: auto-detect filesystem image type (ext4 vs. EROFS)</li>
+                        <li>adevtool: add support for canary builds</li>
+                        <li>adevtool: improve performance</li>
+                        <li>remove obsolete workaround for using a prebuilt recovery extension</li>
+                    </ul>
+
+                    <p>All of the Android 16 security patches from the current January 2026, February 2026, March 2026, April 2026, May 2026 and June 2026 Android Security Bulletins are included in the 2025122501 security preview release. List of additional fixed CVEs:</p>
+
+                    <ul>
+                        <li>High: CVE-2025-32348, CVE-2025-48561, CVE-2025-48630, CVE-2025-48641, CVE-2025-48642, CVE-2025-48644, CVE-2025-48645, CVE-2025-48646, CVE-2025-48649, CVE-2025-48652, CVE-2025-48653, CVE-2026-0014, CVE-2026-0015, CVE-2026-0016, CVE-2026-0017, CVE-2026-0018, CVE-2026-0020, CVE-2026-0021, CVE-2026-0022, CVE-2026-0023, CVE-2026-0024, CVE-2026-0025</li>
+                    </ul>
+
+                    <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
+                </article>
+
+                <article id="2025121700">
+                    <h3><a href="#2025121700">2025121700</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2025121700">2025121700</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2025121200 release:</p>
+
+                    <ul>
+                        <li>add workaround for upstream system_server WallpaperManagerService.hasPermission() crash</li>
+                        <li>fix upstream system_server crash in NotificationHistory.getPooledStringsToWrite()</li>
+                        <li>Launcher: add a workaround for upstream QuickstepModelDelegate.getContainer() crash</li>
+                        <li>set initial port security state at an earlier boot stage to improve debugging on production builds where the port state has been changed from the default "Charging-only when locked" to "Charging-only when locked, except before first unlock" or "On"</li>
+                        <li>use default desktop mode configuration since our changes are no longer needed to enable features and caused crashes for at least 1 user which were addressed with an out-of-band release prior to this one</li>
+                        <li>kernel (6.1): update to latest GKI LTS branch revision</li>
+                        <li>kernel (6.1): add back recent dma-buf changes now that an upstream use-after-free bug is resolved</li>
+                        <li>kernel (6.6): update to latest GKI LTS branch revision including update to 6.6.118</li>
+                        <li>adevtool: update carrier settings</li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/143.0.7499.146.0">version 143.0.7499.146.0</a></li>
+                    </ul>
+
+                    <p>All of the Android 16 security patches from the current January 2026, February 2026, March 2026, April 2026, May 2026 and June 2026 Android Security Bulletins are included in the 2025121701 security preview release. List of additional fixed CVEs:</p>
+
+                    <ul>
+                        <li>High: CVE-2025-32348, CVE-2025-48641, CVE-2026-0014, CVE-2026-0015, CVE-2026-0016, CVE-2026-0017, CVE-2026-0018</li>
+                    </ul>
+
+                    <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
+                </article>
+
+                <article id="2025121200">
+                    <h3><a href="#2025121200">2025121200</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2025121200">2025121200</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2025121000 release:</p>
+
+                    <ul>
+                        <li>disable notification summaries and organizer features due to AOSP and GrapheneOS lacking the AI models used to implement these features</li>
+                        <li>add workaround for notification background appearance regression in Android 16 QPR2</li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/143.0.7499.109.0">version 143.0.7499.109.0</a></li>
+                        <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-167">version 167</a></li>
+                    </ul>
+
+                    <p>All of the Android 16 security patches from the current January 2026, February 2026, March 2026, April 2026, May 2026 and June 2026 Android Security Bulletins are included in the 2025121201 security preview release. List of additional fixed CVEs:</p>
+
+                    <ul>
+                        <li>High: CVE-2025-32348, CVE-2025-48641, CVE-2026-0014, CVE-2026-0015, CVE-2026-0016, CVE-2026-0017, CVE-2026-0018</li>
+                    </ul>
+
+                    <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
+                </article>
+
+                <article id="2025121000">
+                    <h3><a href="#2025121000">2025121000</a></h3>
+
+                    <p>This is our first non-experimental release based on Android 16 QPR2 after our
+                    initial experimental 2025120800 release.</p>
+
+                    <p>The change to the style of notification backgrounds is an upstream regression
+                    rather than an intentional change to a more minimal style. It will be fixed in a
+                    subsequent release since we decided it isn't important enough to delay this.</p>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2025121000">2025121000</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold, emulator, generic, other targets)</li>
+                    </ul>
+
+                    <p>Changes since the 2025120400 release:</p>
+
+                    <ul>
+                        <li>full 2025-12-05 security patch level</li>
+                        <li>rebased onto BP4A.251205.006 Android Open Source Project release (Android 16 QPR2)</li>
+                        <li>disable promotion of identity check feature not currently present in GrapheneOS due to depending on privileged Google Mobile Services integration</li>
+                        <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-166">version 166</a></li>
+                    </ul>
+
+                    <p>All of the Android 16 security patches from the current January 2026, February 2026, March 2026, April 2026, May 2026 and June 2026 Android Security Bulletins are included in the 2025121001 security preview release. List of additional fixed CVEs:</p>
+
+                    <ul>
+                        <li>High: CVE-2025-32348, CVE-2025-48641, CVE-2026-0014, CVE-2026-0015, CVE-2026-0016, CVE-2026-0017, CVE-2026-0018</li>
+                    </ul>
+
+                    <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
+                </article>
+
+                <article id="2025120400">
+                    <h3><a href="#2025120400">2025120400</a></h3>
+
+                    <p>Tags:</p>
+                    <ul>
+                        <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2025120400">2025120400</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold, emulator, generic, other targets)</li>
                     </ul>
 
                     <p>Changes since the 2025111800 release:</p>
 
                     <ul>
+                        <li>full 2025-12-01 security patch level (has already been fully provided by our security preview releases for at least a month and most of the patches since September)</li>
+                        <li>add experimental support for the Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL and Pixel 10 Pro Fold (there were 2 standalone experimental releases prior to this via 2025112500 and 2025113000 along with corresponding security preview releases for each)</li>
+                        <li>Cell Broadcast Receiver: switch back to our modified text for the presidential alerts toggle</li>
+                        <li>kernel (6.1): update to latest GKI LTS branch revision including update to 6.1.158</li>
+                        <li>kernel (6.6): update to latest GKI LTS branch revision including update to 6.6.116</li>
+                        <li>kernel (6.12): update to latest GKI LTS branch revision including update to 6.12.60</li>
+                        <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/90">version 90</a></li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/143.0.7499.34.0">version 143.0.7499.34.0</a></li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/143.0.7499.34.1">version 143.0.7499.34.1</a></li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/143.0.7499.34.2">version 143.0.7499.34.2</a></li>
+                        <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/143.0.7499.52.0">version 143.0.7499.52.0</a></li>
+                        <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-164">version 164</a></li>
+                        <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-165">version 165</a></li>
                     </ul>
 
-                    <p>All of the Android 16 security patches from the current December 2025, January 2026, February 2026 and March 2026 Android Security Bulletins are included in the 2025112101 security preview release. List of additional fixed CVEs:</p>
+                    <p>All of the Android 16 security patches from the current January 2026, February 2026 and March 2026 Android Security Bulletins are included in the 2025120401 security preview release. List of additional fixed CVEs:</p>
 
                     <ul>
-                        <li>Critical: CVE-2025-48631, CVE-2026-0006</li>
-                        <li>High: CVE-2022-25836, CVE-2022-25837, CVE-2023-40130, CVE-2025-22420, CVE-2025-22432, CVE-2025-26447, CVE-2025-32319, CVE-2025-32348, CVE-2025-48525, CVE-2025-48536, CVE-2025-48555, CVE-2025-48564, CVE-2025-48565, CVE-2025-48566, CVE-2025-48567, CVE-2025-48572, CVE-2025-48573, CVE-2025-48574, CVE-2025-48575, CVE-2025-48576, CVE-2025-48577, CVE-2025-48578, CVE-2025-48579, CVE-2025-48580, CVE-2025-48582, CVE-2025-48583, CVE-2025-48584, CVE-2025-48585, CVE-2025-48586, CVE-2025-48587, CVE-2025-48589, CVE-2025-48590, CVE-2025-48592, CVE-2025-48594, CVE-2025-48596, CVE-2025-48597, CVE-2025-48598, CVE-2025-48600, CVE-2025-48601, CVE-2025-48602, CVE-2025-48603, CVE-2025-48604, CVE-2025-48605, CVE-2025-48609, CVE-2025-48612, CVE-2025-48614, CVE-2025-48615, CVE-2025-48616, CVE-2025-48617, CVE-2025-48618, CVE-2025-48619, CVE-2025-48620, CVE-2025-48621, CVE-2025-48622, CVE-2025-48626, CVE-2025-48628, CVE-2025-48629, CVE-2025-48630, CVE-2025-48632, CVE-2025-48633, CVE-2025-48634, CVE-2026-0005, CVE-2026-0007, CVE-2026-0008</li>
+                        <li>Critical: CVE-2026-0006</li>
+                        <li>High: CVE-2025-26447, CVE-2025-32348, CVE-2025-48578, CVE-2025-48579, CVE-2025-48582, CVE-2025-48585, CVE-2025-48587, CVE-2025-48609, CVE-2025-48622, CVE-2026-0005, CVE-2026-0007, CVE-2026-0008, CVE-2026-0009, CVE-2026-0010</li>
                     </ul>
-
-                    <p>2025112101 provides at least the full 2025-12-01 Android and Pixel security patch level but will remain marked as providing 2025-11-05.</p>
 
                     <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
                 </article>
-                -->
 
                 <article id="2025112100">
                     <h3><a href="#2025112100">2025112100</a></h3>
@@ -676,8 +1126,6 @@
                         <li>Critical: CVE-2025-48631, CVE-2026-0006</li>
                         <li>High: CVE-2022-25836, CVE-2022-25837, CVE-2023-40130, CVE-2025-22420, CVE-2025-22432, CVE-2025-26447, CVE-2025-32319, CVE-2025-32348, CVE-2025-48525, CVE-2025-48536, CVE-2025-48555, CVE-2025-48564, CVE-2025-48565, CVE-2025-48566, CVE-2025-48567, CVE-2025-48572, CVE-2025-48573, CVE-2025-48574, CVE-2025-48575, CVE-2025-48576, CVE-2025-48577, CVE-2025-48578, CVE-2025-48579, CVE-2025-48580, CVE-2025-48582, CVE-2025-48583, CVE-2025-48584, CVE-2025-48585, CVE-2025-48586, CVE-2025-48587, CVE-2025-48589, CVE-2025-48590, CVE-2025-48592, CVE-2025-48594, CVE-2025-48596, CVE-2025-48597, CVE-2025-48598, CVE-2025-48600, CVE-2025-48601, CVE-2025-48602, CVE-2025-48603, CVE-2025-48604, CVE-2025-48605, CVE-2025-48609, CVE-2025-48612, CVE-2025-48614, CVE-2025-48615, CVE-2025-48616, CVE-2025-48617, CVE-2025-48618, CVE-2025-48619, CVE-2025-48620, CVE-2025-48621, CVE-2025-48622, CVE-2025-48626, CVE-2025-48628, CVE-2025-48629, CVE-2025-48630, CVE-2025-48632, CVE-2025-48633, CVE-2025-48634, CVE-2026-0005, CVE-2026-0007, CVE-2026-0008</li>
                     </ul>
-
-                    <p>2025112101 provides at least the full 2025-12-01 Android and Pixel security patch level but will remain marked as providing 2025-11-05.</p>
 
                     <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
                 </article>
@@ -716,8 +1164,6 @@
                         <li>High: CVE-2022-25836, CVE-2022-25837, CVE-2023-40130, CVE-2025-22420, CVE-2025-22432, CVE-2025-26447, CVE-2025-32319, CVE-2025-32348, CVE-2025-48525, CVE-2025-48536, CVE-2025-48555, CVE-2025-48564, CVE-2025-48565, CVE-2025-48566, CVE-2025-48567, CVE-2025-48572, CVE-2025-48573, CVE-2025-48574, CVE-2025-48575, CVE-2025-48576, CVE-2025-48577, CVE-2025-48578, CVE-2025-48579, CVE-2025-48580, CVE-2025-48582, CVE-2025-48583, CVE-2025-48584, CVE-2025-48585, CVE-2025-48586, CVE-2025-48587, CVE-2025-48589, CVE-2025-48590, CVE-2025-48592, CVE-2025-48594, CVE-2025-48596, CVE-2025-48597, CVE-2025-48598, CVE-2025-48600, CVE-2025-48601, CVE-2025-48602, CVE-2025-48603, CVE-2025-48604, CVE-2025-48605, CVE-2025-48609, CVE-2025-48612, CVE-2025-48614, CVE-2025-48615, CVE-2025-48616, CVE-2025-48617, CVE-2025-48618, CVE-2025-48619, CVE-2025-48620, CVE-2025-48621, CVE-2025-48622, CVE-2025-48626, CVE-2025-48628, CVE-2025-48629, CVE-2025-48630, CVE-2025-48632, CVE-2025-48633, CVE-2025-48634, CVE-2026-0005, CVE-2026-0007, CVE-2026-0008</li>
                     </ul>
 
-                    <p>2025111801 provides at least the full 2025-12-01 Android and Pixel security patch level but will remain marked as providing 2025-11-05.</p>
-
                     <p>The official Android security preview patches are for the initial release of Android 16 and we had to port the patches to Android 16 QPR1. This resulted in it taking significantly longer to be available. Due to this, 2025111801 also bundles Vanadium 142.0.7444.171.0 which was released through our App Store after the regular OS release but prior to the security preview OS release. It's otherwise a normal security preview release with no non-security-preview patch related changes beyond the Vanadium release being included.</p>
 
                     <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
@@ -744,8 +1190,6 @@
                         <li>Critical: CVE-2025-48631, CVE-2026-0006</li>
                         <li>High: CVE-2022-25836, CVE-2022-25837, CVE-2023-40130, CVE-2025-22420, CVE-2025-22432, CVE-2025-26447, CVE-2025-32319, CVE-2025-32348, CVE-2025-48525, CVE-2025-48536, CVE-2025-48555, CVE-2025-48564, CVE-2025-48565, CVE-2025-48566, CVE-2025-48567, CVE-2025-48572, CVE-2025-48573, CVE-2025-48574, CVE-2025-48575, CVE-2025-48576, CVE-2025-48577, CVE-2025-48578, CVE-2025-48579, CVE-2025-48580, CVE-2025-48582, CVE-2025-48583, CVE-2025-48584, CVE-2025-48585, CVE-2025-48586, CVE-2025-48587, CVE-2025-48589, CVE-2025-48590, CVE-2025-48592, CVE-2025-48594, CVE-2025-48596, CVE-2025-48597, CVE-2025-48598, CVE-2025-48600, CVE-2025-48601, CVE-2025-48602, CVE-2025-48603, CVE-2025-48604, CVE-2025-48605, CVE-2025-48609, CVE-2025-48612, CVE-2025-48614, CVE-2025-48615, CVE-2025-48616, CVE-2025-48617, CVE-2025-48618, CVE-2025-48619, CVE-2025-48620, CVE-2025-48621, CVE-2025-48622, CVE-2025-48626, CVE-2025-48628, CVE-2025-48629, CVE-2025-48630, CVE-2025-48632, CVE-2025-48633, CVE-2025-48634, CVE-2026-0005, CVE-2026-0007, CVE-2026-0008</li>
                     </ul>
-
-                    <p>2025110801 provides at least the full 2025-12-01 Android security patch level (a Pixel Update Bulletin for November 2025 hasn't been released could have fixes we don't get early, although it's likely empty) but will remain marked as providing 2025-11-01.</p>
 
                     <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
                 </article>
@@ -780,8 +1224,6 @@
                         <li>High: CVE-2022-25836, CVE-2022-25837, CVE-2023-40130, CVE-2025-22420, CVE-2025-22432, CVE-2025-26447, CVE-2025-32319, CVE-2025-32348, CVE-2025-48525, CVE-2025-48536, CVE-2025-48555, CVE-2025-48564, CVE-2025-48565, CVE-2025-48566, CVE-2025-48567, CVE-2025-48572, CVE-2025-48573, CVE-2025-48574, CVE-2025-48575, CVE-2025-48576, CVE-2025-48577, CVE-2025-48578, CVE-2025-48579, CVE-2025-48580, CVE-2025-48582, CVE-2025-48583, CVE-2025-48584, CVE-2025-48585, CVE-2025-48586, CVE-2025-48587, CVE-2025-48589, CVE-2025-48590, CVE-2025-48592, CVE-2025-48594, CVE-2025-48596, CVE-2025-48597, CVE-2025-48598, CVE-2025-48600, CVE-2025-48601, CVE-2025-48602, CVE-2025-48603, CVE-2025-48604, CVE-2025-48605, CVE-2025-48609, CVE-2025-48612, CVE-2025-48614, CVE-2025-48615, CVE-2025-48616, CVE-2025-48617, CVE-2025-48618, CVE-2025-48619, CVE-2025-48620, CVE-2025-48621, CVE-2025-48622, CVE-2025-48626, CVE-2025-48628, CVE-2025-48629, CVE-2025-48630, CVE-2025-48632, CVE-2025-48633, CVE-2025-48634, CVE-2026-0005, CVE-2026-0007, CVE-2026-0008</li>
                     </ul>
 
-                    <p>2025110601 provides at least the full 2025-12-01 Android security patch level (a Pixel Update Bulletin for November 2025 hasn't been released could have fixes we don't get early, although it's likely empty) but will remain marked as providing 2025-11-01.</p>
-
                     <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
                 </article>
 
@@ -808,8 +1250,6 @@
                         <li>Critical: CVE-2025-48593, CVE-2025-48631</li>
                         <li>High: CVE-2022-25836, CVE-2022-25837, CVE-2023-40130, CVE-2024-43766, CVE-2025-22420, CVE-2025-22432, CVE-2025-32319, CVE-2025-32348, CVE-2025-48525, CVE-2025-48536, CVE-2025-48555, CVE-2025-48564, CVE-2025-48565, CVE-2025-48566, CVE-2025-48567, CVE-2025-48572, CVE-2025-48573, CVE-2025-48574, CVE-2025-48575, CVE-2025-48576, CVE-2025-48577, CVE-2025-48578, CVE-2025-48579, CVE-2025-48580, CVE-2025-48582, CVE-2025-48583, CVE-2025-48584, CVE-2025-48585, CVE-2025-48586, CVE-2025-48587, CVE-2025-48589, CVE-2025-48590, CVE-2025-48592, CVE-2025-48594, CVE-2025-48596, CVE-2025-48597, CVE-2025-48598, CVE-2025-48600, CVE-2025-48601, CVE-2025-48602, CVE-2025-48603, CVE-2025-48604, CVE-2025-48605, CVE-2025-48609, CVE-2025-48612, CVE-2025-48614, CVE-2025-48615, CVE-2025-48616, CVE-2025-48617, CVE-2025-48618, CVE-2025-48619, CVE-2025-48620, CVE-2025-48621, CVE-2025-48622, CVE-2025-48626, CVE-2025-48628, CVE-2025-48629, CVE-2025-48630, CVE-2025-48632, CVE-2025-48633, CVE-2025-48634</li>
                     </ul>
-
-                    <p>2025102801 provides at least the full 2025-11-01 patch level and the Android 2025-11-05 patch level (Pixel Update Bulletin could have fixes we don't get early) but will remain marked as providing 2025-10-05.</p>
 
                     <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
                 </article>
@@ -839,8 +1279,6 @@
                         <li>High: CVE-2022-25836, CVE-2022-25837, CVE-2023-40130, CVE-2024-43766, CVE-2025-22420, CVE-2025-22432, CVE-2025-32319, CVE-2025-32348, CVE-2025-48525, CVE-2025-48536, CVE-2025-48555, CVE-2025-48564, CVE-2025-48565, CVE-2025-48566, CVE-2025-48567, CVE-2025-48572, CVE-2025-48573, CVE-2025-48574, CVE-2025-48575, CVE-2025-48576, CVE-2025-48577, CVE-2025-48578, CVE-2025-48579, CVE-2025-48580, CVE-2025-48582, CVE-2025-48583, CVE-2025-48584, CVE-2025-48585, CVE-2025-48586, CVE-2025-48587, CVE-2025-48589, CVE-2025-48590, CVE-2025-48592, CVE-2025-48594, CVE-2025-48596, CVE-2025-48597, CVE-2025-48598, CVE-2025-48600, CVE-2025-48601, CVE-2025-48602, CVE-2025-48603, CVE-2025-48604, CVE-2025-48605, CVE-2025-48609, CVE-2025-48612, CVE-2025-48614, CVE-2025-48615, CVE-2025-48616, CVE-2025-48617, CVE-2025-48618, CVE-2025-48619, CVE-2025-48620, CVE-2025-48621, CVE-2025-48622, CVE-2025-48626, CVE-2025-48628, CVE-2025-48629, CVE-2025-48630, CVE-2025-48632, CVE-2025-48633, CVE-2025-48634</li>
                     </ul>
 
-                    <p>2025102601 provides at least the full 2025-11-01 patch level and the Android 2025-11-05 patch level (Pixel Update Bulletin could have fixes we don't get early) but will remain marked as providing 2025-10-05.</p>
-
                     <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
                 </article>
 
@@ -866,8 +1304,6 @@
                         <li>High: CVE-2022-25836, CVE-2022-25837, CVE-2023-40130, CVE-2024-43766, CVE-2025-22420, CVE-2025-22432, CVE-2025-32319, CVE-2025-32348, CVE-2025-48525, CVE-2025-48536, CVE-2025-48555, CVE-2025-48564, CVE-2025-48565, CVE-2025-48566, CVE-2025-48567, CVE-2025-48572, CVE-2025-48573, CVE-2025-48574, CVE-2025-48575, CVE-2025-48576, CVE-2025-48577, CVE-2025-48578, CVE-2025-48579, CVE-2025-48580, CVE-2025-48582, CVE-2025-48583, CVE-2025-48584, CVE-2025-48585, CVE-2025-48586, CVE-2025-48587, CVE-2025-48589, CVE-2025-48590, CVE-2025-48592, CVE-2025-48594, CVE-2025-48596, CVE-2025-48597, CVE-2025-48598, CVE-2025-48600, CVE-2025-48601, CVE-2025-48602, CVE-2025-48603, CVE-2025-48604, CVE-2025-48605, CVE-2025-48609, CVE-2025-48612, CVE-2025-48614, CVE-2025-48615, CVE-2025-48616, CVE-2025-48617, CVE-2025-48618, CVE-2025-48619, CVE-2025-48620, CVE-2025-48621, CVE-2025-48622, CVE-2025-48626, CVE-2025-48628, CVE-2025-48629, CVE-2025-48630, CVE-2025-48632, CVE-2025-48633, CVE-2025-48634</li>
                     </ul>
 
-                    <p>2025102301 provides at least the full 2025-11-01 patch level and the Android 2025-11-05 patch level (Pixel Update Bulletin could have fixes we don't get early) but will remain marked as providing 2025-10-05.</p>
-
                     <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
                 </article>
 
@@ -891,6 +1327,7 @@
                         <li>Sandboxed Google Play compatibility layer: add support for out-of-band updates to GmsCompatLib</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/141.0.7390.111.0">version 141.0.7390.111.0</a></li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/141.0.7390.122.0">version 141.0.7390.122.0</a></li>
+                        <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-163">version 163</a></li>
                         <li>raise emulator super / dynamic partition size due to reaching the limit in some cases</li>
                         <li>adevtool: prefer prebuilt AOSP JDK 21</li>
                     </ul>
@@ -901,8 +1338,6 @@
                         <li>Critical: CVE-2025-48593, CVE-2025-48631</li>
                         <li>High: CVE-2022-25836, CVE-2022-25837, CVE-2023-40130, CVE-2024-43766, CVE-2025-22420, CVE-2025-22432, CVE-2025-32319, CVE-2025-32348, CVE-2025-48525, CVE-2025-48536, CVE-2025-48555, CVE-2025-48564, CVE-2025-48565, CVE-2025-48566, CVE-2025-48567, CVE-2025-48572, CVE-2025-48573, CVE-2025-48574, CVE-2025-48575, CVE-2025-48576, CVE-2025-48577, CVE-2025-48578, CVE-2025-48579, CVE-2025-48580, CVE-2025-48582, CVE-2025-48583, CVE-2025-48584, CVE-2025-48585, CVE-2025-48586, CVE-2025-48587, CVE-2025-48589, CVE-2025-48590, CVE-2025-48592, CVE-2025-48594, CVE-2025-48596, CVE-2025-48597, CVE-2025-48598, CVE-2025-48600, CVE-2025-48601, CVE-2025-48602, CVE-2025-48603, CVE-2025-48604, CVE-2025-48605, CVE-2025-48609, CVE-2025-48612, CVE-2025-48614, CVE-2025-48615, CVE-2025-48616, CVE-2025-48617, CVE-2025-48618, CVE-2025-48619, CVE-2025-48620, CVE-2025-48621, CVE-2025-48622, CVE-2025-48626, CVE-2025-48628, CVE-2025-48629, CVE-2025-48630, CVE-2025-48632, CVE-2025-48633, CVE-2025-48634</li>
                     </ul>
-
-                    <p>2025102201 provides at least the full 2025-11-01 patch level and the Android 2025-11-05 patch level (Pixel Update Bulletin could have fixes we don't get early) but will remain marked as providing 2025-10-05.</p>
 
                     <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
                 </article>
@@ -944,8 +1379,6 @@
                         <li>Critical: CVE-2025-48593</li>
                         <li>High: CVE-2022-25836, CVE-2022-25837, CVE-2023-40130, CVE-2024-43766, CVE-2025-22420, CVE-2025-22432, CVE-2025-32319, CVE-2025-32348, CVE-2025-48525, CVE-2025-48536, CVE-2025-48544, CVE-2025-48555, CVE-2025-48567, CVE-2025-48572, CVE-2025-48573, CVE-2025-48574, CVE-2025-48575, CVE-2025-48576, CVE-2025-48577, CVE-2025-48578, CVE-2025-48579, CVE-2025-48580, CVE-2025-48581, CVE-2025-48582, CVE-2025-48583, CVE-2025-48584, CVE-2025-48585, CVE-2025-48586, CVE-2025-48587, CVE-2025-48589, CVE-2025-48590, CVE-2025-48592, CVE-2025-48594, CVE-2025-48596, CVE-2025-48597, CVE-2025-48598, CVE-2025-48600, CVE-2025-48601, CVE-2025-48602, CVE-2025-48603, CVE-2025-48604, CVE-2025-48605, CVE-2025-48607, CVE-2025-48609, CVE-2025-48612, CVE-2025-48614, CVE-2025-48615, CVE-2025-48616, CVE-2025-48617, CVE-2025-48618, CVE-2025-48619, CVE-2025-48620, CVE-2025-48621, CVE-2025-48622, CVE-2025-48626, CVE-2025-48628, CVE-2025-48629</li>
                     </ul>
-
-                    <p>2025100901 provides at least the full 2025-11-01 patch level and the Android 2025-11-05 patch level (Pixel Update Bulletin could have fixes we don't get early) but will remain marked as providing 2025-10-05.</p>
 
                     <p>For detailed information on security preview releases, see our <a href="https://discuss.grapheneos.org/d/27068-grapheneos-security-preview-releases">post about it</a>.</p>
                 </article>
@@ -1843,6 +2276,7 @@
                         <li>kernel (6.1): update to latest GKI LTS branch revision</li>
                         <li>kernel (6.1): revert upstream Linux kernel change attempting to work around frame drops caused by a workaround used by video players on X11-based platforms (irrelevant to Android) due to it breaking DisplayPort alternate mode audio</li>
                         <li>kernel (6.6): update to latest GKI LTS branch revision including update to 6.6.88</li>
+                        <li>Auditor: update to <a href="https://github.com/GrapheneOS/Auditor/releases/tag/89">version 89</a></li>
                         <li>PDF Viewer: update to <a href="https://github.com/GrapheneOS/PdfViewer/releases/tag/29">version 29</a></li>
                         <li>PDF Viewer: update to <a href="https://github.com/GrapheneOS/PdfViewer/releases/tag/30">version 30</a></li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/136.0.7103.60.0">version 136.0.7103.60.0</a></li>
@@ -4652,7 +5086,7 @@
                     <ul>
                         <li>replace auto-reboot implementation with a new more hardened implementation based on a timer in the init process (since init crashing reboots the device, unlike system_server) which also avoids rebooting when the device hasn't been unlocked since boot</li>
                         <li>reduce default auto-reboot timer from 72 hours to 18 hours</li>
-                        <li>add log viewer available at <b>Settings&#160;<span aria-label="and then">></span> System&#160;<span aria-label="and then">></span> View logs</b> to avoid needing developer options for making useful bug reports and inspecting the device for issues</li>
+                        <li>add log viewer available at <b>Settings&#160;> System&#160;> View logs</b> to avoid needing developer options for making useful bug reports and inspecting the device for issues</li>
                         <li>reimplement our user-facing crash reporting infrastructure with our new log viewer app</li>
                         <li>Settings: add links to log viewer in app info and system settings</li>
                         <li>show report button in sandboxed Google Play crash report UI</li>
@@ -5052,7 +5486,7 @@
                     <ul>
                         <li>add infrastructure for hardware memory tagging support</li>
                         <li>hardened_malloc: add support for hardware memory tagging launched with the ARMv9 cores on the Pixel 8 and Pixel 8 Pro</li>
-                        <li>Settings: enable memory tagging toggle at <b>Settings&#160;<span aria-label="and then">></span> Security&#160;<span aria-label="and then">></span> More security settings&#160;<span aria-label="and then">></span> Advanced memory protection</b> beta on supported devices (Pixel 8 and Pixel 8 Pro)</li>
+                        <li>Settings: enable memory tagging toggle at <b>Settings&#160;> Security&#160;> More security settings&#160;> Advanced memory protection</b> beta on supported devices (Pixel 8 and Pixel 8 Pro)</li>
                         <li>Pixel 8, Pixel 8 Pro: enable memory tagging support for everything built by GrapheneOS (other than Vanadium, since Chromium currently disables it) and also user installed apps without native libraries (will be expanded to Vanadium later along with the option to use it for all user installed apps)</li>
                         <li>Pixel 8, Pixel 8 Pro: use asymmetric memory tagging mode on all cores to provide much higher security than asynchronous mode without much more overhead unlike the very expensive synchronous mode without any clear security benefits over asymmetric</li>
                         <li>enable parallel compilation of non-precompiled bytecode to native code for first-boot and first-boot-after-update with 2 processes for now (can be increased later)</li>
@@ -6185,7 +6619,7 @@
                     <p>Changes since the 2023020600 release:</p>
 
                     <ul>
-                        <li>add toggle to <b>Settings&#160;<span aria-label="and then">></span> Location</b> for force disabling SUPL as a carrier-independent replacement for editing APN configuration since editing APN configuration is unintuitive, not fully respected on Tensor SoC devices and users with no carrier should be able to disable it without using airplane mode</li>
+                        <li>add toggle to <b>Settings&#160;> Location</b> for force disabling SUPL as a carrier-independent replacement for editing APN configuration since editing APN configuration is unintuitive, not fully respected on Tensor SoC devices and users with no carrier should be able to disable it without using airplane mode</li>
                         <li>Vanadium: update Chromium base to 110.0.5481.64</li>
                         <li>GmsCompatConfig: update max supported version of Play Store</li>
                         <li>Apps: update to <a href="https://github.com/GrapheneOS/Apps/releases/tag/15">version 15</a></li>
@@ -7616,7 +8050,7 @@
                     <p>Changes since the 2022062200 release:</p>
 
                     <ul>
-                        <li>add opt-in support for forwarding notifications to the active user from users in the background with information censored in the same way as on the lockscreen (can be enabled in <b>Settings&#160;<span aria-label="and then">></span> System&#160;<span aria-label="and then">></span> Multiple users</b> for each user you want to forward their notifications)</li>
+                        <li>add opt-in support for forwarding notifications to the active user from users in the background with information censored in the same way as on the lockscreen (can be enabled in <b>Settings&#160;> System&#160;> Multiple users</b> for each user you want to forward their notifications)</li>
                         <li>set correct tile label for our battery share quick tile</li>
                         <li>Vanadium: update Chromium base to 103.0.5060.70</li>
                         <li>Vanadium: disable reporting support (Report-To, report-uri) again</li>
@@ -7846,7 +8280,7 @@
 
                     <ul>
                         <li>Sandboxed Google Play compatibility layer (GmsCompat): significantly improve compatibility of the default enabled geolocation API rerouting feature</li>
-                        <li>remove timestamp from screenshot EXIF metadata by default and add a toggle to <b>Settings&#160;<span aria-label="and then">></span> Privacy</b> for enabling it</li>
+                        <li>remove timestamp from screenshot EXIF metadata by default and add a toggle to <b>Settings&#160;> Privacy</b> for enabling it</li>
                         <li>work around slow unlock animation</li>
                         <li>kernel (Pixel 6, Pixel 6 Pro): update GKI base to ASB-2022-05-05_12-5.10</li>
                         <li>Dialer: add fixes for Bluetooth audio call redirection and BLE devices</li>
@@ -8155,7 +8589,7 @@
 
                     <ul>
                         <li>ThemePicker: add toggle for using wallpaper-extracted colors as the color scheme (Monet)</li>
-                        <li>add toggle for exec-based spawning in <b>Settings&#160;<span aria-label="and then">></span> Security</b></li>
+                        <li>add toggle for exec-based spawning in <b>Settings&#160;> Security</b></li>
                         <li>GrapheneOS Keyboard: enable spellchecking for Czech and Dutch languages</li>
                         <li>Vanadium: update Chromium base to 99.0.4844.88</li>
                         <li>Camera: update to <a href="https://github.com/GrapheneOS/Camera/releases/tag/17">version 17</a></li>
@@ -8486,7 +8920,7 @@
 
                     <ul>
                         <li>Pixel 3, Pixel 3 XL: add GmsCompat app which was meant to be added by the previous release</li>
-                        <li>Pixel 6, Pixel 6 Pro: revert accidental enabling of dark mode by default, which we plan to do by default in the future across devices once the Contacts and Messaging apps are updated to support it (you can set your own preference in <b>Settings&#160;<span aria-label="and then">></span> Display&#160;<span aria-label="and then">></span> Dark theme</b>)</li>
+                        <li>Pixel 6, Pixel 6 Pro: revert accidental enabling of dark mode by default, which we plan to do by default in the future across devices once the Contacts and Messaging apps are updated to support it (you can set your own preference in <b>Settings&#160;> Display&#160;> Dark theme</b>)</li>
                     </ul>
                 </article>
 
@@ -9548,7 +9982,7 @@
 
                     <ul>
                         <li>kernel (Pixel 4a (5G), Pixel 5): rebuild with updated techpack/camera submodule</li>
-                        <li>add back support for fully disabling native debugging (ptrace) support in <b>Settings&#160;<span aria-label="and then">></span> Security</b></li>
+                        <li>add back support for fully disabling native debugging (ptrace) support in <b>Settings&#160;> Security</b></li>
                         <li>kernel (Pixel 3, Pixel 3 XL, Pixel 3a, Pixel 3a XL, Pixel 4, Pixel 4 XL, Pixel 4a, Pixel 4a (5G), Pixel 5): enable support for native debugging (ptrace) toggle via Yama</li>
                         <li>Settings: add back extra field with bootloader version</li>
                         <li>Settings: only allow disabling Vanadium WebView library via developer tools since disabling it breaks app compatibility and almost always results in crashes rather than user friendly errors, including for base OS components using it</li>
@@ -9953,9 +10387,7 @@
                     <h3><a href="#2020.11.05.18">2020.11.05.18</a></h3>
 
                     <p>While waiting for this release to become available, you can manually add a
-                    battery optimization exemption for the Clock app via <b>Settings&#160;<span
-                    aria-label="and then">></span> Apps &amp; notifications&#160;<span
-                    aria-label="and then">></span> Special app access&#160;<span aria-label="and then">></span>
+                    battery optimization exemption for the Clock app via <b>Settings&#160;> Apps &amp; notifications&#160;> Special app access&#160;>
                     Battery optimization</b> where you can select <b>All apps</b>, scroll
                     down to the Clock app and manually add an exemption. Should get this added upstream.</p>
 
