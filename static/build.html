@@ -548,6 +548,7 @@ CN=GrapheneOS
 ../../development/tools/make_key bluetooth "/CN=$CN/"
 ../../development/tools/make_key sdk_sandbox "/CN=$CN/"
 ../../development/tools/make_key gmscompat_lib "/CN=$CN/"
+../../development/tools/make_key nfc "/CN=$CN/"
 openssl genrsa 4096 | openssl pkcs8 -topk8 -scrypt -out avb.pem
 ../../external/avb/avbtool.py extract_public_key --key avb.pem --output avb_pkmd.bin
 cd ../..</pre>
