@@ -889,7 +889,14 @@ git checkout <var>VERSION</var></pre>
                     <p>The official releases of our App Store, Auditor, Camera and PdfViewer apps are
                     bundled as apks into external/ repositories. The no-code AppCompatConfig and
                     GmsCompatConfig apps are done the same way. These are built and signed with the
-                    standard <code>gradle</code> Android plugin build system.</p>
+                    standard <code>gradle</code> Android plugin build system. You can also build those apps from the source code by following these steps:
+                    </p>
+                    <ul>
+                        <li>Install Gradle, OpenJDK 21 for developers (which should be called <code>java-21-openjdk-devel</code> on Linux), Android Studio, and npm.</li>
+                        <li>In the project you want to build, create a <code>local.properties</code> file and inside it, set the path to your JDK e.g. <code>sdk.dir=/home/jane.doe/Android/Sdk</code></li>
+                        <li>In Android Studio's Device Manager, make sure you have a device running (virtual device, or physical device paired using wi-fi)</li>
+                        <li>From a console in your project folder, run <code>gradle installDebug</code>. This will install the app from the source code, alongside any prebuilt version of the app which you may already have.</li>
+                    </ul>
 
                     <p>The TalkBack screen reader is built from our talkback fork repository and
                     included as a prebuilt signed with the OS releasekey. It may be presigned in
