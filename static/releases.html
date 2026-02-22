@@ -644,6 +644,7 @@
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): raise lockdown mode from integrity to confidentiality mode to match the other devices</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): add workaround for an upstream arm64 KVM bug breaking booting with lockdown in confidentiality mode</li>
                         <li>hardened_malloc: update libdivide to 5.3.0</li>
+                        <li>hardened_malloc: fix handling one form of realloc from small allocations made with alignment above PAGE_SIZE (no known real world examples and it would be crashing if it was happening since it causes internal invalid accesses unable to go outside the bounds of the protected metadata region which is mainly PROT_NONE)</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/145.0.7632.75.0">version 145.0.7632.75.0</a></li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/145.0.7632.109.0">version 145.0.7632.109.0</a></li>
                     </ul>
