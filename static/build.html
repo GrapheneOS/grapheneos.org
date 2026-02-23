@@ -508,6 +508,41 @@ cd ../..</pre>
                     signing the build with release keys would be testing that functionality and it makes a
                     lot more sense to test it with proper signing keys rather than the default public test
                     keys.</p>
+
+                    <p><i>NOTE: The fastboot commands used here expect that you are running them in a shell where <i>source build/envsetup.sh</i> has been executed in.</i></p>
+
+                    <p><i>You may also set the ANDROID_PRODUCT_OUT environment variable manually.</i></p>
+
+                    <p>To flash those images:</p>
+
+                    <pre>fastboot flashall</pre>
+
+                    <p>If you want to flash -userdebug or -user images, please note that these have the ability to change the active slot on boot failure, and it is recommended
+                    to update and switch to the other slot, so the rollback mechanism does not break anything.</p>
+
+                    <pre>fastboot flashall --slot=other --set-active=other</pre>
+
+                    <p>When the firmware for your device gets updated, it may be necessary to update both the radio (modem firmware) and bootloader partitions.</p>
+
+                    <p>To do so safely, use the below script <i>(NOTE: the commands are repeated on purpose):</i></p>
+
+                    <p>This uses the same logic as the install image to ensure not bricking your device.</p>
+
+                    <pre>
+                      fastboot flash --slot=other bootloader
+                      fastboot --set-active=other
+                      fastboot reboot-bootloader
+
+                      fastboot flash --slot=other bootloader
+                      fastboot --set-active=other
+                      fastboot reboot-bootloader
+
+                      fastboot snapshot-update cancel
+
+                      fastboot flash radio --slot=other
+                      fastboot flash radio
+                      fastboot reboot-bootloader
+                    </pre>
                 </section>
 
                 <section id="generating-release-signing-keys">
