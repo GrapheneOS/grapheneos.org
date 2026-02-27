@@ -122,8 +122,17 @@
                                     <li><a href="#more-user-profiles">More user profiles</a></li>
                                     <li><a href="#end-session">End session</a></li>
                                     <li><a href="#disabling-app-installation">Disabling app installation</a></li>
-                                    <li><a href="#install-available-apps">Install available apps</a></li>
+                                    <li><a href="#install-available-apps-to-private-space">Install available apps</a></li>
                                     <li><a href="#notification-forwarding">Notification forwarding</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#improved-private-spaces">Improved Private Spaces</a>
+                                <ul>
+                                    <li><a href="#available-in-secondary-profiles">Available in secondary profiles</a></li>
+                                    <li><a href="#disabling-delayed-locking-of-storage">Disabiling delayed locking of storage</a></li>
+                                    <li><a href="#blocking-shared-clipboard">Blocking shared clipboard</a></li>
+                                    <li><a href="#install-available-apps">Install available apps</a></li>
                                 </ul>
                             </li>
                             <li><a href="#grapheneos-app-repository">GrapheneOS app
@@ -1052,6 +1061,50 @@
                         notification channel.</p>
                     </section>
                 </section>
+                    
+                 <section id="improved-private-spaces">
+                    <h3><a href="#improved-private-spaces">Improved Private Spaces</a></h3>
+
+                    <p>Android's Private Spaces are special types of profiles nested in the Owner 
+                    Profile. Apps in Private Space are isolated from the Owner Profile in a similar 
+                    manner to secondary profiles, but Private Space has less UI separation and can 
+                    be used simultaneously with the Owner Profile.</p>
+
+                    <p>GrapheneOS provides improvements to Private Space functionality and is
+                    working on further improvements.</p>
+
+                    <section id="available-in-secondary-profiles">
+                        <h4><a href="#available-in-secondary-profiles">Available in secondary profiles</a></h4>
+
+                        <p>GrapheneOS adds support for Private Spaces in secondary users. They include 
+                        all standard features of Private Space, with the exception of auto-locking 
+                        support.</p>
+                    </section>
+
+                    <section id="disabling-delayed-locking-of-storage">
+                        <h4><a href="#disabling-delayed-locking-of-storage">Disabiling delayed locking of storage</a></h4>
+
+                        <p>GrapheneOS adds a toggle for disabling delayed locking of storage. This 
+                        makes locking work like the <a href="#end-session">secondary user end session</a> feature we enable. 
+                        Standard Private Space doesn't work this way, this is to keep fingerprint unlock 
+                        available after it's locked/stopped.</p>
+                    </section>
+
+                    <section id="blocking-shared-clipboard">
+                        <h4><a href="#blocking-shared-clipboard">Blocking shared clipboard</a></h4>
+
+                        <p>GrapheneOS adds a toggle for blocking sharing the clipboard to and/or from 
+                        a Private Space's parent profile.</p>
+                    </section>
+
+                     <section id="install-available-apps-to-private-space">
+                        <h4><a href="#install-available-apps-to-private-space">Install available apps</a></h4>
+
+                        <p>GrapheneOS adds support for the Install available apps feature for Private Spaces. 
+                        We have also enabled it to <a href="#install-available-apps">support installing apps available in the Owner Profile 
+                        to secondary profiles.</a></p>
+                    </section>
+                 </section>
 
                 <section id="grapheneos-app-repository">
                     <h3><a href="#grapheneos-app-repository">GrapheneOS app repository</a></h3>
