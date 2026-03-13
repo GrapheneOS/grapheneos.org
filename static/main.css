@@ -253,6 +253,20 @@ footer a, footer a:visited {
     padding: 0 0.5em;
 }
 
+.sponsors {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.sponsors img {
+    image-rendering: auto;
+    height: 180px;
+    width: auto;
+    border: none;
+}
+
 #stable-channel ul, #beta-channel ul {
     margin: 0;
     padding: 0;
