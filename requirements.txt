@@ -12,9 +12,9 @@ cssselect==1.4.0 \
     --hash=sha256:c0ec5c0191c8ee39fcc8afc1540331d8b55b0183478c50e9c8a79d44dbceb1d8 \
     --hash=sha256:fdaf0a1425e17dfe8c5cf66191d211b357cf7872ae8afc4c6762ddd8ac47fc92
     # via -r requirements.in
-gixy-ng==0.2.36 \
-    --hash=sha256:591dde39755b6840b948ec21557ce6cb9877d2337d6bde4def58d7e6df4f7a68 \
-    --hash=sha256:83aa82d55cf5eb2bce67e897f556af4c3dc0c126e4639eaafafdf5ea0a95379e
+gixy-ng==0.2.40 \
+    --hash=sha256:8360dc61682f4aec8af578dd3c8802360df52e2ec46d9997c1ec27f83a680c56 \
+    --hash=sha256:caa5d39e695d170fdf1705c8da6d02fd814511ac03dcc57f1ffcbfdeb862bba3
     # via -r requirements.in
 jinja2==3.1.6 \
     --hash=sha256:0137fb05990d35f1275a587e9aee6d56da821fc83491a0fb838183be43f66d6d \
