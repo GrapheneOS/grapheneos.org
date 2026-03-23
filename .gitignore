@@ -2,8 +2,12 @@
 /lock
 /nginx-tmp/
 /node_modules/
+/openspec/
+/.idea/
 /releases-base
 /static-production/
 /static-staging/
 /static-tmp/
+/test-results/
+/playwright-report/
 /venv/
