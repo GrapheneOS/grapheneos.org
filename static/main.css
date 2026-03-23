@@ -253,6 +253,44 @@ footer a, footer a:visited {
     padding: 0 0.5em;
 }
 
+.sponsor-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 2rem 1.5rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.sponsor {
+    margin: 0;
+}
+
+.sponsor a {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+}
+
+.sponsor-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 6rem;
+    width: 100%;
+}
+
+.sponsor img {
+    image-rendering: auto;
+    max-width: 100%;
+    max-height: 5rem;
+    width: auto;
+    height: auto;
+    border: none;
+}
+
 #stable-channel ul, #beta-channel ul {
     margin: 0;
     padding: 0;
@@ -438,6 +476,10 @@ details[open] summary {
 
     .device-img {
         margin: 3.5rem 0 0;
+    }
+
+    .sponsor-list {
+        grid-template-columns: 1fr;
     }
 }
 
