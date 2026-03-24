@@ -1,0 +1,25 @@
+﻿{# templates/i18n.html - макросы для упрощения работы с переводами #}
+
+{# Базовый макрос для перевода #}
+{% macro t(key, fallback=None) %}
+{{ _(key) if fallback is none else _(key) or fallback }}
+{% endmacro %}
+
+{# Перевод с плюрализацией #}
+{% macro n(singular, plural, n) %}
+{{ ngettext(singular, plural, n) }}
+{% endmacro %}
+
+{# Перевод с параметрами #}
+{% macro tr(key, **kwargs) %}
+{% set text = _(key) %}
+{{ text.format(**kwargs) if kwargs else text }}
+{% endmacro %}
+
+{# Контекстный перевод (для одинаковых строк в разных контекстах) #}
+{% macro ctx(context, key) %}
+{{ _(key + '|' + context) or _(key) }}
+{% endmacro %}
+
+{# Переменная для текущего языка #}
+{% set current_lang = lang %}
