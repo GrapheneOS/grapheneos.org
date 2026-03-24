@@ -1,66 +1,62 @@
 <!DOCTYPE html>
+
 <html lang="en" prefix="og: https://ogp.me/ns#">
-    <head>
-        <meta charset="utf-8"/>
-        <title>Articles | GrapheneOS</title>
-        <meta name="description" content="Articles on assorted topics related to GrapheneOS."/>
-        <meta name="theme-color" content="#212121"/>
-        <meta name="color-scheme" content="dark light"/>
-        <meta name="msapplication-TileColor" content="#ffffff"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-        <meta name="twitter:site" content="@GrapheneOS"/>
-        <meta name="twitter:creator" content="@GrapheneOS"/>
-        <meta property="og:title" content="Articles | GrapheneOS"/>
-        <meta property="og:description" content="Articles on assorted topics related to GrapheneOS."/>
-        <meta property="og:type" content="website"/>
-        <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
-        <meta property="og:image:width" content="512"/>
-        <meta property="og:image:height" content="512"/>
-        <meta property="og:image:alt" content="GrapheneOS logo"/>
-        <meta property="og:site_name" content="GrapheneOS"/>
-        <meta property="og:url" content="https://grapheneos.org/articles/"/>
-        <link rel="canonical" href="https://grapheneos.org/articles/"/>
-        <link rel="icon" href="/favicon.ico"/>
-        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
-        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<head>
+<meta charset="utf-8"/>
+<title>{{ _("Articles | GrapheneOS") }}</title>
+<meta content="Articles on assorted topics related to GrapheneOS." name="description"/>
+<meta content="#212121" name="theme-color"/>
+<meta content="dark light" name="color-scheme"/>
+<meta content="#ffffff" name="msapplication-TileColor"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="@GrapheneOS" name="twitter:site"/>
+<meta content="@GrapheneOS" name="twitter:creator"/>
+<meta content="Articles | GrapheneOS" property="og:title"/>
+<meta content="Articles on assorted topics related to GrapheneOS." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://grapheneos.org/opengraph.png" property="og:image"/>
+<meta content="512" property="og:image:width"/>
+<meta content="512" property="og:image:height"/>
+<meta content="GrapheneOS logo" property="og:image:alt"/>
+<meta content="GrapheneOS" property="og:site_name"/>
+<meta content="https://grapheneos.org/articles/" property="og:url"/>
+<link href="https://grapheneos.org/articles/" rel="canonical"/>
+<link href="/favicon.ico" rel="icon"/>
+<link href="/favicon.svg" rel="icon" sizes="any" type="image/svg+xml"/>
+<link color="#1a1a1a" href="[[path|/mask-icon.svg]]" rel="mask-icon"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
         [[css|/main.css]]
-        <link rel="manifest" href="/manifest.webmanifest"/>
-        <link rel="license" href="/LICENSE.txt"/>
-        <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
-    </head>
-    <body>
+        <link href="/manifest.webmanifest" rel="manifest"/>
+<link href="/LICENSE.txt" rel="license"/>
+<link href="https://grapheneos.social/@GrapheneOS" rel="me"/>
+</head>
+<body>
         {% with current_page="articles" %}
             {% include "header.html" %}
         {% endwith %}
         <main id="articles">
-            <h1><a href="#articles">Articles</a></h1>
-
-            <p>The main documentation for GrapheneOS is at the top-level of the site:</p>
-
-            <ul>
-                <li><a href="/features">Features overview</a> — Overview of GrapheneOS features differentiating it from the Android Open Source Project.</li>
-                <li><a href="/install/">Install</a> — Installation instructions for GrapheneOS.</li>
-                <li><a href="/build">Build</a> — Building instructions for GrapheneOS.</li>
-                <li><a href="/usage">Usage guide</a> — Usage instructions for GrapheneOS.</li>
-                <li><a href="/faq">Frequently Asked Questions</a> — Answers to frequently asked questions about GrapheneOS.</li>
-                <li><a href="/releases#changelog">Releases changelog</a> — Changelog for official releases of GrapheneOS.</li>
-                <li><a href="/source">Source code</a> — Documenting all source code repositories for GrapheneOS.</li>
-                <li><a href="/history/">History</a> — History of the GrapheneOS project.</li>
-            </ul>
-
-            <p>Our attestation service has <a href="https://attestation.app/about">a page
-            explaining how the Auditor app and attestation service work</a>.</p>
-
-            <p>Other articles on assorted topics related to GrapheneOS:</p>
-
-            <ul>
-                <li><a href="/articles/attestation-compatibility-guide">Attestation compatibility guide</a> — Guide on using remote attestation in a way that's compatible with GrapheneOS</li>
-                <li><a href="/articles/grapheneos-servers">GrapheneOS servers</a> — Documentation on GrapheneOS servers.</li>
-                <li><a href="/articles/server-traffic-shaping">Server traffic shaping</a> — Implementing server traffic shaping on Linux with CAKE.</li>
-                <li><a href="/articles/sitewide-advertising-industry-opt-out">Sitewide advertising industry opt-out</a> — Using ads.txt and app-ads.txt to disallow buying or selling ads for a domain.</li>
-            </ul>
-        </main>
+<h1><a href="#articles">{{ _("Articles") }}</a></h1>
+<p>{{ _("The main documentation for GrapheneOS is at the top-level of the site:") }}</p>
+<ul>
+<li><a href="/features">{{ _("Features overview") }}</a>{{ _(" — Overview of GrapheneOS features differentiating it from the Android Open Source Project.") }}</li>
+<li><a href="/install/">{{ _("Install") }}</a>{{ _(" — Installation instructions for GrapheneOS.") }}</li>
+<li><a href="/build">{{ _("Build") }}</a>{{ _(" — Building instructions for GrapheneOS.") }}</li>
+<li><a href="/usage">{{ _("Usage guide") }}</a>{{ _(" — Usage instructions for GrapheneOS.") }}</li>
+<li><a href="/faq">{{ _("Frequently Asked Questions") }}</a>{{ _(" — Answers to frequently asked questions about GrapheneOS.") }}</li>
+<li><a href="/releases#changelog">{{ _("Releases changelog") }}</a>{{ _(" — Changelog for official releases of GrapheneOS.") }}</li>
+<li><a href="/source">{{ _("Source code") }}</a>{{ _(" — Documenting all source code repositories for GrapheneOS.") }}</li>
+<li><a href="/history/">{{ _("History") }}</a>{{ _(" — History of the GrapheneOS project.") }}</li>
+</ul>
+<p>{{ _("Our attestation service has ") }}<a href="https://attestation.app/about">{{ _("a page
+            explaining how the Auditor app and attestation service work") }}</a>{{ _(".") }}</p>
+<p>{{ _("Other articles on assorted topics related to GrapheneOS:") }}</p>
+<ul>
+<li><a href="/articles/attestation-compatibility-guide">{{ _("Attestation compatibility guide") }}</a>{{ _(" — Guide on using remote attestation in a way that's compatible with GrapheneOS") }}</li>
+<li><a href="/articles/grapheneos-servers">{{ _("GrapheneOS servers") }}</a>{{ _(" — Documentation on GrapheneOS servers.") }}</li>
+<li><a href="/articles/server-traffic-shaping">{{ _("Server traffic shaping") }}</a>{{ _(" — Implementing server traffic shaping on Linux with CAKE.") }}</li>
+<li><a href="/articles/sitewide-advertising-industry-opt-out">{{ _("Sitewide advertising industry opt-out") }}</a>{{ _(" — Using ads.txt and app-ads.txt to disallow buying or selling ads for a domain.") }}</li>
+</ul>
+</main>
         {% include "footer.html" %}
     </body>
 </html>

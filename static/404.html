@@ -1,40 +1,40 @@
 <!DOCTYPE html>
+
 <html lang="en" prefix="og: https://ogp.me/ns#">
-    <head>
-        <meta charset="utf-8"/>
-        <title>Page not found | GrapheneOS</title>
-        <meta name="description" content="The requested page does not exist."/>
-        <meta name="theme-color" content="#212121"/>
-        <meta name="color-scheme" content="dark light"/>
-        <meta name="msapplication-TileColor" content="#ffffff"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-        <meta name="twitter:site" content="@GrapheneOS"/>
-        <meta name="twitter:creator" content="@GrapheneOS"/>
-        <meta property="og:title" content="Page not found"/>
-        <meta property="og:description" content="The requested page does not exist."/>
-        <meta property="og:type" content="website"/>
-        <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
-        <meta property="og:image:width" content="512"/>
-        <meta property="og:image:height" content="512"/>
-        <meta property="og:image:alt" content="GrapheneOS logo"/>
-        <meta property="og:site_name" content="GrapheneOS"/>
-        <link rel="icon" href="/favicon.ico"/>
-        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
-        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<head>
+<meta charset="utf-8"/>
+<title>{{ _("Page not found | GrapheneOS") }}</title>
+<meta content="The requested page does not exist." name="description"/>
+<meta content="#212121" name="theme-color"/>
+<meta content="dark light" name="color-scheme"/>
+<meta content="#ffffff" name="msapplication-TileColor"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="@GrapheneOS" name="twitter:site"/>
+<meta content="@GrapheneOS" name="twitter:creator"/>
+<meta content="Page not found" property="og:title"/>
+<meta content="The requested page does not exist." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://grapheneos.org/opengraph.png" property="og:image"/>
+<meta content="512" property="og:image:width"/>
+<meta content="512" property="og:image:height"/>
+<meta content="GrapheneOS logo" property="og:image:alt"/>
+<meta content="GrapheneOS" property="og:site_name"/>
+<link href="/favicon.ico" rel="icon"/>
+<link href="/favicon.svg" rel="icon" sizes="any" type="image/svg+xml"/>
+<link color="#1a1a1a" href="[[path|/mask-icon.svg]]" rel="mask-icon"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
         [[css|/main.css]]
-        <link rel="manifest" href="/manifest.webmanifest"/>
-        <link rel="license" href="/LICENSE.txt"/>
-        <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
-    </head>
-    <body>
+        <link href="/manifest.webmanifest" rel="manifest"/>
+<link href="/LICENSE.txt" rel="license"/>
+<link href="https://grapheneos.social/@GrapheneOS" rel="me"/>
+</head>
+<body>
         {% include "header.html" %}
         <main id="page-not-found">
-            <h1><a href="#page-not-found">Page not found</a></h1>
-
-            <p>The requested page does not exist. If you think this is a mistake, please
-            <a href="https://github.com/GrapheneOS/grapheneos.org/issues">report an issue</a>.</p>
-        </main>
+<h1><a href="#page-not-found">{{ _("Page not found") }}</a></h1>
+<p>{{ _("The requested page does not exist. If you think this is a mistake, please
+            ") }}<a href="https://github.com/GrapheneOS/grapheneos.org/issues">{{ _("report an issue") }}</a>{{ _(".") }}</p>
+</main>
         {% include "footer.html" %}
     </body>
 </html>

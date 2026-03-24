@@ -1,51 +1,50 @@
 <!DOCTYPE html>
+
 <html lang="en" prefix="og: https://ogp.me/ns#">
-    <head>
-        <meta charset="utf-8"/>
-        <title>Attestation compatibility guide | Articles | GrapheneOS</title>
-        <meta name="description" content="Guide on using remote attestation in a way that's compatible with GrapheneOS."/>
-        <meta name="theme-color" content="#212121"/>
-        <meta name="color-scheme" content="dark light"/>
-        <meta name="msapplication-TileColor" content="#ffffff"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-        <meta name="twitter:site" content="@GrapheneOS"/>
-        <meta name="twitter:creator" content="@GrapheneOS"/>
-        <meta property="og:title" content="GrapheneOS attestation compatibility guide"/>
-        <meta property="og:description" content="Guide on using remote attestation in a way that's compatible with GrapheneOS."/>
-        <meta property="og:type" content="website"/>
-        <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
-        <meta property="og:image:width" content="512"/>
-        <meta property="og:image:height" content="512"/>
-        <meta property="og:image:alt" content="GrapheneOS logo"/>
-        <meta property="og:site_name" content="GrapheneOS"/>
-        <meta property="og:url" content="https://grapheneos.org/articles/attestation-compatibility-guide"/>
-        <link rel="canonical" href="https://grapheneos.org/articles/attestation-compatibility-guide"/>
-        <link rel="icon" href="/favicon.ico"/>
-        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
-        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<head>
+<meta charset="utf-8"/>
+<title>{{ _("Attestation compatibility guide | Articles | GrapheneOS") }}</title>
+<meta content="Guide on using remote attestation in a way that's compatible with GrapheneOS." name="description"/>
+<meta content="#212121" name="theme-color"/>
+<meta content="dark light" name="color-scheme"/>
+<meta content="#ffffff" name="msapplication-TileColor"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="@GrapheneOS" name="twitter:site"/>
+<meta content="@GrapheneOS" name="twitter:creator"/>
+<meta content="GrapheneOS attestation compatibility guide" property="og:title"/>
+<meta content="Guide on using remote attestation in a way that's compatible with GrapheneOS." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://grapheneos.org/opengraph.png" property="og:image"/>
+<meta content="512" property="og:image:width"/>
+<meta content="512" property="og:image:height"/>
+<meta content="GrapheneOS logo" property="og:image:alt"/>
+<meta content="GrapheneOS" property="og:site_name"/>
+<meta content="https://grapheneos.org/articles/attestation-compatibility-guide" property="og:url"/>
+<link href="https://grapheneos.org/articles/attestation-compatibility-guide" rel="canonical"/>
+<link href="/favicon.ico" rel="icon"/>
+<link href="/favicon.svg" rel="icon" sizes="any" type="image/svg+xml"/>
+<link color="#1a1a1a" href="[[path|/mask-icon.svg]]" rel="mask-icon"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
         [[css|/main.css]]
-        <link rel="manifest" href="/manifest.webmanifest"/>
-        <link rel="license" href="/LICENSE.txt"/>
-        <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
-    </head>
-    <body>
+        <link href="/manifest.webmanifest" rel="manifest"/>
+<link href="/LICENSE.txt" rel="license"/>
+<link href="https://grapheneos.social/@GrapheneOS" rel="me"/>
+</head>
+<body>
         {% include "header.html" %}
         <main id="attestation-compatibility-guide">
-            <h1><a href="#attestation-compatibility-guide">Attestation compatibility guide</a></h1>
-
-            <p>Apps using the Play Integrity API or the
-            <a href="https://developer.android.com/training/safetynet/deprecation-timeline">obsolete</a>
+<h1><a href="#attestation-compatibility-guide">{{ _("Attestation compatibility guide") }}</a></h1>
+<p>{{ _("Apps using the Play Integrity API or the
+            ") }}<a href="https://developer.android.com/training/safetynet/deprecation-timeline">{{ _("obsolete") }}</a>{{ _("
             SafetyNet Attestation API to check the authenticity/integrity of the OS, can support
             GrapheneOS by using the standard Android hardware attestation API instead and
             permitting our official release signing keys. Android's
-            <a href="https://developer.android.com/training/articles/security-key-attestation">hardware
-            attestation API</a> provides a much stronger form of attestation than the Play
+            ") }}<a href="https://developer.android.com/training/articles/security-key-attestation">{{ _("hardware
+            attestation API") }}</a>{{ _(" provides a much stronger form of attestation than the Play
             Integrity API with the ability to whitelist the keys of alternate operating systems.
             It also avoids an unnecessary dependency on Google Play services and Google's
-            Play Integrity servers.</p>
-
-            <p>The standard hardware attestation API can be used to verify the authenticity/integrity
+            Play Integrity servers.") }}</p>
+<p>{{ _("The standard hardware attestation API can be used to verify the authenticity/integrity
             of the hardware, firmware, OS and the app running on it. It provides a verified boot key
             fingerprint for the OS for permitting secure aftermarket operating systems. The app ID,
             signing key fingerprint(s) and version code of the app enabling hardware attestation are
@@ -67,11 +66,10 @@
             fetching the list of revoked keys for root-based attestation. The app's service doesn't
             have to go down or start permitting anything if the Google services becomes unavailable
             or blocks the app from using it for one reason or another. Using hardware attestation is
-            therefore more reliable and lower risk for apps.</p>
-
-            <p>Devices have been required to ship with hardware attestation support since Android
+            therefore more reliable and lower risk for apps.") }}</p>
+<p>{{ _("Devices have been required to ship with hardware attestation support since Android
             8. You can use hardware attestation on devices running Android 8 or later when the
-            <code>ro.product.first_api_level</code> system property isn't set to 25 or below,
+            ") }}<code>ro.product.first_api_level</code>{{ _(" system property isn't set to 25 or below,
             which indicates they launched with Android 8 or later with hardware attestation
             support as a mandatory feature. On older devices, you can continue using the Play
             Integrity API. Some low quality devices shipped broken implementations of hardware
@@ -79,98 +77,87 @@
             the Play Integrity API currently still passes on those devices wrongly claiming them
             to be CTS certified. If you don't want to fail on those devices, then you can start
             with hardware attestation and fall back to the Play Integrity API or do both and
-            accept either passing as success.</p>
-
-            <p>Google provides a <a href="https://github.com/google/android-key-attestation">key
-            attestation library</a> with examples. Our <a href="https://github.com/GrapheneOS/Auditor">MIT
-            and Apache 2 licensed Auditor app</a> can be used as a reference implementation for
+            accept either passing as success.") }}</p>
+<p>{{ _("Google provides a ") }}<a href="https://github.com/google/android-key-attestation">{{ _("key
+            attestation library") }}</a>{{ _(" with examples. Our ") }}<a href="https://github.com/GrapheneOS/Auditor">{{ _("MIT
+            and Apache 2 licensed Auditor app") }}</a>{{ _(" can be used as a reference implementation for
             verifying hardware-based attestations. There are some subtleties in the verification
             process such as making sure only the 2nd certificate in the chain (the one signing the
             certificate for the key generated by your app) has an attestation extension to prevent
             making a fake attestation by extending the chain. You can reuse our code and simply
             omit support for an app generated attestation signing key (attest key) and the other
-            pinning support.</p>
-
-            <p>After verifying the signature of the attestation certificate chain and extracting
-            the attestation metadata, you can enforce that <code>verifiedBootState</code> is
-            either <code>Verified</code> or <code>SelfSigned</code>. For the
-            <code>SelfSigned</code> case, you can check that <code>verifiedBootKey</code> matches
+            pinning support.") }}</p>
+<p>{{ _("After verifying the signature of the attestation certificate chain and extracting
+            the attestation metadata, you can enforce that ") }}<code>verifiedBootState</code>{{ _(" is
+            either ") }}<code>Verified</code>{{ _(" or ") }}<code>SelfSigned</code>{{ _(". For the
+            ") }}<code>SelfSigned</code>{{ _(" case, you can check that ") }}<code>verifiedBootKey</code>{{ _(" matches
             one of the official GrapheneOS verified boot keys. These are the base16-encoded
-            verified boot key fingerprints for the official GrapheneOS releases:</p>
-
-            <ul>
-                <li><code>d8f879d10419eddc9fcda6280718be763f6bf12299e1f72df3ea8ad8a8eb7f80</code>: Pixel 10a</li>
-                <li><code>55a2d44103e56d5ec65496399c417987ba77730e6488fc60ba058d09fc3caee3</code>: Pixel 10 Pro Fold</li>
-                <li><code>141d7fc32af7958a416f2661b37cf6f27bfb376fb5ce616aeaa27a82c7a04f74</code>: Pixel 10 Pro XL</li>
-                <li><code>4e8ee8f717754052198ca6d2d3aaa232e2461b4293c0d6f297e519cc778de093</code>: Pixel 10 Pro</li>
-                <li><code>3f7415ea26f5df5b14ea6d153256071a7a1af9ce7b0970b7311cc463c7ea02c7</code>: Pixel 10</li>
-                <li><code>0508de44ee00bfb49ece32c418af1896391abde0f05b64f41bc9a2dfb589445b</code>: Pixel 9a</li>
-                <li><code>af4d2c6e62be0fec54f0271b9776ff061dd8392d9f51cf6ab1551d346679e24c</code>: Pixel 9 Pro Fold</li>
-                <li><code>55d3c2323db91bb91f20d38d015e85112d038f6b6b5738fe352c1a80dba57023</code>: Pixel 9 Pro XL</li>
-                <li><code>f729cab861da1b83fdfab402fc9480758f2ae78ee0b61c1f2137dd1ab7076e86</code>: Pixel 9 Pro</li>
-                <li><code>9e6a8f3e0d761a780179f93acd5721ba1ab7c8c537c7761073c0a754b0e932de</code>: Pixel 9</li>
-                <li><code>096b8bd6d44527a24ac1564b308839f67e78202185cbff9cfdcb10e63250bc5e</code>: Pixel 8a</li>
-                <li><code>896db2d09d84e1d6bb747002b8a114950b946e5825772a9d48ba7eb01d118c1c</code>: Pixel 8 Pro</li>
-                <li><code>cd7479653aa88208f9f03034810ef9b7b0af8a9d41e2000e458ac403a2acb233</code>: Pixel 8</li>
-                <li><code>ee0c9dfef6f55a878538b0dbf7e78e3bc3f1a13c8c44839b095fe26dd5fe2842</code>: Pixel Fold</li>
-                <li><code>94df136e6c6aa08dc26580af46f36419b5f9baf46039db076f5295b91aaff230</code>: Pixel Tablet</li>
-                <li><code>508d75dea10c5cbc3e7632260fc0b59f6055a8a49dd84e693b6d8899edbb01e4</code>: Pixel 7a</li>
-                <li><code>bc1c0dd95664604382bb888412026422742eb333071ea0b2d19036217d49182f</code>: Pixel 7 Pro</li>
-                <li><code>3efe5392be3ac38afb894d13de639e521675e62571a8a9b3ef9fc8c44fd17fa1</code>: Pixel 7</li>
-                <li><code>08c860350a9600692d10c8512f7b8e80707757468e8fbfeea2a870c0a83d6031</code>: Pixel 6a</li>
-                <li><code>439b76524d94c40652ce1bf0d8243773c634d2f99ba3160d8d02aa5e29ff925c</code>: Pixel 6 Pro</li>
-                <li><code>f0a890375d1405e62ebfd87e8d3f475f948ef031bbf9ddd516d5f600a23677e8</code>: Pixel 6</li>
-            </ul>
-
-            <p>The <code>verifiedBootKey</code> field is binary data so you either need to encode
+            verified boot key fingerprints for the official GrapheneOS releases:") }}</p>
+<ul>
+<li><code>d8f879d10419eddc9fcda6280718be763f6bf12299e1f72df3ea8ad8a8eb7f80</code>{{ _(": Pixel 10a") }}</li>
+<li><code>55a2d44103e56d5ec65496399c417987ba77730e6488fc60ba058d09fc3caee3</code>{{ _(": Pixel 10 Pro Fold") }}</li>
+<li><code>141d7fc32af7958a416f2661b37cf6f27bfb376fb5ce616aeaa27a82c7a04f74</code>{{ _(": Pixel 10 Pro XL") }}</li>
+<li><code>4e8ee8f717754052198ca6d2d3aaa232e2461b4293c0d6f297e519cc778de093</code>{{ _(": Pixel 10 Pro") }}</li>
+<li><code>3f7415ea26f5df5b14ea6d153256071a7a1af9ce7b0970b7311cc463c7ea02c7</code>{{ _(": Pixel 10") }}</li>
+<li><code>0508de44ee00bfb49ece32c418af1896391abde0f05b64f41bc9a2dfb589445b</code>{{ _(": Pixel 9a") }}</li>
+<li><code>af4d2c6e62be0fec54f0271b9776ff061dd8392d9f51cf6ab1551d346679e24c</code>{{ _(": Pixel 9 Pro Fold") }}</li>
+<li><code>55d3c2323db91bb91f20d38d015e85112d038f6b6b5738fe352c1a80dba57023</code>{{ _(": Pixel 9 Pro XL") }}</li>
+<li><code>f729cab861da1b83fdfab402fc9480758f2ae78ee0b61c1f2137dd1ab7076e86</code>{{ _(": Pixel 9 Pro") }}</li>
+<li><code>9e6a8f3e0d761a780179f93acd5721ba1ab7c8c537c7761073c0a754b0e932de</code>{{ _(": Pixel 9") }}</li>
+<li><code>096b8bd6d44527a24ac1564b308839f67e78202185cbff9cfdcb10e63250bc5e</code>{{ _(": Pixel 8a") }}</li>
+<li><code>896db2d09d84e1d6bb747002b8a114950b946e5825772a9d48ba7eb01d118c1c</code>{{ _(": Pixel 8 Pro") }}</li>
+<li><code>cd7479653aa88208f9f03034810ef9b7b0af8a9d41e2000e458ac403a2acb233</code>{{ _(": Pixel 8") }}</li>
+<li><code>ee0c9dfef6f55a878538b0dbf7e78e3bc3f1a13c8c44839b095fe26dd5fe2842</code>{{ _(": Pixel Fold") }}</li>
+<li><code>94df136e6c6aa08dc26580af46f36419b5f9baf46039db076f5295b91aaff230</code>{{ _(": Pixel Tablet") }}</li>
+<li><code>508d75dea10c5cbc3e7632260fc0b59f6055a8a49dd84e693b6d8899edbb01e4</code>{{ _(": Pixel 7a") }}</li>
+<li><code>bc1c0dd95664604382bb888412026422742eb333071ea0b2d19036217d49182f</code>{{ _(": Pixel 7 Pro") }}</li>
+<li><code>3efe5392be3ac38afb894d13de639e521675e62571a8a9b3ef9fc8c44fd17fa1</code>{{ _(": Pixel 7") }}</li>
+<li><code>08c860350a9600692d10c8512f7b8e80707757468e8fbfeea2a870c0a83d6031</code>{{ _(": Pixel 6a") }}</li>
+<li><code>439b76524d94c40652ce1bf0d8243773c634d2f99ba3160d8d02aa5e29ff925c</code>{{ _(": Pixel 6 Pro") }}</li>
+<li><code>f0a890375d1405e62ebfd87e8d3f475f948ef031bbf9ddd516d5f600a23677e8</code>{{ _(": Pixel 6") }}</li>
+</ul>
+<p>{{ _("The ") }}<code>verifiedBootKey</code>{{ _(" field is binary data so you either need to encode
             it as base16 to compare with these or convert these to binary. An easy approach is
             storing the permitted key fingerprints in a set and enforcing that the verified boot
-            key is in the permitted set when <code>verifiedBootState</code> is
-            <code>SelfSigned</code>.</p>
-
-            <p>GrapheneOS regularly adds support for new devices so you should have a process for
-            regularly adding the new verified boot key fingerprints from this page.</p>
-
-            <p>The hardware attestation API also provides other useful information signed by the
+            key is in the permitted set when ") }}<code>verifiedBootState</code>{{ _(" is
+            ") }}<code>SelfSigned</code>{{ _(".") }}</p>
+<p>{{ _("GrapheneOS regularly adds support for new devices so you should have a process for
+            regularly adding the new verified boot key fingerprints from this page.") }}</p>
+<p>{{ _("The hardware attestation API also provides other useful information signed by the
             hardware including the OS patch level, in a way that even an attacker exploiting the
             OS after boot to gain root cannot trivially bypass. It's a better feature than the
-            Play Integrity API which has to be designed for the lowest common denominator.</p>
-
-            <p>GrapheneOS users are strongly encouraged to share this documentation with app
+            Play Integrity API which has to be designed for the lowest common denominator.") }}</p>
+<p>{{ _("GrapheneOS users are strongly encouraged to share this documentation with app
             developers enforcing only being able to use the stock OS. Send an email to the
             developers and leave a review of the app with a link to this information. Share it
             with other users and create pressure to support GrapheneOS rather than locking users
             into the stock OS without a valid security reason. GrapheneOS not only upholds the
             app security model but substantially reinforces it, so it cannot be justified with
-            reasoning based on security, anti-fraud, etc.</p>
-
-            <article id="apps-banning-grapheneos">
-                <h2><a href="#apps-banning-grapheneos">Apps banning GrapheneOS</a></h2>
-
-                <p>This is a list of the apps banning GrapheneOS with the Play Integrity API with
-                links to their Play Store pages for leaving feedback:</p>
-
-                <ul>
-                    <li><a href="https://play.google.com/store/apps/details?id=au.gov.mygov.mygovapp" rel="nofollow">myGov</a> (Australian government app)</li>
-                    <li><a href="https://play.google.com/store/apps/details?id=br.gov.meugovbr" rel="nofollow">gov.br</a> (Brazilian government app)</li>
-                    <li><a href="https://play.google.com/store/apps/details?id=ch.ticketcorner.mobile.app.Android" rel="nofollow">Ticketcorner</a></li>
-                    <li><a href="https://play.google.com/store/apps/details?id=com.authy.authy" rel="nofollow">Authy</a></li>
-                    <li><a href="https://play.google.com/store/apps/details?id=com.chyrpe.chyrpe" rel="nofollow">Chyrpe Dating</a></li>
-                    <li><a href="https://play.google.com/store/apps/details?id=com.ebay.mobile" rel="nofollow">eBay</a></li>
-                    <li><a href="https://play.google.com/store/apps/details?id=com.mada.madapay" rel="nofollow">mada Pay</a> (Saudi NFC payment app)</li>
-                    <li><a href="https://play.google.com/store/apps/details?id=com.mcdonalds.mobileapp" rel="nofollow">McDonald's</a> (International app used for many but not all countries not including the US)</li>
-                    <li><a href="https://play.google.com/store/apps/details?id=com.ridedott.rider" rel="nofollow">Dott</a></li>
-                    <li><a href="https://play.google.com/store/apps/details?id=com.swisssign.swissid.mobile" rel="nofollow">SwissID</a></li>
-                    <li><a href="https://play.google.com/store/apps/details?id=de.telearzt.tkchat" rel="nofollow">TK-Doc</a></li>
-                    <li><a href="https://play.google.com/store/apps/details?id=de.tk.apps.android.tkident" rel="nofollow">TK-Ident</a></li>
-                    <li><a href="https://play.google.com/store/apps/details?id=de.tk.tkapp" rel="nofollow">TK-App</a> (Blocks access to TK-Safe, TK-GesundheitsMessenger, fingerprint login)</li>
-                    <li><a href="https://play.google.com/store/apps/details?id=it.pagopa.io.app" rel="nofollow">IO</a> (Italian government app which uses it to gate access to the digital wallet feature)</li>
-                    <li><a href="https://play.google.com/store/apps/details?id=net.easypark.android" rel="nofollow">EasyPark</a></li>
-                    <li><a href="https://play.google.com/store/apps/details?id=posteitaliane.posteapp.appposteid" rel="nofollow">PosteID</a> (Italian postal service’s app used to access the national digital identity system "SPID")</li>
-                    <li><a href="https://play.google.com/store/apps/details?id=sg.ndi.sp" rel="nofollow">Singpass</a></li>
-                </ul>
-
-                <p>In addition to leaving feedback for these apps on the Play Store, file support
+            reasoning based on security, anti-fraud, etc.") }}</p>
+<article id="apps-banning-grapheneos">
+<h2><a href="#apps-banning-grapheneos">{{ _("Apps banning GrapheneOS") }}</a></h2>
+<p>{{ _("This is a list of the apps banning GrapheneOS with the Play Integrity API with
+                links to their Play Store pages for leaving feedback:") }}</p>
+<ul>
+<li><a href="https://play.google.com/store/apps/details?id=au.gov.mygov.mygovapp" rel="nofollow">{{ _("myGov") }}</a>{{ _(" (Australian government app)") }}</li>
+<li><a href="https://play.google.com/store/apps/details?id=br.gov.meugovbr" rel="nofollow">{{ _("gov.br") }}</a>{{ _(" (Brazilian government app)") }}</li>
+<li><a href="https://play.google.com/store/apps/details?id=ch.ticketcorner.mobile.app.Android" rel="nofollow">{{ _("Ticketcorner") }}</a></li>
+<li><a href="https://play.google.com/store/apps/details?id=com.authy.authy" rel="nofollow">{{ _("Authy") }}</a></li>
+<li><a href="https://play.google.com/store/apps/details?id=com.chyrpe.chyrpe" rel="nofollow">{{ _("Chyrpe Dating") }}</a></li>
+<li><a href="https://play.google.com/store/apps/details?id=com.ebay.mobile" rel="nofollow">{{ _("eBay") }}</a></li>
+<li><a href="https://play.google.com/store/apps/details?id=com.mada.madapay" rel="nofollow">{{ _("mada Pay") }}</a>{{ _(" (Saudi NFC payment app)") }}</li>
+<li><a href="https://play.google.com/store/apps/details?id=com.mcdonalds.mobileapp" rel="nofollow">{{ _("McDonald's") }}</a>{{ _(" (International app used for many but not all countries not including the US)") }}</li>
+<li><a href="https://play.google.com/store/apps/details?id=com.ridedott.rider" rel="nofollow">{{ _("Dott") }}</a></li>
+<li><a href="https://play.google.com/store/apps/details?id=com.swisssign.swissid.mobile" rel="nofollow">{{ _("SwissID") }}</a></li>
+<li><a href="https://play.google.com/store/apps/details?id=de.telearzt.tkchat" rel="nofollow">{{ _("TK-Doc") }}</a></li>
+<li><a href="https://play.google.com/store/apps/details?id=de.tk.apps.android.tkident" rel="nofollow">{{ _("TK-Ident") }}</a></li>
+<li><a href="https://play.google.com/store/apps/details?id=de.tk.tkapp" rel="nofollow">{{ _("TK-App") }}</a>{{ _(" (Blocks access to TK-Safe, TK-GesundheitsMessenger, fingerprint login)") }}</li>
+<li><a href="https://play.google.com/store/apps/details?id=it.pagopa.io.app" rel="nofollow">{{ _("IO") }}</a>{{ _(" (Italian government app which uses it to gate access to the digital wallet feature)") }}</li>
+<li><a href="https://play.google.com/store/apps/details?id=net.easypark.android" rel="nofollow">{{ _("EasyPark") }}</a></li>
+<li><a href="https://play.google.com/store/apps/details?id=posteitaliane.posteapp.appposteid" rel="nofollow">{{ _("PosteID") }}</a>{{ _(" (Italian postal service’s app used to access the national digital identity system \"SPID\")") }}</li>
+<li><a href="https://play.google.com/store/apps/details?id=sg.ndi.sp" rel="nofollow">{{ _("Singpass") }}</a></li>
+</ul>
+<p>{{ _("In addition to leaving feedback for these apps on the Play Store, file support
                 requests and leave feedback on third party review sites. Ask them to stop banning
                 GrapheneOS and explain that it's a much more secure OS than what they permit which
                 does not lose any of the standard security model. Explain that they can use the
@@ -179,9 +166,9 @@
                 already. Make sure to push back against false claims that it has something to do
                 with compatibility or security issues. The only reason they aren't permitting it is
                 because we do not license Google Mobile Services (GMS) and these apps are enforcing
-                Google's business interests rather than security.</p>
-            </article>
-        </main>
+                Google's business interests rather than security.") }}</p>
+</article>
+</main>
         {% include "footer.html" %}
     </body>
 </html>

@@ -1,2 +1,13 @@
-# Created by venv; see https://docs.python.org/3/library/venv.html
-*
+/indexnow-key.txt
+/lock
+/nginx-tmp/
+/node_modules/
+/openspec/
+/.idea/
+/releases-base
+/static-production/
+/static-staging/
+/static-tmp/
+/test-results/
+/playwright-report/
+/venv/

@@ -85,7 +85,7 @@ class HTMLTextWrapper:
                     # Escape quotes
                     escaped_text = text.replace('"', '\\"')
                     # Create wrapped text
-                    wrapped = NavigableString(f'_("{escaped_text}")')
+                    wrapped = NavigableString(f'{{{{ _("{escaped_text}") }}}}')
                     child.replace_with(wrapped)
             else:
                 # This is an HTML element or special node, process recursively
@@ -183,7 +183,7 @@ class HTMLTextWrapper:
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Wraps text in HTML files with _("text")',
+        description='Wraps text in HTML files with {{ _("text") }}',
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Usage examples:

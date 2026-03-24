@@ -1,1101 +1,954 @@
 <!DOCTYPE html>
+
 <html lang="en" prefix="og: https://ogp.me/ns#">
-    <head>
-        <meta charset="utf-8"/>
-        <title>GrapheneOS servers | Articles | GrapheneOS</title>
-        <meta name="description" content="Documentation on GrapheneOS servers."/>
-        <meta name="theme-color" content="#212121"/>
-        <meta name="color-scheme" content="dark light"/>
-        <meta name="msapplication-TileColor" content="#ffffff"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-        <meta name="twitter:site" content="@GrapheneOS"/>
-        <meta name="twitter:creator" content="@GrapheneOS"/>
-        <meta property="og:title" content="GrapheneOS servers"/>
-        <meta property="og:description" content="Documentation on GrapheneOS servers."/>
-        <meta property="og:type" content="website"/>
-        <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
-        <meta property="og:image:width" content="512"/>
-        <meta property="og:image:height" content="512"/>
-        <meta property="og:image:alt" content="GrapheneOS logo"/>
-        <meta property="og:site_name" content="GrapheneOS"/>
-        <meta property="og:url" content="https://grapheneos.org/articles/grapheneos-servers"/>
-        <link rel="canonical" href="https://grapheneos.org/articles/grapheneos-servers"/>
-        <link rel="icon" href="/favicon.ico"/>
-        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
-        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<head>
+<meta charset="utf-8"/>
+<title>{{ _("GrapheneOS servers | Articles | GrapheneOS") }}</title>
+<meta content="Documentation on GrapheneOS servers." name="description"/>
+<meta content="#212121" name="theme-color"/>
+<meta content="dark light" name="color-scheme"/>
+<meta content="#ffffff" name="msapplication-TileColor"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="@GrapheneOS" name="twitter:site"/>
+<meta content="@GrapheneOS" name="twitter:creator"/>
+<meta content="GrapheneOS servers" property="og:title"/>
+<meta content="Documentation on GrapheneOS servers." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://grapheneos.org/opengraph.png" property="og:image"/>
+<meta content="512" property="og:image:width"/>
+<meta content="512" property="og:image:height"/>
+<meta content="GrapheneOS logo" property="og:image:alt"/>
+<meta content="GrapheneOS" property="og:site_name"/>
+<meta content="https://grapheneos.org/articles/grapheneos-servers" property="og:url"/>
+<link href="https://grapheneos.org/articles/grapheneos-servers" rel="canonical"/>
+<link href="/favicon.ico" rel="icon"/>
+<link href="/favicon.svg" rel="icon" sizes="any" type="image/svg+xml"/>
+<link color="#1a1a1a" href="[[path|/mask-icon.svg]]" rel="mask-icon"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
         [[css|/main.css]]
-        <link rel="manifest" href="/manifest.webmanifest"/>
-        <link rel="license" href="/LICENSE.txt"/>
-        <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
+        <link href="/manifest.webmanifest" rel="manifest"/>
+<link href="/LICENSE.txt" rel="license"/>
+<link href="https://grapheneos.social/@GrapheneOS" rel="me"/>
         [[js|/js/redirect.js]]
     </head>
-    <body>
+<body>
         {% include "header.html" %}
         <main id="grapheneos-servers">
-            <h1><a href="#grapheneos-servers">GrapheneOS servers</a></h1>
-
-            <p>This is a detailed list of the public GrapheneOS servers.</p>
-
-            <p>We use hardened local machines for building and signing rather than servers outside
+<h1><a href="#grapheneos-servers">{{ _("GrapheneOS servers") }}</a></h1>
+<p>{{ _("This is a detailed list of the public GrapheneOS servers.") }}</p>
+<p>{{ _("We use hardened local machines for building and signing rather than servers outside
             our physical control, so information on that infrastructure is outside the scope of this
-            page but may be provided in the future elsewhere.</p>
-
-            <nav id="table-of-contents">
-                <h2><a href="#table-of-contents">Table of contents</a></h2>
-
-                <ul>
-                    <li><a href="#ns1.grapheneos.org">GrapheneOS DNS servers</a></li>
-                    <li><a href="#ns1.staging.grapheneos.org">Staging GrapheneOS DNS server</a></li>
-                    <li><a href="#grapheneos.org">GrapheneOS website and network servers</a></li>
-                    <li><a href="#staging.grapheneos.org">Staging GrapheneOS website and network servers</a></li>
-                    <li><a href="#releases.grapheneos.org">GrapheneOS release servers</a></li>
-                    <li><a href="#nominatim.grapheneos.org">GrapheneOS geocoding server</a></li>
-                    <li><a href="#attestation.app">Attestation website and service</a></li>
-                    <li><a href="#staging.attestation.app">Staging attestation website and service</a></li>
-                    <li><a href="#mail.grapheneos.org">GrapheneOS mail server</a></li>
-                    <li><a href="#discuss.grapheneos.org">GrapheneOS discussion forum server</a></li>
-                    <li><a href="#matrix.grapheneos.org">GrapheneOS Matrix server</a></li>
-                    <li><a href="#grapheneos.social">GrapheneOS Mastodon server</a></li>
-                </ul>
-            </nav>
-
-            <section id="ns1.grapheneos.org">
-                <h2><a href="#ns1.grapheneos.org">GrapheneOS DNS servers</a></h2>
-
-                <ul>
-                    <li><a href="https://github.com/GrapheneOS/ns1.grapheneos.org">Repository</a></li>
-                    <li><a href="https://github.com/GrapheneOS/ns1.grapheneos.org/issues">Issue tracker</a></li>
-                </ul>
-
-                <p>Specs:</p>
-
-                <ul>
-                    <li>System container on yto.grapheneos.org</li>
-                    <li>Xenyth dedicated server (sponsored by <a href="https://xenyth.net/">Xenyth</a>)</li>
-                    <li>Xeon E5-2680 v4</li>
-                    <li>128 GiB DDR4</li>
-                    <li>2x 1 TB SATA SSD storage</li>
-                    <li>10 Gbit/s bandwidth</li>
-                </ul>
-
-                <ul>
-                    <li>14x Vultr vhp-1c-1gb-amd</li>
-                    <li>1 core</li>
-                    <li>1 GiB memory</li>
-                    <li>25 GiB NVMe SSD storage</li>
-                </ul>
-
-                <ul>
-                    <li>Misaka.io S3N-1C2G (at 50% discount due to S3N-1C2G shortage)</li>
-                    <li>1 core</li>
-                    <li>2 GiB memory</li>
-                    <li>32 GiB NVMe SSD storage</li>
-                </ul>
-
-                <ul>
-                    <li>2x Misaka.io S3N-1C1G</li>
-                    <li>1 core</li>
-                    <li>1 GiB memory</li>
-                    <li>16 GiB NVMe SSD storage</li>
-                </ul>
-
-                <ul>
-                    <li>Misaka.io S2N-1C2G (at 50% discount due to S2N-1C1G shortage)</li>
-                    <li>1 core</li>
-                    <li>2 GiB memory</li>
-                    <li>32 GiB NVMe SSD storage</li>
-                </ul>
-
-                <ul>
-                    <li>4x Misaka.io S2N-1C1G</li>
-                    <li>1 core</li>
-                    <li>1 GiB memory</li>
-                    <li>16 GiB NVMe SSD storage</li>
-                </ul>
-
-                <p>Locations:</p>
-
-                <table>
-                    <thead>
-                        <tr>
-                            <td>Name</td>
-                            <td>Location</td>
-                            <td>Provider</td>
-                            <td>Type</td>
-                            <td>IPv4 addresses</td>
-                            <td>IPv6 addresses</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>bom.ns1.grapheneos.org</td>
-                            <td>Mumbai</td>
-                            <td>Vultr</td>
-                            <td>vhp-1c-1gb-amd</td>
-                            <td>23.149.124.1 (anycast), 65.20.91.33</td>
-                            <td>2602:f4d9::1 (anycast), 2401:c080:2400:1814:5400:05ff:fec5:d503</td>
-                        </tr>
-                        <tr>
-                            <td>dfw.ns1.grapheneos.org</td>
-                            <td>Dallas</td>
-                            <td>Vultr</td>
-                            <td>vhp-1c-1gb-amd</td>
-                            <td>24.149.124.1 (anycast), 149.28.240.214</td>
-                            <td>2602:f4d9::1 (anycast), 2001:19f0:6401:1802:5400:05ff:fef7:7b7e</td>
-                        </tr>
-                        <tr>
-                            <td>ewr.ns1.grapheneos.org</td>
-                            <td>Piscataway</td>
-                            <td>Vultr</td>
-                            <td>vhp-1c-1gb-amd</td>
-                            <td>24.149.124.1 (anycast), 66.135.8.22</td>
-                            <td>2602:f4d9::1 (anycast), 2001:19f0:1000:c0d4:5400:05ff:fec1:7c21</td>
-                        </tr>
-                        <tr>
-                            <td>fra.ns1.grapheneos.org</td>
-                            <td>Frankfurt</td>
-                            <td>Vultr</td>
-                            <td>vhp-1c-1gb-amd</td>
-                            <td>24.149.124.1 (anycast), 80.240.20.200</td>
-                            <td>2602:f4d9::1 (anycast), 2a05:f480:1800:2acd:5400:05ff:fec2:23a1</td>
-                        </tr>
-                        <tr>
-                            <td>lax.ns1.grapheneos.org</td>
-                            <td>Los Angeles</td>
-                            <td>Vultr</td>
-                            <td>vhp-1c-1gb-amd</td>
-                            <td>24.149.124.1 (anycast), 140.82.23.46</td>
-                            <td>2602:f4d9::1 (anycast), 2001:19f0:6000:2dcd:5400:05ff:fec1:97db</td>
-                        </tr>
-                        <tr>
-                            <td>lon.ns1.grapheneos.org</td>
-                            <td>London</td>
-                            <td>Vultr</td>
-                            <td>vhp-1c-1gb-amd</td>
-                            <td>24.149.124.1 (anycast), 192.248.159.52</td>
-                            <td>2602:f4d9::1 (anycast), 2001:19f0:7400:8669:5400:05ff:fec3:f3f8</td>
-                        </tr>
-                        <tr>
-                            <td>mad.ns1.grapheneos.org</td>
-                            <td>Madrid</td>
-                            <td>Vultr</td>
-                            <td>vhp-1c-1gb-amd</td>
-                            <td>24.149.124.1 (anycast), 208.85.20.188</td>
-                            <td>2602:f4d9::1 (anycast), 2a05:f480:2800:24b7:5400:06ff:fe01:ce01</td>
-                        </tr>
-                        <tr>
-                            <td>mia.ns1.grapheneos.org</td>
-                            <td>Miami</td>
-                            <td>Vultr</td>
-                            <td>vhp-1c-1gb-amd</td>
-                            <td>24.149.124.1 (anycast), 104.207.147.19</td>
-                            <td>2602:f4d9::1 (anycast), 2001:19f0:9000:2605:5400:05ff:feed:7df5</td>
-                        </tr>
-                        <tr>
-                            <td>sao.ns1.grapheneos.org</td>
-                            <td>São Paulo</td>
-                            <td>Vultr</td>
-                            <td>vhp-1c-1gb-amd</td>
-                            <td>24.149.124.1 (anycast), 216.238.118.134</td>
-                            <td>2602:f4d9::1 (anycast), 2001:19f0:b800:14a9:5400:05ff:feca:f136</td>
-                        </tr>
-                        <tr>
-                            <td>sea.ns1.grapheneos.org</td>
-                            <td>Seattle</td>
-                            <td>Vultr</td>
-                            <td>vhp-1c-1gb-amd</td>
-                            <td>24.149.124.1 (anycast), 66.42.74.68</td>
-                            <td>2602:f4d9::1 (anycast), 2001:19f0:8001:0438:5400:05ff:fec1:9dbd</td>
-                        </tr>
-                        <tr>
-                            <td>sin.ns1.grapheneos.org</td>
-                            <td>Singapore</td>
-                            <td>Vultr</td>
-                            <td>vhp-1c-1gb-amd</td>
-                            <td>24.149.124.1 (anycast), 139.180.154.140</td>
-                            <td>2602:f4d9::1 (anycast), 2401:c080:1400:4890:5400:05ff:fec2:23b0</td>
-                        </tr>
-                        <tr>
-                            <td>syd.ns1.grapheneos.org</td>
-                            <td>Sydney</td>
-                            <td>Vultr</td>
-                            <td>vhp-1c-1gb-amd</td>
-                            <td>24.149.124.1 (anycast), 45.63.28.82</td>
-                            <td>2602:f4d9::1 (anycast), 2401:c080:1800:141d:5400:05ff:fec5:d41b</td>
-                        </tr>
-                        <tr>
-                            <td>tyo.ns1.grapheneos.org</td>
-                            <td>Tokyo</td>
-                            <td>Vultr</td>
-                            <td>vhp-1c-1gb-amd</td>
-                            <td>24.149.124.1 (anycast), 66.42.42.15</td>
-                            <td>2602:f4d9::1 (anycast), 2001:19f0:7001:5695:5400:05ff:fec4:e394</td>
-                        </tr>
-                        <tr>
-                            <td>waw.ns1.grapheneos.org</td>
-                            <td>Warsaw</td>
-                            <td>Vultr</td>
-                            <td>vhp-1c-1gb-amd</td>
-                            <td>24.149.124.1 (anycast), 70.34.242.58</td>
-                            <td>2602:f4d9::1 (anycast), 2a05:f480:2400:17ce:5400:06ff:fe00:15a2</td>
-                        </tr>
-                        <tr>
-                            <td>ber.ns2.grapheneos.org</td>
-                            <td>Berlin</td>
-                            <td>Misaka.io</td>
-                            <td>S3N-1C1G</td>
-                            <td>24.149.125.1 (anycast), 194.156.154.116</td>
-                            <td>2602:f4d9:1::1 (anycast), 2a12:8d02:2100:176:26a3:f0ff:fe49:eda8</td>
-                        </tr>
-                        <tr>
-                            <td>iad.ns2.grapheneos.org</td>
-                            <td>Ashburn</td>
-                            <td>Misaka.io</td>
-                            <td>S2N-1C1G</td>
-                            <td>24.149.125.1 (anycast), 38.175.99.47</td>
-                            <td>2602:f4d9:1::1 (anycast), 2a0b:4342:1a32:db:26a3:f0ff:fe47:dfec</td>
-                        </tr>
-                        <tr>
-                            <td>lon.ns2.grapheneos.org</td>
-                            <td>London</td>
-                            <td>Misaka.io</td>
-                            <td>S2N-1C1G</td>
-                            <td>24.149.125.1 (anycast), 45.142.244.163</td>
-                            <td>2602:f4d9:1::1 (anycast), 2a0f:3b03:101:2d3:26a3:f0ff:fe4a:594</td>
-                        </tr>
-                        <tr>
-                            <td>mia.ns2.grapheneos.org</td>
-                            <td>Miami</td>
-                            <td>Misaka.io</td>
-                            <td>S2N-1C1G</td>
-                            <td>24.149.125.1 (anycast), 38.175.100.57</td>
-                            <td>2602:f4d9:1::1 (anycast), 2a0e:6902:5010:d9:26a3:f0ff:fe48:de47</td>
-                        </tr>
-                        <tr>
-                            <td>sea.ns2.grapheneos.org</td>
-                            <td>Singapore</td>
-                            <td>Misaka.io</td>
-                            <td>S2N-1C2G</td>
-                            <td>24.149.125.1 (anycast), 38.175.102.38</td>
-                            <td>2602:f4d9:1::1 (anycast), 2a0e:6901:201:dd:26a3:f0ff:fe48:6091</td>
-                        </tr>
-                        <tr>
-                            <td>sjc.ns2.grapheneos.org</td>
-                            <td>San Jose</td>
-                            <td>Misaka.io</td>
-                            <td>S2N-1C1G</td>
-                            <td>24.149.125.1 (anycast), 38.175.105.122</td>
-                            <td>2602:f4d9:1::1 (anycast), 2a0e:6901:410:ab:26a3:f0ff:fe4a:c8d6</td>
-                        </tr>
-                        <tr>
-                            <td>sin.ns2.grapheneos.org</td>
-                            <td>Singapore</td>
-                            <td>Misaka.io</td>
-                            <td>S3N-1C1G</td>
-                            <td>24.149.125.1 (anycast), 194.156.163.89</td>
-                            <td>2602:f4d9:1::1 (anycast), 2407:b9c0:e002:226:26a3:f0ff:fe47:8f06</td>
-                        </tr>
-                        <tr>
-                            <td>tyo.ns2.grapheneos.org</td>
-                            <td>Tokyo</td>
-                            <td>Misaka.io</td>
-                            <td>S3N-1C2G</td>
-                            <td>24.149.125.1 (anycast), 103.170.233.149</td>
-                            <td>2602:f4d9:1::1 (anycast), 2407:b9c0:1:2af:26a3:f0ff:fe46:bede</td>
-                        </tr>
-                        <tr>
-                            <td>yto.ns2.grapheneos.org</td>
-                            <td>Toronto</td>
-                            <td>Xenyth</td>
-                            <td>System container on yto.grapheneos.org</td>
-                            <td>24.149.125.1 (anycast), 91.246.30.3</td>
-                            <td>2602:f4d9:1::1 (anycast), 2602:f4d9:5:2::1</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <p>Domains:</p>
-
-                <ul>
-                    <li>ns1.attestation.app</li>
-                    <li>ns1.grapheneos.app</li>
-                    <li>ns1.grapheneos.ca</li>
-                    <li>ns1.grapheneos.com</li>
-                    <li>ns1.grapheneos.dev</li>
-                    <li>ns1.grapheneos.foundation</li>
-                    <li>ns1.grapheneos.info</li>
-                    <li>ns1.grapheneos.net</li>
-                    <li>ns1.grapheneos.network</li>
-                    <li>ns1.grapheneos.online</li>
-                    <li>ns1.grapheneos.org</li>
-                    <li>ns1.grapheneos.ovh</li>
-                    <li>ns1.grapheneos.page</li>
-                    <li>ns1.grapheneos.social</li>
-                    <li>ns1.seamlessupdate.app</li>
-                    <li>ns1.vanadium.app</li>
-                    <li>ns2.attestation.app</li>
-                    <li>ns2.grapheneos.app</li>
-                    <li>ns2.grapheneos.ca</li>
-                    <li>ns2.grapheneos.com</li>
-                    <li>ns2.grapheneos.dev</li>
-                    <li>ns2.grapheneos.foundation</li>
-                    <li>ns2.grapheneos.info</li>
-                    <li>ns2.grapheneos.net</li>
-                    <li>ns2.grapheneos.network</li>
-                    <li>ns2.grapheneos.online</li>
-                    <li>ns2.grapheneos.org</li>
-                    <li>ns2.grapheneos.ovh</li>
-                    <li>ns2.grapheneos.page</li>
-                    <li>ns2.grapheneos.social</li>
-                    <li>ns2.seamlessupdate.app</li>
-                    <li>ns2.vanadium.app</li>
-                </ul>
-
-                <p>Ports:</p>
-
-                <ul>
-                    <li>TCP 22 ssh</li>
-                    <li>TCP 53 domain</li>
-                    <li>UDP 53 domain</li>
-                    <li>TCP 80 http</li>
-                    <li>TCP 443 https</li>
-                    <li>TCP 853 domain-s</li>
-                </ul>
-            </section>
-
-            <section id="ns1.staging.grapheneos.org">
-                <h2><a href="#ns1.staging.grapheneos.org">Staging GrapheneOS DNS server</a></h2>
-
-                <ul>
-                    <li><a href="https://github.com/GrapheneOS/ns1.grapheneos.org">Repository</a></li>
-                    <li><a href="https://github.com/GrapheneOS/ns1.grapheneos.org/issues">Issue tracker</a></li>
-                </ul>
-
-                <p>Specs:</p>
-
-                <ul>
-                    <li>BuyVM Slice 1024</li>
-                    <li>1 core</li>
-                    <li>1 GiB memory</li>
-                    <li>20 GiB NVMe SSD storage</li>
-                    <li>1 Gbit/s bandwidth</li>
-                </ul>
-
-                <p>Location: New York City</p>
-
-                <p>IPv4 address: 198.98.56.238</p>
-
-                <p>IPv6 addresses: 2602:f4d9:4::1, 2605:6400:10:c41:de92:c534:326a:711a</p>
-
-                <p>Domains:</p>
-
-                <ul>
-                    <li>ns1.staging.attestation.app</li>
-                    <li>ns2.staging.attestation.app</li>
-                    <li>ns1.staging.grapheneos.org</li>
-                    <li>ns2.staging.grapheneos.org</li>
-                </ul>
-
-                <p>Ports:</p>
-
-                <ul>
-                    <li>TCP 22 ssh</li>
-                    <li>TCP 53 domain</li>
-                    <li>UDP 53 domain</li>
-                    <li>TCP 80 http</li>
-                    <li>TCP 443 https</li>
-                    <li>TCP 853 domain-s</li>
-                </ul>
-            </section>
-
-            <section id="grapheneos.org">
-                <h2><a href="#grapheneos.org">GrapheneOS website and network services</a></h2>
-
-                <p>These are the servers for our website, HTTP/HTTPS connectivity checks,
+            page but may be provided in the future elsewhere.") }}</p>
+<nav id="table-of-contents">
+<h2><a href="#table-of-contents">{{ _("Table of contents") }}</a></h2>
+<ul>
+<li><a href="#ns1.grapheneos.org">{{ _("GrapheneOS DNS servers") }}</a></li>
+<li><a href="#ns1.staging.grapheneos.org">{{ _("Staging GrapheneOS DNS server") }}</a></li>
+<li><a href="#grapheneos.org">{{ _("GrapheneOS website and network servers") }}</a></li>
+<li><a href="#staging.grapheneos.org">{{ _("Staging GrapheneOS website and network servers") }}</a></li>
+<li><a href="#releases.grapheneos.org">{{ _("GrapheneOS release servers") }}</a></li>
+<li><a href="#nominatim.grapheneos.org">{{ _("GrapheneOS geocoding server") }}</a></li>
+<li><a href="#attestation.app">{{ _("Attestation website and service") }}</a></li>
+<li><a href="#staging.attestation.app">{{ _("Staging attestation website and service") }}</a></li>
+<li><a href="#mail.grapheneos.org">{{ _("GrapheneOS mail server") }}</a></li>
+<li><a href="#discuss.grapheneos.org">{{ _("GrapheneOS discussion forum server") }}</a></li>
+<li><a href="#matrix.grapheneos.org">{{ _("GrapheneOS Matrix server") }}</a></li>
+<li><a href="#grapheneos.social">{{ _("GrapheneOS Mastodon server") }}</a></li>
+</ul>
+</nav>
+<section id="ns1.grapheneos.org">
+<h2><a href="#ns1.grapheneos.org">{{ _("GrapheneOS DNS servers") }}</a></h2>
+<ul>
+<li><a href="https://github.com/GrapheneOS/ns1.grapheneos.org">{{ _("Repository") }}</a></li>
+<li><a href="https://github.com/GrapheneOS/ns1.grapheneos.org/issues">{{ _("Issue tracker") }}</a></li>
+</ul>
+<p>{{ _("Specs:") }}</p>
+<ul>
+<li>{{ _("System container on yto.grapheneos.org") }}</li>
+<li>{{ _("Xenyth dedicated server (sponsored by ") }}<a href="https://xenyth.net/">{{ _("Xenyth") }}</a>{{ _(")") }}</li>
+<li>{{ _("Xeon E5-2680 v4") }}</li>
+<li>{{ _("128 GiB DDR4") }}</li>
+<li>{{ _("2x 1 TB SATA SSD storage") }}</li>
+<li>{{ _("10 Gbit/s bandwidth") }}</li>
+</ul>
+<ul>
+<li>{{ _("14x Vultr vhp-1c-1gb-amd") }}</li>
+<li>{{ _("1 core") }}</li>
+<li>{{ _("1 GiB memory") }}</li>
+<li>{{ _("25 GiB NVMe SSD storage") }}</li>
+</ul>
+<ul>
+<li>{{ _("Misaka.io S3N-1C2G (at 50% discount due to S3N-1C2G shortage)") }}</li>
+<li>{{ _("1 core") }}</li>
+<li>{{ _("2 GiB memory") }}</li>
+<li>{{ _("32 GiB NVMe SSD storage") }}</li>
+</ul>
+<ul>
+<li>{{ _("2x Misaka.io S3N-1C1G") }}</li>
+<li>{{ _("1 core") }}</li>
+<li>{{ _("1 GiB memory") }}</li>
+<li>{{ _("16 GiB NVMe SSD storage") }}</li>
+</ul>
+<ul>
+<li>{{ _("Misaka.io S2N-1C2G (at 50% discount due to S2N-1C1G shortage)") }}</li>
+<li>{{ _("1 core") }}</li>
+<li>{{ _("2 GiB memory") }}</li>
+<li>{{ _("32 GiB NVMe SSD storage") }}</li>
+</ul>
+<ul>
+<li>{{ _("4x Misaka.io S2N-1C1G") }}</li>
+<li>{{ _("1 core") }}</li>
+<li>{{ _("1 GiB memory") }}</li>
+<li>{{ _("16 GiB NVMe SSD storage") }}</li>
+</ul>
+<p>{{ _("Locations:") }}</p>
+<table>
+<thead>
+<tr>
+<td>{{ _("Name") }}</td>
+<td>{{ _("Location") }}</td>
+<td>{{ _("Provider") }}</td>
+<td>{{ _("Type") }}</td>
+<td>{{ _("IPv4 addresses") }}</td>
+<td>{{ _("IPv6 addresses") }}</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{{ _("bom.ns1.grapheneos.org") }}</td>
+<td>{{ _("Mumbai") }}</td>
+<td>{{ _("Vultr") }}</td>
+<td>{{ _("vhp-1c-1gb-amd") }}</td>
+<td>{{ _("23.149.124.1 (anycast), 65.20.91.33") }}</td>
+<td>{{ _("2602:f4d9::1 (anycast), 2401:c080:2400:1814:5400:05ff:fec5:d503") }}</td>
+</tr>
+<tr>
+<td>{{ _("dfw.ns1.grapheneos.org") }}</td>
+<td>{{ _("Dallas") }}</td>
+<td>{{ _("Vultr") }}</td>
+<td>{{ _("vhp-1c-1gb-amd") }}</td>
+<td>{{ _("24.149.124.1 (anycast), 149.28.240.214") }}</td>
+<td>{{ _("2602:f4d9::1 (anycast), 2001:19f0:6401:1802:5400:05ff:fef7:7b7e") }}</td>
+</tr>
+<tr>
+<td>{{ _("ewr.ns1.grapheneos.org") }}</td>
+<td>{{ _("Piscataway") }}</td>
+<td>{{ _("Vultr") }}</td>
+<td>{{ _("vhp-1c-1gb-amd") }}</td>
+<td>{{ _("24.149.124.1 (anycast), 66.135.8.22") }}</td>
+<td>{{ _("2602:f4d9::1 (anycast), 2001:19f0:1000:c0d4:5400:05ff:fec1:7c21") }}</td>
+</tr>
+<tr>
+<td>{{ _("fra.ns1.grapheneos.org") }}</td>
+<td>{{ _("Frankfurt") }}</td>
+<td>{{ _("Vultr") }}</td>
+<td>{{ _("vhp-1c-1gb-amd") }}</td>
+<td>{{ _("24.149.124.1 (anycast), 80.240.20.200") }}</td>
+<td>{{ _("2602:f4d9::1 (anycast), 2a05:f480:1800:2acd:5400:05ff:fec2:23a1") }}</td>
+</tr>
+<tr>
+<td>{{ _("lax.ns1.grapheneos.org") }}</td>
+<td>{{ _("Los Angeles") }}</td>
+<td>{{ _("Vultr") }}</td>
+<td>{{ _("vhp-1c-1gb-amd") }}</td>
+<td>{{ _("24.149.124.1 (anycast), 140.82.23.46") }}</td>
+<td>{{ _("2602:f4d9::1 (anycast), 2001:19f0:6000:2dcd:5400:05ff:fec1:97db") }}</td>
+</tr>
+<tr>
+<td>{{ _("lon.ns1.grapheneos.org") }}</td>
+<td>{{ _("London") }}</td>
+<td>{{ _("Vultr") }}</td>
+<td>{{ _("vhp-1c-1gb-amd") }}</td>
+<td>{{ _("24.149.124.1 (anycast), 192.248.159.52") }}</td>
+<td>{{ _("2602:f4d9::1 (anycast), 2001:19f0:7400:8669:5400:05ff:fec3:f3f8") }}</td>
+</tr>
+<tr>
+<td>{{ _("mad.ns1.grapheneos.org") }}</td>
+<td>{{ _("Madrid") }}</td>
+<td>{{ _("Vultr") }}</td>
+<td>{{ _("vhp-1c-1gb-amd") }}</td>
+<td>{{ _("24.149.124.1 (anycast), 208.85.20.188") }}</td>
+<td>{{ _("2602:f4d9::1 (anycast), 2a05:f480:2800:24b7:5400:06ff:fe01:ce01") }}</td>
+</tr>
+<tr>
+<td>{{ _("mia.ns1.grapheneos.org") }}</td>
+<td>{{ _("Miami") }}</td>
+<td>{{ _("Vultr") }}</td>
+<td>{{ _("vhp-1c-1gb-amd") }}</td>
+<td>{{ _("24.149.124.1 (anycast), 104.207.147.19") }}</td>
+<td>{{ _("2602:f4d9::1 (anycast), 2001:19f0:9000:2605:5400:05ff:feed:7df5") }}</td>
+</tr>
+<tr>
+<td>{{ _("sao.ns1.grapheneos.org") }}</td>
+<td>{{ _("São Paulo") }}</td>
+<td>{{ _("Vultr") }}</td>
+<td>{{ _("vhp-1c-1gb-amd") }}</td>
+<td>{{ _("24.149.124.1 (anycast), 216.238.118.134") }}</td>
+<td>{{ _("2602:f4d9::1 (anycast), 2001:19f0:b800:14a9:5400:05ff:feca:f136") }}</td>
+</tr>
+<tr>
+<td>{{ _("sea.ns1.grapheneos.org") }}</td>
+<td>{{ _("Seattle") }}</td>
+<td>{{ _("Vultr") }}</td>
+<td>{{ _("vhp-1c-1gb-amd") }}</td>
+<td>{{ _("24.149.124.1 (anycast), 66.42.74.68") }}</td>
+<td>{{ _("2602:f4d9::1 (anycast), 2001:19f0:8001:0438:5400:05ff:fec1:9dbd") }}</td>
+</tr>
+<tr>
+<td>{{ _("sin.ns1.grapheneos.org") }}</td>
+<td>{{ _("Singapore") }}</td>
+<td>{{ _("Vultr") }}</td>
+<td>{{ _("vhp-1c-1gb-amd") }}</td>
+<td>{{ _("24.149.124.1 (anycast), 139.180.154.140") }}</td>
+<td>{{ _("2602:f4d9::1 (anycast), 2401:c080:1400:4890:5400:05ff:fec2:23b0") }}</td>
+</tr>
+<tr>
+<td>{{ _("syd.ns1.grapheneos.org") }}</td>
+<td>{{ _("Sydney") }}</td>
+<td>{{ _("Vultr") }}</td>
+<td>{{ _("vhp-1c-1gb-amd") }}</td>
+<td>{{ _("24.149.124.1 (anycast), 45.63.28.82") }}</td>
+<td>{{ _("2602:f4d9::1 (anycast), 2401:c080:1800:141d:5400:05ff:fec5:d41b") }}</td>
+</tr>
+<tr>
+<td>{{ _("tyo.ns1.grapheneos.org") }}</td>
+<td>{{ _("Tokyo") }}</td>
+<td>{{ _("Vultr") }}</td>
+<td>{{ _("vhp-1c-1gb-amd") }}</td>
+<td>{{ _("24.149.124.1 (anycast), 66.42.42.15") }}</td>
+<td>{{ _("2602:f4d9::1 (anycast), 2001:19f0:7001:5695:5400:05ff:fec4:e394") }}</td>
+</tr>
+<tr>
+<td>{{ _("waw.ns1.grapheneos.org") }}</td>
+<td>{{ _("Warsaw") }}</td>
+<td>{{ _("Vultr") }}</td>
+<td>{{ _("vhp-1c-1gb-amd") }}</td>
+<td>{{ _("24.149.124.1 (anycast), 70.34.242.58") }}</td>
+<td>{{ _("2602:f4d9::1 (anycast), 2a05:f480:2400:17ce:5400:06ff:fe00:15a2") }}</td>
+</tr>
+<tr>
+<td>{{ _("ber.ns2.grapheneos.org") }}</td>
+<td>{{ _("Berlin") }}</td>
+<td>{{ _("Misaka.io") }}</td>
+<td>{{ _("S3N-1C1G") }}</td>
+<td>{{ _("24.149.125.1 (anycast), 194.156.154.116") }}</td>
+<td>{{ _("2602:f4d9:1::1 (anycast), 2a12:8d02:2100:176:26a3:f0ff:fe49:eda8") }}</td>
+</tr>
+<tr>
+<td>{{ _("iad.ns2.grapheneos.org") }}</td>
+<td>{{ _("Ashburn") }}</td>
+<td>{{ _("Misaka.io") }}</td>
+<td>{{ _("S2N-1C1G") }}</td>
+<td>{{ _("24.149.125.1 (anycast), 38.175.99.47") }}</td>
+<td>{{ _("2602:f4d9:1::1 (anycast), 2a0b:4342:1a32:db:26a3:f0ff:fe47:dfec") }}</td>
+</tr>
+<tr>
+<td>{{ _("lon.ns2.grapheneos.org") }}</td>
+<td>{{ _("London") }}</td>
+<td>{{ _("Misaka.io") }}</td>
+<td>{{ _("S2N-1C1G") }}</td>
+<td>{{ _("24.149.125.1 (anycast), 45.142.244.163") }}</td>
+<td>{{ _("2602:f4d9:1::1 (anycast), 2a0f:3b03:101:2d3:26a3:f0ff:fe4a:594") }}</td>
+</tr>
+<tr>
+<td>{{ _("mia.ns2.grapheneos.org") }}</td>
+<td>{{ _("Miami") }}</td>
+<td>{{ _("Misaka.io") }}</td>
+<td>{{ _("S2N-1C1G") }}</td>
+<td>{{ _("24.149.125.1 (anycast), 38.175.100.57") }}</td>
+<td>{{ _("2602:f4d9:1::1 (anycast), 2a0e:6902:5010:d9:26a3:f0ff:fe48:de47") }}</td>
+</tr>
+<tr>
+<td>{{ _("sea.ns2.grapheneos.org") }}</td>
+<td>{{ _("Singapore") }}</td>
+<td>{{ _("Misaka.io") }}</td>
+<td>{{ _("S2N-1C2G") }}</td>
+<td>{{ _("24.149.125.1 (anycast), 38.175.102.38") }}</td>
+<td>{{ _("2602:f4d9:1::1 (anycast), 2a0e:6901:201:dd:26a3:f0ff:fe48:6091") }}</td>
+</tr>
+<tr>
+<td>{{ _("sjc.ns2.grapheneos.org") }}</td>
+<td>{{ _("San Jose") }}</td>
+<td>{{ _("Misaka.io") }}</td>
+<td>{{ _("S2N-1C1G") }}</td>
+<td>{{ _("24.149.125.1 (anycast), 38.175.105.122") }}</td>
+<td>{{ _("2602:f4d9:1::1 (anycast), 2a0e:6901:410:ab:26a3:f0ff:fe4a:c8d6") }}</td>
+</tr>
+<tr>
+<td>{{ _("sin.ns2.grapheneos.org") }}</td>
+<td>{{ _("Singapore") }}</td>
+<td>{{ _("Misaka.io") }}</td>
+<td>{{ _("S3N-1C1G") }}</td>
+<td>{{ _("24.149.125.1 (anycast), 194.156.163.89") }}</td>
+<td>{{ _("2602:f4d9:1::1 (anycast), 2407:b9c0:e002:226:26a3:f0ff:fe47:8f06") }}</td>
+</tr>
+<tr>
+<td>{{ _("tyo.ns2.grapheneos.org") }}</td>
+<td>{{ _("Tokyo") }}</td>
+<td>{{ _("Misaka.io") }}</td>
+<td>{{ _("S3N-1C2G") }}</td>
+<td>{{ _("24.149.125.1 (anycast), 103.170.233.149") }}</td>
+<td>{{ _("2602:f4d9:1::1 (anycast), 2407:b9c0:1:2af:26a3:f0ff:fe46:bede") }}</td>
+</tr>
+<tr>
+<td>{{ _("yto.ns2.grapheneos.org") }}</td>
+<td>{{ _("Toronto") }}</td>
+<td>{{ _("Xenyth") }}</td>
+<td>{{ _("System container on yto.grapheneos.org") }}</td>
+<td>{{ _("24.149.125.1 (anycast), 91.246.30.3") }}</td>
+<td>{{ _("2602:f4d9:1::1 (anycast), 2602:f4d9:5:2::1") }}</td>
+</tr>
+</tbody>
+</table>
+<p>{{ _("Domains:") }}</p>
+<ul>
+<li>{{ _("ns1.attestation.app") }}</li>
+<li>{{ _("ns1.grapheneos.app") }}</li>
+<li>{{ _("ns1.grapheneos.ca") }}</li>
+<li>{{ _("ns1.grapheneos.com") }}</li>
+<li>{{ _("ns1.grapheneos.dev") }}</li>
+<li>{{ _("ns1.grapheneos.foundation") }}</li>
+<li>{{ _("ns1.grapheneos.info") }}</li>
+<li>{{ _("ns1.grapheneos.net") }}</li>
+<li>{{ _("ns1.grapheneos.network") }}</li>
+<li>{{ _("ns1.grapheneos.online") }}</li>
+<li>{{ _("ns1.grapheneos.org") }}</li>
+<li>{{ _("ns1.grapheneos.ovh") }}</li>
+<li>{{ _("ns1.grapheneos.page") }}</li>
+<li>{{ _("ns1.grapheneos.social") }}</li>
+<li>{{ _("ns1.seamlessupdate.app") }}</li>
+<li>{{ _("ns1.vanadium.app") }}</li>
+<li>{{ _("ns2.attestation.app") }}</li>
+<li>{{ _("ns2.grapheneos.app") }}</li>
+<li>{{ _("ns2.grapheneos.ca") }}</li>
+<li>{{ _("ns2.grapheneos.com") }}</li>
+<li>{{ _("ns2.grapheneos.dev") }}</li>
+<li>{{ _("ns2.grapheneos.foundation") }}</li>
+<li>{{ _("ns2.grapheneos.info") }}</li>
+<li>{{ _("ns2.grapheneos.net") }}</li>
+<li>{{ _("ns2.grapheneos.network") }}</li>
+<li>{{ _("ns2.grapheneos.online") }}</li>
+<li>{{ _("ns2.grapheneos.org") }}</li>
+<li>{{ _("ns2.grapheneos.ovh") }}</li>
+<li>{{ _("ns2.grapheneos.page") }}</li>
+<li>{{ _("ns2.grapheneos.social") }}</li>
+<li>{{ _("ns2.seamlessupdate.app") }}</li>
+<li>{{ _("ns2.vanadium.app") }}</li>
+</ul>
+<p>{{ _("Ports:") }}</p>
+<ul>
+<li>{{ _("TCP 22 ssh") }}</li>
+<li>{{ _("TCP 53 domain") }}</li>
+<li>{{ _("UDP 53 domain") }}</li>
+<li>{{ _("TCP 80 http") }}</li>
+<li>{{ _("TCP 443 https") }}</li>
+<li>{{ _("TCP 853 domain-s") }}</li>
+</ul>
+</section>
+<section id="ns1.staging.grapheneos.org">
+<h2><a href="#ns1.staging.grapheneos.org">{{ _("Staging GrapheneOS DNS server") }}</a></h2>
+<ul>
+<li><a href="https://github.com/GrapheneOS/ns1.grapheneos.org">{{ _("Repository") }}</a></li>
+<li><a href="https://github.com/GrapheneOS/ns1.grapheneos.org/issues">{{ _("Issue tracker") }}</a></li>
+</ul>
+<p>{{ _("Specs:") }}</p>
+<ul>
+<li>{{ _("BuyVM Slice 1024") }}</li>
+<li>{{ _("1 core") }}</li>
+<li>{{ _("1 GiB memory") }}</li>
+<li>{{ _("20 GiB NVMe SSD storage") }}</li>
+<li>{{ _("1 Gbit/s bandwidth") }}</li>
+</ul>
+<p>{{ _("Location: New York City") }}</p>
+<p>{{ _("IPv4 address: 198.98.56.238") }}</p>
+<p>{{ _("IPv6 addresses: 2602:f4d9:4::1, 2605:6400:10:c41:de92:c534:326a:711a") }}</p>
+<p>{{ _("Domains:") }}</p>
+<ul>
+<li>{{ _("ns1.staging.attestation.app") }}</li>
+<li>{{ _("ns2.staging.attestation.app") }}</li>
+<li>{{ _("ns1.staging.grapheneos.org") }}</li>
+<li>{{ _("ns2.staging.grapheneos.org") }}</li>
+</ul>
+<p>{{ _("Ports:") }}</p>
+<ul>
+<li>{{ _("TCP 22 ssh") }}</li>
+<li>{{ _("TCP 53 domain") }}</li>
+<li>{{ _("UDP 53 domain") }}</li>
+<li>{{ _("TCP 80 http") }}</li>
+<li>{{ _("TCP 443 https") }}</li>
+<li>{{ _("TCP 853 domain-s") }}</li>
+</ul>
+</section>
+<section id="grapheneos.org">
+<h2><a href="#grapheneos.org">{{ _("GrapheneOS website and network services") }}</a></h2>
+<p>{{ _("These are the servers for our website, HTTP/HTTPS connectivity checks,
                 HTTPS network time, NTP (for Qualcomm XTRA), Broadcom PSDS cache, Samsung PSDS
                 cache, Qualcomm PSDS (XTRA) cache, SUPL proxy, attestation key provisioning proxy,
                 Vanadium component update check/download proxy, network location proxy and geocoding
-                proxy.</p>
-
-                <ul>
-                    <li><a href="https://github.com/GrapheneOS/grapheneos.org">Repository</a></li>
-                    <li><a href="https://github.com/GrapheneOS/grapheneos.org/issues">Issue tracker</a></li>
-                </ul>
-
-                <p>Specs:</p>
-
-                <ul>
-                    <li>2x ReliableSite dedicated server (sponsored by <a href="https://www.reliablesite.net/">ReliableSite</a>)</li>
-                    <li>Ryzen 9900X</li>
-                    <li>192 GiB DDR5</li>
-                    <li>2x 4 TB NVMe SSD storage</li>
-                    <li>10 Gbit/s bandwidth</li>
-                </ul>
-
-                <ul>
-                    <li>Cherry Servers dedicated server (sponsored by <a href="https://cherryservers.com/">Cherry Servers</a>)</li>
-                    <li>Ryzen 9950X</li>
-                    <li>192 GiB DDR5</li>
-                    <li>2x 4 TB NVMe SSD storage</li>
-                    <li>20 Gbit/s bandwidth (via 2x 10 Gbit/s)</li>
-                </ul>
-
-                <ul>
-                    <li>Zare dedicated server (sponsored by <a href="https://zare.com/">Zare</a>)</li>
-                    <li>Xeon Silver 4214</li>
-                    <li>128 GiB DDR4</li>
-                    <li>2x 2 TB NVMe SSD storage</li>
-                    <li>10 Gbit/s bandwidth</li>
-                </ul>
-
-                <ul>
-                    <li>Xenyth dedicated server (sponsored by <a href="https://xenyth.net/">Xenyth</a>)</li>
-                    <li>Xeon E5-2680 v4</li>
-                    <li>128 GiB DDR4</li>
-                    <li>2x 1 TB SATA SSD storage</li>
-                    <li>10 Gbit/s bandwidth</li>
-                </ul>
-
-                <ul>
-                    <li>netcup VPS 500 G12</li>
-                    <li>2 cores</li>
-                    <li>4 GiB memory</li>
-                    <li>128 GiB NVMe SSD storage</li>
-                    <li>2.5 Gbit/s bandwidth</li>
-                </ul>
-
-                <ul>
-                    <li>5x Vultr vhp-1c-1gb-amd</li>
-                    <li>1 core</li>
-                    <li>1 GiB memory</li>
-                    <li>25 GiB NVMe SSD storage</li>
-                </ul>
-
-                <p>Locations:</p>
-
-                <table>
-                    <thead>
-                        <tr>
-                            <td>Name</td>
-                            <td>Location</td>
-                            <td>Provider</td>
-                            <td>Type</td>
-                            <td>IPv4 address</td>
-                            <td>IPv6 address</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>ams.grapheneos.org</td>
-                            <td>Amsterdam</td>
-                            <td>Cherry Servers</td>
-                            <td>Dedicated</td>
-                            <td>84.32.64.33</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>lax.grapheneos.org</td>
-                            <td>Los Angeles</td>
-                            <td>ReliableSite</td>
-                            <td>Dedicated</td>
-                            <td>104.194.8.203</td>
-                            <td>2605:9880:200:400:135:7700:ef0a:81</td>
-                        </tr>
-                        <tr>
-                            <td>lon.grapheneos.org</td>
-                            <td>London</td>
-                            <td>Zare</td>
-                            <td>Dedicated</td>
-                            <td>185.44.76.161</td>
-                            <td>2a01:4020:0:52::2</td>
-                        </tr>
-                        <tr>
-                            <td>mia.grapheneos.org</td>
-                            <td>Miami</td>
-                            <td>ReliableSite</td>
-                            <td>Dedicated</td>
-                            <td>172.96.172.37</td>
-                            <td>2605:9880:400:1100:15:1240:515:6e</td>
-                        </tr>
-                        <tr>
-                            <td>nue.grapheneos.org</td>
-                            <td>Nuremberg</td>
-                            <td>netcup</td>
-                            <td>VPS 500 G12</td>
-                            <td>159.195.46.80</td>
-                            <td>2a0a:4cc0:c1:9de2::1</td>
-                        </tr>
-                        <tr>
-                            <td>sao.grapheneos.org</td>
-                            <td>São Paulo</td>
-                            <td>Vultr</td>
-                            <td>vhp-1c-1gb-amd</td>
-                            <td>216.238.116.202</td>
-                            <td>2001:19f0:b800:1f13:5400:05ff:fed0:8ea7</td>
-                        </tr>
-                        <tr>
-                            <td>sea.grapheneos.org</td>
-                            <td>Seattle</td>
-                            <td>Vultr</td>
-                            <td>vhp-1c-1gb-amd</td>
-                            <td>45.32.230.4</td>
-                            <td>2001:19f0:8000:3454:5400:05ff:fec8:4139</td>
-                        </tr>
-                        <tr>
-                            <td>sin.grapheneos.org</td>
-                            <td>Singapore</td>
-                            <td>Vultr</td>
-                            <td>vhp-1c-1gb-amd</td>
-                            <td>66.42.50.166</td>
-                            <td>2001:19f0:4400:2c24:5400:05ff:fec7:4cdc</td>
-                        </tr>
-                        <tr>
-                            <td>syd.grapheneos.org</td>
-                            <td>Sydney</td>
-                            <td>Vultr</td>
-                            <td>vhp-1c-1gb-amd</td>
-                            <td>107.191.57.135</td>
-                            <td>2401:c080:1800:1c40:5400:05ff:fec7:c902</td>
-                        </tr>
-                        <tr>
-                            <td>tyo.grapheneos.org</td>
-                            <td>Tokyo</td>
-                            <td>Vultr</td>
-                            <td>vhp-1c-1gb-amd</td>
-                            <td>207.148.108.82</td>
-                            <td>2401:c080:1000:13f8:5400:05ff:fee8:3c8b</td>
-                        </tr>
-                        <tr>
-                            <td>yto.grapheneos.org</td>
-                            <td>Toronto</td>
-                            <td>Xenyth</td>
-                            <td>Dedicated</td>
-                            <td>91.246.30.2</td>
-                            <td>2602:f4d9:5:1::1</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <p>Domains:</p>
-
-                <ul>
-                    <li>grapheneos.org</li>
-                    <li>www.grapheneos.org</li>
-                    <li>grapheneos.app</li>
-                    <li>www.grapheneos.app</li>
-                    <li>grapheneos.ca</li>
-                    <li>www.grapheneos.ca</li>
-                    <li>grapheneos.com</li>
-                    <li>www.grapheneos.com</li>
-                    <li>grapheneos.dev</li>
-                    <li>www.grapheneos.dev</li>
-                    <li>grapheneos.foundation</li>
-                    <li>www.grapheneos.foundation</li>
-                    <li>grapheneos.info</li>
-                    <li>www.grapheneos.info</li>
-                    <li>grapheneos.net</li>
-                    <li>www.grapheneos.net</li>
-                    <li>grapheneos.ovh</li>
-                    <li>www.grapheneos.ovh</li>
-                    <li>grapheneos.page</li>
-                    <li>www.grapheneos.page</li>
-                    <li>vanadium.app</li>
-                    <li>www.vanadium.app</li>
-                    <li>grapheneos.network - HTTP/HTTPS connectivity checks</li>
-                    <li>connectivitycheck.grapheneos.network - HTTP/HTTPS connectivity checks</li>
-                    <li>www.grapheneos.network</li>
-                    <li>grapheneos.online - HTTP/HTTPS connectivity checks</li>
-                    <li>connectivitycheck.grapheneos.online - HTTP/HTTPS connectivity checks</li>
-                    <li>www.grapheneos.online</li>
-                    <li>broadcom.psds.grapheneos.org - HTTPS Broadcom PSDS data cache</li>
-                    <li>samsung.psds.grapheneos.org - HTTPS Samsung PSDS data cache</li>
-                    <li>qualcomm.psds.grapheneos.org - HTTPS Qualcomm PSDS data cache</li>
-                    <li>remoteprovisioning.grapheneos.org - HTTPS reverse proxy to remoteprovisioning.google.com</li>
-                    <li>widevineprovisioning.grapheneos.org - HTTPS reverse proxy for Widevine provisioning</li>
-                    <li>time.grapheneos.org - HTTPS time server with millisecond precision X-Time header</li>
-                    <li>supl.grapheneos.org - TLS reverse proxy to supl.google.com</li>
-                    <li>nominatim.grapheneos.org - HTTPS reverse proxy to nominatim.openstreetmap.org, which will become our own instance of Nominatim instead of a proxy</li>
-                    <li>gs-loc.apple.grapheneos.org - HTTPS reverse proxy to Apple's network location service, which will remain an option after we have our own location service</li>
-                    <li>update.vanadium.app - HTTPS reverse proxy to update.googleapis.com for Chromium component updates (will be hosted directly in the future)</li>
-                    <li>dl.vanadium.app - HTTPS reverse proxy to CDNs for Chromium component updates (will be hosted directly in the future)</li>
-                </ul>
-
-                <p>Ports:</p>
-
-                <ul>
-                    <li>TCP 22 ssh</li>
-                    <li>TCP 80 http</li>
-                    <li>UDP 123 ntp</li>
-                    <li>TCP 443 https</li>
-                    <li>TCP 7275 supl</li>
-                </ul>
-            </section>
-
-            <section id="staging.grapheneos.org">
-                <h2><a href="#staging.grapheneos.org">Staging GrapheneOS website and network services</a></h2>
-
-                <ul>
-                    <li><a href="https://github.com/GrapheneOS/grapheneos.org">Repository</a></li>
-                    <li><a href="https://github.com/GrapheneOS/grapheneos.org/issues">Issue tracker</a></li>
-                </ul>
-
-                <p>Specs:</p>
-
-                <ul>
-                    <li>BuyVM Slice 1024</li>
-                    <li>1 core</li>
-                    <li>1 GiB memory</li>
-                    <li>20 GiB NVMe SSD storage</li>
-                    <li>1 Gbit/s bandwidth</li>
-                </ul>
-
-                <p>Location: New York City</p>
-
-                <p>IPv4: 199.195.250.78</p>
-
-                <p>IPv6: 2605:6400:10:9d6:6d84:e183:acda:16d7</p>
-
-                <p>Domains:</p>
-
-                <ul>
-                    <li>staging.grapheneos.org</li>
-                </ul>
-
-                <p>Ports:</p>
-
-                <ul>
-                    <li>TCP 22 ssh</li>
-                    <li>TCP 80 http</li>
-                    <li>UDP 123 ntp</li>
-                    <li>TCP 443 https</li>
-                    <li>TCP 7275 supl</li>
-                </ul>
-            </section>
-
-            <section id="releases.grapheneos.org">
-                <h2><a href="#releases.grapheneos.org">GrapheneOS release servers</a></h2>
-
-                <p>These are the static file servers for GrapheneOS releases and our app
+                proxy.") }}</p>
+<ul>
+<li><a href="https://github.com/GrapheneOS/grapheneos.org">{{ _("Repository") }}</a></li>
+<li><a href="https://github.com/GrapheneOS/grapheneos.org/issues">{{ _("Issue tracker") }}</a></li>
+</ul>
+<p>{{ _("Specs:") }}</p>
+<ul>
+<li>{{ _("2x ReliableSite dedicated server (sponsored by ") }}<a href="https://www.reliablesite.net/">{{ _("ReliableSite") }}</a>{{ _(")") }}</li>
+<li>{{ _("Ryzen 9900X") }}</li>
+<li>{{ _("192 GiB DDR5") }}</li>
+<li>{{ _("2x 4 TB NVMe SSD storage") }}</li>
+<li>{{ _("10 Gbit/s bandwidth") }}</li>
+</ul>
+<ul>
+<li>{{ _("Cherry Servers dedicated server (sponsored by ") }}<a href="https://cherryservers.com/">{{ _("Cherry Servers") }}</a>{{ _(")") }}</li>
+<li>{{ _("Ryzen 9950X") }}</li>
+<li>{{ _("192 GiB DDR5") }}</li>
+<li>{{ _("2x 4 TB NVMe SSD storage") }}</li>
+<li>{{ _("20 Gbit/s bandwidth (via 2x 10 Gbit/s)") }}</li>
+</ul>
+<ul>
+<li>{{ _("Zare dedicated server (sponsored by ") }}<a href="https://zare.com/">{{ _("Zare") }}</a>{{ _(")") }}</li>
+<li>{{ _("Xeon Silver 4214") }}</li>
+<li>{{ _("128 GiB DDR4") }}</li>
+<li>{{ _("2x 2 TB NVMe SSD storage") }}</li>
+<li>{{ _("10 Gbit/s bandwidth") }}</li>
+</ul>
+<ul>
+<li>{{ _("Xenyth dedicated server (sponsored by ") }}<a href="https://xenyth.net/">{{ _("Xenyth") }}</a>{{ _(")") }}</li>
+<li>{{ _("Xeon E5-2680 v4") }}</li>
+<li>{{ _("128 GiB DDR4") }}</li>
+<li>{{ _("2x 1 TB SATA SSD storage") }}</li>
+<li>{{ _("10 Gbit/s bandwidth") }}</li>
+</ul>
+<ul>
+<li>{{ _("netcup VPS 500 G12") }}</li>
+<li>{{ _("2 cores") }}</li>
+<li>{{ _("4 GiB memory") }}</li>
+<li>{{ _("128 GiB NVMe SSD storage") }}</li>
+<li>{{ _("2.5 Gbit/s bandwidth") }}</li>
+</ul>
+<ul>
+<li>{{ _("5x Vultr vhp-1c-1gb-amd") }}</li>
+<li>{{ _("1 core") }}</li>
+<li>{{ _("1 GiB memory") }}</li>
+<li>{{ _("25 GiB NVMe SSD storage") }}</li>
+</ul>
+<p>{{ _("Locations:") }}</p>
+<table>
+<thead>
+<tr>
+<td>{{ _("Name") }}</td>
+<td>{{ _("Location") }}</td>
+<td>{{ _("Provider") }}</td>
+<td>{{ _("Type") }}</td>
+<td>{{ _("IPv4 address") }}</td>
+<td>{{ _("IPv6 address") }}</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{{ _("ams.grapheneos.org") }}</td>
+<td>{{ _("Amsterdam") }}</td>
+<td>{{ _("Cherry Servers") }}</td>
+<td>{{ _("Dedicated") }}</td>
+<td>{{ _("84.32.64.33") }}</td>
+<td></td>
+</tr>
+<tr>
+<td>{{ _("lax.grapheneos.org") }}</td>
+<td>{{ _("Los Angeles") }}</td>
+<td>{{ _("ReliableSite") }}</td>
+<td>{{ _("Dedicated") }}</td>
+<td>{{ _("104.194.8.203") }}</td>
+<td>{{ _("2605:9880:200:400:135:7700:ef0a:81") }}</td>
+</tr>
+<tr>
+<td>{{ _("lon.grapheneos.org") }}</td>
+<td>{{ _("London") }}</td>
+<td>{{ _("Zare") }}</td>
+<td>{{ _("Dedicated") }}</td>
+<td>{{ _("185.44.76.161") }}</td>
+<td>{{ _("2a01:4020:0:52::2") }}</td>
+</tr>
+<tr>
+<td>{{ _("mia.grapheneos.org") }}</td>
+<td>{{ _("Miami") }}</td>
+<td>{{ _("ReliableSite") }}</td>
+<td>{{ _("Dedicated") }}</td>
+<td>{{ _("172.96.172.37") }}</td>
+<td>{{ _("2605:9880:400:1100:15:1240:515:6e") }}</td>
+</tr>
+<tr>
+<td>{{ _("nue.grapheneos.org") }}</td>
+<td>{{ _("Nuremberg") }}</td>
+<td>{{ _("netcup") }}</td>
+<td>{{ _("VPS 500 G12") }}</td>
+<td>{{ _("159.195.46.80") }}</td>
+<td>{{ _("2a0a:4cc0:c1:9de2::1") }}</td>
+</tr>
+<tr>
+<td>{{ _("sao.grapheneos.org") }}</td>
+<td>{{ _("São Paulo") }}</td>
+<td>{{ _("Vultr") }}</td>
+<td>{{ _("vhp-1c-1gb-amd") }}</td>
+<td>{{ _("216.238.116.202") }}</td>
+<td>{{ _("2001:19f0:b800:1f13:5400:05ff:fed0:8ea7") }}</td>
+</tr>
+<tr>
+<td>{{ _("sea.grapheneos.org") }}</td>
+<td>{{ _("Seattle") }}</td>
+<td>{{ _("Vultr") }}</td>
+<td>{{ _("vhp-1c-1gb-amd") }}</td>
+<td>{{ _("45.32.230.4") }}</td>
+<td>{{ _("2001:19f0:8000:3454:5400:05ff:fec8:4139") }}</td>
+</tr>
+<tr>
+<td>{{ _("sin.grapheneos.org") }}</td>
+<td>{{ _("Singapore") }}</td>
+<td>{{ _("Vultr") }}</td>
+<td>{{ _("vhp-1c-1gb-amd") }}</td>
+<td>{{ _("66.42.50.166") }}</td>
+<td>{{ _("2001:19f0:4400:2c24:5400:05ff:fec7:4cdc") }}</td>
+</tr>
+<tr>
+<td>{{ _("syd.grapheneos.org") }}</td>
+<td>{{ _("Sydney") }}</td>
+<td>{{ _("Vultr") }}</td>
+<td>{{ _("vhp-1c-1gb-amd") }}</td>
+<td>{{ _("107.191.57.135") }}</td>
+<td>{{ _("2401:c080:1800:1c40:5400:05ff:fec7:c902") }}</td>
+</tr>
+<tr>
+<td>{{ _("tyo.grapheneos.org") }}</td>
+<td>{{ _("Tokyo") }}</td>
+<td>{{ _("Vultr") }}</td>
+<td>{{ _("vhp-1c-1gb-amd") }}</td>
+<td>{{ _("207.148.108.82") }}</td>
+<td>{{ _("2401:c080:1000:13f8:5400:05ff:fee8:3c8b") }}</td>
+</tr>
+<tr>
+<td>{{ _("yto.grapheneos.org") }}</td>
+<td>{{ _("Toronto") }}</td>
+<td>{{ _("Xenyth") }}</td>
+<td>{{ _("Dedicated") }}</td>
+<td>{{ _("91.246.30.2") }}</td>
+<td>{{ _("2602:f4d9:5:1::1") }}</td>
+</tr>
+</tbody>
+</table>
+<p>{{ _("Domains:") }}</p>
+<ul>
+<li>{{ _("grapheneos.org") }}</li>
+<li>{{ _("www.grapheneos.org") }}</li>
+<li>{{ _("grapheneos.app") }}</li>
+<li>{{ _("www.grapheneos.app") }}</li>
+<li>{{ _("grapheneos.ca") }}</li>
+<li>{{ _("www.grapheneos.ca") }}</li>
+<li>{{ _("grapheneos.com") }}</li>
+<li>{{ _("www.grapheneos.com") }}</li>
+<li>{{ _("grapheneos.dev") }}</li>
+<li>{{ _("www.grapheneos.dev") }}</li>
+<li>{{ _("grapheneos.foundation") }}</li>
+<li>{{ _("www.grapheneos.foundation") }}</li>
+<li>{{ _("grapheneos.info") }}</li>
+<li>{{ _("www.grapheneos.info") }}</li>
+<li>{{ _("grapheneos.net") }}</li>
+<li>{{ _("www.grapheneos.net") }}</li>
+<li>{{ _("grapheneos.ovh") }}</li>
+<li>{{ _("www.grapheneos.ovh") }}</li>
+<li>{{ _("grapheneos.page") }}</li>
+<li>{{ _("www.grapheneos.page") }}</li>
+<li>{{ _("vanadium.app") }}</li>
+<li>{{ _("www.vanadium.app") }}</li>
+<li>{{ _("grapheneos.network - HTTP/HTTPS connectivity checks") }}</li>
+<li>{{ _("connectivitycheck.grapheneos.network - HTTP/HTTPS connectivity checks") }}</li>
+<li>{{ _("www.grapheneos.network") }}</li>
+<li>{{ _("grapheneos.online - HTTP/HTTPS connectivity checks") }}</li>
+<li>{{ _("connectivitycheck.grapheneos.online - HTTP/HTTPS connectivity checks") }}</li>
+<li>{{ _("www.grapheneos.online") }}</li>
+<li>{{ _("broadcom.psds.grapheneos.org - HTTPS Broadcom PSDS data cache") }}</li>
+<li>{{ _("samsung.psds.grapheneos.org - HTTPS Samsung PSDS data cache") }}</li>
+<li>{{ _("qualcomm.psds.grapheneos.org - HTTPS Qualcomm PSDS data cache") }}</li>
+<li>{{ _("remoteprovisioning.grapheneos.org - HTTPS reverse proxy to remoteprovisioning.google.com") }}</li>
+<li>{{ _("widevineprovisioning.grapheneos.org - HTTPS reverse proxy for Widevine provisioning") }}</li>
+<li>{{ _("time.grapheneos.org - HTTPS time server with millisecond precision X-Time header") }}</li>
+<li>{{ _("supl.grapheneos.org - TLS reverse proxy to supl.google.com") }}</li>
+<li>{{ _("nominatim.grapheneos.org - HTTPS reverse proxy to nominatim.openstreetmap.org, which will become our own instance of Nominatim instead of a proxy") }}</li>
+<li>{{ _("gs-loc.apple.grapheneos.org - HTTPS reverse proxy to Apple's network location service, which will remain an option after we have our own location service") }}</li>
+<li>{{ _("update.vanadium.app - HTTPS reverse proxy to update.googleapis.com for Chromium component updates (will be hosted directly in the future)") }}</li>
+<li>{{ _("dl.vanadium.app - HTTPS reverse proxy to CDNs for Chromium component updates (will be hosted directly in the future)") }}</li>
+</ul>
+<p>{{ _("Ports:") }}</p>
+<ul>
+<li>{{ _("TCP 22 ssh") }}</li>
+<li>{{ _("TCP 80 http") }}</li>
+<li>{{ _("UDP 123 ntp") }}</li>
+<li>{{ _("TCP 443 https") }}</li>
+<li>{{ _("TCP 7275 supl") }}</li>
+</ul>
+</section>
+<section id="staging.grapheneos.org">
+<h2><a href="#staging.grapheneos.org">{{ _("Staging GrapheneOS website and network services") }}</a></h2>
+<ul>
+<li><a href="https://github.com/GrapheneOS/grapheneos.org">{{ _("Repository") }}</a></li>
+<li><a href="https://github.com/GrapheneOS/grapheneos.org/issues">{{ _("Issue tracker") }}</a></li>
+</ul>
+<p>{{ _("Specs:") }}</p>
+<ul>
+<li>{{ _("BuyVM Slice 1024") }}</li>
+<li>{{ _("1 core") }}</li>
+<li>{{ _("1 GiB memory") }}</li>
+<li>{{ _("20 GiB NVMe SSD storage") }}</li>
+<li>{{ _("1 Gbit/s bandwidth") }}</li>
+</ul>
+<p>{{ _("Location: New York City") }}</p>
+<p>{{ _("IPv4: 199.195.250.78") }}</p>
+<p>{{ _("IPv6: 2605:6400:10:9d6:6d84:e183:acda:16d7") }}</p>
+<p>{{ _("Domains:") }}</p>
+<ul>
+<li>{{ _("staging.grapheneos.org") }}</li>
+</ul>
+<p>{{ _("Ports:") }}</p>
+<ul>
+<li>{{ _("TCP 22 ssh") }}</li>
+<li>{{ _("TCP 80 http") }}</li>
+<li>{{ _("UDP 123 ntp") }}</li>
+<li>{{ _("TCP 443 https") }}</li>
+<li>{{ _("TCP 7275 supl") }}</li>
+</ul>
+</section>
+<section id="releases.grapheneos.org">
+<h2><a href="#releases.grapheneos.org">{{ _("GrapheneOS release servers") }}</a></h2>
+<p>{{ _("These are the static file servers for GrapheneOS releases and our app
                 repository. These are used by the releases page and web installer along with the
-                System Updater and App Store (app repository client) within the OS.</p>
-
-                <ul>
-                    <li><a href="https://github.com/GrapheneOS/releases.grapheneos.org">Repository</a></li>
-                    <li><a href="https://github.com/GrapheneOS/releases.grapheneos.org/issues">Issue tracker</a></li>
-                </ul>
-
-                <p>Specs:</p>
-
-                <ul>
-                    <li>2x ReliableSite dedicated server (sponsored by <a href="https://www.reliablesite.net/">ReliableSite</a>)</li>
-                    <li>Ryzen 9900X</li>
-                    <li>192 GiB DDR5</li>
-                    <li>2x 4 TB NVMe SSD storage</li>
-                    <li>10 Gbit/s bandwidth</li>
-                </ul>
-
-                <ul>
-                    <li>Cherry Servers dedicated server (sponsored by <a href="https://cherryservers.com/">Cherry Servers</a>)</li>
-                    <li>Ryzen 9950X</li>
-                    <li>192 GiB DDR5</li>
-                    <li>2x 4 TB NVMe SSD storage</li>
-                    <li>20 Gbit/s bandwidth (via 2x 10 Gbit/s)</li>
-                </ul>
-
-                <ul>
-                    <li>Zare dedicated server (sponsored by <a href="https://zare.com/">Zare</a>)</li>
-                    <li>Xeon Silver 4214</li>
-                    <li>128 GiB DDR4</li>
-                    <li>2x 2 TB NVMe SSD storage</li>
-                    <li>10 Gbit/s bandwidth</li>
-                </ul>
-
-                <ul>
-                    <li>Xenyth dedicated server (sponsored by <a href="https://xenyth.net/">Xenyth</a>)</li>
-                    <li>Xeon E5-2680 v4</li>
-                    <li>128 GiB DDR4</li>
-                    <li>2x 1 TB SATA SSD storage</li>
-                    <li>10 Gbit/s bandwidth</li>
-                </ul>
-
-                <p>Locations:</p>
-
-                <table>
-                    <thead>
-                        <tr>
-                            <td>Name</td>
-                            <td>Location</td>
-                            <td>Provider</td>
-                            <td>Type</td>
-                            <td>IPv4 address</td>
-                            <td>IPv6 address</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>ams.grapheneos.org</td>
-                            <td>Amsterdam</td>
-                            <td>Cherry Servers</td>
-                            <td>Dedicated</td>
-                            <td>84.32.64.33</td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td>lax.grapheneos.org</td>
-                            <td>Los Angeles</td>
-                            <td>ReliableSite</td>
-                            <td>Dedicated</td>
-                            <td>104.194.8.203</td>
-                            <td>2605:9880:200:400:135:7700:ef0a:81</td>
-                        </tr>
-                        <tr>
-                            <td>lon.grapheneos.org</td>
-                            <td>London</td>
-                            <td>Zare</td>
-                            <td>Dedicated</td>
-                            <td>185.44.76.161</td>
-                            <td>2a01:4020:0:52::2</td>
-                        </tr>
-                        <tr>
-                            <td>mia.grapheneos.org</td>
-                            <td>Miami</td>
-                            <td>ReliableSite</td>
-                            <td>Dedicated</td>
-                            <td>172.96.172.37</td>
-                            <td>2605:9880:400:1100:15:1240:515:6e</td>
-                        </tr>
-                        <tr>
-                            <td>yto.grapheneos.org</td>
-                            <td>Toronto</td>
-                            <td>Xenyth</td>
-                            <td>Dedicated</td>
-                            <td>91.246.30.2</td>
-                            <td>2602:f4d9:5:1::1</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <p>Domains:</p>
-
-                <ul>
-                    <li>releases.grapheneos.org</li>
-                    <li>seamlessupdate.app</li>
-                    <li>www.seamlessupdate.app</li>
-                    <li>apps.grapheneos.org</li>
-                </ul>
-
-                <p>Ports:</p>
-
-                <ul>
-                    <li>TCP 22 ssh</li>
-                    <li>TCP 80 http</li>
-                    <li>TCP 443 https</li>
-                </ul>
-            </section>
-
-            <section id="nominatim.grapheneos.org">
-                <h2><a href="#nominatim.grapheneos.org">GrapheneOS geocoding servers</a></h2>
-
-                <ul>
-                    <li><a href="https://github.com/GrapheneOS/nominatim.grapheneos.org">Repository</a></li>
-                    <li><a href="https://github.com/GrapheneOS/nominatim.grapheneos.org/issues">Issue tracker</a></li>
-                </ul>
-
-                <p>Specs:</p>
-
-                <ul>
-                    <li>Cherry Servers dedicated server (sponsored by <a href="https://cherryservers.com/">Cherry Servers</a>)</li>
-                    <li>Ryzen 9950X</li>
-                    <li>192 GiB DDR5</li>
-                    <li>2x 4 TB NVMe SSD storage</li>
-                    <li>20 Gbit/s bandwidth (via 2x 10 Gbit/s)</li>
-                </ul>
-
-                <p>Location: Amsterdam</p>
-
-                <p>IPv4 address: 84.32.64.35</p>
-
-                <p>Domains:</p>
-
-                <ul>
-                    <li>ams.nominatim.grapheneos.org</li>
-                </ul>
-
-                <p>Ports:</p>
-
-                <ul>
-                    <li>TCP 22 ssh</li>
-                    <li>TCP 80 http</li>
-                    <li>TCP 443 https</li>
-                </ul>
-            </section>
-
-            <section id="attestation.app">
-                <h2><a href="#attestation.app">Attestation website and service</a></h2>
-
-                <ul>
-                    <li><a href="https://github.com/GrapheneOS/AttestationServer">Repository</a></li>
-                    <li><a href="https://github.com/GrapheneOS/AttestationServer/issues">Issue tracker</a></li>
-                </ul>
-
-                <p>Specs:</p>
-
-                <ul>
-                    <li>netcup RS 1000 G12 Ultra</li>
-                    <li>6 dedicated cores (EPYC 9645)</li>
-                    <li>12 GiB memory</li>
-                    <li>512 GiB NVMe SSD storage</li>
-                    <li>2.5 Gbit/s bandwidth</li>
-                </ul>
-
-                <p>Location: Nuremberg</p>
-
-                <p>IPv4 address: 159.195.67.50</p>
-
-                <p>IPv6 address: 2a0a:4cc0:c2:1cf3::1</p>
-
-                <p>Domains:</p>
-
-                <ul>
-                    <li>attestation.app</li>
-                    <li>www.attestation.app</li>
-                </ul>
-
-                <p>Ports:</p>
-
-                <ul>
-                    <li>TCP 22 ssh</li>
-                    <li>TCP 80 http</li>
-                    <li>TCP 443 https</li>
-                </ul>
-            </section>
-
-            <section id="staging.attestation.app">
-                <h2><a href="#staging.attestation.app">Staging attestation website and service</a></h2>
-
-                <ul>
-                    <li><a href="https://github.com/GrapheneOS/AttestationServer">Repository</a></li>
-                    <li><a href="https://github.com/GrapheneOS/AttestationServer/issues">Issue tracker</a></li>
-                </ul>
-
-                <p>Specs:</p>
-
-                <ul>
-                    <li>BuyVM Slice 1024</li>
-                    <li>1 core</li>
-                    <li>1 GiB memory</li>
-                    <li>20 GiB NVMe SSD storage</li>
-                    <li>1 Gbit/s bandwidth</li>
-                </ul>
-
-                <p>Location: New York City</p>
-
-                <p>IPv4 address: 198.98.57.157</p>
-
-                <p>IPv6 address: 2605:6400:10:aa9:1c0f:44d3:da15:c0ec</p>
-
-                <p>Domains:</p>
-
-                <ul>
-                    <li>staging.attestation.app</li>
-                </ul>
-
-                <p>Ports:</p>
-
-                <ul>
-                    <li>TCP 22 ssh</li>
-                    <li>TCP 80 http</li>
-                    <li>TCP 443 https</li>
-                </ul>
-            </section>
-
-            <section id="mail.grapheneos.org">
-                <h2><a href="#mail.grapheneos.org">GrapheneOS mail server</a></h2>
-
-                <ul>
-                    <li><a href="https://github.com/GrapheneOS/mail.grapheneos.org">Repository</a></li>
-                    <li><a href="https://github.com/GrapheneOS/mail.grapheneos.org/issues">Issue tracker</a></li>
-                </ul>
-
-                <p>Specs:</p>
-
-                <ul>
-                    <li>System container on yto.grapheneos.org</li>
-                    <li>Xenyth dedicated server (sponsored by <a href="https://xenyth.net/">Xenyth</a>)</li>
-                    <li>Xeon E5-2680 v4</li>
-                    <li>128 GiB DDR4</li>
-                    <li>2x 1 TB SATA SSD storage</li>
-                    <li>10 Gbit/s bandwidth</li>
-                </ul>
-
-                <p>Location: Toronto</p>
-
-                <p>IPv4 address: 91.246.30.4</p>
-
-                <p>IPv6 address: 2602:f4d9:5:3::1</p>
-
-                <p>Domains:</p>
-
-                <ul>
-                    <li>mail.grapheneos.net</li>
-                    <li>mail.grapheneos.org</li>
-                    <li>mta-sts.attestation.app</li>
-                    <li>mta-sts.discuss.grapheneos.org</li>
-                    <li>mta-sts.grapheneos.app</li>
-                    <li>mta-sts.grapheneos.ca</li>
-                    <li>mta-sts.grapheneos.com</li>
-                    <li>mta-sts.grapheneos.dev</li>
-                    <li>mta-sts.grapheneos.foundation</li>
-                    <li>mta-sts.grapheneos.info</li>
-                    <li>mta-sts.grapheneos.net</li>
-                    <li>mta-sts.grapheneos.network</li>
-                    <li>mta-sts.grapheneos.online</li>
-                    <li>mta-sts.grapheneos.org</li>
-                    <li>mta-sts.grapheneos.ovh</li>
-                    <li>mta-sts.grapheneos.page</li>
-                    <li>mta-sts.grapheneos.social</li>
-                    <li>mta-sts.mail.grapheneos.org</li>
-                    <li>mta-sts.matrix.grapheneos.org</li>
-                    <li>mta-sts.seamlessupdate.app</li>
-                    <li>mta-sts.vanadium.app</li>
-                </ul>
-
-                <p>Ports:</p>
-
-                <ul>
-                    <li>TCP 22 ssh</li>
-                    <li>TCP 25 smtp</li>
-                    <li>TCP 80 http</li>
-                    <li>TCP 443 https</li>
-                    <li>TCP 465 submissions</li>
-                    <li>TCP 993 imaps</li>
-                </ul>
-            </section>
-
-            <section id="discuss.grapheneos.org">
-                <h2><a href="#discuss.grapheneos.org">GrapheneOS discussion forum server</a></h2>
-
-                <ul>
-                    <li><a href="https://github.com/GrapheneOS/discuss.grapheneos.org">Repository</a></li>
-                    <li><a href="https://github.com/GrapheneOS/discuss.grapheneos.org/issues">Issue tracker</a></li>
-                </ul>
-
-                <p>Specs:</p>
-
-                <ul>
-                    <li>netcup RS 1000 G12 Ultra</li>
-                    <li>6 dedicated cores (EPYC 9645)</li>
-                    <li>12 GiB memory</li>
-                    <li>512 GiB NVMe SSD storage</li>
-                    <li>2.5 Gbit/s bandwidth</li>
-                </ul>
-
-                <p>Location: Manassas</p>
-
-                <p>IPv4 address: 152.53.168.153</p>
-
-                <p>IPv6 address: 2a0a:4cc0:2000:aa27::1</p>
-
-                <p>Domains:</p>
-
-                <ul>
-                    <li>discuss.grapheneos.org</li>
-                </ul>
-
-                <p>Ports:</p>
-
-                <ul>
-                    <li>TCP 22 ssh</li>
-                    <li>TCP 80 http</li>
-                    <li>TCP 443 https</li>
-                </ul>
-            </section>
-
-            <section id="matrix.grapheneos.org">
-                <h2><a href="#matrix.grapheneos.org">GrapheneOS Matrix server</a></h2>
-
-                <p>This server primarily runs the synapse Matrix server with PostgreSQL behind an
+                System Updater and App Store (app repository client) within the OS.") }}</p>
+<ul>
+<li><a href="https://github.com/GrapheneOS/releases.grapheneos.org">{{ _("Repository") }}</a></li>
+<li><a href="https://github.com/GrapheneOS/releases.grapheneos.org/issues">{{ _("Issue tracker") }}</a></li>
+</ul>
+<p>{{ _("Specs:") }}</p>
+<ul>
+<li>{{ _("2x ReliableSite dedicated server (sponsored by ") }}<a href="https://www.reliablesite.net/">{{ _("ReliableSite") }}</a>{{ _(")") }}</li>
+<li>{{ _("Ryzen 9900X") }}</li>
+<li>{{ _("192 GiB DDR5") }}</li>
+<li>{{ _("2x 4 TB NVMe SSD storage") }}</li>
+<li>{{ _("10 Gbit/s bandwidth") }}</li>
+</ul>
+<ul>
+<li>{{ _("Cherry Servers dedicated server (sponsored by ") }}<a href="https://cherryservers.com/">{{ _("Cherry Servers") }}</a>{{ _(")") }}</li>
+<li>{{ _("Ryzen 9950X") }}</li>
+<li>{{ _("192 GiB DDR5") }}</li>
+<li>{{ _("2x 4 TB NVMe SSD storage") }}</li>
+<li>{{ _("20 Gbit/s bandwidth (via 2x 10 Gbit/s)") }}</li>
+</ul>
+<ul>
+<li>{{ _("Zare dedicated server (sponsored by ") }}<a href="https://zare.com/">{{ _("Zare") }}</a>{{ _(")") }}</li>
+<li>{{ _("Xeon Silver 4214") }}</li>
+<li>{{ _("128 GiB DDR4") }}</li>
+<li>{{ _("2x 2 TB NVMe SSD storage") }}</li>
+<li>{{ _("10 Gbit/s bandwidth") }}</li>
+</ul>
+<ul>
+<li>{{ _("Xenyth dedicated server (sponsored by ") }}<a href="https://xenyth.net/">{{ _("Xenyth") }}</a>{{ _(")") }}</li>
+<li>{{ _("Xeon E5-2680 v4") }}</li>
+<li>{{ _("128 GiB DDR4") }}</li>
+<li>{{ _("2x 1 TB SATA SSD storage") }}</li>
+<li>{{ _("10 Gbit/s bandwidth") }}</li>
+</ul>
+<p>{{ _("Locations:") }}</p>
+<table>
+<thead>
+<tr>
+<td>{{ _("Name") }}</td>
+<td>{{ _("Location") }}</td>
+<td>{{ _("Provider") }}</td>
+<td>{{ _("Type") }}</td>
+<td>{{ _("IPv4 address") }}</td>
+<td>{{ _("IPv6 address") }}</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{{ _("ams.grapheneos.org") }}</td>
+<td>{{ _("Amsterdam") }}</td>
+<td>{{ _("Cherry Servers") }}</td>
+<td>{{ _("Dedicated") }}</td>
+<td>{{ _("84.32.64.33") }}</td>
+<td></td>
+</tr>
+<tr>
+<td>{{ _("lax.grapheneos.org") }}</td>
+<td>{{ _("Los Angeles") }}</td>
+<td>{{ _("ReliableSite") }}</td>
+<td>{{ _("Dedicated") }}</td>
+<td>{{ _("104.194.8.203") }}</td>
+<td>{{ _("2605:9880:200:400:135:7700:ef0a:81") }}</td>
+</tr>
+<tr>
+<td>{{ _("lon.grapheneos.org") }}</td>
+<td>{{ _("London") }}</td>
+<td>{{ _("Zare") }}</td>
+<td>{{ _("Dedicated") }}</td>
+<td>{{ _("185.44.76.161") }}</td>
+<td>{{ _("2a01:4020:0:52::2") }}</td>
+</tr>
+<tr>
+<td>{{ _("mia.grapheneos.org") }}</td>
+<td>{{ _("Miami") }}</td>
+<td>{{ _("ReliableSite") }}</td>
+<td>{{ _("Dedicated") }}</td>
+<td>{{ _("172.96.172.37") }}</td>
+<td>{{ _("2605:9880:400:1100:15:1240:515:6e") }}</td>
+</tr>
+<tr>
+<td>{{ _("yto.grapheneos.org") }}</td>
+<td>{{ _("Toronto") }}</td>
+<td>{{ _("Xenyth") }}</td>
+<td>{{ _("Dedicated") }}</td>
+<td>{{ _("91.246.30.2") }}</td>
+<td>{{ _("2602:f4d9:5:1::1") }}</td>
+</tr>
+</tbody>
+</table>
+<p>{{ _("Domains:") }}</p>
+<ul>
+<li>{{ _("releases.grapheneos.org") }}</li>
+<li>{{ _("seamlessupdate.app") }}</li>
+<li>{{ _("www.seamlessupdate.app") }}</li>
+<li>{{ _("apps.grapheneos.org") }}</li>
+</ul>
+<p>{{ _("Ports:") }}</p>
+<ul>
+<li>{{ _("TCP 22 ssh") }}</li>
+<li>{{ _("TCP 80 http") }}</li>
+<li>{{ _("TCP 443 https") }}</li>
+</ul>
+</section>
+<section id="nominatim.grapheneos.org">
+<h2><a href="#nominatim.grapheneos.org">{{ _("GrapheneOS geocoding servers") }}</a></h2>
+<ul>
+<li><a href="https://github.com/GrapheneOS/nominatim.grapheneos.org">{{ _("Repository") }}</a></li>
+<li><a href="https://github.com/GrapheneOS/nominatim.grapheneos.org/issues">{{ _("Issue tracker") }}</a></li>
+</ul>
+<p>{{ _("Specs:") }}</p>
+<ul>
+<li>{{ _("Cherry Servers dedicated server (sponsored by ") }}<a href="https://cherryservers.com/">{{ _("Cherry Servers") }}</a>{{ _(")") }}</li>
+<li>{{ _("Ryzen 9950X") }}</li>
+<li>{{ _("192 GiB DDR5") }}</li>
+<li>{{ _("2x 4 TB NVMe SSD storage") }}</li>
+<li>{{ _("20 Gbit/s bandwidth (via 2x 10 Gbit/s)") }}</li>
+</ul>
+<p>{{ _("Location: Amsterdam") }}</p>
+<p>{{ _("IPv4 address: 84.32.64.35") }}</p>
+<p>{{ _("Domains:") }}</p>
+<ul>
+<li>{{ _("ams.nominatim.grapheneos.org") }}</li>
+</ul>
+<p>{{ _("Ports:") }}</p>
+<ul>
+<li>{{ _("TCP 22 ssh") }}</li>
+<li>{{ _("TCP 80 http") }}</li>
+<li>{{ _("TCP 443 https") }}</li>
+</ul>
+</section>
+<section id="attestation.app">
+<h2><a href="#attestation.app">{{ _("Attestation website and service") }}</a></h2>
+<ul>
+<li><a href="https://github.com/GrapheneOS/AttestationServer">{{ _("Repository") }}</a></li>
+<li><a href="https://github.com/GrapheneOS/AttestationServer/issues">{{ _("Issue tracker") }}</a></li>
+</ul>
+<p>{{ _("Specs:") }}</p>
+<ul>
+<li>{{ _("netcup RS 1000 G12 Ultra") }}</li>
+<li>{{ _("6 dedicated cores (EPYC 9645)") }}</li>
+<li>{{ _("12 GiB memory") }}</li>
+<li>{{ _("512 GiB NVMe SSD storage") }}</li>
+<li>{{ _("2.5 Gbit/s bandwidth") }}</li>
+</ul>
+<p>{{ _("Location: Nuremberg") }}</p>
+<p>{{ _("IPv4 address: 159.195.67.50") }}</p>
+<p>{{ _("IPv6 address: 2a0a:4cc0:c2:1cf3::1") }}</p>
+<p>{{ _("Domains:") }}</p>
+<ul>
+<li>{{ _("attestation.app") }}</li>
+<li>{{ _("www.attestation.app") }}</li>
+</ul>
+<p>{{ _("Ports:") }}</p>
+<ul>
+<li>{{ _("TCP 22 ssh") }}</li>
+<li>{{ _("TCP 80 http") }}</li>
+<li>{{ _("TCP 443 https") }}</li>
+</ul>
+</section>
+<section id="staging.attestation.app">
+<h2><a href="#staging.attestation.app">{{ _("Staging attestation website and service") }}</a></h2>
+<ul>
+<li><a href="https://github.com/GrapheneOS/AttestationServer">{{ _("Repository") }}</a></li>
+<li><a href="https://github.com/GrapheneOS/AttestationServer/issues">{{ _("Issue tracker") }}</a></li>
+</ul>
+<p>{{ _("Specs:") }}</p>
+<ul>
+<li>{{ _("BuyVM Slice 1024") }}</li>
+<li>{{ _("1 core") }}</li>
+<li>{{ _("1 GiB memory") }}</li>
+<li>{{ _("20 GiB NVMe SSD storage") }}</li>
+<li>{{ _("1 Gbit/s bandwidth") }}</li>
+</ul>
+<p>{{ _("Location: New York City") }}</p>
+<p>{{ _("IPv4 address: 198.98.57.157") }}</p>
+<p>{{ _("IPv6 address: 2605:6400:10:aa9:1c0f:44d3:da15:c0ec") }}</p>
+<p>{{ _("Domains:") }}</p>
+<ul>
+<li>{{ _("staging.attestation.app") }}</li>
+</ul>
+<p>{{ _("Ports:") }}</p>
+<ul>
+<li>{{ _("TCP 22 ssh") }}</li>
+<li>{{ _("TCP 80 http") }}</li>
+<li>{{ _("TCP 443 https") }}</li>
+</ul>
+</section>
+<section id="mail.grapheneos.org">
+<h2><a href="#mail.grapheneos.org">{{ _("GrapheneOS mail server") }}</a></h2>
+<ul>
+<li><a href="https://github.com/GrapheneOS/mail.grapheneos.org">{{ _("Repository") }}</a></li>
+<li><a href="https://github.com/GrapheneOS/mail.grapheneos.org/issues">{{ _("Issue tracker") }}</a></li>
+</ul>
+<p>{{ _("Specs:") }}</p>
+<ul>
+<li>{{ _("System container on yto.grapheneos.org") }}</li>
+<li>{{ _("Xenyth dedicated server (sponsored by ") }}<a href="https://xenyth.net/">{{ _("Xenyth") }}</a>{{ _(")") }}</li>
+<li>{{ _("Xeon E5-2680 v4") }}</li>
+<li>{{ _("128 GiB DDR4") }}</li>
+<li>{{ _("2x 1 TB SATA SSD storage") }}</li>
+<li>{{ _("10 Gbit/s bandwidth") }}</li>
+</ul>
+<p>{{ _("Location: Toronto") }}</p>
+<p>{{ _("IPv4 address: 91.246.30.4") }}</p>
+<p>{{ _("IPv6 address: 2602:f4d9:5:3::1") }}</p>
+<p>{{ _("Domains:") }}</p>
+<ul>
+<li>{{ _("mail.grapheneos.net") }}</li>
+<li>{{ _("mail.grapheneos.org") }}</li>
+<li>{{ _("mta-sts.attestation.app") }}</li>
+<li>{{ _("mta-sts.discuss.grapheneos.org") }}</li>
+<li>{{ _("mta-sts.grapheneos.app") }}</li>
+<li>{{ _("mta-sts.grapheneos.ca") }}</li>
+<li>{{ _("mta-sts.grapheneos.com") }}</li>
+<li>{{ _("mta-sts.grapheneos.dev") }}</li>
+<li>{{ _("mta-sts.grapheneos.foundation") }}</li>
+<li>{{ _("mta-sts.grapheneos.info") }}</li>
+<li>{{ _("mta-sts.grapheneos.net") }}</li>
+<li>{{ _("mta-sts.grapheneos.network") }}</li>
+<li>{{ _("mta-sts.grapheneos.online") }}</li>
+<li>{{ _("mta-sts.grapheneos.org") }}</li>
+<li>{{ _("mta-sts.grapheneos.ovh") }}</li>
+<li>{{ _("mta-sts.grapheneos.page") }}</li>
+<li>{{ _("mta-sts.grapheneos.social") }}</li>
+<li>{{ _("mta-sts.mail.grapheneos.org") }}</li>
+<li>{{ _("mta-sts.matrix.grapheneos.org") }}</li>
+<li>{{ _("mta-sts.seamlessupdate.app") }}</li>
+<li>{{ _("mta-sts.vanadium.app") }}</li>
+</ul>
+<p>{{ _("Ports:") }}</p>
+<ul>
+<li>{{ _("TCP 22 ssh") }}</li>
+<li>{{ _("TCP 25 smtp") }}</li>
+<li>{{ _("TCP 80 http") }}</li>
+<li>{{ _("TCP 443 https") }}</li>
+<li>{{ _("TCP 465 submissions") }}</li>
+<li>{{ _("TCP 993 imaps") }}</li>
+</ul>
+</section>
+<section id="discuss.grapheneos.org">
+<h2><a href="#discuss.grapheneos.org">{{ _("GrapheneOS discussion forum server") }}</a></h2>
+<ul>
+<li><a href="https://github.com/GrapheneOS/discuss.grapheneos.org">{{ _("Repository") }}</a></li>
+<li><a href="https://github.com/GrapheneOS/discuss.grapheneos.org/issues">{{ _("Issue tracker") }}</a></li>
+</ul>
+<p>{{ _("Specs:") }}</p>
+<ul>
+<li>{{ _("netcup RS 1000 G12 Ultra") }}</li>
+<li>{{ _("6 dedicated cores (EPYC 9645)") }}</li>
+<li>{{ _("12 GiB memory") }}</li>
+<li>{{ _("512 GiB NVMe SSD storage") }}</li>
+<li>{{ _("2.5 Gbit/s bandwidth") }}</li>
+</ul>
+<p>{{ _("Location: Manassas") }}</p>
+<p>{{ _("IPv4 address: 152.53.168.153") }}</p>
+<p>{{ _("IPv6 address: 2a0a:4cc0:2000:aa27::1") }}</p>
+<p>{{ _("Domains:") }}</p>
+<ul>
+<li>{{ _("discuss.grapheneos.org") }}</li>
+</ul>
+<p>{{ _("Ports:") }}</p>
+<ul>
+<li>{{ _("TCP 22 ssh") }}</li>
+<li>{{ _("TCP 80 http") }}</li>
+<li>{{ _("TCP 443 https") }}</li>
+</ul>
+</section>
+<section id="matrix.grapheneos.org">
+<h2><a href="#matrix.grapheneos.org">{{ _("GrapheneOS Matrix server") }}</a></h2>
+<p>{{ _("This server primarily runs the synapse Matrix server with PostgreSQL behind an
                 nginx web server. It also runs the mjolnir bot for moderation and matterbridge is
-                used to implement a bridge between Discord, Matrix and Telegram.</p>
-
-                <ul>
-                    <li><a href="https://github.com/GrapheneOS/matrix.grapheneos.org">Repository</a></li>
-                    <li><a href="https://github.com/GrapheneOS/matrix.grapheneos.org/issues">Issue tracker</a></li>
-                </ul>
-
-                <p>Specs:</p>
-
-                <ul>
-                    <li>netcup RS 2000 G12 Ultra</li>
-                    <li>10 dedicated cores (EPYC 9645)</li>
-                    <li>24 GiB memory</li>
-                    <li>1 TiB NVMe SSD storage</li>
-                    <li>2.5 Gbit/s bandwidth</li>
-                </ul>
-
-                <p>Location: Manassas</p>
-
-                <p>IPv4 address: 152.53.39.88</p>
-
-                <p>IPv6 address: 2a0a:4cc0:2000:dbc::1</p>
-
-                <p>Domains:</p>
-
-                <ul>
-                    <li>matrix.grapheneos.org</li>
-                    <li>element.grapheneos.org</li>
-                </ul>
-
-                <p>Ports:</p>
-
-                <ul>
-                    <li>TCP 22 ssh</li>
-                    <li>TCP 80 http</li>
-                    <li>TCP 443 https</li>
-                </ul>
-            </section>
-
-            <section id="grapheneos.social">
-                <h2><a href="#grapheneos.social">GrapheneOS Mastodon server</a></h2>
-
-                <ul>
-                    <li><a href="https://github.com/GrapheneOS/grapheneos.social">Repository</a></li>
-                    <li><a href="https://github.com/GrapheneOS/grapheneos.social/issues">Issue tracker</a></li>
-                </ul>
-
-                <p>Specs:</p>
-
-                <ul>
-                    <li>netcup RS 1000 G12 Ultra</li>
-                    <li>6 dedicated cores (EPYC 9645)</li>
-                    <li>12 GiB memory</li>
-                    <li>512 GiB NVMe SSD storage</li>
-                    <li>2.5 Gbit/s bandwidth</li>
-                </ul>
-
-                <p>Location: Manassas</p>
-
-                <p>IPv4 address: 152.53.168.159</p>
-
-                <p>IPv6 address: 2a0a:4cc0:2000:a62d::1</p>
-
-                <p>Domains:</p>
-
-                <ul>
-                    <li>grapheneos.social</li>
-                    <li>www.grapheneos.social</li>
-                </ul>
-
-                <p>Ports:</p>
-
-                <ul>
-                    <li>TCP 22 ssh</li>
-                    <li>TCP 80 http</li>
-                    <li>TCP 443 https</li>
-                </ul>
-            </section>
-        </main>
+                used to implement a bridge between Discord, Matrix and Telegram.") }}</p>
+<ul>
+<li><a href="https://github.com/GrapheneOS/matrix.grapheneos.org">{{ _("Repository") }}</a></li>
+<li><a href="https://github.com/GrapheneOS/matrix.grapheneos.org/issues">{{ _("Issue tracker") }}</a></li>
+</ul>
+<p>{{ _("Specs:") }}</p>
+<ul>
+<li>{{ _("netcup RS 2000 G12 Ultra") }}</li>
+<li>{{ _("10 dedicated cores (EPYC 9645)") }}</li>
+<li>{{ _("24 GiB memory") }}</li>
+<li>{{ _("1 TiB NVMe SSD storage") }}</li>
+<li>{{ _("2.5 Gbit/s bandwidth") }}</li>
+</ul>
+<p>{{ _("Location: Manassas") }}</p>
+<p>{{ _("IPv4 address: 152.53.39.88") }}</p>
+<p>{{ _("IPv6 address: 2a0a:4cc0:2000:dbc::1") }}</p>
+<p>{{ _("Domains:") }}</p>
+<ul>
+<li>{{ _("matrix.grapheneos.org") }}</li>
+<li>{{ _("element.grapheneos.org") }}</li>
+</ul>
+<p>{{ _("Ports:") }}</p>
+<ul>
+<li>{{ _("TCP 22 ssh") }}</li>
+<li>{{ _("TCP 80 http") }}</li>
+<li>{{ _("TCP 443 https") }}</li>
+</ul>
+</section>
+<section id="grapheneos.social">
+<h2><a href="#grapheneos.social">{{ _("GrapheneOS Mastodon server") }}</a></h2>
+<ul>
+<li><a href="https://github.com/GrapheneOS/grapheneos.social">{{ _("Repository") }}</a></li>
+<li><a href="https://github.com/GrapheneOS/grapheneos.social/issues">{{ _("Issue tracker") }}</a></li>
+</ul>
+<p>{{ _("Specs:") }}</p>
+<ul>
+<li>{{ _("netcup RS 1000 G12 Ultra") }}</li>
+<li>{{ _("6 dedicated cores (EPYC 9645)") }}</li>
+<li>{{ _("12 GiB memory") }}</li>
+<li>{{ _("512 GiB NVMe SSD storage") }}</li>
+<li>{{ _("2.5 Gbit/s bandwidth") }}</li>
+</ul>
+<p>{{ _("Location: Manassas") }}</p>
+<p>{{ _("IPv4 address: 152.53.168.159") }}</p>
+<p>{{ _("IPv6 address: 2a0a:4cc0:2000:a62d::1") }}</p>
+<p>{{ _("Domains:") }}</p>
+<ul>
+<li>{{ _("grapheneos.social") }}</li>
+<li>{{ _("www.grapheneos.social") }}</li>
+</ul>
+<p>{{ _("Ports:") }}</p>
+<ul>
+<li>{{ _("TCP 22 ssh") }}</li>
+<li>{{ _("TCP 80 http") }}</li>
+<li>{{ _("TCP 443 https") }}</li>
+</ul>
+</section>
+</main>
         {% include "footer.html" %}
     </body>
 </html>

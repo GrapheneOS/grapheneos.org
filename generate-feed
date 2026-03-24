@@ -1,25 +1,60 @@
 #!/usr/bin/env python3
 
 from datetime import datetime
+import os
+from pathlib import Path
 
 import lxml.html
 from lxml import etree
 
-document = lxml.html.parse("static-tmp/releases.html").getroot()
+# Find releases.html in language subdirectories
+# Ищем releases.html в языковых подпапках
+releases_file = None
+lang_dirs = Path("static-tmp").glob("*/")
+for lang_dir in lang_dirs:
+    test_file = lang_dir / "releases.html"
+    if test_file.exists():
+        releases_file = str(test_file)
+        break
+
+# Fallback to root if language directories don't exist
+# Если языковых папок нет, пробуем найти в корне
+if not releases_file:
+    if os.path.exists("static-tmp/releases.html"):
+        releases_file = "static-tmp/releases.html"
+    else:
+        raise FileNotFoundError("releases.html not found in static-tmp/*/ or static-tmp/")
+
+print(f"Using releases file: {releases_file}")
+
+# Parse the HTML and extract changelog articles
+# Парсим HTML и извлекаем статьи changelog
+document = lxml.html.parse(releases_file).getroot()
 releases = document.body.cssselect("#changelog article")
 
 updated = None
 entries = []
 
+# Process first 20 releases (most recent)
+# Обрабатываем первые 20 релизов (самые новые)
 for release in releases[:20]:
     title = release.attrib["id"]
     try:
+        # Try YYYYMMDDHH format first
+        # Сначала пробуем формат YYYYMMDDHH
         time = datetime.strptime(title, "%Y%m%d%H").isoformat() + "Z"
     except ValueError:
+        # Fallback to YYYY.MM.DD.HH format
+        # Если не получилось, пробуем формат YYYY.MM.DD.HH
         time = datetime.strptime(title, "%Y.%m.%d.%H").isoformat() + "Z"
+
     if updated is None:
         updated = time
+
+    # Extract content excluding the heading
+    # Извлекаем контент, исключая заголовок
     content = [etree.tostring(e).decode() for e in release.getchildren()[1:]]
+
     entries.append(f"""
     <entry>
         <id>https://grapheneos.org/releases#{title}</id>
@@ -34,6 +69,8 @@ for release in releases[:20]:
         </content>
     </entry>""")
 
+# Build the Atom feed
+# Формируем Atom feed
 feed = f"""<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://grapheneos.org/releases#changelog</id>
@@ -51,5 +88,9 @@ feed = f"""<?xml version="1.0" encoding="utf-8"?>
 </feed>
 """
 
+# Save feed to root static-tmp (shared across all languages)
+# Сохраняем feed в корень static-tmp (общий для всех языков)
 with open("static-tmp/releases.atom", "w") as f:
     f.write(feed)
+
+print("✓ Generated releases.atom")

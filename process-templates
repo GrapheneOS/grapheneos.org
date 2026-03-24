@@ -1,26 +1,185 @@
 #!/usr/bin/env python3
+"""
+process-templates with i18n support
+Создает отдельные папки для каждого языка
+"""
 
-from jinja2 import FileSystemLoader, Environment
-from pathlib import Path
 import os
 import sys
+import gettext
+import shutil
+import traceback
+from pathlib import Path
+from jinja2 import FileSystemLoader, Environment, TemplateError
+
+def create_translator(lang='en'):
+    """Создает функцию перевода с fallback на английский."""
+
+    def fallback(text):
+        return text
+
+    try:
+        translations = gettext.translation(
+            'grapheneos',
+            localedir='locale',
+            languages=[lang],
+            fallback=True
+        )
+        return translations.gettext
+    except Exception as e:
+        print(f"  Info: No translations for {lang}, using English fallback")
+        return fallback
+
+def local_url(path, lang):
+    """Генерирует URL с префиксом текущего языка"""
+    if lang == 'en':
+        return path
+    else:
+        if path == '/':
+            return f'/{lang}/'
+        elif path.startswith('/'):
+            return f'/{lang}{path}'
+        else:
+            return f'/{lang}/{path}'
 
 if len(sys.argv) != 2:
     print(f"Usage: {sys.argv[0]} <path>")
     sys.exit(1)
 
 ROOT_DIR = Path(sys.argv[1])
-TEMPLATE_PATH_LIST = [ROOT_DIR, "templates/"]
 
-loader = FileSystemLoader(searchpath=TEMPLATE_PATH_LIST)
-environment = Environment(loader=loader, autoescape=True)
+# Создаем окружение
+env = Environment(
+    loader=FileSystemLoader([str(ROOT_DIR), 'templates']),
+    autoescape=True
+)
 
-file_path_list = ROOT_DIR.glob("**/*.html")
-template_file_list = [os.fspath(p.relative_to(ROOT_DIR)) for p in file_path_list]
+# Список поддерживаемых языков
+LANGUAGES = ['en', 'de', 'fr', 'es', 'ru']
 
-for template_file in template_file_list:
-    template = environment.get_template(template_file)
-    rendered_template = template.render()
-    path = os.path.join(ROOT_DIR, template_file)
-    with open(path, mode="w") as f:
-        f.write(rendered_template)
+# Статистика
+total_files = 0
+translated_files = 0
+error_files = []
+
+# Сначала создаем папки для языков и копируем туда НЕ-HTML файлы
+print("=== Copying static assets ===")
+for lang in LANGUAGES:
+    lang_dir = ROOT_DIR / lang
+    lang_dir.mkdir(exist_ok=True)
+    print(f"  Created directory: {lang_dir}")
+
+    # Копируем все файлы и папки, КРОМЕ HTML и КРОМЕ языковых папок
+    for item in ROOT_DIR.iterdir():
+        # Пропускаем языковые папки
+        if item.name in LANGUAGES:
+            continue
+        # Пропускаем HTML файлы (будем обрабатывать отдельно)
+        if item.is_file() and item.suffix == '.html':
+            continue
+
+        dest = lang_dir / item.name
+        if item.is_dir():
+            if dest.exists():
+                shutil.rmtree(dest)
+            shutil.copytree(item, dest)
+            print(f"    Copied directory: {item.name} -> {dest}")
+        else:
+            shutil.copy2(item, dest)
+            print(f"    Copied file: {item.name} -> {dest}")
+
+    print(f"✓ Copied assets for {lang}")
+
+# Собираем список HTML файлов ДО обработки
+print("\n=== Collecting HTML files ===")
+html_files = []
+for html_file in ROOT_DIR.rglob('*.html'):
+    # Пропускаем файлы в языковых папках
+    if any(part in LANGUAGES for part in html_file.parts):
+        print(f"  Skipping (in lang dir): {html_file}")
+        continue
+    html_files.append(html_file)
+    print(f"  Found: {html_file.relative_to(ROOT_DIR)}")
+
+print(f"Found {len(html_files)} HTML files to process")
+
+# Теперь обрабатываем HTML файлы для каждого языка
+print("\n=== Processing HTML templates ===")
+for lang in LANGUAGES:
+    lang_dir = ROOT_DIR / lang
+    print(f"\n--- Processing {lang} ---")
+
+    # Создаем функцию перевода для этого языка
+    _ = create_translator(lang)
+    env.globals['_'] = _
+    env.globals['lang'] = lang
+    env.globals['local_url'] = lambda path: local_url(path, lang)
+
+    # Обрабатываем каждый HTML файл
+    for html_file in html_files:
+        total_files += 1
+
+        # Получаем относительный путь
+        rel_path = html_file.relative_to(ROOT_DIR)
+        output_file = lang_dir / rel_path
+
+        print(f"  Processing: {rel_path} -> {output_file}")
+
+        # Создаем поддиректории
+        try:
+            output_file.parent.mkdir(parents=True, exist_ok=True)
+            print(f"    Created parent dirs: {output_file.parent}")
+        except Exception as e:
+            print(f"    ✗ Failed to create parent dirs: {e}")
+            error_files.append((html_file, lang, e))
+            continue
+
+        try:
+            # Загружаем и рендерим шаблон
+            print(f"    Loading template: {rel_path}")
+            template = env.get_template(str(rel_path))
+
+            print(f"    Rendering template...")
+            rendered = template.render(_=_, lang=lang, local_url=lambda path: local_url(path, lang))
+
+            print(f"    Writing to: {output_file}")
+            with open(output_file, 'w', encoding='utf-8') as f:
+                f.write(rendered)
+
+            translated_files += 1
+            print(f"    ✓ Success! File size: {len(rendered)} bytes")
+
+            # Проверяем, что файл действительно создан
+            if output_file.exists():
+                print(f"    ✓ Confirmed file exists: {output_file}")
+            else:
+                print(f"    ✗ WARNING: File was not created!")
+
+        except Exception as e:
+            print(f"    ✗ ERROR: {e}")
+            print(f"    Traceback:")
+            traceback.print_exc()
+            error_files.append((html_file, lang, e))
+
+# НЕ УДАЛЯЕМ исходные файлы!
+print("\n=== Summary ===")
+print(f"Total files processed: {total_files}")
+print(f"Successfully translated: {translated_files}")
+print(f"Errors: {len(error_files)}")
+
+if error_files:
+    print("\n=== Errors ===")
+    for html_file, lang, error in error_files[:10]:
+        print(f"  {lang}/{html_file.relative_to(ROOT_DIR)}: {error}")
+    if len(error_files) > 10:
+        print(f"  ... and {len(error_files) - 10} more errors")
+
+print("\n=== Output locations ===")
+for lang in LANGUAGES:
+    lang_dir = ROOT_DIR / lang
+    html_count = len(list(lang_dir.rglob('*.html')))
+    print(f"  {lang}: {html_count} HTML files in {lang_dir}")
+
+print("\n=== IMPORTANT ===")
+print("Original HTML files are PRESERVED in:", ROOT_DIR)
+print("Translated versions are in:", [ROOT_DIR / lang for lang in LANGUAGES])

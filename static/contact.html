@@ -1,253 +1,217 @@
 <!DOCTYPE html>
+
 <html lang="en" prefix="og: https://ogp.me/ns#">
-    <head>
-        <meta charset="utf-8"/>
-        <title>Contact | GrapheneOS</title>
-        <meta name="description" content="Contact information for GrapheneOS."/>
-        <meta name="theme-color" content="#212121"/>
-        <meta name="color-scheme" content="dark light"/>
-        <meta name="msapplication-TileColor" content="#ffffff"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-        <meta name="twitter:site" content="@GrapheneOS"/>
-        <meta name="twitter:creator" content="@GrapheneOS"/>
-        <meta property="og:title" content="GrapheneOS contact information"/>
-        <meta property="og:description" content="Contact information for GrapheneOS."/>
-        <meta property="og:type" content="website"/>
-        <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
-        <meta property="og:image:width" content="512"/>
-        <meta property="og:image:height" content="512"/>
-        <meta property="og:image:alt" content="GrapheneOS logo"/>
-        <meta property="og:site_name" content="GrapheneOS"/>
-        <meta property="og:url" content="https://grapheneos.org/contact"/>
-        <link rel="canonical" href="https://grapheneos.org/contact"/>
-        <link rel="icon" href="/favicon.ico"/>
-        <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
-        <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<head>
+<meta charset="utf-8"/>
+<title>{{ _("Contact | GrapheneOS") }}</title>
+<meta content="Contact information for GrapheneOS." name="description"/>
+<meta content="#212121" name="theme-color"/>
+<meta content="dark light" name="color-scheme"/>
+<meta content="#ffffff" name="msapplication-TileColor"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="@GrapheneOS" name="twitter:site"/>
+<meta content="@GrapheneOS" name="twitter:creator"/>
+<meta content="GrapheneOS contact information" property="og:title"/>
+<meta content="Contact information for GrapheneOS." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="https://grapheneos.org/opengraph.png" property="og:image"/>
+<meta content="512" property="og:image:width"/>
+<meta content="512" property="og:image:height"/>
+<meta content="GrapheneOS logo" property="og:image:alt"/>
+<meta content="GrapheneOS" property="og:site_name"/>
+<meta content="https://grapheneos.org/contact" property="og:url"/>
+<link href="https://grapheneos.org/contact" rel="canonical"/>
+<link href="/favicon.ico" rel="icon"/>
+<link href="/favicon.svg" rel="icon" sizes="any" type="image/svg+xml"/>
+<link color="#1a1a1a" href="[[path|/mask-icon.svg]]" rel="mask-icon"/>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon"/>
         [[css|/main.css]]
-        <link rel="manifest" href="/manifest.webmanifest"/>
-        <link rel="license" href="/LICENSE.txt"/>
-        <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
-    </head>
-    <body>
+        <link href="/manifest.webmanifest" rel="manifest"/>
+<link href="/LICENSE.txt" rel="license"/>
+<link href="https://grapheneos.social/@GrapheneOS" rel="me"/>
+</head>
+<body>
         {% with current_page="contact" %}
             {% include "header.html" %}
         {% endwith %}
         <main id="contact">
-            <h1><a href="#contact">Contact</a></h1>
-
-            <nav id="table-of-contents">
-                <h2><a href="#table-of-contents">Table of contents</a></h2>
-
-                <ul>
-                    <li>
-                        <a href="#community">Community</a>
-                        <ul>
-                            <li><a href="#community-chat">Chat</a></li>
-                            <li><a href="#community-forum">Forum</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#contacting-the-project">Contacting the project</a></li>
-                    <li><a href="#hiring">Hiring</a></li>
-                    <li>
-                        <a href="#reporting-issues">Reporting issues</a>
-                        <ul>
-                            <li><a href="#standalone-apps">Standalone apps</a></li>
-                            <li><a href="#services">Services</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-
-            <section id="community">
-                <h2><a href="#community">Community</a></h2>
-
-                <section id="community-chat">
-                    <h3><a href="#community-chat">Chat</a></h3>
-
-                    <p>GrapheneOS has official chat rooms on Discord and Matrix. Discord provides a
+<h1><a href="#contact">{{ _("Contact") }}</a></h1>
+<nav id="table-of-contents">
+<h2><a href="#table-of-contents">{{ _("Table of contents") }}</a></h2>
+<ul>
+<li>
+<a href="#community">{{ _("Community") }}</a>
+<ul>
+<li><a href="#community-chat">{{ _("Chat") }}</a></li>
+<li><a href="#community-forum">{{ _("Forum") }}</a></li>
+</ul>
+</li>
+<li><a href="#contacting-the-project">{{ _("Contacting the project") }}</a></li>
+<li><a href="#hiring">{{ _("Hiring") }}</a></li>
+<li>
+<a href="#reporting-issues">{{ _("Reporting issues") }}</a>
+<ul>
+<li><a href="#standalone-apps">{{ _("Standalone apps") }}</a></li>
+<li><a href="#services">{{ _("Services") }}</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="community">
+<h2><a href="#community">{{ _("Community") }}</a></h2>
+<section id="community-chat">
+<h3><a href="#community-chat">{{ _("Chat") }}</a></h3>
+<p>{{ _("GrapheneOS has official chat rooms on Discord and Matrix. Discord provides a
                     much better user interface and moderation tools so it's a better experience and
                     far more active than Matrix. Matrix is an open platform with federation between
                     servers. Our public chat rooms don't benefit from Matrix supporting end-to-end
                     encryption but it's useful for private chats created between users in our rooms.
                     We no longer bridge our chat rooms across platforms and don't plan on adding it
-                    back so Discord and Matrix have entirely separate chat rooms.</p>
-
-                    <p>Discord invite link: <a href="https://discord.com/invite/grapheneos">https://discord.com/invite/grapheneos</a>.</p>
-
-                    <p>You can join the GrapheneOS Matrix space at
-                    <a href="https://matrix.to/#/%23community:grapheneos.org">#community:grapheneos.org</a>
-                    and can manually join each of the chat rooms from there.</p>
-
-                    <p>The following 7 chat rooms are available across each platform, with the
-                    Matrix links to each individual room included below:</p>
-
-                    <table>
-                        <tr>
-                            <td><a href="https://matrix.to/#/%23general:grapheneos.org">#general:grapheneos.org</a></td>
-                            <td>Best place to request support, ask questions or get involved in the project</td>
-                        </tr>
-                        <tr>
-                            <td><a href="https://matrix.to/#/%23apps:grapheneos.org">#apps:grapheneos.org</a></td>
-                            <td>Discuss using third party apps and services with GrapheneOS</td>
-                        </tr>
-                        <tr>
-                            <td><a href="https://matrix.to/#/%23offtopic:grapheneos.org">#offtopic:grapheneos.org</a></td>
-                            <td>Discuss topics not strictly related to GrapheneOS</td>
-                        </tr>
-                        <tr>
-                            <td><a href="https://matrix.to/#/%23dev:grapheneos.org">#dev:grapheneos.org</a></td>
-                            <td>Discuss GrapheneOS app and OS development</td>
-                        </tr>
-                        <tr>
-                            <td><a href="https://matrix.to/#/%23testing:grapheneos.org">#testing:grapheneos.org</a></td>
-                            <td>Provide feedback on Alpha and Beta channel app and OS releases</td>
-                        </tr>
-                        <tr>
-                            <td><a href="https://matrix.to/#/%23releases:grapheneos.org">#releases:grapheneos.org</a></td>
-                            <td>Release announcements</td>
-                        </tr>
-                        <tr>
-                            <td><a href="https://matrix.to/#/%23infra:grapheneos.org">#infra:grapheneos.org</a></td>
-                            <td>Infrastructure monitoring and discussion</td>
-                        </tr>
-                        <tr>
-                            <td><a href="https://matrix.to/#/%23media:grapheneos.org">#media:grapheneos.org</a></td>
-                            <td>Discuss GrapheneOS in news articles and other media coverage</td>
-                        </tr>
-                    </table>
-
-                    <p>Matrix is a federated service similar to email where you can choose your
+                    back so Discord and Matrix have entirely separate chat rooms.") }}</p>
+<p>{{ _("Discord invite link: ") }}<a href="https://discord.com/invite/grapheneos">{{ _("https://discord.com/invite/grapheneos") }}</a>{{ _(".") }}</p>
+<p>{{ _("You can join the GrapheneOS Matrix space at
+                    ") }}<a href="https://matrix.to/#/%23community:grapheneos.org">{{ _("#community:grapheneos.org") }}</a>{{ _("
+                    and can manually join each of the chat rooms from there.") }}</p>
+<p>{{ _("The following 7 chat rooms are available across each platform, with the
+                    Matrix links to each individual room included below:") }}</p>
+<table>
+<tr>
+<td><a href="https://matrix.to/#/%23general:grapheneos.org">{{ _("#general:grapheneos.org") }}</a></td>
+<td>{{ _("Best place to request support, ask questions or get involved in the project") }}</td>
+</tr>
+<tr>
+<td><a href="https://matrix.to/#/%23apps:grapheneos.org">{{ _("#apps:grapheneos.org") }}</a></td>
+<td>{{ _("Discuss using third party apps and services with GrapheneOS") }}</td>
+</tr>
+<tr>
+<td><a href="https://matrix.to/#/%23offtopic:grapheneos.org">{{ _("#offtopic:grapheneos.org") }}</a></td>
+<td>{{ _("Discuss topics not strictly related to GrapheneOS") }}</td>
+</tr>
+<tr>
+<td><a href="https://matrix.to/#/%23dev:grapheneos.org">{{ _("#dev:grapheneos.org") }}</a></td>
+<td>{{ _("Discuss GrapheneOS app and OS development") }}</td>
+</tr>
+<tr>
+<td><a href="https://matrix.to/#/%23testing:grapheneos.org">{{ _("#testing:grapheneos.org") }}</a></td>
+<td>{{ _("Provide feedback on Alpha and Beta channel app and OS releases") }}</td>
+</tr>
+<tr>
+<td><a href="https://matrix.to/#/%23releases:grapheneos.org">{{ _("#releases:grapheneos.org") }}</a></td>
+<td>{{ _("Release announcements") }}</td>
+</tr>
+<tr>
+<td><a href="https://matrix.to/#/%23infra:grapheneos.org">{{ _("#infra:grapheneos.org") }}</a></td>
+<td>{{ _("Infrastructure monitoring and discussion") }}</td>
+</tr>
+<tr>
+<td><a href="https://matrix.to/#/%23media:grapheneos.org">{{ _("#media:grapheneos.org") }}</a></td>
+<td>{{ _("Discuss GrapheneOS in news articles and other media coverage") }}</td>
+</tr>
+</table>
+<p>{{ _("Matrix is a federated service similar to email where you can choose your
                     provider and has end-to-end encryption for private chats. Matrix can be a more
                     privacy friendly option but has significant downsides including lag, weak
                     moderation tools and the rooms needing to be regularly recreated due to bugs
-                    in the protocol for reaching consensus on room state between servers.</p>
-
-                    <p>Discord provides a much better overall user experience with the downside of
+                    in the protocol for reaching consensus on room state between servers.") }}</p>
+<p>{{ _("Discord provides a much better overall user experience with the downside of
                     it being a centralized proprietary platform. Discord is currently much more
                     active than Matrix due to the nicer user interface and features including much
                     better search. You can select roles for the devices and update channels you use
                     via Channels &amp; Roles. The roles can't be mentioned by other users and we
                     only regularly use the Alpha and Beta roles to notify users about new releases
-                    in the #testing channel.</p>
-
-                    <p>We no longer bridge our chat platforms together due to the lossy conversion
+                    in the #testing channel.") }}</p>
+<p>{{ _("We no longer bridge our chat platforms together due to the lossy conversion
                     between platforms causing a poor user experience combined with abuse of the
                     bridge to harass our community. If you want to follow everything that's being
-                    discussed on both platforms, you'll need to join on both Discord and Matrix.</p>
-                </section>
-
-                <section id="community-forum">
-                    <h3><a href="#community-forum">Forum</a></h3>
-
-                    <p>We have an official
-                    <a href="https://discuss.grapheneos.org">forum</a> for longer form posts,
+                    discussed on both platforms, you'll need to join on both Discord and Matrix.") }}</p>
+</section>
+<section id="community-forum">
+<h3><a href="#community-forum">{{ _("Forum") }}</a></h3>
+<p>{{ _("We have an official
+                    ") }}<a href="https://discuss.grapheneos.org">{{ _("forum") }}</a>{{ _(" for longer form posts,
                     which is publicly accessible and easier to search. We are
-                    using Flarum for our forum.</p>
-                </section>
-            </section>
-
-            <section id="contacting-the-project">
-                <h2><a href="#contacting-the-project">Contacting the project</a></h2>
-
-                <p>Do not contact us with offers to sell us products or services.</p>
-
-                <p>Please don't contact the GrapheneOS project or developers to request support,
-                device support, or features, and please don't contact to report bugs. Use the <a href="#community">community
-                platforms</a> and <a href="#reporting-issues">issue trackers</a> listed below. Although
+                    using Flarum for our forum.") }}</p>
+</section>
+</section>
+<section id="contacting-the-project">
+<h2><a href="#contacting-the-project">{{ _("Contacting the project") }}</a></h2>
+<p>{{ _("Do not contact us with offers to sell us products or services.") }}</p>
+<p>{{ _("Please don't contact the GrapheneOS project or developers to request support,
+                device support, or features, and please don't contact to report bugs. Use the ") }}<a href="#community">{{ _("community
+                platforms") }}</a>{{ _(" and ") }}<a href="#reporting-issues">{{ _("issue trackers") }}</a>{{ _(" listed below. Although
                 the developers are active on the Discord and Matrix rooms, the broader community can usually
                 answer most questions. This allows the developers to focus their time and energy on the 
-                project.</p>
-
-                <p>Email is the preferred way to contact the project. X direct messages are
+                project.") }}</p>
+<p>{{ _("Email is the preferred way to contact the project. X direct messages are
                 checked much less frequently. A public @reply in a tweet is not a good way to contact
                 the project. It is not considered sending a message by X and is not queued up as
                 a message to be read, only as a regular notification that is likely to be missed or
-                forgotten.</p>
-
-                <p>Encryption can be performed via our age public key:
-                <code>age1dcftzgq00ykgwvxl5te6d5clqgx75h2g54c0u8gjc43mcnea7p7q3ma0yx</code>.</p>
-
-                <p>Please do not send multiple copies or versions of the same email to different
+                forgotten.") }}</p>
+<p>{{ _("Encryption can be performed via our age public key:
+                ") }}<code>age1dcftzgq00ykgwvxl5te6d5clqgx75h2g54c0u8gjc43mcnea7p7q3ma0yx</code>{{ _(".") }}</p>
+<p>{{ _("Please do not send multiple copies or versions of the same email to different
                 addresses. Either send it to a single address or CC the other addresses. In general,
                 it's the same people handling every email address, and they don't need to see multiple
-                copies of the same email in their inbox.</p>
-
-                <p>You can contact <a href="mailto:contact@grapheneos.org">contact@grapheneos.org</a>
+                copies of the same email in their inbox.") }}</p>
+<p>{{ _("You can contact ") }}<a href="mailto:contact@grapheneos.org">{{ _("contact@grapheneos.org") }}</a>{{ _("
                 for topics related to GrapheneOS. Please don't send emails unrelated to GrapheneOS to
-                this address.</p>
-
-                <p>The <a href="mailto:security@grapheneos.org">security@grapheneos.org</a>
+                this address.") }}</p>
+<p>{{ _("The ") }}<a href="mailto:security@grapheneos.org">{{ _("security@grapheneos.org") }}</a>{{ _("
                 address is for reporting high priority security issues related to GrapheneOS. Please
                 don't send other kinds of emails to this address. It is not a way of increasing the
                 priority of emails that are not security reports. Your emails will be treated as a
-                much lower priority if you misuse this address.</p>
-
-                <p>The official X account for the project is <a
-                href="https://x.com/GrapheneOS">@GrapheneOS</a> which is used for official
-                announcements.</p>
-
-                <p>The official Mastodon account for the project is <a
-                href="https://grapheneos.social/@GrapheneOS">@GrapheneOS@grapheneos.social</a> which
-                is used for official announcements.</p>
-
-                <p>The official Bluesky account for the project is <a
-                href="https://bsky.app/profile/grapheneos.org">@grapheneos.org</a> which is used for
-                official announcements.</p>
-            </section>
-
-            <section id="hiring">
-                <h2><a href="#hiring">Hiring</a></h2>
-
-                <p>Interested in joining the GrapheneOS team? Check out our <a href="https://grapheneos.org/hiring">hiring page</a>.</p>
-            </section>
-
-            <section id="reporting-issues">
-                <h2><a href="#reporting-issues">Reporting issues</a></h2>
-
-                <p>Most issues should be reported to the global OS issue tracker for GrapheneOS
+                much lower priority if you misuse this address.") }}</p>
+<p>{{ _("The official X account for the project is ") }}<a href="https://x.com/GrapheneOS">{{ _("@GrapheneOS") }}</a>{{ _(" which is used for official
+                announcements.") }}</p>
+<p>{{ _("The official Mastodon account for the project is ") }}<a href="https://grapheneos.social/@GrapheneOS">{{ _("@GrapheneOS@grapheneos.social") }}</a>{{ _(" which
+                is used for official announcements.") }}</p>
+<p>{{ _("The official Bluesky account for the project is ") }}<a href="https://bsky.app/profile/grapheneos.org">{{ _("@grapheneos.org") }}</a>{{ _(" which is used for
+                official announcements.") }}</p>
+</section>
+<section id="hiring">
+<h2><a href="#hiring">{{ _("Hiring") }}</a></h2>
+<p>{{ _("Interested in joining the GrapheneOS team? Check out our ") }}<a href="https://grapheneos.org/hiring">{{ _("hiring page") }}</a>{{ _(".") }}</p>
+</section>
+<section id="reporting-issues">
+<h2><a href="#reporting-issues">{{ _("Reporting issues") }}</a></h2>
+<p>{{ _("Most issues should be reported to the global OS issue tracker for GrapheneOS
                 sub-projects. However, standalone projects and anything outside of the GrapheneOS
                 source tree (like the websites) has a dedicated issue tracker. The issue trackers are
-                listed for reference:</p>
-
-                <ul>
-                    <li><a href="https://github.com/GrapheneOS/os-issue-tracker/issues">OS issue tracker</a> for all GrapheneOS repositories that are not standalone projects</li>
-                    <li><a href="https://github.com/GrapheneOS/hardened_malloc/issues">hardened_malloc issue tracker</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_apps_Updater/issues">Update client issue tracker</a></li>
-                    <li><a href="https://github.com/GrapheneOS/platform_packages_apps_SetupWizard2/issues">Setup wizard issue tracker</a></li>
-                    <li><a href="https://github.com/GrapheneOS/talkback/issues">Talkback issue tracker</a></li>
-                </ul>
-
-                <section id="standalone-apps">
-                    <h3><a href="#standalone-apps">Standalone apps</a></h3>
-
-                    <ul>
-                        <li><a href="https://github.com/GrapheneOS/AppStore/issues">App Store issue tracker</a></li>
-                        <li><a href="https://github.com/GrapheneOS/Auditor/issues">Auditor issue tracker</a></li>
-                        <li><a href="https://github.com/GrapheneOS/Camera/issues">Camera app issue tracker</a></li>
-                        <li><a href="https://github.com/GrapheneOS/Info/issues">Info issue tracker</a></li>
-                        <li><a href="https://github.com/GrapheneOS/Messaging/issues">Messaging app issue tracker</a></li>
-                        <li><a href="https://github.com/GrapheneOS/PdfViewer/issues">PDF Viewer issue tracker</a></li>
-                        <li><a href="https://github.com/GrapheneOS/Vanadium/issues">Vanadium (Chromium variant) issue tracker</a></li>
-                    </ul>
-                </section>
-
-                <section id="services">
-                    <h3><a href="#services">Services</a></h3>
-
-                    <ul>
-                        <li><a href="https://github.com/GrapheneOS/infrastructure/issues">Server infrastructure issue tracker (for issues applying across services)</a></li>
-                        <li><a href="https://github.com/GrapheneOS/AttestationServer/issues">AttestationServer (attestation.app) issue tracker</a></li>
-                        <li><a href="https://github.com/GrapheneOS/grapheneos.org/issues">GrapheneOS site (grapheneos.org) issue tracker</a></li>
-                        <li><a href="https://github.com/GrapheneOS/releases.grapheneos.org/issues">Update server (releases.grapheneos.org) issue tracker</a></li>
-                        <li><a href="https://github.com/GrapheneOS/mail.grapheneos.org/issues">Mail server (mail.grapheneos.org) issue tracker</a></li>
-                        <li><a href="https://github.com/GrapheneOS/apps.grapheneos.org/issues">App repository (apps.grapheneos.org) issue tracker</a></li>
-                        <li><a href="https://github.com/GrapheneOS/matrix.grapheneos.org/issues">GrapheneOS Matrix server (matrix.grapheneos.org) issue tracker</a></li>
-                        <li><a href="https://github.com/GrapheneOS/discuss.grapheneos.org/issues">GrapheneOS discussion forum (discuss.grapheneos.org) issue tracker</a></li>
-                    </ul>
-                </section>
-            </section>
-        </main>
+                listed for reference:") }}</p>
+<ul>
+<li><a href="https://github.com/GrapheneOS/os-issue-tracker/issues">{{ _("OS issue tracker") }}</a>{{ _(" for all GrapheneOS repositories that are not standalone projects") }}</li>
+<li><a href="https://github.com/GrapheneOS/hardened_malloc/issues">{{ _("hardened_malloc issue tracker") }}</a></li>
+<li><a href="https://github.com/GrapheneOS/platform_packages_apps_Updater/issues">{{ _("Update client issue tracker") }}</a></li>
+<li><a href="https://github.com/GrapheneOS/platform_packages_apps_SetupWizard2/issues">{{ _("Setup wizard issue tracker") }}</a></li>
+<li><a href="https://github.com/GrapheneOS/talkback/issues">{{ _("Talkback issue tracker") }}</a></li>
+</ul>
+<section id="standalone-apps">
+<h3><a href="#standalone-apps">{{ _("Standalone apps") }}</a></h3>
+<ul>
+<li><a href="https://github.com/GrapheneOS/AppStore/issues">{{ _("App Store issue tracker") }}</a></li>
+<li><a href="https://github.com/GrapheneOS/Auditor/issues">{{ _("Auditor issue tracker") }}</a></li>
+<li><a href="https://github.com/GrapheneOS/Camera/issues">{{ _("Camera app issue tracker") }}</a></li>
+<li><a href="https://github.com/GrapheneOS/Info/issues">{{ _("Info issue tracker") }}</a></li>
+<li><a href="https://github.com/GrapheneOS/Messaging/issues">{{ _("Messaging app issue tracker") }}</a></li>
+<li><a href="https://github.com/GrapheneOS/PdfViewer/issues">{{ _("PDF Viewer issue tracker") }}</a></li>
+<li><a href="https://github.com/GrapheneOS/Vanadium/issues">{{ _("Vanadium (Chromium variant) issue tracker") }}</a></li>
+</ul>
+</section>
+<section id="services">
+<h3><a href="#services">{{ _("Services") }}</a></h3>
+<ul>
+<li><a href="https://github.com/GrapheneOS/infrastructure/issues">{{ _("Server infrastructure issue tracker (for issues applying across services)") }}</a></li>
+<li><a href="https://github.com/GrapheneOS/AttestationServer/issues">{{ _("AttestationServer (attestation.app) issue tracker") }}</a></li>
+<li><a href="https://github.com/GrapheneOS/grapheneos.org/issues">{{ _("GrapheneOS site (grapheneos.org) issue tracker") }}</a></li>
+<li><a href="https://github.com/GrapheneOS/releases.grapheneos.org/issues">{{ _("Update server (releases.grapheneos.org) issue tracker") }}</a></li>
+<li><a href="https://github.com/GrapheneOS/mail.grapheneos.org/issues">{{ _("Mail server (mail.grapheneos.org) issue tracker") }}</a></li>
+<li><a href="https://github.com/GrapheneOS/apps.grapheneos.org/issues">{{ _("App repository (apps.grapheneos.org) issue tracker") }}</a></li>
+<li><a href="https://github.com/GrapheneOS/matrix.grapheneos.org/issues">{{ _("GrapheneOS Matrix server (matrix.grapheneos.org) issue tracker") }}</a></li>
+<li><a href="https://github.com/GrapheneOS/discuss.grapheneos.org/issues">{{ _("GrapheneOS discussion forum (discuss.grapheneos.org) issue tracker") }}</a></li>
+</ul>
+</section>
+</section>
+</main>
         {% include "footer.html" %}
         <script type="application/ld+json">
             {
@@ -284,5 +248,5 @@
                 "foundingDate": "2014"
             }
         </script>
-    </body>
+</body>
 </html>
