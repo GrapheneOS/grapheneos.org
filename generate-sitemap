@@ -33,6 +33,7 @@ pages = [
     ["/install/web", 0.5],
     ["/releases", 0.5],
     ["/source", 0.5],
+    ["/sponsors", 0.1],
     ["/usage", 1.0]
 ]
 
