@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GrapheneOS 1.0\n"
 "Report-Msgid-Bugs-To: contact@grapheneos.org\n"
-"POT-Creation-Date: 2026-03-24 23:58+0300\n"
+"POT-Creation-Date: 2026-03-25 20:26+0300\n"
 "PO-Revision-Date: 2026-03-24 19:20+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -52,30 +52,29 @@ msgstr ""
 #: static/features.html:686 static/features.html:766 static/features.html:1051
 #: static/features.html:1070 static/features.html:1180
 #: static/features.html:1247 static/history/index.html:84
-#: static/history/index.html:86 static/index.html:64 static/index.html:84
-#: static/index.html:106 static/install/cli.html:292
-#: static/install/cli.html:322 static/install/cli.html:374
-#: static/install/web.html:218 static/releases.html:534
-#: static/releases.html:672 static/releases.html:693 static/releases.html:715
-#: static/releases.html:732 static/releases.html:766 static/releases.html:793
-#: static/releases.html:813 static/releases.html:839 static/releases.html:875
-#: static/releases.html:904 static/releases.html:924 static/releases.html:945
-#: static/releases.html:983 static/releases.html:1021 static/releases.html:1046
-#: static/releases.html:1065 static/releases.html:1089
-#: static/releases.html:1118 static/releases.html:1144
-#: static/releases.html:1173 static/releases.html:1191
-#: static/releases.html:1216 static/releases.html:1236
-#: static/releases.html:1257 static/releases.html:1275
-#: static/releases.html:1303 static/releases.html:1336
-#: static/releases.html:1362 static/releases.html:1396
-#: static/releases.html:1416 static/releases.html:5211
-#: static/releases.html:9945 static/source.html:73 static/usage.html:123
-#: static/usage.html:228 static/usage.html:343 static/usage.html:354
-#: static/usage.html:378 static/usage.html:381 static/usage.html:462
-#: static/usage.html:464 static/usage.html:478 static/usage.html:807
-#: static/usage.html:838 static/usage.html:946 static/usage.html:977
-#: static/usage.html:1055 static/usage.html:1152 static/usage.html:1226
-#: static/usage.html:1253
+#: static/history/index.html:86 static/index.html:58 static/index.html:61
+#: static/index.html:70 static/install/cli.html:292 static/install/cli.html:322
+#: static/install/cli.html:374 static/install/web.html:218
+#: static/releases.html:534 static/releases.html:672 static/releases.html:693
+#: static/releases.html:715 static/releases.html:732 static/releases.html:766
+#: static/releases.html:793 static/releases.html:813 static/releases.html:839
+#: static/releases.html:875 static/releases.html:904 static/releases.html:924
+#: static/releases.html:945 static/releases.html:983 static/releases.html:1021
+#: static/releases.html:1046 static/releases.html:1065
+#: static/releases.html:1089 static/releases.html:1118
+#: static/releases.html:1144 static/releases.html:1173
+#: static/releases.html:1191 static/releases.html:1216
+#: static/releases.html:1236 static/releases.html:1257
+#: static/releases.html:1275 static/releases.html:1303
+#: static/releases.html:1336 static/releases.html:1362
+#: static/releases.html:1396 static/releases.html:1416
+#: static/releases.html:5211 static/releases.html:9945 static/source.html:73
+#: static/usage.html:123 static/usage.html:228 static/usage.html:343
+#: static/usage.html:354 static/usage.html:378 static/usage.html:381
+#: static/usage.html:462 static/usage.html:464 static/usage.html:478
+#: static/usage.html:807 static/usage.html:838 static/usage.html:946
+#: static/usage.html:977 static/usage.html:1055 static/usage.html:1152
+#: static/usage.html:1226 static/usage.html:1253
 msgid "."
 msgstr ""
 
@@ -83,7 +82,7 @@ msgstr ""
 msgid "Build | GrapheneOS"
 msgstr ""
 
-#: static/articles/index.html:43 static/build.html:39 templates/header.html:14
+#: static/articles/index.html:43 static/build.html:39 templates/header.html:7
 msgid "Build"
 msgstr ""
 
@@ -655,7 +654,7 @@ msgstr ""
 #: static/build.html:269 static/build.html:399 static/build.html:460
 #: static/build.html:471 static/build.html:724 static/contact.html:159
 #: static/faq.html:682 static/faq.html:756 static/faq.html:1684
-#: static/index.html:77 static/install/cli.html:136 static/releases.html:616
+#: static/index.html:60 static/install/cli.html:136 static/releases.html:616
 msgid "The "
 msgstr ""
 
@@ -703,7 +702,7 @@ msgstr ""
 msgid "Pick a specific release for a device from the "
 msgstr ""
 
-#: static/build.html:284
+#: static/build.html:284 static/index.html:61
 msgid "releases page"
 msgstr ""
 
@@ -1273,7 +1272,7 @@ msgstr ""
 msgid "See the "
 msgstr ""
 
-#: static/build.html:503
+#: static/build.html:503 static/index.html:61
 msgid "install page"
 msgstr ""
 
@@ -1604,7 +1603,7 @@ msgid ""
 "                    WebView is at external/chromium-webview."
 msgstr ""
 
-#: static/build.html:654 static/index.html:106
+#: static/build.html:654 static/index.html:70
 msgid "See "
 msgstr ""
 
@@ -2763,7 +2762,7 @@ msgstr ""
 msgid "Contact | GrapheneOS"
 msgstr ""
 
-#: static/contact.html:38 templates/header.html:38
+#: static/contact.html:38 templates/header.html:15
 msgid "Contact"
 msgstr ""
 
@@ -3218,7 +3217,7 @@ msgstr ""
 msgid "Donate | GrapheneOS"
 msgstr ""
 
-#: static/donate.html:38 templates/header.html:35
+#: static/donate.html:38 templates/header.html:14
 msgid "Donate"
 msgstr ""
 
@@ -3922,7 +3921,7 @@ msgid ""
 "            answers."
 msgstr ""
 
-#: static/faq.html:51 static/faq.html:125 static/index.html:105
+#: static/faq.html:51 static/faq.html:125 static/index.html:69
 msgid "Device support"
 msgstr ""
 
@@ -7714,7 +7713,7 @@ msgid ""
 "                the extent possible without any special privileges."
 msgstr ""
 
-#: static/faq.html:1519 static/index.html:77 static/usage.html:41
+#: static/faq.html:1519 static/index.html:60 static/usage.html:41
 msgid "features page"
 msgstr ""
 
@@ -8564,7 +8563,7 @@ msgstr ""
 
 #: static/features.html:71 static/features.html:147 static/index.html:41
 #: static/install/web.html:112 static/source.html:49 static/source.html:57
-#: templates/footer.html:2 templates/header.html:5
+#: templates/footer.html:2 templates/header.html:4
 msgid "GrapheneOS"
 msgstr ""
 
@@ -11040,7 +11039,7 @@ msgid ""
 "                    details, see the "
 msgstr ""
 
-#: static/features.html:1062 static/index.html:58
+#: static/features.html:1062 static/index.html:57
 msgid "About"
 msgstr ""
 
@@ -12005,176 +12004,142 @@ msgid ""
 "or FOSS contributions."
 msgstr ""
 
-#: static/index.html:6
+#: static/index.html:6 static/index.html:14
 msgid "GrapheneOS: the private and secure mobile OS"
+msgstr ""
+
+#: static/index.html:7 static/index.html:15
+msgid ""
+"GrapheneOS is a security and privacy focused mobile OS with Android app "
+"compatibility."
+msgstr ""
+
+#: static/index.html:20
+msgid "GrapheneOS logo"
 msgstr ""
 
 #: static/index.html:42
 msgid ""
 "The private and secure mobile operating system with Android app "
-"compatibility.\n"
-"                        Developed as a non-profit open source project."
+"compatibility. Developed as a non-profit open source project."
 msgstr ""
 
-#: static/index.html:44
+#: static/index.html:43
 msgid "Install GrapheneOS"
 msgstr ""
 
-#: static/index.html:53
+#: static/index.html:52
 msgid "Get to know GrapheneOS"
+msgstr ""
+
+#: static/index.html:58
+msgid ""
+"GrapheneOS is a privacy and security focused mobile OS with Android app "
+"compatibility developed as a non-profit "
+msgstr ""
+
+#: static/index.html:58 static/source.html:39
+msgid "open source"
+msgstr ""
+
+#: static/index.html:58
+msgid ""
+" project. It's focused on the research and development of privacy and "
+"security technology including substantial improvements to sandboxing, "
+"exploit mitigations and the permission model. It was founded in 2014 and "
+"was "
+msgstr ""
+
+#: static/index.html:58
+msgid "formerly known as CopperheadOS"
 msgstr ""
 
 #: static/index.html:59
 msgid ""
-"GrapheneOS is a privacy and security focused mobile OS with Android app\n"
-"                    compatibility developed as a non-profit "
-msgstr ""
-
-#: static/index.html:60 static/source.html:39
-msgid "open source"
+"GrapheneOS improves the privacy and security of the OS from the bottom "
+"up. It deploys technologies to mitigate whole classes of vulnerabilities "
+"and make exploiting the most common sources of vulnerabilities "
+"substantially more difficult. It improves the security of both the OS and"
+" the apps running on it. The app sandbox and other security boundaries "
+"are fortified. GrapheneOS tries to avoid impacting the user experience "
+"with the privacy and security features. Ideally, the features can be "
+"designed so that they're always enabled with no impact on the user "
+"experience and no additional complexity like configuration options. It's "
+"not always feasible, and GrapheneOS does add various toggles for features"
+" like the Network permission, Sensors permission, restrictions when the "
+"device is locked (USB-C and pogo pins, camera, quick tiles), etc. along "
+"with more complex user-facing privacy and security features with their "
+"own UX."
 msgstr ""
 
 #: static/index.html:60
 msgid ""
-"\n"
-"                    project. It's focused on the research and development"
-" of privacy and security\n"
-"                    technology including substantial improvements to "
-"sandboxing, exploit\n"
-"                    mitigations and the permission model. It was founded "
-"in 2014 and was\n"
-"                    "
+" provides an overview of the substantial privacy and security "
+"improvements added by GrapheneOS to the Android Open Source Project "
+"(AOSP). Many of our past features were "
 msgstr ""
 
-#: static/index.html:64
-msgid "formerly known as CopperheadOS"
-msgstr ""
-
-#: static/index.html:65
+#: static/index.html:60
 msgid ""
-"GrapheneOS improves the privacy and security of the OS from the bottom "
-"up.\n"
-"                    It deploys technologies to mitigate whole classes of "
-"vulnerabilities and make\n"
-"                    exploiting the most common sources of vulnerabilities"
-" substantially more\n"
-"                    difficult. It improves the security of both the OS "
-"and the apps running on it.\n"
-"                    The app sandbox and other security boundaries are "
-"fortified. GrapheneOS tries\n"
-"                    to avoid impacting the user experience with the "
-"privacy and security features.\n"
-"                    Ideally, the features can be designed so that they're"
-" always enabled with no\n"
-"                    impact on the user experience and no additional "
-"complexity like configuration\n"
-"                    options. It's not always feasible, and GrapheneOS "
-"does add various toggles for\n"
-"                    features like the Network permission, Sensors "
-"permission, restrictions when\n"
-"                    the device is locked (USB-C and pogo pins, camera, "
-"quick tiles), etc. along with\n"
-"                    more complex user-facing privacy and security "
-"features with their own UX."
+"contributed to AOSP, Linux and other projects to improve privacy and "
+"security for billions of users"
 msgstr ""
 
-#: static/index.html:77
-msgid ""
-" provides an overview of the\n"
-"                    substantial privacy and security improvements added "
-"by GrapheneOS to the\n"
-"                    Android Open Source Project (AOSP). Many of our past "
-"features were "
+#: static/index.html:60
+msgid " so they're no longer listed on our features page."
 msgstr ""
 
-#: static/index.html:79
-msgid ""
-"contributed to AOSP, Linux and other projects to improve\n"
-"                    privacy and security for billions of users"
-msgstr ""
-
-#: static/index.html:80
-msgid ""
-" so they're no longer listed on\n"
-"                    our features page."
-msgstr ""
-
-#: static/index.html:82
+#: static/index.html:61
 msgid "Official releases are available on the "
 msgstr ""
 
-#: static/index.html:82
-msgid ""
-"releases\n"
-"                    page"
-msgstr ""
-
-#: static/index.html:83
+#: static/index.html:61
 msgid " and installation instructions are on the "
 msgstr ""
 
-#: static/index.html:83
-msgid ""
-"install\n"
-"                    page"
-msgstr ""
-
-#: static/index.html:85
+#: static/index.html:62
 msgid ""
 "GrapheneOS also develops various apps and services with a focus on "
-"privacy\n"
-"                    and security. Vanadium is a hardened variant of the "
-"Chromium browser and\n"
-"                    WebView specifically built for GrapheneOS. GrapheneOS"
-" also includes our\n"
-"                    minimal security-focused PDF Viewer, our hardware-"
-"based Auditor app\n"
-"                    providing local and remote verification and "
-"attestation of devices,\n"
-"                    our modern privacy and security focused camera app, "
-"and the externally developed\n"
-"                    Seedvault encrypted backup which was initially "
-"developed for inclusion in\n"
-"                    GrapheneOS."
+"privacy and security. Vanadium is a hardened variant of the Chromium "
+"browser and WebView specifically built for GrapheneOS. GrapheneOS also "
+"includes our minimal security-focused PDF Viewer, our hardware-based "
+"Auditor app providing local and remote verification and attestation of "
+"devices, our modern privacy and security focused camera app, and the "
+"externally developed Seedvault encrypted backup which was initially "
+"developed for inclusion in GrapheneOS."
 msgstr ""
 
-#: static/index.html:95
+#: static/index.html:65
 msgid "No Google apps or services"
 msgstr ""
 
-#: static/index.html:96
+#: static/index.html:66
 msgid ""
-"GrapheneOS will never include either Google Play services or another\n"
-"                    implementation of Google services like microG. It's "
-"possible to install Play\n"
-"                    services as a set of fully sandboxed apps without "
-"special privileges via our\n"
-"                    "
+"GrapheneOS will never include either Google Play services or another "
+"implementation of Google services like microG. It's possible to install "
+"Play services as a set of fully sandboxed apps without special privileges"
+" via our "
 msgstr ""
 
-#: static/index.html:99
-msgid ""
-"sandboxed Google Play compatibility\n"
-"                    layer"
+#: static/index.html:66
+msgid "sandboxed Google Play compatibility layer"
 msgstr ""
 
-#: static/index.html:100
+#: static/index.html:66
 msgid ". See "
 msgstr ""
 
-#: static/index.html:100
+#: static/index.html:66
 msgid "the FAQ section"
 msgstr ""
 
-#: static/index.html:100
+#: static/index.html:66
 msgid ""
-" for more\n"
-"                    details on our plans for filling in the gaps from not"
-" shipping Play services\n"
-"                    and Google apps."
+" for more details on our plans for filling in the gaps from not shipping "
+"Play services and Google apps."
 msgstr ""
 
-#: static/index.html:106
+#: static/index.html:70
 msgid "the FAQ section on device support"
 msgstr ""
 
@@ -12206,7 +12171,7 @@ msgid "Releases | GrapheneOS"
 msgstr ""
 
 #: static/history/index.html:82 static/releases.html:41
-#: templates/header.html:23
+#: templates/header.html:10
 msgid "Releases"
 msgstr ""
 
@@ -48122,7 +48087,7 @@ msgstr ""
 msgid "Articles | GrapheneOS"
 msgstr ""
 
-#: static/articles/index.html:38 templates/header.html:32
+#: static/articles/index.html:38 templates/header.html:13
 msgid "Articles"
 msgstr ""
 
@@ -48137,7 +48102,7 @@ msgid ""
 msgstr ""
 
 #: static/articles/index.html:42 static/install/index.html:39
-#: templates/header.html:11
+#: templates/header.html:6
 msgid "Install"
 msgstr ""
 
@@ -48170,7 +48135,7 @@ msgid " — Documenting all source code repositories for GrapheneOS."
 msgstr ""
 
 #: static/articles/index.html:48 static/history/index.html:38
-#: templates/header.html:29
+#: templates/header.html:12
 msgid "History"
 msgstr ""
 
@@ -56127,7 +56092,7 @@ msgid "usage guide"
 msgstr ""
 
 #: static/install/cli.html:464 static/install/web.html:345
-#: templates/header.html:20
+#: templates/header.html:9
 msgid "FAQ"
 msgstr ""
 
@@ -56472,15 +56437,15 @@ msgstr ""
 msgid "LinkedIn"
 msgstr ""
 
-#: templates/header.html:8
+#: templates/header.html:5
 msgid "Features"
 msgstr ""
 
-#: templates/header.html:17
+#: templates/header.html:8
 msgid "Usage"
 msgstr ""
 
-#: templates/header.html:26
+#: templates/header.html:11
 msgid "Source"
 msgstr ""
 
@@ -60281,5 +60246,128 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Remove non-stock key"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "GrapheneOS is a privacy and security "
+#~ "focused mobile OS with Android app\n"
+#~ ""
+#~ "                    compatibility developed as a non-profit "
+#~ msgstr ""
+
+#~ msgid ""
+#~ "\n"
+#~ "                    project. It's focused on"
+#~ " the research and development of "
+#~ "privacy and security\n"
+#~ "                    technology including substantial"
+#~ " improvements to sandboxing, exploit\n"
+#~ "                    mitigations and the "
+#~ "permission model. It was founded in "
+#~ "2014 and was\n"
+#~ "                    "
+#~ msgstr ""
+
+#~ msgid ""
+#~ "GrapheneOS improves the privacy and "
+#~ "security of the OS from the bottom"
+#~ " up.\n"
+#~ "                    It deploys technologies to"
+#~ " mitigate whole classes of vulnerabilities"
+#~ " and make\n"
+#~ "                    exploiting the most common"
+#~ " sources of vulnerabilities substantially "
+#~ "more\n"
+#~ "                    difficult. It improves the"
+#~ " security of both the OS and "
+#~ "the apps running on it.\n"
+#~ "                    The app sandbox and "
+#~ "other security boundaries are fortified. "
+#~ "GrapheneOS tries\n"
+#~ "                    to avoid impacting the "
+#~ "user experience with the privacy and "
+#~ "security features.\n"
+#~ "                    Ideally, the features can"
+#~ " be designed so that they're always"
+#~ " enabled with no\n"
+#~ "                    impact on the user "
+#~ "experience and no additional complexity "
+#~ "like configuration\n"
+#~ "                    options. It's not always"
+#~ " feasible, and GrapheneOS does add "
+#~ "various toggles for\n"
+#~ "                    features like the Network"
+#~ " permission, Sensors permission, restrictions "
+#~ "when\n"
+#~ "                    the device is locked "
+#~ "(USB-C and pogo pins, camera, quick "
+#~ "tiles), etc. along with\n"
+#~ "                    more complex user-facing"
+#~ " privacy and security features with "
+#~ "their own UX."
+#~ msgstr ""
+
+#~ msgid ""
+#~ " provides an overview of the\n"
+#~ "                    substantial privacy and "
+#~ "security improvements added by GrapheneOS "
+#~ "to the\n"
+#~ "                    Android Open Source "
+#~ "Project (AOSP). Many of our past "
+#~ "features were "
+#~ msgstr ""
+
+#~ msgid ""
+#~ "contributed to AOSP, Linux and other projects to improve\n"
+#~ "                    privacy and security for billions of users"
+#~ msgstr ""
+
+#~ msgid ""
+#~ " so they're no longer listed on\n"
+#~ "                    our features page."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "GrapheneOS also develops various apps "
+#~ "and services with a focus on "
+#~ "privacy\n"
+#~ "                    and security. Vanadium is"
+#~ " a hardened variant of the Chromium"
+#~ " browser and\n"
+#~ "                    WebView specifically built "
+#~ "for GrapheneOS. GrapheneOS also includes "
+#~ "our\n"
+#~ "                    minimal security-focused "
+#~ "PDF Viewer, our hardware-based Auditor"
+#~ " app\n"
+#~ "                    providing local and remote"
+#~ " verification and attestation of devices,"
+#~ "\n"
+#~ "                    our modern privacy and "
+#~ "security focused camera app, and the "
+#~ "externally developed\n"
+#~ "                    Seedvault encrypted backup "
+#~ "which was initially developed for "
+#~ "inclusion in\n"
+#~ "                    GrapheneOS."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "GrapheneOS will never include either Google Play services or another\n"
+#~ "                    implementation of Google "
+#~ "services like microG. It's possible to"
+#~ " install Play\n"
+#~ "                    services as a set of"
+#~ " fully sandboxed apps without special "
+#~ "privileges via our\n"
+#~ "                    "
+#~ msgstr ""
+
+#~ msgid ""
+#~ " for more\n"
+#~ "                    details on our plans "
+#~ "for filling in the gaps from not"
+#~ " shipping Play services\n"
+#~ "                    and Google apps."
 #~ msgstr ""
 
