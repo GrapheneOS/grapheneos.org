@@ -34,42 +34,123 @@
             {% include "header.html" %}
         {% endwith %}
         <main id="hiring">
-            <h1><a href="#hiring">GrapheneOS Remote Developer</a></h1>
+            <h1><a href="#hiring">Hiring</a></h1>
 
-            <p><strong>Location:</strong> Remote</p>
-            <p><strong>Position Type:</strong> Independent Contractor</p>
+            <p>GrapheneOS is currently hiring for the following remote contractor roles.</p>
 
-            <p>We are seeking a highly skilled and self-directed developer to contribute to our open source project, someone who shares our passion for enhancing the privacy and security of mobile devices. The ideal candidate will have experience working with Android-based operating systems, the Linux kernel and its hardening, memory allocators, or extensive experience in Android app development. In this role, you will play a key role in the development and maintenance of our <a href="https://github.com/GrapheneOS">existing projects</a>, and will be expected to commit a minimum of 80 hours per month. The role will require a high level of autonomy and the ability to independently manage workloads.</p>
+            <nav id="table-of-contents">
+                <h2><a href="#table-of-contents">Table of contents</a></h2>
 
-            <section id="responsibilities">
-                <h2><a href="#responsibilities">Responsibilities</a></h2>
                 <ul>
-                    <li>Manage a specific aspect of the project, such as the kernel, memory allocator, custom OS features, or apps like Vanadium, Auditor, Camera, or PDF Viewer. Your time will be spent improving them, porting them to new Android versions, reviewing code contributions etc.</li>
-                    <li>Adhere to our development guidelines, available <a href="https://grapheneos.org/build#development-guidelines">here</a></li>
-                    <li>Collaborate with the development team to address bugs, vulnerabilities, and performance issues</li>
+                    <li><a href="#grapheneos-developer">GrapheneOS Developer</a></li>
+                    <li><a href="#android-apps-software-engineer">Android Apps Software Engineer</a></li>
+                    <li><a href="#about">About GrapheneOS</a></li>
+                    <li><a href="#apply">How to Apply</a></li>
                 </ul>
+            </nav>
+
+            <section id="grapheneos-developer">
+                <h2><a href="#grapheneos-developer">GrapheneOS Developer</a></h2>
+
+                <p><strong>Location:</strong> Remote</p>
+                <p><strong>Position Type:</strong> Independent Contractor</p>
+
+                <p>We are seeking a highly skilled and self-directed software engineer to contribute to our open source project, someone who shares our passion for enhancing the privacy and security of mobile devices. The ideal candidate will have experience working with Android-based operating systems, the Linux kernel and its hardening, memory allocators, or extensive experience in Android platform software development. In this role, you will play a key role in the development and maintenance of our <a href="https://github.com/GrapheneOS">existing projects</a>, and will be expected to commit a minimum of 80 hours per month. The role will require a high level of autonomy and the ability to independently manage workloads.</p>
+
+                <section id="grapheneos-developer-responsibilities">
+                    <h3><a href="#grapheneos-developer-responsibilities">Responsibilities</a></h3>
+                    <ul>
+                        <li>Manage a specific aspect of the project, such as the kernel, memory allocator, custom OS features, or Vanadium. Your time will be spent improving them, porting them to new Android versions, reviewing code contributions, etc.</li>
+                        <li>Adhere to our development guidelines, available <a href="https://grapheneos.org/build#development-guidelines">here</a></li>
+                        <li>Collaborate with the development team to address bugs, vulnerabilities, and performance issues</li>
+                    </ul>
+                </section>
+
+                <section id="grapheneos-developer-qualifications">
+                    <h3><a href="#grapheneos-developer-qualifications">Qualifications</a></h3>
+                    <ul>
+                        <li>Prior experience working on one or more of Android/AOSP-based operating systems, the Linux kernel and its hardening, memory allocators, or Android platform software development</li>
+                        <li>Strong programming skills in relevant languages (in order from most to least common: Java, Kotlin, C++, C, Rust, JavaScript, TypeScript, arm64 assembly, Bash, Python)</li>
+                        <li>Need to have enough experience to be comfortable to self direct workloads and submit finished features and fixes ready for review</li>
+                        <li>Commitment to privacy and security principles</li>
+                        <li>Ideally prior experience contributing to free and open source projects</li>
+                    </ul>
+                </section>
+
+                <section id="grapheneos-developer-time">
+                    <h3><a href="#grapheneos-developer-time">Time Commitment</a></h3>
+                    <p>Must be able to commit to spending 80 hours or more a month, but we are extremely flexible about how you want to structure your working times. There is, however, a significant workload porting GrapheneOS forward when each new Android version is released. Having the capacity to focus and/or increase work hours during these periods is a great advantage.</p>
+                </section>
+
+                <section id="grapheneos-developer-salary">
+                    <h3><a href="#grapheneos-developer-salary">Salary</a></h3>
+                    <p>Salary and remuneration will be commensurate with experience and aligned with industry standards. You will be employed as an independent contractor.</p>
+                </section>
             </section>
 
-            <section id="qualifications">
-                <h2><a href="#qualifications">Qualifications</a></h2>
-                <ul>
-                    <li>Prior experience working on one or more of Android/AOSP-based operating systems, the Linux kernel and its hardening, memory allocators, or Android app development</li>
-                    <li>Strong programming skills in relevant languages (in order from most to least common: Java, Kotlin, C++, C, Rust, JavaScript, TypeScript, arm64 assembly, Bash, Python)</li>
-                    <li>Need to have enough experience to be comfortable to self direct workloads and submit finished features and fixes ready for review</li>
-                    <li>Commitment to privacy and security principles</li>
-                    <li>Ideally prior experience contributing to free and open source projects</li>
-                </ul>
+            <hr/>
+
+            <section id="android-apps-software-engineer">
+                <h2><a href="#android-apps-software-engineer">Android Apps Software Engineer</a></h2>
+
+                <p><strong>Location:</strong> Remote worldwide</p>
+                <p><strong>Position Type:</strong> Independent Contractor</p>
+
+                <p>We are seeking a senior Android engineer to take ownership of GrapheneOS applications such as Messages, Phone, and a replacement for Gallery, along with other apps. The ideal candidate is highly self-directed, strong in Kotlin and Jetpack Compose, comfortable working in legacy codebases, and able to modernize, replace, and maintain security and privacy-focused Android apps.</p>
+
+                <p>You will be expected to commit a minimum of 80 hours per month. Full-time availability is preferred. The role requires a high level of autonomy and the ability to independently manage workloads in a remote, async-first environment.</p>
+
+                <section id="android-apps-software-engineer-responsibilities">
+                    <h3><a href="#android-apps-software-engineer-responsibilities">Responsibilities</a></h3>
+                    <ul>
+                        <li>Own and improve a specific set of GrapheneOS applications</li>
+                        <li>Maintain and refactor existing codebases, including migration to Kotlin and Jetpack Compose where appropriate</li>
+                        <li>Design, implement, and polish new features with strong attention to usability, privacy, security, performance, accessibility, reliability, and maintainability</li>
+                        <li>Review and improve architecture, test coverage, and overall code quality</li>
+                        <li>Collaborate with the development team to address bugs, security issues, performance regressions, releases, and ongoing maintenance work</li>
+                        <li>Work effectively in existing and legacy codebases, steadily raising their quality over time</li>
+                        <li>Adhere to our development guidelines, available <a href="https://grapheneos.org/build#development-guidelines">here</a></li>
+                    </ul>
+                </section>
+
+                <section id="android-apps-software-engineer-qualifications">
+                    <h3><a href="#android-apps-software-engineer-qualifications">Qualifications</a></h3>
+                    <ul>
+                        <li>Senior-level Android engineering experience</li>
+                        <li>Strong Kotlin experience and production experience with Jetpack Compose</li>
+                        <li>Strong knowledge of modern Android APIs and Jetpack libraries</li>
+                        <li>Strong understanding of coroutines, Flow, SQLite or Room, testing, and Android UX conventions</li>
+                        <li>Experience shipping, maintaining, and improving production Android applications</li>
+                        <li>Ability to work independently, self-direct workloads, and deliver finished features and fixes ready for review</li>
+                        <li>Comfort working with legacy codebases and improving them incrementally</li>
+                        <li>Commitment to privacy and security principles</li>
+                    </ul>
+                </section>
+
+                <section id="android-apps-software-engineer-nice-to-have">
+                    <h3><a href="#android-apps-software-engineer-nice-to-have">Nice to Have</a></h3>
+                    <ul>
+                        <li>Experience with Java-based Android codebases</li>
+                        <li>Experience migrating existing apps to Kotlin and/or Jetpack Compose</li>
+                        <li>Strong product judgment and attention to detail</li>
+                        <li>Prior work on privacy or security-sensitive applications</li>
+                        <li>Familiarity with AOSP, GrapheneOS, or Android internals</li>
+                        <li>Prior experience contributing to free and open source projects</li>
+                    </ul>
+                </section>
+
+                <section id="android-apps-software-engineer-time">
+                    <h3><a href="#android-apps-software-engineer-time">Time Commitment</a></h3>
+                    <p>Must be able to commit to spending 80 hours or more a month, but we are highly flexible about how you structure your working time. The role is fully remote and async-first. Full-time availability is preferred.</p>
+                </section>
+
+                <section id="android-apps-software-engineer-salary">
+                    <h3><a href="#android-apps-software-engineer-salary">Salary</a></h3>
+                    <p>Compensation will be competitive and commensurate with experience. You will be engaged as an independent contractor.</p>
+                </section>
             </section>
 
-            <section id="time">
-                <h2><a href="#time">Time Commitment</a></h2>
-                <p>Must be able to commit to spending 80 hours or more a month, but we are extremely flexible about how you want to structure your working times. There is, however, a significant workload porting GrapheneOS forward when each new Android version is released. Having the capacity to focus and/or increase work hours during these periods is a great advantage.</p>
-            </section>
-
-            <section id="salary">
-                <h2><a href="#salary">Salary</a></h2>
-                <p>Salary and remuneration will be commensurate with experience and aligned with industry standards. You will be employed as an independent contractor.</p>
-            </section>
+            <hr/>
 
             <section id="about">
                 <h2><a href="#about">About GrapheneOS</a></h2>
@@ -78,7 +159,7 @@
 
             <section id="apply">
                 <h2><a href="#apply">How to Apply</a></h2>
-                <p>Send an email to <a href="mailto:hiring@grapheneos.org">hiring@grapheneos.org</a> with a description of your background and explain why you are interested in GrapheneOS. Additionally, please share any examples of relevant work or FOSS contributions.</p>
+                <p>Send an email to <a href="mailto:hiring@grapheneos.org">hiring@grapheneos.org</a> with your CV, a brief description of your background, and why you are interested in GrapheneOS. Examples of relevant work, Android apps, GitHub profiles, or FOSS contributions are optional but strongly encouraged.</p>
             </section>
         </main>
         {% include "footer.html" %}
