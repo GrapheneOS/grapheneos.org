@@ -8,6 +8,7 @@ import os
 import sys
 import gettext
 import shutil
+import re
 import traceback
 from pathlib import Path
 from jinja2 import FileSystemLoader, Environment, TemplateError
@@ -31,7 +32,7 @@ def create_translator(lang='en'):
         return fallback
 
 def local_url(path, lang):
-    """Генерирует URL с префиксом текущего языка"""
+    """Генерирует URL с префиксом текущего языка."""
     if lang == 'en':
         return path
     else:
@@ -41,6 +42,51 @@ def local_url(path, lang):
             return f'/{lang}{path}'
         else:
             return f'/{lang}/{path}'
+
+def process_html_content(content, lang, env):
+    """Обрабатывает HTML контент, заменяя ссылки на локализованные."""
+    # Находим все href атрибуты, которые не являются якорями и не начинаются с http
+    def replace_href(match):
+        href = match.group(1)
+        # Пропускаем якоря, внешние ссылки, mailto, javascript
+        if (href.startswith('#') or
+                href.startswith('http://') or
+                href.startswith('https://') or
+                href.startswith('mailto:') or
+                href.startswith('javascript:') or
+                href.startswith('/.well-known/') or
+                href.startswith('data:')):
+            return f'href="{href}"'
+
+        # Пропускаем ссылки на файлы с расширениями (кроме .html)
+        file_extensions = ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.ico',
+                           '.woff', '.woff2', '.ttf', '.eot', '.css', '.js',
+                           '.json', '.xml', '.txt', '.atom', '.zip', '.sig']
+        if any(href.endswith(ext) for ext in file_extensions):
+            return f'href="{href}"'
+
+        # Преобразуем относительные пути
+        if href.startswith('/'):
+            new_href = local_url(href, lang)
+        else:
+            new_href = local_url('/' + href, lang)
+
+        return f'href="{new_href}"'
+
+    # Заменяем href атрибуты
+    content = re.sub(r'href="([^"]+)"', replace_href, content)
+
+    # Заменяем src атрибуты (для изображений, скриптов)
+    def replace_src(match):
+        src = match.group(1)
+        if src.startswith('/') and not src.startswith('//'):
+            new_src = local_url(src, lang)
+            return f'src="{new_src}"'
+        return f'src="{src}"'
+
+    content = re.sub(r'src="([^"]+)"', replace_src, content)
+
+    return content
 
 if len(sys.argv) != 2:
     print(f"Usage: {sys.argv[0]} <path>")
@@ -142,6 +188,9 @@ for lang in LANGUAGES:
             print(f"    Rendering template...")
             rendered = template.render(_=_, lang=lang, local_url=lambda path: local_url(path, lang))
 
+            # Дополнительная обработка ссылок (для тех, что не были обработаны Jinja2)
+            rendered = process_html_content(rendered, lang, env)
+
             print(f"    Writing to: {output_file}")
             with open(output_file, 'w', encoding='utf-8') as f:
                 f.write(rendered)
@@ -161,7 +210,6 @@ for lang in LANGUAGES:
             traceback.print_exc()
             error_files.append((html_file, lang, e))
 
-# НЕ УДАЛЯЕМ исходные файлы!
 print("\n=== Summary ===")
 print(f"Total files processed: {total_files}")
 print(f"Successfully translated: {translated_files}")

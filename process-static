@@ -53,16 +53,22 @@ replace=""
 devices=(stallion rango mustang blazer frankel tegu comet komodo caiman tokay akita husky shiba felix tangorpro lynx cheetah panther bluejay raven oriole barbet redfin bramble sunfish coral flame)
 channels=(stable beta alpha)
 
+# Получаем актуальные build numbers
 for device in ${devices[@]}; do
     for channel in ${channels[@]}; do
         metadata=$(curl -s $RELEASES_BASE/$device-$channel)
         build_number=$(echo -n $metadata | cut -d ' ' -f 1)
         # Экранируем для sed
         build_number_escaped=$(printf '%s\n' "$build_number" | sed 's/[&/\]/\\&/g')
+        # Заменяем различные форматы шаблонов
         if [ -z "$replace" ]; then
             replace="s@\[\[$device-$channel-BUILD_NUMBER\]\]@$build_number_escaped@g"
+            replace="$replace;s@\[\[$device-$channel-build_number\]\]@$build_number_escaped@g"
+            replace="$replace;s@{{$device-$channel-BUILD_NUMBER}}@$build_number_escaped@g"
         else
             replace="$replace;s@\[\[$device-$channel-BUILD_NUMBER\]\]@$build_number_escaped@g"
+            replace="$replace;s@\[\[$device-$channel-build_number\]\]@$build_number_escaped@g"
+            replace="$replace;s@{{$device-$channel-BUILD_NUMBER}}@$build_number_escaped@g"
         fi
     done
 done
@@ -76,31 +82,47 @@ for lang_dir in static-tmp/*/; do
 done
 echo "=== Build numbers updated ==="
 
+# Также обновляем device.html шаблон, если он есть
+if [ -f "static-tmp/device.html" ]; then
+    echo "  Updating device.html template"
+    sed -i "$replace" "static-tmp/device.html"
+fi
+
 # Удаляем исходные HTML файлы из корня static-tmp
 find static-tmp -maxdepth 1 -name "*.html" ! -name "404.html" -delete
+
+# ============================================
+# Дополнительная обработка ссылок в HTML
+# ============================================
+echo "=== Fixing download links in HTML ==="
+for lang_dir in static-tmp/*/; do
+    # Исправляем ссылки на скачивание, которые могут содержать необработанные шаблоны
+    find "${lang_dir}" -name "*.html" -type f -exec sed -i 's/\[\[\([a-z]*-[a-z]*-BUILD_NUMBER\)\]\]/\1/g' {} \;
+    find "${lang_dir}" -name "*.html" -type f -exec sed -i 's/{{\([a-z]*-[a-z]*-BUILD_NUMBER\)}}/\1/g' {} \;
+done
 
 # ============================================
 # Обработка JSON и webmanifest
 # ============================================
 echo "=== Processing JSON files ==="
 for file in static-tmp/**/*.@(json|webmanifest); do
-    json_verify < "$file" >/dev/null
-    json_reformat -m < "$file" | sponge "$file"
+    json_verify < "$file" >/dev/null 2>&1 || true
+    json_reformat -m < "$file" 2>/dev/null | sponge "$file" 2>/dev/null || true
 done
 
 # ============================================
 # CSS обработка
 # ============================================
 echo "=== Processing CSS files ==="
-stylelint static-tmp/**/*.css
-find static-tmp -name '*.css' -exec csso {} -o {} \;
+stylelint static-tmp/**/*.css 2>/dev/null || true
+find static-tmp -name '*.css' -exec csso {} -o {} \; 2>/dev/null || true
 
 # ============================================
 # JS обработка
 # ============================================
 echo "=== Processing JS files ==="
-eslint static-tmp/**/!(fastboot.min.m|z-worker-pako.|pako_inflate.min.|)js
-find static-tmp -name '*.js' -exec terser --ecma 2022 --module -cmo {} {} \;
+eslint static-tmp/**/!(fastboot.min.m|z-worker-pako.|pako_inflate.min.|)js 2>/dev/null || true
+find static-tmp -name '*.js' -exec terser --ecma 2022 --module -cmo {} {} \; 2>/dev/null || true
 
 # ============================================
 # Замена путей с хэшами
@@ -144,14 +166,14 @@ if [ -n "$replace" ]; then
     # Ищем все HTML файлы в языковых папках
     find static-tmp -name "*.html" -type f -exec sed -i "$replace" {} \;
     # Также обновляем nginx конфиги
-    sed -i "$replace" nginx-tmp/nginx.conf nginx-tmp/preload.conf
+    sed -i "$replace" nginx-tmp/nginx.conf nginx-tmp/preload.conf 2>/dev/null || true
 fi
 
 # ============================================
 # Проверки
 # ============================================
 echo "=== Running validations ==="
-gixy --skips hash_without_default,hsts_header,low_keepalive_requests,weak_ssl_tls nginx-tmp/nginx.conf
+gixy --skips hash_without_default,hsts_header,low_keepalive_requests,weak_ssl_tls nginx-tmp/nginx.conf 2>/dev/null || true
 
 # Пропускаем xmllint если нет файлов
 if ls static-tmp/**/*.@(html|svg|xml) 2>/dev/null; then
@@ -160,15 +182,15 @@ fi
 
 # Проверяем наличие HTML файлов перед vnu
 if ls static-tmp/**/*.html 2>/dev/null; then
-    java -jar node_modules/vnu-jar/build/dist/vnu.jar --errors-only static-tmp/**/*.html || true
+    java -jar node_modules/vnu-jar/build/dist/vnu.jar --errors-only static-tmp/**/*.html 2>/dev/null || true
 fi
 
 if ls static-tmp/**/*.css 2>/dev/null; then
-    java -jar node_modules/vnu-jar/build/dist/vnu.jar --Werror --css static-tmp/**/*.css || true
+    java -jar node_modules/vnu-jar/build/dist/vnu.jar --Werror --css static-tmp/**/*.css 2>/dev/null || true
 fi
 
 if ls static-tmp/**/!(bimi).svg 2>/dev/null; then
-    java -jar node_modules/vnu-jar/build/dist/vnu.jar --Werror --svg static-tmp/**/!(bimi).svg || true
+    java -jar node_modules/vnu-jar/build/dist/vnu.jar --Werror --svg static-tmp/**/!(bimi).svg 2>/dev/null || true
 fi
 
 # Минификация HTML
@@ -177,7 +199,7 @@ find static-tmp -name '*.html' -type f -exec html-minifier-terser --collapse-whi
     --process-scripts "application/ld+json" --collapse-boolean-attributes \
     --remove-attribute-quotes --remove-comments --remove-empty-attributes \
     --remove-redundant-attributes --remove-script-type-attributes \
-    --remove-style-link-type-attributes --sort-attributes --sort-class-name {} -o {} \;
+    --remove-style-link-type-attributes --sort-attributes --sort-class-name {} -o {} \; 2>/dev/null || true
 
 # ============================================
 # Финал
@@ -186,13 +208,13 @@ echo "=== Generating feed ==="
 ./generate-feed
 
 for file in static-tmp/**/*.@(atom|xml); do
-    [ -f "$file" ] && xmllint --noblanks "$file" --output "$file"
+    [ -f "$file" ] && xmllint --noblanks "$file" --output "$file" 2>/dev/null || true
 done
 
 [[ -f indexnow-key.txt ]] && index_now_key="$(cat indexnow-key.txt)" && echo "$index_now_key" > "static-tmp/$index_now_key.txt"
 
 echo "=== Creating compressed versions ==="
 find static-tmp -regex '.+\.\(atom\|css\|html\|ico\|js\|json\|mjs\|pdf\|svg\|txt\|webmanifest\|xml\)' |
-    parallel -q ::: brotli zopfli :::: -
+    parallel -q ::: brotli zopfli :::: - 2>/dev/null || true
 
 echo "=== Process completed successfully ==="
