@@ -154,7 +154,7 @@
     "occurrences": [
       "static/articles/index.html:43",
       "static/build.html:39",
-      "templates/header.html:7"
+      "templates/header.html:8"
     ]
   },
   "This is a guide on building, modifying and contributing to GrapheneOS as a\n            developer.": {
@@ -3675,7 +3675,7 @@
     "comments": "",
     "occurrences": [
       "static/contact.html:38",
-      "templates/header.html:15"
+      "templates/header.html:16"
     ]
   },
   "Community": {
@@ -4377,7 +4377,7 @@
     "comments": "",
     "occurrences": [
       "static/donate.html:38",
-      "templates/header.html:14"
+      "templates/header.html:15"
     ]
   },
   "GrapheneOS is an open source project supported via donations from individuals,\n            companies and other organizations. Donations are used for paying developers,\n            purchasing hardware (workstations, test devices, debugging cables/boards, etc.),\n            paying for infrastructure (domains, virtual/dedicated servers) and paying legal\n            fees.": {
@@ -10266,7 +10266,7 @@
       "static/source.html:49",
       "static/source.html:57",
       "templates/footer.html:2",
-      "templates/header.html:4"
+      "templates/header.html:5"
     ]
   },
   "Defending against exploitation of\n                                unknown vulnerabilities": {
@@ -13967,7 +13967,7 @@
     "occurrences": [
       "static/history/index.html:82",
       "static/releases.html:41",
-      "templates/header.html:10"
+      "templates/header.html:11"
     ]
   },
   "About the releases": {
@@ -68487,7 +68487,7 @@
     "comments": "",
     "occurrences": [
       "static/articles/index.html:38",
-      "templates/header.html:13"
+      "templates/header.html:14"
     ]
   },
   "The main documentation for GrapheneOS is at the top-level of the site:": {
@@ -68513,7 +68513,7 @@
     "occurrences": [
       "static/articles/index.html:42",
       "static/install/index.html:39",
-      "templates/header.html:6"
+      "templates/header.html:7"
     ]
   },
   " — Installation instructions for GrapheneOS.": {
@@ -68579,7 +68579,7 @@
     "occurrences": [
       "static/articles/index.html:48",
       "static/history/index.html:38",
-      "templates/header.html:12"
+      "templates/header.html:13"
     ]
   },
   " — History of the GrapheneOS project.": {
@@ -80754,7 +80754,7 @@
     "occurrences": [
       "static/install/cli.html:464",
       "static/install/web.html:345",
-      "templates/header.html:9"
+      "templates/header.html:10"
     ]
   },
   " for more information. If you have further questions not\n                    covered by the site, join the ": {
@@ -81268,7 +81268,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "templates/header.html:5"
+      "templates/header.html:6"
     ]
   },
   "Usage": {
@@ -81276,7 +81276,7 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "templates/header.html:8"
+      "templates/header.html:9"
     ]
   },
   "Source": {
@@ -81284,7 +81284,15 @@
     "msgstr": "",
     "comments": "",
     "occurrences": [
-      "templates/header.html:11"
+      "templates/header.html:12"
+    ]
+  },
+  "Change language": {
+    "msgid": "Change language",
+    "msgstr": "",
+    "comments": "",
+    "occurrences": [
+      "templates/header.html:20"
     ]
   },
   "When loading an alternate OS, the device shows a yellow notice on boot\n    with the ID of the alternate OS based on the sha256 of the verified boot\n    public key. 4th and 5th generation Pixels only show the first 32 bits of\n    the hash so you can't use this approach. 6th generation Pixels onwards\n    show the full hash and you can compare it against the official GrapheneOS\n    verified boot key hashes below:": {

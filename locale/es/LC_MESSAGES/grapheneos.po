@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GrapheneOS 1.0\n"
 "Report-Msgid-Bugs-To: contact@grapheneos.org\n"
-"POT-Creation-Date: 2026-03-25 20:26+0300\n"
+"POT-Creation-Date: 2026-03-28 00:12+0300\n"
 "PO-Revision-Date: 2026-03-24 19:20+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -82,7 +82,7 @@ msgstr ""
 msgid "Build | GrapheneOS"
 msgstr ""
 
-#: static/articles/index.html:43 static/build.html:39 templates/header.html:7
+#: static/articles/index.html:43 static/build.html:39 templates/header.html:8
 msgid "Build"
 msgstr ""
 
@@ -2762,7 +2762,7 @@ msgstr ""
 msgid "Contact | GrapheneOS"
 msgstr ""
 
-#: static/contact.html:38 templates/header.html:15
+#: static/contact.html:38 templates/header.html:16
 msgid "Contact"
 msgstr ""
 
@@ -3217,7 +3217,7 @@ msgstr ""
 msgid "Donate | GrapheneOS"
 msgstr ""
 
-#: static/donate.html:38 templates/header.html:14
+#: static/donate.html:38 templates/header.html:15
 msgid "Donate"
 msgstr ""
 
@@ -8563,7 +8563,7 @@ msgstr ""
 
 #: static/features.html:71 static/features.html:147 static/index.html:41
 #: static/install/web.html:112 static/source.html:49 static/source.html:57
-#: templates/footer.html:2 templates/header.html:4
+#: templates/footer.html:2 templates/header.html:5
 msgid "GrapheneOS"
 msgstr ""
 
@@ -12171,7 +12171,7 @@ msgid "Releases | GrapheneOS"
 msgstr ""
 
 #: static/history/index.html:82 static/releases.html:41
-#: templates/header.html:10
+#: templates/header.html:11
 msgid "Releases"
 msgstr ""
 
@@ -48087,7 +48087,7 @@ msgstr ""
 msgid "Articles | GrapheneOS"
 msgstr ""
 
-#: static/articles/index.html:38 templates/header.html:13
+#: static/articles/index.html:38 templates/header.html:14
 msgid "Articles"
 msgstr ""
 
@@ -48102,7 +48102,7 @@ msgid ""
 msgstr ""
 
 #: static/articles/index.html:42 static/install/index.html:39
-#: templates/header.html:6
+#: templates/header.html:7
 msgid "Install"
 msgstr ""
 
@@ -48135,7 +48135,7 @@ msgid " — Documenting all source code repositories for GrapheneOS."
 msgstr ""
 
 #: static/articles/index.html:48 static/history/index.html:38
-#: templates/header.html:12
+#: templates/header.html:13
 msgid "History"
 msgstr ""
 
@@ -56092,7 +56092,7 @@ msgid "usage guide"
 msgstr ""
 
 #: static/install/cli.html:464 static/install/web.html:345
-#: templates/header.html:9
+#: templates/header.html:10
 msgid "FAQ"
 msgstr ""
 
@@ -56437,16 +56437,20 @@ msgstr ""
 msgid "LinkedIn"
 msgstr ""
 
-#: templates/header.html:5
+#: templates/header.html:6
 msgid "Features"
 msgstr ""
 
-#: templates/header.html:8
+#: templates/header.html:9
 msgid "Usage"
 msgstr ""
 
-#: templates/header.html:11
+#: templates/header.html:12
 msgid "Source"
+msgstr ""
+
+#: templates/header.html:20
+msgid "Change language"
 msgstr ""
 
 #: templates/verified_boot_key_hash.html:3

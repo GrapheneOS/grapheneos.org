@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: GrapheneOS 1.0\n"
 "Report-Msgid-Bugs-To: contact@grapheneos.org\n"
-"POT-Creation-Date: 2026-03-25 20:26+0300\n"
+"POT-Creation-Date: 2026-03-28 00:12+0300\n"
 "PO-Revision-Date: 2026-03-24 19:19+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -32,7 +32,9 @@ msgid ""
 "The requested page does not exist. If you think this is a mistake, please"
 "\n"
 "            "
-msgstr "Запрошенная страница не существует. Если вы считаете, что это ошибка, пожалуйста,"
+msgstr ""
+"Запрошенная страница не существует. Если вы считаете, что это ошибка, "
+"пожалуйста,"
 
 #: static/404.html:36
 msgid "report an issue"
@@ -83,15 +85,18 @@ msgstr "."
 msgid "Build | GrapheneOS"
 msgstr "Сборка | GrapheneOS"
 
-#: static/articles/index.html:43 static/build.html:39 templates/header.html:7
+#: static/articles/index.html:43 static/build.html:39 templates/header.html:8
 msgid "Build"
 msgstr "Сборка"
 
 #: static/build.html:40
 msgid ""
-"This is a guide on building, modifying and contributing to GrapheneOS as a\n"
+"This is a guide on building, modifying and contributing to GrapheneOS as "
+"a\n"
 "            developer."
-msgstr "Это руководство по сборке, модификации и участию в разработке GrapheneOS как\n"
+msgstr ""
+"Это руководство по сборке, модификации и участию в разработке GrapheneOS "
+"как\n"
 "            разработчик."
 
 #: static/articles/grapheneos-servers.html:43 static/build.html:43
@@ -638,19 +643,25 @@ msgid ""
 "application\n"
 "                    layer, it will use a lot of bandwidth and storage "
 "space."
-msgstr "Поскольку это синхронизация исходников для всей операционной системы и\n"
-"                    уровня приложений, это потребует много трафика и места для хранения."
+msgstr ""
+"Поскольку это синхронизация исходников для всей операционной системы и\n"
+"                    уровня приложений, это потребует много трафика и "
+"места для хранения."
 
 #: static/build.html:264
 msgid ""
 "You likely want to use the most recent stable tag, not the development "
 "branch, even\n"
-"                    for developing a feature. It's easier to port between "
-"stable tags that are known to\n"
+"                    for developing a feature. It's easier to port between"
+" stable tags that are known to\n"
 "                    work properly than dealing with a moving target."
-msgstr "Вероятно, вы захотите использовать последний стабильный тег, а не ветку разработки,\n"
-"                    даже для разработки функции. Легче переносить между стабильными тегами, которые\n"
-"                    известны как работающие правильно, чем иметь дело с движущейся целью."
+msgstr ""
+"Вероятно, вы захотите использовать последний стабильный тег, а не ветку "
+"разработки,\n"
+"                    даже для разработки функции. Легче переносить между "
+"стабильными тегами, которые\n"
+"                    известны как работающие правильно, чем иметь дело с "
+"движущейся целью."
 
 #: static/articles/attestation-compatibility-guide.html:119
 #: static/articles/server-traffic-shaping.html:68
@@ -790,7 +801,9 @@ msgid ""
 "The build has to be done from bash or zsh as envsetup.sh is not "
 "compatible with other\n"
 "                    shells."
-msgstr "Сборка должна выполняться из bash или zsh, так как envsetup.sh несовместим с другими\n"
+msgstr ""
+"Сборка должна выполняться из bash или zsh, так как envsetup.sh "
+"несовместим с другими\n"
 "                    оболочками."
 
 #: static/build.html:323
@@ -802,7 +815,9 @@ msgid ""
 "This section is specific to Pixel devices. The emulator and generic "
 "targets don't\n"
 "                    require extra vendor files."
-msgstr "Этот раздел относится к устройствам Pixel. Эмулятор и универсальные цели не\n"
+msgstr ""
+"Этот раздел относится к устройствам Pixel. Эмулятор и универсальные цели "
+"не\n"
 "                    требуют дополнительных файлов поставщика."
 
 #: static/build.html:330
@@ -967,18 +982,22 @@ msgstr ""
 
 #: static/build.html:371
 msgid ""
-"The signing process for release builds is done after completing builds and "
-"replaces\n"
-"                    the dm-verity trees, apk signatures, etc. and can only "
-"be reproduced with access to\n"
+"The signing process for release builds is done after completing builds "
+"and replaces\n"
+"                    the dm-verity trees, apk signatures, etc. and can "
+"only be reproduced with access to\n"
 "                    the same private keys. If you want to compare to "
 "production builds signed with\n"
-"                    different keys you need to stick to comparing everything "
-"other than the\n"
+"                    different keys you need to stick to comparing "
+"everything other than the\n"
 "                    signatures."
-msgstr "Процесс подписи релизных сборок выполняется после завершения сборок и заменяет\n"
-"                    деревья dm-verity, подписи apk и т.д., и может быть воспроизведён только с доступом к\n"
-"                    тем же закрытым ключам. Если вы хотите сравнить с production-сборками, подписанными\n"
+msgstr ""
+"Процесс подписи релизных сборок выполняется после завершения сборок и "
+"заменяет\n"
+"                    деревья dm-verity, подписи apk и т.д., и может быть "
+"воспроизведён только с доступом к\n"
+"                    тем же закрытым ключам. Если вы хотите сравнить с "
+"production-сборками, подписанными\n"
 "                    другими ключами, нужно сравнивать всё, кроме подписей."
 
 #: static/build.html:376
@@ -999,8 +1018,10 @@ msgid ""
 "                    to the internet, or you will be performing a denial "
 "of service attack on our official\n"
 "                    update server."
-msgstr " отключите приложение Updater перед подключением устройства\n"
-"                    к интернету, иначе вы совершите атаку отказ в обслуживании на наш официальный\n"
+msgstr ""
+" отключите приложение Updater перед подключением устройства\n"
+"                    к интернету, иначе вы совершите атаку отказ в "
+"обслуживании на наш официальный\n"
 "                    сервер обновлений."
 
 #: static/build.html:384
@@ -1014,10 +1035,15 @@ msgid ""
 "                    the remnants of any past builds before starting, "
 "particularly if there were\n"
 "                    non-trivial changes:"
-msgstr "Инкрементные сборки (т.е. начинающиеся со старой сборки) обычно работают для\n"
-"                    разработки и являются нормальным способом внесения изменений. Однако\n"
-"                    бывают случаи, когда изменения правильно не подхватываются системой сборки. Для\n"
-"                    production-сборок следует удалить остатки любых предыдущих сборок перед запуском,\n"
+msgstr ""
+"Инкрементные сборки (т.е. начинающиеся со старой сборки) обычно работают "
+"для\n"
+"                    разработки и являются нормальным способом внесения "
+"изменений. Однако\n"
+"                    бывают случаи, когда изменения правильно не "
+"подхватываются системой сборки. Для\n"
+"                    production-сборок следует удалить остатки любых "
+"предыдущих сборок перед запуском,\n"
 "                    особенно если были нетривиальные изменения:"
 
 #: static/build.html:390
@@ -1045,8 +1071,10 @@ msgid ""
 "                    Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 "
 "Pro XL and Pixel 9 Pro Fold\n"
 "                    you currently need "
-msgstr "Для Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8,\n"
-"                    Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL и Pixel 9 Pro Fold\n"
+msgstr ""
+"Для Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8,\n"
+"                    Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 "
+"Pro XL и Pixel 9 Pro Fold\n"
 "                    сейчас требуется "
 
 #: static/build.html:398 static/releases.html:5766
@@ -1091,17 +1119,24 @@ msgid ""
 "into factory images and/or an\n"
 "                    update zip via the sections below. If you have a "
 "dedicated development device with no\n"
-"                    security requirements, you can save time by using the "
-"default build target rather than\n"
-"                    target-files-package. Leave the bootloader unlocked and "
-"flashing the raw images that\n"
+"                    security requirements, you can save time by using the"
+" default build target rather than\n"
+"                    target-files-package. Leave the bootloader unlocked "
+"and flashing the raw images that\n"
 "                    are signed with the default public test keys."
-msgstr "Обычный production-процесс сборки включает создание пакета target files для\n"
-"                    переподписи с безопасными ключами релизов и последующего преобразования\n"
-"                    в factory images и/или update zip через разделы ниже. Если у вас есть\n"
-"                    выделенное устройство разработки без требований безопасности, можно сэкономить\n"
-"                    время, используя цель сборки по умолчанию вместо target-files-package.\n"
-"                    Оставьте bootloader разблокированным и прошивайте raw images, которые\n"
+msgstr ""
+"Обычный production-процесс сборки включает создание пакета target files "
+"для\n"
+"                    переподписи с безопасными ключами релизов и "
+"последующего преобразования\n"
+"                    в factory images и/или update zip через разделы ниже."
+" Если у вас есть\n"
+"                    выделенное устройство разработки без требований "
+"безопасности, можно сэкономить\n"
+"                    время, используя цель сборки по умолчанию вместо "
+"target-files-package.\n"
+"                    Оставьте bootloader разблокированным и прошивайте raw"
+" images, которые\n"
 "                    подписаны открытыми тестовыми ключами по умолчанию."
 
 #: static/build.html:413
@@ -1129,19 +1164,26 @@ msgstr ""
 
 #: static/build.html:426
 msgid ""
-"Keys need to be generated for resigning completed builds from the publicly\n"
-"                    available test keys.  The keys must then be reused for "
-"subsequent builds and cannot be\n"
-"                    changed without flashing the generated factory images "
-"again which will perform a\n"
-"                    factory reset. Note that the keys are used for a lot more "
-"than simply verifying\n"
+"Keys need to be generated for resigning completed builds from the "
+"publicly\n"
+"                    available test keys.  The keys must then be reused "
+"for subsequent builds and cannot be\n"
+"                    changed without flashing the generated factory images"
+" again which will perform a\n"
+"                    factory reset. Note that the keys are used for a lot "
+"more than simply verifying\n"
 "                    updates and verified boot."
-msgstr "Ключи должны быть сгенерированы для переподписи завершённых сборок из публично\n"
-"                    доступных тестовых ключей. Затем ключи должны повторно использоваться для\n"
-"                    последующих сборок и не могут быть изменены без повторной прошивки\n"
-"                    сгенерированных factory images, что выполнит сброс настроек. Обратите внимание,\n"
-"                    что ключи используются не только для проверки обновлений и verified boot."
+msgstr ""
+"Ключи должны быть сгенерированы для переподписи завершённых сборок из "
+"публично\n"
+"                    доступных тестовых ключей. Затем ключи должны "
+"повторно использоваться для\n"
+"                    последующих сборок и не могут быть изменены без "
+"повторной прошивки\n"
+"                    сгенерированных factory images, что выполнит сброс "
+"настроек. Обратите внимание,\n"
+"                    что ключи используются не только для проверки "
+"обновлений и verified boot."
 
 #: static/build.html:431
 msgid "The sample certificate subject ("
@@ -1155,12 +1197,15 @@ msgstr ""
 
 #: static/build.html:433
 msgid ""
-"You should set a passphrase for the signing keys to keep them at rest until "
-"you\n"
-"                    need to sign a release with them. The GrapheneOS scripts "
-"("
-msgstr "Вы должны установить парольную фразу для ключей подписи, чтобы хранить их в покое,\n"
-"                    пока не понадобится подписать релиз. Скрипты GrapheneOS ("
+"You should set a passphrase for the signing keys to keep them at rest "
+"until you\n"
+"                    need to sign a release with them. The GrapheneOS "
+"scripts ("
+msgstr ""
+"Вы должны установить парольную фразу для ключей подписи, чтобы хранить их"
+" в покое,\n"
+"                    пока не понадобится подписать релиз. Скрипты "
+"GrapheneOS ("
 
 #: static/build.html:435
 msgid ""
@@ -1188,7 +1233,9 @@ msgstr ""
 msgid ""
 "To generate keys for tegu (you should use unique keys per device\n"
 "                    variant):"
-msgstr "Для генерации ключей для tegu (следует использовать уникальные ключи для каждого\n"
+msgstr ""
+"Для генерации ключей для tegu (следует использовать уникальные ключи для "
+"каждого\n"
 "                    варианта устройства):"
 
 #: static/build.html:460
@@ -1234,18 +1281,24 @@ msgid ""
 "GrapheneOS currently doesn't use out-of-band updates to APEX\n"
 "                        components, so these are all signed with the OS "
 "releasekey and verified\n"
-"                        boot key to avoid needing many extra pairs of keys. "
-"Each APEX needs an APK\n"
-"                        signing key and verified boot signing key. If you want "
-"to ship out-of-band\n"
-"                        updates to APEX components, you'll need to deal with "
-"this and you should\n"
+"                        boot key to avoid needing many extra pairs of "
+"keys. Each APEX needs an APK\n"
+"                        signing key and verified boot signing key. If you"
+" want to ship out-of-band\n"
+"                        updates to APEX components, you'll need to deal "
+"with this and you should\n"
 "                        make a separate pair of keys for each one."
-msgstr "GrapheneOS в настоящее время не использует внеполосные обновления для компонентов APEX,\n"
-"                        поэтому все они подписаны ключом OS releasekey и verified boot, чтобы\n"
-"                        избежать необходимости во многих дополнительных парах ключей. Каждый APEX\n"
-"                        требует ключа подписи APK и ключа подписи verified boot. Если вы хотите\n"
-"                        распространять внеполосные обновления для компонентов APEX, нужно\n"
+msgstr ""
+"GrapheneOS в настоящее время не использует внеполосные обновления для "
+"компонентов APEX,\n"
+"                        поэтому все они подписаны ключом OS releasekey и "
+"verified boot, чтобы\n"
+"                        избежать необходимости во многих дополнительных "
+"парах ключей. Каждый APEX\n"
+"                        требует ключа подписи APK и ключа подписи "
+"verified boot. Если вы хотите\n"
+"                        распространять внеполосные обновления для "
+"компонентов APEX, нужно\n"
 "                        создать отдельную пару ключей для каждого."
 
 #: static/build.html:483
@@ -1260,7 +1313,9 @@ msgstr ""
 msgid ""
 "Build and package up the tools needed to generate over-the-air update "
 "packages:"
-msgstr "Соберите и упакуйте инструменты, необходимые для создания OTA-пакетов обновлений:"
+msgstr ""
+"Соберите и упакуйте инструменты, необходимые для создания OTA-пакетов "
+"обновлений:"
 
 #: static/build.html:492
 msgid "Copy build artifacts to releases directory:"
@@ -1307,7 +1362,7 @@ msgstr ""
 
 #: static/build.html:503 static/index.html:61
 msgid "install page"
-msgstr ""
+msgstr "страница установки"
 
 #: static/build.html:503
 msgid ""
@@ -1432,33 +1487,45 @@ msgstr ""
 
 #: static/build.html:552
 msgid ""
-"Like the Android Open Source Project, GrapheneOS contains some code that's "
-"built\n"
-"                separately and then bundled into the source tree as binaries. "
-"This section will be\n"
+"Like the Android Open Source Project, GrapheneOS contains some code "
+"that's built\n"
+"                separately and then bundled into the source tree as "
+"binaries. This section will be\n"
 "                gradually expanded to cover building all of it."
-msgstr "Как и Android Open Source Project, GrapheneOS содержит некоторый код, который\n"
-"                собирается отдельно, а затем добавляется в дерево исходников в виде бинарных\n"
-"                файлов. Этот раздел будет постепенно расширяться для охвата сборки всего."
+msgstr ""
+"Как и Android Open Source Project, GrapheneOS содержит некоторый код, "
+"который\n"
+"                собирается отдельно, а затем добавляется в дерево "
+"исходников в виде бинарных\n"
+"                файлов. Этот раздел будет постепенно расширяться для "
+"охвата сборки всего."
 
 #: static/build.html:557
+#, fuzzy
 msgid ""
 "The Linux kernel is built separately using an AOSP kernel build system\n"
-"                    wrapping the upstream Linux kernel build system. Since it's a "
-"separate build\n"
-"                    system from the rest of the OS, the kernels are built "
-"separately. Many of the\n"
-"                    repositories are shared with the rest of OS including the "
-"repositories\n"
-"                    providing the prebuilt toolchain for reproducible builds "
-"not depending on the\n"
+"                    wrapping the upstream Linux kernel build system. "
+"Since it's a separate build\n"
+"                    system from the rest of the OS, the kernels are built"
+" separately. Many of the\n"
+"                    repositories are shared with the rest of the OS "
+"including the repositories\n"
+"                    providing the prebuilt toolchain for reproducible "
+"builds not depending on the\n"
 "                    tools from the host OS."
-msgstr "Ядро Linux собирается отдельно с использованием системы сборки ядра AOSP,\n"
-"                    которая оборачивает upstream систему сборки ядра Linux. Поскольку это\n"
-"                    отдельная система сборки от остальной ОС, ядра собираются отдельно. Многие\n"
-"                    репозитории являются общими с остальной ОС, включая репозитории,\n"
-"                    предоставляющие предварительно собранный инструментарий для\n"
-"                    воспроизводимых сборок, не зависящий от инструментов хостовой ОС."
+msgstr ""
+"Ядро Linux собирается отдельно с использованием системы сборки ядра AOSP,"
+"\n"
+"                    которая оборачивает upstream систему сборки ядра "
+"Linux. Поскольку это\n"
+"                    отдельная система сборки от остальной ОС, ядра "
+"собираются отдельно. Многие\n"
+"                    репозитории являются общими с остальной ОС, включая "
+"репозитории,\n"
+"                    предоставляющие предварительно собранный "
+"инструментарий для\n"
+"                    воспроизводимых сборок, не зависящий от инструментов "
+"хостовой ОС."
 
 #: static/build.html:565
 msgid "The kernel branch for the emulator is currently 6.12."
@@ -1615,10 +1682,11 @@ msgstr ""
 
 #: static/build.html:646
 msgid ""
-"Vanadium is a hardened fork of Chromium developed by GrapheneOS and used to "
-"provide\n"
+"Vanadium is a hardened fork of Chromium developed by GrapheneOS and used "
+"to provide\n"
 "                    the WebView and "
-msgstr "Vanadium - это усиленная версия Chromium, разработанная GrapheneOS, для\n"
+msgstr ""
+"Vanadium - это усиленная версия Chromium, разработанная GrapheneOS, для\n"
 "                    предоставления WebView и "
 
 #: static/build.html:647
@@ -1783,16 +1851,20 @@ msgstr ""
 
 #: static/build.html:699
 msgid ""
-"The official releases of our App Store, Auditor, Camera and PdfViewer apps "
-"are\n"
-"                    bundled as apks into external/ repositories. The no-code "
-"AppCompatConfig and\n"
-"                    GmsCompatConfig apps are done the same way. These are built "
-"and signed with the\n"
+"The official releases of our App Store, Auditor, Camera and PdfViewer "
+"apps are\n"
+"                    bundled as apks into external/ repositories. The no-"
+"code AppCompatConfig and\n"
+"                    GmsCompatConfig apps are done the same way. These are"
+" built and signed with the\n"
 "                    standard "
-msgstr "Официальные релизы наших приложений App Store, Auditor, Camera и PdfViewer\n"
-"                    упакованы как apks в репозитории external/. Приложения без\n"
-"                    кода AppCompatConfig и GmsCompatConfig сделаны так же. Они собраны и подписаны\n"
+msgstr ""
+"Официальные релизы наших приложений App Store, Auditor, Camera и "
+"PdfViewer\n"
+"                    упакованы как apks в репозитории external/. "
+"Приложения без\n"
+"                    кода AppCompatConfig и GmsCompatConfig сделаны так "
+"же. Они собраны и подписаны\n"
 "                    стандартным "
 
 #: static/build.html:702
@@ -1812,14 +1884,19 @@ msgstr ""
 
 #: static/build.html:711
 msgid ""
-"GrapheneOS uses a static web server as the update server. The release signing\n"
-"                script generates the necessary metadata alongside the release "
-"files. You simply need\n"
+"GrapheneOS uses a static web server as the update server. The release "
+"signing\n"
+"                script generates the necessary metadata alongside the "
+"release files. You simply need\n"
 "                to host these files at the URL configured in\n"
 "                "
-msgstr "GrapheneOS использует статический веб-сервер как сервер обновлений. Скрипт\n"
-"                подписи релизов генерирует необходимые метаданные вместе с файлами релизов.\n"
-"                Вам просто нужно разместить эти файлы по URL, настроенному в\n"
+msgstr ""
+"GrapheneOS использует статический веб-сервер как сервер обновлений. "
+"Скрипт\n"
+"                подписи релизов генерирует необходимые метаданные вместе "
+"с файлами релизов.\n"
+"                Вам просто нужно разместить эти файлы по URL, "
+"настроенному в\n"
 "                "
 
 #: static/build.html:714
@@ -1908,13 +1985,19 @@ msgstr ""
 
 #: static/build.html:756
 msgid ""
-"It can be useful to set up a standalone installation of the SDK separate from\n"
-"                the Android Open Source Project tree. This is how the prebuilt "
-"apps are built, rather\n"
-"                than using the older branch of the SDK in the OS source tree."
-msgstr "Может быть полезно установить автономный SDK отдельно от дерева Android Open\n"
-"                Source Project. Так собираются предварительно собранные приложения, а не\n"
-"                с использованием более старшей ветки SDK в дереве исходников ОС."
+"It can be useful to set up a standalone installation of the SDK separate "
+"from\n"
+"                the Android Open Source Project tree. This is how the "
+"prebuilt apps are built, rather\n"
+"                than using the older branch of the SDK in the OS source "
+"tree."
+msgstr ""
+"Может быть полезно установить автономный SDK отдельно от дерева Android "
+"Open\n"
+"                Source Project. Так собираются предварительно собранные "
+"приложения, а не\n"
+"                с использованием более старшей ветки SDK в дереве "
+"исходников ОС."
 
 #: static/build.html:759
 msgid ""
@@ -1930,16 +2013,19 @@ msgstr ""
 
 #: static/build.html:763
 msgid ""
-"Using the official releases of the SDK is recommended for simplicity, although "
-"with\n"
-"                a lot of effort you can build everything yourself. Distribution "
-"packages are generally\n"
-"                quite out-of-date and should be avoided. To set up a minimal SDK "
-"installation at\n"
+"Using the official releases of the SDK is recommended for simplicity, "
+"although with\n"
+"                a lot of effort you can build everything yourself. "
+"Distribution packages are generally\n"
+"                quite out-of-date and should be avoided. To set up a "
+"minimal SDK installation at\n"
 "                "
-msgstr "Рекомендуется использовать официальные релизы SDK для простоты, хотя при\n"
-"                большом усилии можно собрать всё самостоятельно. Дистрибутивные пакеты, как правило,\n"
-"                довольно устарели и их следует избегать. Для настройки минимальной установки SDK в\n"
+msgstr ""
+"Рекомендуется использовать официальные релизы SDK для простоты, хотя при\n"
+"                большом усилии можно собрать всё самостоятельно. "
+"Дистрибутивные пакеты, как правило,\n"
+"                довольно устарели и их следует избегать. Для настройки "
+"минимальной установки SDK в\n"
 "                "
 
 #: static/build.html:766
@@ -1998,10 +2084,12 @@ msgstr "Вы должны обновить sdk перед использован
 
 #: static/build.html:798
 msgid ""
-"You can install Android Studio alongside the standalone SDK and it will detect "
-"it\n"
+"You can install Android Studio alongside the standalone SDK and it will "
+"detect it\n"
 "                via the "
-msgstr "Вы можете установить Android Studio вместе с автономным SDK, и он определит\n"
+msgstr ""
+"Вы можете установить Android Studio вместе с автономным SDK, и он "
+"определит\n"
 "                его через "
 
 #: static/build.html:799
@@ -2022,7 +2110,8 @@ msgstr "Вы можете запустить его с помощью "
 msgid ""
 "Obtain the latest Gradle version and binary-only zip checksum from\n"
 "                "
-msgstr "Получите последнюю версию Gradle и контрольную сумму бинарного zip из\n"
+msgstr ""
+"Получите последнюю версию Gradle и контрольную сумму бинарного zip из\n"
 "                "
 
 #: static/build.html:814
@@ -2040,11 +2129,14 @@ msgstr ""
 msgid ""
 "This section will be expanded to cover various test suites and testing "
 "procedures\n"
-"                rather than only the current very minimal coverage of the "
-"Compatibility Test Suite\n"
+"                rather than only the current very minimal coverage of the"
+" Compatibility Test Suite\n"
 "                (CTS)."
-msgstr "Этот раздел будет расширен для охвата различных тестовых наборов и процедур\n"
-"                тестирования, а не только текущего минимального покрытия Набора\n"
+msgstr ""
+"Этот раздел будет расширен для охвата различных тестовых наборов и "
+"процедур\n"
+"                тестирования, а не только текущего минимального покрытия "
+"Набора\n"
 "                тестов совместимости (CTS)."
 
 #: static/build.html:826
@@ -2065,17 +2157,22 @@ msgstr ""
 
 #: static/build.html:836
 msgid ""
-"Testing with the Compatibility Test Suite (CTS) can be done by either building "
-"the\n"
-"                        test suite from source or using the official releases."
-msgstr "Тестирование с помощью Набора тестов совместимости (CTS) можно выполнить,\n"
-"                        собрав тестовый набор из исходников или используя официальные релизы."
+"Testing with the Compatibility Test Suite (CTS) can be done by either "
+"building the\n"
+"                        test suite from source or using the official "
+"releases."
+msgstr ""
+"Тестирование с помощью Набора тестов совместимости (CTS) можно выполнить,"
+"\n"
+"                        собрав тестовый набор из исходников или используя"
+" официальные релизы."
 
 #: static/build.html:838
 msgid ""
 "Official releases of the CTS can be downloaded from\n"
 "                        "
-msgstr "Официальные релизы CTS можно скачать с\n"
+msgstr ""
+"Официальные релизы CTS можно скачать с\n"
 "                        "
 
 #: static/build.html:839
@@ -2816,7 +2913,7 @@ msgstr ""
 msgid "Contact | GrapheneOS"
 msgstr "Контакты | GrapheneOS"
 
-#: static/contact.html:38 templates/header.html:15
+#: static/contact.html:38 templates/header.html:16
 msgid "Contact"
 msgstr "Контакты"
 
@@ -3271,7 +3368,7 @@ msgstr ""
 msgid "Donate | GrapheneOS"
 msgstr "Пожертвовать | GrapheneOS"
 
-#: static/donate.html:38 templates/header.html:14
+#: static/donate.html:38 templates/header.html:15
 msgid "Donate"
 msgstr "Пожертвовать"
 
@@ -3338,9 +3435,12 @@ msgstr "Interac e-Transfer"
 
 #: static/donate.html:63
 msgid ""
-"GrapheneOS can be sponsored with recurring or one-time donations via credit\n"
+"GrapheneOS can be sponsored with recurring or one-time donations via "
+"credit\n"
 "                cards through "
-msgstr "GrapheneOS может спонсироваться регулярными или разовыми пожертвованиями через\n"
+msgstr ""
+"GrapheneOS может спонсироваться регулярными или разовыми пожертвованиями "
+"через\n"
 "                кредитные карты через "
 
 #: static/donate.html:64
@@ -3359,12 +3459,15 @@ msgstr ""
 msgid ""
 "Bitcoin can be used to make donations to the non-profit GrapheneOS\n"
 "                Foundation."
-msgstr "Bitcoin можно использовать для пожертвований некоммерческому фонду\n"
+msgstr ""
+"Bitcoin можно использовать для пожертвований некоммерческому фонду\n"
 "                GrapheneOS."
 
 #: static/donate.html:72
 msgid "You can send Bitcoin donations to the following Bech32 (Segwit) address:"
-msgstr "Вы можете отправить пожертвования в Bitcoin по следующему адресу Bech32 (Segwit):"
+msgstr ""
+"Вы можете отправить пожертвования в Bitcoin по следующему адресу Bech32 "
+"(Segwit):"
 
 #: static/donate.html:76
 msgid "bc1q9qw3g8tdxf3dugkv2z8cahd3axehph0mhsqk96"
@@ -3372,9 +3475,12 @@ msgstr ""
 
 #: static/donate.html:79
 msgid ""
-"Alternatively, you can donate to the following Bech32m (Taproot) address if\n"
+"Alternatively, you can donate to the following Bech32m (Taproot) address "
+"if\n"
 "                your wallet supports it (preferred):"
-msgstr "Альтернативно, вы можете пожертвовать на следующий адрес Bech32m (Taproot),\n"
+msgstr ""
+"Альтернативно, вы можете пожертвовать на следующий адрес Bech32m "
+"(Taproot),\n"
 "                если ваш кошелёк его поддерживает (предпочтительно):"
 
 #: static/donate.html:84
@@ -3404,7 +3510,8 @@ msgstr ""
 msgid ""
 "Monero can be used to make donations to the non-profit GrapheneOS\n"
 "                Foundation."
-msgstr "Monero можно использовать для пожертвований некоммерческому фонду\n"
+msgstr ""
+"Monero можно использовать для пожертвований некоммерческому фонду\n"
 "                GrapheneOS."
 
 #: static/donate.html:101
@@ -3419,7 +3526,8 @@ msgstr ""
 msgid ""
 "Zcash can be used to make donations to the non-profit GrapheneOS\n"
 "                Foundation."
-msgstr "Zcash можно использовать для пожертвований некоммерческому фонду\n"
+msgstr ""
+"Zcash можно использовать для пожертвований некоммерческому фонду\n"
 "                GrapheneOS."
 
 #: static/donate.html:113
@@ -3434,7 +3542,8 @@ msgstr ""
 msgid ""
 "Ethereum can be used to make donations to the non-profit GrapheneOS\n"
 "                Foundation."
-msgstr "Ethereum можно использовать для пожертвований некоммерческому фонду\n"
+msgstr ""
+"Ethereum можно использовать для пожертвований некоммерческому фонду\n"
 "                GrapheneOS."
 
 #: static/donate.html:125
@@ -3453,7 +3562,8 @@ msgstr "Мы не принимаем токены, только Ethereum."
 msgid ""
 "Cardano can be used to make donations to the non-profit GrapheneOS\n"
 "                Foundation."
-msgstr "Cardano можно использовать для пожертвований некоммерческому фонду\n"
+msgstr ""
+"Cardano можно использовать для пожертвований некоммерческому фонду\n"
 "                GrapheneOS."
 
 #: static/donate.html:138
@@ -8030,7 +8140,7 @@ msgstr ""
 
 #: static/faq.html:1627 static/install/index.html:41
 msgid "WebUSB-based installer"
-msgstr ""
+msgstr "WebUSB-based установщик"
 
 #: static/faq.html:1627
 msgid ""
@@ -8622,7 +8732,7 @@ msgstr ""
 
 #: static/features.html:71 static/features.html:147 static/index.html:41
 #: static/install/web.html:112 static/source.html:49 static/source.html:57
-#: templates/footer.html:2 templates/header.html:4
+#: templates/footer.html:2 templates/header.html:5
 msgid "GrapheneOS"
 msgstr ""
 
@@ -11100,7 +11210,7 @@ msgstr ""
 
 #: static/features.html:1062 static/index.html:57
 msgid "About"
-msgstr ""
+msgstr "Информация"
 
 #: static/features.html:1063
 msgid "Tutorial"
@@ -12072,6 +12182,8 @@ msgid ""
 "GrapheneOS is a security and privacy focused mobile OS with Android app "
 "compatibility."
 msgstr ""
+"GrapheneOS - это мобильная ОС, ориентированная на безопасность и "
+"конфиденциальность, совместимая с приложениями для Androi"
 
 #: static/index.html:20
 msgid "GrapheneOS logo"
@@ -12082,24 +12194,29 @@ msgid ""
 "The private and secure mobile operating system with Android app "
 "compatibility. Developed as a non-profit open source project."
 msgstr ""
+"Частная и безопасная мобильная операционная система, совместимая с "
+"приложениями для Android. Разработана как некоммерческий проект с "
+"открытым исходным кодом."
 
 #: static/index.html:43
 msgid "Install GrapheneOS"
-msgstr ""
+msgstr "Установить GrapheneOS"
 
 #: static/index.html:52
 msgid "Get to know GrapheneOS"
-msgstr ""
+msgstr "Узнать  о GrapheneOS"
 
 #: static/index.html:58
 msgid ""
 "GrapheneOS is a privacy and security focused mobile OS with Android app "
 "compatibility developed as a non-profit "
 msgstr ""
+"GrapheneOS - это мобильная ОС, ориентированная на конфиденциальность и "
+"безопасность, с совместимостью с приложениями для Androi"
 
 #: static/index.html:58 static/source.html:39
 msgid "open source"
-msgstr ""
+msgstr "c открытым исходным кодом"
 
 #: static/index.html:58
 msgid ""
@@ -12108,10 +12225,14 @@ msgid ""
 "exploit mitigations and the permission model. It was founded in 2014 and "
 "was "
 msgstr ""
+" проект. Он сосредоточен на исследованиях и разработках в области "
+"конфиденциальности и технологии безопасности, включая существенные "
+"улучшения в \"песочнице\", средства защиты от эксплойтов и модель "
+"разрешений. Он был основан в 2014 году и был "
 
 #: static/index.html:58
 msgid "formerly known as CopperheadOS"
-msgstr ""
+msgstr "ранее известный как Копперхедос"
 
 #: static/index.html:59
 msgid ""
@@ -12130,6 +12251,22 @@ msgid ""
 "with more complex user-facing privacy and security features with their "
 "own UX."
 msgstr ""
+"GrapheneOS улучшает конфиденциальность и безопасность операционной "
+"системы с самого начал. В ней используются технологии для устранения "
+"целых классов уязвимостей и значительно усложняют использование наиболее "
+"распространенных источников уязвимостей . Это повышает безопасность как "
+"операционной системы, так и  приложений, запущенных на ней. Изолированная"
+" среда приложений и другие границы безопасности  укреплены. GrapheneOS "
+"старается не влиять на работу пользователей с помощью функций "
+"конфиденциальности и безопасности. В идеале функции могут "
+"бытспроектированы таким образом, чтобы они всегда были включены без "
+"какого-либо влияния на пользователя \"опыт и отсутствие дополнительных "
+"сложностей, таких как параметры конфигурации. Это не всегда выполнимо, и "
+"GrapheneOS действительно добавляет различные переключатели для функций\" "
+"например, разрешение на подключение к сети, разрешение на использование "
+"датчиков, ограничения прболее сложные функции конфиденциальности и "
+"безопасности, ориентированные на пользователя, с их собственным "
+"интерфейсом."
 
 #: static/index.html:60
 msgid ""
@@ -12137,24 +12274,29 @@ msgid ""
 "improvements added by GrapheneOS to the Android Open Source Project "
 "(AOSP). Many of our past features were "
 msgstr ""
+" содержит обзор существенных улучшений в области конфиденциальности и "
+"безопасности GrapheneOS добавила улучшения в проект Android с открытым "
+"исходным кодом (AOSP). Многие из наших предыдущих функций были "
 
 #: static/index.html:60
 msgid ""
 "contributed to AOSP, Linux and other projects to improve privacy and "
 "security for billions of users"
 msgstr ""
+"внес вклад в AOSP, Linux и другие проекты по улучшению конфиденциальности"
+" и безопасность для миллиардов пользователей"
 
 #: static/index.html:60
 msgid " so they're no longer listed on our features page."
-msgstr ""
+msgstr "поэтому их больше нет в списке на нашей странице функций\""
 
 #: static/index.html:61
 msgid "Official releases are available on the "
-msgstr ""
+msgstr "Официальные релизы доступны на сайте "
 
 #: static/index.html:61
 msgid " and installation instructions are on the "
-msgstr ""
+msgstr " а инструкции по установке находятся на "
 
 #: static/index.html:62
 msgid ""
@@ -12167,6 +12309,12 @@ msgid ""
 "externally developed Seedvault encrypted backup which was initially "
 "developed for inclusion in GrapheneOS."
 msgstr ""
+"GrapheneOS также разрабатывает различные приложения и сервисы, "
+"уделябраузер и WebView созданы специально для GrapheneOS. GrapheneOS "
+"также включает в себя наш минимально ориентированный на безопасность "
+"просмотрщик PDF-файлов, наш аппаратный разработанная извне зашифрованная "
+"резервная копия Seedvault, которая изначально была разработан для "
+"включения в GrapheneOS."
 
 #: static/index.html:65
 msgid "No Google apps or services"
@@ -12182,25 +12330,27 @@ msgstr ""
 
 #: static/index.html:66
 msgid "sandboxed Google Play compatibility layer"
-msgstr ""
+msgstr "изолированный уровень совместимости с Google Play"
 
 #: static/index.html:66
 msgid ". See "
-msgstr ""
+msgstr ". См. "
 
 #: static/index.html:66
 msgid "the FAQ section"
-msgstr ""
+msgstr "раздел часто задаваемых вопросов"
 
 #: static/index.html:66
 msgid ""
 " for more details on our plans for filling in the gaps from not shipping "
 "Play services and Google apps."
 msgstr ""
+" для получения более подробной информации о наших планах по заполнению "
+"пробелов, связанных с отказом от доставки Play services и Google Apps\""
 
 #: static/index.html:70
 msgid "the FAQ section on device support"
-msgstr ""
+msgstr "раздел часто задаваемых вопросов в поддерживаемых устройствах"
 
 #: static/pdfviewer-privacy-policy.html:6
 msgid "PDF Viewer privacy policy | GrapheneOS"
@@ -12230,9 +12380,9 @@ msgid "Releases | GrapheneOS"
 msgstr ""
 
 #: static/history/index.html:82 static/releases.html:41
-#: templates/header.html:10
+#: templates/header.html:11
 msgid "Releases"
-msgstr ""
+msgstr "Релизы"
 
 #: static/releases.html:45 static/releases.html:499
 msgid "About the releases"
@@ -48146,9 +48296,9 @@ msgstr ""
 msgid "Articles | GrapheneOS"
 msgstr ""
 
-#: static/articles/index.html:38 templates/header.html:13
+#: static/articles/index.html:38 templates/header.html:14
 msgid "Articles"
-msgstr ""
+msgstr "Статьи"
 
 #: static/articles/index.html:39
 msgid "The main documentation for GrapheneOS is at the top-level of the site:"
@@ -48161,9 +48311,9 @@ msgid ""
 msgstr ""
 
 #: static/articles/index.html:42 static/install/index.html:39
-#: templates/header.html:6
+#: templates/header.html:7
 msgid "Install"
-msgstr ""
+msgstr "Установка"
 
 #: static/articles/index.html:42
 msgid " — Installation instructions for GrapheneOS."
@@ -48194,9 +48344,9 @@ msgid " — Documenting all source code repositories for GrapheneOS."
 msgstr ""
 
 #: static/articles/index.html:48 static/history/index.html:38
-#: templates/header.html:12
+#: templates/header.html:13
 msgid "History"
-msgstr ""
+msgstr "История"
 
 #: static/articles/index.html:48
 msgid " — History of the GrapheneOS project."
@@ -56151,9 +56301,9 @@ msgid "usage guide"
 msgstr ""
 
 #: static/install/cli.html:464 static/install/web.html:345
-#: templates/header.html:9
+#: templates/header.html:10
 msgid "FAQ"
-msgstr ""
+msgstr "ЧаВо"
 
 #: static/install/cli.html:464 static/install/web.html:345
 msgid ""
@@ -56496,17 +56646,22 @@ msgstr ""
 msgid "LinkedIn"
 msgstr ""
 
-#: templates/header.html:5
+#: templates/header.html:6
 msgid "Features"
-msgstr ""
+msgstr "Характеристики"
 
-#: templates/header.html:8
+#: templates/header.html:9
 msgid "Usage"
-msgstr ""
+msgstr "Использование"
 
-#: templates/header.html:11
+#: templates/header.html:12
 msgid "Source"
-msgstr ""
+msgstr "Источник"
+
+#: templates/header.html:20
+#, fuzzy
+msgid "Change language"
+msgstr "Языки программирования"
 
 #: templates/verified_boot_key_hash.html:3
 msgid ""
@@ -60412,21 +60567,19 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid ""
-#~ "GrapheneOS will never include either Google Play services or another\n"
-#~ "                    implementation of Google "
-#~ "services like microG. It's possible to"
-#~ " install Play\n"
-#~ "                    services as a set of"
-#~ " fully sandboxed apps without special "
-#~ "privileges via our\n"
-#~ "                    "
-#~ msgstr ""
-
-#~ msgid ""
 #~ " for more\n"
 #~ "                    details on our plans "
 #~ "for filling in the gaps from not"
 #~ " shipping Play services\n"
 #~ "                    and Google apps."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "GrapheneOS никогда не будет включать в"
+#~ " себя сервисы Google Play или другие"
+#~ " реализованные сервисы Google, такие как"
+#~ " microG. Можно установить Сервисы Play "
+#~ "как набор полностью изолированных приложений"
+#~ " без специальных привилегий через наш \n"
 #~ msgstr ""
 
