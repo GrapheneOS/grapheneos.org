@@ -12326,7 +12326,10 @@ msgid ""
 "implementation of Google services like microG. It's possible to install "
 "Play services as a set of fully sandboxed apps without special privileges"
 " via our "
-msgstr ""
+msgstr "GrapheneOS никогда не будет включать в себя сервисы Google Play или другие "
+       "реализованные сервисы Google, такие как microG. Можно установить "
+       "Сервисы Play как набор полностью изолированных приложений без специальных привилегий"
+       " через наш "
 
 #: static/index.html:66
 msgid "sandboxed Google Play compatibility layer"
