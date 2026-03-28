@@ -175,6 +175,18 @@ for lang in LANGUAGES:
 
         # Получаем относительный путь
         rel_path = html_file.relative_to(ROOT_DIR)
+
+        # Формируем request_path для canonical URL
+        page_path = str(rel_path)
+        if page_path.endswith('.html'):
+            page_path = page_path[:-5]  # Убираем .html
+
+        # Для index.html путь должен быть '/'
+        if page_path == 'index' or page_path == '':
+            page_path = '/'
+        else:
+            page_path = '/' + page_path
+
         output_file = lang_dir / rel_path
 
         print(f"  Processing: {rel_path} -> {output_file}")
@@ -194,7 +206,13 @@ for lang in LANGUAGES:
             template = env.get_template(str(rel_path))
 
             print(f"    Rendering template...")
-            rendered = template.render(_=_, lang=lang, local_url=lambda path: local_url(path, lang))
+            # Рендерим с добавлением request_path
+            rendered = template.render(
+                _=_,
+                lang=lang,
+                local_url=lambda path: local_url(path, lang),
+                request_path=page_path  # Добавляем текущий путь
+            )
 
             # Дополнительная обработка ссылок (для тех, что не были обработаны Jinja2)
             rendered = process_html_content(rendered, lang, env)
