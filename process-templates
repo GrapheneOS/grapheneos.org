@@ -33,15 +33,12 @@ def create_translator(lang='en'):
 
 def local_url(path, lang):
     """Генерирует URL с префиксом текущего языка."""
-    if lang == 'en':
-        return path
+    if path == '/':
+        return f'/{lang}/'
+    elif path.startswith('/'):
+        return f'/{lang}{path}'
     else:
-        if path == '/':
-            return f'/{lang}/'
-        elif path.startswith('/'):
-            return f'/{lang}{path}'
-        else:
-            return f'/{lang}/{path}'
+        return f'/{lang}/{path}'
 
 def process_html_content(content, lang, env):
     """Обрабатывает HTML контент, заменяя ссылки на локализованные."""

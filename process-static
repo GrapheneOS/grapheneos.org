@@ -2,10 +2,12 @@
 set -o errexit -o nounset -o pipefail
 shopt -s dotglob extglob globstar
 
+# Activate virtual environment if not in GitHub Actions
 if [[ ${GITHUB_ACTIONS:-false} != true ]]; then
     source venv/bin/activate
 fi
 
+# Acquire lock to prevent concurrent processing
 if [[ $# -eq 1 ]]; then
     fd=$1
 else
@@ -18,11 +20,14 @@ if ! flock -n $fd; then
     exit 1
 fi
 
+# Add node_modules binaries to PATH
 export PATH="$PWD/node_modules/.bin:$PATH"
 
+# Set releases base URL (default or from file)
 [[ -f releases-base ]] && RELEASES_BASE=$(cat releases-base)
 RELEASES_BASE=${RELEASES_BASE:-https://releases.grapheneos.org}
 
+# Prepare nginx configuration directory
 rm -rf nginx-tmp
 cp -a nginx nginx-tmp
 
@@ -31,36 +36,39 @@ cp -a nginx nginx-tmp
 # ============================================
 echo "=== Babel i18n Integration ==="
 
+# Extract strings from templates
 python3 extract-strings.py extract
+# Compile .po files to .mo
 python3 extract-strings.py compile
+# Update existing translations
 python3 extract-strings.py update
 
 echo "=== i18n preparation completed ==="
 # ============================================
 
-# Сначала копируем static в static-tmp
+# Copy static files to temporary build directory
 rm -rf static-tmp
 cp -a static static-tmp
 
-# Обрабатываем шаблоны (создает языковые папки)
+# Process templates (creates language subdirectories)
 ./process-templates static-tmp
 
 # ============================================
-# Замена build numbers в releases.html
+# Replace build numbers in releases.html
 # ============================================
 echo "=== Updating build numbers in releases.html ==="
 replace=""
 devices=(stallion rango mustang blazer frankel tegu comet komodo caiman tokay akita husky shiba felix tangorpro lynx cheetah panther bluejay raven oriole barbet redfin bramble sunfish coral flame)
 channels=(stable beta alpha)
 
-# Получаем актуальные build numbers
+# Fetch current build numbers from the update server
 for device in ${devices[@]}; do
     for channel in ${channels[@]}; do
         metadata=$(curl -s $RELEASES_BASE/$device-$channel)
         build_number=$(echo -n $metadata | cut -d ' ' -f 1)
-        # Экранируем для sed
+        # Escape special characters for sed
         build_number_escaped=$(printf '%s\n' "$build_number" | sed 's/[&/\]/\\&/g')
-        # Заменяем различные форматы шаблонов
+        # Replace various template formats
         if [ -z "$replace" ]; then
             replace="s@\[\[$device-$channel-BUILD_NUMBER\]\]@$build_number_escaped@g"
             replace="$replace;s@\[\[$device-$channel-build_number\]\]@$build_number_escaped@g"
@@ -73,7 +81,7 @@ for device in ${devices[@]}; do
     done
 done
 
-# Применяем ко всем языковым папкам
+# Apply replacements to all language versions of releases.html
 for lang_dir in static-tmp/*/; do
     if [ -f "${lang_dir}releases.html" ]; then
         echo "  Updating ${lang_dir}releases.html"
@@ -82,27 +90,27 @@ for lang_dir in static-tmp/*/; do
 done
 echo "=== Build numbers updated ==="
 
-# Также обновляем device.html шаблон, если он есть
+# Also update device.html template if present
 if [ -f "static-tmp/device.html" ]; then
     echo "  Updating device.html template"
     sed -i "$replace" "static-tmp/device.html"
 fi
 
-# Удаляем исходные HTML файлы из корня static-tmp
+# Remove original HTML files from root (keep only language subdirectories)
 find static-tmp -maxdepth 1 -name "*.html" ! -name "404.html" -delete
 
 # ============================================
-# Дополнительная обработка ссылок в HTML
+# Additional HTML link processing
 # ============================================
 echo "=== Fixing download links in HTML ==="
 for lang_dir in static-tmp/*/; do
-    # Исправляем ссылки на скачивание, которые могут содержать необработанные шаблоны
+    # Fix download links that may contain unprocessed templates
     find "${lang_dir}" -name "*.html" -type f -exec sed -i 's/\[\[\([a-z]*-[a-z]*-BUILD_NUMBER\)\]\]/\1/g' {} \;
     find "${lang_dir}" -name "*.html" -type f -exec sed -i 's/{{\([a-z]*-[a-z]*-BUILD_NUMBER\)}}/\1/g' {} \;
 done
 
 # ============================================
-# Обработка JSON и webmanifest
+# JSON and webmanifest processing
 # ============================================
 echo "=== Processing JSON files ==="
 for file in static-tmp/**/*.@(json|webmanifest); do
@@ -111,32 +119,34 @@ for file in static-tmp/**/*.@(json|webmanifest); do
 done
 
 # ============================================
-# CSS обработка
+# CSS processing
 # ============================================
 echo "=== Processing CSS files ==="
 stylelint static-tmp/**/*.css 2>/dev/null || true
 find static-tmp -name '*.css' -exec csso {} -o {} \; 2>/dev/null || true
 
 # ============================================
-# JS обработка
+# JavaScript processing
 # ============================================
 echo "=== Processing JS files ==="
 eslint static-tmp/**/!(fastboot.min.m|z-worker-pako.|pako_inflate.min.|)js 2>/dev/null || true
 find static-tmp -name '*.js' -exec terser --ecma 2022 --module -cmo {} {} \; 2>/dev/null || true
 
 # ============================================
-# Замена путей с хэшами
+# Asset path hashing
 # ============================================
 echo "=== Processing assets with hashes ==="
 replace=""
 for file in static-tmp/**/*.css static-tmp/js/*.js static-tmp/**/!(bimi|favicon).svg; do
-    # Проверяем существование файла
+    # Check if file exists
     [ -f "$file" ] || continue
 
+    # Generate hash and SRI integrity value
     hash=$(sha256sum "$file" | head -c 8)
     sri_hash=sha256-$(openssl dgst -sha256 -binary "$file" | openssl base64 -A)
     dest="$(dirname $file)/$hash.$(basename $file)"
 
+    # Create replacement pattern based on file type
     if [[ $file == *.css ]]; then
         if [ -z "$replace" ]; then
             replace="s@\[\[css|/${file#*/}\]\]@<link rel=\"stylesheet\" href=\"/${dest#*/}\" integrity=\"$sri_hash\"/>@g"
@@ -151,8 +161,10 @@ for file in static-tmp/**/*.css static-tmp/js/*.js static-tmp/**/!(bimi|favicon)
         fi
     fi
 
+    # Rename file with hash prefix
     mv "$file" "$dest"
 
+    # Add integrity and path replacements
     if [ -z "$replace" ]; then
         replace="s@\[\[integrity|/${file#*/}\]\]@${sri_hash}@g;s@\[\[path|/${file#*/}\]\]@/${dest#*/}@g"
     else
@@ -160,40 +172,65 @@ for file in static-tmp/**/*.css static-tmp/js/*.js static-tmp/**/!(bimi|favicon)
     fi
 done
 
-# Применяем замены ко всем HTML файлам в языковых папках
+# Apply hash replacements to all HTML files in language directories
 echo "=== Applying hash replacements to HTML files ==="
 if [ -n "$replace" ]; then
-    # Ищем все HTML файлы в языковых папках
+    # Find all HTML files in language subdirectories
     find static-tmp -name "*.html" -type f -exec sed -i "$replace" {} \;
-    # Также обновляем nginx конфиги
+    # Also update nginx configurations
     sed -i "$replace" nginx-tmp/nginx.conf nginx-tmp/preload.conf 2>/dev/null || true
 fi
 
+
+echo "=== Cleaning up static-tmp root ==="
+
+# List of language directories to keep
+LANG_DIRS="en ru de fr es"
+
+# Remove all files from root
+find static-tmp -maxdepth 1 -type f -delete
+
+# Remove all directories from root except language directories
+for dir in static-tmp/*/; do
+    dirname=$(basename "$dir")
+    # Check if this is NOT a language directory
+    if [[ ! " $LANG_DIRS " =~ " $dirname " ]]; then
+        echo "  Removing non-language directory: $dir"
+        rm -rf "$dir"
+    fi
+done
+
+echo "=== Cleanup completed ==="
+
 # ============================================
-# Проверки
+# Validations
 # ============================================
 echo "=== Running validations ==="
 gixy --skips hash_without_default,hsts_header,low_keepalive_requests,weak_ssl_tls nginx-tmp/nginx.conf 2>/dev/null || true
 
-# Пропускаем xmllint если нет файлов
+# Validate XML files if any exist
 if ls static-tmp/**/*.@(html|svg|xml) 2>/dev/null; then
     xmllint --noout static-tmp/**/*.@(html|svg|xml) 2>/dev/null || true
 fi
 
-# Проверяем наличие HTML файлов перед vnu
+# Validate HTML files with vnu
 if ls static-tmp/**/*.html 2>/dev/null; then
     java -jar node_modules/vnu-jar/build/dist/vnu.jar --errors-only static-tmp/**/*.html 2>/dev/null || true
 fi
 
+# Validate CSS files
 if ls static-tmp/**/*.css 2>/dev/null; then
     java -jar node_modules/vnu-jar/build/dist/vnu.jar --Werror --css static-tmp/**/*.css 2>/dev/null || true
 fi
 
+# Validate SVG files (excluding bimi.svg)
 if ls static-tmp/**/!(bimi).svg 2>/dev/null; then
     java -jar node_modules/vnu-jar/build/dist/vnu.jar --Werror --svg static-tmp/**/!(bimi).svg 2>/dev/null || true
 fi
 
-# Минификация HTML
+# ============================================
+# HTML minification
+# ============================================
 echo "=== Minifying HTML ==="
 find static-tmp -name '*.html' -type f -exec html-minifier-terser --collapse-whitespace \
     --process-scripts "application/ld+json" --collapse-boolean-attributes \
@@ -202,17 +239,20 @@ find static-tmp -name '*.html' -type f -exec html-minifier-terser --collapse-whi
     --remove-style-link-type-attributes --sort-attributes --sort-class-name {} -o {} \; 2>/dev/null || true
 
 # ============================================
-# Финал
+# Final steps
 # ============================================
-echo "=== Generating feed ==="
+echo "=== Generating Atom feeds ==="
 ./generate-feed
 
+# Reformat XML files (atom, sitemap, etc.)
 for file in static-tmp/**/*.@(atom|xml); do
     [ -f "$file" ] && xmllint --noblanks "$file" --output "$file" 2>/dev/null || true
 done
 
+# Copy indexnow key to static-tmp if it exists
 [[ -f indexnow-key.txt ]] && index_now_key="$(cat indexnow-key.txt)" && echo "$index_now_key" > "static-tmp/$index_now_key.txt"
 
+# Create compressed versions (brotli and zopfli)
 echo "=== Creating compressed versions ==="
 find static-tmp -regex '.+\.\(atom\|css\|html\|ico\|js\|json\|mjs\|pdf\|svg\|txt\|webmanifest\|xml\)' |
     parallel -q ::: brotli zopfli :::: - 2>/dev/null || true

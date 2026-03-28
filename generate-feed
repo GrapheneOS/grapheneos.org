@@ -7,58 +7,56 @@ from pathlib import Path
 import lxml.html
 from lxml import etree
 
-# Find releases.html in language subdirectories
-# Ищем releases.html в языковых подпапках
-releases_file = None
-lang_dirs = Path("static-tmp").glob("*/")
-for lang_dir in lang_dirs:
-    test_file = lang_dir / "releases.html"
-    if test_file.exists():
-        releases_file = str(test_file)
-        break
+# Supported languages
+LANGUAGES = ['en', 'de', 'fr', 'es', 'ru']
 
-# Fallback to root if language directories don't exist
-# Если языковых папок нет, пробуем найти в корне
-if not releases_file:
-    if os.path.exists("static-tmp/releases.html"):
-        releases_file = "static-tmp/releases.html"
-    else:
-        raise FileNotFoundError("releases.html not found in static-tmp/*/ or static-tmp/")
+print("=== Generating Atom feeds for each language ===")
 
-print(f"Using releases file: {releases_file}")
+for lang in LANGUAGES:
+    # Look for releases.html in language subdirectory
+    lang_dir = Path(f"static-tmp/{lang}")
+    releases_file = lang_dir / "releases.html"
 
-# Parse the HTML and extract changelog articles
-# Парсим HTML и извлекаем статьи changelog
-document = lxml.html.parse(releases_file).getroot()
-releases = document.body.cssselect("#changelog article")
+    if not releases_file.exists():
+        print(f"  Warning: {releases_file} not found, skipping {lang}")
+        continue
 
-updated = None
-entries = []
+    print(f"  Processing {lang} from {releases_file}")
 
-# Process first 20 releases (most recent)
-# Обрабатываем первые 20 релизов (самые новые)
-for release in releases[:20]:
-    title = release.attrib["id"]
     try:
-        # Try YYYYMMDDHH format first
-        # Сначала пробуем формат YYYYMMDDHH
-        time = datetime.strptime(title, "%Y%m%d%H").isoformat() + "Z"
-    except ValueError:
-        # Fallback to YYYY.MM.DD.HH format
-        # Если не получилось, пробуем формат YYYY.MM.DD.HH
-        time = datetime.strptime(title, "%Y.%m.%d.%H").isoformat() + "Z"
+        # Parse the HTML and extract changelog articles
+        document = lxml.html.parse(str(releases_file)).getroot()
+        releases = document.body.cssselect("#changelog article")
 
-    if updated is None:
-        updated = time
+        updated = None
+        entries = []
 
-    # Extract content excluding the heading
-    # Извлекаем контент, исключая заголовок
-    content = [etree.tostring(e).decode() for e in release.getchildren()[1:]]
+        # Process first 20 releases (most recent)
+        for release in releases[:20]:
+            title = release.attrib["id"]
 
-    entries.append(f"""
+            # Parse date from release ID
+            try:
+                # Try YYYYMMDDHH format first
+                time = datetime.strptime(title, "%Y%m%d%H").isoformat() + "Z"
+            except ValueError:
+                try:
+                    # Fallback to YYYY.MM.DD.HH format
+                    time = datetime.strptime(title, "%Y.%m.%d.%H").isoformat() + "Z"
+                except ValueError:
+                    # If both fail, use current time
+                    time = datetime.now().isoformat() + "Z"
+
+            if updated is None:
+                updated = time
+
+            # Extract content excluding the heading
+            content = [etree.tostring(e).decode() for e in release.getchildren()[1:]]
+
+            entries.append(f"""
     <entry>
-        <id>https://grapheneos.org/releases#{title}</id>
-        <link href="https://grapheneos.org/releases#{title}"/>
+        <id>https://grapheneos.org/{lang}/releases#{title}</id>
+        <link href="https://grapheneos.org/{lang}/releases#{title}"/>
         <title>{title}</title>
         <updated>{time}</updated>
         <published>{time}</published>
@@ -69,16 +67,15 @@ for release in releases[:20]:
         </content>
     </entry>""")
 
-# Build the Atom feed
-# Формируем Atom feed
-feed = f"""<?xml version="1.0" encoding="utf-8"?>
+        # Build the Atom feed for this language
+        feed = f"""<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://grapheneos.org/releases#changelog</id>
-    <link href="https://grapheneos.org/releases#changelog"/>
-    <link rel="self" href="https://grapheneos.org/releases.atom"/>
+    <id>https://grapheneos.org/{lang}/releases#changelog</id>
+    <link href="https://grapheneos.org/{lang}/releases#changelog"/>
+    <link rel="self" href="https://grapheneos.org/{lang}/releases.atom"/>
     <link rel="license" href="https://grapheneos.org/LICENSE.txt"/>
     <icon>https://grapheneos.org/favicon.ico</icon>
-    <title>GrapheneOS changelog</title>
+    <title>GrapheneOS changelog ({lang.upper()})</title>
     <updated>{updated}</updated>
     <author>
         <name>GrapheneOS</name>
@@ -88,9 +85,14 @@ feed = f"""<?xml version="1.0" encoding="utf-8"?>
 </feed>
 """
 
-# Save feed to root static-tmp (shared across all languages)
-# Сохраняем feed в корень static-tmp (общий для всех языков)
-with open("static-tmp/releases.atom", "w") as f:
-    f.write(feed)
+        # Save feed to language subdirectory
+        output_file = lang_dir / "releases.atom"
+        with open(output_file, "w", encoding='utf-8') as f:
+            f.write(feed)
 
-print("✓ Generated releases.atom")
+        print(f"    ✓ Generated {lang}/releases.atom")
+
+    except Exception as e:
+        print(f"    ✗ Error processing {lang}: {e}")
+
+print("=== Feed generation completed ===")
