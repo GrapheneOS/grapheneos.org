@@ -1,0 +1,47 @@
+#!/bin/bash
+
+set -o errexit -o nounset -o pipefail
+shopt -s extglob
+
+echo "=== Local development deploy ==="
+
+
+echo "Generating donation QR codes..."
+./generate-donate-qr-codes
+
+# Step 1: Build the site (process-static)
+echo "Step 1: Building static files..."
+if [[ ${GITHUB_ACTIONS:-false} != true ]]; then
+    source venv/bin/activate 2>/dev/null || true
+fi
+
+./process-static
+
+# Step 2: Create static-production as symlink to static-tmp
+echo "Step 2: Creating static-production symlink..."
+rm -f static-production
+ln -s static-tmp static-production
+
+# Step 3: Generate sitemap
+echo "Step 3: Generating sitemap..."
+./generate-sitemap
+
+# Step 4: Clean up symlink
+echo "Step 4: Cleaning up..."
+rm static-production
+
+# Step 5: Optional - compress sitemap for production-like behavior
+if [ -f "static-tmp/sitemap.xml" ]; then
+    echo "Step 5: Compressing sitemap..."
+    xmllint --noblanks static-tmp/sitemap.xml --output static-tmp/sitemap.xml 2>/dev/null || true
+    if command -v brotli &> /dev/null; then
+        brotli -f static-tmp/sitemap.xml 2>/dev/null || true
+    fi
+    if command -v zopfli &> /dev/null; then
+        zopfli static-tmp/sitemap.xml 2>/dev/null || true
+    fi
+fi
+
+echo "=== Local deploy completed ==="
+echo "Static files ready in static-tmp/"
+echo "To run locally: docker build -t grapheneos-website . && docker run -d -p 80:80 --name grapheneos grapheneos-website"

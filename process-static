@@ -199,7 +199,13 @@ for dir in static-tmp/*/; do
         rm -rf "$dir"
     fi
 done
-
+echo "=== Copying QR codes to root for cache busting ==="
+for qr_file in static-tmp/*/donate-*.png; do
+    if [ -f "$qr_file" ]; then
+        cp "$qr_file" "static-tmp/$(basename "$qr_file")"
+        echo "  Copied $(basename "$qr_file") to root"
+    fi
+done
 echo "=== Cleanup completed ==="
 
 # ============================================

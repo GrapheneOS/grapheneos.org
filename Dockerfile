@@ -17,6 +17,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     zopfli \
     libxml2-utils \
     yajl-tools \
+    qrencode \
+    graphicsmagick \
     && rm -rf /var/lib/apt/lists/*
 
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
@@ -29,7 +31,7 @@ COPY . .
 
 # Удаляем \r из всех файлов
 RUN find . -type f -exec sed -i 's/\r$//' {} \; && \
-    chmod +x process-static generate-* indexnow *.sh
+    chmod +x process-static dev-deploy-static generate-* indexnow *.sh
 
 # Устанавливаем зависимости
 RUN python3 -m venv /app/venv && \
@@ -39,7 +41,7 @@ RUN python3 -m venv /app/venv && \
     npm ci
 
 # Запускаем сборку
-RUN . /app/venv/bin/activate && ./process-static
+RUN . /app/venv/bin/activate && ./dev-deploy-static
 
 FROM nginx:alpine
 COPY --from=builder /app/static-tmp /usr/share/nginx/html

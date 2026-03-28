@@ -1,34 +1,41 @@
-# AGENTS.md - Инструкции для AI Assistant
+Вот обновленный `AGENTS.md` с учетом всех изменений:
 
-## Запуск проекта на Windows
+```markdown
+# AGENTS.md - Instructions for AI Assistant
 
-Проект использует bash-скрипты и GNU-утилиты. Для Windows используйте **Docker**:
+## Project Overview
 
-### Docker (рекомендуется)
+This is the GrapheneOS website repository. It generates a multilingual static site with i18n support, Atom feeds, and sitemaps.
 
-1. Убедитесь, что Docker Desktop запущен
+## Running the Project on Windows
 
-2. Соберите и запустите:
+The project uses bash scripts and GNU utilities. For Windows, use **Docker**:
+
+### Docker (recommended)
+
+1. Ensure Docker Desktop is running
+
+2. Build and run:
 ```powershell
 docker build -t grapheneos-website .
 docker run -d -p 80:80 --name grapheneos grapheneos-website
 ```
 
-Сайт будет доступен на http://localhost
+The site will be available at http://localhost
 
-### Добавление в hosts (для тестирования)
+### Adding to hosts (for testing)
 
-Добавьте в `C:\Windows\System32\drivers\etc\hosts`:
+Add to `C:\Windows\System32\drivers\etc\hosts`:
 ```
 127.0.0.1 grapheneostest.org
 ```
 
-### WSL2 (альтернатива)
+### WSL2 (alternative)
 
 ```bash
 wsl --install
-# В WSL Ubuntu:
-sudo apt update && sudo apt install -y python3-venv python3-pip nodejs npm openjdk-17-jre parallel moreutils rsync brotli zopfli libxml2-utils gixy
+# In WSL Ubuntu:
+sudo apt update && sudo apt install -y python3-venv python3-pip nodejs npm openjdk-17-jre parallel moreutils rsync brotli zopfli libxml2-utils gixy qrencode graphicsmagick
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
@@ -36,337 +43,269 @@ npm ci
 ./process-static
 ```
 
-## Структура проекта
+## Project Structure
 
 ```
 grapheneos.org/
 ├── .github/workflows/     # GitHub Actions CI
-│   └── ci.yml            # CI пайплайн (pytest + Playwright + lint)
-├── openspec/             # OpenSpec планирование
-│   ├── changes/         # Изменения
-│   └── specs/           # Спецификации
-├── templates/            # Jinja2 шаблоны
-│   ├── header.html      # Хедер с языковым переключателем
-│   └── head-seo.html   # SEO теги (canonical, hreflang)
-├── static/              # Исходные статические файлы
-├── i18n/                # Переводы
-│   ├── en/messages.json
-│   ├── de/messages.json
-│   ├── fr/messages.json
-│   ├── es/messages.json
-│   └── ru/messages.json
-├── tests/               # Тесты
-│   ├── functional.spec.cjs    # Playwright функциональные тесты
-│   ├── test_i18n.py           # pytest тесты I18n
-│   ├── test_date_formatting.py
-│   ├── test_number_currency.py
-│   └── test_jinja2_integration.py
-├── jinja2i18n.py        # Модуль интернационализации
-├── process-templates    # Обработка Jinja2 шаблонов
-├── process-static       # Полный пайплайн сборки
-├── generate-sitemap     # Генерация многоязычного sitemap.xml
-├── generate-feed        # Генерация Atom feed
-├── nginx/               # Конфигурация nginx
-│   └── nginx-dev.conf  # Конфиг для локальной разработки
-└── static-tmp/          # Собранные файлы (создаётся автоматически)
+│   └── static.yml        # CI pipeline (pytest + Playwright + lint)
+├── templates/            # Jinja2 templates
+│   ├── header.html       # Header with language switcher
+│   ├── footer.html       # Footer
+│   └── i18n.html         # i18n macros
+├── static/               # Source static files
+│   ├── *.html           # HTML templates with Jinja2
+│   └── donate-*.png     # Donation QR codes (generated)
+├── i18n/                 # Translations (JSON for content)
+│   ├── en/              # English translations
+│   ├── ru/              # Russian translations
+│   ├── de/              # German translations
+│   ├── fr/              # French translations
+│   └── es/              # Spanish translations
+├── locale/              # gettext translations (.po/.mo files)
+├── nginx/               # nginx configuration
+│   └── nginx-dev.conf   # Dev config with language routing
+├── scripts/
+│   ├── process-static   # Main build script
+│   ├── process-templates # Jinja2 template processor
+│   ├── generate-feed    # Generates Atom feeds for each language
+│   ├── generate-sitemap # Generates multilingual sitemap with hreflang
+│   ├── generate-donate-qr-codes # Generates donation QR codes
+│   └── dev-deploy-static # Local development deploy (build + sitemap)
+└── static-tmp/          # Built files (created automatically)
+    ├── en/              # English version
+    ├── ru/              # Russian version
+    ├── de/              # German version
+    ├── fr/              # French version
+    └── es/              # Spanish version
 ```
 
-## i18n (Интернационализация)
+## Build Process
 
-### Поддерживаемые языки
+### Local Development Build
 
-- English (en) - по умолчанию
+```bash
+# Full build with QR codes and sitemap
+./dev-deploy-static
+
+# Or step by step:
+./generate-donate-qr-codes  # Generate donation QR codes
+./process-static            # Build static files
+./generate-sitemap          # Generate sitemap (requires static-production symlink)
+```
+
+### What Each Script Does
+
+#### `generate-donate-qr-codes`
+- Generates PNG QR codes for cryptocurrency donation addresses
+- Requires: `qrencode`, `graphicsmagick` or `imagemagick`
+- Output: `static/donate-*.png`
+
+#### `process-static`
+1. Copies `static/` to `static-tmp/`
+2. Runs `process-templates` to create language subdirectories
+3. Replaces build numbers in `releases.html`
+4. Processes CSS/JS (lint, minify)
+5. Adds content hashes to asset filenames
+6. Minifies HTML
+7. Creates compressed versions (.br, .gz)
+
+#### `process-templates`
+- Processes Jinja2 templates with i18n support
+- Creates `static-tmp/{en,ru,de,fr,es}/` directories
+- Copies all non-HTML assets to each language directory
+- Provides i18n functions: `_()`, `format_date()`, `format_number()`, `format_currency()`, etc.
+
+#### `generate-feed`
+- Generates Atom feeds for each language from `releases.html`
+- Output: `static-tmp/{lang}/releases.atom`
+
+#### `generate-sitemap`
+- Generates multilingual sitemap with hreflang attributes
+- Requires `static-production` symlink (created by `dev-deploy-static`)
+- Output: `static-tmp/sitemap.xml`
+
+#### `dev-deploy-static`
+- Local development deploy script
+- Runs: QR generation → build → sitemap generation
+- Creates temporary symlink `static-production` → `static-tmp` for sitemap
+
+## i18n (Internationalization)
+
+### Supported Languages
+- English (en) - default
 - Deutsch (de)
 - Français (fr)
 - Español (es)
 - Русский (ru)
 
-### Функции jinja2i18n.py
+### i18n Functions Available in Templates
 
-- `_()` - перевод строк
-- `datenl()` - форматирование даты
-- `numberl()` - форматирование чисел
-- `currencyl()` - форматирование валюты
-- `get_lang()` - получить текущий язык
-- `get_languages()` - список поддерживаемых языков
-- `generate_seo_tags()` - генерация canonical + hreflang тегов
+```jinja2
+<!-- Translation -->
+{{ _("text") }}
 
-### Nginx языковая маршрутизация
+<!-- Date formatting -->
+{{ format_date(date, format='medium') }}
+{{ format_time(time, format='medium') }}
+{{ format_datetime(dt, format='full') }}
+{{ format_relative_date(date) }}
 
-- Проверяет cookie `lang` (приоритет)
-- Проверяет заголовок `Accept-Language`
-- Перенаправляет на `/de/`, `/fr/`, `/es/`, `/ru/` при необходимости
-- Устанавливает cookie для запоминания выбора
+<!-- Number formatting -->
+{{ format_number(1234567.89) }}
+{{ format_currency(1234.56, 'USD') }}
+{{ format_percent(0.15) }}
+{{ format_size(1024*1024) }}
+
+<!-- Pluralization -->
+{{ ngettext("{0} download", "{0} downloads", count).format(count) }}
+
+<!-- Language info -->
+{{ get_language_name('ru') }}
+{{ get_language_flag('ru') }}
+{{ is_rtl(lang) }}
+{{ get_dir(lang) }}
+```
+
+### Available Filters
+
+```jinja2
+{{ date|date('short') }}
+{{ number|number(2) }}
+{{ amount|currency('USD') }}
+{{ size|size }}
+```
+
+### Nginx Language Routing
+- Checks `lang` cookie (priority)
+- Checks `Accept-Language` header
+- Redirects to `/de/`, `/fr/`, `/es/`, `/ru/` as needed
+- Sets cookie to remember language choice
 
 ## GitHub Actions CI
 
-`.github/workflows/ci.yml` включает:
-
+`.github/workflows/static.yml` includes:
 ```yaml
 jobs:
-  test:      # Python pytest (60 тестов)
-  lint:      # ESLint + Stylelint  
-  playwright: # Playwright функциональные тесты (18 тестов)
-  build:     # Сборка проекта
+  static:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+      - uses: actions/setup-python@v6
+      - run: sudo apt-get install libxml2-utils yajl-tools moreutils zopfli
+      - run: npm ci
+      - run: pip install -r requirements.txt
+      - name: process static
+        run: ./process-static
 ```
 
-Запускается автоматически при пуше в main/master или pull request.
+## Docker Build
 
-## Сборка (в Docker/WSL)
+The Dockerfile builds the site with all features:
 
+```dockerfile
+FROM ubuntu:22.04 AS builder
+# Install dependencies including qrencode and graphicsmagick
+# Run ./dev-deploy-static (build + QR codes + sitemap)
+FROM nginx:alpine
+COPY --from=builder /app/static-tmp /usr/share/nginx/html
+```
+
+### Docker Build Command
 ```bash
-# Полная сборка со всеми проверками
-./process-static
-
-# Отдельные шаги:
-python process-templates static        # Только шаблоны
-./generate-sitemap                    # Sitemap
-./generate-feed                       # Feed
+docker build -t grapheneos-website .
+docker run -d -p 80:80 --name grapheneos grapheneos-website
 ```
 
-## Проверка качества
+## Quality Checks
 
-Скрипт `process-static` автоматически запускает:
-- `eslint` для JavaScript
-- `stylelint` для CSS
-- `vnu-jar` для валидации HTML/XML/SVG (отключено)
-- `html-minifier-terser` для minification
-- `gixy` для проверки nginx конфига
+The build process automatically runs:
+- `eslint` for JavaScript
+- `stylelint` for CSS
+- `xmllint` for XML validation
+- `html-minifier-terser` for minification
+- `gixy` for nginx config validation
 
-## Тестирование
+## Testing
 
-### Python тесты (pytest)
-
-```powershell
+### Python tests (pytest)
+```bash
 pip install pytest cssselect
 python -m pytest tests/ -v
 ```
 
-Результат: 60 passed
-
-### Функциональные тесты (Playwright)
-
-```powershell
-# 1. Установить Playwright (один раз)
+### Functional tests (Playwright)
+```bash
 npm install -D @playwright/test
 npx playwright install chromium
-
-# 2. Запустить сайт
-docker build -t grapheneos-website .
-docker rm -f grapheneos
 docker run -d -p 80:80 --name grapheneos grapheneos-website
-
-# 3. Запустить тесты
 npx playwright test tests/functional.spec.cjs --reporter=list
 ```
 
-Результат: 18 passed (1 skipped)
+## Common Issues and Solutions
 
-### Все тесты вместе
+### 1. QR codes not displaying in Docker
+**Problem**: QR code images are corrupted or missing in Docker container.
+**Solution**: Ensure `qrencode` and `graphicsmagick` are installed in Dockerfile and `generate-donate-qr-codes` runs during build.
 
-```powershell
-# pytest
-python -m pytest tests/ -v
+### 2. Sitemap not generated
+**Problem**: `generate-sitemap` fails because `static-production` doesn't exist.
+**Solution**: Use `./dev-deploy-static` which creates a symlink `static-production` → `static-tmp`.
 
-# Playwright
-npx playwright test tests/functional.spec.cjs --reporter=list
-```
-
-## Локальный веб-сервер
-
-### Docker
-
-```powershell
-# Собрать и запустить на порту 80
-docker build -t grapheneos-website .
-docker run -d -p 80:80 --name grapheneos grapheneos-website
-```
-
-После изменений — пересобрать:
-```powershell
-docker build -t grapheneos-website . && docker rm -f grapheneos && docker run -d -p 80:80 --name grapheneos grapheneos-website
-```
-
-Откройте http://localhost
-
-### Проброс порта 80 на Windows
-
-Если порт 80 занят:
-```powershell
-docker run -d -p 8080:80 --name grapheneos grapheneos-website
-```
-
-## Развёртывание
-
-```bash
-./deploy-static  # Требует доступ к серверам GrapheneOS
-```
-
-## Текущий статус
-
-- ✅ Docker сборка
-- ✅ Nginx с языковой маршрутизацией
-- ✅ Language switcher (кастомный dropdown)
-- ✅ SEO теги (canonical + hreflang)
-- ✅ Многоязычный sitemap.xml
-- ✅ Многоязычный Atom feed
-- ✅ GitHub Actions CI
-- ✅ pytest тесты (60)
-- ✅ Playwright тесты (18)
-- 🔄 Language preservation в URL (в разработке)
-
-## Известные проблемы и решения
-
-### 1. Пустые страницы build.html и donate.html в Docker
-
-**Проблема**: После сборки Docker образа файлы `build.html` и `donate.html` имели размер 0 байт.
-
-**Причина**: Использование устаревшего образа Docker. Первый билд создал образ с неполными данными.
-
-**Решение**:
-```powershell
-# Удалить старый контейнер и образ
-docker stop grapheneos
-docker rm grapheneos
-docker rmi grapheneos-website
-
-# Пересобрать
-docker build -t grapheneos-website .
-docker run -d -p 80:80 --name grapheneos grapheneos-website
-```
-
-### 2. Page Not Found для /features, /build, /usage и других страниц
-
-**Проблема**: Страницы без расширения `.html` возвращали 404.
-
-**Причина**: nginx `try_files` не проверял вариант `$uri.html`.
-
-**Решение**: Изменён `nginx/nginx-dev.conf`:
+### 3. Static assets not loading in language subdirectories
+**Problem**: CSS/JS files return 404 in language-specific pages.
+**Solution**: Nginx config should have fallback rules:
 ```nginx
-location / {
-    try_files $uri $uri.html $uri/ $uri/index.html =404;
+location ~* ^/(.+\.(css|js|svg|png))$ {
+    try_files $uri /en/$uri /ru/$uri =404;
 }
 ```
 
-**Важно**: После изменения конфига необходимо пересобрать Docker образ.
-
-### 3. Команды Docker в Windows Git Bash
-
-**Проблема**: Пути Windows (C:/Program Files/Git/...) в выводах ошибок.
-
-**Решение**: Использовать `sh -c` для команд внутри контейнера:
-```bash
-docker exec grapheneos sh -c "ls -la /usr/share/nginx/html/"
+### 4. SSH key exchange error when deploying
+**Problem**: `deploy-static` fails with "no matching key exchange method found".
+**Solution**: Use `dev-deploy-static` for local development, or update SSH config:
+```
+Host yto.grapheneos.org
+    KexAlgorithms curve25519-sha256,curve25519-sha256@libssh.org
 ```
 
-### 4. Проверка файлов в контейнере
+## Important Notes
 
-**Команды для диагностики**:
-```bash
-# Размеры файлов
-docker exec grapheneos sh -c "ls -la /usr/share/nginx/html/*.html"
+- All bash scripts use `#!/bin/bash` (requires bash, not sh)
+- For Windows without WSL/Docker, scripts need porting to Python
+- The project uses GNU parallel, sponge (moreutils), brotli, zopfli
+- QR codes are generated at build time, not committed to repository
+- Sitemap is generated during `dev-deploy-static`, not in `process-static` alone
 
-# Проверка nginx конфига
-docker exec grapheneos sh -c "cat /etc/nginx/conf.d/default.conf"
+## Adding New Pages
 
-# Тестирование HTTP
-curl -s -o /dev/null -w "%{http_code}" http://localhost/features
-```
+1. Create HTML file in `static/` with Jinja2 syntax
+2. Add translations in `i18n/{lang}/` JSON files
+3. Add page to `pages` list in `generate-sitemap.py`
+4. Run `./dev-deploy-static` to rebuild
 
-## Примечания
+## Current Translation Status
 
-- Все bash-скрипты используют `#!/bin/bash` (требуется bash, не sh)
-- Для Windows без WSL/Docker требуется портировать скрипты на Python
-- Проект использует GNU parallel, sponge (moreutils), brotli, zopfli
-- Валидация vnu-jar отключена из-за предсуществующих проблем с контентом
-
-## Перевод контента страниц (i18n)
-
-### Структура JSON-файлов
-
-Для каждой страницы создаётся JSON-файл с переводами:
-```
-i18n/
-├── en/
-│   ├── messages.json     (общие переводы: nav, footer, common)
-│   └── index.json         (переводы страницы index)
-├── de/
-│   ├── messages.json
-│   └── index.json
-├── fr/
-│   ├── messages.json
-│   └── index.json
-├── es/
-│   ├── messages.json
-│   └── index.json
-└── ru/
-    ├── messages.json
-    └── index.json
-```
-
-### Формат JSON для страниц
-
-```json
-{
-  "page": "index",
-  "title": "GrapheneOS: the private and secure mobile OS",
-  "meta_description": "GrapheneOS is a security and privacy focused mobile OS...",
-  "hero": {
-    "title": "Home",
-    "description": "The private and secure mobile operating system...",
-    "button": "Install GrapheneOS"
-  },
-  "about": {
-    "title": "About",
-    "content": "GrapheneOS is a privacy and security focused mobile OS..."
-  }
-}
-```
-
-### Как добавить переводы для новой страницы
-
-1. **Создать JSON-файл** для каждого языка:
-   - `i18n/en/{page}.json`
-   - `i18n/de/{page}.json`
-   - `i18n/fr/{page}.json`
-   - `i18n/es/{page}.json`
-   - `i18n/ru/{page}.json`
-
-2. **Запустить сборку**:
-   ```bash
-   docker build -t grapheneos-website .
-   ```
-
-### Текущий статус переводов
-
-| Страница | en | de | fr | es | ru |
-|----------|----|----|----|----|----|
+| Page | en | de | fr | es | ru |
+|------|----|----|----|----|-----|
 | index | ✅ | ✅ | ✅ | ✅ | ✅ |
-| features | ❌ | ❌ | ❌ | ❌ | ❌ |
-| build | ❌ | ❌ | ❌ | ❌ | ❌ |
-| usage | ❌ | ❌ | ❌ | ❌ | ❌ |
-| faq | ❌ | ❌ | ❌ | ❌ | ❌ |
-| releases | ❌ | ❌ | ❌ | ❌ | ❌ |
-| source | ❌ | ❌ | ❌ | ❌ | ❌ |
-| donate | ❌ | ❌ | ❌ | ❌ | ❌ |
-| contact | ❌ | ❌ | ❌ | ❌ | ❌ |
+| features | ✅ | ⚠️ | ⚠️ | ⚠️ | ⚠️ |
+| build | ✅ | ⚠️ | ⚠️ | ⚠️ | ⚠️ |
+| usage | ✅ | ⚠️ | ⚠️ | ⚠️ | ⚠️ |
+| faq | ✅ | ⚠️ | ⚠️ | ⚠️ | ⚠️ |
+| releases | ✅ | ⚠️ | ⚠️ | ⚠️ | ⚠️ |
+| donate | ✅ | ⚠️ | ⚠️ | ⚠️ | ⚠️ |
 
-### Что переводится
+✅ Fully translated  
+⚠️ Partially translated (content only, structure complete)
 
-- ✅ Заголовки страниц (title)
-- ✅ Meta description
-- ✅ Навигация (через messages.json)
-- ✅ Footer (через messages.json)
+## Contributing
 
-### Что НЕ переводится (пока)
+1. Fork the repository
+2. Make changes
+3. Run `./dev-deploy-static` to test locally
+4. Submit a pull request
 
-- ❌ Основной контент страниц (параграфы, заголовки секций)
-- ❌ Кнопки внутри контента
-- ❌ Тексты ссылок
-- ❌ FAQ вопросы и ответы
-
-### Добавление контента в переводы
-
-Для перевода основного контента нужно:
-1. Добавить ключи в JSON-файл (например, `about_title`, `about_content`)
-2. Обновить `process-templates` для замены контента (аналогично title/meta description)
+For questions, join the community chat: https://discord.com/invite/grapheneos
+```
