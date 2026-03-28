@@ -12,7 +12,7 @@ import re
 import traceback
 from pathlib import Path
 from jinja2 import FileSystemLoader, Environment, TemplateError
-
+from jinja2_i18n_extras import create_i18n_environment
 def create_translator(lang='en'):
     """Создает функцию перевода с fallback на английский."""
 
@@ -157,6 +157,17 @@ for lang in LANGUAGES:
     env.globals['_'] = _
     env.globals['lang'] = lang
     env.globals['local_url'] = lambda path: local_url(path, lang)
+
+    # Get i18n extensions for this language
+    i18n_extras = create_i18n_environment(lang)
+
+    # Add functions to globals
+    for name, func in i18n_extras['functions'].items():
+        env.globals[name] = func
+
+    # Add filters
+    for name, filter_func in i18n_extras['filters'].items():
+        env.filters[name] = filter_func
 
     # Обрабатываем каждый HTML файл
     for html_file in html_files:

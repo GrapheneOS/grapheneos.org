@@ -383,118 +383,122 @@
                     patches because it's not possible to provide full security updates for the
                     device without OEM support and they are intended to buy users some limited
                     time to migrate to a supported device.") }}</p>
-<table>
-<tr>
-<th>{{ _("Device") }}</th>
-<th>{{ _("OEM minimum support end") }}</th>
-<th>{{ _("OEM minimum support length") }}</th>
-</tr>
-<tr>
-<td>{{ _("Google Pixel 10a") }}</td>
-<td>{{ _("March 2033") }}</td>
-<td>{{ _("7 years") }}</td>
-</tr>
-<tr>
-<td>{{ _("Google Pixel 10 Pro Fold") }}</td>
-<td>{{ _("October 2032") }}</td>
-<td>{{ _("7 years") }}</td>
-</tr>
-<tr>
-<td>{{ _("Google Pixel 10 Pro XL") }}</td>
-<td>{{ _("August 2032") }}</td>
-<td>{{ _("7 years") }}</td>
-</tr>
-<tr>
-<td>{{ _("Google Pixel 10 Pro") }}</td>
-<td>{{ _("August 2032") }}</td>
-<td>{{ _("7 years") }}</td>
-</tr>
-<tr>
-<td>{{ _("Google Pixel 10") }}</td>
-<td>{{ _("August 2032") }}</td>
-<td>{{ _("7 years") }}</td>
-</tr>
-<tr>
-<td>{{ _("Google Pixel 9a") }}</td>
-<td>{{ _("April 2032") }}</td>
-<td>{{ _("7 years") }}</td>
-</tr>
-<tr>
-<td>{{ _("Google Pixel 9 Pro Fold") }}</td>
-<td>{{ _("August 2031") }}</td>
-<td>{{ _("7 years") }}</td>
-</tr>
-<tr>
-<td>{{ _("Google Pixel 9 Pro XL") }}</td>
-<td>{{ _("August 2031") }}</td>
-<td>{{ _("7 years") }}</td>
-</tr>
-<tr>
-<td>{{ _("Google Pixel 9 Pro") }}</td>
-<td>{{ _("August 2031") }}</td>
-<td>{{ _("7 years") }}</td>
-</tr>
-<tr>
-<td>{{ _("Google Pixel 9") }}</td>
-<td>{{ _("August 2031") }}</td>
-<td>{{ _("7 years") }}</td>
-</tr>
-<tr>
-<td>{{ _("Google Pixel 8a") }}</td>
-<td>{{ _("May 2031") }}</td>
-<td>{{ _("7 years") }}</td>
-</tr>
-<tr>
-<td>{{ _("Google Pixel 8 Pro") }}</td>
-<td>{{ _("October 2030") }}</td>
-<td>{{ _("7 years") }}</td>
-</tr>
-<tr>
-<td>{{ _("Google Pixel 8") }}</td>
-<td>{{ _("October 2030") }}</td>
-<td>{{ _("7 years") }}</td>
-</tr>
-<tr>
-<td>{{ _("Google Pixel Fold") }}</td>
-<td>{{ _("June 2028") }}</td>
-<td>{{ _("5 years") }}</td>
-</tr>
-<tr>
-<td>{{ _("Google Pixel Tablet") }}</td>
-<td>{{ _("June 2028") }}</td>
-<td>{{ _("5 years") }}</td>
-</tr>
-<tr>
-<td>{{ _("Google Pixel 7a") }}</td>
-<td>{{ _("May 2028") }}</td>
-<td>{{ _("5 years") }}</td>
-</tr>
-<tr>
-<td>{{ _("Google Pixel 7 Pro") }}</td>
-<td>{{ _("October 2027") }}</td>
-<td>{{ _("5 years") }}</td>
-</tr>
-<tr>
-<td>{{ _("Google Pixel 7") }}</td>
-<td>{{ _("October 2027") }}</td>
-<td>{{ _("5 years") }}</td>
-</tr>
-<tr>
-<td>{{ _("Google Pixel 6a") }}</td>
-<td>{{ _("July 2027") }}</td>
-<td>{{ _("5 years") }}</td>
-</tr>
-<tr>
-<td>{{ _("Google Pixel 6 Pro") }}</td>
-<td>{{ _("October 2026") }}</td>
-<td>{{ _("5 years") }}</td>
-</tr>
-<tr>
-<td>{{ _("Google Pixel 6") }}</td>
-<td>{{ _("October 2026") }}</td>
-<td>{{ _("5 years") }}</td>
-</tr>
-</table>
+    <table>
+        <thead>
+        <tr>
+            <th>{{ _("Device") }}</th>
+            <th>{{ _("OEM minimum support end") }}</th>
+            <th>{{ _("OEM minimum support length") }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ _("Google Pixel 10a") }}</td>
+            <td>{{ format_date("2033-03-01", "MMMM yyyy") }}</td>
+            <td>{{ ngettext("{0} year", "{0} years", 7).format(format_number(7)) }}</td>
+        </tr>
+        <tr>
+            <td>{{ _("Google Pixel 10 Pro Fold") }}</td>
+            <td>{{ format_date("2032-10-01", "MMMM yyyy") }}</td>
+            <td>{{ ngettext("{0} year", "{0} years", 7).format(format_number(7)) }}</td>
+        </tr>
+        <tr>
+            <td>{{ _("Google Pixel 10 Pro XL") }}</td>
+            <td>{{ format_date("2032-08-01", "MMMM yyyy") }}</td>
+            <td>{{ ngettext("{0} year", "{0} years", 7).format(format_number(7)) }}</td>
+        </tr>
+        <tr>
+            <td>{{ _("Google Pixel 10 Pro") }}</td>
+            <td>{{ format_date("2032-08-01", "MMMM yyyy") }}</td>
+            <td>{{ ngettext("{0} year", "{0} years", 7).format(format_number(7)) }}</td>
+        </tr>
+        <tr>
+            <td>{{ _("Google Pixel 10") }}</td>
+            <td>{{ format_date("2032-08-01", "MMMM yyyy") }}</td>
+            <td>{{ ngettext("{0} year", "{0} years", 7).format(format_number(7)) }}</td>
+        </tr>
+        <tr>
+            <td>{{ _("Google Pixel 9a") }}</td>
+            <td>{{ format_date("2032-04-01", "MMMM yyyy") }}</td>
+            <td>{{ ngettext("{0} year", "{0} years", 7).format(format_number(7)) }}</td>
+        </tr>
+        <tr>
+            <td>{{ _("Google Pixel 9 Pro Fold") }}</td>
+            <td>{{ format_date("2031-08-01", "MMMM yyyy") }}</td>
+            <td>{{ ngettext("{0} year", "{0} years", 7).format(format_number(7)) }}</td>
+        </tr>
+        <tr>
+            <td>{{ _("Google Pixel 9 Pro XL") }}</td>
+            <td>{{ format_date("2031-08-01", "MMMM yyyy") }}</td>
+            <td>{{ ngettext("{0} year", "{0} years", 7).format(format_number(7)) }}</td>
+        </tr>
+        <tr>
+            <td>{{ _("Google Pixel 9 Pro") }}</td>
+            <td>{{ format_date("2031-08-01", "MMMM yyyy") }}</td>
+            <td>{{ ngettext("{0} year", "{0} years", 7).format(format_number(7)) }}</td>
+        </tr>
+        <tr>
+            <td>{{ _("Google Pixel 9") }}</td>
+            <td>{{ format_date("2031-08-01", "MMMM yyyy") }}</td>
+            <td>{{ ngettext("{0} year", "{0} years", 7).format(format_number(7)) }}</td>
+        </tr>
+        <tr>
+            <td>{{ _("Google Pixel 8a") }}</td>
+            <td>{{ format_date("2031-05-01", "MMMM yyyy") }}</td>
+            <td>{{ ngettext("{0} year", "{0} years", 7).format(format_number(7)) }}</td>
+        </tr>
+        <tr>
+            <td>{{ _("Google Pixel 8 Pro") }}</td>
+            <td>{{ format_date("2030-10-01", "MMMM yyyy") }}</td>
+            <td>{{ ngettext("{0} year", "{0} years", 7).format(format_number(7)) }}</td>
+        </tr>
+        <tr>
+            <td>{{ _("Google Pixel 8") }}</td>
+            <td>{{ format_date("2030-10-01", "MMMM yyyy") }}</td>
+            <td>{{ ngettext("{0} year", "{0} years", 7).format(format_number(7)) }}</td>
+        </tr>
+        <tr>
+            <td>{{ _("Google Pixel Fold") }}</td>
+            <td>{{ format_date("2028-06-01", "MMMM yyyy") }}</td>
+            <td>{{ ngettext("{0} year", "{0} years", 5).format(format_number(5)) }}</td>
+        </tr>
+        <tr>
+            <td>{{ _("Google Pixel Tablet") }}</td>
+            <td>{{ format_date("2028-06-01", "MMMM yyyy") }}</td>
+            <td>{{ ngettext("{0} year", "{0} years", 5).format(format_number(5)) }}</td>
+        </tr>
+        <tr>
+            <td>{{ _("Google Pixel 7a") }}</td>
+            <td>{{ format_date("2028-05-01", "MMMM yyyy") }}</td>
+            <td>{{ ngettext("{0} year", "{0} years", 5).format(format_number(5)) }}</td>
+        </tr>
+        <tr>
+            <td>{{ _("Google Pixel 7 Pro") }}</td>
+            <td>{{ format_date("2027-10-01", "MMMM yyyy") }}</td>
+            <td>{{ ngettext("{0} year", "{0} years", 5).format(format_number(5)) }}</td>
+        </tr>
+        <tr>
+            <td>{{ _("Google Pixel 7") }}</td>
+            <td>{{ format_date("2027-10-01", "MMMM yyyy") }}</td>
+            <td>{{ ngettext("{0} year", "{0} years", 5).format(format_number(5)) }}</td>
+        </tr>
+        <tr>
+            <td>{{ _("Google Pixel 6a") }}</td>
+            <td>{{ format_date("2027-07-01", "MMMM yyyy") }}</td>
+            <td>{{ ngettext("{0} year", "{0} years", 5).format(format_number(5)) }}</td>
+        </tr>
+        <tr>
+            <td>{{ _("Google Pixel 6 Pro") }}</td>
+            <td>{{ format_date("2026-10-01", "MMMM yyyy") }}</td>
+            <td>{{ ngettext("{0} year", "{0} years", 5).format(format_number(5)) }}</td>
+        </tr>
+        <tr>
+            <td>{{ _("Google Pixel 6") }}</td>
+            <td>{{ format_date("2026-10-01", "MMMM yyyy") }}</td>
+            <td>{{ ngettext("{0} year", "{0} years", 5).format(format_number(5)) }}</td>
+        </tr>
+        </tbody>
+    </table>
 </article>
 </section>
 <section id="security-and-privacy">

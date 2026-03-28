@@ -77,12 +77,9 @@
                             currentPath = '/';
                         }
 
-                        // Redirect to same page in new language
-                        if (targetLang === 'en') {
-                            window.location.href = currentPath;
-                        } else {
-                            window.location.href = `/${targetLang}${currentPath === '/' ? '' : currentPath}`;
-                        }
+
+                        window.location.href = `/${targetLang}${currentPath === '/' ? '' : currentPath}`;
+
                     }
                 });
             });
