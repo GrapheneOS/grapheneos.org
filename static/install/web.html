@@ -29,6 +29,38 @@
         <link href="/manifest.webmanifest" rel="manifest"/>
 <link href="/LICENSE.txt" rel="license"/>
 <link href="https://grapheneos.social/@GrapheneOS" rel="me"/>
+        <script id="web-install-i18n" type="application/json">
+            {
+                "networkRequestFailed": {{ _("Network request failed")|tojson }},
+                "connectingToDevice": {{ _("Connecting to device...")|tojson }},
+                "bootloaderAlreadyUnlocked": {{ _("Bootloader is already unlocked.")|tojson }},
+                "unlockingBootloader": {{ _("Unlocking bootloader...")|tojson }},
+                "bootloaderNotUnlocked": {{ _("Bootloader was not unlocked, please try again!")|tojson }},
+                "bootloaderUnlockTriggered": {{ _("Bootloader unlocking triggered successfully.")|tojson }},
+                "deviceNotSupported": {{ _("device model ({product}) is not supported by the GrapheneOS web installer")|tojson }},
+                "findingLatestRelease": {{ _("Finding latest release...")|tojson }},
+                "downloadingRelease": {{ _("Downloading {zip}...")|tojson }},
+                "downloadedRelease": {{ _("Downloaded {zip} release.")|tojson }},
+                "reconnectToContinueFlashing": {{ _("To continue flashing, reconnect the device by tapping here:")|tojson }},
+                "downloadReleaseFirst": {{ _("You need to download a release first!")|tojson }},
+                "cancellingPendingOtas": {{ _("Cancelling any pending OTAs...")|tojson }},
+                "flashingRelease": {{ _("Flashing release...")|tojson }},
+                "verifiedBootKey": {{ _("verified boot key")|tojson }},
+                "flashingStep": {{ _("{action} {item}...")|tojson }},
+                "disablingUart": {{ _("Disabling UART...")|tojson }},
+                "erasingApdp": {{ _("Erasing apdp...")|tojson }},
+                "erasingMsadp": {{ _("Erasing msadp...")|tojson }},
+                "flashedReleaseToDevice": {{ _("Flashed {zip} to device.")|tojson }},
+                "erasingKey": {{ _("Erasing key...")|tojson }},
+                "keyErased": {{ _("Key erased.")|tojson }},
+                "lockingBootloader": {{ _("Locking bootloader...")|tojson }},
+                "bootloaderNotLocked": {{ _("Bootloader was not locked, please try again!")|tojson }},
+                "bootloaderLockTriggered": {{ _("Bootloader locking triggered successfully.")|tojson }},
+                "storageQuotaExceeded": {{ _("storage quota has been exceeded, you might not have enough space on your drive, or you're using incognito mode")|tojson }},
+                "errorPrefix": {{ _("Error: {message}")|tojson }},
+                "webUsbUnavailable": {{ _("Unavailable, as your browser doesn't support WebUSB. Please read the <a href=\"#prerequisites\">prerequisites</a>.")|tojson }}
+            }
+        </script>
         [[js|/js/redirect.js]]
         <script integrity="sha256-/TM74wkIOUV1rXRSGlzJPb4ZjBA52fzUW3aSypxxtwc=" src="/js/fastboot/ffe7e270/fastboot.min.mjs" type="module"></script>
         [[js|/js/web-install.js]]
