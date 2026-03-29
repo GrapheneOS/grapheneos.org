@@ -133,59 +133,66 @@ eslint static-tmp/**/!(fastboot.min.m|z-worker-pako.|pako_inflate.min.|)js 2>/de
 find static-tmp -name '*.js' -exec terser --ecma 2022 --module -cmo {} {} \; 2>/dev/null || true
 
 # ============================================
-# Asset path hashing
+# HTML minification
 # ============================================
+echo "=== Minifying HTML ==="
+find static-tmp -name '*.html' -type f -exec html-minifier-terser --collapse-whitespace \
+    --process-scripts "application/ld+json" --collapse-boolean-attributes \
+    --remove-attribute-quotes --remove-comments --remove-empty-attributes \
+    --remove-redundant-attributes --remove-script-type-attributes \
+    --remove-style-link-type-attributes --sort-attributes --sort-class-name {} -o {} \; 2>/dev/null || true
+
+
 echo "=== Processing assets with hashes ==="
-replace=""
+replace_script=$(mktemp)  # временный файл для всех замен
+
 for file in static-tmp/**/*.css static-tmp/js/*.js static-tmp/**/!(bimi|favicon).svg; do
-    # Check if file exists
     [ -f "$file" ] || continue
 
-    # Generate hash and SRI integrity value
+    # 1. Сохраняем оригинальный путь ДО любых изменений
+    original_path="/${file#static-tmp/}"
+
+    # 2. Считаем хеши от существующего файла
     hash=$(sha256sum "$file" | head -c 8)
-    sri_hash=sha256-$(openssl dgst -sha256 -binary "$file" | openssl base64 -A)
-    dest="$(dirname $file)/$hash.$(basename $file)"
+    sri_hash="sha256-$(openssl dgst -sha256 -binary "$file" | base64 -w 0)"
 
-    # Create replacement pattern based on file type
-    if [[ $file == *.css ]]; then
-        if [ -z "$replace" ]; then
-            replace="s@\[\[css|/${file#*/}\]\]@<link rel=\"stylesheet\" href=\"/${dest#*/}\" integrity=\"$sri_hash\"/>@g"
-        else
-            replace="$replace;s@\[\[css|/${file#*/}\]\]@<link rel=\"stylesheet\" href=\"/${dest#*/}\" integrity=\"$sri_hash\"/>@g"
-        fi
-    elif [[ $file == *.js ]]; then
-        if [ -z "$replace" ]; then
-            replace="s@\[\[js|/${file#*/}\]\]@<script type=\"module\" src=\"/${dest#*/}\" integrity=\"$sri_hash\"></script>@g"
-        else
-            replace="$replace;s@\[\[js|/${file#*/}\]\]@<script type=\"module\" src=\"/${dest#*/}\" integrity=\"$sri_hash\"></script>@g"
-        fi
-    fi
+    # 3. Формируем новое имя
+    dest="$(dirname "$file")/$hash.$(basename "$file")"
+    echo "DEBUG: $file" >&2
+    echo "  hash: $hash" >&2
+    echo "  sri: $sri_hash" >&2
+    echo "  Processing: $original_path -> /${dest#static-tmp/}"
 
-    # Rename file with hash prefix
+    # 4. Переименовываем файл
     mv "$file" "$dest"
 
-    # Add integrity and path replacements
-    if [ -z "$replace" ]; then
-        replace="s@\[\[integrity|/${file#*/}\]\]@${sri_hash}@g;s@\[\[path|/${file#*/}\]\]@/${dest#*/}@g"
-    else
-        replace="$replace;s@\[\[integrity|/${file#*/}\]\]@${sri_hash}@g;s@\[\[path|/${file#*/}\]\]@/${dest#*/}@g"
+    # 5. Экранируем пути для sed
+    orig_esc=$(printf '%s\n' "$original_path" | sed 's/[.[\/*^$]/\\&/g')
+    dest_esc=$(printf '%s\n' "/${dest#static-tmp/}" | sed 's/[.[\/*^$]/\\&/g')
+    sri_esc=$(printf '%s\n' "$sri_hash" | sed 's/[&/\]/\\&/g')
+
+    # 6. Добавляем замены в скрипт
+    echo "s@\\[\\[path|${orig_esc}\\]\\]@${dest_esc}@g" >> "$replace_script"
+    echo "s@\\[\\[integrity|${orig_esc}\\]\\]@${sri_esc}@g" >> "$replace_script"
+
+    if [[ $file == *.css ]]; then
+        echo "s@\\[\\[css|${orig_esc}\\]\\]@<link rel=\"stylesheet\" href=\"${dest_esc}\" integrity=\"${sri_esc}\">@g" >> "$replace_script"
+    elif [[ $file == *.js ]]; then
+        echo "s@\\[\\[js|${orig_esc}\\]\\]@<script type=\"module\" src=\"${dest_esc}\" integrity=\"${sri_esc}\"></script>@g" >> "$replace_script"
     fi
 done
 
-# Apply hash replacements to all HTML files in language directories
-echo "=== Applying hash replacements to HTML files ==="
-if [ -n "$replace" ]; then
-    # Find all HTML files in language subdirectories
-    find static-tmp -name "*.html" -type f -exec sed -i "$replace" {} \;
-    # Also update nginx configurations
-    sed -i "$replace" nginx-tmp/nginx.conf nginx-tmp/preload.conf 2>/dev/null || true
+# 7. Применяем все замены
+if [ -s "$replace_script" ]; then
+    find static-tmp -name "*.html" -type f -exec sed -i -f "$replace_script" {} \;
+    sed -i -f "$replace_script" nginx-tmp/nginx.conf nginx-tmp/preload.conf 2>/dev/null || true
 fi
-
+rm -f "$replace_script"
 
 echo "=== Cleaning up static-tmp root ==="
 
 # List of language directories to keep
-LANG_DIRS="en ru de fr es"
+LANG_DIRS="en ru de fr es js"
 
 # Remove all files from root
 find static-tmp -maxdepth 1 -type f -delete
@@ -234,15 +241,7 @@ if ls static-tmp/**/!(bimi).svg 2>/dev/null; then
     java -jar node_modules/vnu-jar/build/dist/vnu.jar --Werror --svg static-tmp/**/!(bimi).svg 2>/dev/null || true
 fi
 
-# ============================================
-# HTML minification
-# ============================================
-echo "=== Minifying HTML ==="
-find static-tmp -name '*.html' -type f -exec html-minifier-terser --collapse-whitespace \
-    --process-scripts "application/ld+json" --collapse-boolean-attributes \
-    --remove-attribute-quotes --remove-comments --remove-empty-attributes \
-    --remove-redundant-attributes --remove-script-type-attributes \
-    --remove-style-link-type-attributes --sort-attributes --sort-class-name {} -o {} \; 2>/dev/null || true
+
 
 # ============================================
 # Final steps
