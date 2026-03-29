@@ -55127,6 +55127,34 @@ msgid "Bootloader locking triggered successfully."
 msgstr "Блокировка загрузчика успешно запущена."
 
 #: static/install/web.html:59
+msgid "No device selected."
+msgstr "Устройство не выбрано."
+
+#: static/install/web.html:60
+msgid "Access to the USB device was denied."
+msgstr "Доступ к USB-устройству был запрещён."
+
+#: static/install/web.html:61
+msgid "The USB operation was aborted."
+msgstr "Операция с USB была прервана."
+
+#: static/install/web.html:62
+msgid "The device is in an invalid state for this operation."
+msgstr "Устройство находится в неподходящем состоянии для этой операции."
+
+#: static/install/web.html:63
+msgid "A communication error occurred while talking to the device."
+msgstr "Произошла ошибка связи при взаимодействии с устройством."
+
+#: static/install/web.html:64
+msgid "This operation is not supported by your browser or device."
+msgstr "Эта операция не поддерживается вашим браузером или устройством."
+
+#: static/install/web.html:65
+msgid "This action was blocked by your browser security settings."
+msgstr "Это действие было заблокировано настройками безопасности браузера."
+
+#: static/install/web.html:66
 msgid ""
 "storage quota has been exceeded, you might not have enough space on your "
 "drive, or you're using incognito mode"
@@ -55134,12 +55162,12 @@ msgstr ""
 "Превышена квота хранилища: возможно, на диске недостаточно места или вы "
 "используете режим инкогнито"
 
-#: static/install/web.html:60
+#: static/install/web.html:67
 #, python-brace-format
 msgid "Error: {message}"
 msgstr "Ошибка: {message}"
 
-#: static/install/web.html:61
+#: static/install/web.html:68
 msgid ""
 "Unavailable, as your browser doesn't support WebUSB. Please read the <a "
 "href=\"#prerequisites\">prerequisites</a>."

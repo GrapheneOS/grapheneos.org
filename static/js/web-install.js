@@ -32,6 +32,13 @@ const DEFAULT_I18N = {
     lockingBootloader: "Locking bootloader...",
     bootloaderNotLocked: "Bootloader was not locked, please try again!",
     bootloaderLockTriggered: "Bootloader locking triggered successfully.",
+    usbDeviceNotSelected: "No device selected.",
+    usbAccessDenied: "Access to the USB device was denied.",
+    usbOperationAborted: "The USB operation was aborted.",
+    usbInvalidState: "The device is in an invalid state for this operation.",
+    usbNetworkError: "A communication error occurred while talking to the device.",
+    usbOperationNotSupported: "This operation is not supported by your browser or device.",
+    usbSecurityError: "This action was blocked by your browser security settings.",
     storageQuotaExceeded: "storage quota has been exceeded, you might not have enough space on your drive, or you're using incognito mode",
     errorPrefix: "Error: {message}",
     webUsbUnavailable: "Unavailable, as your browser doesn't support WebUSB. Please read the <a href=\"#prerequisites\">prerequisites</a>.",
@@ -61,6 +68,31 @@ function t(key, vars = {}) {
     return template.replace(/\{(\w+)\}/g, (match, name) => {
         return Object.prototype.hasOwnProperty.call(vars, name) ? vars[name] : match;
     });
+}
+
+function getLocalizedErrorMessage(error) {
+    if (error instanceof DOMException) {
+        const domExceptionMessages = {
+            AbortError: t("usbOperationAborted"),
+            InvalidStateError: t("usbInvalidState"),
+            NetworkError: t("usbNetworkError"),
+            NotAllowedError: t("usbAccessDenied"),
+            NotFoundError: t("usbDeviceNotSelected"),
+            NotSupportedError: t("usbOperationNotSupported"),
+            QuotaExceededError: t("storageQuotaExceeded"),
+            SecurityError: t("usbSecurityError"),
+        };
+
+        if (Object.prototype.hasOwnProperty.call(domExceptionMessages, error.name)) {
+            return domExceptionMessages[error.name];
+        }
+    }
+
+    if (typeof(error) === "object" && error.message != null && error.message !== "") {
+        return error.message;
+    }
+
+    return error.toString();
 }
 
 const Buttons = {
@@ -471,17 +503,7 @@ function addButtonHook(id, callback) {
                 statusCallback(finalStatus);
             }
         } catch (error) {
-            let errorMessage;
-            if (error instanceof DOMException && error.name === "QuotaExceededError") {
-                // provide a more descriptive message than "Error: QuotaExceededError"
-                errorMessage = t("storageQuotaExceeded");
-            } else if (typeof(error) === "object" && error.message != null && error.message !== "") {
-                errorMessage = error.message;
-            } else {
-                // sometimes non-error objects are thrown
-                // display its string representation instead of "Error: undefined"
-                errorMessage = error.toString();
-            }
+            let errorMessage = getLocalizedErrorMessage(error);
             statusCallback(t("errorPrefix", { message: errorMessage }));
             statusField.className = "error-text";
             await releaseWakeLock();
