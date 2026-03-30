@@ -655,7 +655,7 @@ msgstr ""
 
 #: static/build.html:240 static/index.html:61
 msgid "releases page"
-msgstr "Ver?ffentlichungsseite"
+msgstr "Veröffentlichungsseite"
 
 #: static/build.html:240
 msgid ""
@@ -2513,7 +2513,7 @@ msgstr ""
 
 #: static/faq.html:51 static/faq.html:125 static/index.html:69
 msgid "Device support"
-msgstr "Ger?teunterst?tzung"
+msgstr "Geräteunterstützung"
 
 #: static/faq.html:53 static/faq.html:127
 msgid "Which devices are supported?"
@@ -5693,7 +5693,7 @@ msgstr ""
 #: static/faq.html:1632 static/install/index.html:42
 #: static/install/web.html:73
 msgid "command-line installation guide"
-msgstr "Installationsanleitung f?r die Kommandozeile"
+msgstr "Installationsanleitung für die Kommandozeile"
 
 #: static/faq.html:1632
 msgid ""
@@ -8098,7 +8098,7 @@ msgstr ""
 
 #: static/features.html:1062 static/index.html:57
 msgid "About"
-msgstr "?ber"
+msgstr "Über"
 
 #: static/features.html:1062 static/features.html:1311
 #: static/install/cli.html:463 static/install/web.html:376
@@ -8952,7 +8952,7 @@ msgid ""
 "compatibility."
 msgstr ""
 "GrapheneOS ist ein auf Sicherheit und Datenschutz ausgerichtetes mobiles "
-"Betriebssystem mit Android-App-Kompatibilit?t."
+"Betriebssystem mit Android-App-Kompatibilität."
 
 #: static/index.html:20
 msgid "GrapheneOS logo"
@@ -8964,7 +8964,7 @@ msgid ""
 "compatibility. Developed as a non-profit open source project."
 msgstr ""
 "Das private und sichere mobile Betriebssystem mit Android-App-"
-"Kompatibilit?t. Entwickelt als gemeinn?tziges Open-Source-Projekt."
+"Kompatibilität. Entwickelt als gemeinnütziges Open-Source-Projekt."
 
 #: static/index.html:43
 msgid "Install GrapheneOS"
@@ -8980,7 +8980,7 @@ msgid ""
 "compatibility developed as a non-profit "
 msgstr ""
 "GrapheneOS ist ein auf Datenschutz und Sicherheit ausgerichtetes mobiles "
-"Betriebssystem mit Android-App-Kompatibilit?t, das als gemeinn?tziges "
+"Betriebssystem mit Android-App-Kompatibilität, das als gemeinnütziges "
 
 #: static/index.html:58 static/source.html:39
 msgid "open source"
@@ -8995,12 +8995,12 @@ msgid ""
 msgstr ""
 " Projekt entwickelt wird. Es konzentriert sich auf die Forschung und "
 "Entwicklung von Datenschutz- und Sicherheitstechnologien, darunter "
-"erhebliche Verbesserungen der Sandbox-Isolierung, Exploit-Abwehrma?nahmen "
-"und des Berechtigungsmodells. Es wurde 2014 gegr?ndet und war "
+"erhebliche Verbesserungen der Sandbox-Isolierung, Exploit-Abwehrmaßnahmen "
+"und des Berechtigungsmodells. Es wurde 2014 gegründet und war "
 
 #: static/index.html:58
 msgid "formerly known as CopperheadOS"
-msgstr "fr?her als CopperheadOS bekannt"
+msgstr "früher als CopperheadOS bekannt"
 
 #: static/index.html:59
 msgid ""
@@ -9020,19 +9020,19 @@ msgid ""
 msgstr ""
 "GrapheneOS verbessert den Datenschutz und die Sicherheit des Betriebssystems"
 " von Grund auf. Es setzt Technologien ein, um ganze Klassen von "
-"Schwachstellen abzumildern und die Ausnutzung der h?ufigsten "
+"Schwachstellen abzumildern und die Ausnutzung der häufigsten "
 "Schwachstellenquellen deutlich zu erschweren. Es verbessert die Sicherheit "
 "sowohl des Betriebssystems als auch der darauf laufenden Apps. Die App-"
-"Sandbox und andere Sicherheitsgrenzen werden verst?rkt. GrapheneOS versucht,"
+"Sandbox und andere Sicherheitsgrenzen werden verstärkt. GrapheneOS versucht,"
 " die Benutzererfahrung durch Datenschutz- und Sicherheitsfunktionen nicht "
 "negativ zu beeinflussen. Idealerweise werden Funktionen so entworfen, dass "
-"sie immer aktiviert sind, ohne die Benutzererfahrung zu beeintr?chtigen und "
-"ohne zus?tzliche Komplexit?t wie Konfigurationsoptionen. Das ist nicht immer"
-" m?glich, und GrapheneOS bietet verschiedene Schalter f?r Funktionen wie die"
-" Netzwerkberechtigung, die Sensorberechtigung, Einschr?nkungen bei "
-"gesperrtem Ger?t (USB-C und Pogo-Pins, Kamera, Schnelleinstellungen) usw. "
+"sie immer aktiviert sind, ohne die Benutzererfahrung zu beeinträchtigen und "
+"ohne zusätzliche Komplexität wie Konfigurationsoptionen. Das ist nicht immer"
+" möglich, und GrapheneOS bietet verschiedene Schalter für Funktionen wie die"
+" Netzwerkberechtigung, die Sensorberechtigung, Einschränkungen bei "
+"gesperrtem Gerät (USB-C und Pogo-Pins, Kamera, Schnelleinstellungen) usw. "
 "sowie komplexere Datenschutz- und Sicherheitsfunktionen mit eigener "
-"Benutzeroberfl?che."
+"Benutzeroberfläche."
 
 #: static/index.html:60
 msgid ""
@@ -9040,9 +9040,9 @@ msgid ""
 "added by GrapheneOS to the Android Open Source Project (AOSP). Many of our "
 "past features were "
 msgstr ""
-" bietet einen ?berblick ?ber die wesentlichen Datenschutz- und "
+" bietet einen Überblick über die wesentlichen Datenschutz- und "
 "Sicherheitsverbesserungen, die GrapheneOS dem Android Open Source Project "
-"(AOSP) hinzugef?gt hat. Viele unserer fr?heren Funktionen wurden "
+"(AOSP) hinzugefügt hat. Viele unserer früheren Funktionen wurden "
 
 #: static/index.html:60
 msgid ""
@@ -9050,19 +9050,19 @@ msgid ""
 "security for billions of users"
 msgstr ""
 "zu AOSP, Linux und anderen Projekten beigetragen, um Datenschutz und "
-"Sicherheit f?r Milliarden von Nutzern zu verbessern"
+"Sicherheit für Milliarden von Nutzern zu verbessern"
 
 #: static/index.html:60
 msgid " so they're no longer listed on our features page."
-msgstr " und sind deshalb nicht mehr auf unserer Funktionsseite aufgef?hrt."
+msgstr " und sind deshalb nicht mehr auf unserer Funktionsseite aufgeführt."
 
 #: static/index.html:61
 msgid "Official releases are available on the "
-msgstr "Offizielle Ver?ffentlichungen sind auf der "
+msgstr "Offizielle Veröffentlichungen sind auf der "
 
 #: static/index.html:61
 msgid " and installation instructions are on the "
-msgstr " verf?gbar, und Installationsanleitungen finden Sie auf der "
+msgstr " verfügbar, und Installationsanleitungen finden Sie auf der "
 
 #: static/index.html:61
 msgid "install page"
@@ -9079,14 +9079,14 @@ msgid ""
 " Seedvault encrypted backup which was initially developed for inclusion in "
 "GrapheneOS."
 msgstr ""
-"GrapheneOS entwickelt au?erdem verschiedene Apps und Dienste mit Fokus auf "
-"Datenschutz und Sicherheit. Vanadium ist eine geh?rtete Variante des "
-"Chromium-Browsers und von WebView, die speziell f?r GrapheneOS entwickelt "
-"wurde. GrapheneOS enth?lt au?erdem unseren minimalistischen "
-"sicherheitsorientierten PDF-Viewer, unsere hardwaregest?tzte Auditor-App f?r"
-" lokale und entfernte Verifikation und Attestierung von Ger?ten, unsere "
+"GrapheneOS entwickelt außerdem verschiedene Apps und Dienste mit Fokus auf "
+"Datenschutz und Sicherheit. Vanadium ist eine gehärtete Variante des "
+"Chromium-Browsers und von WebView, die speziell für GrapheneOS entwickelt "
+"wurde. GrapheneOS enthält außerdem unseren minimalistischen "
+"sicherheitsorientierten PDF-Viewer, unsere hardwaregestützte Auditor-App für"
+" lokale und entfernte Verifikation und Attestierung von Geräten, unsere "
 "moderne auf Datenschutz und Sicherheit ausgerichtete Kamera-App sowie das "
-"extern entwickelte verschl?sselte Backup Seedvault, das urspr?nglich f?r die"
+"extern entwickelte verschlüsselte Backup Seedvault, das ursprünglich für die"
 " Aufnahme in GrapheneOS entwickelt wurde."
 
 #: static/index.html:65
@@ -9101,13 +9101,13 @@ msgid ""
 "our "
 msgstr ""
 "GrapheneOS wird weder Google-Play-Dienste noch eine andere Implementierung "
-"von Google-Diensten wie microG jemals enthalten. Es ist m?glich, Play-"
-"Dienste als vollst?ndig sandboxed Apps ohne besondere Privilegien ?ber "
+"von Google-Diensten wie microG jemals enthalten. Es ist möglich, Play-"
+"Dienste als vollständig sandboxed Apps ohne besondere Privilegien über "
 "unsere "
 
 #: static/index.html:66
 msgid "sandboxed Google Play compatibility layer"
-msgstr "Sandbox-Kompatibilit?tsschicht f?r Google Play"
+msgstr "Sandbox-Kompatibilitätsschicht für Google Play"
 
 #: static/index.html:66
 msgid ". See "
@@ -9122,7 +9122,7 @@ msgid ""
 " for more details on our plans for filling in the gaps from not shipping "
 "Play services and Google apps."
 msgstr ""
-" f?r weitere Details zu unseren Pl?nen, die L?cken zu schlie?en, die dadurch"
+" für weitere Details zu unseren Plänen, die Lücken zu schließen, die dadurch"
 " entstehen, dass wir weder Play-Dienste noch Google-Apps ausliefern."
 
 #: static/index.html:70
@@ -9131,7 +9131,7 @@ msgstr "Siehe "
 
 #: static/index.html:70
 msgid "the FAQ section on device support"
-msgstr "den FAQ-Abschnitt zur Ger?teunterst?tzung"
+msgstr "den FAQ-Abschnitt zur Geräteunterstützung"
 
 #: static/pdfviewer-privacy-policy.html:6
 msgid "PDF Viewer privacy policy | GrapheneOS"
@@ -9162,7 +9162,7 @@ msgstr ""
 #: static/history/index.html:82 static/releases.html:41
 #: templates/header.html:11
 msgid "Releases"
-msgstr "Ver?ffentlichungen"
+msgstr "Veröffentlichungen"
 
 #: static/releases.html:45 static/releases.html:499
 msgid "About the releases"
@@ -50735,8 +50735,8 @@ msgid ""
 "            on."
 msgstr ""
 ". Dort sind fast\n"
-"            immer Menschen, die helfen k?nnen. Versuchen Sie zun?chst, der Anleitung selbst zu folgen,\n"
-"            und fragen Sie dann gezielt nach Hilfe bei dem, woran Sie festh?ngen."
+"            immer Menschen, die helfen können. Versuchen Sie zunächst, der Anleitung selbst zu folgen,\n"
+"            und fragen Sie dann gezielt nach Hilfe bei dem, woran Sie festhängen."
 
 #: static/install/cli.html:58 static/install/cli.html:101
 #: static/install/web.html:83 static/install/web.html:112
@@ -50777,12 +50777,12 @@ msgstr "fwupd-Probleme unter Linux-Distributionen umgehen"
 #: static/install/cli.html:70 static/install/cli.html:263
 #: static/install/web.html:87 static/install/web.html:221
 msgid "Booting into the bootloader interface"
-msgstr "In die Bootloader-Oberfl?che starten"
+msgstr "In die Bootloader-Oberfläche starten"
 
 #: static/install/cli.html:71 static/install/cli.html:277
 #: static/install/web.html:88 static/install/web.html:235
 msgid "Connecting the device"
-msgstr "Das Ger?t verbinden"
+msgstr "Das Gerät verbinden"
 
 #: static/install/cli.html:72 static/install/cli.html:298
 #: static/install/web.html:89 static/install/web.html:256
@@ -50835,7 +50835,7 @@ msgstr "Installation verifizieren"
 #: static/install/cli.html:90 static/install/web.html:101
 #: templates/verified_boot_key_hash.html:2
 msgid "Verified boot key hash"
-msgstr "Hash des Verified-Boot-Schl?ssels"
+msgstr "Hash des Verified-Boot-Schlüssels"
 
 #: static/install/cli.html:91 static/install/cli.html:435
 #: static/install/web.html:102 static/install/web.html:348
@@ -50869,15 +50869,15 @@ msgid ""
 "                on a desktop or the ports on a laptop. Many widely distributed USB cables and hubs\n"
 "                are broken and are the most common source of issues for installing GrapheneOS."
 msgstr ""
-"Sie ben?tigen ein USB-Kabel, um das Ger?t mit dem Computer zu verbinden, auf"
-" dem die Installation durchgef?hrt wird. Verwenden Sie nach M?glichkeit das "
-"hochwertige, standardkonforme USB-C-Kabel, das dem Ger?t beiliegt. Wenn Ihr "
-"Computer keine USB-C-Anschl?sse hat, ben?tigen Sie ein hochwertiges USB-C-"
-"zu-USB-A-Kabel. Vermeiden Sie m?glichst einen USB-Hub wie etwa die "
-"Frontanschl?sse eines Desktop-Geh?uses. Verbinden Sie das Ger?t direkt mit "
-"einem r?ckseitigen Anschluss am Desktop-PC oder mit den Anschl?ssen am "
+"Sie benötigen ein USB-Kabel, um das Gerät mit dem Computer zu verbinden, auf"
+" dem die Installation durchgeführt wird. Verwenden Sie nach Möglichkeit das "
+"hochwertige, standardkonforme USB-C-Kabel, das dem Gerät beiliegt. Wenn Ihr "
+"Computer keine USB-C-Anschlüsse hat, benötigen Sie ein hochwertiges USB-C-"
+"zu-USB-A-Kabel. Vermeiden Sie möglichst einen USB-Hub wie etwa die "
+"Frontanschlüsse eines Desktop-Gehäuses. Verbinden Sie das Gerät direkt mit "
+"einem rückseitigen Anschluss am Desktop-PC oder mit den Anschlüssen am "
 "Laptop. Viele weit verbreitete USB-Kabel und Hubs sind fehlerhaft und die "
-"h?ufigste Ursache f?r Probleme bei der Installation von GrapheneOS."
+"häufigste Ursache für Probleme bei der Installation von GrapheneOS."
 
 #: static/install/cli.html:112 static/install/web.html:123
 msgid ""
@@ -50887,9 +50887,9 @@ msgid ""
 "                memory and storage space."
 msgstr ""
 "Von einem Betriebssystem in einer virtuellen Maschine aus zu installieren "
-"wird nicht empfohlen. USB-Passthrough ist oft nicht zuverl?ssig. Um diese "
-"Probleme auszuschlie?en, installieren Sie von einem Betriebssystem aus, das "
-"direkt auf der Hardware l?uft. Virtuelle Maschinen sind au?erdem oft mit zu "
+"wird nicht empfohlen. USB-Passthrough ist oft nicht zuverlässig. Um diese "
+"Probleme auszuschließen, installieren Sie von einem Betriebssystem aus, das "
+"direkt auf der Hardware läuft. Virtuelle Maschinen sind außerdem oft mit zu "
 "wenig Arbeitsspeicher und Speicherplatz konfiguriert."
 
 #: static/install/cli.html:116
@@ -50942,23 +50942,23 @@ msgstr "Ubuntu 25.04"
 
 #: static/install/cli.html:129 static/install/web.html:140
 msgid "Linux Mint 21 (follow Ubuntu 22.04 LTS instructions)"
-msgstr "Linux Mint 21 (Anweisungen f?r Ubuntu 22.04 LTS befolgen)"
+msgstr "Linux Mint 21 (Anweisungen für Ubuntu 22.04 LTS befolgen)"
 
 #: static/install/cli.html:130 static/install/web.html:141
 msgid "Linux Mint 22 (follow Ubuntu 24.04 LTS instructions)"
-msgstr "Linux Mint 22 (Anweisungen f?r Ubuntu 24.04 LTS befolgen)"
+msgstr "Linux Mint 22 (Anweisungen für Ubuntu 24.04 LTS befolgen)"
 
 #: static/install/cli.html:131 static/install/web.html:142
 msgid "Linux Mint Debian Edition 6 (follow Debian 12 instructions)"
-msgstr "Linux Mint Debian Edition 6 (Anweisungen f?r Debian 12 befolgen)"
+msgstr "Linux Mint Debian Edition 6 (Anweisungen für Debian 12 befolgen)"
 
 #: static/install/cli.html:133 static/install/web.html:150
 msgid ""
 "Older end-of-life versions of these platforms can also be used but are not\n"
 "                officially supported."
 msgstr ""
-"?ltere, abgek?ndigte Versionen dieser Plattformen k?nnen ebenfalls verwendet werden, werden jedoch\n"
-"                nicht offiziell unterst?tzt."
+"Ältere, abgekündigte Versionen dieser Plattformen können ebenfalls verwendet werden, werden jedoch\n"
+"                nicht offiziell unterstützt."
 
 #: static/install/cli.html:135 static/install/web.html:152
 msgid "Make sure your operating system is up-to-date before proceeding."
@@ -50975,15 +50975,15 @@ msgstr ""
 
 #: static/install/cli.html:139 static/install/web.html:170
 msgid "You need one of the "
-msgstr "Sie ben?tigen eines der "
+msgstr "Sie benötigen eines der "
 
 #: static/install/cli.html:139 static/install/web.html:170
 msgid ""
 "officially supported\n"
 "                devices"
 msgstr ""
-"offiziell unterst?tzten\n"
-"                Ger?te"
+"offiziell unterstützten\n"
+"                Geräte"
 
 #: static/install/cli.html:140 static/install/web.html:171
 msgid ""
@@ -50997,17 +50997,17 @@ msgid ""
 "                If you CAN figure out a way to unlock a carrier device, it isn't a problem as\n"
 "                GrapheneOS can just ignore the carrier id and the hardware is the same."
 msgstr ""
-". Um sicherzustellen, dass das Ger?t zur Installation von GrapheneOS "
-"entsperrt werden kann, vermeiden Sie Provider-Varianten der Ger?te. "
+". Um sicherzustellen, dass das Gerät zur Installation von GrapheneOS "
+"entsperrt werden kann, vermeiden Sie Provider-Varianten der Geräte. "
 "Provider-Varianten von Pixels verwenden dasselbe Stock-Betriebssystem und "
 "dieselbe Firmware, haben aber ab Werk eine nicht-null Carrier-ID in die "
 "Persist-Partition geflasht. Diese Carrier-ID aktiviert providerspezifische "
-"Konfigurationen im Stock-OS, einschlie?lich der Deaktivierung der OEM- und "
-"Bootloader-Entsperrung. Der Provider k?nnte dies zwar m?glicherweise aus der"
-" Ferne aufheben, doch der Support wei? oft nichts davon und wird es "
-"wahrscheinlich nicht tun. Verwenden Sie ein providerunabh?ngiges Ger?t, um "
-"Risiken und m?glichen Aufwand zu vermeiden. Wenn Sie dennoch einen Weg "
-"finden, ein Provider-Ger?t zu entsperren, ist das kein Problem, da "
+"Konfigurationen im Stock-OS, einschließlich der Deaktivierung der OEM- und "
+"Bootloader-Entsperrung. Der Provider könnte dies zwar möglicherweise aus der"
+" Ferne aufheben, doch der Support weiß oft nichts davon und wird es "
+"wahrscheinlich nicht tun. Verwenden Sie ein providerunabhängiges Gerät, um "
+"Risiken und möglichen Aufwand zu vermeiden. Wenn Sie dennoch einen Weg "
+"finden, ein Provider-Gerät zu entsperren, ist das kein Problem, da "
 "GrapheneOS die Carrier-ID einfach ignorieren kann und die Hardware identisch"
 " ist."
 
@@ -51018,10 +51018,10 @@ msgid ""
 "                early flashing process. Either way, GrapheneOS flashes the latest firmware early\n"
 "                in the installation process."
 msgstr ""
-"Es ist empfehlenswert, das Ger?t vor der Installation von GrapheneOS zu "
-"aktualisieren, damit die neueste Firmware f?r die Verbindung mit dem "
-"Computer und f?r den fr?hen Flash-Vorgang vorhanden ist. Unabh?ngig davon "
-"flasht GrapheneOS die neueste Firmware bereits fr?h im Installationsprozess."
+"Es ist empfehlenswert, das Gerät vor der Installation von GrapheneOS zu "
+"aktualisieren, damit die neueste Firmware für die Verbindung mit dem "
+"Computer und für den frühen Flash-Vorgang vorhanden ist. Unabhängig davon "
+"flasht GrapheneOS die neueste Firmware bereits früh im Installationsprozess."
 
 #: static/install/cli.html:156 static/install/web.html:187
 msgid "OEM unlocking needs to be enabled from within the operating system."
@@ -51030,7 +51030,7 @@ msgstr ""
 
 #: static/install/cli.html:157 static/install/web.html:188
 msgid "Enable the developer options menu by going to "
-msgstr "Aktivieren Sie das Men? der Entwickleroptionen, indem Sie zu "
+msgstr "Aktivieren Sie das Menü der Entwickleroptionen, indem Sie zu "
 
 #: static/install/cli.html:157 static/install/web.html:188
 msgid "Settings &gt; About phone/tablet"
@@ -51735,126 +51735,134 @@ msgstr ""
 
 #: static/install/web.html:34
 msgid "Network request failed"
-msgstr ""
+msgstr "Netzwerkanfrage fehlgeschlagen"
 
 #: static/install/web.html:35
 msgid "Connecting to device..."
-msgstr ""
+msgstr "Verbindung zum Gerät wird hergestellt..."
 
 #: static/install/web.html:36
 msgid "Bootloader is already unlocked."
-msgstr ""
+msgstr "Der Bootloader ist bereits entsperrt."
 
 #: static/install/web.html:37
 msgid "Unlocking bootloader..."
-msgstr ""
+msgstr "Bootloader wird entsperrt..."
 
 #: static/install/web.html:38
 msgid "Bootloader was not unlocked, please try again!"
-msgstr ""
+msgstr "Der Bootloader wurde nicht entsperrt, bitte versuchen Sie es erneut!"
 
 #: static/install/web.html:39
 msgid "Bootloader unlocking triggered successfully."
-msgstr ""
+msgstr "Die Bootloader-Entsperrung wurde erfolgreich ausgelöst."
 
 #: static/install/web.html:40
 #, python-brace-format
 msgid ""
 "device model ({product}) is not supported by the GrapheneOS web installer"
 msgstr ""
+"Das Gerätemodell ({product}) wird vom GrapheneOS-Web-Installer nicht "
+"unterstützt"
 
 #: static/install/web.html:41
 msgid "Finding latest release..."
-msgstr ""
+msgstr "Neueste Veröffentlichung wird gesucht..."
 
 #: static/install/web.html:42
 #, python-brace-format
 msgid "Downloading {zip}..."
-msgstr ""
+msgstr "{zip} wird heruntergeladen..."
 
 #: static/install/web.html:43
 #, python-brace-format
 msgid "Downloaded {zip} release."
-msgstr ""
+msgstr "Veröffentlichung {zip} wurde heruntergeladen."
 
 #: static/install/web.html:44
 msgid "To continue flashing, reconnect the device by tapping here:"
 msgstr ""
+"Um mit dem Flashen fortzufahren, verbinden Sie das Gerät erneut, indem Sie "
+"hier tippen:"
 
 #: static/install/web.html:45
 msgid "You need to download a release first!"
-msgstr ""
+msgstr "Sie müssen zuerst eine Veröffentlichung herunterladen!"
 
 #: static/install/web.html:46
 msgid "Cancelling any pending OTAs..."
-msgstr ""
+msgstr "Ausstehende OTAs werden abgebrochen..."
 
 #: static/install/web.html:47
 msgid "Flashing release..."
-msgstr ""
+msgstr "Veröffentlichung wird geflasht..."
 
 #: static/install/web.html:48
 msgid "verified boot key"
-msgstr ""
+msgstr "Verified-Boot-Schlüssel"
 
 #: static/install/web.html:49
 #, python-brace-format
 msgid "{action} {item}..."
-msgstr ""
+msgstr "{action} {item}..."
 
 #: static/install/web.html:50
 msgid "Disabling UART..."
-msgstr ""
+msgstr "UART wird deaktiviert..."
 
 #: static/install/web.html:51
 msgid "Erasing apdp..."
-msgstr ""
+msgstr "apdp wird gelöscht..."
 
 #: static/install/web.html:52
 msgid "Erasing msadp..."
-msgstr ""
+msgstr "msadp wird gelöscht..."
 
 #: static/install/web.html:53
 #, python-brace-format
 msgid "Flashed {zip} to device."
-msgstr ""
+msgstr "{zip} wurde auf das Gerät geflasht."
 
 #: static/install/web.html:54
 msgid "Erasing key..."
-msgstr ""
+msgstr "Schlüssel wird gelöscht..."
 
 #: static/install/web.html:55
 msgid "Key erased."
-msgstr ""
+msgstr "Schlüssel gelöscht."
 
 #: static/install/web.html:56
 msgid "Locking bootloader..."
-msgstr ""
+msgstr "Bootloader wird gesperrt..."
 
 #: static/install/web.html:57
 msgid "Bootloader was not locked, please try again!"
-msgstr ""
+msgstr "Der Bootloader wurde nicht gesperrt, bitte versuchen Sie es erneut!"
 
 #: static/install/web.html:58
 msgid "Bootloader locking triggered successfully."
-msgstr ""
+msgstr "Die Bootloader-Sperrung wurde erfolgreich ausgelöst."
 
 #: static/install/web.html:59
 msgid ""
 "storage quota has been exceeded, you might not have enough space on your "
 "drive, or you're using incognito mode"
 msgstr ""
+"Das Speicherlimit wurde überschritten; möglicherweise haben Sie nicht genug "
+"freien Speicherplatz oder verwenden den Inkognito-Modus."
 
 #: static/install/web.html:60
 #, python-brace-format
 msgid "Error: {message}"
-msgstr ""
+msgstr "Fehler: {message}"
 
 #: static/install/web.html:61
 msgid ""
 "Unavailable, as your browser doesn't support WebUSB. Please read the <a "
 "href=\"#prerequisites\">prerequisites</a>."
 msgstr ""
+"Nicht verfügbar, da Ihr Browser WebUSB nicht unterstützt. Bitte lesen Sie "
+"die <a href=\"#prerequisites\">Voraussetzungen</a>."
 
 #: static/install/web.html:71
 msgid "Web installer"
@@ -51865,8 +51873,8 @@ msgid ""
 "This is the WebUSB-based installer for GrapheneOS and is the recommended approach\n"
 "            for most users. The "
 msgstr ""
-"Dies ist das WebUSB-basierte Installationsprogramm f?r GrapheneOS und der empfohlene Weg\n"
-"            f?r die meisten Nutzer. Die "
+"Dies ist das WebUSB-basierte Installationsprogramm für GrapheneOS und der empfohlene Weg\n"
+"            für die meisten Nutzer. Die "
 
 #: static/install/web.html:73
 msgid ""
@@ -51886,7 +51894,7 @@ msgstr ""
 #: static/install/web.html:127
 msgid "Officially supported operating systems for the web install method:"
 msgstr ""
-"Offiziell unterst?tzte Betriebssysteme f?r die Web-Installationsmethode:"
+"Offiziell unterstützte Betriebssysteme für die Web-Installationsmethode:"
 
 #: static/install/web.html:143
 msgid "ChromeOS"
@@ -51910,14 +51918,14 @@ msgstr "Android 16 mit Play-Protect-Zertifizierung"
 
 #: static/install/web.html:153
 msgid "Officially supported browsers for the web install method:"
-msgstr "Offiziell unterst?tzte Browser f?r die Web-Installationsmethode:"
+msgstr "Offiziell unterstützte Browser für die Web-Installationsmethode:"
 
 #: static/install/web.html:155
 msgid ""
 "Chromium (outside Ubuntu, since they ship a broken Snap package without "
 "working WebUSB)"
 msgstr ""
-"Chromium (au?er unter Ubuntu, da dort ein defektes Snap-Paket ohne "
+"Chromium (außer unter Ubuntu, da dort ein defektes Snap-Paket ohne "
 "funktionierendes WebUSB ausgeliefert wird)"
 
 #: static/install/web.html:156
@@ -51938,7 +51946,7 @@ msgid ""
 "value to avoid fingerprinting available storage)"
 msgstr ""
 "Brave (mit deaktivierten Brave Shields, da sonst die Speichernutzung zur "
-"Vermeidung von Fingerprinting k?nstlich begrenzt wird)"
+"Vermeidung von Fingerprinting künstlich begrenzt wird)"
 
 #: static/install/web.html:161
 msgid ""
@@ -51954,7 +51962,7 @@ msgid ""
 "cause issues during the installation process."
 msgstr ""
 "Sie sollten Flatpak- und Snap-Versionen von Browsern vermeiden, da bekannt "
-"ist, dass sie w?hrend des Installationsvorgangs Probleme verursachen."
+"ist, dass sie während des Installationsvorgangs Probleme verursachen."
 
 #: static/install/web.html:166
 msgid "Make sure your browser is up-to-date before proceeding."
@@ -52012,19 +52020,19 @@ msgid ""
 "                is reporting a low storage quota, there might not be enough space for the image"
 msgstr ""
 "Warnung: Der Browser\n"
-"                meldet ein geringes Speicherlimit; m?glicherweise ist nicht genug Platz f?r das Image vorhanden"
+"                meldet ein geringes Speicherlimit; möglicherweise ist nicht genug Platz für das Image vorhanden"
 
 #: static/install/web.html:271
 msgid "Download release"
-msgstr "Ver?ffentlichung herunterladen"
+msgstr "Veröffentlichung herunterladen"
 
 #: static/install/web.html:282
 msgid "Flash release"
-msgstr "Ver?ffentlichung flashen"
+msgstr "Veröffentlichung flashen"
 
 #: static/install/web.html:293
 msgid "Reconnect device"
-msgstr "Ger?t erneut verbinden"
+msgstr "Gerät erneut verbinden"
 
 #: static/install/web.html:305
 msgid "Lock bootloader"
@@ -52051,7 +52059,7 @@ msgstr ""
 
 #: static/install/web.html:392
 msgid "Remove non-stock key"
-msgstr "Nicht-originalen Schl?ssel entfernen"
+msgstr "Nicht-originalen Schlüssel entfernen"
 
 #: templates/device.html:5
 msgid "Channel"
@@ -52123,7 +52131,7 @@ msgstr "Quellcode"
 
 #: templates/header.html:20
 msgid "Change language"
-msgstr "Sprache ?ndern"
+msgstr "Sprache ändern"
 
 #: templates/verified_boot_key_hash.html:3
 msgid ""
@@ -52227,6 +52235,37 @@ msgid ""
 "    also one of the inputs for deriving the encryption keys in addition to the\n"
 "    user's lock method(s) and random token(s) on the secure element."
 msgstr ""
+
+#: static/install/web.html:59
+msgid "No device selected."
+msgstr "Kein Gerät ausgewählt."
+
+#: static/install/web.html:59
+msgid "Access to the USB device was denied."
+msgstr "Der Zugriff auf das USB-Gerät wurde verweigert."
+
+#: static/install/web.html:59
+msgid "The USB operation was aborted."
+msgstr "Der USB-Vorgang wurde abgebrochen."
+
+#: static/install/web.html:59
+msgid "The device is in an invalid state for this operation."
+msgstr ""
+"Das Gerät befindet sich für diesen Vorgang in einem ungültigen Zustand."
+
+#: static/install/web.html:59
+msgid "A communication error occurred while talking to the device."
+msgstr "Bei der Kommunikation mit dem Gerät ist ein Fehler aufgetreten."
+
+#: static/install/web.html:59
+msgid "This operation is not supported by your browser or device."
+msgstr "Dieser Vorgang wird von Ihrem Browser oder Gerät nicht unterstützt."
+
+#: static/install/web.html:59
+msgid "This action was blocked by your browser security settings."
+msgstr ""
+"Diese Aktion wurde durch die Sicherheitseinstellungen Ihres Browsers "
+"blockiert."
 
 #~ msgid "re"
 #~ msgstr ""
@@ -52584,7 +52623,7 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "releases page"
-#~ msgstr ""
+#~ msgstr "Veröffentlichungsseite"
 
 #~ msgid "Obtain SSH public key for verifying tags:"
 #~ msgstr ""
@@ -53762,7 +53801,7 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "About"
-#~ msgstr ""
+#~ msgstr "Über"
 
 #~ msgid "Tutorial"
 #~ msgstr ""
@@ -53916,6 +53955,8 @@ msgstr ""
 #~ "GrapheneOS is a security and privacy focused mobile OS with Android app "
 #~ "compatibility."
 #~ msgstr ""
+#~ "GrapheneOS ist ein auf Sicherheit und Datenschutz ausgerichtetes mobiles "
+#~ "Betriebssystem mit Android-App-Kompatibilität."
 
 #~ msgid ""
 #~ "The private and secure mobile operating system with Android app compatibility.\n"
@@ -53932,7 +53973,7 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "formerly known as CopperheadOS"
-#~ msgstr ""
+#~ msgstr "früher als CopperheadOS bekannt"
 
 #~ msgid "features page"
 #~ msgstr ""
@@ -53959,10 +54000,10 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Device support"
-#~ msgstr ""
+#~ msgstr "Geräteunterstützung"
 
 #~ msgid "the FAQ section on device support"
-#~ msgstr ""
+#~ msgstr "den FAQ-Abschnitt zur Geräteunterstützung"
 
 #~ msgid "PDF Viewer privacy policy | GrapheneOS"
 #~ msgstr ""
@@ -55378,7 +55419,7 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Releases"
-#~ msgstr ""
+#~ msgstr "Veröffentlichungen"
 
 #~ msgid "releases changelog"
 #~ msgstr ""
@@ -55442,10 +55483,10 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Booting into the bootloader interface"
-#~ msgstr ""
+#~ msgstr "In die Bootloader-Oberfläche starten"
 
 #~ msgid "Connecting the device"
-#~ msgstr ""
+#~ msgstr "Das Gerät verbinden"
 
 #~ msgid "Unlocking the bootloader"
 #~ msgstr ""
@@ -55478,7 +55519,7 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Verified boot key hash"
-#~ msgstr ""
+#~ msgstr "Hash des Verified-Boot-Schlüssels"
 
 #~ msgid "Hardware-based attestation"
 #~ msgstr ""
@@ -55526,18 +55567,20 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Linux Mint 21 (follow Ubuntu 22.04 LTS instructions)"
-#~ msgstr ""
+#~ msgstr "Linux Mint 21 (Anweisungen für Ubuntu 22.04 LTS befolgen)"
 
 #~ msgid "Linux Mint 22 (follow Ubuntu 24.04 LTS instructions)"
-#~ msgstr ""
+#~ msgstr "Linux Mint 22 (Anweisungen für Ubuntu 24.04 LTS befolgen)"
 
 #~ msgid "Linux Mint Debian Edition 6 (follow Debian 12 instructions)"
-#~ msgstr ""
+#~ msgstr "Linux Mint Debian Edition 6 (Anweisungen für Debian 12 befolgen)"
 
 #~ msgid ""
 #~ "Older end-of-life versions of these platforms can also be used but are not\n"
 #~ "                officially supported."
 #~ msgstr ""
+#~ "Ältere, abgekündigte Versionen dieser Plattformen können ebenfalls verwendet werden, werden jedoch\n"
+#~ "                nicht offiziell unterstützt."
 
 #~ msgid "Make sure your operating system is up-to-date before proceeding."
 #~ msgstr ""
@@ -55546,6 +55589,8 @@ msgstr ""
 #~ "officially supported\n"
 #~ "                devices"
 #~ msgstr ""
+#~ "offiziell unterstützten\n"
+#~ "                Geräte"
 
 #~ msgid "OEM unlocking needs to be enabled from within the operating system."
 #~ msgstr ""
@@ -55722,7 +55767,7 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "command-line installation guide"
-#~ msgstr ""
+#~ msgstr "Installationsanleitung für die Kommandozeile"
 
 #~ msgid "Web installer | Install | GrapheneOS"
 #~ msgstr ""
@@ -55740,6 +55785,7 @@ msgstr ""
 
 #~ msgid "Officially supported operating systems for the web install method:"
 #~ msgstr ""
+#~ "Offiziell unterstützte Betriebssysteme für die Web-Installationsmethode:"
 
 #~ msgid "ChromeOS"
 #~ msgstr ""
@@ -55757,12 +55803,14 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Officially supported browsers for the web install method:"
-#~ msgstr ""
+#~ msgstr "Offiziell unterstützte Browser für die Web-Installationsmethode:"
 
 #~ msgid ""
 #~ "Chromium (outside Ubuntu, since they ship a broken Snap package without "
 #~ "working WebUSB)"
 #~ msgstr ""
+#~ "Chromium (außer unter Ubuntu, da dort ein defektes Snap-Paket ohne "
+#~ "funktionierendes WebUSB ausgeliefert wird)"
 
 #~ msgid "Vanadium (GrapheneOS)"
 #~ msgstr ""
@@ -55777,6 +55825,8 @@ msgstr ""
 #~ "You should avoid Flatpak and Snap versions of browsers, as they're known to "
 #~ "cause issues during the installation process."
 #~ msgstr ""
+#~ "Sie sollten Flatpak- und Snap-Versionen von Browsern vermeiden, da bekannt "
+#~ "ist, dass sie während des Installationsvorgangs Probleme verursachen."
 
 #~ msgid "Make sure your browser is up-to-date before proceeding."
 #~ msgstr ""
@@ -55793,10 +55843,10 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Download release"
-#~ msgstr ""
+#~ msgstr "Veröffentlichung herunterladen"
 
 #~ msgid "Flash release"
-#~ msgstr ""
+#~ msgstr "Veröffentlichung flashen"
 
 #~ msgid "<strong>Reconnect device</strong>"
 #~ msgstr ""
@@ -55810,7 +55860,7 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Remove non-stock key"
-#~ msgstr ""
+#~ msgstr "Nicht-originalen Schlüssel entfernen"
 
 #~ msgid ""
 #~ "GrapheneOS is a privacy and security focused mobile OS with Android app\n"

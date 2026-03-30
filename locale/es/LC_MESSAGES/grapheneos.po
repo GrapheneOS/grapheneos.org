@@ -655,7 +655,7 @@ msgstr ""
 
 #: static/build.html:240 static/index.html:61
 msgid "releases page"
-msgstr "p?gina de lanzamientos"
+msgstr "página de lanzamientos"
 
 #: static/build.html:240
 msgid ""
@@ -5507,7 +5507,7 @@ msgstr ""
 
 #: static/faq.html:1523 static/index.html:60 static/usage.html:41
 msgid "features page"
-msgstr "p?gina de funciones"
+msgstr "página de funciones"
 
 #: static/faq.html:1527
 msgid ""
@@ -5693,7 +5693,7 @@ msgstr ""
 #: static/faq.html:1632 static/install/index.html:42
 #: static/install/web.html:73
 msgid "command-line installation guide"
-msgstr "gu?a de instalaci?n por l?nea de comandos"
+msgstr "guía de instalación por línea de comandos"
 
 #: static/faq.html:1632
 msgid ""
@@ -8944,14 +8944,14 @@ msgstr ""
 
 #: static/index.html:6 static/index.html:14
 msgid "GrapheneOS: the private and secure mobile OS"
-msgstr "GrapheneOS: el sistema operativo m?vil privado y seguro"
+msgstr "GrapheneOS: el sistema operativo móvil privado y seguro"
 
 #: static/index.html:7 static/index.html:15
 msgid ""
 "GrapheneOS is a security and privacy focused mobile OS with Android app "
 "compatibility."
 msgstr ""
-"GrapheneOS es un sistema operativo m?vil centrado en la seguridad y la "
+"GrapheneOS es un sistema operativo móvil centrado en la seguridad y la "
 "privacidad con compatibilidad con aplicaciones de Android."
 
 #: static/index.html:20
@@ -8963,9 +8963,9 @@ msgid ""
 "The private and secure mobile operating system with Android app "
 "compatibility. Developed as a non-profit open source project."
 msgstr ""
-"El sistema operativo m?vil privado y seguro con compatibilidad con "
-"aplicaciones de Android. Desarrollado como un proyecto de c?digo abierto sin"
-" ?nimo de lucro."
+"El sistema operativo móvil privado y seguro con compatibilidad con "
+"aplicaciones de Android. Desarrollado como un proyecto de código abierto sin"
+" ánimo de lucro."
 
 #: static/index.html:43
 msgid "Install GrapheneOS"
@@ -8980,13 +8980,13 @@ msgid ""
 "GrapheneOS is a privacy and security focused mobile OS with Android app "
 "compatibility developed as a non-profit "
 msgstr ""
-"GrapheneOS es un sistema operativo m?vil centrado en la privacidad y la "
+"GrapheneOS es un sistema operativo móvil centrado en la privacidad y la "
 "seguridad, con compatibilidad con aplicaciones de Android, desarrollado como"
-" un proyecto sin ?nimo de lucro de "
+" un proyecto sin ánimo de lucro de "
 
 #: static/index.html:58 static/source.html:39
 msgid "open source"
-msgstr "c?digo abierto"
+msgstr "código abierto"
 
 #: static/index.html:58
 msgid ""
@@ -8995,7 +8995,7 @@ msgid ""
 "exploit mitigations and the permission model. It was founded in 2014 and was"
 " "
 msgstr ""
-". Est? centrado en la investigaci?n y el desarrollo de tecnolog?as de "
+". Está centrado en la investigación y el desarrollo de tecnologías de "
 "privacidad y seguridad, incluidas mejoras sustanciales del aislamiento en "
 "sandbox, las mitigaciones frente a exploits y el modelo de permisos. Fue "
 "fundado en 2014 y fue "
@@ -9021,19 +9021,19 @@ msgid ""
 "user-facing privacy and security features with their own UX."
 msgstr ""
 "GrapheneOS mejora la privacidad y la seguridad del sistema operativo desde "
-"sus cimientos. Despliega tecnolog?as para mitigar clases completas de "
-"vulnerabilidades y hacer mucho m?s dif?cil explotar las fuentes m?s comunes "
+"sus cimientos. Despliega tecnologías para mitigar clases completas de "
+"vulnerabilidades y hacer mucho más difícil explotar las fuentes más comunes "
 "de fallos. Mejora la seguridad tanto del sistema operativo como de las "
-"aplicaciones que se ejecutan en ?l. La sandbox de las aplicaciones y otros "
-"l?mites de seguridad est?n reforzados. GrapheneOS intenta evitar que las "
+"aplicaciones que se ejecutan en él. La sandbox de las aplicaciones y otros "
+"límites de seguridad están reforzados. GrapheneOS intenta evitar que las "
 "funciones de privacidad y seguridad afecten negativamente a la experiencia "
-"del usuario. Idealmente, estas funciones se dise?an para estar siempre "
-"activadas sin afectar la experiencia del usuario ni a?adir complejidad "
-"adicional como opciones de configuraci?n. No siempre es posible, y "
-"GrapheneOS s? a?ade varios interruptores para funciones como el permiso de "
-"red, el permiso de sensores, restricciones cuando el dispositivo est? "
-"bloqueado (USB-C y pines pogo, c?mara, accesos r?pidos), etc., junto con "
-"funciones de privacidad y seguridad m?s complejas orientadas al usuario con "
+"del usuario. Idealmente, estas funciones se diseñan para estar siempre "
+"activadas sin afectar la experiencia del usuario ni añadir complejidad "
+"adicional como opciones de configuración. No siempre es posible, y "
+"GrapheneOS sí añade varios interruptores para funciones como el permiso de "
+"red, el permiso de sensores, restricciones cuando el dispositivo está "
+"bloqueado (USB-C y pines pogo, cámara, accesos rápidos), etc., junto con "
+"funciones de privacidad y seguridad más complejas orientadas al usuario con "
 "su propia experiencia de uso."
 
 #: static/index.html:60
@@ -9042,8 +9042,8 @@ msgid ""
 "added by GrapheneOS to the Android Open Source Project (AOSP). Many of our "
 "past features were "
 msgstr ""
-" ofrece una visi?n general de las importantes mejoras de privacidad y "
-"seguridad que GrapheneOS ha a?adido al Android Open Source Project (AOSP). "
+" ofrece una visión general de las importantes mejoras de privacidad y "
+"seguridad que GrapheneOS ha añadido al Android Open Source Project (AOSP). "
 "Muchas de nuestras funciones anteriores fueron "
 
 #: static/index.html:60
@@ -9056,19 +9056,19 @@ msgstr ""
 
 #: static/index.html:60
 msgid " so they're no longer listed on our features page."
-msgstr " y por eso ya no aparecen en nuestra p?gina de funciones."
+msgstr " y por eso ya no aparecen en nuestra página de funciones."
 
 #: static/index.html:61
 msgid "Official releases are available on the "
-msgstr "Los lanzamientos oficiales est?n disponibles en la "
+msgstr "Los lanzamientos oficiales están disponibles en la "
 
 #: static/index.html:61
 msgid " and installation instructions are on the "
-msgstr " y las instrucciones de instalaci?n est?n en la "
+msgstr " y las instrucciones de instalación están en la "
 
 #: static/index.html:61
 msgid "install page"
-msgstr "p?gina de instalaci?n"
+msgstr "página de instalación"
 
 #: static/index.html:62
 msgid ""
@@ -9081,15 +9081,15 @@ msgid ""
 " Seedvault encrypted backup which was initially developed for inclusion in "
 "GrapheneOS."
 msgstr ""
-"GrapheneOS tambi?n desarrolla varias aplicaciones y servicios centrados en "
+"GrapheneOS también desarrolla varias aplicaciones y servicios centrados en "
 "la privacidad y la seguridad. Vanadium es una variante reforzada del "
-"navegador Chromium y de WebView creada espec?ficamente para GrapheneOS. "
-"GrapheneOS tambi?n incluye nuestro visor PDF minimalista centrado en la "
-"seguridad, nuestra aplicaci?n Auditor basada en hardware para la "
-"verificaci?n y atestaci?n local y remota de dispositivos, nuestra moderna "
-"aplicaci?n de c?mara centrada en la privacidad y la seguridad, y la copia de"
+"navegador Chromium y de WebView creada específicamente para GrapheneOS. "
+"GrapheneOS también incluye nuestro visor PDF minimalista centrado en la "
+"seguridad, nuestra aplicación Auditor basada en hardware para la "
+"verificación y atestación local y remota de dispositivos, nuestra moderna "
+"aplicación de cámara centrada en la privacidad y la seguridad, y la copia de"
 " seguridad cifrada Seedvault desarrollada externamente, que inicialmente se "
-"cre? para incluirse en GrapheneOS."
+"creó para incluirse en GrapheneOS."
 
 #: static/index.html:65
 msgid "No Google apps or services"
@@ -9102,8 +9102,8 @@ msgid ""
 " services as a set of fully sandboxed apps without special privileges via "
 "our "
 msgstr ""
-"GrapheneOS nunca incluir? ni los servicios de Google Play ni otra "
-"implementaci?n de servicios de Google como microG. Es posible instalar los "
+"GrapheneOS nunca incluirá ni los servicios de Google Play ni otra "
+"implementación de servicios de Google como microG. Es posible instalar los "
 "servicios de Play como un conjunto de aplicaciones totalmente aisladas en "
 "sandbox y sin privilegios especiales mediante nuestra "
 
@@ -9117,14 +9117,14 @@ msgstr ". Consulta "
 
 #: static/index.html:66
 msgid "the FAQ section"
-msgstr "la secci?n de preguntas frecuentes"
+msgstr "la sección de preguntas frecuentes"
 
 #: static/index.html:66
 msgid ""
 " for more details on our plans for filling in the gaps from not shipping "
 "Play services and Google apps."
 msgstr ""
-" para obtener m?s detalles sobre nuestros planes para cubrir las carencias "
+" para obtener más detalles sobre nuestros planes para cubrir las carencias "
 "derivadas de no incluir servicios de Play ni aplicaciones de Google."
 
 #: static/index.html:70
@@ -9134,7 +9134,7 @@ msgstr "Consulta "
 #: static/index.html:70
 msgid "the FAQ section on device support"
 msgstr ""
-"la secci?n de preguntas frecuentes sobre compatibilidad de dispositivos"
+"la sección de preguntas frecuentes sobre compatibilidad de dispositivos"
 
 #: static/pdfviewer-privacy-policy.html:6
 msgid "PDF Viewer privacy policy | GrapheneOS"
@@ -43960,7 +43960,7 @@ msgstr ""
 
 #: static/articles/index.html:38 templates/header.html:14
 msgid "Articles"
-msgstr "Art?culos"
+msgstr "Artículos"
 
 #: static/articles/index.html:39
 msgid "The main documentation for GrapheneOS is at the top-level of the site:"
@@ -50721,7 +50721,7 @@ msgid ""
 "If you have trouble with the installation process, ask for help on the\n"
 "            "
 msgstr ""
-"Si tienes problemas con el proceso de instalaci?n, pide ayuda en el\n"
+"Si tienes problemas con el proceso de instalación, pide ayuda en el\n"
 "            "
 
 #: static/install/cli.html:51 static/install/index.html:48
@@ -50738,8 +50738,8 @@ msgid ""
 "            on."
 msgstr ""
 ". Casi\n"
-"            siempre hay gente dispuesta a ayudar. Antes de pedir ayuda, intenta seguir la gu?a por tu cuenta\n"
-"            y luego pregunta espec?ficamente por aquello en lo que te hayas quedado atascado."
+"            siempre hay gente dispuesta a ayudar. Antes de pedir ayuda, intenta seguir la guía por tu cuenta\n"
+"            y luego pregunta específicamente por aquello en lo que te hayas quedado atascado."
 
 #: static/install/cli.html:58 static/install/cli.html:101
 #: static/install/web.html:83 static/install/web.html:112
@@ -50775,7 +50775,7 @@ msgstr "Flasheo sin root"
 #: static/install/cli.html:69 static/install/cli.html:252
 #: static/install/web.html:86 static/install/web.html:210
 msgid "Working around fwupd bugs on Linux distributions"
-msgstr "C?mo sortear errores de fwupd en distribuciones Linux"
+msgstr "Cómo sortear errores de fwupd en distribuciones Linux"
 
 #: static/install/cli.html:70 static/install/cli.html:263
 #: static/install/web.html:87 static/install/web.html:221
@@ -50799,12 +50799,12 @@ msgstr ""
 #: static/install/cli.html:74 static/install/cli.html:316
 #: static/install/web.html:90 static/install/web.html:265
 msgid "Obtaining factory images"
-msgstr "Obtener im?genes factory"
+msgstr "Obtener imágenes factory"
 
 #: static/install/cli.html:76 static/install/cli.html:349
 #: static/install/web.html:91 static/install/web.html:279
 msgid "Flashing factory images"
-msgstr "Flashear im?genes factory"
+msgstr "Flashear imágenes factory"
 
 #: static/install/cli.html:78 static/install/cli.html:370
 msgid "Troubleshooting"
@@ -50818,7 +50818,7 @@ msgstr "Bloquear el bootloader"
 #: static/install/cli.html:83 static/install/cli.html:399
 #: static/install/web.html:94 static/install/web.html:312
 msgid "Post-installation"
-msgstr "Despu?s de la instalaci?n"
+msgstr "Después de la instalación"
 
 #: static/install/cli.html:85 static/install/cli.html:401
 #: static/install/web.html:96 static/install/web.html:314
@@ -50833,7 +50833,7 @@ msgstr "Desactivar el desbloqueo OEM"
 #: static/install/cli.html:88 static/install/cli.html:415
 #: static/install/web.html:99 static/install/web.html:328
 msgid "Verifying installation"
-msgstr "Verificar la instalaci?n"
+msgstr "Verificar la instalación"
 
 #: static/install/cli.html:90 static/install/web.html:101
 #: templates/verified_boot_key_hash.html:2
@@ -50843,12 +50843,12 @@ msgstr "Hash de la clave de arranque verificado"
 #: static/install/cli.html:91 static/install/cli.html:435
 #: static/install/web.html:102 static/install/web.html:348
 msgid "Hardware-based attestation"
-msgstr "Atestaci?n basada en hardware"
+msgstr "Atestación basada en hardware"
 
 #: static/install/cli.html:94 static/install/cli.html:462
 #: static/install/web.html:105 static/install/web.html:375
 msgid "Further information"
-msgstr "M?s informaci?n"
+msgstr "Más información"
 
 #: static/install/cli.html:95 static/install/cli.html:469
 #: static/install/web.html:106 static/install/web.html:382
@@ -50873,13 +50873,13 @@ msgid ""
 "                are broken and are the most common source of issues for installing GrapheneOS."
 msgstr ""
 "Necesitas un cable USB para conectar el dispositivo al ordenador desde el "
-"que se realiza la instalaci?n. Siempre que sea posible, utiliza el cable "
-"USB-C de alta calidad y conforme a los est?ndares incluido con el "
-"dispositivo. Si tu ordenador no tiene puertos USB-C, necesitar?s un cable "
+"que se realiza la instalación. Siempre que sea posible, utiliza el cable "
+"USB-C de alta calidad y conforme a los estándares incluido con el "
+"dispositivo. Si tu ordenador no tiene puertos USB-C, necesitarás un cable "
 "USB-C a USB-A de alta calidad. Debes evitar usar un concentrador USB como el"
-" panel frontal de una torre de sobremesa. Con?ctalo directamente a un puerto"
-" trasero en un equipo de sobremesa o a los puertos de un port?til. Muchos "
-"cables USB y hubs muy extendidos est?n defectuosos y son la fuente m?s com?n"
+" panel frontal de una torre de sobremesa. Conéctalo directamente a un puerto"
+" trasero en un equipo de sobremesa o a los puertos de un portátil. Muchos "
+"cables USB y hubs muy extendidos están defectuosos y son la fuente más común"
 " de problemas al instalar GrapheneOS."
 
 #: static/install/cli.html:112 static/install/web.html:123
@@ -50889,10 +50889,10 @@ msgid ""
 "                bare metal. Virtual machines are also often configured to have overly limited\n"
 "                memory and storage space."
 msgstr ""
-"No se recomienda instalar desde un sistema operativo dentro de una m?quina "
+"No se recomienda instalar desde un sistema operativo dentro de una máquina "
 "virtual. El passthrough USB suele no ser fiable. Para descartar estos "
 "problemas, instala desde un sistema operativo que se ejecute directamente "
-"sobre el hardware. Las m?quinas virtuales tambi?n suelen estar configuradas "
+"sobre el hardware. Las máquinas virtuales también suelen estar configuradas "
 "con una cantidad demasiado limitada de memoria y espacio de almacenamiento."
 
 #: static/install/cli.html:116
@@ -50960,13 +50960,13 @@ msgid ""
 "Older end-of-life versions of these platforms can also be used but are not\n"
 "                officially supported."
 msgstr ""
-"Tambi?n se pueden usar versiones antiguas ya fuera de soporte de estas plataformas, pero\n"
-"                no est?n oficialmente admitidas."
+"También se pueden usar versiones antiguas ya fuera de soporte de estas plataformas, pero\n"
+"                no están oficialmente admitidas."
 
 #: static/install/cli.html:135 static/install/web.html:152
 msgid "Make sure your operating system is up-to-date before proceeding."
 msgstr ""
-"Aseg?rate de que tu sistema operativo est? actualizado antes de continuar."
+"Asegúrate de que tu sistema operativo esté actualizado antes de continuar."
 
 #: static/install/cli.html:136
 msgid ""
@@ -51002,13 +51002,13 @@ msgstr ""
 ". Para asegurarte de que el dispositivo puede desbloquearse para instalar "
 "GrapheneOS, evita las variantes de operador. Las variantes de operador de "
 "los Pixel usan el mismo sistema original y el mismo firmware, pero con un "
-"identificador de operador distinto de cero grabado en la partici?n persist "
-"de f?brica. Ese identificador activa configuraciones espec?ficas del "
-"operador en el sistema original, incluida la desactivaci?n del desbloqueo "
+"identificador de operador distinto de cero grabado en la partición persist "
+"de fábrica. Ese identificador activa configuraciones específicas del "
+"operador en el sistema original, incluida la desactivación del desbloqueo "
 "del operador y del bootloader. Es posible que el operador pueda desactivar "
-"esto de forma remota, pero su personal de soporte quiz? no lo sepa y "
-"probablemente no lo har?. Consigue un dispositivo libre de operador para "
-"evitar el riesgo y las molestias potenciales. Si S? logras encontrar una "
+"esto de forma remota, pero su personal de soporte quizá no lo sepa y "
+"probablemente no lo hará. Consigue un dispositivo libre de operador para "
+"evitar el riesgo y las molestias potenciales. Si SÍ logras encontrar una "
 "manera de desbloquear un dispositivo de operador, no es un problema, ya que "
 "GrapheneOS puede simplemente ignorar el identificador del operador y el "
 "hardware es el mismo."
@@ -51020,10 +51020,10 @@ msgid ""
 "                early flashing process. Either way, GrapheneOS flashes the latest firmware early\n"
 "                in the installation process."
 msgstr ""
-"La mejor pr?ctica es actualizar el dispositivo antes de instalar GrapheneOS "
-"para tener el firmware m?s reciente al conectarlo al ordenador y durante las"
+"La mejor práctica es actualizar el dispositivo antes de instalar GrapheneOS "
+"para tener el firmware más reciente al conectarlo al ordenador y durante las"
 " primeras etapas del proceso de flasheo. En cualquier caso, GrapheneOS "
-"flashea el firmware m?s reciente al inicio del proceso de instalaci?n."
+"flashea el firmware más reciente al inicio del proceso de instalación."
 
 #: static/install/cli.html:156 static/install/web.html:187
 msgid "OEM unlocking needs to be enabled from within the operating system."
@@ -51031,7 +51031,7 @@ msgstr "El desbloqueo OEM debe activarse desde dentro del sistema operativo."
 
 #: static/install/cli.html:157 static/install/web.html:188
 msgid "Enable the developer options menu by going to "
-msgstr "Activa el men? de opciones de desarrollador yendo a "
+msgstr "Activa el menú de opciones de desarrollador yendo a "
 
 #: static/install/cli.html:157 static/install/web.html:188
 msgid "Settings &gt; About phone/tablet"
@@ -51045,11 +51045,11 @@ msgstr " y pulsando repetidamente "
 
 #: static/install/cli.html:158 static/install/web.html:189
 msgid "Build number"
-msgstr "N?mero de compilaci?n"
+msgstr "Número de compilación"
 
 #: static/install/cli.html:158 static/install/web.html:189
 msgid " menu entry until developer mode is enabled."
-msgstr " la entrada de men? hasta que se active el modo desarrollador."
+msgstr " la entrada de menú hasta que se active el modo desarrollador."
 
 #: static/install/cli.html:159 static/install/web.html:190
 msgid "Next, go to "
@@ -51736,126 +51736,134 @@ msgstr ""
 
 #: static/install/web.html:34
 msgid "Network request failed"
-msgstr ""
+msgstr "La solicitud de red ha fallado"
 
 #: static/install/web.html:35
 msgid "Connecting to device..."
-msgstr ""
+msgstr "Conectando con el dispositivo..."
 
 #: static/install/web.html:36
 msgid "Bootloader is already unlocked."
-msgstr ""
+msgstr "El bootloader ya está desbloqueado."
 
 #: static/install/web.html:37
 msgid "Unlocking bootloader..."
-msgstr ""
+msgstr "Desbloqueando el bootloader..."
 
 #: static/install/web.html:38
 msgid "Bootloader was not unlocked, please try again!"
-msgstr ""
+msgstr "El bootloader no se desbloqueó; ¡inténtalo de nuevo!"
 
 #: static/install/web.html:39
 msgid "Bootloader unlocking triggered successfully."
-msgstr ""
+msgstr "El desbloqueo del bootloader se ha iniciado correctamente."
 
 #: static/install/web.html:40
 #, python-brace-format
 msgid ""
 "device model ({product}) is not supported by the GrapheneOS web installer"
 msgstr ""
+"El modelo de dispositivo ({product}) no es compatible con el instalador web "
+"de GrapheneOS"
 
 #: static/install/web.html:41
 msgid "Finding latest release..."
-msgstr ""
+msgstr "Buscando la última versión..."
 
 #: static/install/web.html:42
 #, python-brace-format
 msgid "Downloading {zip}..."
-msgstr ""
+msgstr "Descargando {zip}..."
 
 #: static/install/web.html:43
 #, python-brace-format
 msgid "Downloaded {zip} release."
-msgstr ""
+msgstr "Se ha descargado la versión {zip}."
 
 #: static/install/web.html:44
 msgid "To continue flashing, reconnect the device by tapping here:"
 msgstr ""
+"Para continuar con el flasheo, vuelve a conectar el dispositivo tocando "
+"aquí:"
 
 #: static/install/web.html:45
 msgid "You need to download a release first!"
-msgstr ""
+msgstr "¡Primero tienes que descargar una versión!"
 
 #: static/install/web.html:46
 msgid "Cancelling any pending OTAs..."
-msgstr ""
+msgstr "Cancelando las OTA pendientes..."
 
 #: static/install/web.html:47
 msgid "Flashing release..."
-msgstr ""
+msgstr "Flasheando la versión..."
 
 #: static/install/web.html:48
 msgid "verified boot key"
-msgstr ""
+msgstr "clave de arranque verificado"
 
 #: static/install/web.html:49
 #, python-brace-format
 msgid "{action} {item}..."
-msgstr ""
+msgstr "{action} {item}..."
 
 #: static/install/web.html:50
 msgid "Disabling UART..."
-msgstr ""
+msgstr "Desactivando UART..."
 
 #: static/install/web.html:51
 msgid "Erasing apdp..."
-msgstr ""
+msgstr "Borrando apdp..."
 
 #: static/install/web.html:52
 msgid "Erasing msadp..."
-msgstr ""
+msgstr "Borrando msadp..."
 
 #: static/install/web.html:53
 #, python-brace-format
 msgid "Flashed {zip} to device."
-msgstr ""
+msgstr "Se ha flasheado {zip} en el dispositivo."
 
 #: static/install/web.html:54
 msgid "Erasing key..."
-msgstr ""
+msgstr "Borrando clave..."
 
 #: static/install/web.html:55
 msgid "Key erased."
-msgstr ""
+msgstr "Clave borrada."
 
 #: static/install/web.html:56
 msgid "Locking bootloader..."
-msgstr ""
+msgstr "Bloqueando el bootloader..."
 
 #: static/install/web.html:57
 msgid "Bootloader was not locked, please try again!"
-msgstr ""
+msgstr "El bootloader no se bloqueó; ¡inténtalo de nuevo!"
 
 #: static/install/web.html:58
 msgid "Bootloader locking triggered successfully."
-msgstr ""
+msgstr "El bloqueo del bootloader se ha iniciado correctamente."
 
 #: static/install/web.html:59
 msgid ""
 "storage quota has been exceeded, you might not have enough space on your "
 "drive, or you're using incognito mode"
 msgstr ""
+"Se ha superado la cuota de almacenamiento; puede que no tengas suficiente "
+"espacio libre o que estés usando el modo incógnito."
 
 #: static/install/web.html:60
 #, python-brace-format
 msgid "Error: {message}"
-msgstr ""
+msgstr "Error: {message}"
 
 #: static/install/web.html:61
 msgid ""
 "Unavailable, as your browser doesn't support WebUSB. Please read the <a "
 "href=\"#prerequisites\">prerequisites</a>."
 msgstr ""
+"No disponible, ya que tu navegador no es compatible con WebUSB. Lee los <a "
+"href=\"#prerequisites\">requisitos previos</a>."
 
 #: static/install/web.html:71
 msgid "Web installer"
@@ -51866,8 +51874,8 @@ msgid ""
 "This is the WebUSB-based installer for GrapheneOS and is the recommended approach\n"
 "            for most users. The "
 msgstr ""
-"Este es el instalador de GrapheneOS basado en WebUSB y es el m?todo recomendado\n"
-"            para la mayor?a de los usuarios. La "
+"Este es el instalador de GrapheneOS basado en WebUSB y es el método recomendado\n"
+"            para la mayoría de los usuarios. La "
 
 #: static/install/web.html:73
 msgid ""
@@ -51875,7 +51883,7 @@ msgid ""
 "            more traditional approach to installing GrapheneOS."
 msgstr ""
 " es el\n"
-"            m?todo m?s tradicional para instalar GrapheneOS."
+"            método más tradicional para instalar GrapheneOS."
 
 #: static/install/web.html:113
 msgid ""
@@ -51887,7 +51895,7 @@ msgstr ""
 #: static/install/web.html:127
 msgid "Officially supported operating systems for the web install method:"
 msgstr ""
-"Sistemas operativos oficialmente compatibles con el m?todo de instalaci?n "
+"Sistemas operativos oficialmente compatibles con el método de instalación "
 "web:"
 
 #: static/install/web.html:143
@@ -51896,31 +51904,31 @@ msgstr "ChromeOS"
 
 #: static/install/web.html:145
 msgid "Android 13 with Play Protect certification"
-msgstr "Android 13 con certificaci?n Play Protect"
+msgstr "Android 13 con certificación Play Protect"
 
 #: static/install/web.html:146
 msgid "Android 14 with Play Protect certification"
-msgstr "Android 14 con certificaci?n Play Protect"
+msgstr "Android 14 con certificación Play Protect"
 
 #: static/install/web.html:147
 msgid "Android 15 with Play Protect certification"
-msgstr "Android 15 con certificaci?n Play Protect"
+msgstr "Android 15 con certificación Play Protect"
 
 #: static/install/web.html:148
 msgid "Android 16 with Play Protect certification"
-msgstr "Android 16 con certificaci?n Play Protect"
+msgstr "Android 16 con certificación Play Protect"
 
 #: static/install/web.html:153
 msgid "Officially supported browsers for the web install method:"
 msgstr ""
-"Navegadores oficialmente compatibles con el m?todo de instalaci?n web:"
+"Navegadores oficialmente compatibles con el método de instalación web:"
 
 #: static/install/web.html:155
 msgid ""
 "Chromium (outside Ubuntu, since they ship a broken Snap package without "
 "working WebUSB)"
 msgstr ""
-"Chromium (fuera de Ubuntu, ya que all? distribuyen un paquete Snap "
+"Chromium (fuera de Ubuntu, ya que allí distribuyen un paquete Snap "
 "defectuoso sin WebUSB funcional)"
 
 #: static/install/web.html:156
@@ -51957,11 +51965,11 @@ msgid ""
 "cause issues during the installation process."
 msgstr ""
 "Debes evitar las versiones Flatpak y Snap de los navegadores, ya que se sabe"
-" que causan problemas durante el proceso de instalaci?n."
+" que causan problemas durante el proceso de instalación."
 
 #: static/install/web.html:166
 msgid "Make sure your browser is up-to-date before proceeding."
-msgstr "Aseg?rate de que tu navegador est? actualizado antes de continuar."
+msgstr "Asegúrate de que tu navegador esté actualizado antes de continuar."
 
 #: static/install/web.html:167
 msgid ""
@@ -52120,7 +52128,7 @@ msgstr "Uso"
 
 #: templates/header.html:12
 msgid "Source"
-msgstr "C?digo fuente"
+msgstr "Código fuente"
 
 #: templates/header.html:20
 msgid "Change language"
@@ -52229,6 +52237,35 @@ msgid ""
 "    user's lock method(s) and random token(s) on the secure element."
 msgstr ""
 
+#: static/install/web.html:59
+msgid "No device selected."
+msgstr "No se ha seleccionado ningún dispositivo."
+
+#: static/install/web.html:59
+msgid "Access to the USB device was denied."
+msgstr "Se denegó el acceso al dispositivo USB."
+
+#: static/install/web.html:59
+msgid "The USB operation was aborted."
+msgstr "La operación USB fue cancelada."
+
+#: static/install/web.html:59
+msgid "The device is in an invalid state for this operation."
+msgstr "El dispositivo está en un estado no válido para esta operación."
+
+#: static/install/web.html:59
+msgid "A communication error occurred while talking to the device."
+msgstr "Se produjo un error de comunicación al hablar con el dispositivo."
+
+#: static/install/web.html:59
+msgid "This operation is not supported by your browser or device."
+msgstr "Esta operación no es compatible con tu navegador o dispositivo."
+
+#: static/install/web.html:59
+msgid "This action was blocked by your browser security settings."
+msgstr ""
+"Esta acción fue bloqueada por la configuración de seguridad de tu navegador."
+
 #~ msgid "re"
 #~ msgstr ""
 
@@ -52272,7 +52309,7 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Source"
-#~ msgstr ""
+#~ msgstr "Código fuente"
 
 #~ msgid "Page not found | GrapheneOS"
 #~ msgstr ""
@@ -52585,7 +52622,7 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "releases page"
-#~ msgstr ""
+#~ msgstr "página de lanzamientos"
 
 #~ msgid "Obtain SSH public key for verifying tags:"
 #~ msgstr ""
@@ -52666,7 +52703,7 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "install page"
-#~ msgstr ""
+#~ msgstr "página de instalación"
 
 #~ msgid ""
 #~ "usage guide section on\n"
@@ -53911,12 +53948,14 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "GrapheneOS: the private and secure mobile OS"
-#~ msgstr ""
+#~ msgstr "GrapheneOS: el sistema operativo móvil privado y seguro"
 
 #~ msgid ""
 #~ "GrapheneOS is a security and privacy focused mobile OS with Android app "
 #~ "compatibility."
 #~ msgstr ""
+#~ "GrapheneOS es un sistema operativo móvil centrado en la seguridad y la "
+#~ "privacidad con compatibilidad con aplicaciones de Android."
 
 #~ msgid ""
 #~ "The private and secure mobile operating system with Android app compatibility.\n"
@@ -53930,13 +53969,13 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "open source"
-#~ msgstr ""
+#~ msgstr "código abierto"
 
 #~ msgid "formerly known as CopperheadOS"
 #~ msgstr ""
 
 #~ msgid "features page"
-#~ msgstr ""
+#~ msgstr "página de funciones"
 
 #~ msgid ""
 #~ "releases\n"
@@ -53957,13 +53996,14 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "the FAQ section"
-#~ msgstr ""
+#~ msgstr "la sección de preguntas frecuentes"
 
 #~ msgid "Device support"
 #~ msgstr ""
 
 #~ msgid "the FAQ section on device support"
 #~ msgstr ""
+#~ "la sección de preguntas frecuentes sobre compatibilidad de dispositivos"
 
 #~ msgid "PDF Viewer privacy policy | GrapheneOS"
 #~ msgstr ""
@@ -55220,7 +55260,7 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Articles"
-#~ msgstr ""
+#~ msgstr "Artículos"
 
 #~ msgid "The main documentation for GrapheneOS is at the top-level of the site:"
 #~ msgstr ""
@@ -55440,7 +55480,7 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Working around fwupd bugs on Linux distributions"
-#~ msgstr ""
+#~ msgstr "Cómo sortear errores de fwupd en distribuciones Linux"
 
 #~ msgid "Booting into the bootloader interface"
 #~ msgstr ""
@@ -55455,10 +55495,10 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Obtaining factory images"
-#~ msgstr ""
+#~ msgstr "Obtener imágenes factory"
 
 #~ msgid "Flashing factory images"
-#~ msgstr ""
+#~ msgstr "Flashear imágenes factory"
 
 #~ msgid "Troubleshooting"
 #~ msgstr ""
@@ -55467,7 +55507,7 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Post-installation"
-#~ msgstr ""
+#~ msgstr "Después de la instalación"
 
 #~ msgid "Booting"
 #~ msgstr ""
@@ -55476,16 +55516,16 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Verifying installation"
-#~ msgstr ""
+#~ msgstr "Verificar la instalación"
 
 #~ msgid "Verified boot key hash"
 #~ msgstr ""
 
 #~ msgid "Hardware-based attestation"
-#~ msgstr ""
+#~ msgstr "Atestación basada en hardware"
 
 #~ msgid "Further information"
-#~ msgstr ""
+#~ msgstr "Más información"
 
 #~ msgid "Replacing GrapheneOS with the stock OS"
 #~ msgstr ""
@@ -55539,9 +55579,12 @@ msgstr ""
 #~ "Older end-of-life versions of these platforms can also be used but are not\n"
 #~ "                officially supported."
 #~ msgstr ""
+#~ "También se pueden usar versiones antiguas ya fuera de soporte de estas plataformas, pero\n"
+#~ "                no están oficialmente admitidas."
 
 #~ msgid "Make sure your operating system is up-to-date before proceeding."
 #~ msgstr ""
+#~ "Asegúrate de que tu sistema operativo esté actualizado antes de continuar."
 
 #~ msgid ""
 #~ "officially supported\n"
@@ -55723,7 +55766,7 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "command-line installation guide"
-#~ msgstr ""
+#~ msgstr "guía de instalación por línea de comandos"
 
 #~ msgid "Web installer | Install | GrapheneOS"
 #~ msgstr ""
@@ -55741,29 +55784,34 @@ msgstr ""
 
 #~ msgid "Officially supported operating systems for the web install method:"
 #~ msgstr ""
+#~ "Sistemas operativos oficialmente compatibles con el método de instalación "
+#~ "web:"
 
 #~ msgid "ChromeOS"
 #~ msgstr ""
 
 #~ msgid "Android 13 with Play Protect certification"
-#~ msgstr ""
+#~ msgstr "Android 13 con certificación Play Protect"
 
 #~ msgid "Android 14 with Play Protect certification"
-#~ msgstr ""
+#~ msgstr "Android 14 con certificación Play Protect"
 
 #~ msgid "Android 15 with Play Protect certification"
-#~ msgstr ""
+#~ msgstr "Android 15 con certificación Play Protect"
 
 #~ msgid "Android 16 with Play Protect certification"
-#~ msgstr ""
+#~ msgstr "Android 16 con certificación Play Protect"
 
 #~ msgid "Officially supported browsers for the web install method:"
 #~ msgstr ""
+#~ "Navegadores oficialmente compatibles con el método de instalación web:"
 
 #~ msgid ""
 #~ "Chromium (outside Ubuntu, since they ship a broken Snap package without "
 #~ "working WebUSB)"
 #~ msgstr ""
+#~ "Chromium (fuera de Ubuntu, ya que allí distribuyen un paquete Snap "
+#~ "defectuoso sin WebUSB funcional)"
 
 #~ msgid "Vanadium (GrapheneOS)"
 #~ msgstr ""
@@ -55778,9 +55826,11 @@ msgstr ""
 #~ "You should avoid Flatpak and Snap versions of browsers, as they're known to "
 #~ "cause issues during the installation process."
 #~ msgstr ""
+#~ "Debes evitar las versiones Flatpak y Snap de los navegadores, ya que se sabe"
+#~ " que causan problemas durante el proceso de instalación."
 
 #~ msgid "Make sure your browser is up-to-date before proceeding."
-#~ msgstr ""
+#~ msgstr "Asegúrate de que tu navegador esté actualizado antes de continuar."
 
 #~ msgid ""
 #~ "On Arch Linux, install the <code>android-udev</code> package. On Debian and\n"
