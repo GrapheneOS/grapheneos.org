@@ -1,0 +1,25 @@
+{# templates/seo_meta.html - SEO мета-теги #}
+
+{# Canonical URL - всегда без слеша в конце #}
+{% if request_path %}
+{% if lang == 'en' %}
+<link rel="canonical" href="https://grapheneos.org{{ request_path }}">
+{% else %}
+<link rel="canonical" href="https://grapheneos.org/{{ lang }}{{ request_path }}">
+{% endif %}
+{% endif %}
+
+{# hreflang для всех языковых версий #}
+{% if request_path %}
+{% set languages = {'en': '', 'ru': 'ru', 'de': 'de', 'fr': 'fr', 'es': 'es'} %}
+{% for lang_code, lang_prefix in languages.items() %}
+{% if lang_prefix %}
+<link rel="alternate" hreflang="{{ lang_code }}" href="https://grapheneos.org/{{ lang_prefix }}{{ request_path }}">
+{% else %}
+<link rel="alternate" hreflang="{{ lang_code }}" href="https://grapheneos.org{{ request_path }}">
+{% endif %}
+{% endfor %}
+<link rel="alternate" hreflang="x-default" href="https://grapheneos.org{{ request_path }}">
+{% endif %}
+
+<meta http-equiv="Vary" content="Accept-Language">

@@ -1,3 +1,5 @@
 gixy-ng
 lxml
 cssselect
+Babel>=2.14.0
+polib>=1.2.0

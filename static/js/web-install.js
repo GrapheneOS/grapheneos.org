@@ -6,6 +6,94 @@ const RELEASES_URL = "https://releases.grapheneos.org";
 
 const CACHE_DB_NAME = "BlobStore";
 const CACHE_DB_VERSION = 1;
+const DEFAULT_I18N = {
+    networkRequestFailed: "Network request failed",
+    connectingToDevice: "Connecting to device...",
+    bootloaderAlreadyUnlocked: "Bootloader is already unlocked.",
+    unlockingBootloader: "Unlocking bootloader...",
+    bootloaderNotUnlocked: "Bootloader was not unlocked, please try again!",
+    bootloaderUnlockTriggered: "Bootloader unlocking triggered successfully.",
+    deviceNotSupported: "device model ({product}) is not supported by the GrapheneOS web installer",
+    findingLatestRelease: "Finding latest release...",
+    downloadingRelease: "Downloading {zip}...",
+    downloadedRelease: "Downloaded {zip} release.",
+    reconnectToContinueFlashing: "To continue flashing, reconnect the device by tapping here:",
+    downloadReleaseFirst: "You need to download a release first!",
+    cancellingPendingOtas: "Cancelling any pending OTAs...",
+    flashingRelease: "Flashing release...",
+    verifiedBootKey: "verified boot key",
+    flashingStep: "{action} {item}...",
+    disablingUart: "Disabling UART...",
+    erasingApdp: "Erasing apdp...",
+    erasingMsadp: "Erasing msadp...",
+    flashedReleaseToDevice: "Flashed {zip} to device.",
+    erasingKey: "Erasing key...",
+    keyErased: "Key erased.",
+    lockingBootloader: "Locking bootloader...",
+    bootloaderNotLocked: "Bootloader was not locked, please try again!",
+    bootloaderLockTriggered: "Bootloader locking triggered successfully.",
+    usbDeviceNotSelected: "No device selected.",
+    usbAccessDenied: "Access to the USB device was denied.",
+    usbOperationAborted: "The USB operation was aborted.",
+    usbInvalidState: "The device is in an invalid state for this operation.",
+    usbNetworkError: "A communication error occurred while talking to the device.",
+    usbOperationNotSupported: "This operation is not supported by your browser or device.",
+    usbSecurityError: "This action was blocked by your browser security settings.",
+    storageQuotaExceeded: "storage quota has been exceeded, you might not have enough space on your drive, or you're using incognito mode",
+    errorPrefix: "Error: {message}",
+    webUsbUnavailable: "Unavailable, as your browser doesn't support WebUSB. Please read the <a href=\"#prerequisites\">prerequisites</a>.",
+};
+
+function loadI18n() {
+    const i18nElement = document.getElementById("web-install-i18n");
+    if (i18nElement === null) {
+        return DEFAULT_I18N;
+    }
+
+    try {
+        return {
+            ...DEFAULT_I18N,
+            ...JSON.parse(i18nElement.textContent),
+        };
+    } catch (error) {
+        console.error("Failed to parse web installer translations", error);
+        return DEFAULT_I18N;
+    }
+}
+
+const i18n = loadI18n();
+
+function t(key, vars = {}) {
+    const template = i18n[key] ?? DEFAULT_I18N[key] ?? key;
+    return template.replace(/\{(\w+)\}/g, (match, name) => {
+        return Object.prototype.hasOwnProperty.call(vars, name) ? vars[name] : match;
+    });
+}
+
+function getLocalizedErrorMessage(error) {
+    if (error instanceof DOMException) {
+        const domExceptionMessages = {
+            AbortError: t("usbOperationAborted"),
+            InvalidStateError: t("usbInvalidState"),
+            NetworkError: t("usbNetworkError"),
+            NotAllowedError: t("usbAccessDenied"),
+            NotFoundError: t("usbDeviceNotSelected"),
+            NotSupportedError: t("usbOperationNotSupported"),
+            QuotaExceededError: t("storageQuotaExceeded"),
+            SecurityError: t("usbSecurityError"),
+        };
+
+        if (Object.prototype.hasOwnProperty.call(domExceptionMessages, error.name)) {
+            return domExceptionMessages[error.name];
+        }
+    }
+
+    if (typeof(error) === "object" && error.message != null && error.message !== "") {
+        return error.message;
+    }
+
+    return error.toString();
+}
 
 const Buttons = {
     UNLOCK_BOOTLOADER: "unlock-bootloader",
@@ -71,7 +159,7 @@ function fetchBlobWithProgress(url, onProgress) {
         xhr.onerror = () => {
             // onerror is called on network errors
             // status and statusText are populated with default values
-            reject("Network request failed");
+            reject(t("networkRequestFailed"));
         };
     });
 }
@@ -211,7 +299,7 @@ let buttonController = new ButtonController();
 
 async function ensureConnected(setProgress) {
     if (!device.isConnected) {
-        setProgress("Connecting to device...");
+        setProgress(t("connectingToDevice"));
         await device.connect();
     }
 }
@@ -222,22 +310,22 @@ async function unlockBootloader(setProgress) {
     // Trying to unlock when the bootloader is already unlocked results in a FAIL,
     // so don't try to do it.
     if (await device.getVariable("unlocked") === "yes") {
-        return "Bootloader is already unlocked.";
+        return t("bootloaderAlreadyUnlocked");
     }
 
-    setProgress("Unlocking bootloader...");
+    setProgress(t("unlockingBootloader"));
     try {
         await device.runCommand("flashing unlock");
     } catch (error) {
         // FAIL = user rejected unlock
         if (error instanceof fastboot.FastbootError && error.status === "FAIL") {
-            throw new Error("Bootloader was not unlocked, please try again!");
+            throw new Error(t("bootloaderNotUnlocked"));
         } else {
             throw error;
         }
     }
 
-    return "Bootloader unlocking triggered successfully.";
+    return t("bootloaderUnlockTriggered");
 }
 
 const supportedDevices = ["stallion", "rango", "mustang", "blazer", "frankel", "tegu", "comet", "komodo", "caiman", "tokay", "akita", "husky", "shiba", "felix", "tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble", "sunfish", "coral", "flame"];
@@ -253,7 +341,7 @@ function hasOptimizedFactoryImage(product) {
 async function getLatestRelease() {
     let product = await device.getVariable("product");
     if (!supportedDevices.includes(product)) {
-        throw new Error(`device model (${product}) is not supported by the GrapheneOS web installer`);
+        throw new Error(t("deviceNotSupported", { product }));
     }
 
     let metadataResp = await fetch(`${RELEASES_URL}/${product}-stable`);
@@ -267,28 +355,27 @@ async function downloadRelease(setProgress) {
     await requestWakeLock();
     await ensureConnected(setProgress);
 
-    setProgress("Finding latest release...");
+    setProgress(t("findingLatestRelease"));
     let [latestZip,] = await getLatestRelease();
 
     // Download and cache the zip as a blob
     setInstallerState({ state: InstallerState.DOWNLOADING_RELEASE, active: true });
-    setProgress(`Downloading ${latestZip}...`);
+    setProgress(t("downloadingRelease", { zip: latestZip }));
     await blobStore.init();
     try {
         await blobStore.download(`${RELEASES_URL}/${latestZip}`, (progress) => {
-            setProgress(`Downloading ${latestZip}...`, progress);
+            setProgress(t("downloadingRelease", { zip: latestZip }), progress);
         });
     } finally {
         setInstallerState({ state: InstallerState.DOWNLOADING_RELEASE, active: false });
         await releaseWakeLock();
     }
-    setProgress(`Downloaded ${latestZip} release.`, 1.0);
+    setProgress(t("downloadedRelease", { zip: latestZip }), 1.0);
 }
 
 async function reconnectCallback() {
     let statusField = document.getElementById("flash-release-status");
-    statusField.textContent =
-        "To continue flashing, reconnect the device by tapping here:";
+    statusField.textContent = t("reconnectToContinueFlashing");
 
     let reconnectButton = document.getElementById("flash-reconnect-button");
     let progressBar = document.getElementById("flash-release-progress");
@@ -310,15 +397,15 @@ async function flashRelease(setProgress) {
 
     // Need to do this again because the user may not have clicked download if
     // it was cached
-    setProgress("Finding latest release...");
+    setProgress(t("findingLatestRelease"));
     let [latestZip, product] = await getLatestRelease();
     await blobStore.init();
     let blob = await blobStore.loadFile(latestZip);
     if (blob === null) {
-        throw new Error("You need to download a release first!");
+        throw new Error(t("downloadReleaseFirst"));
     }
 
-    setProgress("Cancelling any pending OTAs...");
+    setProgress(t("cancellingPendingOtas"));
     // Cancel snapshot update if in progress on devices which support it on all bootloader versions
     if (day1SnapshotCancelDevices.includes(product)) {
         let snapshotStatus = await device.getVariable("snapshot-update-status");
@@ -327,26 +414,26 @@ async function flashRelease(setProgress) {
         }
     }
 
-    setProgress("Flashing release...");
+    setProgress(t("flashingRelease"));
     setInstallerState({ state: InstallerState.INSTALLING_RELEASE, active: true });
     try {
         await device.flashFactoryZip(blob, true, reconnectCallback,
             (action, item, progress) => {
                 let userAction = fastboot.USER_ACTION_MAP[action];
-                let userItem = item === "avb_custom_key" ? "verified boot key" : item;
-                setProgress(`${userAction} ${userItem}...`, progress);
+                let userItem = item === "avb_custom_key" ? t("verifiedBootKey") : item;
+                setProgress(t("flashingStep", { action: userAction, item: userItem }), progress);
             }
         );
         if (legacyQualcommDevices.includes(product)) {
-            setProgress("Disabling UART...");
+            setProgress(t("disablingUart"));
             // See https://android.googlesource.com/platform/system/core/+/eclair-release/fastboot/fastboot.c#532
             // for context as to why the trailing space is needed.
             await device.runCommand("oem uart disable ");
-            setProgress("Erasing apdp...");
+            setProgress(t("erasingApdp"));
             // Both slots are wiped as even apdp on an inactive slot will modify /proc/cmdline
             await device.runCommand("erase:apdp_a");
             await device.runCommand("erase:apdp_b");
-            setProgress("Erasing msadp...");
+            setProgress(t("erasingMsadp"));
             await device.runCommand("erase:msadp_a");
             await device.runCommand("erase:msadp_b");
         }
@@ -355,38 +442,38 @@ async function flashRelease(setProgress) {
         await releaseWakeLock();
     }
 
-    return `Flashed ${latestZip} to device.`;
+    return t("flashedReleaseToDevice", { zip: latestZip });
 }
 
 async function eraseNonStockKey(setProgress) {
     await ensureConnected(setProgress);
 
-    setProgress("Erasing key...");
+    setProgress(t("erasingKey"));
     try {
         await device.runCommand("erase:avb_custom_key");
     } catch (error) {
         console.log(error);
         throw error;
     }
-    return "Key erased.";
+    return t("keyErased");
 }
 
 async function lockBootloader(setProgress) {
     await ensureConnected(setProgress);
 
-    setProgress("Locking bootloader...");
+    setProgress(t("lockingBootloader"));
     try {
         await device.runCommand("flashing lock");
     } catch (error) {
         // FAIL = user rejected lock
         if (error instanceof fastboot.FastbootError && error.status === "FAIL") {
-            throw new Error("Bootloader was not locked, please try again!");
+            throw new Error(t("bootloaderNotLocked"));
         } else {
             throw error;
         }
     }
 
-    return "Bootloader locking triggered successfully.";
+    return t("bootloaderLockTriggered");
 }
 
 function addButtonHook(id, callback) {
@@ -416,18 +503,8 @@ function addButtonHook(id, callback) {
                 statusCallback(finalStatus);
             }
         } catch (error) {
-            let errorMessage;
-            if (error instanceof DOMException && error.name === "QuotaExceededError") {
-                // provide a more descriptive message than "Error: QuotaExceededError"
-                errorMessage = "storage quota has been exceeded, you might not have enough space on your drive, or you're using incognito mode";
-            } else if (typeof(error) === "object" && error.message != null && error.message !== "") {
-                errorMessage = error.message;
-            } else {
-                // sometimes non-error objects are thrown
-                // display its string representation instead of "Error: undefined"
-                errorMessage = error.toString();
-            }
-            statusCallback(`Error: ${errorMessage}`);
+            let errorMessage = getLocalizedErrorMessage(error);
+            statusCallback(t("errorPrefix", { message: errorMessage }));
             statusField.className = "error-text";
             await releaseWakeLock();
             // Rethrow the error so it shows up in the console
@@ -511,7 +588,7 @@ if ("usb" in navigator) {
             statusContainer.hidden = false;
         }
         statusField.className = "error-text";
-        statusField.innerHTML = "Unavailable, as your browser doesn't support WebUSB. Please read the <a href=\"#prerequisites\">prerequisites</a>.";
+        statusField.innerHTML = t("webUsbUnavailable");
     }
 }
 

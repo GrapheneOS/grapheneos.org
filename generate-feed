@@ -1,29 +1,62 @@
 #!/usr/bin/env python3
 
 from datetime import datetime
+import os
+from pathlib import Path
 
 import lxml.html
 from lxml import etree
 
-document = lxml.html.parse("static-tmp/releases.html").getroot()
-releases = document.body.cssselect("#changelog article")
+# Supported languages
+LANGUAGES = ['en', 'de', 'fr', 'es', 'ru']
 
-updated = None
-entries = []
+print("=== Generating Atom feeds for each language ===")
 
-for release in releases[:20]:
-    title = release.attrib["id"]
+for lang in LANGUAGES:
+    # Look for releases.html in language subdirectory
+    lang_dir = Path(f"static-tmp/{lang}")
+    releases_file = lang_dir / "releases.html"
+
+    if not releases_file.exists():
+        print(f"  Warning: {releases_file} not found, skipping {lang}")
+        continue
+
+    print(f"  Processing {lang} from {releases_file}")
+
     try:
-        time = datetime.strptime(title, "%Y%m%d%H").isoformat() + "Z"
-    except ValueError:
-        time = datetime.strptime(title, "%Y.%m.%d.%H").isoformat() + "Z"
-    if updated is None:
-        updated = time
-    content = [etree.tostring(e).decode() for e in release.getchildren()[1:]]
-    entries.append(f"""
+        # Parse the HTML and extract changelog articles
+        document = lxml.html.parse(str(releases_file)).getroot()
+        releases = document.body.cssselect("#changelog article")
+
+        updated = None
+        entries = []
+
+        # Process first 20 releases (most recent)
+        for release in releases[:20]:
+            title = release.attrib["id"]
+
+            # Parse date from release ID
+            try:
+                # Try YYYYMMDDHH format first
+                time = datetime.strptime(title, "%Y%m%d%H").isoformat() + "Z"
+            except ValueError:
+                try:
+                    # Fallback to YYYY.MM.DD.HH format
+                    time = datetime.strptime(title, "%Y.%m.%d.%H").isoformat() + "Z"
+                except ValueError:
+                    # If both fail, use current time
+                    time = datetime.now().isoformat() + "Z"
+
+            if updated is None:
+                updated = time
+
+            # Extract content excluding the heading
+            content = [etree.tostring(e).decode() for e in release.getchildren()[1:]]
+
+            entries.append(f"""
     <entry>
-        <id>https://grapheneos.org/releases#{title}</id>
-        <link href="https://grapheneos.org/releases#{title}"/>
+        <id>https://grapheneos.org/{lang}/releases#{title}</id>
+        <link href="https://grapheneos.org/{lang}/releases#{title}"/>
         <title>{title}</title>
         <updated>{time}</updated>
         <published>{time}</published>
@@ -34,14 +67,15 @@ for release in releases[:20]:
         </content>
     </entry>""")
 
-feed = f"""<?xml version="1.0" encoding="utf-8"?>
+        # Build the Atom feed for this language
+        feed = f"""<?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://grapheneos.org/releases#changelog</id>
-    <link href="https://grapheneos.org/releases#changelog"/>
-    <link rel="self" href="https://grapheneos.org/releases.atom"/>
+    <id>https://grapheneos.org/{lang}/releases#changelog</id>
+    <link href="https://grapheneos.org/{lang}/releases#changelog"/>
+    <link rel="self" href="https://grapheneos.org/{lang}/releases.atom"/>
     <link rel="license" href="https://grapheneos.org/LICENSE.txt"/>
     <icon>https://grapheneos.org/favicon.ico</icon>
-    <title>GrapheneOS changelog</title>
+    <title>GrapheneOS changelog ({lang.upper()})</title>
     <updated>{updated}</updated>
     <author>
         <name>GrapheneOS</name>
@@ -51,5 +85,14 @@ feed = f"""<?xml version="1.0" encoding="utf-8"?>
 </feed>
 """
 
-with open("static-tmp/releases.atom", "w") as f:
-    f.write(feed)
+        # Save feed to language subdirectory
+        output_file = lang_dir / "releases.atom"
+        with open(output_file, "w", encoding='utf-8') as f:
+            f.write(feed)
+
+        print(f"    ✓ Generated {lang}/releases.atom")
+
+    except Exception as e:
+        print(f"    ✗ Error processing {lang}: {e}")
+
+print("=== Feed generation completed ===")

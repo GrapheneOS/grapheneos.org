@@ -3,9 +3,14 @@
 from datetime import datetime, timezone
 from os.path import getmtime
 from pathlib import Path
+import glob
 
 base = "https://grapheneos.org"
 
+# Языки, поддерживаемые сайтом
+LANGUAGES = ['en', 'de', 'fr', 'es', 'ru']
+
+# Определяем страницы и их приоритеты
 pages = [
     ["/", 0.5],
     ["/.well-known/security.txt", 0.0],
@@ -36,36 +41,312 @@ pages = [
     ["/usage", 1.0]
 ]
 
-base_mtime = getmtime("static-tmp")
-entries = []
+def get_language_files():
+    """Получает список всех языковых версий HTML файлов."""
+    lang_files = {}
+    for lang in LANGUAGES:
+        lang_path = Path(f"static-production/{lang}")
+        if lang_path.exists():
+            for html_file in lang_path.rglob('*.html'):
+                # Получаем относительный путь без языка
+                rel_path = str(html_file.relative_to(lang_path))
+                # Убираем index.html -> /
+                if rel_path == 'index.html':
+                    rel_path = ''
+                elif rel_path.endswith('.html'):
+                    rel_path = rel_path[:-5]
+                # Добавляем ведущий слеш
+                if not rel_path.startswith('/'):
+                    rel_path = '/' + rel_path
 
-for page in pages:
-    path = page[0]
-    loc = base + path
-    filepath = "static-production" + path
-    if path[-1] == '/':
-        filepath += "index.html"
-    elif "." not in path:
-        filepath += ".html"
+                if rel_path not in lang_files:
+                    lang_files[rel_path] = {}
+                lang_files[rel_path][lang] = html_file
+    return lang_files
 
-    mtime = getmtime(filepath)
-    if mtime > base_mtime:
-        print(loc)
-    lastmod = datetime.fromtimestamp(mtime, timezone.utc).strftime("%Y-%m-%dT%H:%M:%S%:z")
-    priority = page[1]
-    entries.append(f"""
+def get_all_page_paths():
+    """Получает все существующие пути страниц из языковых папок."""
+    paths = set()
+    for lang in LANGUAGES:
+        lang_path = Path(f"static-production/{lang}")
+        if lang_path.exists():
+            for html_file in lang_path.rglob('*.html'):
+                rel_path = str(html_file.relative_to(lang_path))
+                if rel_path == 'index.html':
+                    paths.add('/')
+                elif rel_path.endswith('.html'):
+                    paths.add('/' + rel_path[:-5])
+                else:
+                    paths.add('/' + rel_path)
+    return paths
+
+def get_file_path_for_lang(page_path, lang):
+    """Возвращает путь к файлу для указанной страницы и языка."""
+    if page_path == '/':
+        filename = 'index.html'
+    else:
+        filename = page_path.lstrip('/') + '.html'
+
+    filepath = Path(f"static-production/{lang}/{filename}")
+    if filepath.exists():
+        return filepath
+    return None
+
+def get_lastmod_for_page(page_path, lang):
+    """Получает дату последнего изменения страницы."""
+    filepath = get_file_path_for_lang(page_path, lang)
+    if filepath and filepath.exists():
+        try:
+            mtime = getmtime(filepath)
+            return datetime.fromtimestamp(mtime, timezone.utc).strftime("%Y-%m-%dT%H:%M:%S%:z")
+        except OSError:
+            pass
+    return None
+
+def url_for_page(page_path, lang):
+    """Возвращает URL для страницы на указанном языке."""
+    if lang == 'en':
+        return base + page_path
+    else:
+        # Для корневой страницы
+        if page_path == '/':
+            return base + '/' + lang + '/'
+        return base + '/' + lang + page_path
+
+def generate_sitemap():
+    """Генерирует многоязычную карту сайта."""
+    entries = []
+    base_mtime = getmtime("static-production")
+
+    # Получаем все существующие страницы
+    all_pages = get_all_page_paths()
+
+    for page in pages:
+        path = page[0]
+        priority = page[1]
+
+        # Проверяем, существует ли хотя бы одна языковая версия
+        has_any_version = False
+        url_entries = []
+
+        for lang in LANGUAGES:
+            filepath = get_file_path_for_lang(path, lang)
+            if filepath and filepath.exists():
+                has_any_version = True
+                loc = url_for_page(path, lang)
+                lastmod = get_lastmod_for_page(path, lang)
+
+                # Если lastmod не удалось получить, используем время изменения директории
+                if not lastmod:
+                    try:
+                        mtime = getmtime(filepath)
+                        lastmod = datetime.fromtimestamp(mtime, timezone.utc).strftime("%Y-%m-%dT%H:%M:%S%:z")
+                    except OSError:
+                        lastmod = datetime.fromtimestamp(base_mtime, timezone.utc).strftime("%Y-%m-%dT%H:%M:%S%:z")
+
+                url_entries.append({
+                    'loc': loc,
+                    'lastmod': lastmod,
+                    'lang': lang,
+                    'priority': priority
+                })
+
+        # Если страница не существует, пропускаем
+        if not has_any_version:
+            continue
+
+        # Строим XML для этой страницы
+        xml_parts = []
+        for entry in url_entries:
+            xml_parts.append(f"""
+    <url>
+        <loc>{entry['loc']}</loc>
+        <lastmod>{entry['lastmod']}</lastmod>
+        <priority>{entry['priority']}</priority>""")
+
+            # Добавляем xhtml:link для всех языковых версий
+            xhtml_links = []
+            for other_entry in url_entries:
+                if other_entry['lang'] != entry['lang']:
+                    xhtml_links.append(f'        <xhtml:link rel="alternate" hreflang="{other_entry["lang"]}" href="{other_entry["loc"]}"/>')
+
+            if xhtml_links:
+                xml_parts[-1] += '\n' + '\n'.join(xhtml_links)
+
+            # Добавляем самоссылку для текущей страницы
+            xml_parts[-1] += f'\n        <xhtml:link rel="alternate" hreflang="{entry["lang"]}" href="{entry["loc"]}"/>'
+            xml_parts[-1] += '\n    </url>'
+
+        entries.extend(xml_parts)
+
+    # Также добавляем страницы, которые есть в файловой системе, но не в списке pages
+    existing_paths = get_all_page_paths()
+    for path in existing_paths:
+        # Проверяем, уже обработана ли эта страница
+        if any(page[0] == path for page in pages):
+            continue
+
+        # Проверяем, является ли это страницей без HTML (например, robots.txt, sitemap.xml и т.д.)
+        if path.endswith('.xml') or path.endswith('.txt') or path.endswith('.atom'):
+            # Обрабатываем как обычный файл
+            filepath = get_file_path_for_lang(path, 'en')
+            if filepath and filepath.exists():
+                try:
+                    mtime = getmtime(filepath)
+                    lastmod = datetime.fromtimestamp(mtime, timezone.utc).strftime("%Y-%m-%dT%H:%M:%S%:z")
+                    entries.append(f"""
+    <url>
+        <loc>{base + path}</loc>
+        <lastmod>{lastmod}</lastmod>
+        <priority>0.0</priority>
+    </url>""")
+                except OSError:
+                    pass
+            continue
+
+        # Для HTML страниц
+        has_any_version = False
+        url_entries = []
+
+        for lang in LANGUAGES:
+            filepath = get_file_path_for_lang(path, lang)
+            if filepath and filepath.exists():
+                has_any_version = True
+                loc = url_for_page(path, lang)
+                lastmod = get_lastmod_for_page(path, lang)
+
+                if not lastmod:
+                    try:
+                        mtime = getmtime(filepath)
+                        lastmod = datetime.fromtimestamp(mtime, timezone.utc).strftime("%Y-%m-%dT%H:%M:%S%:z")
+                    except OSError:
+                        lastmod = datetime.fromtimestamp(base_mtime, timezone.utc).strftime("%Y-%m-%dT%H:%M:%S%:z")
+
+                url_entries.append({
+                    'loc': loc,
+                    'lastmod': lastmod,
+                    'lang': lang,
+                    'priority': 0.5  # Стандартный приоритет для несписковых страниц
+                })
+
+        if has_any_version:
+            for entry in url_entries:
+                xml_parts = [f"""
+    <url>
+        <loc>{entry['loc']}</loc>
+        <lastmod>{entry['lastmod']}</lastmod>
+        <priority>{entry['priority']}</priority>"""]
+
+                # Добавляем xhtml:link для всех языковых версий
+                xhtml_links = []
+                for other_entry in url_entries:
+                    if other_entry['lang'] != entry['lang']:
+                        xhtml_links.append(f'        <xhtml:link rel="alternate" hreflang="{other_entry["lang"]}" href="{other_entry["loc"]}"/>')
+
+                if xhtml_links:
+                    xml_parts[-1] += '\n' + '\n'.join(xhtml_links)
+
+                xml_parts[-1] += f'\n        <xhtml:link rel="alternate" hreflang="{entry["lang"]}" href="{entry["loc"]}"/>'
+                xml_parts[-1] += '\n    </url>'
+                entries.append(xml_parts[0])
+
+    # Формируем финальную карту сайта
+    sitemap = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">{"".join(entries)}
+</urlset>
+"""
+
+    with open("static-tmp/sitemap.xml", "w", encoding='utf-8') as f:
+        f.write(sitemap)
+
+    print("✓ Generated multilingual sitemap.xml with hreflang attributes")
+
+    # Также генерируем языковые sitemap-индексы (опционально)
+    generate_sitemap_index()
+
+def generate_sitemap_index():
+    """Генерирует sitemap index для языковых версий."""
+    entries = []
+    base_mtime = getmtime("static-production")
+    lastmod = datetime.fromtimestamp(base_mtime, timezone.utc).strftime("%Y-%m-%dT%H:%M:%S%:z")
+
+    for lang in LANGUAGES:
+        sitemap_url = f"{base}/sitemap_{lang}.xml"
+        entries.append(f"""
+    <sitemap>
+        <loc>{sitemap_url}</loc>
+        <lastmod>{lastmod}</lastmod>
+    </sitemap>""")
+
+    # Генерируем основной индекс только если есть языковые sitemap
+    if entries:
+        sitemap_index = f"""<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{"".join(entries)}
+</sitemapindex>
+"""
+        with open("static-tmp/sitemap_index.xml", "w", encoding='utf-8') as f:
+            f.write(sitemap_index)
+        print("✓ Generated sitemap_index.xml")
+
+def generate_lang_sitemaps():
+    """Генерирует отдельные sitemap для каждого языка."""
+    base_mtime = getmtime("static-production")
+
+    for lang in LANGUAGES:
+        entries = []
+        lang_path = Path(f"static-production/{lang}")
+
+        if not lang_path.exists():
+            continue
+
+        # Собираем все HTML файлы для этого языка
+        for html_file in lang_path.rglob('*.html'):
+            rel_path = str(html_file.relative_to(lang_path))
+            if rel_path == 'index.html':
+                page_path = '/'
+            elif rel_path.endswith('.html'):
+                page_path = '/' + rel_path[:-5]
+            else:
+                page_path = '/' + rel_path
+
+            # Определяем приоритет
+            priority = 0.5
+            for page in pages:
+                if page[0] == page_path:
+                    priority = page[1]
+                    break
+
+            loc = url_for_page(page_path, lang)
+
+            try:
+                mtime = getmtime(html_file)
+                lastmod = datetime.fromtimestamp(mtime, timezone.utc).strftime("%Y-%m-%dT%H:%M:%S%:z")
+            except OSError:
+                lastmod = datetime.fromtimestamp(base_mtime, timezone.utc).strftime("%Y-%m-%dT%H:%M:%S%:z")
+
+            entries.append(f"""
     <url>
         <loc>{loc}</loc>
         <lastmod>{lastmod}</lastmod>
         <priority>{priority}</priority>
     </url>""")
 
-sitemap = f"""<?xml version="1.0" encoding="UTF-8"?>
+        if entries:
+            sitemap = f"""<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">{"".join(entries)}
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">{"".join(entries)}
 </urlset>
 """
+            with open(f"static-tmp/sitemap_{lang}.xml", "w", encoding='utf-8') as f:
+                f.write(sitemap)
+            print(f"  Generated sitemap_{lang}.xml")
 
-with open("static-tmp/sitemap.xml", "w") as f:
-    f.write(sitemap)
+if __name__ == "__main__":
+    # Генерируем основную многоязычную карту сайта
+    generate_sitemap()
+
+    # Генерируем отдельные sitemap для каждого языка (опционально)
+    generate_lang_sitemaps()

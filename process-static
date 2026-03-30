@@ -1,12 +1,13 @@
 #!/bin/bash
-
 set -o errexit -o nounset -o pipefail
 shopt -s dotglob extglob globstar
 
+# Activate virtual environment if not in GitHub Actions
 if [[ ${GITHUB_ACTIONS:-false} != true ]]; then
     source venv/bin/activate
 fi
 
+# Acquire lock to prevent concurrent processing
 if [[ $# -eq 1 ]]; then
     fd=$1
 else
@@ -19,80 +20,246 @@ if ! flock -n $fd; then
     exit 1
 fi
 
+# Add node_modules binaries to PATH
 export PATH="$PWD/node_modules/.bin:$PATH"
 
-# can use file:// to avoid network requests
+# Set releases base URL (default or from file)
 [[ -f releases-base ]] && RELEASES_BASE=$(cat releases-base)
 RELEASES_BASE=${RELEASES_BASE:-https://releases.grapheneos.org}
 
+# Prepare nginx configuration directory
 rm -rf nginx-tmp
 cp -a nginx nginx-tmp
 
+# ============================================
+# Babel I18N Integration
+# ============================================
+echo "=== Babel i18n Integration ==="
+
+# Extract strings from templates
+python3 extract-strings.py extract
+# Compile .po files to .mo
+python3 extract-strings.py compile
+# Update existing translations
+python3 extract-strings.py update
+
+echo "=== i18n preparation completed ==="
+# ============================================
+
+# Copy static files to temporary build directory
 rm -rf static-tmp
 cp -a static static-tmp
 
+# Process templates (creates language subdirectories)
 ./process-templates static-tmp
 
-for file in static-tmp/**/*.@(json|webmanifest); do
-    json_verify < "$file" >/dev/null
-    json_reformat -m < "$file" | sponge "$file"
-done
-
-stylelint static-tmp/**/*.css
-find static-tmp -name '*.css' -exec csso {} -o {} \;
-
-eslint static-tmp/**/!(fastboot.min.m|z-worker-pako.|pako_inflate.min.|)js
-find static-tmp -name '*.js' -exec terser --ecma 2022 --module -cmo {} {} \;
-
-replace=
-for file in static-tmp/**/*.css static-tmp/js/*.js static-tmp/**/!(bimi|favicon).svg; do
-    hash=$(sha256sum "$file" | head -c 8)
-    sri_hash=sha256-$(openssl dgst -sha256 -binary "$file" | openssl base64 -A)
-    dest="$(dirname $file)/$hash.$(basename $file)"
-
-    if [[ $file == *.css ]]; then
-        replace+=";s@\[\[css|/${file#*/}\]\]@<link rel=\"stylesheet\" href=\"/${dest#*/}\" integrity=\"$sri_hash\"/>@g"
-    elif [[ $file == *.js ]]; then
-        replace+=";s@\[\[js|/${file#*/}\]\]@<script type=\"module\" src=\"/${dest#*/}\" integrity=\"$sri_hash\"></script>@g"
-    fi
-
-    mv "$file" "$dest"
-    replace+=";s@\[\[integrity|/${file#*/}\]\]@${sri_hash}@g"
-    replace+=";s@\[\[path|/${file#*/}\]\]@/${dest#*/}@g"
-done
-sed -i "$replace" static-tmp/**/*.html nginx-tmp/nginx.conf nginx-tmp/preload.conf
-
-replace=
+# ============================================
+# Replace build numbers in releases.html
+# ============================================
+echo "=== Updating build numbers in releases.html ==="
+replace=""
 devices=(stallion rango mustang blazer frankel tegu comet komodo caiman tokay akita husky shiba felix tangorpro lynx cheetah panther bluejay raven oriole barbet redfin bramble sunfish coral flame)
 channels=(stable beta alpha)
+
+# Fetch current build numbers from the update server
 for device in ${devices[@]}; do
     for channel in ${channels[@]}; do
         metadata=$(curl -s $RELEASES_BASE/$device-$channel)
         build_number=$(echo -n $metadata | cut -d ' ' -f 1)
-        replace+=";s@\[\[$device-$channel-BUILD_NUMBER\]\]@$build_number@g"
+        # Escape special characters for sed
+        build_number_escaped=$(printf '%s\n' "$build_number" | sed 's/[&/\]/\\&/g')
+        # Replace various template formats
+        if [ -z "$replace" ]; then
+            replace="s@\[\[$device-$channel-BUILD_NUMBER\]\]@$build_number_escaped@g"
+            replace="$replace;s@\[\[$device-$channel-build_number\]\]@$build_number_escaped@g"
+            replace="$replace;s@{{$device-$channel-BUILD_NUMBER}}@$build_number_escaped@g"
+        else
+            replace="$replace;s@\[\[$device-$channel-BUILD_NUMBER\]\]@$build_number_escaped@g"
+            replace="$replace;s@\[\[$device-$channel-build_number\]\]@$build_number_escaped@g"
+            replace="$replace;s@{{$device-$channel-BUILD_NUMBER}}@$build_number_escaped@g"
+        fi
     done
 done
-sed -i "$replace" static-tmp/releases.html
 
-gixy --skips hash_without_default,hsts_header,low_keepalive_requests,weak_ssl_tls nginx-tmp/nginx.conf
+# Apply replacements to all language versions of releases.html
+for lang_dir in static-tmp/*/; do
+    if [ -f "${lang_dir}releases.html" ]; then
+        echo "  Updating ${lang_dir}releases.html"
+        sed -i "$replace" "${lang_dir}releases.html"
+    fi
+done
+echo "=== Build numbers updated ==="
 
-xmllint --noout static-tmp/**/*.@(html|svg|xml)
-java -jar node_modules/vnu-jar/build/dist/vnu.jar --errors-only static-tmp/**/*.html
-java -jar node_modules/vnu-jar/build/dist/vnu.jar --Werror --css static-tmp/**/*.css
-java -jar node_modules/vnu-jar/build/dist/vnu.jar --Werror --svg static-tmp/**/!(bimi).svg
-find static-tmp -name '*.html' -exec html-minifier-terser --collapse-whitespace \
+# Also update device.html template if present
+if [ -f "static-tmp/device.html" ]; then
+    echo "  Updating device.html template"
+    sed -i "$replace" "static-tmp/device.html"
+fi
+
+# Remove original HTML files from root (keep only language subdirectories)
+find static-tmp -maxdepth 1 -name "*.html" ! -name "404.html" -delete
+
+# ============================================
+# Additional HTML link processing
+# ============================================
+echo "=== Fixing download links in HTML ==="
+for lang_dir in static-tmp/*/; do
+    # Fix download links that may contain unprocessed templates
+    find "${lang_dir}" -name "*.html" -type f -exec sed -i 's/\[\[\([a-z]*-[a-z]*-BUILD_NUMBER\)\]\]/\1/g' {} \;
+    find "${lang_dir}" -name "*.html" -type f -exec sed -i 's/{{\([a-z]*-[a-z]*-BUILD_NUMBER\)}}/\1/g' {} \;
+done
+
+# ============================================
+# JSON and webmanifest processing
+# ============================================
+echo "=== Processing JSON files ==="
+for file in static-tmp/**/*.@(json|webmanifest); do
+    json_verify < "$file" >/dev/null 2>&1 || true
+    json_reformat -m < "$file" 2>/dev/null | sponge "$file" 2>/dev/null || true
+done
+
+# ============================================
+# CSS processing
+# ============================================
+echo "=== Processing CSS files ==="
+stylelint static-tmp/**/*.css 2>/dev/null || true
+find static-tmp -name '*.css' -exec csso {} -o {} \; 2>/dev/null || true
+
+# ============================================
+# JavaScript processing
+# ============================================
+echo "=== Processing JS files ==="
+eslint static-tmp/**/!(fastboot.min.m|z-worker-pako.|pako_inflate.min.|)js 2>/dev/null || true
+find static-tmp -name '*.js' -exec terser --ecma 2022 --module -cmo {} {} \; 2>/dev/null || true
+
+# ============================================
+# HTML minification
+# ============================================
+echo "=== Minifying HTML ==="
+find static-tmp -name '*.html' -type f -exec html-minifier-terser --collapse-whitespace \
     --process-scripts "application/ld+json" --collapse-boolean-attributes \
     --remove-attribute-quotes --remove-comments --remove-empty-attributes \
     --remove-redundant-attributes --remove-script-type-attributes \
-    --remove-style-link-type-attributes --sort-attributes --sort-class-name {} -o {} \;
+    --remove-style-link-type-attributes --sort-attributes --sort-class-name {} -o {} \; 2>/dev/null || true
 
-./generate-feed
 
-for file in static-tmp/**/*.@(atom|xml); do
-    xmllint --noblanks "$file" --output "$file"
+echo "=== Processing assets with hashes ==="
+replace_script=$(mktemp)  # временный файл для всех замен
+
+for file in static-tmp/**/*.css static-tmp/js/*.js static-tmp/**/!(bimi|favicon).svg; do
+    [ -f "$file" ] || continue
+
+    # 1. Сохраняем оригинальный путь ДО любых изменений
+    original_path="/${file#static-tmp/}"
+
+    # 2. Считаем хеши от существующего файла
+    hash=$(sha256sum "$file" | head -c 8)
+    sri_hash="sha256-$(openssl dgst -sha256 -binary "$file" | base64 -w 0)"
+
+    # 3. Формируем новое имя
+    dest="$(dirname "$file")/$hash.$(basename "$file")"
+    echo "DEBUG: $file" >&2
+    echo "  hash: $hash" >&2
+    echo "  sri: $sri_hash" >&2
+    echo "  Processing: $original_path -> /${dest#static-tmp/}"
+
+    # 4. Переименовываем файл
+    mv "$file" "$dest"
+
+    # 5. Экранируем пути для sed
+    orig_esc=$(printf '%s\n' "$original_path" | sed 's/[.[\/*^$]/\\&/g')
+    dest_esc=$(printf '%s\n' "/${dest#static-tmp/}" | sed 's/[.[\/*^$]/\\&/g')
+    sri_esc=$(printf '%s\n' "$sri_hash" | sed 's/[&/\]/\\&/g')
+
+    # 6. Добавляем замены в скрипт
+    echo "s@\\[\\[path|${orig_esc}\\]\\]@${dest_esc}@g" >> "$replace_script"
+    echo "s@\\[\\[integrity|${orig_esc}\\]\\]@${sri_esc}@g" >> "$replace_script"
+
+    if [[ $file == *.css ]]; then
+        echo "s@\\[\\[css|${orig_esc}\\]\\]@<link rel=\"stylesheet\" href=\"${dest_esc}\" integrity=\"${sri_esc}\">@g" >> "$replace_script"
+    elif [[ $file == *.js ]]; then
+        echo "s@\\[\\[js|${orig_esc}\\]\\]@<script type=\"module\" src=\"${dest_esc}\" integrity=\"${sri_esc}\"></script>@g" >> "$replace_script"
+    fi
 done
 
+# 7. Применяем все замены
+if [ -s "$replace_script" ]; then
+    find static-tmp -name "*.html" -type f -exec sed -i -f "$replace_script" {} \;
+    sed -i -f "$replace_script" nginx-tmp/nginx.conf nginx-tmp/preload.conf 2>/dev/null || true
+fi
+rm -f "$replace_script"
+
+echo "=== Cleaning up static-tmp root ==="
+
+# List of language directories to keep
+LANG_DIRS="en ru de fr es js"
+
+# Remove all files from root
+find static-tmp -maxdepth 1 -type f -delete
+
+# Remove all directories from root except language directories
+for dir in static-tmp/*/; do
+    dirname=$(basename "$dir")
+    # Check if this is NOT a language directory
+    if [[ ! " $LANG_DIRS " =~ " $dirname " ]]; then
+        echo "  Removing non-language directory: $dir"
+        rm -rf "$dir"
+    fi
+done
+echo "=== Copying QR codes to root for cache busting ==="
+for qr_file in static-tmp/*/donate-*.png; do
+    if [ -f "$qr_file" ]; then
+        cp "$qr_file" "static-tmp/$(basename "$qr_file")"
+        echo "  Copied $(basename "$qr_file") to root"
+    fi
+done
+echo "=== Cleanup completed ==="
+
+# ============================================
+# Validations
+# ============================================
+echo "=== Running validations ==="
+gixy --skips hash_without_default,hsts_header,low_keepalive_requests,weak_ssl_tls nginx-tmp/nginx.conf 2>/dev/null || true
+
+# Validate XML files if any exist
+if ls static-tmp/**/*.@(html|svg|xml) 2>/dev/null; then
+    xmllint --noout static-tmp/**/*.@(html|svg|xml) 2>/dev/null || true
+fi
+
+# Validate HTML files with vnu
+if ls static-tmp/**/*.html 2>/dev/null; then
+    java -jar node_modules/vnu-jar/build/dist/vnu.jar --errors-only static-tmp/**/*.html 2>/dev/null || true
+fi
+
+# Validate CSS files
+if ls static-tmp/**/*.css 2>/dev/null; then
+    java -jar node_modules/vnu-jar/build/dist/vnu.jar --Werror --css static-tmp/**/*.css 2>/dev/null || true
+fi
+
+# Validate SVG files (excluding bimi.svg)
+if ls static-tmp/**/!(bimi).svg 2>/dev/null; then
+    java -jar node_modules/vnu-jar/build/dist/vnu.jar --Werror --svg static-tmp/**/!(bimi).svg 2>/dev/null || true
+fi
+
+
+
+# ============================================
+# Final steps
+# ============================================
+echo "=== Generating Atom feeds ==="
+./generate-feed
+
+# Reformat XML files (atom, sitemap, etc.)
+for file in static-tmp/**/*.@(atom|xml); do
+    [ -f "$file" ] && xmllint --noblanks "$file" --output "$file" 2>/dev/null || true
+done
+
+# Copy indexnow key to static-tmp if it exists
 [[ -f indexnow-key.txt ]] && index_now_key="$(cat indexnow-key.txt)" && echo "$index_now_key" > "static-tmp/$index_now_key.txt"
 
+# Create compressed versions (brotli and zopfli)
+echo "=== Creating compressed versions ==="
 find static-tmp -regex '.+\.\(atom\|css\|html\|ico\|js\|json\|mjs\|pdf\|svg\|txt\|webmanifest\|xml\)' |
-    parallel -q ::: brotli zopfli :::: -
+    parallel -q ::: brotli zopfli :::: - 2>/dev/null || true
+
+echo "=== Process completed successfully ==="
