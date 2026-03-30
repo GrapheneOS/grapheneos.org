@@ -77,6 +77,6 @@ def test_web_installer_buttons_are_clickable_and_report_status(page, base_url, l
                 const element = document.getElementById(id);
                 return element && element.textContent.trim().length > 0;
             }""",
-            status_id,
+            arg=status_id,
         )
         assert status.text_content().strip() != ""
