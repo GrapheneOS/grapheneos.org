@@ -647,6 +647,7 @@
 
                     <ul>
                         <li>Keyboard: add heuristic for detecting the input field is a Jetpack Compose TextField to work around a bug in Compose's implementation breaking backspace functionality by falling back to a legacy approach</li>
+                        <li>fix upstream use-after-free bug caught by MTE in the Pixel HWC3 service when an external display connects which causes soft reboots</li>
                         <li>Contact Scopes: resolve app compatibility issue causing crashes due to missing handling for _count queries when scopes are empty</li>
                         <li>Sandboxed Google Play compatibility layer: permit Android Auto retrieving A2DP connection policy when the special access permission for wireless Android Auto is granted to improve compatibility beyond the stub in GmsCompatConfig version 169</li>
                         <li>Pixel 10a: add missing Multiuser app for multi-user switcher widget</li>
