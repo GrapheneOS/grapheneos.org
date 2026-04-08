@@ -653,6 +653,9 @@
                         <li>Settings: ProfileSelectFragment: backport Android 16 QPR3 to ease future porting</li>
                         <li>Settings: ProfileSelectFragment: fix crash caused by upstream bug when opening credential settings from private profile</li>
                         <li>kernel (6.12): update to latest GKI LTS branch revision</li>
+                        <li>kernel (6.12): temporarily disable RANDSTRUCT and LTO due to incompatibility with Rust since Android has started using the Rust ashmem rewrite (CFI still works without LTO due to using kCFI)</li>
+                        <li>kernel (6.12): switch to Rust ashmem implementation</li>
+                        <li>kernel (6.12): enable build Rust Binder implementation</li>
                     </ul>
 
                     <p>All of the Android 16 security patches from the current May 2026, June 2026, July 2026, August 2026, September 2026 and October 2026 Android Security Bulletins are included in the 2026040601 security preview release. List of additional fixed CVEs:</p>
