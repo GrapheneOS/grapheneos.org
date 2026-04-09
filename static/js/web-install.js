@@ -92,9 +92,6 @@ class BlobStore {
             request.onsuccess = () => {
                 resolve(request.result);
             };
-            request.oncomplete = () => {
-                resolve(request.result);
-            };
             request.onerror = () => {
                 reject(request.error);
             };
@@ -108,7 +105,7 @@ class BlobStore {
     async _wrapTransaction(transaction) {
         return new Promise((resolve, reject) => {
             transaction.oncomplete = () => {
-                resolve(transaction.result);
+                resolve();
             };
             transaction.onerror = () => {
                 reject(transaction.error);
@@ -492,7 +489,9 @@ if ("usb" in navigator) {
     addButtonHook(Buttons.LOCK_BOOTLOADER, lockBootloader);
     addButtonHook(Buttons.REMOVE_CUSTOM_KEY, eraseNonStockKey);
 
-    if (navigator.storage && navigator.storage.estimate) {
+    // Brave always returns 2048MiB even with shields down
+    const isBraveBrowser = navigator.userAgentData && navigator.userAgentData.brands.find(obj=>obj.brand === "Brave") != null;
+    if (navigator.storage && navigator.storage.estimate && !isBraveBrowser) {
         navigator.storage.estimate().then(estimate => {
             // Currently factory images are ~1700MiB
             // Show a warning if the estimated space is below 2000MiB
