@@ -660,6 +660,7 @@
                         <li>kernel (6.1, 6.6, 6.12): backport fix for race conditions in USB gadget UVC driver causing crashes with the device as webcam feature including use-after-free detected by hardware memory tagging</li>
                         <li>kernel (6.6, 6.12): disable Android GKI vendor hooks for INIT_ON_FREE page zeroing to avoid Pixels deferring zero-on-free for reclaim (kswapd) via their driver tree since it reduces security to improve performance (the stock OS doesn't use INIT_ON_FREE but they tried to reduce the cost to be acceptable for the stock OS while we want the full security instead)</li>
                         <li>adevtool: change added Cape cellular radio carrier configuration entry to use the USCC (1952) instead of ATT (1187)</li>
+                        <li>hardened_malloc: improve handling of out-of-memory edge cases</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/147.0.7727.101.0">version 147.0.7727.101.0</a></li>
                     </ul>
 
