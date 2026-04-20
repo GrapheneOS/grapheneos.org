@@ -95,8 +95,57 @@
             the attestation metadata, you can enforce that <code>verifiedBootState</code> is
             either <code>Verified</code> or <code>SelfSigned</code>. For the
             <code>SelfSigned</code> case, you can check that <code>verifiedBootKey</code> matches
-            one of the official GrapheneOS verified boot keys. These are the base16-encoded
-            verified boot key fingerprints for the official GrapheneOS releases:</p>
+            one of the official GrapheneOS verified boot keys.</p>
+
+            <p>The current list of base16 encoded verified boot fingerprints is available as a
+            signed JSON object from <code>https://grapheneos.org/attestation.json</code> with an
+            OpenSSH signature at <code>https://grapheneos.org/attestation.json.sig</code>. Only
+            devices receiving proper security updates for the kernel, drivers and firmware are
+            included in the list. The following schema is used:</p>
+
+<pre>{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Trusted keys for Android hardware attestation",
+    "type": "object",
+    "properties": {
+        "verifiedBootKeys": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "timestamp": {
+            "type": "number"
+        }
+    },
+    "required": [
+        "verifiedBootKeys",
+        "timestamp"
+    ]
+}</pre>
+
+            <p>The public key is available at
+            <code>https://grapheneos.org/allowed_signers</code>.</p>
+
+            <p>Other locations to obtain the signing key:</p>
+
+            <ul>
+                <li><a href="https://bsky.app/profile/grapheneos.org/post/3kleyygkptm2x">Bluesky</a></li>
+                <li><a href="https://x.com/GrapheneOS/status/1757758688952009209">X</a></li>
+                <li><a href="https://github.com/GrapheneOS/grapheneos.org/blob/main/static/allowed_signers">GitHub</a></li>
+            </ul>
+
+            <p>The signature can be verified with the following OpenSSH command:</p>
+
+            <pre>ssh-keygen -Y verify -f allowed_signers -I contact@grapheneos.org -n "attestation keys" -s attestation.json.sig &lt; attestation.json</pre>
+
+            <p>The timestamp will be updated to the latest Unix time integer whenever a change is
+            made to the file and should be checked to protect against downgrade attacks.</p>
+
+            <p>When this key is rotated, the new <code>allowed_signers</code> file will be signed
+            with the previous key at <code>https://grapheneos.org/allowed_signers.sig</code>.</p>
+
+            <p>This is the current list:</p>
 
             <ul>
                 <li><code>d8f879d10419eddc9fcda6280718be763f6bf12299e1f72df3ea8ad8a8eb7f80</code>: Pixel 10a</li>
