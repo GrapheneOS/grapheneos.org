@@ -19,7 +19,7 @@ for release in releases[:20]:
         time = datetime.strptime(title, "%Y.%m.%d.%H").isoformat() + "Z"
     if updated is None:
         updated = time
-    content = [etree.tostring(e).decode() for e in release.getchildren()[1:]]
+    content = [etree.tostring(e).decode() for e in list(release)[1:]]
     entries.append(f"""
     <entry>
         <id>https://grapheneos.org/releases#{title}</id>
