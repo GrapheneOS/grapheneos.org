@@ -161,7 +161,7 @@ class BlobStore {
         let blob = await this.loadFile(filename);
         if (blob === null) {
             console.log(`Downloading ${url}`);
-            let blob = await fetchBlobWithProgress(url, onProgress);
+            blob = await fetchBlobWithProgress(url, onProgress);
             console.log("File downloaded, saving...");
             await this.saveFile(filename, blob);
             console.log("File saved");
