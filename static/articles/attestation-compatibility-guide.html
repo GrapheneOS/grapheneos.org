@@ -34,16 +34,14 @@
         <main id="attestation-compatibility-guide">
             <h1><a href="#attestation-compatibility-guide">Attestation compatibility guide</a></h1>
 
-            <p>Apps using the Play Integrity API or the
-            <a href="https://developer.android.com/training/safetynet/deprecation-timeline">obsolete</a>
-            SafetyNet Attestation API to check the authenticity/integrity of the OS, can support
-            GrapheneOS by using the standard Android hardware attestation API instead and
-            permitting our official release signing keys. Android's
-            <a href="https://developer.android.com/training/articles/security-key-attestation">hardware
-            attestation API</a> provides a much stronger form of attestation than the Play
-            Integrity API with the ability to whitelist the keys of alternate operating systems.
-            It also avoids an unnecessary dependency on Google Play services and Google's
-            Play Integrity servers.</p>
+            <p>Apps using the Play Integrity API to check the authenticity/integrity of the
+            hardware, OS and app can support GrapheneOS by using the standard Android hardware
+            attestation API and permitting our official release signing keys. Android's <a
+            href="https://developer.android.com/training/articles/security-key-attestation">hardware
+            attestation API</a> provides a much stronger form of attestation than the Play Integrity
+            API with the ability to whitelist the keys of alternate operating systems. It also
+            avoids an unnecessary dependency on Google Play services and Google's Play Integrity
+            servers.</p>
 
             <p>The standard hardware attestation API can be used to verify the authenticity/integrity
             of the hardware, firmware, OS and the app running on it. It provides a verified boot key
