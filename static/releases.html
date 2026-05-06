@@ -652,6 +652,7 @@
 
                     <ul>
                         <li>update Pixel firmware, driver libraries, HALs and other components backported from Android 16 QPR3 from the initial March 2026 release to the May 2026 release (CP1A.260505.005.A1)</li>
+                        <li>Contact Scopes: add missing handling for QUERY_DEFAULT_ACCOUNT_FOR_NEW_CONTACTS_METHOD was added in Android 16</li>
                         <li>backport fix for stuck IME input from May 2026 Pixel update</li>
                         <li>bionic: avoid adding an extra guard page to the main thread's pthread_internal_t since it serves no purpose and causes a compatibility issue with incorrect anti-tampering code in the Chase Mobile banking apps which reads /proc/self/maps to find the main thread's pthread_internal_t based on the anonymous mapping name assigned to it and assumes it can read the first mapping with that name which started being a guard page with our last release causing the app to crash</li>
                         <li>bionic: remove unnecessary extra naming for mappings to avoid 2 extra system calls for creating a thread</li>
