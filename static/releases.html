@@ -653,6 +653,7 @@
                     <p>Changes since the 2026050700 release:</p>
 
                     <ul>
+                        <li>backport Broadcom Wi-Fi bcm4383 driver changes from CP21.260330.008 (Android 17 Beta 4) to avoid invalid memory accesses caught by the kernel hardware memory tagging enabled by GrapheneOS (the May 2026 Wi-Fi firmware + kernel driver update introduced this issue for the Pixel 8a and Pixel 9a)</li>
                         <li>disable buggy upstream IStatusBarNotificationHolder optimization via the upstream feature flag (no_sbnholder) due to it causing occasional system_server crashes from sending overly large Binder transactions</li>
                     </ul>
 
