@@ -131,6 +131,7 @@
                     <li>macOS Sequoia (15)</li>
                     <li>macOS Tahoe (26)</li>
                     <li>Arch Linux</li>
+                    <li>Gentoo Linux</li>
                     <li>Debian 12 (bookworm)</li>
                     <li>Debian 13 (trixie)</li>
                     <li>Ubuntu 22.04 LTS</li>
@@ -222,6 +223,11 @@
                 using the standalone release of platform-tools from Android:</p>
 
                 <pre>sudo pacman -S android-tools</pre>
+
+                <p>Gentoo Linux user can also just install <code>android-tools</code> and also
+                skip both the standalone platform tools and flashing as non root sections:</p>
+
+                <pre>sudo emerge --ask dev-util/android-tools</pre>  
 
                 <p>Debian and Ubuntu do not have a usable package for fastboot. Their packages for
                 these tools are both broken and many years out-of-date. Follow the instructions
