@@ -246,8 +246,6 @@ const legacyQualcommDevices = ["sunfish", "coral", "flame"];
 
 const day1SnapshotCancelDevices = ["tegu", "comet", "komodo", "caiman", "tokay", "akita", "husky", "shiba", "felix", "tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble"];
 
-const alphaDevices = ["rango", "mustang", "blazer", "frankel"];
-
 function hasOptimizedFactoryImage(product) {
     return !legacyQualcommDevices.includes(product);
 }
@@ -258,12 +256,7 @@ async function getLatestRelease() {
         throw new Error(`device model (${product}) is not supported by the GrapheneOS web installer`);
     }
 
-    let metadataResp;
-    if (!alphaDevices.includes(product)) {
-        metadataResp = await fetch(`${RELEASES_URL}/${product}-stable`);
-    } else {
-        metadataResp = await fetch(`${RELEASES_URL}/${product}-alpha`);
-    }
+    let metadataResp = await fetch(`${RELEASES_URL}/${product}-stable`);
     let metadata = await metadataResp.text();
     let releaseId = metadata.split(" ")[0];
 
