@@ -262,7 +262,7 @@ async function getLatestRelease() {
     if (!alphaDevices.includes(product)) {
         metadataResp = await fetch(`${RELEASES_URL}/${product}-stable`);
     } else {
-        metadataResp = await fetch(`${RELEASES_URL}/${product}-beta`);
+        metadataResp = await fetch(`${RELEASES_URL}/${product}-alpha`);
     }
     let metadata = await metadataResp.text();
     let releaseId = metadata.split(" ")[0];
