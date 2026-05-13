@@ -491,12 +491,13 @@ curl -O https://releases.grapheneos.org/<var>DEVICE_NAME</var>-install-<var>VERS
                     went wrong. Please provide this information when asking for help on the
                     <a href="/contact#community">GrapheneOS chat room</a>.</p>
 
-                    <p>A common issue on Linux distributions is that they mount the default temporary file
-                    directory <code>/tmp</code> as tmpfs which results in it being backed by memory and
-                    swap rather than persistent storage. By default, the size is 50% of the available
-                    virtual memory. This is often not enough for the flashing process, especially since
-                    <code>/tmp</code> is shared between applications and users. To use a different
-                    temporary directory if your <code>/tmp</code> doesn't have enough space available:</p>
+                    <p id="TMPDIR">A common issue on Linux distributions is that they mount the
+                    default temporary file directory <code>/tmp</code> as tmpfs which results
+                    in it being backed by memory and swap rather than persistent storage. By default,
+                    the size is 50% of the available virtual memory. This is often not enough for
+                    the flashing process, especially since <code>/tmp</code> is shared between
+                    applications and users. To use a different temporary directory if your
+                    <code>/tmp</code> doesn't have enough space available:</p>
 
                     <pre>mkdir tmp &amp;&amp; TMPDIR="$PWD/tmp" ./flash-all.sh</pre>
                 </section>
