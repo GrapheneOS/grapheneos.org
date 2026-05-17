@@ -966,10 +966,12 @@
                             <p>No query or data is sent to the servers and the response is unused beyond
                             checking the response code.</p>
 
-                            <p>Connectivity checks are performed for each network connection and
-                            for VPN connections on top of those. This allows the OS to choose the
-                            right underlying network for a VPN and to handle many types of captive
-                            portals without the user turning off their VPN.</p>
+                            <p>Connectivity checks are performed directly via each non-virtual network
+                            connection (each enabled cellular service, any associated Wi-Fi network,
+                            any USB-C Ethernet devices) and are also performed via VPN connections on
+                            top of those. This allows the OS to choose the right underlying network for
+                            a VPN and to handle many types of captive portals without the user turning
+                            off their VPN.</p>
 
                             <p>You can change the connectivity check URLs via the
                             <b>Settings&#160;> Network &amp;
@@ -1225,6 +1227,9 @@
                     configuration so that toggles for disabling VoLTE, VoNR and VoWi-Fi are always
                     available. We plan to provide more toggles to control these things in the
                     future beyond making all the standard toggles available.</p>
+
+                    <p>VoWi-Fi connections operate outside of the VPN framework. This behavior,
+                    inherited from AOSP, is deliberate and does not constitute a VPN leak.</p>
                 </article>
 
                 <article id="privacy-policy">
