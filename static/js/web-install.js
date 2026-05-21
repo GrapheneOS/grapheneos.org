@@ -244,7 +244,7 @@ const supportedDevices = ["stallion", "rango", "mustang", "blazer", "frankel", "
 
 const legacyQualcommDevices = ["sunfish", "coral", "flame"];
 
-const day1SnapshotCancelDevices = ["tegu", "comet", "komodo", "caiman", "tokay", "akita", "husky", "shiba", "felix", "tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble"];
+const day1SnapshotCancelDevices = ["stallion", "rango", "mustang", "blazer", "frankel", "tegu", "comet", "komodo", "caiman", "tokay", "akita", "husky", "shiba", "felix", "tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble"];
 
 function hasOptimizedFactoryImage(product) {
     return !legacyQualcommDevices.includes(product);
