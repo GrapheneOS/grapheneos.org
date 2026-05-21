@@ -240,15 +240,7 @@ async function unlockBootloader(setProgress) {
     return "Bootloader unlocking triggered successfully.";
 }
 
-const supportedDevices = ["stallion", "rango", "mustang", "blazer", "frankel", "tegu", "comet", "komodo", "caiman", "tokay", "akita", "husky", "shiba", "felix", "tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble", "sunfish", "coral", "flame"];
-
-const legacyQualcommDevices = ["sunfish", "coral", "flame"];
-
-const day1SnapshotCancelDevices = ["stallion", "rango", "mustang", "blazer", "frankel", "tegu", "comet", "komodo", "caiman", "tokay", "akita", "husky", "shiba", "felix", "tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole", "barbet", "redfin", "bramble"];
-
-function hasOptimizedFactoryImage(product) {
-    return !legacyQualcommDevices.includes(product);
-}
+const supportedDevices = ["stallion", "rango", "mustang", "blazer", "frankel", "tegu", "comet", "komodo", "caiman", "tokay", "akita", "husky", "shiba", "felix", "tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole"];
 
 async function getLatestRelease() {
     let product = await device.getVariable("product");
@@ -260,7 +252,7 @@ async function getLatestRelease() {
     let metadata = await metadataResp.text();
     let releaseId = metadata.split(" ")[0];
 
-    return [`${product}-${hasOptimizedFactoryImage(product) ? "install" : "factory"}-${releaseId}.zip`, product];
+    return `${product}-install-${releaseId}.zip`;
 }
 
 async function downloadRelease(setProgress) {
@@ -268,7 +260,7 @@ async function downloadRelease(setProgress) {
     await ensureConnected(setProgress);
 
     setProgress("Finding latest release...");
-    let [latestZip,] = await getLatestRelease();
+    let latestZip = await getLatestRelease();
 
     // Download and cache the zip as a blob
     setInstallerState({ state: InstallerState.DOWNLOADING_RELEASE, active: true });
@@ -311,7 +303,7 @@ async function flashRelease(setProgress) {
     // Need to do this again because the user may not have clicked download if
     // it was cached
     setProgress("Finding latest release...");
-    let [latestZip, product] = await getLatestRelease();
+    let latestZip = await getLatestRelease();
     await blobStore.init();
     let blob = await blobStore.loadFile(latestZip);
     if (blob === null) {
@@ -319,12 +311,10 @@ async function flashRelease(setProgress) {
     }
 
     setProgress("Cancelling any pending OTAs...");
-    // Cancel snapshot update if in progress on devices which support it on all bootloader versions
-    if (day1SnapshotCancelDevices.includes(product)) {
-        let snapshotStatus = await device.getVariable("snapshot-update-status");
-        if (snapshotStatus !== null && snapshotStatus !== "none") {
-            await device.runCommand("snapshot-update:cancel");
-        }
+    // Cancel snapshot update if in progress
+    let snapshotStatus = await device.getVariable("snapshot-update-status");
+    if (snapshotStatus !== null && snapshotStatus !== "none") {
+        await device.runCommand("snapshot-update:cancel");
     }
 
     setProgress("Flashing release...");
@@ -337,19 +327,6 @@ async function flashRelease(setProgress) {
                 setProgress(`${userAction} ${userItem}...`, progress);
             }
         );
-        if (legacyQualcommDevices.includes(product)) {
-            setProgress("Disabling UART...");
-            // See https://android.googlesource.com/platform/system/core/+/eclair-release/fastboot/fastboot.c#532
-            // for context as to why the trailing space is needed.
-            await device.runCommand("oem uart disable ");
-            setProgress("Erasing apdp...");
-            // Both slots are wiped as even apdp on an inactive slot will modify /proc/cmdline
-            await device.runCommand("erase:apdp_a");
-            await device.runCommand("erase:apdp_b");
-            setProgress("Erasing msadp...");
-            await device.runCommand("erase:msadp_a");
-            await device.runCommand("erase:msadp_b");
-        }
     } finally {
         setInstallerState({ state: InstallerState.INSTALLING_RELEASE, active: false });
         await releaseWakeLock();
