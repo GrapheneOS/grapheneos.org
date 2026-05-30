@@ -8,7 +8,7 @@
     display: block;
 }
 
-/* When Wizard mode is activ */
+/* When wizard mode is activ */
 #web-install.wizard-mode .classic-view-content {
     display: none; 
 }
@@ -22,7 +22,7 @@
     display: flex;
     list-style: none;
     padding: 0;
-    margin: 0 0 2rem 0;
+    margin: 0 0 2rem;
     background: #1a1a1a;
     border-radius: 8px;
     overflow: hidden;
@@ -64,12 +64,12 @@
     border-radius: 12px;
     padding: 2.5rem;
     margin: 1.5rem 0;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 30%);
 }
 
 .wizard-card.active {
     display: block;
-    animation: fadeIn 0.4s ease;
+    animation: fade-in 0.4s ease;
 }
 
 .wizard-subtitle {
@@ -174,7 +174,13 @@
     background: #555;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
