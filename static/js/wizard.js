@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Optional: Reset wizard or show success state
     });
 
-    // --- Step 1 checklist validation ---
+    // Step 1 checklist validation 
     const checkboxes = document.querySelectorAll(".prereq-trigger");
     const step1NextBtn = document.querySelector(".wizard-card[data-step=\"1\"] .next-btn");
 
