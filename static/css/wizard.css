@@ -3,12 +3,12 @@
     display: none;
 }
 
-/* When Classic Mode is active */
+/* When Classic mode is active */
 #web-install.classic-mode .classic-view-content {
     display: block;
 }
 
-/* When wizard mode is activ */
+/* When Wizard mode is activ */
 #web-install.wizard-mode .classic-view-content {
     display: none; 
 }
@@ -56,9 +56,9 @@
     border-bottom: 3px solid #4a90e2;
 }
 
-/* Card styles */
+/* Card Styles */
 .wizard-card {
-    display: none; /* Hidden by default */
+    display: none; /* Hidden by default via JS state management */
     background: #2a2a2a;
     border: 1px solid #424242;
     border-radius: 12px;
@@ -179,6 +179,7 @@
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
