@@ -29,9 +29,9 @@ const requestWakeLock = async () => {
         wakeLock.addEventListener("release", async () => {
             console.log("Wake lock has been released");
         });
-    } catch (err) {
+    } catch (error) {
         // if wake lock request fails - usually system related, such as battery
-        throw new Error(`${err.name}, ${err.message}`);
+        throw new Error(`${error.name}, ${error.message}`, { cause: error });
     }
 };
 
@@ -231,7 +231,7 @@ async function unlockBootloader(setProgress) {
     } catch (error) {
         // FAIL = user rejected unlock
         if (error instanceof fastboot.FastbootError && error.status === "FAIL") {
-            throw new Error("Bootloader was not unlocked, please try again!");
+            throw new Error("Bootloader was not unlocked, please try again!", { cause: error });
         } else {
             throw error;
         }
@@ -357,7 +357,7 @@ async function lockBootloader(setProgress) {
     } catch (error) {
         // FAIL = user rejected lock
         if (error instanceof fastboot.FastbootError && error.status === "FAIL") {
-            throw new Error("Bootloader was not locked, please try again!");
+            throw new Error("Bootloader was not locked, please try again!", { cause: error });
         } else {
             throw error;
         }
