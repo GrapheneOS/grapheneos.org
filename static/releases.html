@@ -686,8 +686,8 @@
 
                     <ul>
                         <li>Launcher: fix upstream bug causing the recents button to become unresponsive for users with third party launchers</li>
-                        <li>replace validation of Play Store source stamps with a correct implementation (this isn't yet used for security-sensitive purposes but we plan to begin using it to replace security-relevant Play Store source checks in the near future and it needs to be correct)</li>
-                        <li>replace our implementation of restoring compatibility with apps opting into a combination of two separate anti-competitive Play Store features preventing using their apps on GrapheneOS when combined together by replacing the insecure Play Store installer check injected into the app with a secure Play Source source stamp check by the OS (this will fix compatibility with the new Play Store injected code that's being rolled out for apps using this)</li>
+                        <li>replace validation of Play Store source stamps with a correct implementation (this isn't yet used for security-sensitive purposes but we plan to begin using it to replace security-relevant Play Store source checks in the near future)</li>
+                        <li>replace implementation of using Play Store source stamps as a substitute for Play Store installer checks included as part of Play Store anti-tampering protection enabled by certain apps (this prevents using the apps when combined with the Play Integrity API store lising toggles)</li>
                         <li>Settings: correctly reset tethering offload developer setting when disabling developer options</li>
                         <li>Settings: add one-time reset of tethering offload developer setting to re-enable it for everyone who had it disabled by the upstream Android bug when disabling developer options</li>
                         <li>Settings: fix upstream null pointer exception bug in SettingsBasePreferenceFragment when listView is null which occurs with at least one of the developer options</li>
