@@ -659,6 +659,7 @@
                     <p>Changes since the 2026061800 release:</p>
 
                     <ul>
+                        <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): fix for an upstream Broadcom Wi-Fi bcm4383 driver memory corruption bug to avoid invalid memory accesses caught by the kernel hardware memory tagging enabled by GrapheneOS</li>
                         <li>increase the maximum size of log events in production builds to match debug builds to avoid the kernel panic message and traceback being cut off</li>
                         <li>use DevicePolicyManager.MAX_PASSWORD_LENGTH PIN length limit for the new upstream SystemUI PIN user interface for entering the PIN outside of the lockscreen to fix support for the expanded limit of 128 on GrapheneOS instead of using Android's limit of 16 (this didn't apply to passwords and it was straightforward to work around it by changing the PIN to a password)</li>
                         <li>allow using the new flashlight quick tile while locked (GrapheneOS requires unlocking by default for system quick tiles)</li>
@@ -876,7 +877,7 @@
                     <p>Changes since the 2026050700 release:</p>
 
                     <ul>
-                        <li>fix for an upstream Broadcom Wi-Fi bcm4383 driver memory corruption bug to avoid invalid memory accesses caught by the kernel hardware memory tagging enabled by GrapheneOS (the May 2026 Wi-Fi firmware + kernel driver update introduced this issue for the Pixel 8a and Pixel 9a)</li>
+                        <li>kernel (Pixel 8a, Pixel 9a): fix for an upstream Broadcom Wi-Fi bcm4383 driver memory corruption bug to avoid invalid memory accesses caught by the kernel hardware memory tagging enabled by GrapheneOS (the May 2026 Wi-Fi firmware + kernel driver update introduced this issue)</li>
                         <li>backport Broadcom Wi-Fi bcm4383 driver changes from CP21.260330.008 (Android 17 Beta 4) to avoid invalid memory accesses (this didn't end up resolving the hardware memory tagging crashes introduced in the May 2026 Pixel update but we kept this to fix additional issues)</li>
                         <li>disable buggy upstream IStatusBarNotificationHolder optimization via the upstream feature flag (no_sbnholder) due to it causing occasional system_server crashes from sending overly large Binder transactions</li>
                     </ul>
