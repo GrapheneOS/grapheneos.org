@@ -666,6 +666,7 @@
                         <li>separate GrapheneOS framework resource IDs from AOSP resource IDs to avoid incompatibilities with Pixel vendor components</li>
                         <li>allow using the new flashlight quick tile while locked (GrapheneOS requires unlocking by default for system quick tiles)</li>
                         <li>fix upstream bug causing the security scan in the Settings app to take much longer in Android 17 (also impacts the stock OS)</li>
+                        <li>fix compatibility issue breaking resetting permissions for apps with special-runtime permissions (Nearby Devices is now split to have Local Network access enabled by default for compatibility for apps not targeting Android 17 and there are bugs with how this is handled)</li>
                         <li>Launcher: remove quick search bar from showing on large display devices since Android 17</li>
                         <li>Launcher: remove space reserved for the quick search bar since Android 17</li>
                         <li>add back error message for entering an incorrect 2nd factor PIN for the GrapheneOS 2-factor fingerprint unlock feature</li>
