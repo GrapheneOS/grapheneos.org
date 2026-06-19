@@ -663,6 +663,7 @@
                         <li>increase the maximum size of log events in production builds to match debug builds to avoid the kernel panic message and traceback being cut off</li>
                         <li>use DevicePolicyManager.MAX_PASSWORD_LENGTH PIN length limit for the new upstream SystemUI PIN user interface for entering the PIN outside of the lockscreen to fix support for the expanded limit of 128 on GrapheneOS instead of using Android's limit of 16 (this didn't apply to passwords and it was straightforward to work around it by changing the PIN to a password)</li>
                         <li>allow using the new flashlight quick tile while locked (GrapheneOS requires unlocking by default for system quick tiles)</li>
+                        <li>fix upstream bug causing the security scan in the Settings app to take much longer in Android 17 (also impacts the stock OS)</li>
                         <li>Sandboxed Google Play compatibility layer: disable theft protection notification</li>
                         <li>fix compatibility with the native zygote spawning system added by Android 17 which isn't enabled yet (this was added to provide more lightweight sandboxed renderer processes for Chromium and will benefit Vanadium even more due to having finer-grained process isolation but isn't used by Chromium/Chrome yet and our secure spawning will need to be ported to it)</li>
                     </ul>
