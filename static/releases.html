@@ -653,6 +653,16 @@
                 <article id="2026062200">
                     <h3><a href="#2026062200">2026062200</a></h3>
 
+                    <p>Upgrading this release from a release not yet based on Android 17 requires
+                    using the standard over-the-air update system rather than ADB sideload. For
+                    users who only update via ADB sideload, we'll be releasing a special Android 16
+                    QPR2 release with a backported fix for the upstream Android bug causing the
+                    issue. This bug also exists in the Pixel OS for both Android 16 QPR3 and Android
+                    17 too but it bypasses it through being bloated enough to always trigger a
+                    fallback path. We confirmed adding a 1GiB randomly generated file to GrapheneOS
+                    would bypass the issue similarly to the stock Pixel OS but we'll be fixing the
+                    issue instead.</p>
+
                     <p>Tags:</p>
                     <ul>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2026062200">2026062200</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold, Pixel 10a, emulator, generic, other targets)</li>
