@@ -662,6 +662,7 @@
                     <p>Changes since the 2026062300 release:</p>
 
                     <ul>
+                        <li>don't report harmless ExynosDevice::dynamicRecompositionThreadLoop crash</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/149.0.7827.197.0">version 149.0.7827.197.0</a></li>
                     </ul>
 
@@ -700,7 +701,6 @@
                     <ul>
                         <li>fix serious upstream Android VPN race condition resulting in the always-on VPN being disabled in edge cases including VPN app updates</li>
                         <li>fix Bluetooth auto-off in secondary users for Android 17</li>
-                        <li>don't report harmless ExynosDevice::dynamicRecompositionThreadLoop crash</li>
                         <li>Sandboxed Google Play compatibility layer: resolve ThermalManagerService droidguard incompatibility causing RCS to break after droidguard is updated</li>
                         <li>Sandboxed Google Play compatibility layer: increase log level of maybeInterceptBinderProxyDump() to help with debugging droidguard checks</li>
                     </ul>
