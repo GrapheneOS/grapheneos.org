@@ -303,16 +303,16 @@ source ~/.bashrc</pre>
                     <section id="development-branch">
                         <h4><a href="#development-branch">Development branch</a></h4>
 
-                        <p>The <code>16-qpr2</code> branch is the main development branch of
-                        GrapheneOS based on Android 16 QPR2. The <code>16-qpr2</code> branch of
+                        <p>The <code>17</code> branch is the main development branch of
+                        GrapheneOS based on Android 17. The <code>17</code> branch of
                         GrapheneOS should be used for generic builds including the emulator, porting
                         to other devices and for non-legacy officially supported devices.</p>
 
-                        <p>To sync the <code>16-qpr2</code> branch:</p>
+                        <p>To sync the <code>17</code> branch:</p>
 
-                        <pre>mkdir grapheneos-16-qpr2
-cd grapheneos-16-qpr2
-repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 16-qpr2
+                        <pre>mkdir grapheneos-17
+cd grapheneos-17
+repo init -u https://github.com/GrapheneOS/platform_manifest.git -b 17
 repo sync -j8</pre>
 
                         <p>If your network is unreliable and <code>repo sync</code> fails, you can run the
@@ -698,7 +698,7 @@ cd ../..</pre>
 
                         <pre>mkdir -p android/kernel/6.12
 cd android/kernel/6.12
-repo init -u https://github.com/GrapheneOS/kernel_manifest-6.12.git -b 16-qpr2
+repo init -u https://github.com/GrapheneOS/kernel_manifest-6.12.git -b 17
 repo sync -j8</pre>
 
                         <p>To build the kernel image and modules:</p>
@@ -707,7 +707,7 @@ repo sync -j8</pre>
 
                         <p>Replace the prebuilts in the OS source tree:</p>
 
-                        <pre>ANDROID_BUILD_TOP=~/android/grapheneos-16-qpr2 ARCH=x86_64 common/update_virt_prebuilts.sh</pre>
+                        <pre>ANDROID_BUILD_TOP=~/android/grapheneos-17 ARCH=x86_64 common/update_virt_prebuilts.sh</pre>
                     </section>
 
                     <section id="kernel-microdroid">
@@ -719,7 +719,7 @@ repo sync -j8</pre>
 
                         <pre>mkdir -p android/kernel/6.6
 cd android/kernel/6.6
-repo init -u https://github.com/GrapheneOS/kernel_manifest-6.6.git -b 16-qpr2
+repo init -u https://github.com/GrapheneOS/kernel_manifest-6.6.git -b 17
 repo sync -j8</pre>
 
                         <p>To build the arm64 kernel image:</p>
@@ -742,12 +742,12 @@ repo sync -j8</pre>
                     <section id="kernel-6th-through-9th-generation-pixels">
                         <h4><a href="#kernel-6th-through-9th-generation-pixels">6th through 9th generation Pixels</a></h4>
 
-                        <p>For the Pixel 10a (stallion), the <code>16-qpr2-stallion</code> branch
-                        needs to be used instead of <code>16-qpr2</code>.</p>
+                        <p>For the Pixel 10a (stallion), the <code>17-stallion</code> branch
+                        needs to be used instead of <code>17</code>.</p>
 
                         <p>To sync the kernel sources:</p>
 
-                        <pre>git clone https://gitlab.com/grapheneos/kernel_pixel.git -b 16-qpr2 --recurse-submodules
+                        <pre>git clone https://gitlab.com/grapheneos/kernel_pixel.git -b 17 --recurse-submodules
 cd kernel_pixel</pre>
 
                         <p>Select the correct kernel codename for the device model:</p>
@@ -786,7 +786,7 @@ cd kernel_pixel</pre>
 
                         <p>To sync the kernel sources:</p>
 
-                        <pre>git clone https://gitlab.com/grapheneos/kernel_pixel_muzel.git -b 16-qpr2 --recurse-submodules
+                        <pre>git clone https://gitlab.com/grapheneos/kernel_pixel_muzel.git -b 17 --recurse-submodules
 cd kernel_pixel_muzel</pre>
 
                         <p>Select the correct kernel codename for the device model:</p>
