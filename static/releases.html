@@ -662,6 +662,7 @@
                     <p>Changes since the 2026062300 release:</p>
 
                     <ul>
+                         <li>add setting for controlling Certificate Transparency (CT) log list downloads used for apps enforcing CT which is enabled by default for apps targeting Android 17+ with a choice between GrapheneOS (default), Standard (previous behavior) and Off</li>
                         <li>enable register_bluetooth_receiver_for_all_users feature flag to fix Bluetooth telecom functionality in secondary users (resolves an upstream regression in Android 17)</li>
                         <li>temporarily use absolute media profile XML paths to work around an exec-based spawning compatibility issue breaking WhatsApp functionality which will be properly addressed by our upcoming overhaul to exec-based spawning</li>
                         <li>add native zygote support for all relevant GrapheneOS features in anticipation of beginning to use it for Vanadium to save a lot of memory by avoiding each renderer process having Android's Java runtime</li>
