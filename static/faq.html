@@ -646,8 +646,12 @@
                         </tbody>
                     </table>
 
-                    <p>Invalid input outside the minimum or maximum length limits of the UI won't
-                    trigger an attempt at authentication or key derivation.</p>
+                    <p>Entering a PIN or password below the minimum length (4) is rejected without
+                    counting as a failed attempt. The most recent 5 unique failed attempts above the
+                    minimum length are kept in memory (cleared on unlock or reboot) to reject those
+                    without counting as a failed attempt. This feature avoids users wasting attempts
+                    when repeatedly entering the same invalid PIN or password due to misremembering
+                    it or making a mistake typing it.</p>
 
                     <p>GrapheneOS only officially supports devices with Weaver. The fallback
                     implementation for devices without it is out-of-scope for this FAQ.</p>
