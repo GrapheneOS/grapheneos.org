@@ -1118,6 +1118,49 @@
                             own service and we'd need to support proxying to that service too.</p>
                         </li>
                         <li>
+                            <p>Since Android 16, Android supports enforcing Certificate Transparency
+                            (CT) for TLS connections by enforcing certificates having multiple valid
+                            Signed Certificate Timestamps (SCTs) from permitted logs. It was opt-in
+                            for Android 16 but is now the default for apps targeting Android 17 and
+                            higher so it will be nearly universally deployed.</p>
+
+                            <p>Android needs lists of the valid CT logs in order to verify SCTs. It
+                            needs to regularly update the lists since logs are regularly being added
+                            and removed. CT enforcement is disabled if the lists are older than 70
+                            days so it's done with out-of-band updates to the lists rather than the
+                            lists being included in the OS or even an app.</p>
+
+                            <p>The CT log lists are signed with a public key downloaded alongside
+                            the lists. The public key is verified with a static list of public keys
+                            and then used to verify the lists.</p>
+
+                            <p>You can change the Certificate Transparency download URLs via the
+                            <b>Settings&#160;> Network &amp; internet&#160;> Certificate
+                            Transparency downloads</b> setting added by GrapheneOS. At the moment,
+                            it can be toggled between <b>GrapheneOS server</b> (default),
+                            <b>Standard (Google) server</b> or <b>Off</b>.</p>
+
+                            <p>Default GrapheneOS server URLs:</p>
+
+                            <ul>
+                                <li>https://gstatic.grapheneos.org/android/certificate_transparency/v2/log_list.json</li>
+                                <li>https://gstatic.grapheneos.org/android/certificate_transparency/v2/log_list.sig</li>
+                                <li>https://gstatic.grapheneos.org/android/certificate_transparency/v3/log_list.ctfb</li>
+                                <li>https://gstatic.grapheneos.org/android/certificate_transparency/v3/log_list.sig</li>
+                                <li>https://gstatic.grapheneos.org/android/certificate_transparency/log_list.pub</li>
+                            </ul>
+
+                            <p>Standard Google server URLs:</p>
+
+                            <ul>
+                                <li>https://www.gstatic.com/android/certificate_transparency/v2/log_list.json</li>
+                                <li>https://www.gstatic.com/android/certificate_transparency/v2/log_list.sig</li>
+                                <li>https://www.gstatic.com/android/certificate_transparency/v3/log_list.ctfb</li>
+                                <li>https://www.gstatic.com/android/certificate_transparency/v3/log_list.sig</li>
+                                <li>https://www.gstatic.com/android/certificate_transparency/log_list.pub</li>
+                            </ul>
+                        </li>
+                        <li>
                             <p>A test query is done via DNS-over-TLS in the automatic and manually
                             enabled modes to detect if DNS-over-TLS is available. It won't happen
                             when DNS-over-TLS is disabled. For the automatic mode, it uses this to
