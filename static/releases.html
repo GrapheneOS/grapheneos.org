@@ -663,6 +663,7 @@
                     <p>Changes since the 2026062800 release:</p>
 
                     <ul>
+                        <li>rebuild coarse locations from allowlisted fields to resolve an upstream Android privacy flaw leaking secondary fields such as altitude and accuracy to apps without precise location granted</li>
                         <li>System UI:: run scroll capture tile handling on main thread to fix an upstream race condition causing memory corruption</li>
                         <li>Launcher: fix removing space for the quick search bar to avoid removing padding at the bottom</li>
                         <li>fix PIN scrambling for Private Spaces configured to use parent credentials</li>
