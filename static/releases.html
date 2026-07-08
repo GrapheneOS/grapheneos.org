@@ -686,15 +686,12 @@
                 <article id="2026070500">
                     <h3><a href="#2026070500">2026070500</a></h3>
 
-                    <p>Upgrading this release from a release not yet based on Android 17 requires
-                    using the standard over-the-air update system rather than ADB sideload. For
-                    users who only update via ADB sideload, we'll be releasing a special Android 16
-                    QPR2 release with a backported fix for the upstream Android bug causing the
-                    issue. This bug also exists in the Pixel OS for both Android 16 QPR3 and Android
-                    17 too but it bypasses it through being bloated enough to always trigger a
-                    fallback path. We confirmed adding a 1GiB randomly generated file to GrapheneOS
-                    would bypass the issue similarly to the stock Pixel OS but we'll be fixing the
-                    issue instead.</p>
+                    <p>Users solely doing offline updates via recovery mode sideloading need a
+                    <a href="https://discuss.grapheneos.org/d/37947-special-sideload-only-android-16-qpr2-release-fixing-sideloading-to-android-17">special sideload-only release</a>
+                    to update from Android 16 QPR2 to Android 17. This release fixes upstream bugs
+                    for sideloading present in Android 16 QPR2 which prevented updating to Android
+                    17 unless the OS images were far larger than the GrapheneOS ones which triggers
+                    a fallback path avoiding the issue.</p>
 
                     <p>Tags:</p>
                     <ul>
@@ -736,16 +733,6 @@
                 <article id="2026062800">
                     <h3><a href="#2026062800">2026062800</a></h3>
 
-                    <p>Upgrading this release from a release not yet based on Android 17 requires
-                    using the standard over-the-air update system rather than ADB sideload. For
-                    users who only update via ADB sideload, we'll be releasing a special Android 16
-                    QPR2 release with a backported fix for the upstream Android bug causing the
-                    issue. This bug also exists in the Pixel OS for both Android 16 QPR3 and Android
-                    17 too but it bypasses it through being bloated enough to always trigger a
-                    fallback path. We confirmed adding a 1GiB randomly generated file to GrapheneOS
-                    would bypass the issue similarly to the stock Pixel OS but we'll be fixing the
-                    issue instead.</p>
-
                     <p>Tags:</p>
                     <ul>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2026062800">2026062800</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold, Pixel 10a, emulator, generic, other targets)</li>
@@ -785,16 +772,6 @@
                 <article id="2026062300">
                     <h3><a href="#2026062300">2026062300</a></h3>
 
-                    <p>Upgrading this release from a release not yet based on Android 17 requires
-                    using the standard over-the-air update system rather than ADB sideload. For
-                    users who only update via ADB sideload, we'll be releasing a special Android 16
-                    QPR2 release with a backported fix for the upstream Android bug causing the
-                    issue. This bug also exists in the Pixel OS for both Android 16 QPR3 and Android
-                    17 too but it bypasses it through being bloated enough to always trigger a
-                    fallback path. We confirmed adding a 1GiB randomly generated file to GrapheneOS
-                    would bypass the issue similarly to the stock Pixel OS but we'll be fixing the
-                    issue instead.</p>
-
                     <p>Tags:</p>
                     <ul>
                         <li><a href="https://github.com/GrapheneOS/platform_manifest/releases/tag/2026062300">2026062300</a> (Pixel 6, Pixel 6 Pro, Pixel 6a, Pixel 7, Pixel 7 Pro, Pixel 7a, Pixel Tablet, Pixel Fold, Pixel 8, Pixel 8 Pro, Pixel 8a, Pixel 9, Pixel 9 Pro, Pixel 9 Pro XL, Pixel 9 Pro Fold, Pixel 9a, Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold, Pixel 10a, emulator, generic, other targets)</li>
@@ -822,16 +799,6 @@
 
                 <article id="2026062200">
                     <h3><a href="#2026062200">2026062200</a></h3>
-
-                    <p>Upgrading this release from a release not yet based on Android 17 requires
-                    using the standard over-the-air update system rather than ADB sideload. For
-                    users who only update via ADB sideload, we'll be releasing a special Android 16
-                    QPR2 release with a backported fix for the upstream Android bug causing the
-                    issue. This bug also exists in the Pixel OS for both Android 16 QPR3 and Android
-                    17 too but it bypasses it through being bloated enough to always trigger a
-                    fallback path. We confirmed adding a 1GiB randomly generated file to GrapheneOS
-                    would bypass the issue similarly to the stock Pixel OS but we'll be fixing the
-                    issue instead.</p>
 
                     <p>Tags:</p>
                     <ul>
@@ -863,16 +830,6 @@
 
                 <article id="2026062100">
                     <h3><a href="#2026062100">2026062100</a></h3>
-
-                    <p>Upgrading this release from a release not yet based on Android 17 requires
-                    using the standard over-the-air update system rather than ADB sideload. For
-                    users who only update via ADB sideload, we'll be releasing a special Android 16
-                    QPR2 release with a backported fix for the upstream Android bug causing the
-                    issue. This bug also exists in the Pixel OS for both Android 16 QPR3 and Android
-                    17 too but it bypasses it through being bloated enough to always trigger a
-                    fallback path. We confirmed adding a 1GiB randomly generated file to GrapheneOS
-                    would bypass the issue similarly to the stock Pixel OS but we'll be fixing the
-                    issue instead.</p>
 
                     <p>Tags:</p>
                     <ul>
@@ -918,15 +875,6 @@
                     <h3><a href="#2026061800">2026061800</a></h3>
 
                     <p>This is the initial release of GrapheneOS based on Android 17.</p>
-
-                    <p>Due to an upstream Android 17 bug, updating to this release via ADB sideload
-                    to recovery from a previous release is unavailable. There will be no issues
-                    updating to it over-the-air and we'll provide instructions in our testing
-                    channels for early experimental testing prior to Alpha. We've added a workaround
-                    resolving updating via ADB sideload from this release to a future release. We're
-                    working on a resolution to updating via sideload from a previous release. If
-                    necessary, we could make a final release based on Android 16 QPR2 with the same
-                    workaround solely released for people who only update via sideloading.</p>
 
                     <p>Tags:</p>
                     <ul>
