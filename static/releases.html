@@ -665,6 +665,10 @@
                     <p>Changes since the 2026071100 release:</p>
 
                     <ul>
+                        <li>Secure (exec) spawning: skip vkey.android.vos.VosZygotePreload to make exec-based spawning compatible with apps using V-KEY V-OS Mobile App Protection</li>
+                        <li>Secure (exec) spawning: skip redundant mount namespace setup for compatibility with anti-tampering code checking Linux mount IDs</li>
+                        <li>start compat zygote at boot instead of on-demand for compatibility with anti-tampering code checking Linux mount IDs</li>
+                        <li>use lazy preloading for compat zygote to reduce memory usage when it's not used (it's only used for app processes which disable both hardened_malloc and secure spawning)</li>
                         <li>install CarrierConfig2 in all profiles to avoid using default carrier configuration values in secondary users</li>
                         <li>notify when Wi-Fi hotspot is disabled due to user change (since users have separate Wi-Fi settings since Android 17) to provide a shortcut for turning it back on via the notification</li>
                         <li>remove our change raising the zygote's maximum file limit to 256Ki since this has been implemented upstream as a 512Ki limit with correct handling for 32-bit processes</li>
