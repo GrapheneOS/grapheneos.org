@@ -666,6 +666,7 @@
                     <p>Changes since the 2026071500 release:</p>
 
                     <ul>
+                        <li>work around upstream bug for original-package renaming to resolve crashes with Vanadium on OS installs from 4-5 years ago when using the native zygote (we had to temporarily turn off javaless renderers in Vanadium Config 192 and will re-enable it after this OS release)</li>
                         <li>kernel (6.6): update to latest GKI LTS branch revision including update to 6.6.141</li>
                         <li>kernel (6.12): update to latest GKI LTS branch revision</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/151.0.7922.29.0">version 151.0.7922.29.0</a></li>
