@@ -699,7 +699,7 @@
                 <article id="hardware-identifiers">
                     <h3><a href="#hardware-identifiers">Can apps access hardware identifiers?</a></h3>
 
-                    <p>As of Android 10, apps cannot obtain permission to access non-resettable hardware
+                    <p>As of Android 10, apps cannot obtain permission to access most non-resettable hardware
                     identifiers such as the serial number, MAC addresses, IMEIs/MEIDs, SIM card serial
                     numbers and subscriber IDs. Only privileged apps included in the base system with
                     <code>READ_PRIVILEGED_PHONE_STATE</code> whitelisted can access these hardware
@@ -709,6 +709,11 @@
                     is a special case that's given access to certain device identifiers including
                     the IMEI. This is normally the GrapheneOS fork of AOSP Messaging but can be
                     changed to another app by the user.</p>
+
+                    <p>The only non-resettable hardware identifier apps can access is the Media DRM ID. 
+                    While restricting access to this identifier is a planned feature, it is currently 
+                    possible to track devices across device resets and across different user profiles 
+                    with this identifier.</p>
 
                     <p>Since these restrictions became standard, GrapheneOS only makes a small change to
                     remove a legacy form of access to the serial number by legacy apps, which was still
