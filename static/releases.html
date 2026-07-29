@@ -667,6 +667,7 @@
 
                     <ul>
                         <li>extend per-app opt-out for hardened_malloc and extended virtual address space to child processes to support working around rare app compatibility issues involving separate native processes run by an app</li>
+                        <li>override previous SELinux context for secure (exec) spawning to fix compatibility with anti-tampering libraries checking for it</li>
                         <li>ContactsProvider: fix upstream Android security vulnerability</li>
                         <li>Telephony: fix upstream Android security vulnerability caused by missing system permission check for apps with API levels below 29</li>
                         <li>adevtool: include feature flags for Pixel NFC/eSE/eSIM firmware updater to avoid deviating from the stock OS</li>
