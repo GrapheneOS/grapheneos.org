@@ -1,5 +1,9 @@
 <header>
     <nav id="site-menu">
+        <label for="menu-toggle">
+            <span></span>
+        </label>
+        <input type="checkbox" id="menu-toggle" />
         <ul>
             <li {% if current_page == "/" %}aria-current="page"{% endif %}><a href="/"><img src="[[path|/mask-icon.svg]]" alt=""/>GrapheneOS</a></li>
             <li {% if current_page == "features" %}aria-current="page"{% endif %}><a href="/features">Features</a></li>
