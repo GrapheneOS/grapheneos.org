@@ -695,6 +695,7 @@
 
                     <ul>
                         <li>Bluetooth: handle nested secondary profiles when sending broadcasts to fix support for wireless Android Auto in secondary profiles including Private Spaces work profiles</li>
+                        <li>enable multiuser-unaware API usage warnings for Bluetooth processes</li>
                         <li>Contact Scopes: use identity of the calling app for the filtered query since the query validation, projection mapping, etc. depend on the target SDK version of the calling app (this is a proper solution to the workaround we added for WhatsApp in Android 17 which resolves additional compatibility issues)</li>
                         <li>CredentialManager: make CredentialSelectorActivity opaque (avoid showing activity underneath to resolve security vulnerabilities not yet fixed upstream</li>
                         <li>Sandboxed Google Play compatibility layer: mark all Play services FIDO activities as opaque (avoid showing activity underneath) to resolve Play services security vulnerabilities not yet fixed upstream</li>
@@ -703,7 +704,6 @@
                         <li>Sandboxed Google Play compatibility layer: add special handling for Android Auto OutOfCarLifecycle crashes to avoid getting issue reports for expected uncaught exceptions from Android Auto connectivity loss</li>
                         <li>Sandboxed Google Play compatibility layer: only notify about missing Notifications permission for Play services since other components such as the Play Store handle it themselves</li>
                         <li>Sandboxed Google Play compatibility layer: switch privSettingsPutStrings() to StringParceledListSlice to handle larger arrays</li>
-                        <li>enable multiuser-unaware API usage warnings for Bluetooth processes</li>
                         <li>kernel (6.1): update to latest GKI LTS branch revision including update to 6.1.176</li>
                         <li>kernel (6.6): update to latest GKI LTS branch revision</li>
                         <li>kernel (6.12): update to latest GKI LTS branch revision</li>
