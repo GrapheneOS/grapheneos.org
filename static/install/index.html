@@ -3,15 +3,15 @@
     <head>
         <meta charset="utf-8"/>
         <title>Install | GrapheneOS</title>
-        <meta name="description" content="Installation instructions for GrapheneOS, a security and privacy focused mobile OS with Android app compatibility."/>
+        <meta name="description" content="Web-based installer for GrapheneOS, a security and privacy focused mobile OS with Android app compatibility."/>
         <meta name="theme-color" content="#212121"/>
         <meta name="color-scheme" content="dark light"/>
         <meta name="msapplication-TileColor" content="#ffffff"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
         <meta name="twitter:site" content="@GrapheneOS"/>
         <meta name="twitter:creator" content="@GrapheneOS"/>
-        <meta property="og:title" content="GrapheneOS installation"/>
-        <meta property="og:description" content="Installation instructions for GrapheneOS, a security and privacy focused mobile OS with Android app compatibility."/>
+        <meta property="og:title" content="Install GrapheneOS"/>
+        <meta property="og:description" content="Web-based installer for GrapheneOS, a security and privacy focused mobile OS with Android app compatibility."/>
         <meta property="og:type" content="website"/>
         <meta property="og:image" content="https://grapheneos.org/opengraph.png"/>
         <meta property="og:image:width" content="512"/>
@@ -29,34 +29,630 @@
         <link rel="license" href="/LICENSE.txt"/>
         <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
         [[js|/js/redirect.js]]
+        <script type="module" src="/js/fastboot/ffe7e270/fastboot.min.mjs" integrity="sha256-/TM74wkIOUV1rXRSGlzJPb4ZjBA52fzUW3aSypxxtwc="></script>
+        [[js|/js/web-install.js]]
     </head>
     <body>
         {% with current_page="install" %}
             {% include "header.html" %}
         {% endwith %}
         <main id="install">
-            <h1><a href="#install">Install</a></h1>
+            <h1><a href="#install">Install GrapheneOS</a></h1>
 
-            <p>GrapheneOS has two officially supported installation methods. You can either use
-            the <a href="/install/web">WebUSB-based installer</a> recommended for most users or
-            the <a href="/install/cli">command-line installation guide</a> aimed at more technical
-            users.</p>
+            <p>Installing GrapheneOS is straightforward and takes only 20 to 30 minutes. Follow
+            this page on a separate computer to prepare your Pixel, install GrapheneOS and get it
+            ready to use.</p>
 
-            <p>We strongly recommend using one of the official installation methods. Third party
-            installation guides tend to be out-of-date and often contain misguided advice and
-            errors.</p>
+            <p><strong>Installing GrapheneOS resets your Pixel and deletes all data on it.</strong>
+            Back up any apps, photos, messages and files you want to keep before you start.</p>
 
-            <p>If you have trouble with the installation process, ask for help on the
-            <a href="/contact#community">official GrapheneOS chat channel</a>. There are almost
-            always people around willing to help with it. Before asking for help, make an attempt
-            to follow the guide on your own and then ask for help with anything you get stuck
-            on.</p>
+            <p class="install-button"><a class="button button-next" href="#before-you-start">Begin
+            installation <span class="button-next-icon" aria-hidden="true">&#8964;</span></a></p>
 
-            <p>The command-line approach requires being on an OS with proper fastboot and OpenSSH
-            packages, along with understanding the process enough to avoid blindly trusting the
-            instructions from our site. The web-based installation approach avoids needing any
-            software beyond a browser with WebUSB support and you can still avoid trusting our
-            server infrastructure by checking the verified boot key hash.</p>
+            <section aria-labelledby="before-you-start">
+                <h2 id="before-you-start">What you'll need</h2>
+
+                <ul>
+                    <li>The supported Pixel 6 or later that will receive GrapheneOS</li>
+                    <li>
+                        A separate computer, phone or tablet to run this installer, with this page
+                        open in:
+                        <ul>
+                            <li>Android 14 or later device with Play Protect certification and the
+                            Chrome browser</li>
+                            <li>Pixel running GrapheneOS with the Vanadium browser</li>
+                            <li>Mac with the Chrome browser</li>
+                            <li>Windows with the Edge or Chrome browser</li>
+                        </ul>
+                    </li>
+                    <li>A reliable USB data cable to connect the two devices directly</li>
+                    <li>32GB of free storage and at least 2GB of free memory on the device running
+                    this page</li>
+                </ul>
+
+                <p class="install-button"><a class="button button-next"
+                href="#enabling-oem-unlocking">My setup matches this list <span
+                class="button-next-icon" aria-hidden="true">&#8964;</span></a></p>
+            </section>
+
+            <details>
+                <summary>Pixel compatibility</summary>
+
+                <p>GrapheneOS supports Pixel 6 and later devices, including selected A-series, Pro,
+                Fold and Tablet models. Check the <a href="/faq#supported-devices">current list of
+                supported Pixels</a>.</p>
+
+                <ul>
+                    <li>Avoid carrier-locked Pixels because they may block OEM unlocking.</li>
+                    <li>Update the current operating system first when possible. This installer
+                    also installs current firmware.</li>
+                </ul>
+
+            </details>
+
+            <details id="prerequisites">
+                <summary>Use Android or GrapheneOS to run the installer</summary>
+
+                <p>On Android 14 or later with Play Protect certification, use the latest Chrome
+                browser.</p>
+
+                <p>On GrapheneOS, use Vanadium and connect the two Pixels directly by USB-C.</p>
+
+                <ul>
+                    <li>Use the owner profile and keep the device running this page unlocked</li>
+                    <li>Use normal browsing mode, not Incognito</li>
+                    <li>Turn off desktop mode</li>
+                    <li>Have 32GB of free storage and at least 2GB of free memory</li>
+                    <li>Approve reconnection each time your Pixel restarts</li>
+                </ul>
+
+                <p>Brave also works with Shields disabled. If the browser runs out of memory, use
+                a Mac or Windows computer.</p>
+            </details>
+
+            <details>
+                <summary>Current supported operating systems</summary>
+
+                <p>The recommended choices above are the simplest. Current releases of ChromeOS,
+                Arch Linux, Debian, Ubuntu and Linux Mint are also supported. Use an up-to-date
+                operating system, not a virtual machine.</p>
+
+                <p>Older end-of-life releases may work but are not supported.</p>
+            </details>
+
+            <details>
+                <summary>Browser requirements</summary>
+
+                <p>Use the latest version of:</p>
+
+                <ul>
+                    <li>Chromium, except the Ubuntu Snap package</li>
+                    <li>Vanadium (GrapheneOS)</li>
+                    <li>Google Chrome</li>
+                    <li>Microsoft Edge</li>
+                    <li>Brave, with Shields disabled for this site</li>
+                </ul>
+
+                <ul>
+                    <li>On Android, turn off desktop mode.</li>
+                    <li>Do not use private browsing.</li>
+                    <li>Avoid Flatpak and Snap browser packages because they can block USB access
+                    or limit storage.</li>
+                </ul>
+            </details>
+
+            <details id="table-of-contents">
+                <summary>View installation steps</summary>
+                <nav aria-label="Installation steps">
+                    <ol>
+                    <li><a href="#enabling-oem-unlocking">Allow a new operating system</a></li>
+                    <li><a href="#booting-into-the-bootloader-interface">Open Fastboot mode</a></li>
+                    <li><a href="#connecting-device">Connect your Pixel</a></li>
+                    <li><a href="#unlocking-the-bootloader">Unlock the bootloader</a></li>
+                    <li><a href="#obtaining-factory-images">Download GrapheneOS</a></li>
+                    <li><a href="#flashing-factory-images">Install GrapheneOS</a></li>
+                    <li><a href="#locking-the-bootloader">Lock the bootloader</a></li>
+                    <li>
+                        <a href="#post-installation">Finish setup</a>
+                        <ul>
+                            <li><a href="#booting">Start and verify GrapheneOS</a></li>
+                            <li><a href="#disabling-oem-unlocking">Complete initial setup</a></li>
+                        </ul>
+                    </li>
+                    </ol>
+                </nav>
+            </details>
+
+            <section id="enabling-oem-unlocking">
+                <h2><a href="#enabling-oem-unlocking">Allow a new operating system (Step 1 of 8)</a></h2>
+
+                <ul>
+                    <li>For a brand-new Pixel, begin setup, choose <b>Set up offline</b> at the first
+                    Wi-Fi prompt and skip the optional steps.</li>
+                    <li>For a Pixel already in use, back it up to another computer.
+                    <strong>Installation deletes every app, photo, message and file on the
+                    Pixel.</strong></li>
+                </ul>
+
+                <p>From the home screen:</p>
+
+                <ol>
+                    <li>Connect to Wi-Fi from <b>Settings&#160;> Network and
+                    internet&#160;> Internet</b>. This checks whether the Pixel can be unlocked. You
+                    can continue without waiting for updates.</li>
+                    <li>Open <b>Settings&#160;> About phone/tablet</b>. Tap <b>Build number</b>
+                    repeatedly to enable developer mode.</li>
+                    <li>Search Settings for <b>OEM unlocking</b>, or open <b>Settings&#160;>
+                    System&#160;> Developer options&#160;> OEM unlocking</b>.</li>
+                    <li>Turn on <b>OEM unlocking</b>, then power off your Pixel, even if an update
+                    is downloading.</li>
+                </ol>
+
+                <p class="install-button"><a class="button button-next" href="#booting-into-the-bootloader-interface">I've enabled
+                OEM unlocking <span class="button-next-icon" aria-hidden="true">&#8964;</span></a></p>
+
+                <details>
+                    <summary>OEM unlocking isn't available</summary>
+
+                    <ol>
+                        <li>Open a website to check that Wi-Fi works.</li>
+                        <li>Return to <b>OEM unlocking</b>.</li>
+                    </ol>
+
+                    <p>On a Pixel 6a with its original factory software, update to the June 2022
+                    release or later, factory reset the Pixel, reconnect to Wi-Fi and try again.</p>
+
+                    <p>If it remains unavailable, the Pixel may be a carrier model that blocks
+                    bootloader unlocking. This is most common with phones originally sold by US
+                    carriers.</p>
+
+                    <ul>
+                        <li>Check where the phone was first bought.</li>
+                        <li>Ask the seller or original carrier whether OEM unlocking is allowed.</li>
+                    </ul>
+
+                    <p>A phone that accepts another carrier's SIM can still block OEM unlocking.
+                    GrapheneOS cannot bypass this restriction. If the original carrier cannot
+                    enable it, return or exchange the phone for a model that allows OEM unlocking.
+                    See the <a href="/faq#recommended-devices">device purchasing guidance</a>.</p>
+                </details>
+            </section>
+
+            <section id="booting-into-the-bootloader-interface">
+                <h2><a href="#booting-into-the-bootloader-interface">Open Fastboot mode (Step 2 of 8)</a></h2>
+
+                <p>Fastboot is the built-in screen used to install an operating system before
+                Android starts.</p>
+
+                <ol>
+                    <li>Turn off your Pixel.</li>
+                    <li>Press and hold the power and volume down buttons together.</li>
+                    <li>Release both buttons when the screen shows a red warning triangle and
+                    <b>Fastboot Mode</b>.</li>
+                    <li>Leave your Pixel on this screen. Do not press any buttons.</li>
+                </ol>
+
+                <p class="install-button"><a class="button button-next" href="#connecting-device">The Pixel is in Fastboot mode
+                <span class="button-next-icon" aria-hidden="true">&#8964;</span></a></p>
+
+                <details>
+                    <summary>If Fastboot mode does not appear</summary>
+
+                    <ol>
+                        <li>Power off your Pixel.</li>
+                        <li>Hold volume down, then press and hold the power button.</li>
+                        <li>Keep holding both buttons until <b>Fastboot Mode</b> appears.</li>
+                        <li>If Android starts, power off the Pixel and try again.</li>
+                    </ol>
+                </details>
+            </section>
+
+            <section id="connecting-device">
+                <h2><a href="#connecting-device">Connect your Pixel (Step 3 of 8)</a></h2>
+
+                <ol>
+                    <li>Connect your Pixel directly to this device with a reliable USB data cable.</li>
+                    <li>Keep your Pixel on the <b>Fastboot Mode</b> screen.</li>
+                    <li>Do not use a USB hub.</li>
+                </ol>
+
+                <p class="install-button"><a class="button button-next" href="#unlocking-the-bootloader">The Pixel is connected
+                <span class="button-next-icon" aria-hidden="true">&#8964;</span></a></p>
+
+                <details>
+                    <summary>If your Windows computer does not detect the Pixel</summary>
+                    <p>Windows normally uses a built-in Fastboot driver. If the Pixel is not
+                    detected:</p>
+
+                    <ol>
+                        <li>Leave it connected in Fastboot mode.</li>
+                        <li>Open Windows Update and check for updates.</li>
+                        <li>Open <b>View optional updates</b>.</li>
+                        <li>Install the Android bootloader driver. It may appear as <b>LeMobile
+                        Android Device</b>.</li>
+                    </ol>
+
+                    <p>If it is not offered, download the <a
+                    href="https://developer.android.com/studio/run/win-usb">Google USB driver</a>
+                    and follow Google's <a
+                    href="https://developer.android.com/studio/run/oem-usb#InstallingDriver">Device
+                    Manager instructions</a>.</p>
+                </details>
+
+                <details id="flashing-as-non-root">
+                    <summary>Using Linux? Set up USB access</summary>
+
+                    <ol>
+                        <li>Install <code>android-udev</code> on Arch Linux or
+                        <code>android-sdk-platform-tools-common</code> on Debian or Ubuntu.</li>
+                        <li>Reconnect the Pixel.</li>
+                    </ol>
+
+                    <p>These rules give the browser USB access without root.</p>
+
+                    <section id="working-around-fwupd-bugs-on-linux-distributions">
+                        <h3><a href="#working-around-fwupd-bugs-on-linux-distributions">USB device already in use</a></h3>
+
+                        <p><code>fwupd</code> may take the Fastboot connection. Stop it temporarily:</p>
+
+                        <pre>sudo systemctl stop fwupd.service</pre>
+
+                        <p>It starts again after the computer restarts.</p>
+                    </section>
+                </details>
+
+                <details>
+                    <summary>USB connection problems</summary>
+
+                    <ul>
+                        <li>Use the USB-C cable supplied with your Pixel when possible.</li>
+                        <li>Connect it directly, without a hub.</li>
+                        <li>On a desktop computer, use a rear USB port.</li>
+                        <li>Try another high-quality data cable or USB port.</li>
+                        <li>Close file managers and other apps using the Pixel.</li>
+                        <li>For a Pixel Tablet, remove it from its charging stand.</li>
+                        <li>If USB remains busy, restart this device and reopen only this page.</li>
+                    </ul>
+
+                    <p>Charging-only and faulty cables are a common cause.</p>
+                </details>
+            </section>
+
+            <section id="unlocking-the-bootloader">
+                <h2><a href="#unlocking-the-bootloader">Unlock the bootloader (Step 4 of 8)</a></h2>
+
+                <ol>
+                    <li>Click the <b>Unlock bootloader</b> button below.</li>
+                    <li>In the browser prompt, choose your Pixel, then click <b>Connect</b> or
+                    <b>Pair</b>.</li>
+                    <li>On Android, approve the USB access prompt.</li>
+                    <li>On your Pixel, the text beside the power button shows the current choice.
+                    Press either volume button until <b>Unlock the bootloader</b> appears, then
+                    press the power button to select it.</li>
+                </ol>
+
+                <p>Confirming resets your Pixel and deletes its current data.</p>
+
+                <p class="install-button"><button id="unlock-bootloader-button" disabled="">Unlock
+                bootloader</button></p>
+
+                <p class="install-status" role="status" aria-live="polite"><strong
+                id="unlock-bootloader-status"></strong></p>
+
+                <details>
+                    <summary>If your Pixel is not listed</summary>
+                    <ol>
+                        <li>Keep the Pixel in Fastboot mode and reconnect it directly.</li>
+                        <li>Click <b>Unlock bootloader</b> again.</li>
+                        <li>Choose your Pixel in the browser prompt.</li>
+                        <li>If it is still not listed, use another supported browser or computer.</li>
+                    </ol>
+                </details>
+            </section>
+
+            <section id="obtaining-factory-images">
+                <h2><a href="#obtaining-factory-images">Download GrapheneOS (Step 5 of 8)</a></h2>
+
+                <ol>
+                    <li>Click the <b>Download GrapheneOS</b> button below.</li>
+                    <li>Wait for the download and verification to finish.</li>
+                </ol>
+
+                <p>The roughly 2GB download is saved and verified in this browser before anything
+                is sent to your Pixel. It takes a few minutes on fast internet and longer on slow
+                or shared Wi-Fi.</p>
+
+                <p><strong id="quota-warning-text" class="warning-text" hidden="hidden">Your browser
+                may not have enough storage for the download. Free some storage or leave private
+                browsing mode before continuing.</strong></p>
+
+                <p class="install-button"><button id="download-release-button" disabled="">Download
+                GrapheneOS</button></p>
+
+                <p class="install-status" id="download-release-status-container" role="status"
+                aria-live="polite" hidden="hidden">
+                    <strong id="download-release-status"></strong>
+                    <br/>
+                    <progress id="download-release-progress" aria-label="GrapheneOS download progress"
+                    hidden="hidden" max="1" value="0"></progress>
+                </p>
+
+                <details>
+                    <summary>Download problems</summary>
+
+                    <ul>
+                        <li>Use a normal browser window.</li>
+                        <li>Keep at least 32GB of storage and 2GB of memory free.</li>
+                        <li>Close other apps if memory is low.</li>
+                        <li>Do not use Flatpak or Snap browser packages.</li>
+                        <li>In Brave, disable Shields for this site.</li>
+                        <li>Check the internet connection and update the browser.</li>
+                        <li>If it still fails, reopen this page in another supported browser.</li>
+                    </ul>
+                </details>
+            </section>
+
+            <section id="flashing-factory-images">
+                <h2><a href="#flashing-factory-images">Install GrapheneOS (Step 6 of 8)</a></h2>
+
+                <ol>
+                    <li>Click the <b>Install GrapheneOS</b> button below.</li>
+                    <li>Keep your Pixel connected and do not use it.</li>
+                    <li>Whenever this page shows <b>Reconnect device</b>, click it, choose your
+                    Pixel and click <b>Connect</b> or <b>Pair</b>. On Android, also approve USB
+                    access.</li>
+                    <li>Wait for confirmation before continuing.</li>
+                </ol>
+
+                <p>Installation replaces the Pixel's operating system, takes about 10 to 20
+                minutes and restarts the Pixel several times.</p>
+
+                <p class="install-button"><button id="flash-release-button" disabled="">Install
+                GrapheneOS</button></p>
+
+                <p class="install-status" id="flash-release-status-container" role="status"
+                aria-live="polite" hidden="hidden">
+                    <strong id="flash-release-status"></strong>
+                    <br/>
+
+                    <!-- These appear as part of the status, one at a time -->
+                    <progress id="flash-release-progress" aria-label="GrapheneOS installation progress"
+                    hidden="hidden" max="1" value="0"></progress>
+                    <button id="flash-reconnect-button" hidden="hidden"><strong>Reconnect device</strong></button>
+                </p>
+
+                <details>
+                    <summary>If installation stops</summary>
+
+                    <ol>
+                        <li>Do not boot or lock the Pixel.</li>
+                        <li>Return it to Fastboot mode and reconnect it.</li>
+                        <li>If this page was closed or reloaded, download GrapheneOS again.</li>
+                        <li>Repeat the installation.</li>
+                    </ol>
+
+                    <p>When installing from Android:</p>
+
+                    <ul>
+                        <li>Turn off desktop mode.</li>
+                        <li>Keep this page visible and the screen unlocked.</li>
+                        <li>Approve every reconnection prompt.</li>
+                    </ul>
+
+                    <ul>
+                        <li>On a computer, close other apps using USB.</li>
+                        <li>Try another cable or direct USB port.</li>
+                    </ul>
+                </details>
+            </section>
+
+            <section id="locking-the-bootloader">
+                <h2><a href="#locking-the-bootloader">Lock the bootloader (Step 7 of 8)</a></h2>
+
+                <p><strong>Do not skip this step.</strong> Locking prevents unauthorized changes to
+                the operating system and makes your Pixel verify GrapheneOS whenever it starts. It
+                resets your Pixel again, so do not use it until it is locked.</p>
+
+                <ol>
+                    <li>Click the <b>Lock bootloader</b> button below.</li>
+                    <li>On your Pixel, press either volume button until <b>Lock the bootloader</b>
+                    appears beside the power button.</li>
+                    <li>Press the power button to confirm.</li>
+                </ol>
+
+                <p class="install-button"><button id="lock-bootloader-button" disabled="">Lock
+                bootloader</button></p>
+
+                <p class="install-status" role="status" aria-live="polite"><strong
+                id="lock-bootloader-status"></strong></p>
+
+                <details>
+                    <summary>If the bootloader does not lock</summary>
+
+                    <ol>
+                        <li>Keep the Pixel in Fastboot mode and reconnect it.</li>
+                        <li>Click <b>Lock bootloader</b> again.</li>
+                        <li>If the Pixel reports invalid images, repeat step 6 before locking.</li>
+                    </ol>
+                </details>
+            </section>
+
+            <section id="post-installation">
+                <h2><a href="#post-installation">Finish setup (Step 8 of 8)</a></h2>
+
+                <section id="booting">
+                    <h3><a href="#booting">Start and verify GrapheneOS</a></h3>
+
+                    <ol>
+                        <li>On your Pixel, press either volume button until <b>Start</b> appears
+                        beside the power button.</li>
+                        <li>Press the power button.</li>
+                        <li>At the yellow notice, press the power button once to pause.</li>
+                        <li>Compare the <b>ID</b> with the official hash below.</li>
+                        <li>If every character matches, press the power button again. Then click
+                        <b>The hashes match</b> on this page.</li>
+                        <li>If it does not match, leave the notice paused and open <b>More
+                        verification details and hashes</b> below.</li>
+                    </ol>
+
+                    <p id="installed-device-hash" hidden="hidden"><strong>Official hash for
+                    <span id="installed-device-name"></span>:</strong> <code
+                    id="installed-device-hash-value"></code></p>
+
+                    <p class="install-button"><button id="verified-boot-hash-match-button"
+                    disabled="">The hashes match</button></p>
+
+                    <details id="verifying-installation">
+                        <summary>More verification details and hashes</summary>
+
+                        <p>For the strongest check:</p>
+
+                        <ol>
+                            <li>Open this page on a second trusted device.</li>
+                            <li>Find your Pixel in the list below.</li>
+                            <li>Compare its hash with the Pixel's <b>ID</b>.</li>
+                        </ol>
+
+                        <ul>
+                            <li>If the hashes still differ, leave the Pixel paused and do not
+                            continue setup. Confirm the model and hash again, then ask the <a
+                            href="/contact#community">GrapheneOS community</a> for help.</li>
+                        </ul>
+
+                        <p>The key belongs to the Pixel model, not one GrapheneOS release, so its
+                        hash normally stays the same across updates.</p>
+
+                        <p>Comparing the hash from a second trusted device keeps this check
+                        independent of the device used for installation.</p>
+
+                        <p>Verified boot checks every firmware and operating-system image whenever
+                        the Pixel starts. Factory-programmed keys verify the firmware, and the
+                        secure element stores the GrapheneOS key used to verify the operating
+                        system.</p>
+
+                        <p>Rollback protection prevents installing an older, vulnerable release.
+                        If verified boot finds changed or corrupted data, it rejects it and can use
+                        error-correction data to recover the original data.</p>
+
+                        {% include "verified_boot_key_hash.html" %}
+
+                        <section id="hardware-based-attestation">
+                            <h3><a href="#hardware-based-attestation">Hardware-based attestation</a></h3>
+
+                            <p>Auditor checks the Pixel's hardware, firmware and operating system.
+                            Local verification requires a second Android device running Auditor.</p>
+
+                            <p>The optional monitoring service adds scheduled checks and email
+                            alerts. See the <a href="https://attestation.app/tutorial">Auditor
+                            tutorial</a>.</p>
+
+                            <p>Auditor pins hardware-backed keys during the first verification for
+                            later checks. Verify that first pairing carefully because it establishes
+                            what the second device will trust.</p>
+                        </section>
+                    </details>
+
+                    <div id="verified-boot-hash-success" role="status" aria-live="polite"
+                    hidden="hidden">
+                        <p class="success-text"><strong>Success! GrapheneOS is installed and the
+                        verified boot key matches.</strong></p>
+
+                        <p>Welcome to GrapheneOS. Finish setup, then see the <a href="/usage">usage
+                        guide</a> and <a href="/faq">FAQ</a>.</p>
+                    </div>
+                </section>
+
+                <section id="disabling-oem-unlocking">
+                    <h3><a href="#disabling-oem-unlocking">Complete initial setup</a></h3>
+
+                    <ol>
+                        <li>Follow the GrapheneOS setup screens to choose your language and time
+                        zone, connect to a network and create a screen lock.</li>
+                        <li>On the final screen, leave <b>Disable OEM unlocking</b> selected. This
+                        prevents the bootloader from being unlocked again unless you deliberately
+                        re-enable it later.</li>
+                    </ol>
+                </section>
+
+                <section id="further-information">
+                    <h3><a href="#further-information">Help and next steps</a></h3>
+
+                    <p>If you get stuck, check <a href="#prerequisites">compatibility</a>, try
+                    another USB cable or ask the <a href="/contact#community">GrapheneOS
+                    community</a>.</p>
+                </section>
+
+            </section>
+
+            <details id="replacing-grapheneos-with-the-stock-os">
+                <summary>Return to the original Pixel operating system</summary>
+
+                <p>Restoring the original operating system deletes all Pixel data.</p>
+
+                <ol>
+                    <li>Unlock the bootloader and enter Fastboot mode.</li>
+                    <li>Remove the GrapheneOS verified boot key with the button below.</li>
+                    <li>Use <a href="https://flash.android.com/back-to-public">Google's web
+                    flashing tool</a> to restore the original operating system.</li>
+                </ol>
+
+                <p class="install-button"><button id="remove-custom-key-button" disabled="">Remove
+                non-stock key</button></p>
+
+                <p class="install-status" role="status" aria-live="polite"><strong
+                id="remove-custom-key-status"></strong></p>
+            </details>
+
+            <details>
+                <summary>Technical background and alternative steps</summary>
+
+                <h3>Virtual machines</h3>
+
+                <p>Run the installer directly on a supported operating system. USB passthrough in
+                virtual machines is often unreliable, and virtual machines may have too little
+                memory or storage.</p>
+
+                <h3>Carrier models</h3>
+
+                <p>Some carrier variants leave the factory with a carrier identifier that makes
+                the original operating system disable mobile-network and bootloader unlocking. A
+                carrier may be able to remove this restriction. Once OEM unlocking is enabled,
+                GrapheneOS does not use the carrier identifier.</p>
+
+                <h3>Another way to open Fastboot mode</h3>
+
+                <ul>
+                    <li>Restart the Pixel and hold volume down until <b>Fastboot Mode</b> appears.</li>
+                    <li>Alternatively, hold volume down while connecting a powered-off Pixel by
+                    USB.</li>
+                </ul>
+
+                <h3>Why locking matters</h3>
+
+                <p>With the bootloader locked, someone cannot replace the operating system through
+                Fastboot without first triggering a data wipe. Verified boot also rejects changed
+                data and older, vulnerable releases.</p>
+
+                <p>More information about verified boot and Auditor is in <a
+                href="#verifying-installation">verification details</a> in step 8.</p>
+            </details>
+
+            <section aria-labelledby="command-line-installation">
+                <h2 id="command-line-installation">Command-line installation</h2>
+
+                <p>As an alternative to the web installer above, you can use the <a
+                href="/install/cli">command-line installation guide</a>. It is intended for
+                technical users who prefer a terminal and requires a supported operating system
+                with suitable Fastboot and OpenSSH packages, along with enough understanding to
+                review the commands before running them.</p>
+
+                <p>Use the official guide. Third-party installation instructions are often
+                outdated or incorrect. The web installer above is easier for official releases
+                and does not require additional command-line tools.</p>
+
+                <p>If you get stuck, ask the <a href="/contact#community">GrapheneOS community</a>
+                for help.</p>
+            </section>
         </main>
         {% include "footer.html" %}
     </body>

@@ -31,15 +31,17 @@ const requestWakeLock = async () => {
         });
     } catch (error) {
         // if wake lock request fails - usually system related, such as battery
-        throw new Error(`${error.name}, ${error.message}`, { cause: error });
+        throw new Error("wake lock failed", { cause: error });
     }
 };
 
 const releaseWakeLock = async () => {
     if (wakeLock !== null) {
-        wakeLock.release().then(() => {
+        try {
+            await wakeLock.release();
+        } finally {
             wakeLock = null;
-        });
+        }
     }
 };
 
@@ -66,7 +68,9 @@ function fetchBlobWithProgress(url, onProgress) {
             }
         };
         xhr.onprogress = (event) => {
-            onProgress(event.loaded / event.total);
+            if (event.lengthComputable && event.total > 0) {
+                onProgress(event.loaded / event.total);
+            }
         };
         xhr.onerror = () => {
             // onerror is called on network errors
@@ -211,7 +215,7 @@ let buttonController = new ButtonController();
 
 async function ensureConnected(setProgress) {
     if (!device.isConnected) {
-        setProgress("Connecting to device...");
+        setProgress("Connecting to your Pixel...");
         await device.connect();
     }
 }
@@ -225,7 +229,7 @@ async function unlockBootloader(setProgress) {
         return "Bootloader is already unlocked.";
     }
 
-    setProgress("Unlocking bootloader...");
+    setProgress("Waiting for confirmation on your Pixel...");
     try {
         await device.runCommand("flashing unlock");
     } catch (error) {
@@ -237,50 +241,95 @@ async function unlockBootloader(setProgress) {
         }
     }
 
-    return "Bootloader unlocking triggered successfully.";
+    return "Bootloader unlocked. Continue to Download GrapheneOS below.";
 }
 
-const supportedDevices = ["stallion", "rango", "mustang", "blazer", "frankel", "tegu", "comet", "komodo", "caiman", "tokay", "akita", "husky", "shiba", "felix", "tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole"];
+// Keep device support as an explicit installer allowlist. The rendered hash list is
+// the single source for the model name and verified boot key shown after installation.
+const supportedDevices = [
+    "stallion", "rango", "mustang", "blazer", "frankel", "tegu", "comet",
+    "komodo", "caiman", "tokay", "akita", "husky", "shiba", "felix",
+    "tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole"
+];
+const verifiedBootKeyEntries = Array.from(
+    document.querySelectorAll("#verified-boot-key-hash [data-product]")
+);
+
+let selectedProduct = null;
 
 async function getLatestRelease() {
     let product = await device.getVariable("product");
     if (!supportedDevices.includes(product)) {
         throw new Error(`device model (${product}) is not supported by the GrapheneOS web installer`);
     }
+    selectedProduct = product;
 
     let metadataResp = await fetch(`${RELEASES_URL}/${product}-stable`);
+    if (!metadataResp.ok) {
+        throw new Error("release metadata unavailable");
+    }
     let metadata = await metadataResp.text();
-    let releaseId = metadata.split(" ")[0];
+    // Stable channel metadata begins with a 10-digit GrapheneOS release ID.
+    let releaseId = metadata.trim().split(/\s+/)[0];
+    if (!/^\d{10}$/.test(releaseId)) {
+        throw new Error("invalid release metadata");
+    }
 
     return `${product}-install-${releaseId}.zip`;
+}
+
+function showInstalledDeviceHash() {
+    // Use textContent throughout: the device only selects an existing trusted entry
+    // and cannot inject markup into the page.
+    const deviceKey = verifiedBootKeyEntries.find(
+        entry => entry.dataset.product === selectedProduct
+    );
+    if (deviceKey === undefined) {
+        return;
+    }
+
+    const deviceName = deviceKey.childNodes[0].textContent.trim().replace(/:$/, "");
+    const hash = deviceKey.querySelector("code").textContent;
+    document.getElementById("installed-device-name").textContent = deviceName;
+    document.getElementById("installed-device-hash-value").textContent = hash;
+    document.getElementById("installed-device-hash").hidden = false;
+    document.getElementById("verified-boot-hash-match-button").disabled = false;
+}
+
+function confirmVerifiedBootHash() {
+    const button = document.getElementById("verified-boot-hash-match-button");
+    button.disabled = true;
+    button.textContent = "Hash match confirmed";
+    document.getElementById("verified-boot-hash-success").hidden = false;
 }
 
 async function downloadRelease(setProgress) {
     await requestWakeLock();
     await ensureConnected(setProgress);
 
-    setProgress("Finding latest release...");
+    setProgress("Checking for the latest GrapheneOS release...");
     let latestZip = await getLatestRelease();
 
     // Download and cache the zip as a blob
     setInstallerState({ state: InstallerState.DOWNLOADING_RELEASE, active: true });
-    setProgress(`Downloading ${latestZip}...`);
+    setProgress("Downloading GrapheneOS...");
     await blobStore.init();
     try {
         await blobStore.download(`${RELEASES_URL}/${latestZip}`, (progress) => {
-            setProgress(`Downloading ${latestZip}...`, progress);
+            const percentage = Math.round(progress * 100);
+            setProgress(`Downloading GrapheneOS... ${percentage}%`, progress);
         });
     } finally {
         setInstallerState({ state: InstallerState.DOWNLOADING_RELEASE, active: false });
         await releaseWakeLock();
     }
-    setProgress(`Downloaded ${latestZip} release.`, 1.0);
+    return "Download complete. GrapheneOS is ready to install. Continue to Install GrapheneOS below.";
 }
 
 async function reconnectCallback() {
     let statusField = document.getElementById("flash-release-status");
     statusField.textContent =
-        "To continue flashing, reconnect the device by tapping here:";
+        "Your Pixel restarted. Click Reconnect device to continue the installation.";
 
     let reconnectButton = document.getElementById("flash-reconnect-button");
     let progressBar = document.getElementById("flash-release-progress");
@@ -290,9 +339,22 @@ async function reconnectCallback() {
     reconnectButton.hidden = false;
 
     reconnectButton.onclick = async () => {
-        await device.connect();
-        reconnectButton.hidden = true;
-        progressBar.hidden = false;
+        reconnectButton.disabled = true;
+        reconnectButton.setAttribute("aria-busy", "true");
+        try {
+            await device.connect();
+            statusField.className = "";
+            statusField.textContent = "Pixel reconnected. Continuing the installation...";
+            reconnectButton.hidden = true;
+            progressBar.hidden = false;
+        } catch (error) {
+            statusField.className = "error-text";
+            statusField.textContent = getFriendlyErrorMessage(error, Buttons.FLASH_RELEASE);
+            console.error(error);
+        } finally {
+            reconnectButton.disabled = false;
+            reconnectButton.setAttribute("aria-busy", "false");
+        }
     };
 }
 
@@ -302,7 +364,7 @@ async function flashRelease(setProgress) {
 
     // Need to do this again because the user may not have clicked download if
     // it was cached
-    setProgress("Finding latest release...");
+    setProgress("Preparing GrapheneOS for installation...");
     let latestZip = await getLatestRelease();
     await blobStore.init();
     let blob = await blobStore.loadFile(latestZip);
@@ -310,21 +372,20 @@ async function flashRelease(setProgress) {
         throw new Error("You need to download a release first!");
     }
 
-    setProgress("Cancelling any pending OTAs...");
+    setProgress("Preparing your Pixel...");
     // Cancel snapshot update if in progress
     let snapshotStatus = await device.getVariable("snapshot-update-status");
     if (snapshotStatus !== null && snapshotStatus !== "none") {
         await device.runCommand("snapshot-update:cancel");
     }
 
-    setProgress("Flashing release...");
+    setProgress("Installing GrapheneOS. Keep your Pixel connected...");
     setInstallerState({ state: InstallerState.INSTALLING_RELEASE, active: true });
     try {
         await device.flashFactoryZip(blob, true, reconnectCallback,
-            (action, item, progress) => {
-                let userAction = fastboot.USER_ACTION_MAP[action];
-                let userItem = item === "avb_custom_key" ? "verified boot key" : item;
-                setProgress(`${userAction} ${userItem}...`, progress);
+            (...progressUpdate) => {
+                const progress = progressUpdate[2];
+                setProgress("Installing GrapheneOS. Keep your Pixel connected...", progress);
             }
         );
     } finally {
@@ -332,26 +393,27 @@ async function flashRelease(setProgress) {
         await releaseWakeLock();
     }
 
-    return `Flashed ${latestZip} to device.`;
+    showInstalledDeviceHash();
+    return "Installation complete. Keep your Pixel connected and lock the bootloader below.";
 }
 
 async function eraseNonStockKey(setProgress) {
     await ensureConnected(setProgress);
 
-    setProgress("Erasing key...");
+    setProgress("Removing the GrapheneOS verified boot key...");
     try {
         await device.runCommand("erase:avb_custom_key");
     } catch (error) {
         console.log(error);
         throw error;
     }
-    return "Key erased.";
+    return "Verified boot key removed. You can now continue with the original Pixel OS installation.";
 }
 
 async function lockBootloader(setProgress) {
     await ensureConnected(setProgress);
 
-    setProgress("Locking bootloader...");
+    setProgress("Waiting for confirmation on your Pixel...");
     try {
         await device.runCommand("flashing lock");
     } catch (error) {
@@ -363,7 +425,91 @@ async function lockBootloader(setProgress) {
         }
     }
 
-    return "Bootloader locking triggered successfully.";
+    return "Bootloader locked. Installation is complete. Continue to Start GrapheneOS below.";
+}
+
+function getFriendlyErrorMessage(error, action) {
+    const message = typeof(error) === "object" && error !== null && error.message
+        ? error.message
+        : String(error);
+    const lowerMessage = message.toLowerCase();
+
+    if (error instanceof DOMException) {
+        if (error.name === "QuotaExceededError") {
+            return "There is not enough browser storage for GrapheneOS. Free up storage and make sure you are not using Incognito or private browsing, then try again.";
+        }
+        if (error.name === "NotFoundError") {
+            return "No Pixel was selected. Keep your Pixel connected and in Fastboot mode, click the button again, then choose your Pixel in the browser prompt.";
+        }
+        if (error.name === "NotAllowedError" || error.name === "SecurityError") {
+            return "USB access was not approved. Click the button again, choose your Pixel and approve the connection prompt.";
+        }
+        if (error.name === "NetworkError" || error.name === "AbortError") {
+            return "The USB connection was interrupted. Keep your Pixel in Fastboot mode, reconnect the cable directly and try this step again.";
+        }
+        if (error.name === "InvalidStateError") {
+            return "The Pixel is not ready for this step. Keep it in Fastboot mode, reconnect it and try again.";
+        }
+    }
+
+    if (error instanceof fastboot.FastbootError) {
+        if (error.status === "FAIL") {
+            return "The Pixel did not complete this action. Follow any instructions on its screen, then try again.";
+        }
+        return "Communication with the Pixel was interrupted. Keep it connected and in Fastboot mode, then try this step again.";
+    }
+
+    if (lowerMessage.includes("wake lock")) {
+        return "The browser could not keep the screen awake. Turn off battery saver, keep this page visible and try again.";
+    }
+    if (lowerMessage.includes("quota") || lowerMessage.includes("storage")) {
+        return "There is not enough browser storage for GrapheneOS. Free up storage and make sure you are not using Incognito or private browsing, then try again.";
+    }
+    if (lowerMessage.includes("failed to write") || lowerMessage.includes("ioerror") ||
+        lowerMessage.includes("could not be read")) {
+        return "The browser could not store the GrapheneOS download. Free up storage, close other apps and use a normal browser window, then download it again.";
+    }
+    if (lowerMessage.includes("network request failed") || /^\d{3} /.test(message)) {
+        return "The GrapheneOS download failed. Check the internet connection, available storage and browser requirements below, then try again.";
+    }
+    if (lowerMessage.includes("no device selected")) {
+        return "No Pixel was selected. Click the button again, choose your Pixel in the browser prompt and approve the connection.";
+    }
+    if (lowerMessage.includes("permission") || lowerMessage.includes("access denied") ||
+        lowerMessage.includes("claim interface")) {
+        return "The browser could not access the Pixel. Approve the USB prompt, close other apps using the Pixel and check the USB guidance in step 3, then try again.";
+    }
+    if (lowerMessage.includes("disconnect") || lowerMessage.includes("transfer") ||
+        lowerMessage.includes("connection")) {
+        return "The USB connection was interrupted. Keep your Pixel in Fastboot mode, reconnect the cable directly and try this step again.";
+    }
+    if (lowerMessage.includes("device model") && lowerMessage.includes("not supported")) {
+        return "This Pixel model is not supported by the GrapheneOS web installer. Check the supported Pixel list above.";
+    }
+    if (lowerMessage.includes("download a release first")) {
+        return "Download GrapheneOS in the previous step before starting the installation.";
+    }
+    if (lowerMessage.includes("bootloader was not unlocked")) {
+        return "The bootloader was not unlocked. Choose the unlock option on your Pixel and try again.";
+    }
+    if (lowerMessage.includes("bootloader was not locked")) {
+        return "The bootloader was not locked. Choose the lock option on your Pixel and try again.";
+    }
+
+    switch (action) {
+        case Buttons.UNLOCK_BOOTLOADER:
+            return "The unlock could not start. Keep your Pixel in Fastboot mode, reconnect the cable, approve the USB prompt and click Unlock bootloader again.";
+        case Buttons.DOWNLOAD_RELEASE:
+            return "GrapheneOS could not be downloaded. Check the internet connection and available storage, then click Download GrapheneOS again.";
+        case Buttons.FLASH_RELEASE:
+            return "Installation stopped before it finished. Keep your Pixel connected and in Fastboot mode, then click Install GrapheneOS again.";
+        case Buttons.LOCK_BOOTLOADER:
+            return "The bootloader could not be locked. Keep your Pixel in Fastboot mode, reconnect it and click Lock bootloader again.";
+        case Buttons.REMOVE_CUSTOM_KEY:
+            return "The GrapheneOS verified boot key could not be removed. Keep your Pixel in Fastboot mode, reconnect it and try again.";
+        default:
+            return "This step could not be completed. Keep your Pixel connected and in Fastboot mode, then try again.";
+    }
 }
 
 function addButtonHook(id, callback) {
@@ -387,28 +533,29 @@ function addButtonHook(id, callback) {
 
     let button = setButtonState({ id, enabled: true });
     button.onclick = async () => {
+        let completed = false;
+        button.disabled = true;
+        button.setAttribute("aria-busy", "true");
         try {
             let finalStatus = await callback(statusCallback);
             if (finalStatus !== undefined) {
                 statusCallback(finalStatus);
+                statusField.className = "success-text";
+                completed = true;
+                if (progressBar !== null) {
+                    progressBar.hidden = false;
+                    progressBar.value = 1;
+                }
             }
         } catch (error) {
-            let errorMessage;
-            if (error instanceof DOMException && error.name === "QuotaExceededError") {
-                // provide a more descriptive message than "Error: QuotaExceededError"
-                errorMessage = "storage quota has been exceeded, you might not have enough space on your drive, or you're using incognito mode";
-            } else if (typeof(error) === "object" && error.message != null && error.message !== "") {
-                errorMessage = error.message;
-            } else {
-                // sometimes non-error objects are thrown
-                // display its string representation instead of "Error: undefined"
-                errorMessage = error.toString();
-            }
-            statusCallback(`Error: ${errorMessage}`);
+            statusCallback(getFriendlyErrorMessage(error, id));
             statusField.className = "error-text";
             await releaseWakeLock();
             // Rethrow the error so it shows up in the console
             throw error;
+        } finally {
+            button.disabled = completed;
+            button.setAttribute("aria-busy", "false");
         }
     };
 }
@@ -463,6 +610,7 @@ fastboot.configureZip({
 });
 
 if ("usb" in navigator) {
+    document.getElementById("verified-boot-hash-match-button").onclick = confirmVerifiedBootHash;
     addButtonHook(Buttons.UNLOCK_BOOTLOADER, unlockBootloader);
     addButtonHook(Buttons.DOWNLOAD_RELEASE, downloadRelease);
     addButtonHook(Buttons.FLASH_RELEASE, flashRelease);
@@ -488,7 +636,7 @@ if ("usb" in navigator) {
             statusContainer.hidden = false;
         }
         statusField.className = "error-text";
-        statusField.innerHTML = "Unavailable, as your browser doesn't support WebUSB. Please read the <a href=\"#prerequisites\">prerequisites</a>.";
+        statusField.textContent = "This browser cannot connect to your Pixel over USB. Open this page in a supported browser listed above, then reconnect your Pixel.";
     }
 }
 
