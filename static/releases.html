@@ -675,6 +675,7 @@
                         <li>Dialer: add support for automatic call recording with a per-call opt-out switch for both incoming and outgoing calls along with a notice of automatic call recording being active during calls</li>
                         <li>backport upstream Android 17 QPR1 Beta 5 fix for widgets disappearing after reboot</li>
                         <li>exempt DocumentsUI from redaction of location metadata to resolve upstream bug causing the system file manager to redact location metadata for copies or certain moves</li>
+                        <li>Settings: initialize display color mode to the correct default value to resolve remaining issues with switching back to the default color mode for Pixels caused by an upstream bug not currently impacting the stock Pixel OS</li>
                         <li>Sandboxed Google Play compatibility layer: fix PackageInstaller.installPackageArchived() stub</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): update to latest upstream kernel driver sources (replaces our manual backport of CVE-2026-0163)</li>
                         <li>kernel (6.6, 6.12): add workaround for an upstream arm64 KVM bug breaking booting with lockdown in confidentiality mode (this was previously only applied for a variant of the 6.6 branch specific to 10th gen Pixels but is more broadly applicable)</li>
