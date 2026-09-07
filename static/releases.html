@@ -707,6 +707,7 @@
                         <li>backport upstream Android 17 QPR1 Beta 5 fix for widgets disappearing after reboot</li>
                         <li>exempt DocumentsUI from redaction of location metadata to resolve upstream bug causing the system file manager to redact location metadata for copies or certain moves</li>
                         <li>Settings: initialize display color mode to the correct default value to resolve remaining issues with switching back to the default color mode for Pixels caused by an upstream bug not currently impacting the stock Pixel OS</li>
+                        <li>adevtool: remove Saturated color options from devices where it isn't properly supported</li>
                         <li>Sandboxed Google Play compatibility layer: fix PackageInstaller.installPackageArchived() stub</li>
                         <li>hardened_malloc: replace MADV_DONTNEED with MADV_DONTNEED_LOCKED to improve compatibility with mlockall</li>
                         <li>hardened_malloc: enforce success for MADV_DONTNEED_LOCKED to avoid the need for a memory clearing fallback path</li>
