@@ -234,7 +234,21 @@ source ~/.bashrc</pre>
                         <li>32GiB of memory or more. Link-Time Optimization (LTO) creates huge peaks
                             during linking and is mandatory for Control Flow Integrity (CFI). Linking
                             Vanadium (Chromium) and the Linux kernel with LTO + CFI are the most memory
-                            demanding tasks.</li>
+                            demanding tasks.
+                            <ul>
+                                <li>consider using zswap (require swap, preferred if you have NVME storage) 
+                                    or zram (does not require swap). It's possible to build GrapheneOS with 
+                                    16GiB of memory. Recommended parameters:
+                                    <ul>
+                                      <li><code>zswap.max_pool_percent=80</code> for zswap</li>
+                                      <li><code>zswap.compressor=zstd</code> for zswap</li>
+                                      <li><code>zram-size = 51200</code> for zram</li>
+                                      <li><code>compression-algorithm = zstd</code> for zram</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
                         <li>100GiB+ of additional free storage space for a typical build of the entire
                         OS for a multiarch device</li>
                     </ul>
