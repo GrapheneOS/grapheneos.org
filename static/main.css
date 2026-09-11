@@ -307,6 +307,62 @@ footer a, footer a:visited {
     color: #b00020;
 }
 
+.success-text {
+    /* Material 3 reference palette: Green 30 */
+    color: #006e1c;
+}
+
+.install-status {
+    font-size: 1.05rem;
+    margin-block: 0.5rem;
+}
+
+.install-button {
+    margin-block: 1rem 0.5rem;
+}
+
+#install details {
+    margin-block: 0.5rem;
+}
+
+#further-information {
+    padding-block-end: 0.25rem;
+}
+
+#further-information h3 {
+    margin-block-start: 0.5rem;
+}
+
+.button.button-next {
+    align-items: center;
+    box-sizing: border-box;
+    display: inline-flex;
+    height: auto;
+    line-height: normal;
+    max-width: 100%;
+    text-align: center;
+    white-space: normal;
+}
+
+.button-next-icon {
+    align-items: center;
+    display: inline-flex;
+    height: 1em;
+    line-height: 1;
+    margin-inline-start: 0.5rem;
+    transform: translateY(-0.08em);
+}
+
+#install button,
+#install progress {
+    max-width: 100%;
+}
+
+#installed-device-hash code,
+#verified-boot-key-hash code {
+    overflow-wrap: anywhere;
+}
+
 table {
     border-collapse: collapse;
     width: 100%;
@@ -549,6 +605,20 @@ details[open] summary {
     }
 }
 
+@media only screen and (max-width: 480px) {
+    #install ol,
+    #install ul {
+        padding-inline-start: 1.5rem;
+    }
+
+    #install ol ol,
+    #install ol ul,
+    #install ul ol,
+    #install ul ul {
+        padding-inline-start: 1.25rem;
+    }
+}
+
 @media (prefers-color-scheme: dark) {
     body {
         background: #121212;
@@ -610,6 +680,11 @@ details[open] summary {
     .error-text {
         /* Baseline Material dark error color */
         color: #cf6679;
+    }
+
+    .success-text {
+        /* Material 3 reference palette: Green 80 */
+        color: #78dc77;
     }
 
     td {
