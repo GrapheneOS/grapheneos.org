@@ -851,8 +851,8 @@
                     adding proper support for disabling network time connections. This combines
                     with other toggles to allow making a GrapheneOS device appear to be an AOSP
                     device. This is only particularly important for connectivity checks since the
-                    other connections get routed through a VPN which is needed to blend in on a
-                    local network in practice.</p>
+                    other connections listed above get routed through a VPN which is needed to
+                    blend in on a local network in practice.</p>
 
                     <p>In addition to our SUPL privacy improvements, we override the SUPL server
                     to our proxy by default. We also add a toggle for users to switch to the
@@ -1341,6 +1341,10 @@
                     <p>Finding and resolving all forms of VPN leaks is one of our top priorities at
                     the moment and we don't currently consider this to be a complete feature due to
                     less severe additional issues we've discovered.</p>
+
+                    <p>Note that some connections bypass VPNs by design; see our
+                    <a href="/faq#default-connections">default connections FAQ entry</a>.
+                    Those connections do not qualify as VPN leaks.</p>
                 </section>
 
                 <section id="log-viewer-and-crash-reporting">
