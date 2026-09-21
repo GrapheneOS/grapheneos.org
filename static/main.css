@@ -638,3 +638,17 @@ details[open] summary {
         color: #dae2f9 /* on secondary container */;
     }
 }
+
+button.back-to-toc {
+    background-color: #424242; /* grey800 */
+    box-shadow: 1px 1px 8px rgb(0 0 0 / 50%);
+    position: fixed;
+    width: 64px;
+    height: 64px;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    margin: 24px;
+}
