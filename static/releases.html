@@ -677,6 +677,7 @@
                         <li>bionic libc: add missing stack size calculation overflow check (no real world impact)</li>
                         <li>bionic libc: add CLOEXEC to zip file descriptors created with dup for sandboxed Google Play services dynamite modules (no real world impact)</li>
                         <li>bionic libc: extend environment variables ignored when AT_SECURE is set to variables controlling whether hardened_malloc is enabled (no real world impact)</li>
+                        <li>bionic libc: revert legacy change removing VLA due to -fstack-clash-protection making it safe for a while now (fixes an issue with Bionic trace markers)</li>
                         <li>hardened_malloc: optimize aligned size class calculation</li>
                         <li>hardened_malloc: add missing "cc" to clobber list for MTE assembly (bug inherited from LLVM with no real world impact)</li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-175">version 175</a></li>
