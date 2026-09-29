@@ -466,17 +466,24 @@ details[open] summary {
     margin-block: 0.75rem 0;
 }
 
-#hiring .role {
+#hiring .role, #past-roles {
     border-top: 1px solid #74777f /* outline */;
     padding-top: 2rem;
     margin-top: 2.5rem;
 }
 
-#hiring .role h2 {
+#past-roles .role {
+    border-top: 0;
+    padding-top: 0;
+    margin-top: 1.5rem;
+    opacity: 0.6;
+}
+
+#hiring .role h2, #past-roles > h2 {
     margin-top: 0;
 }
 
-#hiring .role > section {
+#hiring .role section {
     margin-top: 1.5rem;
 }
 
@@ -590,7 +597,7 @@ details[open] summary {
         color: #c4c6cf; /* on-surface-variant */
     }
 
-    pre, details, details[open] summary, #hiring .role-summary-list > li, #hiring .role {
+    pre, details, details[open] summary, #hiring .role-summary-list > li, #hiring .role, #past-roles {
         border-color: #8e9099; /* outline */
     }
 
