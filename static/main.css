@@ -1,5 +1,105 @@
-/* use the standard Material Light theme to match GrapheneOS apps */
-/* https://android.googlesource.com/platform/frameworks/base/+/android-11.0.0_r32/core/res/res/values/colors_material.xml */
+/* fallback Google Blue M3 seed color is #4285f4 */
+/* https://github.com/material-foundation/material-color-utilities/blob/6fd88eb3e95ba1d457842e2a2bf847d06b3a018a/kotlin/score/Score.kt#L43 */
+
+/* generated using material-color-utilities typescript 0.4.0 */
+:root {
+    --md-sys-color-primary-palette-key-color: #5d77ac;
+    --md-sys-color-secondary-palette-key-color: #6f778b;
+    --md-sys-color-tertiary-palette-key-color: #8b6d8d;
+    --md-sys-color-neutral-palette-key-color: #76777d;
+    --md-sys-color-neutral-variant-palette-key-color: #757780;
+    --md-sys-color-background: #f9f9ff;
+    --md-sys-color-on-background: #1a1b20;
+    --md-sys-color-surface: #f9f9ff;
+    --md-sys-color-surface-dim: #d9d9e0;
+    --md-sys-color-surface-bright: #f9f9ff;
+    --md-sys-color-surface-container-lowest: #fff;
+    --md-sys-color-surface-container-low: #f3f3fa;
+    --md-sys-color-surface-container: #ededf4;
+    --md-sys-color-surface-container-high: #e8e7ee;
+    --md-sys-color-surface-container-highest: #e2e2e9;
+    --md-sys-color-on-surface: #1a1b20;
+    --md-sys-color-surface-variant: #e1e2ec;
+    --md-sys-color-on-surface-variant: #44474f;
+    --md-sys-color-inverse-surface: #2f3036;
+    --md-sys-color-inverse-on-surface: #f0f0f7;
+    --md-sys-color-outline: #74777f;
+    --md-sys-color-outline-variant: #c4c6d0;
+    --md-sys-color-shadow: #000;
+    --md-sys-color-scrim: #000;
+    --md-sys-color-surface-tint: #445e91;
+    --md-sys-color-primary: #445e91;
+    --md-sys-color-on-primary: #fff;
+    --md-sys-color-primary-container: #d8e2ff;
+    --md-sys-color-on-primary-container: #2b4678;
+    --md-sys-color-inverse-primary: #adc6ff;
+    --md-sys-color-secondary: #575e71;
+    --md-sys-color-on-secondary: #fff;
+    --md-sys-color-secondary-container: #dbe2f9;
+    --md-sys-color-on-secondary-container: #3f4759;
+    --md-sys-color-tertiary: #715573;
+    --md-sys-color-on-tertiary: #fff;
+    --md-sys-color-tertiary-container: #fbd7fc;
+    --md-sys-color-on-tertiary-container: #583e5b;
+    --md-sys-color-error: #ba1a1a;
+    --md-sys-color-on-error: #fff;
+    --md-sys-color-error-container: #ffdad6;
+    --md-sys-color-on-error-container: #93000a;
+    --md-sys-color-primary-fixed: #d8e2ff;
+    --md-sys-color-primary-fixed-dim: #adc6ff;
+    --md-sys-color-on-primary-fixed: #001a41;
+    --md-sys-color-on-primary-fixed-variant: #2b4678;
+    --md-sys-color-secondary-fixed: #dbe2f9;
+    --md-sys-color-secondary-fixed-dim: #bfc6dc;
+    --md-sys-color-on-secondary-fixed: #141b2c;
+    --md-sys-color-on-secondary-fixed-variant: #3f4759;
+    --md-sys-color-tertiary-fixed: #fbd7fc;
+    --md-sys-color-tertiary-fixed-dim: #debcdf;
+    --md-sys-color-on-tertiary-fixed: #29132d;
+    --md-sys-color-on-tertiary-fixed-variant: #583e5b;
+
+    /* extended color roles sampled from accounts.google.com */
+    --md-extended-color-warn-container: #fffade;
+    --md-extended-color-warn-container-dim: #ffe07c;
+    --md-extended-color-on-warn-container: #2f1400;
+    --md-extended-color-warn: #fcbd00;
+    --md-extended-color-on-warn: #2f1400;
+    --md-extended-color-green-container: #beefbb;
+    --md-extended-color-green-container-dim: #80da88;
+    --md-extended-color-on-green-container: #00522c;
+    --md-extended-color-green: #006c35;
+    --md-extended-color-on-green: #fff;
+    --md-extended-color-cyan-container: #acedff;
+    --md-extended-color-cyan-container-dim: #60d5f3;
+    --md-extended-color-on-cyan-container: #004e5d;
+    --md-extended-color-cyan: #00687c;
+    --md-extended-color-on-cyan: #fff;
+    --md-extended-color-blue-container: #d0e4ff;
+    --md-extended-color-blue-container-dim: #a1c9ff;
+    --md-extended-color-on-blue-container: #04409f;
+    --md-extended-color-blue: #1157ce;
+    --md-extended-color-on-blue: #fff;
+    --md-extended-color-purple-container: #eedcfe;
+    --md-extended-color-purple-container-dim: #d9bafd;
+    --md-extended-color-on-purple-container: #5629a4;
+    --md-extended-color-purple: #7438d2;
+    --md-extended-color-on-purple: #fff;
+    --md-extended-color-pink-container: #ffd8ef;
+    --md-extended-color-pink-container-dim: #ffaee4;
+    --md-extended-color-on-pink-container: #8d0053;
+    --md-extended-color-pink: #b60d6e;
+    --md-extended-color-on-pink: #fff;
+    --md-extended-color-orange-container: #ffdcc3;
+    --md-extended-color-orange-container-dim: #ffb683;
+    --md-extended-color-on-orange-container: #753403;
+    --md-extended-color-orange: #9a4600;
+    --md-extended-color-on-orange: #fff;
+    --md-extended-color-grey-container: #e3e3e3;
+    --md-extended-color-grey-container-dim: #c7c7c7;
+    --md-extended-color-on-grey-container: #474747;
+    --md-extended-color-grey: #5e5e5e;
+    --md-extended-color-on-grey: #fff;
+}
 
 html {
     height: -webkit-fill-available; /* replace with stretch when standardized */
@@ -13,20 +113,20 @@ body {
     font-family: Roboto, sans-serif;
     line-height: 1.5;
     letter-spacing: 0.009375rem;
-    background-color: #fafafa; /* grey50 */
-    color: rgb(0 0 0 / 87%); /* 87% black */
+    background-color: var(--md-sys-color-surface);
+    color: var(--md-sys-color-on-surface);
     margin: 0;
     padding: 0;
     overflow-y: scroll;
 }
 
 a {
-    color: #1565c0; /* blue800 */
+    color: var(--md-sys-color-primary);
     text-decoration: none;
 }
 
 a:visited {
-    color: #6a1b9a; /* purple800 */
+    color: var(--md-extended-color-purple);
 }
 
 a:hover {
@@ -34,7 +134,8 @@ a:hover {
 }
 
 h1 a, h1 a:visited, h2 a, h2 a:visited, h3 a, h3 a:visited, h4 a, h4 a:visited, h5 a, h5 a:visited, h6 a, h6 a:visited {
-    color: rgb(0 0 0 / 87%); /* 87% black */
+    /* Use <body> text color */
+    color: inherit;
 }
 
 h1 {
@@ -80,8 +181,8 @@ h6 {
 }
 
 code, pre {
-    background-color: #e0e2ec; /* surface-variant */
-    color: #44474e; /* on-surface-variant */
+    background-color: var(--md-sys-color-surface-container);
+    color: var(--md-sys-color-on-surface-container);
     font-family: "Roboto Mono", monospace;
     font-size: 0.875rem; /* body-medium.size */
     letter-spacing: 0.015625rem; /* body-medium.tracking */
@@ -90,7 +191,7 @@ code, pre {
 
 pre {
     border-radius: 12px;
-    border: 1px solid #74777f /* outline */;
+    border: 1px solid var(--md-sys-color-outline);
     overflow-x: auto;
     padding: 0.875rem;
 }
@@ -101,7 +202,8 @@ code {
 }
 
 var {
-    color: #ba1a1a;
+    /* Should colour be red? */
+    color: var(--md-sys-color-error);
 }
 
 #site-menu ul {
@@ -113,7 +215,7 @@ var {
 }
 
 #site-menu {
-    background-color: #212121; /* grey900 */
+    background-color: var(--md-sys-color-surface-container-low);
     white-space: nowrap;
 }
 
@@ -123,11 +225,11 @@ var {
 }
 
 #site-menu ul li:hover {
-    background-color: #424242; /* grey800 */
+    background-color: color-mix(in srgb, currentColor 8%, transparent);
 }
 
 #site-menu ul li a {
-    color: #fff; /* 100% white */
+    color: inherit;
     display: flex;
     text-decoration: none;
     padding: 1em;
@@ -135,23 +237,23 @@ var {
 }
 
 #site-menu ul li a:visited {
-    color: #fff; /* 100% white */
+    color: inherit;
 }
 
 #site-menu ul li[aria-current] a {
-    color: #64b5f6; /* blue300 */
+    color: var(--md-sys-color-primary)
 }
 
 #site-menu img {
     height: 1.8rem;
     width: 1.8rem;
-    filter: invert(100);
     vertical-align: middle;
     margin-right: 0.5rem;
 }
 
 #site-menu ul li[aria-current] img {
-    filter: invert(60%) sepia(24%) saturate(997%) hue-rotate(168deg) brightness(107%) contrast(93%);
+    /* #445e91 */
+    filter: invert(26%) sepia(65%) saturate(1017%) hue-rotate(191deg) brightness(92%) contrast(65%);
 }
 
 main {
@@ -169,31 +271,34 @@ button, input, select, textarea {
     font-family: inherit;
 }
 
+/* Button filled */
 button, .button, .button:visited {
-    color: white;
+    color: var(--md-sys-color-on-primary);
     font-size: 0.9em;
     font-weight: bold;
     letter-spacing: 0.0892857143em;
-    background-color: #0053a3; /* accent_device_default_light => system_accent1_600 */
+    background-color: var(--md-sys-color-primary);
     border-radius: 20px;
     border: none;
     height: 40px;
     padding: 0.5rem 1.5rem;
 }
 
+/* Button filled hovered container state layer opacity */
 button:hover, .button:hover {
-    background-color: #1863ad; /* color between default and pressed */
+    background-color: color-mix(in srgb, var(--md-sys-color-on-primary) 8%, var(--md-sys-color-primary));
     cursor: pointer;
 }
 
+/* Button filled focused container state layer opacity */
 button:focus, .button:focus {
-    background-color: #2f73b4; /* button pressed on Android */
-    box-shadow: 0 2px 4px -1px rgb(0 0 0 / 20%), 0 4px 5px 0 rgb(0 0 0 / 14%), 0 1px 10px 0 rgb(0 0 0 / 12%);
+    background-color: color-mix(in srgb, var(--md-sys-color-on-primary) 10%, var(--md-sys-color-primary));
 }
 
+/* Button filled disabled */
 button:disabled {
-    background-color: rgb(26 27 30 / 12%);
-    color: rgb(26 27 30 / 38%);
+    background-color: color-mix(in srgb, var(--md-sys-color-on-surface) 10%, transparent);
+    color: color-mix(in srgb, var(--md-sys-color-on-surface) 38%, transparent);
     cursor: not-allowed;
 }
 
@@ -237,7 +342,7 @@ footer {
 }
 
 footer a, footer a:visited {
-    color: #616161; /* grey500 */
+    color: var(--md-sys-color-outline);
 }
 
 #social {
@@ -298,13 +403,11 @@ footer a, footer a:visited {
 }
 
 .warning-text {
-    /* Material 3 reference pallete: Yellow 30 */
-    color: #6f3a01;
+    color: var(--md-extended-color-warn);
 }
 
 .error-text {
-    /* Baseline Material error color */
-    color: #b00020;
+    color: var(--md-sys-color-error);
 }
 
 table {
@@ -313,7 +416,7 @@ table {
 }
 
 td {
-    border: 1px solid #ddd;
+    border: 1px solid var(--md-sys-color-outline);
     padding: 0.5rem;
 }
 
@@ -354,7 +457,7 @@ main.normalize {
 }
 
 .surface {
-    background-color: #e6e6e6;
+    background-color: var(--md-sys-color-surface-container);
     width: 100%;
 }
 
@@ -374,9 +477,9 @@ main.normalize {
 
 .notice {
     border-radius: 12px;
-    border: 1px solid #74777f /* outline */;
-    background-color: #dae2f9 /* secondary container */;
-    color: #121c2b /* on secondary container */;
+    border: 1px solid var(--md-sys-color-outline);
+    background-color: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
     padding: 1em;
     margin-block: 1em;
 }
@@ -394,7 +497,7 @@ main.normalize {
 }
 
 details {
-    border: 1px solid #74777f /* outline */;
+    border: 1px solid var(--md-sys-color-outline);
     border-radius: 12px;
     padding: 0.5em 0.5em 0;
 }
@@ -414,7 +517,7 @@ details[open] {
 }
 
 details[open] summary {
-    border-bottom: 1px solid #74777f /* outline */;
+    border-bottom: 1px solid var(--md-sys-color-outline);
     margin-bottom: 0.5em;
 }
 
@@ -425,7 +528,7 @@ details[open] summary {
 }
 
 #hiring .role-summary-list > li {
-    border-top: 1px solid #74777f /* outline */;
+    border-top: 1px solid var(--md-sys-color-outline);
     padding-top: 1rem;
     margin-top: 1rem;
 }
@@ -467,7 +570,7 @@ details[open] summary {
 }
 
 #hiring .role, #past-roles {
-    border-top: 1px solid #74777f /* outline */;
+    border-top: 1px solid var(--md-sys-color-outline);
     padding-top: 2rem;
     margin-top: 2.5rem;
 }
@@ -557,91 +660,123 @@ details[open] summary {
 }
 
 @media (prefers-color-scheme: dark) {
-    body {
-        background: #121212;
-        color: rgb(255 255 255 / 87%); /* 87% white */
+    :root {
+        --md-sys-color-primary-palette-key-color: #5d77ac;
+        --md-sys-color-secondary-palette-key-color: #6f778b;
+        --md-sys-color-tertiary-palette-key-color: #8b6d8d;
+        --md-sys-color-neutral-palette-key-color: #76777d;
+        --md-sys-color-neutral-variant-palette-key-color: #757780;
+        --md-sys-color-background: #111318;
+        --md-sys-color-on-background: #e2e2e9;
+        --md-sys-color-surface: #111318;
+        --md-sys-color-surface-dim: #111318;
+        --md-sys-color-surface-bright: #37393e;
+        --md-sys-color-surface-container-lowest: #0c0e13;
+        --md-sys-color-surface-container-low: #1a1b20;
+        --md-sys-color-surface-container: #1e1f25;
+        --md-sys-color-surface-container-high: #282a2f;
+        --md-sys-color-surface-container-highest: #33353a;
+        --md-sys-color-on-surface: #e2e2e9;
+        --md-sys-color-surface-variant: #44474f;
+        --md-sys-color-on-surface-variant: #c4c6d0;
+        --md-sys-color-inverse-surface: #e2e2e9;
+        --md-sys-color-inverse-on-surface: #2f3036;
+        --md-sys-color-outline: #8e9099;
+        --md-sys-color-outline-variant: #44474f;
+        --md-sys-color-shadow: #000;
+        --md-sys-color-scrim: #000;
+        --md-sys-color-surface-tint: #adc6ff;
+        --md-sys-color-primary: #adc6ff;
+        --md-sys-color-on-primary: #102f60;
+        --md-sys-color-primary-container: #2b4678;
+        --md-sys-color-on-primary-container: #d8e2ff;
+        --md-sys-color-inverse-primary: #445e91;
+        --md-sys-color-secondary: #bfc6dc;
+        --md-sys-color-on-secondary: #293041;
+        --md-sys-color-secondary-container: #3f4759;
+        --md-sys-color-on-secondary-container: #dbe2f9;
+        --md-sys-color-tertiary: #debcdf;
+        --md-sys-color-on-tertiary: #402843;
+        --md-sys-color-tertiary-container: #583e5b;
+        --md-sys-color-on-tertiary-container: #fbd7fc;
+        --md-sys-color-error: #ffb4ab;
+        --md-sys-color-on-error: #690005;
+        --md-sys-color-error-container: #93000a;
+        --md-sys-color-on-error-container: #ffdad6;
+        --md-sys-color-primary-fixed: #d8e2ff;
+        --md-sys-color-primary-fixed-dim: #adc6ff;
+        --md-sys-color-on-primary-fixed: #001a41;
+        --md-sys-color-on-primary-fixed-variant: #2b4678;
+        --md-sys-color-secondary-fixed: #dbe2f9;
+        --md-sys-color-secondary-fixed-dim: #bfc6dc;
+        --md-sys-color-on-secondary-fixed: #141b2c;
+        --md-sys-color-on-secondary-fixed-variant: #3f4759;
+        --md-sys-color-tertiary-fixed: #fbd7fc;
+        --md-sys-color-tertiary-fixed-dim: #debcdf;
+        --md-sys-color-on-tertiary-fixed: #29132d;
+        --md-sys-color-on-tertiary-fixed-variant: #583e5b;
+
+        /* extended color roles sampled from accounts.google.com */
+        --md-extended-color-warn-container: #4d2600;
+        --md-extended-color-warn-container-dim: #2f1400;
+        --md-extended-color-on-warn-container: #fff2b4;
+        --md-extended-color-warn: #fcbd00;
+        --md-extended-color-on-warn: #2f1400;
+        --md-extended-color-green-container: #00522c;
+        --md-extended-color-green-container-dim: #00381f;
+        --md-extended-color-on-green-container: #beefbb;
+        --md-extended-color-green: #80da88;
+        --md-extended-color-on-green: #00381f;
+        --md-extended-color-cyan-container: #004e5d;
+        --md-extended-color-cyan-container-dim: #003641;
+        --md-extended-color-on-cyan-container: #acedff;
+        --md-extended-color-cyan: #60d5f3;
+        --md-extended-color-on-cyan: #003641;
+        --md-extended-color-blue-container: #04409f;
+        --md-extended-color-blue-container-dim: #012c6f;
+        --md-extended-color-on-blue-container: #d0e4ff;
+        --md-extended-color-blue: #a1c9ff;
+        --md-extended-color-on-blue: #012c6f;
+        --md-extended-color-purple-container: #5629a4;
+        --md-extended-color-purple-container-dim: #400b84;
+        --md-extended-color-on-purple-container: #eedcfe;
+        --md-extended-color-purple: #d9bafd;
+        --md-extended-color-on-purple: #400b84;
+        --md-extended-color-pink-container: #8d0053;
+        --md-extended-color-pink-container-dim: #620438;
+        --md-extended-color-on-pink-container: #ffd8ef;
+        --md-extended-color-pink: #ffaee4;
+        --md-extended-color-on-pink: #620438;
+        --md-extended-color-orange-container: #753403;
+        --md-extended-color-orange-container-dim: #522302;
+        --md-extended-color-on-orange-container: #ffdcc3;
+        --md-extended-color-orange: #ffb683;
+        --md-extended-color-on-orange: #522302;
+        --md-extended-color-grey-container: #474747;
+        --md-extended-color-grey-container-dim: #303030;
+        --md-extended-color-on-grey-container: #e3e3e3;
+        --md-extended-color-grey: #c7c7c7;
+        --md-extended-color-on-grey: #303030;
     }
 
-    a {
-        color: #90caf9; /* blue200 */
+    #site-menu ul li[aria-current] img {
+        /* #adc6ff */
+        filter: invert(66%) sepia(21%) saturate(3753%) hue-rotate(198deg) brightness(119%) contrast(115%);
     }
-
-    a:visited {
-        color: #ce93d8; /* purple200 */
-    }
-
-    h1 a, h1 a:visited, h2 a, h2 a:visited, h3 a, h3 a:visited, h4 a, h4 a:visited, h5 a, h5 a:visited, h6 a, h6 a:visited {
-        color: rgb(255 255 255 / 87%); /* 87% white */
-    }
-
-    button, .button, .button:visited {
-        color: black;
-        background-color: #95c4ff; /* system_accent1_200, because accent_device_default_dark => system_accent1_100 was too light */
-    }
-
-    button:hover, .button:hover {
-        background-color: #89b4ea; /* color between default and pressed */
-    }
-
-    button:focus, .button:focus {
-        background-color: #7ca3d4; /* button pressed on Android */
-    }
-
-    button:disabled {
-        background-color: rgb(227 226 230 / 12%);
-        color: rgb(227 226 230 / 38%);
-    }
-
-    code, pre {
-        background-color: #44474e; /* surface-variant */
-        color: #c4c6cf; /* on-surface-variant */
-    }
-
-    pre, details, details[open] summary, #hiring .role-summary-list > li, #hiring .role, #past-roles {
-        border-color: #8e9099; /* outline */
-    }
-
-    footer a, footer a:visited {
-        color: #9f9f9f;
+    
+    #site-menu img {
+        filter: invert(100%);
     }
 
     footer img {
         filter: invert(87%);
     }
 
-    .warning-text {
-        /* Material 3 reference pallete: Yellow 80 */
-        color: #fcbd00;
-    }
-
-    .error-text {
-        /* Baseline Material dark error color */
-        color: #cf6679;
-    }
-
-    td {
-        border-color: #222;
-    }
-
     .phone-img {
         filter: brightness(0.87);
     }
-
+    
     .phone-logo-img {
         filter: invert(87%);
-    }
-
-    .surface {
-        background-color: #212121;
-    }
-
-    var {
-        color: #ffb4ab;
-    }
-
-    .notice {
-        border-color: #8e9099 /* outline */;
-        background-color: #3e4758 /* secondary container */;
-        color: #dae2f9 /* on secondary container */;
     }
 }
