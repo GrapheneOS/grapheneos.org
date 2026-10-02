@@ -225,7 +225,7 @@ var {
 }
 
 #site-menu ul li:hover {
-    background-color: color-mix(in srgb, currentColor 8%, transparent);
+    background-color: color-mix(in srgb, currentcolor 8%, transparent);
 }
 
 #site-menu ul li a {
