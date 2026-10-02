@@ -675,6 +675,7 @@
                     <p>Changes since the 2026092500 release:</p>
 
                     <ul>
+                        <li>kernel (Pixel): restore Android 17 (CP2A) mmap read-ahead behavior to resolve stuttering due to memory pressure caused by an upstream Pixel kernel change in Android 17 QPR1</li>
                         <li>disable unprivileged hardware keepalives since it creates a VPN leak</li>
                         <li>raise listed security patch level to 2026-09-05 since we've already had the 2026-09-05 Android security patch level for a while and have all the Pixel firmware/driver updates since the last release</li>
                         <li>kernel (6.1): update to latest GKI LTS branch revision</li>
@@ -690,6 +691,7 @@
                         <li>adevtool: add command for processing Pixel kernel tarballs</li>
                         <li>arcslib: add support for system_ext overlays</li>
                         <li>apksig: handle APKs that lack a V3 signature in print-certs command</li>
+                        <li>add ColdFileReadBenchmark to benchmark cold mmap reads with low free swap</li>
                     </ul>
 
                     <p>All of the Android 17 security patches from the current October 2026, November 2026, December 2026, January 2027, February 2027, March 2027 and April 2027 Android Security Bulletins are included in the 2026092501 security preview release. List of additional fixed CVEs:</p>
