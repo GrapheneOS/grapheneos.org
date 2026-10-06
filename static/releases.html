@@ -689,8 +689,91 @@
                             <li>kernel (6.12): update to latest GKI LTS branch revision including update to 6.12.94</li>
                             <li>kernel (6.18): update to latest GKI LTS branch revision</li>
                             <li>kernel (6.6, 6.12, 6.18): change approach to disabling Android's vendor hooks for INIT_ON_FREE to avoid conflicts</li>
+                            <li>Seedvault: move to the upstream Seedvault <code>android17</code> branch with many fixes and improvements for backup locations, backup, restore and recovery codes (see the <a href="#2026100200-seedvault">detailed Seedvault changes</a>)</li>
                             <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/154.0.8037.126.0">version 154.0.8037.126.0</a></li>
                             <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-176">version 176</a></li>
+                        </ul>
+                    </section>
+
+                    <section id="2026100200-seedvault">
+                        <h4><a href="#2026100200-seedvault">Seedvault</a></h4>
+
+                        <p>Seedvault is now based on the upstream Seedvault <code>android17</code> branch. This also fixes many bugs in backup, restore, recovery code handling and notifications. Any storage app can now be used as a backup location, apps backed up by Seedvault on other operating systems are reinstalled on restore, and storage app locations with more than 2 GiB free no longer report the wrong free space.</p>
+
+                        <p>Backup locations:</p>
+
+                        <ul>
+                            <li>any app that provides storage through the system file picker can be chosen as a backup location instead of only a fixed list of apps</li>
+                            <li>the location list no longer shows Nextcloud and DAVx⁵ when they aren't installed or set up, and the built-in WebDAV support is marked as recommended instead of beta</li>
+                            <li>storage app locations with more than 2 GiB free no longer report the wrong free space, which caused false "insufficient backup space" errors</li>
+                            <li>choosing a new location that can't be used shows an error and keeps the current location instead of replacing a working one</li>
+                            <li>Seedvault no longer creates empty files on storage app locations when it looks for a file that doesn't exist</li>
+                            <li>a failed rename on a storage app location no longer deletes the file, so its data can still be recovered</li>
+                            <li>WebDAV backups recreate the backup folder when it was deleted from the server (such as by another device) instead of failing</li>
+                        </ul>
+
+                        <p>Backup:</p>
+
+                        <ul>
+                            <li>backups no longer include files when file backup is turned off (previously, the files selected earlier were still backed up when only app backup was on)</li>
+                            <li>backup now explains that nothing is selected when both app and file backup are off instead of doing nothing</li>
+                            <li>a running file backup is no longer cancelled and restarted when another backup is requested, such as by plugging in a USB drive or pressing Backup now</li>
+                            <li>Seedvault no longer crashes when the system times out an app backup while a failed storage operation is waiting to be retried, and no longer retries storage operations after a backup was cancelled</li>
+                            <li>app backup no longer leaks open files</li>
+                            <li>secondary users no longer see SMS and MMS in the list of system data since the system only backs up messages for the Owner user</li>
+                        </ul>
+
+                        <p>Restore:</p>
+
+                        <ul>
+                            <li>apps are reinstalled when restoring a backup made by Seedvault on another operating system such as CalyxOS or LineageOS (older GrapheneOS releases can still restore backups made by this version)</li>
+                            <li>reinstalling an app restores its data from the backup location when no matching backup is cached on the device, such as after changing the backup location or restoring during setup, instead of failing</li>
+                            <li>reinstalling an app no longer restores data from cached backups of an old or removed backup location</li>
+                            <li>the restore progress screen shows apps that weren't restored as "Was not yet backed up" or "App not installed" instead of as failed</li>
+                            <li>apps whose backup contains only the app and no data are no longer shown as having their data restored</li>
+                        </ul>
+
+                        <p>Recovery code:</p>
+
+                        <ul>
+                            <li>"Generate new" in the dialog shown after entering an incorrect recovery code now generates a new code instead of only closing the dialog</li>
+                            <li>generating a new recovery code removes the old app backup from the backup location even if Seedvault was closed while the new code was being written down (previously, the old backup was left behind even though the new code can't read it)</li>
+                            <li>generating a new recovery code with only file backup on restarts Seedvault, so later file backups can't be encrypted with the old code's key</li>
+                            <li>storing a recovery code on a device without a screen lock now offers to set one instead of only showing a message</li>
+                        </ul>
+
+                        <p>Backup check:</p>
+
+                        <ul>
+                            <li>the file backup check progress now matches the amount being checked and reaches 100%</li>
+                            <li>the speed shown when an app or file backup check finishes is now correct</li>
+                            <li>the notification for a finished file backup check can now be dismissed</li>
+                        </ul>
+
+                        <p>Notifications:</p>
+
+                        <ul>
+                            <li>backup, restore and pruning progress notifications no longer get stuck on outdated progress since updates are no longer sent faster than the system accepts</li>
+                            <li>a backup to a USB drive that isn't plugged in now says to plug in the drive and try again instead of mentioning mobile data</li>
+                            <li>new notification icons</li>
+                        </ul>
+
+                        <p>Interface and accessibility:</p>
+
+                        <ul>
+                            <li>new app icon with a monochrome variant for themed icons</li>
+                            <li>recovery code entry, restore setup and app selection for restore no longer cut off or overlap content at large font sizes</li>
+                            <li>restore screens scroll on small screens</li>
+                            <li>long dialog titles wrap, and screen titles are no longer cut off with long translations or large font sizes</li>
+                            <li>screen readers announce toolbar back buttons as "Navigate back"</li>
+                            <li>recovery code word suggestions appear after 3 letters instead of 1, so they no longer take screen reader focus and block typing</li>
+                            <li>updated translations</li>
+                        </ul>
+
+                        <p>Misc:</p>
+
+                        <ul>
+                            <li>updated dependencies</li>
                         </ul>
                     </section>
 
