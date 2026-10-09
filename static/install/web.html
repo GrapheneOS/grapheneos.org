@@ -2,11 +2,15 @@
 <html lang="en" prefix="og: https://ogp.me/ns#">
     <head>
         <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
         <title>Web installer | Install | GrapheneOS</title>
+        [[css|/main.css]]
+        [[js|/js/redirect.js]]
+        <script type="module" src="/js/fastboot/ffe7e270/fastboot.min.mjs" integrity="sha256-/TM74wkIOUV1rXRSGlzJPb4ZjBA52fzUW3aSypxxtwc="></script>
+        [[js|/js/web-install.js]]
         <meta name="description" content="Web-based installer for GrapheneOS, a security and privacy focused mobile OS with Android app compatibility."/>
         <meta name="theme-color" content="#212121"/>
         <meta name="color-scheme" content="dark light"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
         <meta name="twitter:site" content="@GrapheneOS"/>
         <meta name="twitter:creator" content="@GrapheneOS"/>
         <meta property="og:title" content="GrapheneOS web installer"/>
@@ -23,13 +27,9 @@
         <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
         <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
         <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-        [[css|/main.css]]
         <link rel="manifest" href="/manifest.webmanifest"/>
         <link rel="license" href="/LICENSE.txt"/>
         <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
-        [[js|/js/redirect.js]]
-        <script type="module" src="/js/fastboot/ffe7e270/fastboot.min.mjs" integrity="sha256-/TM74wkIOUV1rXRSGlzJPb4ZjBA52fzUW3aSypxxtwc="></script>
-        [[js|/js/web-install.js]]
     </head>
     <body>
         {% include "header.html" %}
