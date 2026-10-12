@@ -1,9 +1,14 @@
 23.149.124.0/24,,,,
 23.149.125.0/24,,,,
-91.246.30.0/24,CA,CA-ON,Toronto,M5A 0G7
+206.220.120.0/24,CA,CA-ON,Toronto,M5A 0G7
 2602:f4d9::/48,,,,
 2602:f4d9:1::/48,,,,
 2602:f4d9:2::/48,,,,
 2602:f4d9:3::/48,,,,
-2602:f4d9:4::/48,US,US-NY,Staten Island,10311
+2602:f4d9:4::/48,CA,CA-ON,Toronto,M5A 0G7
 2602:f4d9:5::/48,CA,CA-ON,Toronto,M5A 0G7
+2602:f4d9:9::/48,US,US-WA,Kent,98032
+2602:f4d9:a::/48,BR,BR-SP,Osasco,06268-120
+2602:f4d9:b::/48,SG,SG-05,Singapore,627753
+2602:f4d9:c::/48,JP,JP-13,Shinagawa-ku,142-0002
+2602:f4d9:d::/48,AU,AU-NSW,Alexandria,2015

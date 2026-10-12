@@ -2,12 +2,13 @@
 <html lang="en" prefix="og: https://ogp.me/ns#">
     <head>
         <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
         <title>Features overview | GrapheneOS</title>
+        [[css|/main.css]]
+        [[js|/js/redirect.js]]
         <meta name="description" content="Overview of GrapheneOS features differentiating it from the Android Open Source Project (AOSP)."/>
         <meta name="theme-color" content="#212121"/>
         <meta name="color-scheme" content="dark light"/>
-        <meta name="msapplication-TileColor" content="#ffffff"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
         <meta name="twitter:site" content="@GrapheneOS"/>
         <meta name="twitter:creator" content="@GrapheneOS"/>
         <meta property="og:title" content="GrapheneOS features overview"/>
@@ -24,11 +25,9 @@
         <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
         <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
         <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-        [[css|/main.css]]
         <link rel="manifest" href="/manifest.webmanifest"/>
         <link rel="license" href="/LICENSE.txt"/>
         <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
-        [[js|/js/redirect.js]]
     </head>
     <body>
         {% with current_page="features" %}
@@ -100,6 +99,7 @@
                             <li><a href="#sensors-permission-toggle">Sensors permission toggle</a></li>
                             <li><a href="#storage-scopes">Storage Scopes</a></li>
                             <li><a href="#contact-scopes">Contact Scopes</a></li>
+                            <li><a href="#secure-paste">Secure Paste</a></li>
                             <li><a href="#broad-carrier-support">Broad carrier support without invasive carrier access</a></li>
                             <li><a href="#lte-only-mode">LTE-only mode</a></li>
                             <li><a href="#wifi-privacy">Wi-Fi privacy</a></li>
@@ -672,6 +672,31 @@
 
                     <p>For more details, see the <a href="/usage#contact-scopes">usage guide section
                     on Contact Scopes</a>.</p>
+                </section>
+
+                <section id="secure-paste">
+                    <h3><a href="#secure-paste">Secure Paste</a></h3>
+
+                    <p>GrapheneOS provides a more private system clipboard feature that can be used
+                    instead of the traditional approach. Users can control clipboard access for
+                    third party apps on a per-app basis with an added toggle. There is also a global
+                    toggle to set the default for all but system apps and the default setting can be
+                    overridden for specific apps. Secure Paste is integrated into the standard text
+                    selection toolbar, input methods, accessibility services and keyboard
+                    shortcuts.</p>
+
+                    <p>Android only permits currently focused apps and the keyboard to read the
+                    clipboard. When an app reads clipboard content set by another app, Android shows
+                    a notice, but only after clipboard content has been accessed.</p>
+
+                    <p>Secure Paste replaces the problematic standard approach used by both desktop
+                    and mobile operating systems. When enabled, apps will be unable to read
+                    clipboard content added by other apps, but they can read the clipboard if they
+                    set the content themselves.</p>
+
+                    <p>Some apps, including apps written in Flutter, implement their own text
+                    selection toolbar. GrapheneOS works around this by adding a Paste button to the
+                    default keyboard.</p>
                 </section>
 
                 <section id="broad-carrier-support">
