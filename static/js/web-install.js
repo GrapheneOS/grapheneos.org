@@ -237,7 +237,7 @@ async function unlockBootloader(setProgress) {
         }
     }
 
-    return "Bootloader unlocking triggered successfully.";
+    return "✔ Bootloader unlocking triggered successfully.";
 }
 
 const supportedDevices = ["stallion", "rango", "mustang", "blazer", "frankel", "tegu", "comet", "komodo", "caiman", "tokay", "akita", "husky", "shiba", "felix", "tangorpro", "lynx", "cheetah", "panther", "bluejay", "raven", "oriole"];
@@ -274,7 +274,7 @@ async function downloadRelease(setProgress) {
         setInstallerState({ state: InstallerState.DOWNLOADING_RELEASE, active: false });
         await releaseWakeLock();
     }
-    setProgress(`Downloaded ${latestZip} release.`, 1.0);
+    setProgress(`✔ Downloaded ${latestZip} release.`, 1.0);
 }
 
 async function reconnectCallback() {
@@ -332,7 +332,7 @@ async function flashRelease(setProgress) {
         await releaseWakeLock();
     }
 
-    return `Flashed ${latestZip} to device.`;
+    return `✔ Flashed ${latestZip} to device.`;
 }
 
 async function eraseNonStockKey(setProgress) {
@@ -345,7 +345,7 @@ async function eraseNonStockKey(setProgress) {
         console.log(error);
         throw error;
     }
-    return "Key erased.";
+    return "✔ Key erased.";
 }
 
 async function lockBootloader(setProgress) {
@@ -363,7 +363,7 @@ async function lockBootloader(setProgress) {
         }
     }
 
-    return "Bootloader locking triggered successfully.";
+    return "✔ Bootloader locking triggered successfully.";
 }
 
 function addButtonHook(id, callback) {
@@ -382,6 +382,9 @@ function addButtonHook(id, callback) {
         if (progress !== undefined) {
             progressBar.hidden = false;
             progressBar.value = progress;
+            if (progress >= 1.0) {
+                progressBar.hidden = true;
+            }
         }
     };
 
