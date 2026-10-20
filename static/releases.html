@@ -690,6 +690,7 @@
                         <li>kernel (6.18): update to latest GKI LTS branch revision</li>
                         <li>kernel (6.12, 6.18): fix mishandling of ramoops parameter with lockdown mode</li>
                         <li>kernel (6.12, 6.18): fix compatibility of slab canaries with KASAN for Cuttlefish</li>
+                        <li>revert lockscreen hardening added in the <a href="#2026101600">previous release</a> due to compatibility issues</li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-177">version 177</a></li>
                         <li>add missing GrapheneOS components to generic builds used for Cuttlefish targets</li>
                         <li>SELinux policy: add missing property labels for Cuttlefish</li>
@@ -730,7 +731,7 @@
                         <li>expand Sensors permission to custom sensor types added by devices which includes temperature, pressure and proximity sensors for Pixels in practice</li>
                         <li>WindowManagerService: fix upstream Android vulnerability from PID and UID parameter mixup</li>
                         <li>Settings: show adaptive connectivity setting for controlling the default enabled connectivity heuristics</li>
-                        <li>prevent resuming activities hidden by keyguard after an activity finishes to resolve an upstream security weakness</li>
+                        <li>prevent resuming activities hidden by the lockscreen after an activity finishes to resolve an upstream security weakness</li>
                         <li>adevtool: fix NFC/eSE/eSIM firmware updates on 9th generation Pixels (this issue started with the October 2026 update and earlier firmware versions applied fine without this)</li>
                         <li>add back disabling of preloading graphics driver for secure (exec) spawning</li>
                         <li>new GrapheneOS boot animation</li>
