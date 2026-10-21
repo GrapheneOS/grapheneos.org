@@ -690,6 +690,8 @@
                         <li>kernel (6.18): update to latest GKI LTS branch revision</li>
                         <li>kernel (6.12, 6.18): fix mishandling of ramoops parameter with lockdown mode</li>
                         <li>kernel (6.12, 6.18): fix compatibility of slab canaries with KASAN for Cuttlefish</li>
+                        <li>kernel (6.18): add back linear map randomization downstream with it depending on memory hotplug being disabled at build time which is the case for GrapheneOS kernels since it's an unused feature</li>
+                        <li>kernel (6.18): microdroid: disable unused memory hotplug</li>
                         <li>revert lockscreen hardening added in the <a href="#2026101600">previous release</a> due to compatibility issues</li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-177">version 177</a></li>
                         <li>add missing GrapheneOS components to generic builds used for Cuttlefish targets</li>
