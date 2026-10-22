@@ -708,7 +708,7 @@
                     <ul>
                         <li>Sandboxed Google Play: fix handling of foreground service types to fix certain services crashing with new versions of Play services and Play Store</li>
                         <li>Sandboxed Google Play: add missing declaration of gmscompat process to fix installing Google Search App</li>
-                        <li>remove the active eMudhra ECDSA root certificate due to compromised intermediates (Vanadium received the removal of this root certificate as an out-of-band component update via our servers when it was released for Chrome)</li>
+                        <li>remove the active eMudhra ECDSA root certificate due to compromised intermediate certificates (Vanadium received the removal of this root certificate as an out-of-band component update via our servers when it was released for Chrome)</li>
                         <li>remove both legacy eMudhra root certificates (this leaves the heavily used active RSA root certificate as the only remaining one and we're considering either removing it or disabling it by default despite other platforms not removing it at this time)</li>
                         <li>add built-in app hibernation exemption for Auditor since it removes the scheduled job for remote attestation after 90 days of not opening the app and results in alerts until users open the app again</li>
                         <li>add explicit app hibernation exemptions for App Store and System Updater instead of relying on the implicit exemptions received by a system package manager (App Store) and system apps without a launcher activity (System Updater)</li>
