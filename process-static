@@ -3,6 +3,11 @@
 set -o errexit -o nounset -o pipefail
 shopt -s dotglob extglob globstar
 
+if ! command -v zola >/dev/null 2>&1; then
+    echo "Error: Zola is required but was not found in PATH." >&2
+    exit 1
+fi
+
 if [[ ${GITHUB_ACTIONS:-false} != true ]]; then
     source venv/bin/activate
 fi
@@ -32,6 +37,11 @@ rm -rf static-tmp
 cp -a static static-tmp
 
 ./process-templates static-tmp
+
+(
+    cd blog
+    zola build --output-dir ../static-tmp/blog
+)
 
 for file in static-tmp/**/*.@(json|webmanifest); do
     json_verify < "$file" >/dev/null
