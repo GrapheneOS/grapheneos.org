@@ -704,15 +704,15 @@
                     <ul>
                         <li>Sandboxed Google Play: fix handling of foreground service types to fix certain services crashing with new versions of Play services and Play Store</li>
                         <li>Sandboxed Google Play: add missing declaration of gmscompat process to fix installing Google Search App</li>
+                        <li>remove one of the two active eMudhra root certificates due to compromised intermediates (removal of the 2nd is being considered)</li>
+                        <li>remove legacy eMudhra root certificates</li>
                         <li>add built-in app hibernation exemption for Auditor since it removes the scheduled job for remote attestation after 90 days of not opening the app and results in alerts until users open the app again</li>
                         <li>add explicit app hibernation exemptions for App Store and System Updater instead of relying on the implicit exemptions received by a system package manager (App Store) and system apps without a launcher activity (System Updater)</li>
+                        <li>hardened_malloc: eliminate unused space in quarantine arrays to reduce memory usage</li>
+                        <li>revert lockscreen hardening added in the <a href="#2026101600">previous release</a> due to compatibility issues</li>
                         <li>boot animation: add 0.8s interruptible hold for the logo for a total of 1.6s</li>
                         <li>boot animation: reduce logo size for Pixel Tablet to 30% of the shorter dimension from 40%</li>
                         <li>boot animation: replace the last use of smoothstep for easing into the loop with smootherstep</li>
-                        <li>hardened_malloc: eliminate unused space in quarantine arrays to reduce memory usage</li>
-                        <li>remove legacy eMudhra root certificates</li>
-                        <li>remove one of the two active eMudhra root certificates due to compromised intermediates (removal of the 2nd is being considered)</li>
-                        <li>revert lockscreen hardening added in the <a href="#2026101600">previous release</a> due to compatibility issues</li>
                         <li>adevtool: backport Android 17 QPR2 Beta 7.1 mmap readahead configuration as a replacement for our kernel change removing it</li>
                         <li>kernel (Pixel): undo mmap readahead change replaced by a userspace change disabling both features</li>
                         <li>kernel (6.1, 6.6, 6.12, 6.18): backport additional upstream security patches not yet included in the GKI LTS branches</li>
