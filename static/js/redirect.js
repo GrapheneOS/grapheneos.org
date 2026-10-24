@@ -34,10 +34,10 @@ const redirects = new Map([
 
     ["/install/cli#fastboot-as-non-root", "/install/cli#flashing-as-non-root"],
     ["/install/cli#obtaining-signify", "/install/cli#obtaining-openssh"],
-    ["/install/web#fastboot-as-non-root", "/install/web#flashing-as-non-root"],
+    ["/install/#fastboot-as-non-root", "/install/#flashing-as-non-root"],
 
     ["/install/cli#working-around-fwupd-bug-on-linux-distributions", "/install/cli#working-around-fwupd-bugs-on-linux-distributions"],
-    ["/install/web#working-around-fwupd-bug-on-linux-distributions", "/install/web#working-around-fwupd-bugs-on-linux-distributions"],
+    ["/install/#working-around-fwupd-bug-on-linux-distributions", "/install/#working-around-fwupd-bugs-on-linux-distributions"],
 
     ["/build#enabling-updatable-apex-components", "/build#apex-components"],
     ["/build#kernel-6th-generation-pixels", "/build#kernel-6th-through-9th-generation-pixels"],
@@ -69,28 +69,16 @@ const redirects = new Map([
     ["/articles/grapheneos-servers#time.grapheneos.org", "/articles/grapheneos-servers#grapheneos.network"],
     ["/articles/grapheneos-servers#grapheneos.network", "/articles/grapheneos-servers#grapheneos.org"],
 
-    // preserve links to CLI install guide from when it was /install
-    ["/install/#prerequisites", "/install/cli#prerequisites"],
-    ["/install/#enabling-oem-unlocking", "/install/cli#enabling-oem-unlocking"],
+    ["/install/#connecting-phone", "/install/#connecting-device"],
+    ["/install/cli#connecting-phone", "/install/cli#connecting-device"],
+
+    // preserve legacy links to sections only available in the CLI guide
     ["/install/#opening-terminal", "/install/cli#opening-terminal"],
     ["/install/#obtaining-fastboot", "/install/cli#obtaining-fastboot"],
     ["/install/#standalone-platform-tools", "/install/cli#standalone-platform-tools"],
     ["/install/#checking-fastboot-version", "/install/cli#checking-fastboot-version"],
-    ["/install/#fastboot-as-non-root", "/install/cli#flashing-as-non-root"],
-    ["/install/#connecting-phone", "/install/cli#connecting-phone"],
-    ["/install/#unlocking-the-bootloader", "/install/cli#unlocking-the-bootloader"],
     ["/install/#obtaining-signify", "/install/cli#obtaining-openssh"],
-    ["/install/#obtaining-factory-images", "/install/cli#obtaining-factory-images"],
-    ["/install/#flashing-factory-images", "/install/cli#flashing-factory-images"],
     ["/install/#troubleshooting", "/install/cli#troubleshooting"],
-    ["/install/#locking-the-bootloader", "/install/cli#locking-the-bootloader"],
-    ["/install/#post-installation", "/install/cli#post-installation"],
-    ["/install/#booting", "/install/cli#booting"],
-    ["/install/#disabling-oem-unlocking", "/install/cli#disabling-oem-unlocking"],
-    ["/install/#replacing-grapheneos-with-the-stock-os", "/install/cli#replacing-grapheneos-with-the-stock-os"],
-    ["/install/#further-information", "/install/cli#further-information"],
-    ["/install/web#connecting-phone", "/install/web#connecting-device"],
-    ["/install/cli#connecting-phone", "/install/cli#connecting-device"],
 ]);
 
 function handleHash() {
