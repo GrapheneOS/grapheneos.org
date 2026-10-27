@@ -682,6 +682,7 @@
                         <li>Sandboxed Google Play compatibility layer: fix an IThirdPartyPayService GmsCore crash</li>
                         <li>Launcher: fix upstream bug breaking home screen accessibility actions</li>
                         <li>adevtool: process-kernel-tarballs: add support for tarball-per-target format</li>
+                        <li>kernel (Pixel): stop building with LTO since kCFI doesn't require it, the Pixel OS stopped using it and it's incompatible with newer kernel branches due to Rust + BTF + LTO not being supported together</li>
                         <li>kernel (6.12): update to latest GKI LTS branch revision</li>
                         <li>kernel (6.18): update to latest GKI LTS branch revision including update to 6.18.35</li>
                         <li>kernel (6.18): add highly experimental port of the drivers for the Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL and Pixel 10 Pro Fold</li>
