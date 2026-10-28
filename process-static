@@ -3,11 +3,6 @@
 set -o errexit -o nounset -o pipefail
 shopt -s dotglob extglob globstar
 
-if ! command -v zola >/dev/null 2>&1; then
-    echo "Error: Zola is required but was not found in PATH." >&2
-    exit 1
-fi
-
 if [[ ${GITHUB_ACTIONS:-false} != true ]]; then
     source venv/bin/activate
 fi
@@ -25,6 +20,14 @@ if ! flock -n $fd; then
 fi
 
 export PATH="$PWD/node_modules/.bin:$PATH"
+
+zola_version=$(tr -d '[:space:]' < .zola-version)
+installed_zola_version=$(zola --version)
+
+if [[ "$installed_zola_version" != "zola $zola_version" ]]; then
+    echo "Error: expected zola $zola_version, but found $installed_zola_version." >&2
+    exit 1
+fi
 
 # can use file:// to avoid network requests
 [[ -f releases-base ]] && RELEASES_BASE=$(cat releases-base)

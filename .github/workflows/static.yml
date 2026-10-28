@@ -15,9 +15,15 @@ jobs:
       with:
         python-version: '3.13'
         cache: pip
+    - name: Pinned Zola version
+      id: zola_version
+      shell: bash
+      run: |
+        version=$(tr -d '[:space:]' < .zola-version)
+        echo "version=$version" >> "$GITHUB_OUTPUT"
     - uses: taiki-e/install-action@86f7a0ffb25f40114606501a311ebcfaf882ea32 # v2.88.0
       with:
-        tool: zola
+        tool: zola@${{ steps.zola_version.outputs.version }}
         fallback: none
 
     - run: sudo apt-get update
