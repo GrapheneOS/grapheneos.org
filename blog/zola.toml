@@ -1,0 +1,18 @@
+base_url = "https://grapheneos.org/blog/"
+title = "GrapheneOS Blog"
+description = "Blog for GrapheneOS, the private and secure mobile operating system with Android app compatibility."
+
+# Default author, but can be overridden for individual posts. The author only shows up in feeds.
+author = "GrapheneOS"
+
+exclude_paginated_pages_in_sitemap = "all"
+
+generate_robots_txt = false
+
+skip_content_templating = ["**/*.md"]
+
+[markdown]
+external_links_external = true
+
+[extra]
+blog_canonical = "https://grapheneos.org/blog"
