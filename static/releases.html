@@ -681,7 +681,6 @@
                         <li>SystemUI: fix an upstream Android use-after-free bug in PipTouchHandler</li>
                         <li>Sandboxed Google Play compatibility layer: fix an IThirdPartyPayService GmsCore crash</li>
                         <li>Launcher: fix upstream bug breaking home screen accessibility actions</li>
-                        <li>adevtool: process-kernel-tarballs: add support for tarball-per-target format</li>
                         <li>kernel (Pixel): stop building with LTO since kCFI doesn't require it, the Pixel OS stopped using it and it's incompatible with newer kernel branches due to Rust + BTF + LTO not being supported together</li>
                         <li>kernel (6.1, 6.6, 6.12, 6.18): fix handling edge cases for GrapheneOS SELinux extension auditing code</li>
                         <li>kernel (6.18): fix compatibility issues between slab canaries and sheaf allocation added in 6.18</li>
@@ -699,6 +698,7 @@
                         <li>TalkBack: update to <a href="https://github.com/GrapheneOS/TalkBack/releases/tag/23">version 23</a></li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-178">version 178</a></li>
                         <li>Thread network: grant network access to the HAL and simulated Radio Co-Processor (RCP) used for testing in Cuttlefish to avoid breaking the tests</li>
+                        <li>adevtool: process-kernel-tarballs: add support for tarball-per-target format</li>
                     </ul>
 
                     <p>All of the Android 17 security patches from the current November 2026, December 2026, January 2027, February 2027, March 2027 and April 2027 Android Security Bulletins are included in the 2026102101 security preview release. List of additional fixed CVEs:</p>
