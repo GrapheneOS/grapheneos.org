@@ -15,6 +15,10 @@ jobs:
       with:
         python-version: '3.13'
         cache: pip
+    - uses: taiki-e/install-action@86f7a0ffb25f40114606501a311ebcfaf882ea32 # v2.88.0
+      with:
+        tool: zola
+        fallback: none
 
     - run: sudo apt-get update
     - run: sudo apt-get -y install libxml2-utils yajl-tools moreutils zopfli
