@@ -680,6 +680,7 @@
                     <ul>
                         <li>disable buggy defer_service_restart_when_frozen flag due to it breaking handling of service restarts for frozen service clients</li>
                         <li>SystemUI: fix an upstream Android use-after-free bug in PipTouchHandler</li>
+                        <li>add fix for remote denial of service vulnerability from the November 2026 security bulletin in the regular releases in addition which has been fixed in our security preview releases since July 2026</li>
                         <li>Sandboxed Google Play compatibility layer: fix an IThirdPartyPayService GmsCore crash</li>
                         <li>Launcher: fix upstream bug breaking home screen accessibility actions</li>
                         <li>kernel (Pixel): stop building with LTO since kCFI doesn't require it, the Pixel OS stopped using it and it's incompatible with newer kernel branches due to Rust + BTF + LTO not being supported together</li>
