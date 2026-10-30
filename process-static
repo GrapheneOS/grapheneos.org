@@ -21,6 +21,14 @@ fi
 
 export PATH="$PWD/node_modules/.bin:$PATH"
 
+zola_version=$(tr -d '[:space:]' < .zola-version)
+installed_zola_version=$(zola --version)
+
+if [[ "$installed_zola_version" != "zola $zola_version" ]]; then
+    echo "Error: expected zola $zola_version, but found $installed_zola_version." >&2
+    exit 1
+fi
+
 # can use file:// to avoid network requests
 [[ -f releases-base ]] && RELEASES_BASE=$(cat releases-base)
 RELEASES_BASE=${RELEASES_BASE:-https://releases.grapheneos.org}
@@ -32,6 +40,11 @@ rm -rf static-tmp
 cp -a static static-tmp
 
 ./process-templates static-tmp
+
+(
+    cd blog
+    zola build --output-dir ../static-tmp/blog
+)
 
 for file in static-tmp/**/*.@(json|webmanifest); do
     json_verify < "$file" >/dev/null

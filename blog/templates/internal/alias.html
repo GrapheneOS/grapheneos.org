@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Redirect{% endblock title %}
+
+{% block og_title %}Redirect{% endblock og_title %}
+
+{% block description %}Redirect{% endblock description %}
+
+{% block og_desc %}Redirect{% endblock og_desc %}
+
+{# empty values so alias.html template doesn't break #}
+{% block og_url %}{% endblock og_url %}
+{% block canonical_url %}{% endblock canonical_url %}
+
+{% block content %}
+<main>
+    <h1 id="page-title">Redirect</h1>
+    The requested page has been moved or you're in the wrong place.
+    <a href="{{ url | safe }}">Click here to be redirected</a>.
+</main>
+{% endblock content %}

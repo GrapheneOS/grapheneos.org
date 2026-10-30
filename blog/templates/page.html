@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} | {{ super() }}{% endblock title %}
+
+{% block description %}{{ page.description }}{% endblock description %}
+
+{% block og_title %}{{ page.title }}{% endblock og_title %}
+
+{% block og_desc %}{{ page.description }}{% endblock og_desc %}
+
+{% block content %}
+<main class="blog-post">
+    <a href="{{ get_url(path="@/_index.md") }}">‹ all posts</a>
+    <h1 id="page-title">{{ page.title }}</h1>
+    {% if page.updated is defined and page.updated %}
+    <em><time>{{ page.date | date }}</time> (updated on <time>{{ page.updated | date }}</time>)</em>
+    {% else %}
+    <em><time>{{ page.date | date }}</time></em>
+    {% endif %}
+    {{ page.content | safe }}
+    {% if page.higher or page.lower %}
+    <hr />
+    <nav class="pagination">
+        {% if page.lower %}
+        <div class="pagination-last">
+            Newer post:<br /><a href="{{ page.lower.permalink }}">{{ page.lower.title }}</a>
+        </div>
+        {% endif %}
+        {% if page.higher %}
+        <div class="pagination-next">
+            Older post:<br /><a href="{{ page.higher.permalink }}">{{ page.higher.title }}</a>
+        </div>
+        {% endif %}
+    </nav>
+    {% endif %}
+</main>
+{% endblock content %}

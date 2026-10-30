@@ -1,0 +1,24 @@
+{# This is here only to avoid using the default template which fails xmllint. #}
+
+{% extends "base.html" %}
+
+{% block title %}Page not found | {{ super() }}{% endblock title %}
+
+{% block og_title %}Page not found | {{ super() }}{% endblock og_title %}
+
+{% block description %}The requested page does not exist.{% endblock description %}
+
+{% block og_desc %}The requested page does not exist.{% endblock og_desc %}
+
+{# empty values so 404.html template doesn't break #}
+{% block og_url %}{% endblock og_url %}
+{% block canonical_url %}{% endblock canonical_url %}
+
+{% block content %}
+<main id="page-not-found">
+    <h1><a href="#page-not-found">Page not found</a></h1>
+
+    <p>The requested page does not exist. If you think this is a mistake, please
+    <a href="https://github.com/GrapheneOS/grapheneos.org/issues">report an issue</a>.</p>
+</main>
+{% endblock content %}

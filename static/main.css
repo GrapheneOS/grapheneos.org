@@ -491,6 +491,93 @@ details[open] summary {
     margin-block: 0.375rem;
 }
 
+blockquote {
+    border-left: 1px solid #74777f;
+    margin: 1em 3px;
+    padding: 0.5em 10px;
+}
+
+blockquote p {
+    margin: 0;
+}
+
+blockquote p + p {
+    margin-top: 0.5em;
+}
+
+hr {
+    margin: 15px 0;
+    border: none;
+    border-top: 1px solid #74777f;
+}
+
+.blog-post img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.footnote-definition {
+    width: 100%;
+}
+
+.footnote-definition .footnote-definition-label {
+    float: left;
+    margin-right: 0.4em;
+}
+
+.footnote-definition p {
+    margin: 0 0 0.5em;
+    overflow: hidden;
+}
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.pagination > div {
+    padding: 8px 16px;
+    max-width: 50%;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    box-sizing: border-box;
+}
+
+.pagination-next {
+    margin-left: auto;
+    text-align: right;
+}
+
+.post-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.post-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 0.5px solid #74777f;
+}
+
+.post-title {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.post-date {
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
 /* latin */
 @font-face {
     font-family: Roboto;
@@ -554,6 +641,23 @@ details[open] summary {
     .sponsor-list {
         grid-template-columns: 1fr;
     }
+
+    .pagination {
+        flex-direction: column;
+        align-items: flex-end;
+        text-align: right;
+        gap: 1.5rem;
+    }
+
+    .pagination a {
+        display: inline-block;
+        padding: 5px 0;
+    }
+
+    .pagination > div {
+        max-width: 100%;
+        padding: 0;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -597,7 +701,7 @@ details[open] summary {
         color: #c4c6cf; /* on-surface-variant */
     }
 
-    pre, details, details[open] summary, #hiring .role-summary-list > li, #hiring .role, #past-roles {
+    pre, details, details[open] summary, #hiring .role-summary-list > li, #hiring .role, #past-roles, blockquote, hr, .post-item {
         border-color: #8e9099; /* outline */
     }
 

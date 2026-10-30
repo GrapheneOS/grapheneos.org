@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if paginator is defined %}
+    {% set listing_pages = paginator.pages %}
+{% else %}
+    {% set listing_pages = section.pages %}
+{% endif %}
+
+<main>
+    <h1>
+        {% if section.title %}{{ section.title }}
+        {% else %}{{ config.title }}{% endif %}
+    </h1>
+
+    {{ section.content | safe }}
+
+    <ul class="post-list">
+        {% for page in listing_pages %}
+            <li class="post-item">
+                <a class="post-title" href="{{ page.permalink }}">{{ page.title }}</a>
+                <time class="post-date">{{ page.date | date }}</time>
+            </li>
+        {% endfor %}
+    </ul>
+    {% if paginator is defined and (paginator.previous or paginator.next) %}
+    <nav class="pagination">
+        {% if paginator.previous %}
+        <div class="pagination-last">
+            <a href="{{ paginator.previous }}">‹ Previous</a>
+        </div>
+        {% endif %}
+        {% if paginator.next %}
+        <div class="pagination-next">
+            <a href="{{ paginator.next }}">Next ›</a>
+        </div>
+        {% endif %}
+    </nav>
+    {% endif %}
+</main>
+{% endblock content %}
