@@ -791,8 +791,9 @@ cd kernel_pixel_6.1</pre>
 
                         <p>To sync the kernel sources:</p>
 
-                        <pre>git clone https://gitlab.com/grapheneos/kernel_pixel_6.6.git -b 17 --recurse-submodules
-cd kernel_pixel_6.6</pre>
+                        <pre>git clone https://gitlab.com/grapheneos/kernel_pixel_6.18.git -b 17-muzel
+cd kernel_pixel_6.18
+./sync.sh</pre>
 
                         <p>Select the correct kernel codename for the device model:</p>
 
@@ -808,7 +809,7 @@ cd kernel_pixel_6.6</pre>
                         <pre>./build_<var>codename</var>.sh --repo_manifest="$(realpath .)":"$(realpath aosp_manifest.xml)"</pre>
 
                         <p>Replace the files in the OS source tree at
-                        <code>device/google/laguna-kernels/6.6/grapheneos/<var>codename</var></code>
+                        <code>device/google/laguna-kernels/6.18/grapheneos/<var>codename</var></code>
                         with your build in <code>out/<var>codename</var>/dist/</code>.</p>
                     </section>
                 </section>
