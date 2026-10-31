@@ -678,6 +678,7 @@
                     <p>Changes since the 2026102100 release:</p>
 
                     <ul>
+                        <li>add working support for satellite-based cellular service avoiding the previous issues which caused Android Auto to be partially broken due to malfunctioning APIs (confirmed to work with the T-Satellite service from T-Mobile)</li>
                         <li>disable buggy defer_service_restart_when_frozen flag due to it breaking handling of service restarts for frozen service clients</li>
                         <li>run previously missed post-spawning cleanup for secure (exec) spawning with the native zygote to avoid leaving signals blocked (in practice, this is only used by a subset of Chromium-based browsers including Vanadium to spawn sandboxed renderers as more lightweight native processes and will also be used for the WebView soon)</li>
                         <li>SystemUI: fix an upstream Android use-after-free bug in PipTouchHandler</li>
