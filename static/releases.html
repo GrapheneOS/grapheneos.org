@@ -698,7 +698,7 @@
                         <li>kernel (6.18): switch lockdown for the main Android kernel to integrity mode since DMA-BUF statistics now use a BPF program incompatible with confidentiality mode instead of the now deprecated sysfs interface compatible with it (microdroid kernel still uses confidentiality mode)</li>
                         <li>kernel (6.18): selinux: add initialized check to security_sid_to_context_type_core to guard against a theoretical issue</li>
                         <li>kernel (generic): enable stamping build with Git commit metadata as is already done for Pixel and microdroid kernel builds</li>
-                        <li>Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold: port all the drivers to the 6.18 kernel branch and switch to it</li>
+                        <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): port all the drivers to the 6.18 kernel branch and switch to it</li>
                         <li>add explicit preloading of Build.VERSION in the zygote process as a replacement for the SELinux policy change in the <a href="#2026102100">previous release</a> fixing Cuttlefish</li>
                         <li>revert marking CredentialSelectorActivity opaque as an added GrapheneOS security protection due to app compatibility issues</li>
                         <li>Sandboxed Google Play compatibility layer: revert marking FIDO activities as opaque as an added GrapheneOS security protection due to app compatibility issues</li>
