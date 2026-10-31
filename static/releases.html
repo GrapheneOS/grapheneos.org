@@ -679,6 +679,7 @@
 
                     <ul>
                         <li>disable buggy defer_service_restart_when_frozen flag due to it breaking handling of service restarts for frozen service clients</li>
+                        <li>run previously missed post-spawning cleanup for secure (exec) spawning with the native zygote to avoid leaving signals blocked (in practice, this is only used by a subset of Chromium-based browsers including Vanadium to spawn sandboxed renderers as more lightweight native processes and will also be used for the WebView soon)</li>
                         <li>SystemUI: fix an upstream Android use-after-free bug in PipTouchHandler</li>
                         <li>add fix for remote denial of service vulnerability from the November 2026 security bulletin in the regular releases in addition which has been fixed in our security preview releases since July 2026</li>
                         <li>Sandboxed Google Play compatibility layer: fix an IThirdPartyPayService GmsCore crash</li>
