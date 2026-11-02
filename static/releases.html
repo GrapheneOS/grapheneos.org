@@ -686,6 +686,7 @@
                         <li>kernel (6.1): backport upstream Linux patch for MIDI use-after-free regression</li>
                         <li>kernel (6.1): backport upstream Linux patch for USB HID use-after-free regression</li>
                         <li>kernel (6.1): backport upstream Linux patch for block crypto use-after-free and null pointer dereference regression</li>
+                        <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): restore writable hysteresis for zones with a callback to allow userspace to configure it again (in practice, the HAL raises it from 1C to 2.9C and reduces thermal interrupts which may save a bit of power)</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): account for cpufreq pressure in CPU-fit checks (this was a very minor scheduler optimization regression in the port to 6.18 which is also present in Google's port to 6.12 in Android 17 QPR2 Beta)</li>
                     </ul>
 
