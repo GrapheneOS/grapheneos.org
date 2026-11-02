@@ -679,6 +679,13 @@
                     <p>Changes since the 2026110100 release:</p>
 
                     <ul>
+                        <li>kernel (6.1): apply patch for MGLRU null pointer dereference regression from Android GKI branch</li>
+                        <li>kernel (6.1): apply patch for page migration infinite loop from Android GKI branch</li>
+                        <li>kernel (6.1): backport upstream Linux patches for USB HID regressions</li>
+                        <li>kernel (6.1): backport upstream Linux patch for fscrypt regression causing data race</li>
+                        <li>kernel (6.1): backport upstream Linux patch for MIDI use-after-free regression</li>
+                        <li>kernel (6.1): backport upstream Linux patch for USB HID use-after-free regression</li>
+                        <li>kernel (6.1): backport upstream Linux patch for block crypto use-after-free and null pointer dereference regression</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): account for cpufreq pressure in CPU-fit checks (this was a very minor scheduler optimization regression in the port to 6.18 which is also present in Google's port to 6.12 in Android 17 QPR2 Beta)</li>
                     </ul>
 
