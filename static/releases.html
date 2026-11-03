@@ -692,6 +692,7 @@
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): fix PPS fast charging for chargers supporting AVS</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): restore writable hysteresis for zones with a callback to allow userspace to configure it again (in practice, the HAL raises it from 1C to 2.9C and reduces thermal interrupts which may save a bit of power)</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): account for cpufreq pressure in CPU-fit checks (this was a very minor scheduler optimization regression in the port to 6.18 which is also present in Google's port to 6.12 in Android 17 QPR2 Beta)</li>
+                        <li>adevtool: improve process-bulletin-patches command</li>
                     </ul>
 
                     <p>All of the Android 17 security patches from the current December 2026, January 2027, February 2027, March 2027 and April 2027 Android Security Bulletins are included in the 2026110201 security preview release. List of additional fixed CVEs:</p>
