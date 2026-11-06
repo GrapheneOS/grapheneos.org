@@ -680,6 +680,8 @@
                     <p>Changes since the 2026110200 release:</p>
 
                     <ul>
+                        <li>add APIs for requesting coarsened locations for use by Vanadium and the sandboxed Google Play compatibility layer</li>
+                        <li>Sandboxed Google Play compatibility layer: switch to added APIs for requesting coarsened locations instead of reimplementing LocationFudger inside GmsCompat</li>
                         <li>overhaul emergency number handling with new infrastructure in adevtool and arsclib for extracting proper data from Safety Hub to replace the outdated and broken AOSP implementation</li>
                         <li>restore setting supplementary groups and NoNewPrivs for native zygote processes with secure spawning (currently primarily used by Vanadium, Chrome and certain other Chromium-based browsers to reduce renderer memory usage)</li>
                         <li>Launcher: extend search filtering added downstream for Private Space to work profiles which are locked or paused</li>
