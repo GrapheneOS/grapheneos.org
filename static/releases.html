@@ -684,6 +684,7 @@
                         <li>update timezone data to 2026f</li>
                         <li>kernel (6.1): activate slab canaries before freeing on bulk allocation failure to avoid triggering BUG and causing a panic (doesn't occur in practice due to the memory management model and the issue isn't present in 6.12 or 6.18)</li>
                         <li>kernel (6.18): update to latest GKI LTS branch revision</li>
+                        <li>kernel (6.18): backport upstream FUSE use-after-free patch for another FUSE patch backported by the upstream Android GKI branch</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): fix audio offload compatibility issue with Linux 6.18</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): account for 64-bit counter wraps in compressed audio timestamps (based on a change in the Android 17 QPR2 Beta port of the drivers to Linux 6.12)</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): fix handling zram initialization failure in the 6.18 port</li>
