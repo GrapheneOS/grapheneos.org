@@ -680,6 +680,7 @@
                     <p>Changes since the 2026110200 release:</p>
 
                     <ul>
+                        <li>overhaul emergency number handling with new infrastructure in adevtool and arsclib for extracting proper data from Safety Hub to replace the outdated and broken AOSP implementation</li>
                         <li>Launcher: extend search filtering added downstream for Private Space to work profiles which are locked or paused</li>
                         <li>update timezone data to 2026f</li>
                         <li>kernel (6.1): activate slab canaries before freeing on bulk allocation failure to avoid triggering BUG and causing a panic (this doesn't impact devices with MTE, was never present in 6.12 or 6.18 and is very rare)</li>
