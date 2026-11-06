@@ -684,6 +684,7 @@
                         <li>kernel (6.1): activate slab canaries before freeing on bulk allocation failure to avoid triggering BUG and causing a panic (doesn't occur in practice due to the memory management model and the issue isn't present in 6.12 or 6.18)</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold: account for 64-bit counter wraps in compressed audio timestamps (based on a change in the Android 17 QPR2 Beta port of the drivers to Linux 6.12)</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold: fix handling zram initialization failure in the 6.18 port</li>
+                        <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold: fix existing upstream bug of missing synchronization for PCIe rescans</li>
                         <liallowlist BROADCAST_CLOSE_SYSTEM_DIALOGS for Dialer which is required for target API 37</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/157.0.8103.38.0">version 157.0.8103.38.0</a></li>
                     </ul>
