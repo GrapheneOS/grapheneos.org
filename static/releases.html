@@ -692,6 +692,7 @@
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): fix GNSS initialization failure handling when registering the crash dump device</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): fix memory leaks on early initialization failure in the pKVM SMMU driver</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): fix CoreSight debug tracing for DSP, TPU and GDMC broken by the port to 6.18</li>
+                        <li>remove final eMudhra root certificate without known compromised keys ahead of the removal by major platforms (Chrome, Firefox and Vanadium will be blocking new certificates issued with it via Certificate Transparency enforcement from November 16th which isn't supported by any major OS yet, Microsoft will be outright removing it for Edge/Windows on the same date and Apple is outright removing it on November 30th)/li>
                         <li>remove 26 obsolete CA root certificates already removed by the Pixel OS but still present in AOSP</li>
                         <li>GmsCompatConfig: update to <a href="https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/releases/tag/config-179">version 179</a></li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/157.0.8103.50.0">version 157.0.8103.50.0</a></li>
