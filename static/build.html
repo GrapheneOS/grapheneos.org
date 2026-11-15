@@ -2,12 +2,13 @@
 <html lang="en" prefix="og: https://ogp.me/ns#">
     <head>
         <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
         <title>Build | GrapheneOS</title>
+        [[css|/main.css]]
+        [[js|/js/redirect.js]]
         <meta name="description" content="Building instructions for GrapheneOS, a security and privacy focused mobile OS with Android app compatibility."/>
         <meta name="theme-color" content="#212121"/>
         <meta name="color-scheme" content="dark light"/>
-        <meta name="msapplication-TileColor" content="#ffffff"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
         <meta name="twitter:site" content="@GrapheneOS"/>
         <meta name="twitter:creator" content="@GrapheneOS"/>
         <meta property="og:title" content="GrapheneOS build documentation"/>
@@ -24,11 +25,9 @@
         <link rel="icon" sizes="any" type="image/svg+xml" href="/favicon.svg"/>
         <link rel="mask-icon" href="[[path|/mask-icon.svg]]" color="#1a1a1a"/>
         <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-        [[css|/main.css]]
         <link rel="manifest" href="/manifest.webmanifest"/>
         <link rel="license" href="/LICENSE.txt"/>
         <link rel="me" href="https://grapheneos.social/@GrapheneOS"/>
-        [[js|/js/redirect.js]]
     </head>
     <body>
         {% with current_page="build" %}
@@ -83,7 +82,7 @@
                             <li>
                                 <a href="#kernel">Kernel</a>
                                 <ul>
-                                    <li><a href="#kernel-emulator">Emulator</a></li>
+                                    <li><a href="#kernel-emulator">Emulator and Cuttlefish</a></li>
                                     <li><a href="#kernel-microdroid">Microdroid</a></li>
                                     <li><a href="#kernel-6th-through-9th-generation-pixels">6th through 9th generation Pixels</a></li>
                                     <li><a href="#kernel-10th-generation-pixels">10th generation Pixels</a></li>
@@ -231,10 +230,7 @@ source ~/.bashrc</pre>
 
                     <ul>
                         <li>x86_64 Linux build environment</li>
-                        <li>32GiB of memory or more. Link-Time Optimization (LTO) creates huge peaks
-                            during linking and is mandatory for Control Flow Integrity (CFI). Linking
-                            Vanadium (Chromium) and the Linux kernel with LTO + CFI are the most memory
-                            demanding tasks.</li>
+                        <li>32GiB of memory or more</li>
                         <li>100GiB+ of additional free storage space for a typical build of the entire
                         OS for a multiarch device</li>
                     </ul>
@@ -691,53 +687,61 @@ cd ../..</pre>
                     tools from the host OS.</p>
 
                     <section id="kernel-emulator">
-                        <h4><a href="#kernel-emulator">Emulator</a></h4>
+                        <h4><a href="#kernel-emulator">Emulator and Cuttlefish</a></h4>
 
-                        <p>The kernel branch for the emulator is currently 6.12.</p>
+                        <p>The kernel branch for the emulator and Cuttlefish is currently 6.18.</p>
 
                         <p>To sync the kernel sources:</p>
 
-                        <pre>mkdir -p android/kernel/6.12
-cd android/kernel/6.12
-repo init -u https://github.com/GrapheneOS/kernel_manifest-6.12.git -b 17
+                        <pre>mkdir -p android/kernel/6.18
+cd android/kernel/6.18
+repo init -u https://github.com/GrapheneOS/kernel_manifest-6.18.git -b 17
 repo sync -j8</pre>
 
-                        <p>To build the kernel image and modules:</p>
+                        <p>To build the arm64 kernel image and modules:</p>
 
-                        <pre>ARCH=x86_64 common/build_virt.sh</pre>
+                        <pre>ARCH=aarch64 common/build_generic.sh</pre>
 
                         <p>Replace the prebuilts in the OS source tree:</p>
 
-                        <pre>ANDROID_BUILD_TOP=~/android/grapheneos-17 ARCH=x86_64 common/update_virt_prebuilts.sh</pre>
+                        <pre>ANDROID_BUILD_TOP=~/android/grapheneos-17 ARCH=arm64 common/update_generic_prebuilts.sh</pre>
+
+                        <p>To build the x86_64 kernel image and modules:</p>
+
+                        <pre>ARCH=x86_64 common/build_generic.sh</pre>
+
+                        <p>Replace the prebuilts in the OS source tree:</p>
+
+                        <pre>ANDROID_BUILD_TOP=~/android/grapheneos-17 ARCH=x86_64 common/update_generic_prebuilts.sh</pre>
                     </section>
 
                     <section id="kernel-microdroid">
                         <h4><a href="#kernel-microdroid">Microdroid</a></h4>
 
-                        <p>The kernel branch for the emulator is currently 6.6.</p>
+                        <p>The kernel branch for microdroid is currently 6.18.</p>
 
                         <p>To sync the kernel sources:</p>
 
-                        <pre>mkdir -p android/kernel/6.6
-cd android/kernel/6.6
-repo init -u https://github.com/GrapheneOS/kernel_manifest-6.6.git -b 17
+                        <pre>mkdir -p android/kernel/6.18
+cd android/kernel/6.18
+repo init -u https://github.com/GrapheneOS/kernel_manifest-6.18.git -b 17
 repo sync -j8</pre>
 
                         <p>To build the arm64 kernel image:</p>
 
-                        <pre>tools/bazel run //common:kernel_aarch64_microdroid_dist --config=stamp --lto=thin</pre>
+                        <pre>tools/bazel run //common:kernel_aarch64_microdroid_dist --config=stamp -- --wipe_destdir --destdir=microdroid_dist</pre>
 
-                        <p>Replace the prebuilt kernel image in the OS source tree at
-                        <code>packages/modules/Virtualization/guest/kernel/android15-6.6/arm64/kernel-6.6</code> with your image
-                        <code>out/kernel_aarch64_microdroid/dist/Image</code>.</p>
+                        <p>Replace the prebuilts in the OS source tree:</p>
+
+                        <pre>ANDROID_BUILD_TOP=~/android/grapheneos-17 ARCH=arm64 common/update_microdroid_prebuilts.sh</pre>
 
                         <p>To build the x86_64 kernel image:</p>
 
-                        <pre>tools/bazel run //common:kernel_x86_64_microdroid_dist --config=stamp --lto=full</pre>
+                        <pre>tools/bazel run //common:kernel_x86_64_microdroid_dist --config=stamp -- --wipe_destdir --destdir=microdroid_dist</pre>
 
-                        <p>Replace the prebuilt kernel image in the OS source tree at
-                        <code>packages/modules/Virtualization/guest/kernel/android15-6.6/x86_64/kernel-6.6</code>
-                        with your image <code>out/kernel_x86_64_microdroid/dist/bzImage</code>.</p>
+                        <p>Replace the prebuilts in the OS source tree:</p>
+
+                        <pre>ANDROID_BUILD_TOP=~/android/grapheneos-17 ARCH=x86_64 common/update_microdroid_prebuilts.sh</pre>
                     </section>
 
                     <section id="kernel-6th-through-9th-generation-pixels">
@@ -775,7 +779,7 @@ cd kernel_pixel_6.1</pre>
 
                         <p>To build the kernel and modules:</p>
 
-                        <pre>KLEAF_REPO_MANIFEST=aosp_manifest.xml ./build_<var>codename</var>.sh --lto=full</pre>
+                        <pre>KLEAF_REPO_MANIFEST=aosp_manifest.xml ./build_<var>codename</var>.sh</pre>
 
                         <p>Replace the files in the OS source tree at
                         <code>device/google/<var>codename</var>-kernels/6.1/grapheneos/</code> with
@@ -787,8 +791,9 @@ cd kernel_pixel_6.1</pre>
 
                         <p>To sync the kernel sources:</p>
 
-                        <pre>git clone https://gitlab.com/grapheneos/kernel_pixel_6.6.git -b 17 --recurse-submodules
-cd kernel_pixel_6.6</pre>
+                        <pre>git clone https://github.com/GrapheneOS/kernel_pixel.git -b 17-muzel
+cd kernel_pixel
+./sync.sh</pre>
 
                         <p>Select the correct kernel codename for the device model:</p>
 
@@ -801,10 +806,10 @@ cd kernel_pixel_6.6</pre>
 
                         <p>To build the kernel and modules:</p>
 
-                        <pre>./build_<var>codename</var>.sh --lto=full --repo_manifest="$(realpath .)":"$(realpath aosp_manifest.xml)</pre>
+                        <pre>./build_<var>codename</var>.sh --repo_manifest="$(realpath .)":"$(realpath aosp_manifest.xml)"</pre>
 
                         <p>Replace the files in the OS source tree at
-                        <code>device/google/laguna-kernels/6.6/grapheneos/<var>codename</var></code>
+                        <code>device/google/laguna-kernels/6.18/grapheneos/<var>codename</var></code>
                         with your build in <code>out/<var>codename</var>/dist/</code>.</p>
                     </section>
                 </section>
@@ -866,14 +871,14 @@ git checkout <var>VERSION</var></pre>
                     x86_64, the correct value for <code>target_cpu</code> is <code>x64</code>, but note
                     that the Android source tree refers to it as x86_64.</p>
 
-                    <p>You need to set <code>trichrome_certdigest</code> to the correct value for your
+                    <p>You need to set <code>config_apk_certdigest</code> to the correct value for your
                     generated signing key. You can obtain this with the following command:</p>
 
                     <pre>keytool -export-cert -alias vanadium -keystore vanadium.keystore | sha256sum</pre>
 
                     <p>Build the components:</p>
 
-                    <pre>chrt -b 0 autoninja -C out/Default/ trichrome_webview_64_32_apk trichrome_chrome_64_32_apk trichrome_library_64_32_apk vanadium_config_apk</pre>
+                    <pre>chrt -b 0 autoninja -C out/Default/ vanadium_webview_apk vanadium_browser_apk vanadium_config_apk</pre>
 
                     <p>Sign the apks:</p>
 
