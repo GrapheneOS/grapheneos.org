@@ -705,6 +705,7 @@
                         <li>kernel (6.18): extend RANDSTRUCT with Rust support by resolving each incompatibility</li>
                         <li>kernel (6.18): set RANDSTRUCT seed to localversion which includes a commit hash from build stamping (we used the commit timestamp for earlier branches)</li>
                         <li>kernel (6.18): enable RANDSTRUCT to restore the only security feature we lost compared to 6.6 due to Rust incompatibility (6.12 also uses Rust so it would have been an issue either way with Android 17 QPR2)</li>
+                        <li>kernel (Pixel): fix an out-of-bounds read in the battery driver's charging table which could trigger a kernel panic while plugged in (caught by kernel MTE)</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): switch to newly added standard GKI function for writable hysteresis</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): add device family to kernel localversion for per-device-family RANDSTRUCT seed (this can be made per-device-model in the future instead via additional builds)</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): preserve implicit feedback for USB audio devices when the driver falls back to host processing because offload setup failed</li>
