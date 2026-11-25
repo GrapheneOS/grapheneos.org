@@ -703,10 +703,10 @@
                         <li>Rust bindgen: apply 5 fixes for handling C bitfields to fix compatibility with RANDSTRUCT (4 are already merged upstream and 1 is from an open pull request)</li>
                         <li>Rust bindgen: use Clang field order for randomized C records to fix compatibility with RANDSTRUCT</li>
                         <li>kernel (6.18): update to latest GKI LTS branch revision including update to 6.18.64 and most of the way to 6.18.65</li>
-                        <li>kernel (6.18): add back 13 upstream patches temporarily skipped by Android until the next KMI ABI thaw due to GKI ABI stability</li>
+                        <li>kernel (6.18): restore 13 upstream patches skipped to preserve the GKI module ABI</li>
                         <li>kernel (6.18): extend existing use of UBSan in trapping mode to the pKVM hypervisor code</li>
                         <li>kernel (6.18): extend RANDSTRUCT with Rust support by resolving each incompatibility</li>
-                        <li>kernel (6.18): set RANDSTRUCT seed to localversion which includes a commit hash from build stamping (we used the commit timestamp for earlier branches)</li>
+                        <li>kernel (6.18): derive RANDSTRUCT seed from the stamped kernel localversion which includes a commit hash (we used the commit timestamp for earlier branches)</li>
                         <li>kernel (6.18): enable RANDSTRUCT to restore the only security feature we lost compared to 6.6 due to Rust incompatibility (6.12 also uses Rust so it would have been an issue either way with Android 17 QPR2)</li>
                         <li>kernel (Pixel): fix an out-of-bounds read in the battery driver's charging table which could trigger a kernel panic while plugged in (caught by MTE)</li>
                         <li>kernel (Pixel): fix out-of-bounds reads when the Synaptics touchscreen drivers process malformed touch and heatmap reports (caught by MTE)</li>
@@ -714,7 +714,7 @@
                         <li>kernel (Pixel 7 Pro): validate standalone touchscreen heatmaps and check touch reads before using finger coordinates during resume</li>
                         <li>kernel (Pixels with Mali GPU): fix a use-after-free in per-UID GPU accounting that could trigger a kernel panic when opening an app (caught by MTE)</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): fix a use-after-free in the USB host controller reset code which could trigger a kernel panic when connecting a USB hub (caught by MTE)</li>
-                        <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): switch to newly added standard GKI function for writable hysteresis</li>
+                        <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): use the new Android GKI thermal hook to keep trip hysteresis writable as a replacement for our own implementation</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): add device family to kernel localversion for per-device-family RANDSTRUCT seed (this can be made per-device-model in the future instead via additional builds)</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): preserve implicit feedback for USB audio devices when the driver falls back to host processing because offload setup failed</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): release queues and network devices when modem driver initialization fails</li>
@@ -725,7 +725,7 @@
                         <li>kernel (6.1): update to latest GKI LTS branch revision including update to 6.1.192</li>
                         <li>kernel (Pixel 7a): fix RANDSTRUCT compatibility issue in the Qualcomm Atheros Wi-Fi driver</li>
                         <li>kernel (Pixel 7a): enable RANDSTRUCT (all devices now have it enabled)</li>
-                        <li>Virtualization: add NUL byte to a string passed to the guest for compatibility with the new pKVM kernel code</li>
+                        <li>Virtualization: NUL-terminate the PSCI compatible string in the guest device tree for compatibility with the updated pKVM kernel</li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/158.0.8127.42.0">version 158.0.8127.42.0</a></li>
                         <li>Vanadium: update to <a href="https://github.com/GrapheneOS/Vanadium/releases/tag/158.0.8127.92.0">version 158.0.8127.92.0</a></li>
                         <li>Camera: update to <a href="https://github.com/GrapheneOS/Camera/releases/tag/94">version 94</a></li>
