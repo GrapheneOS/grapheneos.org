@@ -712,7 +712,7 @@
                         <li>kernel (Pixel): fix an out-of-bounds read in the battery driver's charging table which could trigger a kernel panic while plugged in (caught by MTE)</li>
                         <li>kernel (Pixel): fix out-of-bounds reads when the Synaptics touchscreen drivers process malformed touch and heatmap reports (caught by MTE)</li>
                         <li>kernel (Pixel): reject truncated firmware status reports from Synaptics touchscreens</li>
-                        <li>kernel (Pixel 7 Pro): validate standalone touchscreen heatmaps and check touch reads before using finger coordinates during resume</li>
+                        <li>kernel (Pixel 7 Pro): validate standalone heatmaps from the Synaptics touchscreen and check that touch reads succeed before using finger coordinates during resume</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): discard incomplete Synaptics touchscreen messages after a transfer error or exhausted retries</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): fix the modem driver reporting successful initialization when uplink queue descriptors exceed the space reserved for them</li>
                         <li>kernel (Pixels with Mali GPU): fix a use-after-free in per-UID GPU accounting that could trigger a kernel panic when opening an app (caught by MTE)</li>
