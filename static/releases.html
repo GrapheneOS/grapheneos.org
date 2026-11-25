@@ -708,7 +708,9 @@
                         <li>kernel (6.18): set RANDSTRUCT seed to localversion which includes a commit hash from build stamping (we used the commit timestamp for earlier branches)</li>
                         <li>kernel (6.18): enable RANDSTRUCT to restore the only security feature we lost compared to 6.6 due to Rust incompatibility (6.12 also uses Rust so it would have been an issue either way with Android 17 QPR2)</li>
                         <li>kernel (Pixel): fix an out-of-bounds read in the battery driver's charging table which could trigger a kernel panic while plugged in (caught by MTE)</li>
-                        <li>kernel (Pixel): fix out-of-bounds reads when the Synaptics touchscreen driver processes malformed touch and heatmap reports (caught by MTE)</li>
+                        <li>kernel (Pixel): fix out-of-bounds reads when the Synaptics touchscreen drivers process malformed touch and heatmap reports (caught by MTE)</li>
+                        <li>kernel (Pixel): reject truncated firmware status reports from Synaptics touchscreens</li>
+                        <li>kernel (Pixel 7 Pro): validate standalone touchscreen heatmaps and check touch reads before using finger coordinates during resume</li>
                         <li>kernel (Pixels with Mali GPU): fix a use-after-free in per-UID GPU accounting that could trigger a kernel panic when opening an app (caught by MTE)</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): fix a use-after-free in the USB host controller reset code which could trigger a kernel panic when connecting a USB hub (caught by MTE)</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): switch to newly added standard GKI function for writable hysteresis</li>
