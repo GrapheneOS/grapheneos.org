@@ -1753,13 +1753,14 @@
                 for a subset of their functionality. Users can choose to install Play services in
                 specific profile(s) to control which apps can use it.</p>
 
-                <p>AOSP APIs not tied to Google but that are typically provided via Play services
-                will continue to be implemented using open source providers like the Seedvault
-                backup app. Text-to-speech, speech-to-text, geocoding, accessibility services,
-                etc. are examples of other open Android APIs where we need to develop/bundle an
-                implementation based on existing open source projects. GrapheneOS is not going to
-                be implementing these via a Google service compatibility layer because these APIs
-                are in no way inherently tied to Google services.</p>
+                <p>AOSP APIs not tied to Google that are typically provided via Play services or
+                other Google apps will continue to be implemented using open source providers.
+                GrapheneOS already includes open source implementations such as the Seedvault
+                backup app, GrapheneOS Speech Services for text-to-speech, our TalkBack fork for
+                accessibility, and our geocoding service, with speech-to-text and other open
+                Android APIs planned to follow the same approach. GrapheneOS is not going to
+                implement these via a Google service compatibility layer because these APIs are in
+                no way inherently tied to Google services.</p>
 
                 <p>Ideally, Google themselves would support installing the official Play services
                 as regular apps rather than taking the monopolistic approach of forcing it to be

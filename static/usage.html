@@ -362,24 +362,28 @@
                 <p>GrapheneOS includes all of the accessibility features from the Android Open
                 Source Project and strives to fill in the gaps from not including Google apps and
                 services. We include our own fork of the open source TalkBack accessibility
-                service along with a Monochromacy option for the standard color correction
-                menu.</p>
+                service, which is set as the default accessibility service so it can be easily
+                enabled via the accessibility shortcut, along with a Monochromacy option for the
+                standard color correction menu.</p>
 
-                <p>GrapheneOS does not yet include a text-to-speech (TTS) service in the base OS
-                due to limitations of the available options. Including one is planned in the
-                future when a suitable option is available. RHVoice and eSpeak NG are both open
-                source and are the most common choices by GrapheneOS users. Both of these work
-                fine but have licensing issues. eSpeak NG has added Direct Boot based on our
-                request for it, meaning it is able to function before the first unlock. RHVoice is
-                missing Direct Boot and can't run before the first unlock. Installing and setting
-                up either one of these or another TTS app will get TalkBack working. TalkBack
-                itself supports Direct Boot and works before the first unlock but it needs to have
-                a TTS app supporting it in order to do more than playing the activation sound
-                before the first unlock. After installing a TTS service, you need to select it in
-                the OS configuration to accept activating it. The OS will display one of them as
-                already selected, but it won't simply work from being installed as that wouldn't
-                be safe. This is the same as the stock OS but it comes with one set up
-                already.</p>
+                <p>GrapheneOS includes <a href="https://github.com/GrapheneOS/SpeechServices">GrapheneOS
+                Speech Services</a>, providing a local, on-device text-to-speech (TTS) engine
+                using a model trained by GrapheneOS with open source code and training data. It is
+                configured as the default TTS engine out of the box and supports Direct Boot
+                alongside TalkBack, so TalkBack works before the first unlock when using English
+                without needing to install any additional apps.</p>
+
+                <p>GrapheneOS Speech Services currently includes a US English voice. If your
+                system language is set to a non-English language and you want to use Speech
+                Services, select <b>English (United States)</b> under <b>Language</b> in
+                <b>Settings&#160;> Accessibility&#160;> Text-to-speech output</b>. If you need
+                another language or prefer a different TTS engine, you can install a third-party
+                TTS app such as eSpeak NG or RHVoice and explicitly select it under <b>Preferred
+                engine</b> in <b>Settings&#160;> Accessibility&#160;> Text-to-speech output</b> to
+                activate it. If you switch to a third-party TTS engine, it needs Direct Boot
+                support to be used before the first unlock; otherwise TalkBack can fall back to
+                Speech Services (when configured for English) until you unlock. Both eSpeak NG and
+                RHVoice (1.18.5 and later) support Direct Boot.</p>
 
                 <p>GrapheneOS disables showing the characters as passwords are typed by default. You
                 can enable this in <b>Settings&#160;>
