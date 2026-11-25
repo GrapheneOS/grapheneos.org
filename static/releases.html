@@ -700,6 +700,7 @@
                         <li>stub out the buggy Android PackageInstaller install constraints API since it can indefinitely delay updates and waste resources from new attempts (Accrescent is the only known user of the API)</li>
                         <li>add back NFC auto-off with a more robust and usable implementation turning it off after a timer by usage and restarted after it completes</li>
                         <li>SystemUI: remove the unused INTERNET uses-permission to avoid an upstream Android INTERNET permission bypass via notification sound URIs</li>
+                        <li>fix quadratic removal of usage events which could lead to system_server being killed by a watchdog timer</li>
                         <li>add end-of-life notification for the Pixel 6 and Pixel 6 Pro at boot which are receiving legacy extended support from GrapheneOS (the notification exists to inform users about the lack of firmware/driver updates and can be turned off)</li>
                         <li>Rust bindgen: apply 5 fixes for handling C bitfields to fix compatibility with RANDSTRUCT (4 are already merged upstream and 1 is from an open pull request)</li>
                         <li>Rust bindgen: use Clang field order for randomized C records to fix compatibility with RANDSTRUCT</li>
