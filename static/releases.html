@@ -706,6 +706,7 @@
                         <li>kernel (6.18): restore 13 upstream patches skipped to preserve the GKI module ABI</li>
                         <li>kernel (6.18): extend existing use of UBSan in trapping mode to the pKVM hypervisor code</li>
                         <li>kernel (6.18): extend RANDSTRUCT with Rust support by resolving each incompatibility</li>
+                        <li>kernel (6.18): check generated Rust field offsets against Clang at build time to detect future mismatches</li>
                         <li>kernel (6.18): derive RANDSTRUCT seed from the stamped kernel localversion which includes a commit hash (we used the commit timestamp for earlier branches)</li>
                         <li>kernel (6.18): enable RANDSTRUCT to restore the only security feature we lost compared to 6.6 due to Rust incompatibility (6.12 also uses Rust so it would have been an issue either way with Android 17 QPR2)</li>
                         <li>kernel (Pixel): fix an out-of-bounds read in the battery driver's charging table which could trigger a kernel panic while plugged in (caught by MTE)</li>
