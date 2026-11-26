@@ -705,6 +705,7 @@
                         <li>Rust bindgen: apply 5 fixes for handling C bitfields to fix compatibility with RANDSTRUCT (4 are already merged upstream and 1 is from an open pull request)</li>
                         <li>Rust bindgen: use Clang field order for randomized C records to fix compatibility with RANDSTRUCT</li>
                         <li>kernel (6.18): update to latest GKI LTS branch revision including update to 6.18.65</li>
+                        <li>kernel (6.18): fix a regression in an LTS backport which could cause a kernel panic when reading per-process memory usage from smaps_rollup</li>
                         <li>kernel (6.18): restore 16 upstream patches skipped to preserve the GKI module ABI</li>
                         <li>kernel (6.18): extend existing use of UBSan in trapping mode to the pKVM hypervisor code</li>
                         <li>kernel (6.18): extend RANDSTRUCT with Rust support by resolving each incompatibility</li>
@@ -718,6 +719,7 @@
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): discard incomplete Synaptics touchscreen messages after a transfer error or exhausted retries</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): fix the modem driver reporting successful initialization when uplink queue descriptors exceed the space reserved for them</li>
                         <li>kernel (Pixels with Mali GPU): fix a use-after-free in per-UID GPU accounting that could trigger a kernel panic when opening an app (caught by MTE)</li>
+                        <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): include the crc-ccitt module so the standard GKI mac802154 module can load at boot (mac802154 is unused in practice on these devices)</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): fix a use-after-free in the USB host controller reset code which could trigger a kernel panic when connecting a USB hub (caught by MTE)</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): use the new Android GKI thermal hook to keep trip hysteresis writable as a replacement for our own implementation</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): add device family to kernel localversion for per-device-family RANDSTRUCT seed (this can be made per-device-model in the future instead via additional builds)</li>
