@@ -718,6 +718,8 @@
                         <li>kernel (Pixel): reject truncated firmware status reports from Synaptics touchscreens</li>
                         <li>kernel (Pixel 7 Pro): validate standalone heatmaps from the Synaptics touchscreen and check that touch reads succeed before using finger coordinates during resume</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): discard incomplete Synaptics touchscreen messages after a transfer error or exhausted retries</li>
+                        <li>kernel (Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): validate Synaptics touchscreen contact counts, indices and report configurations to prevent out-of-bounds accesses and unbounded parsing loops</li>
+                        <li>kernel (Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): prevent out-of-bounds access to Synaptics touchscreen heatmap and raw sensor buffers if the controller reports different sensor dimensions after resume</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): fix the modem driver reporting successful initialization when uplink queue descriptors exceed the space reserved for them</li>
                         <li>kernel (Pixels with Mali GPU): fix a use-after-free in per-UID GPU accounting that could trigger a kernel panic when opening an app (caught by MTE)</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): include the crc-ccitt module so the standard GKI mac802154 module can load at boot (mac802154 is unused in practice on these devices)</li>
@@ -729,6 +731,7 @@
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): reduce the minor changes to the core kernel source tree for the Pixel drivers</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): fix a race that could crash the kernel if the USB charging driver failed to create its sysfs attributes during initialization</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): prevent a kernel crash during cleanup if protected KVM initialization fails before SMMU registration completes</li>
+                        <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): fix a regression in the port to 6.18 that could register the modem UART as <code>ttyS0</code> (the debug console) instead of <code>ttyS2</code> and cause the driver to filter receive errors incorrectly</li>
                         <li>kernel (Pixels with Mali GPU): fix double release of CSF dummy pages in Mali GPU driver</li>
                         <li>kernel (6.1): update to latest GKI LTS branch revision including update to 6.1.193</li>
                         <li>kernel (Pixel 7a): fix RANDSTRUCT compatibility issue in the Qualcomm Atheros Wi-Fi driver</li>
