@@ -697,6 +697,7 @@
                     <p>Changes since the 2026111800 release:</p>
 
                     <ul>
+                        <li>Sandboxed Google Play compatibility layer: fix SMS OTP broadcasts to GmsCore in secondary users</li>
                         <li>stub out the buggy Android PackageInstaller install constraints API since it can indefinitely delay updates and waste resources from new attempts (Accrescent is the only known user of the API)</li>
                         <li>add back NFC auto-off with a more robust and usable implementation turning it off after a timer by usage and restarted after it completes</li>
                         <li>SystemUI: remove the unused INTERNET uses-permission to avoid an upstream Android INTERNET permission bypass via notification sound URIs</li>
