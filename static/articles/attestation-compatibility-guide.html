@@ -89,9 +89,9 @@
 
             <p>The current list of base16 encoded verified boot fingerprints is available as a
             signed JSON object from <code>https://grapheneos.org/attestation.json</code> with an
-            OpenSSH signature at <code>https://grapheneos.org/attestation.json.sig</code>. Only
-            devices receiving proper security updates for the kernel, drivers and firmware are
-            included in the list. The following schema is used:</p>
+            OpenSSH signature at <code>https://grapheneos.org/attestation.json.sig</code>. The
+            security patch levels returned in the attestation are accurate and frozen at the final
+            obtainable value for end-of-life devices. The following schema is used:</p>
 
 <pre>{
     "$schema": "https://json-schema.org/draft/2020-12/schema",
