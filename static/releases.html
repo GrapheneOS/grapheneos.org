@@ -697,6 +697,7 @@
                     <p>Changes since the 2026111800 release:</p>
 
                     <ul>
+                        <li>ShortcutService: measure all fields when FLAG_KEY_FIELDS_ONLY is set</li>
                         <li>ShortcutService: save string extras longer than 65,535 bytes with a limit of 524,288 characters to avoid Chromium-based browsers causing all the shortcuts they've created to be lost on reboot when an icon doesn't fit in the string extras</li>
                         <li>Sandboxed Google Play compatibility layer: fix SMS OTP broadcasts to GmsCore in secondary users</li>
                         <li>stub out the buggy Android PackageInstaller install constraints API since it can indefinitely delay updates and waste resources from new attempts (Accrescent is the only known user of the API)</li>
