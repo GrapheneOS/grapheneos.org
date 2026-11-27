@@ -719,7 +719,7 @@
                         <li>kernel (Pixel): fix out-of-bounds reads when the Synaptics touchscreen drivers process malformed touch and heatmap reports (caught by MTE)</li>
                         <li>kernel (Pixel): reject truncated firmware status reports from Synaptics touchscreens</li>
                         <li>kernel (Pixel 7 Pro): validate standalone heatmaps from the Synaptics touchscreen and check that touch reads succeed before using finger coordinates during resume</li>
-                        <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): discard incomplete Synaptics touchscreen messages after a transfer error or exhausted retries</li>
+                        <li>kernel (Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): discard incomplete Synaptics touchscreen messages after a transfer error or exhausted retries</li>
                         <li>kernel (Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): validate Synaptics touchscreen contact counts, indices and report configurations to prevent out-of-bounds accesses and unbounded parsing loops</li>
                         <li>kernel (Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): prevent out-of-bounds access to Synaptics touchscreen heatmap and raw sensor buffers if the controller reports different sensor dimensions after resume</li>
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): fix the modem driver reporting successful initialization when uplink queue descriptors exceed the space reserved for them</li>
