@@ -737,6 +737,7 @@
                         <li>kernel (Pixel 10, Pixel 10 Pro, Pixel 10 Pro XL, Pixel 10 Pro Fold): fix a regression in the port to 6.18 that could register the modem UART as <code>ttyS0</code> (the debug console) instead of <code>ttyS2</code> and cause the driver to filter receive errors incorrectly</li>
                         <li>kernel (Pixels with Mali GPU): fix double release of CSF dummy pages in Mali GPU driver</li>
                         <li>kernel (6.1): update to latest GKI LTS branch revision including update to 6.1.193</li>
+                        <li>kernel (6.1): backport fix for RCU race condition present since 6.1.191</li>
                         <li>kernel (Pixel 7a): fix RANDSTRUCT compatibility issue in the Qualcomm Atheros Wi-Fi driver</li>
                         <li>kernel (Pixel 7a): enable RANDSTRUCT (all devices now have it enabled)</li>
                         <li>Virtualization: NUL-terminate the PSCI compatible string in the guest device tree for compatibility with the updated pKVM kernel</li>
