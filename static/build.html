@@ -214,6 +214,29 @@
 source ~/.bashrc</pre>
                     </details>
 
+                    <details>
+                        <summary>Set up Ubuntu 24.04 LTS or later</summary>
+
+                        <p>Ubuntu 24.04 LTS and later restrict unprivileged user namespaces with
+                        AppArmor, which prevents nsjail from setting up the build sandbox. The build
+                        continues without sandboxing after printing <code>Build sandboxing disabled
+                        due to nsjail error.</code> To allow nsjail to use user namespaces, create an
+                        AppArmor profile at <code>/etc/apparmor.d/grapheneos-nsjail</code> for the
+                        nsjail binary in the source tree, adjusting the path if your source tree is
+                        elsewhere:</p>
+
+                        <pre>abi &lt;abi/4.0&gt;,
+include &lt;tunables/global&gt;
+
+profile grapheneos-nsjail @{HOME}/android/grapheneos-*/prebuilts/build-tools/linux-x86/bin/nsjail flags=(unconfined) {
+  userns,
+}</pre>
+
+                        <p>Load the profile:</p>
+
+                        <pre>apparmor_parser -r /etc/apparmor.d/grapheneos-nsjail</pre>
+                    </details>
+
                     <p>Dependencies for fetching and verifying the sources:</p>
 
                     <ul>
