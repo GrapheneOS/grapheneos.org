@@ -699,6 +699,9 @@
 
                     <ul>
                         <li>kernel (6.18): backport upstream fix for kernfs leaking kernel pointers to userspace</li>
+                        <li>kernel (6.18): zero KFENCE pool at boot to close a hole in the memory zeroing at boot for devices without MTE (KFENCE is sampling-based protection only used when MTE is unavailable)</li>
+                        <li>kernel (6.18): zero partial pages with init_on_free in early boot</li>
+                        <li>kernel (6.18): remove our standalone early boot memory zeroing now we've extended init_on_free to replace it to avoid a redundant pass of zeroing increasing boot time</li>
                         <li>adjust wording for the end-of-life notification to use 'after' instead of 'in' for referring to the end-of-life month since the first missed update is in the next month</li>
                     </ul>
 
