@@ -698,6 +698,10 @@
                     <p>Changes since the 2026112700 release:</p>
 
                     <ul>
+                        <li>kernel (6.18): Rust binder: fix upstream performance regression for queued oneway transactions compared to the legacy C implementation which could fill the oneway buffer and cause failed calls</li>
+                        <li>kernel (6.18): Rust binder: fix upstream bug where threads not waiting for work could miss a flush</li>
+                        <li>kernel (6.18): Rust binder: fix upstream bug where a failed allocation could break ordering of oneway transactions</li>
+                        <li>kernel (6.18): Rust binder: fix upstream Android bug where a thread could keep the priority of its previous transaction</li>
                         <li>kernel (6.18): backport upstream fix for kernfs leaking kernel pointers to userspace</li>
                         <li>kernel (6.18): zero KFENCE pool at boot to close a hole in the memory zeroing at boot for devices without MTE (KFENCE is sampling-based protection only used when MTE is unavailable)</li>
                         <li>kernel (6.18): zero partial pages with init_on_free in early boot</li>
